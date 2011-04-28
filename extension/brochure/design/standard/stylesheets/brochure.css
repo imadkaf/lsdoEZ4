@@ -1,0 +1,42 @@
+﻿/* Brochure eZ Publish stylesheet */
+
+div[name="brochure"]
+{
+	
+}
+
+h1.brochure_list_title
+{
+
+}
+
+ul.brochure_list_full li
+{
+	height:1%;
+	margin:5px 5px 20px 0;
+}
+
+ul.brochure_list_full
+{
+
+}
+
+p.brochure_no_elements
+{
+
+}
+
+strong.brochure_line_title
+{
+	text-align: left;
+}
+
+div.brochure_line_file
+{
+	float:right;
+}
+
+div.brochure_line_link
+{
+	margin:5px;
+}
