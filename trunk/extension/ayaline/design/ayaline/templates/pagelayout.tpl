@@ -2,6 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	{include uri="design:page_head.tpl"}
 	<body>
-		{$module_result.content}        
+		{include uri='design:diaporama.tpl'}
+		{$module_result.content}
+		<div id="global-page">
+			<div class="content">
+
+				{include uri="design:page_footer.tpl"}
+			</div>
+		</div>
 	</body>
 </html>

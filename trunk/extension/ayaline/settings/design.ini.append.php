@@ -4,4 +4,7 @@
 [ExtensionSettings]
 DesignExtensions[]=ayaline
 
+[StylesheetSettings]
+CSSFileList[]=main.css
+
 */ ?>

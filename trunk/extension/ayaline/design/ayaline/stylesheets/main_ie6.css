@@ -1,0 +1,96 @@
+body {behavior:url("scripts/csshover.htc");}
+.footer ul.niv-1 li.second{
+	width:196px;
+}
+.header-in-right div.menu {
+    top: 30px;
+}
+.list-top li.last img{	
+	visibility:hidden;
+}
+.list-top li.last ul li.img1 span.style-png{
+	display:block;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/img1.png', sizingMethod='crop');
+	width:24px;
+	height:23px;
+}
+.list-top li.last ul li.img2 span.style-png{
+	display:block;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/img2.png', sizingMethod='crop');
+	width:18px;
+	height:23px;
+}
+.list-top li.last ul li.img3 span.style-png{
+	display:block;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/img3.png', sizingMethod='crop');
+	width:22px;
+	height:23px;
+}
+.list-top li.last ul li.img4 span.style-png{
+	display:block;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/img4.png', sizingMethod='crop');
+	width:17px;
+	height:23px;
+}
+#firstline {
+    background: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/textbg.png', sizingMethod='scale');
+}
+#secondline {
+    background: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/textbg-bis.png', sizingMethod='scale');
+}
+.btns-carres #back span {
+    background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/carousel-previous.png', sizingMethod='crop');
+}
+.btns-carres #next span {
+    background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/carousel-next.png', sizingMethod='crop');
+}
+.header-in {
+    background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/headerbg.png', sizingMethod='scale');
+}
+.header-in h1 img{	
+	visibility:hidden;
+}
+.header-in h1 span.style-png{
+    width:478px;
+	height:85px;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/logo.png', sizingMethod='crop');
+	display:block;
+}
+.header-in-right div.menu li.rubrique1 a span{	
+	background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/decouvrir.png', sizingMethod='crop');
+}
+.header-in-right div.menu li.rubrique1:hover a span{	
+	background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/decouvrir-over.png', sizingMethod='crop');
+}
+.header-in-right div.menu li.rubrique2 a span{
+	background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/sejourner.png', sizingMethod='crop');
+}
+.header-in-right div.menu li.rubrique2:hover a span{
+	background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/sejourner-over.png', sizingMethod='crop');
+}
+.header-in-right div.menu li.rubrique3 a span{
+	background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/a-la-une.png', sizingMethod='crop');
+}
+.header-in-right div.menu li.rubrique3:hover a span{
+	background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/a-la-une-over.png', sizingMethod='crop');
+}
+.header-in-right ul li.meteo{
+	background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/sun.png', sizingMethod='crop');
+}
+.bloc-type h3{
+	padding:0px 0 7px 0;
+	position:relative;
+	top:-5px;
+}

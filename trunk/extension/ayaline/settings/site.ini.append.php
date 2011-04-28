@@ -28,8 +28,8 @@ AvailableSiteAccessList[]=ayaline
 AvailableSiteAccessList[]=ayaline_admin
 MatchOrder=host
 HostMatchMapItems[]
-HostMatchMapItems[]=local.lsdo;ayaline
-HostMatchMapItems[]=local.admin.lsdo;ayaline_admin
+HostMatchMapItems[]=lsdo.loc;ayaline
+HostMatchMapItems[]=admin.lsdo.loc;ayaline_admin
 ForceVirtualHost=true
 
 [DesignSettings]
