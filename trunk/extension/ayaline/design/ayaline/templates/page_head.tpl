@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" media="all" href={concat( 'stylesheets/', $css_fichier )|ezdesign} />
 	{/foreach}
 	<script src={"javascripts/jquery.js"|ezdesign} type="text/javascript"></script>
-	<script src={"javascripts/scripts.js"|ezdesign} type="text/javascript"></script>
 
 	<!--[if IE 6]>
 		<link rel="stylesheet" type="text/css" href={"stylesheets/main_ie6.css"|ezdesign} media="all" />

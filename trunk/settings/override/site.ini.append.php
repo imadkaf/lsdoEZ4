@@ -2,12 +2,15 @@
 
 [ExtensionSettings]
 ActiveExtensions[]
+ActiveExtensions[]=ayaline
+ActiveExtensions[]=brochure
 ActiveExtensions[]=ezmultiupload
 ActiveExtensions[]=ezjscore
 ActiveExtensions[]=ezie
 ActiveExtensions[]=ezoe
 ActiveExtensions[]=ezodf
 ActiveExtensions[]=ezprestapiprovider
-ActiveExtensions[]=ayaline
+ActiveExtensions[]=ez_aya_diaporama
+ActiveExtensions[]=ezurlga
 
 */ ?>
