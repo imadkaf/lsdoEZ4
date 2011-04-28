@@ -115,7 +115,9 @@ body {
     height: 500px;
     position: absolute;
     width: 100%;
+    top:0; 
 }
+
 .header-in{
 	background: url("../images/headerbg.png");
 	height: 122px;
@@ -349,6 +351,19 @@ body {
     padding: 10px 13px;
     text-decoration: none;
 }
+#secondline  a{ 
+	color:white; 
+	text-decoration:none; 
+	font-size: 22px;
+	float:left; 
+	display:block; 
+	clear:both; 
+}
+#secondline a:hover { 
+	text-decoration:underline; 
+	color:white; 
+}
+
 /****Content****/
 .content{
 	width:1193px;
