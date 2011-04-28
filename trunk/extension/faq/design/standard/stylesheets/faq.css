@@ -1,0 +1,51 @@
+﻿/* Faq eZ Publish stylesheet */
+
+div[name="faq"]
+{
+	
+}
+
+h1.faq_list_title
+{
+
+}
+
+ul.faq_list_link li
+{
+
+}
+
+ul.faq_list_full
+{
+
+}
+
+ul.faq_list_grouped
+{
+
+}
+
+a.anchor_ref_top
+{
+	
+}
+
+strong.faq_question
+{
+
+}
+
+div.faq_response p
+{
+
+}
+
+.reponse-faq-fermee
+{
+
+}
+
+.cache
+{
+	display:none;
+}
