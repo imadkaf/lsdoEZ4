@@ -1,0 +1,164 @@
+/* HEADER */
+/* Styles du header, pour modifier la hauteur du header modifier la propriété height de #header-diapo et de .headerimg. */
+#header-diapo { 
+	height:600px; 
+}
+.headerimg { 
+	background-position: center top; 
+	background-repeat: no-repeat; 
+	width:100%; 
+	height:600px; 
+	position:absolute; 
+}
+
+/* HEADER TEXT */
+/* Styles correpondant au bloc de texte du header, reprenant le titre de la diapo ainsi que son accroche. */
+#headertxt { 
+	width:960px; 
+	margin:0 auto; 
+	clear:both; 
+	position:relative; 
+	top:74px; 
+}
+#firstline { 
+	background-image:url("../images/textbg.png"); 
+	color:#333; 
+	font-size:40px; 
+	padding:4px 13px 7px; 
+	float:left; 
+	display:block; 
+}
+#secondline  { 
+	background-image:url("../images/textbg.png"); 
+	color:#CD2B3A; 
+	text-decoration:none; 
+	font-size:60px; 
+	padding:0 13px 10px; 
+	float:left; 
+	display:block; 
+	clear:both; 
+}
+#secondline  a{ 
+	color:#CD2B3A; 
+	text-decoration:none; 
+	font-size:60px; 
+	float:left; 
+	display:block; 
+	clear:both; 
+}
+#secondline a:hover { 
+	text-decoration:underline; 
+	color:#7F000C; 
+}
+
+/* Style du bloc "Pictured" présent en dessous du titre et de l'accroche de la diapo. */
+.pictured { 
+	background-color:#CC3333; 
+	color:#FFF; 
+	font-size:12px; 
+	padding:9px 16px; 
+	text-transform:uppercase; 
+	float:left; 
+	display:block; 
+	clear:both; 
+	margin-top:10px; 
+}
+.pictured a { 
+	font-size:16px; 
+	font-style:italic; 
+	letter-spacing:0; 
+	text-transform:none; 
+	color:#FFF; 
+	text-decoration:none; 
+}
+.pictured a:hover { 
+	text-decoration:underline; 
+}
+
+/* CONTROLS */
+/* Styles correspondant aux boutons de contrôle. */
+.btn { 
+	cursor: pointer; 
+}
+/* Controles ronds */
+.btns-ronds .btn span { 
+	height:32px; 
+	width:32px; 
+	float:left; 
+	display:block; 
+}
+.btns-ronds #back span { 
+	background-image:url("../images/btn_back.png");
+}
+.btns-ronds #next span { 
+	background-image:url("../images/btn_next.png"); 
+}
+.btns-ronds #control span { 
+	background-image:url("../images/btn_pause.png"); 
+}
+/* Controles carres */
+.btns-carres .btn { 
+	float: left; 
+	height: 34px;
+	overflow:hidden;
+	background-repeat:no-repeat;
+	background-position:0 0;
+	display:block;
+}
+.btns-carres #back span { 
+	background-image: url("../images/carousel-previous.png"); 
+	width: 28px;
+	display: block;
+	height: 68px;
+}
+* html .btns-carres #back span { 
+	width: 28px; 
+	background-image: url("../images/carousel-previous.gif"); 
+	display: block;
+	height: 68px;
+}
+.btns-carres #next span { 
+	width: 28px;
+	background-image: url('../images/carousel-next.png');
+	display: block;
+	height: 68px;
+}
+* html .btns-carres #next span { 
+	background-image: url("../images/carousel-next.gif"); 
+	display: block;
+	width: 28px;
+	height: 68px;
+}
+.btns-carres #control span { 
+	background-image: url("../images/carousel-pause.png"); 
+	width: 20px; 
+	display: block;
+	height: 68px;
+}
+.btns-carres .btn:hover span, .header-controls .btn:focus span {
+	margin-top: -34px;
+}
+
+* html .btns-carres .btn:hover span, .header-controls .btn:focus span {
+	background-position: 0 -34px;
+}
+
+/* HEADER HAVIGATION */
+#headernav-outer { 
+	position:relative; 
+	top:400px; 
+	margin:0 auto; 
+	width:960px; 
+}
+#headernav { 
+	padding-left:864px; 
+}
+
+/* HEADER PAR DEFAUT */
+/* Styles du header ne contenant pas de diaporama */
+#default-header {
+	background-color: #E6E2D7;
+    font-size: 4.3em;
+    height: 100px;
+    text-align: center;
+}
