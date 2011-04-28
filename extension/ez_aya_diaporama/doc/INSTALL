@@ -1,0 +1,30 @@
+eZ_aya_diaporama extension 0.1 INSTALL
+
+Introduction
+============
+
+1. Qu'est-ce que l'extension ez_aya_diaporama?
+   --------------------------------
+
+   Cette extension permet de mettre en place un diaporama sur certaines pages de votre site.
+
+Installation de l'extension
+==============================
+
+1. Récupérer le zip de l'extension et le décompresser.
+
+2. Copier le répertoire ez_aya_diaporama dans celui des extensions de votre site (racine_ez_publish/extensions).
+
+3. Activer l'extension via le back office de votre site ou via le fichier site.ini.append(.php) 
+   du répertoire racine_ez_publish/settings/override.
+
+4. Importer, via le back-office, le package ez_aya_diaporama-1.0-1.ezpkg qui se trouve dans le répertoire 
+   packages de l'extension ez_aya_diaporama. Vérifier que l'import de ce package a bien eu pour effet la 
+   création des classes Diaporama et Diapo dans le groupe de classes Media.
+
+5. Dans le pagelayout.tpl supprimer l'include qui appelle le header et ajouter 
+   l'include suivant : {include uri='design:diaporama.tpl'} à l'endroit où vous désirez
+   voir apparaître votre diaporama.
+   
+6. Copier les deux images du répertoire ez_aya_diaporama/icons dans les différents répertoires d'icones :
+   share/icons/crystal-admin/[taille_icone]/ez_aya_diaporama/
