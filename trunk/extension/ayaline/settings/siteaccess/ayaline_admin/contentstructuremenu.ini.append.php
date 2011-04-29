@@ -6,5 +6,6 @@ ShowClasses[]
 ShowClasses[]=folder
 ShowClasses[]=user_group
 ShowClasses[]=footer_menu
+ShowClasses[]=accueil
 
 */ ?>

@@ -151,7 +151,7 @@
 					// which also includes some text and url's.
 					
 					{* Tableau permettant de stocker les informations de chaque diapo *}
-					{def $nbDiapos = $diapos|count()}
+					{set $nbDiapos = $diapos|count()}
 					var photos = [ 
 					{foreach $diapos as $key=>$diapo}
 						{def $url = ""}

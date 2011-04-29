@@ -12,11 +12,15 @@
 			<div id="header">
 
 				<div class="header-in">
-					<h1>
-						<span class="style-png">
-							<a href="#"><img src="/extension/ayaline/design/ayaline/images/logo.png" alt="" /></a>
-						</span>
-					</h1>
+				{def $accueil = fetch('content','node', hash(
+											'node_id',  ezini('NodeSettings','RootNode','content.ini')))}
+				{*attribute_view_gui attribute = $accueil.data_map.titre_du_site*}
+					<div class="style-png">
+						<a href={ezurl()}><img class="logo-accueil" src="/extension/ayaline/design/ayaline/images/logo_accueil.png" alt="Logo accueil" /></a>
+						<a href={ezurl()}><img class="logo-titre" src="/makeImage/makeImage.php?lsdo=o1&t={attribute_view_gui attribute = $accueil.data_map.titre_du_site}" alt="{attribute_view_gui attribute = $accueil.data_map.titre_du_site}" /></a><br />
+						<img class="logo-slogan" src="/makeImage/makeImage.php?lsdo=o2&t={attribute_view_gui attribute = $accueil.data_map.slogan}" alt="{attribute_view_gui attribute = $accueil.data_map.slogan}" />
+					</div>
+					
 					<div class="header-in-right">
 						<ul class="list-top">
 							<li>Mardi 15 F&eacute;vrier</li>
@@ -221,9 +225,9 @@
 						<div class="form">
 							<form method="post" action="#">
 								<div>
-									<label for="hôtels" class="none">H&ocirc;tels</label>
-									<select name="hôtels" id="hôtels">
-										<option value="Hôtels">H&ocirc;tels</option>
+									<label for="hï¿½tels" class="none">H&ocirc;tels</label>
+									<select name="hï¿½tels" id="hï¿½tels">
+										<option value="Hï¿½tels">H&ocirc;tels</option>
 									</select>
 								</div>
 								<div class="date">
@@ -236,7 +240,7 @@
 
 									<label for="mois" class="none">Mois</label>
 									<select name="mois" id="mois" class="big">
-										<option value="Février">F&eacute;vrier</option>
+										<option value="Fï¿½vrier">F&eacute;vrier</option>
 									</select>
 									<label for="annee" class="none">Ann&eacute;e</label>
 									<select name="annee" id="annee" class="middle">
@@ -275,7 +279,7 @@
 								<div class="situation">
 									<label for="situation"><strong>Situation :</strong></label>
 									<select name="situation" id="situation">
-										<option value="Indifférent">Indiff&eacute;rent</option>
+										<option value="Indiffï¿½rent">Indiff&eacute;rent</option>
 									</select>								
 								</div>
 								<div class="clear"></div>
