@@ -35,5 +35,6 @@ RewriteRule ^robots\.txt - [L]
 # Platform for Privacy Preferences Project ( P3P ) related files for Internet Explorer
 # More info here : http://en.wikipedia.org/wiki/P3p
 RewriteRule ^w3c/p3p\.xml - [L]
+RewriteRule ^makeImage/makeImage\.php - [L]
 
 RewriteRule .* index\.php
