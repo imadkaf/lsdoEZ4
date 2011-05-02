@@ -115,33 +115,7 @@ body {
     height: 500px;
     position: absolute;
     width: 100%;
-    top:0; 
 }
-
-.style-png{
-	float: left;
-}
-
-.logo-accueil{
-	float: left;
-	position: relative;
-	top:46px;
-	left: 1px;
-}
-
-.logo-titre{
-	position: relative;
-	top:20px;
-	right: 10px;
-}
-
-/*t 28 et l 14*/
-.logo-slogan{
-	position: relative;
-	top:28px;
-	left: 14px;
-}
-
 .header-in{
 	background: url("../images/headerbg.png");
 	height: 122px;
@@ -230,7 +204,7 @@ body {
 }  
 
 .header-in-right div.search{
-	margin:14px 0px 0px 0px;
+	margin:11px 0 0 0px;
 	overflow:hidden;
 	height:1%;
 	float:right;
@@ -375,19 +349,6 @@ body {
     padding: 10px 13px;
     text-decoration: none;
 }
-#secondline  a{ 
-	color:white; 
-	text-decoration:none; 
-	font-size: 22px;
-	float:left; 
-	display:block; 
-	clear:both; 
-}
-#secondline a:hover { 
-	text-decoration:underline; 
-	color:white; 
-}
-
 /****Content****/
 .content{
 	width:1193px;

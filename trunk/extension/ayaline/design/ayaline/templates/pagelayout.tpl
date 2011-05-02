@@ -1,30 +1,25 @@
+{*
+	Noeud courant :
+		Cette variable est accessible dans toutes les templates de l'application et doit être réutilisé
+*}
+{def $cNode = fetch(content, node, hash(node_id, $module_result.node_id))}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
-	{include uri="design:page_head.tpl"}
-	
+{include uri="design:page_head.tpl"}
 	<body>
-		
-		{*$module_result.content*}
-		
 		<div id="global-page">
-		
 			<div id="header">
-
+				{include uri='design:full/diaporama.tpl'}
 				<div class="header-in">
-				{def $accueil = fetch('content','node', hash(
-											'node_id',  ezini('NodeSettings','RootNode','content.ini')))}
-				{*attribute_view_gui attribute = $accueil.data_map.titre_du_site*}
-					<div class="style-png">
-						<a href={ezurl()}><img class="logo-accueil" src="/extension/ayaline/design/ayaline/images/logo_accueil.png" alt="Logo accueil" /></a>
-						<a href={ezurl()}><img class="logo-titre" src="/makeImage/makeImage.php?lsdo=o1&t={attribute_view_gui attribute = $accueil.data_map.titre_du_site}" alt="{attribute_view_gui attribute = $accueil.data_map.titre_du_site}" /></a><br />
-						<img class="logo-slogan" src="/makeImage/makeImage.php?lsdo=o2&t={attribute_view_gui attribute = $accueil.data_map.slogan}" alt="{attribute_view_gui attribute = $accueil.data_map.slogan}" />
-					</div>
-					
+					<h1>
+						<span class="style-png">
+							<a href="#"><img src={"logo.png"|ezimage} alt="" /></a>
+						</span>
+					</h1>
 					<div class="header-in-right">
 						<ul class="list-top">
-							<li>Mardi 15 F&eacute;vrier</li>
-							<li class="meteo">15&deg;c</li>
+							<li>Mardi 15 Février</li>
+							<li class="meteo">15°c</li>
 							<li><a href="#">Webcam</a></li>
 							<li class="langue">
 								<label for="langue" class="none">Langue</label>
@@ -40,10 +35,10 @@
 							</li>
 							<li class="last">
 								<ul>
-									<li class="img1"><span class="style-png"><a href="#"><img src="/extension/ayaline/design/ayaline/images/img1.png" alt="" /></a></span></li>
-									<li class="img2"><span class="style-png"><a href="#"><img src="/extension/ayaline/design/ayaline/images/img2.png" alt="" /></a></span></li>
-									<li class="img3"><span class="style-png"><a href="#"><img src="/extension/ayaline/design/ayaline/images/img3.png" alt="" /></a></span></li>
-									<li class="last img4"><span class="style-png"><a href="#"><img src="/extension/ayaline/design/ayaline/images/img4.png" alt="" /></a></span></li>
+									<li class="img1"><span class="style-png"><a href="#"><img src={"img1.png"|ezimage} alt="" /></a></span></li>
+									<li class="img2"><span class="style-png"><a href="#"><img src={"img2.png"|ezimage} alt="" /></a></span></li>
+									<li class="img3"><span class="style-png"><a href="#"><img src={"img3.png"|ezimage} alt="" /></a></span></li>
+									<li class="last img4"><span class="style-png"><a href="#"><img src={"img4.png"|ezimage} alt="" /></a></span></li>
 								</ul>
 							</li>
 						</ul>
@@ -70,26 +65,35 @@
 						</div>
 					</div>					
 				</div>
-				
-				{include uri='design:diaporama.tpl'}
-				
+				<!-- Slideshow controls -->
+				<div id="headernav-outer">						
+					<div class="btns-carres" id="headernav">
+						<a class="btn" id="back" href="#"><span></span></a>
+						<a class="btn" id="control" href="#"><span></span></a>
+						<a class="btn" id="next" href="#"><span></span></a>
+					</div>
+				</div>
+				<!-- jQuery handles for the text displayed on top of the images -->
+				<div id="headertxt">
+					<p class="caption">
+						<span id="firstline"></span>
+						<a href="#" id="secondline" target="_top"></a>
+					</p>
+				</div>
 			</div>
-			
 			<div class="clear"></div>
-			
 			<div class="content">
 				<div class="bloc-left">
 					<div class="bloc-left-in">
-					
 						<div class="bloc-type">
 							<h2>
-								<img src="/extension/ayaline/design/ayaline/images/semerveiller.png" alt="" />
+								<img src={"semerveiller.png"|ezimage} alt="" />
 							</h2>
 							<p class="clear"></p>
 							<h3 class="type1">
-								<img src="/extension/ayaline/design/ayaline/images/je-decouvre.png" alt="" />
+								<img src={"je-decouvre.png"|ezimage} alt="" />
 							</h3>
-							<img class="spec" src="/extension/ayaline/design/ayaline/images/illustration1.png" alt="" />
+							<img class="spec" src={"illustration1.png"|ezimage} alt="" />
 							<h4>Les sorties en mer</h4>
 							<p>
 								Ex his quidam aeternitati se commendari posse per statuas aestimantes eas ardenter.
@@ -99,44 +103,41 @@
 								<a class="type1" href="#">En savoir plus</a>
 							</p>
 						</div>
-						
 						<div class="bloc-type">
 							<h2>
-								<img src="/extension/ayaline/design/ayaline/images/idees-sejours.png" alt="" />
+								<img src={"idees-sejours.png"|ezimage} alt="" />
 							</h2>
 							<p class="clear"></p>
 							<h3 class="type2">
-								<img src="/extension/ayaline/design/ayaline/images/printemps-2011.png" alt="" />
+								<img src={"printemps-2011.png"|ezimage} alt="" />
 							</h3>
-							<img src="/extension/ayaline/design/ayaline/images/illustration2.png" alt="" />
-							<h4>D&eacute;couvrez les meilleures offres printemps-Et&eacute; 2011</h4>
+							<img src={"illustration2.png"|ezimage} alt="" />
+							<h4>Découvrez les meilleures offres printemps-Eté 2011</h4>
 							<p>
-								<strong>Forfaits week-ends, semaine, courts-s&eacute;jours...</strong> Profitez d'une 
-								escapade iod&eacute;e sur la C&ocirc;te de Lumi&egrave;re aux Sables d'Olonne.
+								<strong>Forfaits week-ends, semaine, courts-séjours...</strong> Profitez d'une 
+								escapade iodée sur la Côte de Lumière aux Sables d'Olonne.
 							</p>
 							<p class="lien-bas">	
 								<a class="type2" href="#">En savoir plus</a>
 							</p>
 						</div>
-						
 					</div>
 					<div class="bloc-right-in">
-					
 						<div class="bloc-type">
 							<h2>
-								<img src="/extension/ayaline/design/ayaline/images/vivre.png" alt="" />
+								<img src={"vivre.png"|ezimage} alt="" />
 							</h2>
-							<a href="#" class="float-d"><img src="/extension/ayaline/design/ayaline/images/rss.gif" alt="" /></a>
+							<a href="#" class="float-d"><img src={"rss.gif"|ezimage} alt="" /></a>
 							<p class="clear"></p>
 							<h3 class="type3">
-								<img src="/extension/ayaline/design/ayaline/images/je-minforme.png" alt="" />
+								<img src={"je-minforme.png"|ezimage} alt="" />
 							</h3>
 							<ul>
 								<li>
-									<a href="#"><img src="/extension/ayaline/design/ayaline/images/illustration3.png" alt="" /></a>
+									<a href="#"><img src={"illustration3.png"|ezimage} alt="" /></a>
 									<h4>
 										<a href="#">3e Grand festival
-										d&eacute;partemental de magie</a>
+										départemental de magie</a>
 									</h4>
 									<p class="l-spacing">
 										<span class="display-block">Du 09/02/2011 au 20/02/2011</span>
@@ -144,45 +145,44 @@
 									</p>
 								</li>
 								<li>
-									<a href="#"><img src="/extension/ayaline/design/ayaline/images/illustration4.png" alt="" /></a>
-									<h4><a href="#">Spectacle de No&euml;l - fantaisie polaire</a></h4>
+									<a href="#"><img src={"illustration4.png"|ezimage} alt="" /></a>
+									<h4><a href="#">Spectacle de Noël - fantaisie polaire</a></h4>
 									<p class="l-spacing">
-										<span class="display-block">Le 11/12/2010 &agrave; 11h et 14h</span>
-										Biblioth&egrave;que Municipale - Les Sables d'Olonne 
+										<span class="display-block">Le 11/12/2010 à 11h et 14h</span>
+										Bibliothèque Municipale - Les Sables d'Olonne 
 									</p>
 								</li>
 								<li>
-									<a href="#"><img src="/extension/ayaline/design/ayaline/images/illustration5.png" alt="" /></a>
-									<h4><a href="#">Th&eacute;&acirc;tre Atlante</a></h4>
+									<a href="#"><img src={"illustration5.png"|ezimage} alt="" /></a>
+									<h4><a href="#">Théâtre Atlante</a></h4>
 									<p class="l-spacing">										
 										<span class="display-block">Le 14/12/2010</span>
-										La M&eacute;daille- spectacle de Zabou Breitman<br />
+										La Médaille- spectacle de Zabou Breitman<br />
 										Les Sables d'Olonne
 									</p>
 								</li>
 								<li>
-									<a href="#"><img src="/extension/ayaline/design/ayaline/images/illustration6.png" alt="" /></a>
-									<h4><a href="#">sortie d&eacute;couverte<br />du rivage</a></h4>
-									<p class="l-spacing">Le 23 d&eacute;cembre 2010 - Paracou</p>
+									<a href="#"><img src={"illustration6.png"|ezimage} alt="" /></a>
+									<h4><a href="#">sortie découverte<br />du rivage</a></h4>
+									<p class="l-spacing">Le 23 décembre 2010 - Paracou</p>
 								</li>
 							</ul>
 							<p class="lien-bas">	
 								<a class="type3" href="#">En savoir plus</a>
 							</p>
 						</div>
-						
 						<div class="bloc-type spec">
 							<h2>
-								<img src="/extension/ayaline/design/ayaline/images/mes-sables-dolonne.png" alt="" />
+								<img src={"mes-sables-dolonne.png"|ezimage} alt="" />
 							</h2>
-							<a href="#" class="float-d"><img src="/extension/ayaline/design/ayaline/images/rss.gif" alt="" /></a>
+							<a href="#" class="float-d"><img src={"rss.gif"|ezimage} alt="" /></a>
 							<p class="clear"></p>
 							<h3 class="type4">
-								<img src="/extension/ayaline/design/ayaline/images/partagez-vos-emotions.png" alt="" />
+								<img src={"partagez-vos-emotions.png"|ezimage} alt="" />
 							</h3>
 							<ul>
 								<li>
-									<a href="#"><img src="/extension/ayaline/design/ayaline/images/illustration7.png" alt="" /></a>
+									<a href="#"><img src={"illustration7.png"|ezimage} alt="" /></a>
 									<h4>
 										<a href="#">Nam quis hoc non sentit</a>
 									</h4>
@@ -191,14 +191,14 @@
 									</p>
 								</li>
 								<li>
-									<a href="#"><img src="/extension/ayaline/design/ayaline/images/illustration8.png" alt="" /></a>
+									<a href="#"><img src={"illustration8.png"|ezimage} alt="" /></a>
 									<h4><a href="#">Tempore in provinciis</a></h4>
 									<p>
 										Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse... 
 									</p>
 								</li>
 								<li>
-									<a href="#"><img src="/extension/ayaline/design/ayaline/images/illustration9.png" alt="" /></a>
+									<a href="#"><img src={"illustration9.png"|ezimage} alt="" /></a>
 									<h4><a href="#">Ego vero sic intellego</a></h4>
 									<p>										
 										Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse...
@@ -209,47 +209,44 @@
 								<a class="type4" href="#">En savoir plus</a>
 							</p>
 						</div>
-						
 					</div>
 				</div>
 				<div class="bloc-right">
-				
 					<div class="bloc-type">
 						<h2>
-							<img src="/extension/ayaline/design/ayaline/images/reserver.png" alt="" />
+							<img src={"reserver.png"|ezimage} alt="" />
 						</h2>
 						<p class="clear"></p>
 						<h3 class="type5">
-							<img src="/extension/ayaline/design/ayaline/images/je-recherche.png" alt="" />
+							<img src={"je-recherche.png"|ezimage} alt="" />
 						</h3>
 						<div class="form">
 							<form method="post" action="#">
 								<div>
-									<label for="h�tels" class="none">H&ocirc;tels</label>
-									<select name="h�tels" id="h�tels">
-										<option value="H�tels">H&ocirc;tels</option>
+									<label for="hôtels" class="none">Hôtels</label>
+									<select name="hôtels" id="hôtels">
+										<option value="Hôtels">Hôtels</option>
 									</select>
 								</div>
 								<div class="date">
-									<p>Date arriv&eacute;e :</p>
-									<p class="agenda"><a href="#"><img src="/extension/ayaline/design/ayaline/images/agenda.gif" alt="" /></a></p>
+									<p>Date arrivée :</p>
+									<p class="agenda"><a href="#"><img src={"agenda.gif"|ezimage} alt="" /></a></p>
 									<label for="date-arrivee"></label>
 									<select name="date-arrivee" id="date-arrivee" class="small">
 										<option value="19">19</option>
 									</select>
-
 									<label for="mois" class="none">Mois</label>
 									<select name="mois" id="mois" class="big">
-										<option value="F�vrier">F&eacute;vrier</option>
+										<option value="Février">Février</option>
 									</select>
-									<label for="annee" class="none">Ann&eacute;e</label>
+									<label for="annee" class="none">Année</label>
 									<select name="annee" id="annee" class="middle">
 										<option value="2011">2011</option>
 									</select>
 								</div>
 								<div class="clear"></div>
 								<div class="duree">
-									<p class="float-g">Dur&eacute;e :</p>
+									<p class="float-g">Durée :</p>
 									<div class="float-g">
 										<p>
 											<input type="radio" name="semaine" id="semaine" />
@@ -279,7 +276,7 @@
 								<div class="situation">
 									<label for="situation"><strong>Situation :</strong></label>
 									<select name="situation" id="situation">
-										<option value="Indiff�rent">Indiff&eacute;rent</option>
+										<option value="Indifférent">Indifférent</option>
 									</select>								
 								</div>
 								<div class="clear"></div>
@@ -292,7 +289,7 @@
 														<div class="bt-bg-hr">
 															<div class="bt-bg-bl">
 																<div class="bt-bg-br">
-																	<span class="picto-bt">Rechercher les disponibilit&eacute;s</span>
+																	<span class="picto-bt">Rechercher les disponibilités</span>
 																</div>
 															</div>
 														</div>
@@ -304,52 +301,49 @@
 								</button>
 								<ul class="liste-bottom">
 									<li>
-										<a href="#">Activit&eacute;, visite</a>
+										<a href="#">Activité, visite</a>
 									</li>
 									<li>
 										<a href="#">Site touristique, festival</a>
 									</li>
 									<li>
-										<a href="#">Id&eacute;es S&eacute;jours</a>
+										<a href="#">Idées Séjours</a>
 									</li>
 									<li>
 										<a href="#">Bons plans</a>
 									</li>
 									<li>
-										<a href="#">Acc&egrave;s</a>
+										<a href="#">Accès</a>
 									</li>
 								</ul>
 							</form>
 						</div>
 					</div>
-					
 					<div class="bloc-type-bis">
 						<div class="bg-a">
 							<h2>Groupes/<br />affaires</h2>
 							<p>
-								D&eacute;couvrez nos offres 
-								r&eacute;serv&eacute;es aux groupes 
+								Découvrez nos offres 
+								réservées aux groupes 
 								et aux entreprises
 							</p>
 						</div>
 					</div>
-					
 					<div class="bloc-type-bis">
 						<div class="bg-b">
-							<h2>M&eacute;dias</h2>
+							<h2>Médias</h2>
 							<ul class="list-inline">
 								<li class="lien-a"><a href="#">Visite<br />virtuelle</a></li>
-								<li class="lien-b"><a href="#">Phototh&egrave;que</a></li>
+								<li class="lien-b"><a href="#">Photothèque</a></li>
 								<li class="lien-c"><a href="#">Webcams</a></li>
 							</ul>
 						</div>
 					</div>
-					
 					<div class="bloc-type-bis">
 						<div class="bg-c">
 							<h2>Brochures</h2>
 							<p>
-								D&eacute;couvrez 
+								Découvrez 
 								tous les guides 2011
 								des Sables d'Olonne
 							</p>
@@ -358,15 +352,10 @@
 							</p>
 						</div>
 					</div>
-					
 				</div>
-				
-				{include uri="design:page_footer.tpl"}
-				
+{include uri="design:page_footer.tpl"}
 			</div>
-			
 		</div>
-		
 	</body>
-	
 </html>
+{undef $cNode}
