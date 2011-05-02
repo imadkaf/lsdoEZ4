@@ -5,6 +5,18 @@
 
 #config initiale
 
+[menu_simple_free_content]
+Source=node/view/menu.tpl
+MatchFile=menu/simple_free_content.tpl
+Subdir=templates
+Match[class_identifier]=simple_free_content
+
+[menu_embed_code]
+Source=node/view/menu.tpl
+MatchFile=menu/embed_code.tpl
+Subdir=templates
+Match[class_identifier]=embed_code
+
 [full_folder]
 Source=node/view/full.tpl
 MatchFile=full/folder.tpl
