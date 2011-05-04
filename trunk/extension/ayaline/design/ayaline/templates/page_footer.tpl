@@ -74,3 +74,4 @@
 {/foreach}
 					</ul>
 				</div>
+{undef $menuPiedPage $liensColonne1 $liensCol1  $liensColonne2 $liensCol2 $liensColonne3 $liensCol3 $liensColonne4 $liensCol4 $liensColonne5 $liensCol5 $liensHorizontaux $liensHoriz}

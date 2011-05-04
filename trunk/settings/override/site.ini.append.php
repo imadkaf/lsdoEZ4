@@ -12,5 +12,6 @@ ActiveExtensions[]=ezodf
 ActiveExtensions[]=ezprestapiprovider
 ActiveExtensions[]=ez_aya_diaporama
 ActiveExtensions[]=ezurlga
+ActiveExtensions[]=ezreferencement
 
 */ ?>

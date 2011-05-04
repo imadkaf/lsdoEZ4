@@ -2,6 +2,7 @@
 {def $diaporamas=fetch( 'content', 'reverse_related_objects',
                      hash( 'object_id',            $cNode.contentobject_id,
                            'attribute_identifier', 'diaporama/pages_cibles' ) )}
+{def $url = ""}
 {if $diaporamas|count}
 	{* Récupération des diapos du diaporama *}
     {def $diapos=fetch('content','list',hash('parent_node_id',  $diaporamas.0.main_node_id,
@@ -20,20 +21,19 @@
 					var photos = [ 
 {/literal}
 {foreach $diapos as $diapo}
-	{def $url = ""}
 	{if $diapo.data_map.url_interne.has_content}
 		{set $url = $diapo.data_map.url_interne.content.main_node.url_alias|ezurl(no, full)}
 	{else}
 		{set $url = $diapo.data_map.url_externe.content}
 	{/if}
-				{literal}{{/literal}
+						{ldelim}
 							"title" : "{$diapo.data_map.titre.content}",
 							"image" : "{$diapo.data_map.image.content.original.full_path}",
 							"url" : "{$url}",
 							"firstline" : "{$diapo.data_map.titre.content}",
 							"secondline" : "{$diapo.data_map.accroche.content}",
 							"nouvelonglet" : "{$diapo.data_map.nouvel_onglet.content}"
-				{literal}}{/literal},
+						{rdelim},
 {/foreach}
 {literal}
 					];
@@ -161,6 +161,12 @@
 							navigate("next");
 						}, slideshowSpeed);
 						
+						//Menu left
+						$("ul.menu-left > li").click(function(){
+							$("ul.menu-left > li.actif").removeClass("actif");
+							$(this).addClass("actif");
+						});
+						
 					});
 	
 					function showHideSelect(select)
@@ -183,3 +189,4 @@
 				</div>
 				<!---->
 {/if}
+{undef $diaporamas $url}

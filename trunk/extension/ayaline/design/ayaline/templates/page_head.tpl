@@ -1,8 +1,45 @@
 {def $title = concat($cNode.name|wash(), " - Les Sables d'Olonne - Site officiel de l'office de tourisme des Sables d'Olonne")}
+{def $referencement = false()}
+{def $keywords = false()}
+{def $description = false()}
 {def $googleAccountKey = ezini('TagsGA','googleAccountKey','ezurlga.ini')}
+{if is_set($cNode.data_map.referencement)}
+	{set $referencement = $currentNode.data_map.referencement}
+	{if $referencement.content[0]|trim|ne('')}
+		{set $title = $referencement.content[0]|trim}
+	{/if}
+	{if $referencement.content[1]|trim|ne('')}
+		{set $keywords = $referencement.content[1]|trim}
+	{/if}
+	{if $referencement.content[2]|trim|ne('')}
+		{set $description = $referencement.content[2]|trim}
+	{/if}
+{/if}
 	<head>
 		<title>{$title|wash()}</title>
+{* Balises META *}
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{foreach ezini('SiteSettings','MetaDataArray') as $metaName => $value}
+		{switch match=$metaName}
+			{case match='description'}
+				{if $description}
+		<meta name="{$metaName}" content="{$description|wash()}" />
+				{else}
+		<meta name="{$metaName}" content="{$value}" />
+				{/if}
+			{/case}
+			{case match='keywords'}
+				{if $keywords}
+		<meta name="{$metaName}" content="{$keywords|wash()}" />
+				{else}
+		<meta name="{$metaName}" content="{$value}" />
+				{/if}
+			{/case}
+			{case}
+		<meta name="{$metaName}" content="{$value}" />
+			{/case}
+		{/switch}
+{/foreach}
 {* Styles *}
 {foreach ezini( 'StylesheetSettings', 'CSSFileList', 'design.ini' ) as $css_fichier }
 		<link rel="stylesheet" type="text/css" href={concat( 'stylesheets/', $css_fichier )|ezdesign} media="all" />
@@ -29,4 +66,4 @@
 {/literal}
 		</script>
 	</head>
-{undef $title $googleAccountKey}
+{undef $title $googleAccountKey $referencement $description $keywords}

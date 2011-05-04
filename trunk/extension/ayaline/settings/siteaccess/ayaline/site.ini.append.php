@@ -3,8 +3,8 @@
 
 
 [SiteSettings]
-SiteName=aYaline
-SiteURL=local.lsdo/index.php
+SiteName=LSDO
+SiteURL=dev.lsdo.loc
 LoginPage=embedded
 
 [UserSettings]
@@ -13,6 +13,7 @@ RegistrationEmail=
 [SiteAccessSettings]
 RequireUserLogin=false
 RelatedSiteAccessList[]=ayaline
+RelatedSiteAccessList[]=ayaline_en
 RelatedSiteAccessList[]=ayaline_admin
 ShowHiddenNodes=false
 
@@ -32,7 +33,7 @@ TranslationList=
 ViewCaching=disabled
 
 [MailSettings]
-AdminEmail=nlescure@ayaline.com
+AdminEmail=gseguin@ayaline.com
 EmailSender=
 
  

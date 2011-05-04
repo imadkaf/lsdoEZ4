@@ -6,6 +6,12 @@ ShowClasses[]
 ShowClasses[]=folder
 ShowClasses[]=user_group
 ShowClasses[]=footer_menu
+ShowClasses[]=main_menu
+ShowClasses[]=sub_menu
+ShowClasses[]=season
+ShowClasses[]=rubric
 ShowClasses[]=accueil
+ShowClasses[]=webcams
+ShowClasses[]=webcam
 
 */ ?>
