@@ -144,8 +144,6 @@ body {
 	float:right;
 }
 .header-in-right ul.list-top{
-	overflow:hidden;
-	height:1%;
 }
 .header-in-right ul li{
 	display:inline;
@@ -220,62 +218,62 @@ body {
 	top:-2px;
 	padding:0 15px 10px 12px;
 }
+.header-in-right div.menu li.rubrique0{
+	padding:0 0 3px 0px;
+	margin:0 35px 0 0;
+}
 .header-in-right div.menu li.rubrique1{
 	padding:0 0 3px 0px;
 	margin:0 35px 0 0;
 }
 .header-in-right div.menu li.rubrique2{
 	padding:0 0 3px 0px;
-	margin:0 35px 0 0;
 }
-.header-in-right div.menu li.rubrique3{
-	padding:0 0 3px 0px;
-}
-.header-in-right div.menu li.rubrique1 a{
+.header-in-right div.menu li.rubrique0 a{
 	border-left:5px solid #e644ac;
 	float:left;
 }
-.header-in-right div.menu li.rubrique1 a span{	
+.header-in-right div.menu li.rubrique0 a span{	
 	background:url('../images/decouvrir.png') 0px 0 no-repeat;
 	width:110px;
 	height:19px;
 	display:block;
 }
-.header-in-right div.menu li.rubrique1:hover a span{	
+.header-in-right div.menu li.rubrique0:hover a span{	
 	background:url('../images/decouvrir-over.png') 0px 0 no-repeat;
 }
-.header-in-right div.menu li.rubrique2 a{
+.header-in-right div.menu li.rubrique1 a{
 	border-left:5px solid #02bdff;
 	float:left;
 }
-.header-in-right div.menu li.rubrique2 a span{
+.header-in-right div.menu li.rubrique1 a span{
 	background:url('../images/sejourner.png') 0px 0 no-repeat;
 	width:113px;
 	height:19px;
 	display:block;
 }
-.header-in-right div.menu li.rubrique2:hover a span{
+.header-in-right div.menu li.rubrique1:hover a span{
 	background:url('../images/sejourner-over.png') 0px 0 no-repeat;
 }
-.header-in-right div.menu li.rubrique3 a{
+.header-in-right div.menu li.rubrique2 a{
 	border-left:5px solid #ff8b33;
 	float:left;
 }
-.header-in-right div.menu li.rubrique3 a span{
+.header-in-right div.menu li.rubrique2 a span{
 	background:url('../images/a-la-une.png') 0px 0 no-repeat;
 	width:85px;
 	height:19px;
 	display:block;
 }
-.header-in-right div.menu li.rubrique3:hover a span{
+.header-in-right div.menu li.rubrique2:hover a span{
 	background:url('../images/a-la-une-over.png') 0px 0 no-repeat;
 }
-.header-in-right div.menu li.rubrique3 a{
+.header-in-right div.menu li.rubrique2 a{
 	padding:0 0px 10px 15px;
 }
-.header-in-right div.menu li.rubrique1:hover a, 
-.header-in-right div.menu li.rubrique3:hover a, 
-.header-in-right div.menu li.rubrique2:hover a{
+.header-in-right div.menu li.rubrique0:hover a, 
+.header-in-right div.menu li.rubrique2:hover a, 
+.header-in-right div.menu li.rubrique1:hover a{
 	text-decoration:none;
 	background:#ffffff;
 }
@@ -374,7 +372,8 @@ body {
 	float:left;
 }
 /****Accueil****/
-.bloc-type, .bloc-type-bis{
+.bloc-type, .bloc-type-bis, 
+.bloc-left-in-bis .bloc-type{
 	background:#ffffff;
 	border:1px solid #e9e3de;
 	padding:15px 23px 9px 23px;
@@ -826,20 +825,13 @@ ul li.partager a{
 	left:-1px;
 	width:42px;
 }
-.inputsSelect ul li span.Flag_en{
+.inputsSelect ul li span.Flag_en, .inputsSelect p span.Flag_en{
     background:url("../images/en_flag.png") 0 50% no-repeat;
 	font-size:11px;
 	color:#8A8A8A;
 	width:20px;
 	height:14px;
-}
-.inputsSelect p span.Flag_en{
-    background:url("../images/en_flag.png") 0 50% no-repeat;
-	font-size:11px;
-	color:#8A8A8A;
-	float:left;
-	width:20px;
-	height:14px;
+	display:block;
 }
 .inputsSelect ul li a{
     display         : block;
@@ -852,9 +844,9 @@ ul li.partager a{
     background      : #093e6d;
 	text-decoration:none;
 }
-#listeSelect1 li{
+ul#listeSelect1 li{
 	float:none;
-	display:block;
+	display:inline;
 }
 .l-spacing{
 	letter-spacing:-1px;
