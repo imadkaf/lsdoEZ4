@@ -25,10 +25,12 @@ SiteList[]=ayaline
 CheckValidity=false
 AvailableSiteAccessList[]
 AvailableSiteAccessList[]=ayaline
+AvailableSiteAccessList[]=ayaline_en
 AvailableSiteAccessList[]=ayaline_admin
 MatchOrder=host
 HostMatchMapItems[]
-HostMatchMapItems[]=lsdo.loc;ayaline
+HostMatchMapItems[]=dev.lsdo.loc;ayaline
+HostMatchMapItems[]=dev.en.lsdo.loc;ayaline_en
 HostMatchMapItems[]=admin.lsdo.loc;ayaline_admin
 ForceVirtualHost=true
 
@@ -42,6 +44,9 @@ EmailSender=
 
 [RegionalSettings]
 TranslationExtensions[]=ayaline
+urlList[]
+urlList[fre-FR]=dev.lsdo.loc
+urlList[eng-GB]=dev.en.lsdo.loc
 
 [FileSettings]
 VarDir=var/ayaline

@@ -174,6 +174,39 @@ body {
 .header-in-right ul li a{
 	color:#ffffff;
 }
+li.last form{
+	overflow:hidden;
+	height:1%;
+}
+.img0 input, 
+.img1 input, 
+.img2 input, 
+.img3 input{
+	border:none !important;
+    float: none !important;
+    padding:0px !important;
+	cursor:pointer;
+}
+.img0 input{
+	background:url('../images/img0.png') 0 0 no-repeat !important;
+	width:24px !important;
+	height:23px !important;
+}
+.img1 input{
+	background:url('../images/img1.png') 0 0 no-repeat !important;
+	width:18px !important;
+	height:23px !important;
+}
+.img2 input{
+	background:url('../images/img2.png') 0 0 no-repeat !important;
+	width:22px !important;
+	height:23px !important;
+}
+.img3 input{
+	background:url('../images/img3.png') 0 0 no-repeat !important;
+	width:17px !important;
+	height:23px !important;
+}
 .header-in-right input{
 	text-transform:uppercase;
 	font-size:11px;
@@ -209,7 +242,12 @@ body {
 }
 .header-in-right div.menu{
 	position:relative;
-	top:29px;
+	top:32px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .header-in-right div.menu{
+		top:28px;
+	}
 }
 .header-in-right div.menu li a{
 	text-transform:uppercase;

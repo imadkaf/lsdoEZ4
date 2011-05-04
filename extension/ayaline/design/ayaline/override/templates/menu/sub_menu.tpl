@@ -1,0 +1,1 @@
+{node_view_gui content_node=$node.data_map.content.content.main_node view='menu'}

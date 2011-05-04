@@ -61,27 +61,27 @@ body {behavior:url("scripts/csshover.htc");}
     filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/logo.png', sizingMethod='crop');
 	display:block;
 }
-.header-in-right div.menu li.rubrique1 a span{	
+.header-in-right div.menu li.rubrique0 a span{	
 	background:none;
     filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/decouvrir.png', sizingMethod='crop');
 }
-.header-in-right div.menu li.rubrique1:hover a span{	
+.header-in-right div.menu li.rubrique0:hover a span{	
 	background:none;
     filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/decouvrir-over.png', sizingMethod='crop');
 }
-.header-in-right div.menu li.rubrique2 a span{
+.header-in-right div.menu li.rubrique1 a span{
 	background:none;
     filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/sejourner.png', sizingMethod='crop');
 }
-.header-in-right div.menu li.rubrique2:hover a span{
+.header-in-right div.menu li.rubrique1:hover a span{
 	background:none;
     filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/sejourner-over.png', sizingMethod='crop');
 }
-.header-in-right div.menu li.rubrique3 a span{
+.header-in-right div.menu li.rubrique2 a span{
 	background:none;
     filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/a-la-une.png', sizingMethod='crop');
 }
-.header-in-right div.menu li.rubrique3:hover a span{
+.header-in-right div.menu li.rubrique2:hover a span{
 	background:none;
     filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site/images/a-la-une-over.png', sizingMethod='crop');
 }
@@ -93,4 +93,20 @@ body {behavior:url("scripts/csshover.htc");}
 	padding:0px 0 7px 0;
 	position:relative;
 	top:-5px;
+}
+.img0 input{
+	background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site-on-line/images/img0.png', sizingMethod='crop');
+}
+.img1 input{
+	background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site-on-line/images/img1.png', sizingMethod='crop');
+}
+.img2 input{
+	background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site-on-line/images/img2.png', sizingMethod='crop');
+}
+.img3 input{
+	background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site-on-line/images/img3.png', sizingMethod='crop');
 }

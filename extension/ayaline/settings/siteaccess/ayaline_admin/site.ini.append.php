@@ -2,8 +2,8 @@
 
 
 [SiteSettings]
-SiteName=aYaline
-SiteURL=local.admin.lsdo/index.php
+SiteName=BE LSDO
+SiteURL=admin.lsdo.loc
 DefaultPage=content/dashboard
 LoginPage=custom
 
@@ -13,6 +13,7 @@ RegistrationEmail=
 [SiteAccessSettings]
 RequireUserLogin=true
 RelatedSiteAccessList[]=ayaline
+RelatedSiteAccessList[]=ayaline_en
 RelatedSiteAccessList[]=ayaline_admin
 ShowHiddenNodes=true
 
@@ -32,6 +33,6 @@ CachedViewPreferences[full]=admin_navigation_content=0;admin_navigation_details=
 TranslationList=
 
 [MailSettings]
-AdminEmail=nlescure@ayaline.com
+AdminEmail=gseguin@ayaline.com
 EmailSender=
 */ ?>
