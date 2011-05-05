@@ -13,5 +13,7 @@ ShowClasses[]=rubric
 ShowClasses[]=accueil
 ShowClasses[]=webcams
 ShowClasses[]=webcam
+ShowClasses[]=faqs
+ShowClasses[]=faq
 
 */ ?>
