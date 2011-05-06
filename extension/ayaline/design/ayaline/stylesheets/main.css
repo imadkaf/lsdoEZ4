@@ -124,7 +124,6 @@ body {
 	padding:0 119px 0 121px;
 }
 .header-in h1{
-	padding:21px 0 0 0;
 	float:left;
 }
 .header-in h1 a:hover{
@@ -133,6 +132,20 @@ body {
 .header-in h1 p{	
 }
 .header-in h1 a{	
+}
+.header-in h1 .style-png{
+}
+.header-in h1 .style-png img{
+	position:relative;
+	float: left;
+}
+.header-in h1 .style-png img.home-title{
+	top:15px;
+	left: 45px;
+}
+.header-in h1 .style-png img.home-grip{
+	top:20px;
+	left: 10px;
 }
 .header-in-right{
 	float:right;
