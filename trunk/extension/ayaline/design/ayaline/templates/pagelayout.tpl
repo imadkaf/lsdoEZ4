@@ -18,9 +18,14 @@
 {include uri='design:full/diaporama.tpl'}
 				<div class="header-in">
 					<h1>
-						<span class="style-png">
-							<a href={$rNode.url_alias|ezurl}><img src={"logo.png"|ezimage} alt="" /></a>
-						</span>
+						<div class="style-png">							
+							<a href={$rNode.url_alias|ezurl}>
+								<img class="home-title" src="/makeImage/makeImage.php?lsdo=o1&t={$rNode.data_map.title.data_text}" alt="{$rNode.data_map.title.data_text}" />
+								<br />
+								<img src={"logo_accueil.png"|ezimage} alt="" />
+								<img class="home-grip" src="/makeImage/makeImage.php?lsdo=o2&t={$rNode.data_map.grip.data_text}" alt="{$rNode.data_map.grip.data_text}" />
+							</a>
+						</div>
 					</h1>
 					<div class="header-in-right">
 {if $rNode.data_map.header_menu.has_content}
