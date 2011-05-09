@@ -5,10 +5,11 @@
 {def $nbSaison = 0}
 {*Gestion du menu déroulant*}
 {if ezhttp('saison', 'session', 'hasVariable')}
-	{def $saison = ezhttp('saison', 'session')}
+	{def $saisonId = ezhttp('saison', 'session')}
 {else}
-	{def $saison = 0}
+	{def $saisonId = -1}
 {/if}
+{def $curLang = ezini( 'RegionalSettings', 'Locale' )}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 {include uri="design:page_head.tpl"}
@@ -35,15 +36,14 @@
 		<li>{node_view_gui content_node=$sMenu view='menu'}</li>
 	{/foreach}
 {*Gestion des langues*}
-	{def $curLang = ezini( 'RegionalSettings', 'Locale' )}
 							<li class="langue">
 								<label for="langue" class="none">{"Langue"|i18n("ayaline/langue")}</label>
 								<fieldset class="conteneurSelect" id="langue">
 									<div class="inputsSelect">
-										<p onclick="showHideSelect('listeSelect1')" class="selects"><span class="Flag_en"></span></p>
+										<p onclick="showHideSelect('listeSelect1')" class="selects"><span class="Flag_{$curLang|extract_left( 2 )}"></span></p>
 										<ul id="listeSelect1">
 	{foreach ezini( 'RegionalSettings', 'urlList' ) as $language => $url }
-											<li><a onclick="validAndHide('DE', this, 'countryCode', 'p')" href="http://{$url}"><span class="Flag_en"></span></a></li>
+											<li><a onclick="validAndHide('DE', this, 'countryCode', 'p')" href="http://{$url}"><span class="Flag_{$language|extract_left( 2 )}"></span></a></li>
 	{/foreach}
 										</ul>
 									</div>
@@ -59,7 +59,7 @@
 							<li class="last">
 									<ul>
 	    		{foreach $attribute.content.options as $key=>$saison}
-										<li class="img{$saison.id}{if $key|eq($nbSaison)} last{/if}"><form method="post" action={"/saisons/edit/"|ezurl}><input type="hidden" value={$module_result.uri|ezurl} name="RedirectURI" /><input type="hidden" value="{$saison.id}" name="season_id" /><input type="submit" value="" name="" /></form></li>
+										<li class="img{$saison.id}{if $key|eq($nbSaison)} last{/if}"><form method="post" action={"/saisons/edit/"|ezurl}><input type="hidden" value={$module_result.uri|ezurl} name="RedirectURI" /><input type="hidden" value="{$saison.id}" name="season_id" /><input{if $saison.id|eq($saisonId)} class="actif"{/if} type="submit" value="" name="" /></form></li>
 				{/foreach}
 									</ul>
 							</li>
@@ -99,4 +99,4 @@
 		</div>
 	</body>
 </html>
-{undef $cNode $rNode $sMenus $attributes $nbSaison $saison}
+{undef $cNode $rNode $sMenus $attributes $nbSaison $saison $curLang}

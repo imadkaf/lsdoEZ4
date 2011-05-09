@@ -205,20 +205,32 @@ li.last form{
 	width:24px !important;
 	height:23px !important;
 }
+.img0 input.actif{
+	background:url('../images/img0-on.png') 0 0 no-repeat !important;
+}
 .img1 input{
 	background:url('../images/img1.png') 0 0 no-repeat !important;
 	width:18px !important;
 	height:23px !important;
+}
+.img1 input.actif{
+	background:url('../images/img1-on.png') 0 0 no-repeat !important;
 }
 .img2 input{
 	background:url('../images/img2.png') 0 0 no-repeat !important;
 	width:22px !important;
 	height:23px !important;
 }
+.img2 input.actif{
+	background:url('../images/img2-on.png') 0 0 no-repeat !important;
+}
 .img3 input{
 	background:url('../images/img3.png') 0 0 no-repeat !important;
 	width:17px !important;
 	height:23px !important;
+}
+.img3 input.actif{
+	background:url('../images/img3-on.png') 0 0 no-repeat !important;
 }
 .header-in-right input{
 	text-transform:uppercase;
@@ -876,8 +888,18 @@ ul li.partager a{
 	left:-1px;
 	width:42px;
 }
-.inputsSelect ul li span.Flag_en, .inputsSelect p span.Flag_en{
+.inputsSelect ul li span.Flag_en, 
+.inputsSelect p span.Flag_en{
     background:url("../images/en_flag.png") 0 50% no-repeat;
+	font-size:11px;
+	color:#8A8A8A;
+	width:20px;
+	height:14px;
+	display:block;
+}
+.inputsSelect ul li span.Flag_fr, 
+.inputsSelect p span.Flag_fr{
+    background:url("../images/fr_flag.png") 0 50% no-repeat;
 	font-size:11px;
 	color:#8A8A8A;
 	width:20px;
