@@ -4,7 +4,7 @@
 {def $description = false()}
 {def $googleAccountKey = ezini('TagsGA','googleAccountKey','ezurlga.ini')}
 {if is_set($cNode.data_map.referencement)}
-	{set $referencement = $currentNode.data_map.referencement}
+	{set $referencement = $cNode.data_map.referencement}
 	{if $referencement.content[0]|trim|ne('')}
 		{set $title = $referencement.content[0]|trim}
 	{/if}
