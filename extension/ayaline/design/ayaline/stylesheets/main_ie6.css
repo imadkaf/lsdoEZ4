@@ -94,6 +94,37 @@ body {behavior:url("scripts/csshover.htc");}
 	position:relative;
 	top:-5px;
 }
+button.button {
+	width:235px;
+}
+.pagination ul.pagin{
+	float:left;
+	margin:0 150px 0 150px;
+}
+.no-margin{
+	padding: 5px 0px 5px 0px;
+}
+.padding-35px-32px {
+    padding: 35px 25px 10px 29px;
+}
+p.clear{
+	padding:0px !important;
+	line-height:0px !important;
+}
+.menu-h{
+	overflow:hidden;
+	height:1%;
+}
+.menu-h ul li.actif {
+    top: 1px;
+}
+.menu-h ul li {
+    top: 8px;
+}
+.bloc-container ul li{
+	width:299px;
+	margin: 0 46px 37px 0;
+}
 .img0 input{
 	background:none;
     filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='file:///C:/Users/zelkihal/Documents/sables-dolonne/site-on-line/images/img0.png', sizingMethod='crop');
