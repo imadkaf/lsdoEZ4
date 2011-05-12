@@ -1421,6 +1421,10 @@ ul.liste .lien-bas{
 .bottom li a img{
 	margin:0 15px 0 0;
 }
+.ss-menu li.actif input{
+	background:#e843ab;
+	color:#ffffff !important;
+}
 /****Photo détail****/
 .bloc-container h3{
 	font-size:18px;

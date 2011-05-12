@@ -63,7 +63,7 @@
 							</ul>
 						</li>
 						<li class="last">
-							{attribute_view_gui attribute = $menuPiedPage.data_map.logo image_class='logo_footer' href=ezurl()}
+							{attribute_view_gui attribute = $menuPiedPage.data_map.logo image_class='logo_footer' href=$rNode.url_alias|ezurl()}
 						</li>
 					</ul>
 					<ul class="niv-2">
