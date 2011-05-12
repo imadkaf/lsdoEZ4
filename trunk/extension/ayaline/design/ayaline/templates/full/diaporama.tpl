@@ -178,7 +178,7 @@
 					{
 					    document.getElementsByName(input).value = txt;
 					    obj.parentNode.parentNode.style.display = 'none';
-					    document.getElementsByTagName(select).innerHTML = obj.innerHTML;
+					    document.getElementById(select).innerHTML = obj.innerHTML;
 					}
 				</script>
 {/literal}

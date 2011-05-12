@@ -27,6 +27,18 @@ Source=node/view/menu.tpl
 MatchFile=menu/sub_menu.tpl
 Subdir=templates
 Match[class_identifier]=sub_menu
+
+[main_menu_rubric]
+Source=node/view/main_menu.tpl
+MatchFile=main_menu/rubric.tpl
+Subdir=templates
+Match[class_identifier]=rubric
+
+[line_topic]
+Source=node/view/line.tpl
+MatchFile=line/topic.tpl
+Subdir=templates
+Match[class_identifier]=topic
 	
 #config initiale
 
