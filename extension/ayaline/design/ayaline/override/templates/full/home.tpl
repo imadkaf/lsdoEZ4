@@ -17,13 +17,13 @@
 		{else}
 			<div class="bloc-type" style="width:358px; float:left;">
 		{/if}
-				{node_view_gui content_node=$blocsCont view='menu'}
+				{node_view_gui content_node=$blocsCont view='blocsAccueil'}
 			</div>
 	{/if}
 	
 	{if ge($compteur, 4)}
 		<div class="bloc-type-bis">
-			{node_view_gui content_node=$blocsCont view='menu'}
+			{node_view_gui content_node=$blocsCont view='blocsAccueil'}
 		</div>
 	{/if}
 
