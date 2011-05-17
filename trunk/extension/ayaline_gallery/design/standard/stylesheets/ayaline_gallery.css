@@ -1,0 +1,114 @@
+.ayaline-gallery {
+	
+}
+
+.ayaline-gallery ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.ayaline-gallery .gallery-form form input,.ayaline-gallery .gallery-form form select,.ayaline-gallery .gallery-form form label
+	{
+	display: block;
+	float: left;
+}
+
+.ayaline-gallery .gallery-form form label {
+	padding: 5px;
+}
+
+.ayaline-gallery .gallery-form form input.button {
+	margin-left: 15px;
+}
+
+.ayaline-gallery .clear {
+	clear: both;
+}
+
+.ayaline-gallery hr {
+	clear: both;
+	visibility: hidden;
+	height: 0px;
+}
+
+.ayaline-gallery .gallery-content {
+	margin-top: 20px;
+}
+
+.ayaline-gallery .gallery-content .gallery-tab-content {
+	min-height: 50px;
+	background: white;
+	margin: 0px;
+}
+
+.ayaline-gallery ul.gallery-tab {
+	list-style: none;
+	display: block;
+	float: left;
+}
+
+.ayaline-gallery ul.gallery-tab li {
+	border-radius: 5px 5px 0 0px;
+	background: url('/extension/ayaline_gallery/design/standard/images/menu.png');
+	float: left;
+	display: block;
+	text-align: center;
+	padding: 5px 15px 5px 15px;
+	margin-right: 1px;
+	margin-bottom: 0px;
+	box-shadow: 3px 0px 5px #888;
+}
+
+.ayaline-gallery ul.gallery-tab a {
+	color: white;
+}
+
+.ayaline-gallery ul.gallery-tab a:hover {
+	color: black;
+}
+
+.ayaline-gallery ul.gallery-tab li.selected a {
+	color: black;
+}
+
+.ayaline-gallery ul.gallery-videos {
+	background:red;
+	margin: 0px;
+	padding: 0px;
+}
+
+.ayaline-gallery ul.gallery-videos li {
+	float: left;
+	display: block;
+	width:220px;
+}
+
+.ayaline-gallery .gallery-gallery-photos {
+	padding:10px 0 20px 0;
+}
+
+.ayaline-gallery .gallery-gallery-photos .gallery-picture {
+	float: left;
+	display: block;
+	padding: 0 15px 15px 15px;
+}
+
+.ayaline-gallery-embed {
+	padding: 10px 0 10px 0;
+}
+
+
+/** Galleria style **/
+/* full view */
+#galleria {
+	height:400px; 
+	width:100%;
+}
+
+/* embed view */
+.ayaline-gallery-embed #galleria {
+	height:300px; 
+	width:100%;
+}
+
