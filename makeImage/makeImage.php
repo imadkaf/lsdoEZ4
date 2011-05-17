@@ -14,6 +14,19 @@ if (isset($_GET['lsdo'])){
 			$widthImg = 320;
 			$heightImg = 20;
 			break;
+		/*
+		//blocsAccueil_title
+		case "o3":
+			$widthImg = 300;
+			$heightImg = 30;
+			break;
+			
+		//blocsAccueil_subTitle
+		case "o4":
+			$widthImg = 300;
+			$heightImg = 24;
+			break;
+		*/
 	}
 }
 
@@ -32,6 +45,33 @@ $vertCamping		= imagecolorallocate($im, 75, 89, 53);
 $fondCamping		= imagecolorallocate($im, 204, 208, 181);
 $bleuAssociation	= imagecolorallocate($im, 2, 120, 194);
 $fondAssociation	= imagecolorallocate($im, 120, 170, 237);
+
+/*
+//Si parametre suplementaire pour la couleur
+if (isset($_GET['coul'])){
+	switch ( $_GET['coul'] ) {
+		//Rose
+		case "rose":
+			$paramCouleur = imagecolorallocate($im, 230, 68, 172);
+			break;
+			
+		//Bleu ciel
+		case "ciel":
+			$paramCouleur = imagecolorallocate($im, 2, 189, 255);
+			break;
+
+		//Orange
+		case "orange":
+			$paramCouleur = imagecolorallocate($im, 255, 139, 51);
+			break;
+
+		//Bleu
+		case "bleu":
+			$paramCouleur = imagecolorallocate($im, 51, 126, 176);
+			break;
+	}
+}
+*/
 
 //Valeurs différentes selon les elements a transfomer
 if (isset($_GET['lsdo'])){
@@ -63,6 +103,36 @@ if (isset($_GET['lsdo'])){
 			$positionY = 17;
 			$fontColor = $white;
 			break;
+
+		/*
+		//blocsAccueil_title
+		case "o3":
+			//Application de la transparence sur la couleur de fond dominante puis création de l'image
+			imagecolortransparent($im, $white);
+			imagefilledrectangle($im, 0, 0, $widthImg-1, $heightImg-1, $white);
+			
+			//Valeurs
+			$font = 'Omnes_Light.ttf';
+			$fontSize = 24;
+			$positionX = 0;
+			$positionY = 23;
+			$fontColor = $black;
+			break;
+			
+		//blocsAccueil_subTitle
+		case "o4":
+			//Application de la transparence sur la couleur de fond dominante puis création de l'image
+			imagecolortransparent($im, $white);
+			imagefilledrectangle($im, 0, 0, $widthImg-1, $heightImg-1, $white);
+			
+			//Valeurs
+			$font = 'Omnes_Medium.ttf';
+			$fontSize = 17;
+			$positionX = 0;
+			$positionY = 18;
+			$fontColor = $paramCouleur;
+			break;
+		*/
 	}
 }
 
@@ -78,4 +148,5 @@ imagettftext($im, $fontSize, 0, $positionX, $positionY, $fontColor, $font, $text
 header('Content-type: image/png');
 imagepng($im);
 imagedestroy($im);
+
 ?>
