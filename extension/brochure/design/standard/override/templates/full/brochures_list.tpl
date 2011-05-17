@@ -1,14 +1,14 @@
 ﻿{* Brochures full view *}
 
-{*variables*}
+{* Variables *}
 {def $nb_max = ezini('BrochureList','maxBrochureList','brochure.ini')}
 
 {def $brochures = fetch( 'content','list',hash( 'parent_node_id', $node.node_id,
 												'offset', $view_parameters.offset,
 												'limit', $nb_max,
 											   'sort_by', $node.sort_array))}
-											   
-{def $nb_brochures = fetch( 'content','list_count',hash( 'parent_node_id', $node.node_id,))}											   
+
+{def $nb_brochures = fetch( 'content','list_count',hash( 'parent_node_id', $node.node_id,))}
 
 <div name="brochure">
 
