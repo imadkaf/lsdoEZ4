@@ -1,5 +1,5 @@
 ﻿{* Brochure list view *}
-{*$node|attribute(show, 1)*}
+
 <div>
 	<strong class="brochure_line_title">{$node.name|wash}</strong>
 

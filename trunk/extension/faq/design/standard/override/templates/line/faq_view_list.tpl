@@ -1,5 +1,4 @@
 ﻿{* Faq list view *}
-{*$node|attribute(show, 1)*}
 
 <strong class="faq_question">{$node.name|wash}</strong>
 
