@@ -2,11 +2,11 @@
 
 [DatabaseSettings]
 DatabaseImplementation=ezmysqli
-Server=localhost
+Server=192.168.3.221
 Port=
-User=root
-Password=
-Database=lsdo
+User=admin
+Password=ayaline!!
+Database=lsdo_integ
 Charset=
 Socket=disabled
 
@@ -29,8 +29,8 @@ AvailableSiteAccessList[]=ayaline_en
 AvailableSiteAccessList[]=ayaline_admin
 MatchOrder=host
 HostMatchMapItems[]
-HostMatchMapItems[]=dev.lsdo.loc;ayaline
-HostMatchMapItems[]=dev.en.lsdo.loc;ayaline_en
+HostMatchMapItems[]=lsdo.loc;ayaline
+HostMatchMapItems[]=en.lsdo.loc;ayaline_en
 HostMatchMapItems[]=admin.lsdo.loc;ayaline_admin
 ForceVirtualHost=true
 
@@ -45,8 +45,8 @@ EmailSender=
 [RegionalSettings]
 TranslationExtensions[]=ayaline
 urlList[]
-urlList[fre-FR]=dev.lsdo.loc
-urlList[eng-GB]=dev.en.lsdo.loc
+urlList[fre-FR]=lsdo.loc
+urlList[eng-GB]=en.lsdo.loc
 
 [FileSettings]
 VarDir=var/ayaline

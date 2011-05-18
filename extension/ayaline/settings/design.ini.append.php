@@ -9,5 +9,6 @@ CSSFileList[]=main.css
 
 [JavaScriptSettings]
 JavaScriptList[]=jquery.js
+JavaScriptList[]=menu_gauche_interne.js
 
 */ ?>
