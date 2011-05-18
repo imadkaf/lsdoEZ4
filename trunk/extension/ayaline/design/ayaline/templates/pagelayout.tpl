@@ -152,6 +152,19 @@
 {include uri='design:parts/diaporama.tpl'}
 			</div>
 			<div class="clear"></div>
+
+			{if ne($cNode.node_id, 2)}
+				<p class="fil-ariane">
+				{foreach $module_result.path as $Path}
+				{if $Path.url}
+					<a href={$Path.url_alias|ezroot}>{$Path.text|wash}</a> >
+				{else}
+					<strong>{$Path.text|wash}</strong>
+				{/if}
+				{/foreach}
+				</p>
+			{/if}
+			
 			<div class="content">
 {$module_result.content}
 {include uri="design:page_footer.tpl"}

@@ -1,3 +1,34 @@
+/* Polices suplementaires */
+/* Exemples pour l'ajout de polices
+@font-face {
+	font-family: 'OmnesLight';
+	src: url('fonts/omnes-medium-webfont.eot');
+	src: url('fonts/omnes-medium-webfont.eot?iefix') format('eot'),
+	url('fonts/omnes-medium-webfont.woff') format('woff'),
+	url('/makeImage/Omnes_Light.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+*/
+
+@font-face {
+	font-family: 'OmnesLight';
+	src: url('../fonts/omnes_light-webfont.eot');
+	src: local('OmnesLight'), url('../fonts/Omnes_Light.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'OmnesMedium';
+	src: url('../fonts/omnes_medium-webfont.eot');
+	src: local('OmnesMedium'), url('../fonts/Omnes_Medium.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
 /* ############################################################################
 	Les sables d'olonne
 	Ayaline 2010
@@ -70,6 +101,12 @@ h2 {font-size: 12px}
 .uppercase{
 	text-transform: uppercase;
 }
+.align-c{
+	text-align:center;
+}
+.align-l{
+	text-align:left !important;
+}
 /* ############################################################################
      STRUCTURE
 ############################################################################ */
@@ -114,7 +151,7 @@ body {
     background-repeat: no-repeat;
     height: 500px;
     position: absolute;
-    width: 100%;
+	width:100%;
 }
 .header-in{
 	background: url("../images/headerbg.png") 50% 0 repeat;
@@ -138,6 +175,7 @@ body {
 .header-in h1 a{	
 }
 .header-in h1 .style-png{
+	
 }
 .header-in h1 .style-png img{
 	position:relative;
@@ -164,7 +202,7 @@ body {
 }
 .header-in-right ul li{
 	display:inline;
-	float:left;	
+	float:left;
 	color:#ffffff;
 }
 .header-in-right ul li.last{
@@ -288,7 +326,7 @@ li.last form{
 .header-in-right div.menu li.rubrique0{
 	padding:0 0 3px 0px;
 	margin:0 35px 0 0;
-	position:relative;
+	position:relative;	
 }
 .header-in-right div.menu li.rubrique1{
 	padding:0 0 3px 0px;
@@ -347,7 +385,7 @@ li.last form{
 	text-decoration:none;
 	background:#ffffff;
 	position:relative;
-	z-index:6;
+	z-index:6;	
 }
 .header-in-right div.menu li.rubrique0:hover div.ss-menu, 
 .header-in-right div.menu li.rubrique2:hover div.ss-menu, 
@@ -1071,7 +1109,7 @@ ul.menu-left li ul.s-menu{
 	margin:0px !important;
 }
 .list li.first{
-	margin:0 28px 0 0;
+	margin:0 28px 34px 0;
 }
 ul.list li p, 
 ul.liste li p{
@@ -1081,11 +1119,14 @@ ul.list .lien-bas,
 ul.liste .lien-bas{
 	text-align:left;
 	padding:0px;
+	overflow:hidden;
+	height:1%;
 	/*bottom:15px;
 	position:absolute;*/
 }
 ul.list .lien-bas a, 
-ul.liste .lien-bas a{
+ul.liste .lien-bas a, 
+.cp-coeur .lien-bas a{
 	background: url("../images/picto1.gif") no-repeat scroll 0 50% transparent;
     color: #000000;
     font-weight: bold;
@@ -1145,7 +1186,7 @@ ul.list-right{
 .list-right .link a:hover{
 	text-decoration:none;
 }
-/****Médiathèque photo****/
+/****Mï¿½diathï¿½que photo****/
 .bloc-search{
 	background:#f6efe9;
 	border:1px solid #E9E3DE;
@@ -1305,7 +1346,7 @@ li:hover a.menu-g-off {
 .padding-35px-32px{
 	padding:35px 25px 10px 32px;
 }
-/****Découvrir****/
+/****Dï¿½couvrir****/
 /*.container-list-3col li.niv{
 	background:url('../images/border-b-list-3col.png') 0 100% no-repeat;
 	width:825px;
@@ -1425,7 +1466,7 @@ ul.liste .lien-bas{
 	background:#e843ab;
 	color:#ffffff !important;
 }
-/****Photo détail****/
+/****Photo dï¿½tail****/
 .bloc-container h3{
 	font-size:18px;
 }
@@ -1478,7 +1519,7 @@ ul.liste .lien-bas{
 }
 /****popup***/
 .popin-voile {
-    background: none repeat scroll 0 0 #000000;
+    background:#000000;
     height: 0;
     left: 0;
     position: fixed;
@@ -1491,4 +1532,382 @@ ul.liste .lien-bas{
     position: absolute;
     top: 145%;
     z-index: 5500;
+}
+/****Page promenades mer****/
+ul.list-thm li{
+	display:inline;
+	float:left;
+	padding:0px;
+}
+ul.list-thm{
+	overflow:hidden;
+	height:1%;
+	padding:0 0 23px 0;
+}
+ul.list-thm li.first{
+	padding:0 18px 0 0;
+}
+ul.list-thm li{
+	padding:0 5px 0 0;
+}
+ul.list-thm li.last{
+	padding:0 0px 0 0;
+}
+ul.list-thm li img{
+	float:none;
+	margin:0px;
+}
+form.form-search{
+	background:#faf9f7;
+	padding:6px 0 21px 6px;
+	margin:19px 0 0 0;
+}
+form.form-search label{
+}
+form.form-search p{
+	padding:0px;
+}
+form.form-search input{
+	padding:0px;
+	margin:0px;
+	position:relative;
+	top:2px;
+}
+form.form-search p.margin-b{
+	padding:0px 0 6px 0;
+}
+form.form-search select{
+	width:179px;
+}
+form.form-search div.date select{
+	width:auto;
+	border: 1px solid #000000;
+	font-size:11px;
+}
+form.form-search p.agenda{
+	float:left;
+	position:relative;
+	top:2px;
+}
+form.form-search div.date{
+	margin:0 0 10px 0;
+}
+form.form-search button{
+	background:#303a42;
+	color:#ffffff;
+	width:85px;
+	text-align:center;
+	padding:1px 0 !important;
+	margin:23px 0 0 0;
+}
+form.form-search div.margin-b{
+	padding:0px 0 18px 0;
+}
+ul.border{
+	padding:20px 0 0 0;
+	border-top:1px solid #F6EFE9;
+	margin:24px 0 0 0;
+}
+ul.list p.ss-titre{
+	color:#e644ac;
+	font-style:italic;
+	font-weight:bold;
+	padding:0px 0 7px 0;
+}
+ul.list p.ss-titre span span{
+	font-size:14px;
+	background:none;
+	display:inline;
+}
+ul.list p.ss-titre span.picto{
+	display:block;
+	background:url('../images/price.png') 100% 0 no-repeat;
+	padding:4px 0 1px 0;
+}
+p.lien-bas a.reserver{
+	background:#ff8b33;
+	color:#ffffff;
+	font-weight:bold;
+	padding:3px 8px;
+	float:right;
+	margin:0 -12px 0 0;
+}
+p.lien-bas a:hover.reserver{
+	text-decoration:none;
+}
+.cp-coeur .lien-bas{
+	text-align:right;
+}
+.cp-coeur{
+	padding: 15px 13px 9px !important;
+}
+.cp-coeur h2{
+	margin:0 0 12px 0;
+}
+.cp-coeur h3{
+	font-size:14px;
+	padding:10px 0 13px 0;
+}
+ul li.spec-bis{
+	padding:0px 18px 10px 18px !important;
+}
+/****Liste hï¿½tels****/
+ul.bloc-search-left li span {
+    background: url("../images/fleche-r.png") no-repeat scroll 98% 50% #303A43;
+    color: #FFFFFF;
+    display: block;
+    font-weight: normal;
+    margin: 0;
+    padding: 2px 0px 2px 4px;
+}
+ul.bloc-search-left li ul.champs {
+    background:#faf9f7;
+	padding:11px 0 11px 4px;
+}
+ul.bloc-search-left li ul.champs li{
+    padding:0px 0 2px 0;
+}
+ul.bloc-search-left li ul.champs li.last{
+    padding:0px;
+}
+ul.bloc-search-left li ul.champs li input{
+    float:right;
+}
+ul.bloc-search-left li ul.champs li label{
+    float:left;
+}
+form.form-search-left h3{
+	padding:0px 0 7px 0;
+}
+h2.margin-b{
+	margin:0 0 19px 0;
+}
+ul.bloc-search-left li{
+    padding:0px 0 12px 0;
+}
+.chapeau-bis{
+	padding:22px 0 17px 0 !important;
+	line-height:15px !important;
+}
+p.map{
+	border:1px solid #E9E3DE;
+	padding:0px;
+	margin:0 0 8px 0;
+}
+.picto-hotel{
+	background:url('../images/picto-hotel.png') 0 50% no-repeat;
+	padding:6px 0 7px 28px;
+	display:block;
+	margin:0 0 13px 0;
+}
+div.pagination p.padding-l{
+	padding:0 0 0 10px;
+}
+ul.ss-titre-bis li{
+	display:inline;
+	float:left;
+	margin: 0px;
+    padding: 0px 5px 0 0 !important;
+    width: auto;
+	border:none;
+	background:url('../images/separator.png') 100% 50% no-repeat;
+}
+ul.ss-titre-bis li.last{
+	background:none;
+	padding: 0px 0px 0 5px !important;
+	font-weight:bold;
+}
+ul.ss-titre-bis{
+	overflow:hidden;
+	height:1%;
+	margin:0 0 8px 0;
+}
+.list-inline-bis{
+	overflow:hidden;
+	height:1%;
+	margin:11px 0 20px 0;
+}
+.list-inline-bis h3{
+	padding:13px 0 10px 0;
+}
+.list-inline-bis li{
+	display:inline;
+	float:left;
+	padding:13px 15px 9px 15px !important;
+	background:#faf9f7;
+	border:1px solid #e5e2dd;
+	width:278px;
+}
+.list-inline-bis li.first{
+	margin:0 16px 0 0;
+}
+.list-inline-bis li img{
+	float:none !important;
+	margin:0px !important;
+}
+ul p.ss-titre{
+	color:#00bbd6 !important;
+	font-style:italic !important;
+	font-weight:bold;
+	padding:0 0 8px 0px !important;
+}
+.list-inline-bis li p.lien-bas{
+	text-align:left;
+}
+.list-inline-bis li p.lien-bas a.picto3, 
+.list-block-bis li p.lien-bas a.picto3{
+	background: url("../images/picto3.gif") no-repeat scroll 0 50% transparent;
+	font-weight: bold;
+    padding: 3px 0 3px 25px;
+}
+.list-inline-bis li p.text, 
+.list-block-bis li p.text{
+	line-height:15px;
+	padding:9px 0 12px 0;
+}
+.padding-lr{
+	padding:15px 11px 9px;
+}
+.list-block-bis{
+	background:#faf9f7;
+}
+.list-block-bis img{
+	margin:0px !important;
+}
+.list-block-bis img, 
+.list-block-bis div{
+	float:left;
+}
+.list-block-bis div{
+	padding:0 0 0 34px;
+	width:414px;
+}
+.list-block-bis div.titre-container{
+	padding:0px;
+	width:auto;
+	float:none;
+	border-left:1px solid #d2cbc5;
+	padding:0px 0 0 8px;
+	position:relative;
+}
+.list-block-bis li{
+	padding:11px 14px 11px 14px !important;
+	border-top:1px solid #D2CBC5;
+}
+.list-block-bis h3{
+	padding:0 0 7px 0 !important;
+	font-size:14px;
+	overflow:hidden;
+	height:1%;
+}
+.list-block-bis ul.ss-titre-bis{
+	font-size:11px;
+}
+.list-block-bis li p.text{
+	padding:0px 0 12px 6px;
+}
+.list-block-bis p.ss-titre{
+	font-size:11px !important;
+	padding:0 0 8px 6px !important;
+}
+.list-block-bis p.ss-titre span span{
+	font-size:12px !important;
+}
+.list-block-bis h3 span img{
+	position:relative;
+	top:2px;
+	margin:0 1px 0 0px !important;
+}
+.list-block-bis h3 span.nom{
+	margin:0 10px 0 0;
+}
+.list-block-bis p.lien-bas{
+	padding:0 12px 0 6px !important;
+}
+.list-block-bis div.titre-container p{
+	position:absolute;
+	right:110px;
+	top:5px;
+}
+
+/* Ajouts Alexia */
+/* Bloc Accueil - Blog Flux RSS */
+.bloc-accueil-h2{
+	font-family: 'OmnesLight' !important;
+	font-size:32px !important;
+	font-weight: bold;
+}
+
+.bloc-accueil-h3{
+	font-family: 'OmnesMedium' !important;
+	font-size: 22px;
+	font-weight: normal;
+	color: #2B80B9;
+	padding: 0px 0px 10px 0px !important;
+}
+
+.bloc-type .float-d img {
+    position: relative;
+    top: 10px !important;
+}
+
+/* Bloc liste (page decouvrir, visites...) */
+.bloc-liste-h2{
+	font-family: 'OmnesLight';
+	font-size: 32px !important;
+	font-weight: bold;
+}
+
+.bloc-liste-h3{
+	font-family: 'OmnesMedium';
+	font-size: 22px;
+	font-weight: normal;
+	padding: 0px 0px 0px 0px !important;
+	margin: 10px 0px 10px 0px !important;
+}
+
+.bloc-liste-h3 a:hover{
+	text-decoration: none;
+}
+
+.liste-parente li{
+	width: 222px;
+}
+
+.liste-parente .autre{
+	margin-right: 20px;
+}
+
+.menu-gauche-h2{
+	font-family: 'OmnesLight';
+	font-size: 18px !important;
+	font-weight: bold;
+}
+
+/* Pagination (page visites, excursions) */
+.pagenavigator{
+	text-align: center;
+	background: none repeat scroll 0 0 #E5DCD3;
+    border: 1px solid #D6CDC4;
+}
+
+.pagenavigator p{
+	padding: 5px 10px 5px 10px;
+}
+
+.next{
+	float: right;
+}
+
+.previous{
+	float: left;
+}
+
+.current{
+	font-weight: bold;
+}
+
+/* Menu gauche (faq) */
+ul.menu-left li.actif a{
+	color: #FFFFFF;
 }

@@ -52,7 +52,7 @@
 		<![endif]-->
 {* Javascript *}
 {foreach ezini( 'JavaScriptSettings', 'JavaScriptList', 'design.ini' ) as $js_fichier }
-		<script type="text/javascript" src={concat( 'javascripts/', $js_fichier )|ezdesign}></script>
+		<script type="text/javascript" src={concat( 'javascript/', $js_fichier )|ezdesign}></script>
 {/foreach}
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
