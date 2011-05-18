@@ -15,7 +15,7 @@
 			<p class="clear"></p>
 			
 			<p class="chapeau">
-			{if $node.data_map.description}
+			{if is_set($node.data_map.description)}
 				{attribute_view_gui attribute = $node.data_map.description}
 			{/if}
 			</p>

@@ -20,7 +20,7 @@
 	<ul class="menu-left">
 	{foreach $liensHorizontaux as $keyVar =>$itemVar}
 		{set $liensHoriz = fetch('content', 'node', hash('node_id', $itemVar.node_id))}
-		{if eq($liensHoriz.name, $node.name)}
+		{if eq($liensHoriz.data_map.content.content.main_node_id, $node.node_id)}
 		<li class="actif">
 		{else}
 		<li>
