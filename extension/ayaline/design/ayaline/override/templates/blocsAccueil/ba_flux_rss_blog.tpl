@@ -19,7 +19,7 @@
 <ul>
 {foreach $feed.item as $item max $limit}
     <li>
-    	{if $item.enclosure.0.url}
+    	{if is_set($item.enclosure.0.url)}
         	<a href={$item.link.0.href|ezurl}><img width="130" src={$item.enclosure.0.url|ezurl} alt="{$item.title.text|wash}" /></a>
         {/if}
         
