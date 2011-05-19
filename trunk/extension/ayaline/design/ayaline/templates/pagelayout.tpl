@@ -98,7 +98,7 @@
 										<div class="ss-menu">
 											<ul class="top">
 {foreach $topicsList.children as $topic}
-{node_view_gui content_node=$topic view=line topicIds=$topicIds}
+{node_view_gui content_node=$topic view=line topicIds=$topicIds redirectURI=$module_result.uri|ezurl}
 {/foreach}
 											</ul>
 											<div class="clear"></div>
