@@ -8,7 +8,8 @@ DesignExtensions[]=ayaline
 CSSFileList[]=main.css
 
 [JavaScriptSettings]
-JavaScriptList[]=jquery.js
+# deja inclus dans l'extension ayaline_gallery
+#JavaScriptList[]=jquery.js
 JavaScriptList[]=menu_gauche_interne.js
 
 */ ?>
