@@ -21,15 +21,15 @@
 													'class_filter_type',  'include',
               										'class_filter_array', array('gallery_gallery_photo') ))}
 
-{def $parent = fetch('content','node', hash('node_id', $node.parent_node_id))}
+{def $compteurPhoto = 1}
 
 <div class="bloc-type padding-tl">
 
-	<h2 class="bloc-liste-h2">{$parent.name|wash}</h2>
+	<h2 class="bloc-liste-h2">{$node.parent.name|wash}</h2>
 	<p class="clear"></p>
 	
-	<p class="chapeau">
-		{attribute_view_gui attribute=$parent.data_map.description}			
+	<p class="chapeau gallery">
+		{attribute_view_gui attribute=$node.parent.data_map.description}			
 	</p>
 	
 	{* Formulaire de recherche *}
@@ -100,20 +100,27 @@
 						<p><a href={$gallery.url_alias|ezurl}>{$gallery.name|wash}</a></p>
 
 					</li>
+					{if eq($compteurPhoto|mod(3), 0)}
+						<p class="clear"></p>
+					{/if}
+					
+					{set $compteurPhoto = $compteurPhoto|inc}
 				{/foreach}
 			</ul>
 			<p class="clear"></p>
 		{else}
 			<div class="message">Aucune photo n'est disponible pour le moment.</div>
 		{/if}
-		
-		{include name=navigator
-        	uri='design:navigator/google.tpl'
-        	page_uri=$node.url_alias
-        	item_count=$photos_count
-         	view_parameters=$view_parameters
-         	item_limit=$limit}
         
 	</div>
+	
+	<div class="taille-pagination">
+		{include name=navigator
+	        uri='design:navigator/google.tpl'
+	        page_uri=$node.url_alias
+	        item_count=$galleries_count
+	         view_parameters=$view_parameters
+	         item_limit=$limit}
+     </div>
 	
 </div>

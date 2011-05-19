@@ -8,7 +8,7 @@
 	<h2 class="bloc-liste-h2">{$node.name|wash}</h2>
 	<p class="clear"></p>
 	
-	<p class="chapeau">
+	<p class="chapeau gallery">
 		{attribute_view_gui attribute=$node.data_map.description}			
 	</p>
 	
