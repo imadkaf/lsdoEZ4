@@ -13,7 +13,7 @@
               								
 <div class="ayaline-gallery">
 	<h1>{$node.name|wash}</h1>	
-	              											
+
 	<div class="gallery-content">
 		{include uri='design:gallery/tabs.tpl' rubriques=$rubriques}
 		<div class="gallery-tab-content">
