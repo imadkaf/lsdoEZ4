@@ -1196,7 +1196,7 @@ ul.list-right{
 .bloc-search input, 
 .bloc-search select{
 	width:260px;
-	float:left;
+	/* float:left; */
 	border:1px solid #cfcfcf;
 }
 .bloc-search input{
@@ -1218,7 +1218,7 @@ ul.list-right{
 	font-family:arial;
 	font-size:12px;
 	padding:2px 15px;
-	margin:0 0 0 33px;
+	/* margin:0 0 0 33px; */
 	cursor:pointer;
 }
 .menu-h{
@@ -1830,14 +1830,39 @@ ul p.ss-titre{
 	top:5px;
 }
 
-/* Ajouts Alexia */
+
+
+/*********************/
+/*** Ajouts Alexia ***/
+/*********************/
+
+/*** Pagination ***/
+.pagenavigator{
+	text-align: center;
+	background: none repeat scroll 0 0 #E5DCD3;
+    border: 1px solid #D6CDC4;
+}
+.pagenavigator p{
+	padding: 5px 10px 5px 10px;
+}
+.next{
+	float: right;
+}
+.previous{
+	float: left;
+}
+.current{
+	font-weight: bold;
+}
+
+
+/*** Page d'accueil ***/
 /* Bloc Accueil - Blog Flux RSS */
 .bloc-accueil-h2{
 	font-family: 'OmnesLight' !important;
 	font-size:32px !important;
 	font-weight: bold;
 }
-
 .bloc-accueil-h3{
 	font-family: 'OmnesMedium' !important;
 	font-size: 22px;
@@ -1845,19 +1870,19 @@ ul p.ss-titre{
 	color: #2B80B9;
 	padding: 0px 0px 10px 0px !important;
 }
-
 .bloc-type .float-d img {
     position: relative;
     top: 10px !important;
 }
 
+
+/*** Page des rubriques ***/
 /* Bloc liste (page decouvrir, visites...) */
 .bloc-liste-h2{
 	font-family: 'OmnesLight';
 	font-size: 32px !important;
 	font-weight: bold;
 }
-
 .bloc-liste-h3{
 	font-family: 'OmnesMedium';
 	font-size: 22px;
@@ -1865,49 +1890,53 @@ ul p.ss-titre{
 	padding: 0px 0px 0px 0px !important;
 	margin: 10px 0px 10px 0px !important;
 }
-
 .bloc-liste-h3 a:hover{
 	text-decoration: none;
 }
-
 .liste-parente li{
 	width: 222px;
 }
-
 .liste-parente .autre{
 	margin-right: 20px;
 }
-
 .menu-gauche-h2{
 	font-family: 'OmnesLight';
 	font-size: 18px !important;
 	font-weight: bold;
 }
 
-/* Pagination (page visites, excursions) */
-.pagenavigator{
-	text-align: center;
-	background: none repeat scroll 0 0 #E5DCD3;
-    border: 1px solid #D6CDC4;
-}
 
-.pagenavigator p{
-	padding: 5px 10px 5px 10px;
-}
-
-.next{
-	float: right;
-}
-
-.previous{
-	float: left;
-}
-
-.current{
-	font-weight: bold;
-}
-
+/*** Page FAQ ***/
 /* Menu gauche (faq) */
 ul.menu-left li.actif a{
 	color: #FFFFFF;
 }
+
+
+/*** Pages Médiathèque ***/
+/* Affichage du bloc de description de la Médiathèque */
+.chapeau.gallery{
+	margin-right: 102px;
+}
+/* Bloc de recherche dans les pages de la médiathèque */
+.bloc-search label{
+	margin-right: 10px;
+	font-weight:bold;
+}
+/* Bloc video dans la page de détail d'une video */
+.container-diapo .video{
+	text-align:center;
+}
+/* Bloc galerie Flickr dans la page de détail d'une galerie de type Flickr */
+.container-diapo .flickr{
+	text-align:center;
+}
+/* Pagination des pages de la médiathèque */
+.taille-pagination{
+	width: 1048px;
+	/*width: 1100px; ne pas toucher pour le moment */
+}
+
+/************************/
+/*** Fin ajout Alexia ***/
+/************************/
