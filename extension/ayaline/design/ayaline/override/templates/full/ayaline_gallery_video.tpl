@@ -21,17 +21,15 @@
 											'class_filter_type',  'include',
               								'class_filter_array', array('gallery_video') ))}
 
-{def $parent = fetch('content','node', hash('node_id', $node.parent_node_id))}
-
 {def $compteur = 1}
 
 <div class="bloc-type padding-tl">
 
-	<h2 class="bloc-liste-h2">{$parent.name|wash}</h2>
+	<h2 class="bloc-liste-h2">{$node.parent.name|wash}</h2>
 	<p class="clear"></p>
 	
-	<p class="chapeau">
-		{attribute_view_gui attribute=$parent.data_map.description}			
+	<p class="chapeau gallery">
+		{attribute_view_gui attribute=$node.parent.data_map.description}			
 	</p>
 	
 	<div class="menu-h">
@@ -58,14 +56,16 @@
 		{else}
 			<div class="message">Aucune video n'est disponible pour le moment.</div>
 		{/if}
-		
-		{include name=navigator
-        	uri='design:navigator/google.tpl'
-        	page_uri=$node.url_alias
-        	item_count=$videos_count
-        	view_parameters=$view_parameters
-        	item_limit=$limit}
         	
 	</div>
 	
+	<div class="taille-pagination">
+		{include name=navigator
+	        uri='design:navigator/google.tpl'
+	        page_uri=$node.url_alias
+	        item_count=$videos_count
+	        view_parameters=$view_parameters
+	        item_limit=$limit}
+	</div>
+		
 </div>

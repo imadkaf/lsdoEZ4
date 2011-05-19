@@ -12,13 +12,15 @@
 											'class_filter_type',  'include',
               								'class_filter_array', array('gallery_photo') ))}
 
-{def $parent = fetch('content','node', hash('node_id', $node.parent_node_id))}
-
 <div class="bloc-type padding-tl">
 	
-	<h2 class="bloc-liste-h2">{$parent.name|wash}</h2>
+	<h2 class="bloc-liste-h2">{$node.parent.parent.name|wash}</h2>
 	<p class="clear"></p>
 
+	<p class="chapeau gallery">
+		{attribute_view_gui attribute=$node.parent.parent.data_map.description}			
+	</p>
+	
 	{* Formulaire de recherche *}
 	<div class="bloc-search">
 		{include uri='design:gallery/search_form.tpl' rubriques=$rubriques}
@@ -40,25 +42,27 @@
 				
 		    {* Gallery or Flickr ? *} 										  										
 			{if $photos|count|gt(0)}
-				<div id="galleria">
+				<div class="slider">
 					
-					{foreach $photos as $photo}
-						{attribute_view_gui attribute=$photo.data_map.image link_to_image=true() title=$photo.name|wash}
-					{/foreach}
-					
-					<script type="text/javascript">
-						// Load the classic theme
-			   			Galleria.loadTheme({'javascript/galleria/themes/classic/galleria.classic.min.js'|ezdesign});
-			    
-						// Initialize Galleria
-						$('#galleria').galleria();
-					</script>
+					<div id="galleria">
+						{foreach $photos as $photo}
+							{attribute_view_gui attribute=$photo.data_map.image link_to_image=true() title=$photo.name|wash}
+						{/foreach}
+						
+						<script type="text/javascript">
+							// Load the classic theme
+				   			Galleria.loadTheme({'javascript/galleria/themes/classic/galleria.classic.min.js'|ezdesign});
+				    
+							// Initialize Galleria
+							$('#galleria').galleria();
+						</script>
+					</div>
 					
 				</div>
 				<div class="clear"></div>
 				
 			{elseif $node.data_map.flickr_tag.content|ne('')}
-				<div class="flickr">{$node.data_map.flickr_tag.content}</div>
+				<div class="flickr">{$node.data_map.flickr_tag.content}</div>				
 			{else}
 				<div class="message">Aucune photo n'est disponible pour le moment.</div>
 			{/if}
