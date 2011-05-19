@@ -4,7 +4,7 @@
 												'sort_by', $object.main_node.sort_array,
 												'class_filter_type',  'include',
 	              								'class_filter_array', array('gallery_photo') ))}
-	              								
+
     {* Gallery or Flickr ? *} 										  										
 	{if $photos|count|gt(0)}
 		<div id="galleria">
