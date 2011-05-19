@@ -28,6 +28,12 @@ MatchFile=full/ayaline_gallery_gallery_photo.tpl
 Subdir=templates
 Match[class_identifier]=gallery_gallery_photo
 
+[full_gallery_video]
+Source=node/view/full.tpl
+MatchFile=full/ayaline_video.tpl
+Subdir=templates
+Match[class_identifier]=gallery_video
+
 #Fin Mediatheque
 
 [line_brochure]
