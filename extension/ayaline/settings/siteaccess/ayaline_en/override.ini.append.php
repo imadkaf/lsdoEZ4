@@ -2,6 +2,34 @@
 
 #ayaline
 
+#Mediatheque
+
+[full_ayaline_gallery]
+Source=node/view/full.tpl
+MatchFile=full/ayaline_gallery.tpl
+Subdir=templates
+Match[class_identifier]=ayaline_gallery
+
+[full_ayaline_gallery_video]
+Source=node/view/full.tpl
+MatchFile=full/ayaline_gallery_video.tpl
+Subdir=templates
+Match[class_identifier]=gallery_category_video
+
+[full_ayaline_gallery_photo]
+Source=node/view/full.tpl
+MatchFile=full/ayaline_gallery_photo.tpl
+Subdir=templates
+Match[class_identifier]=gallery_category_photo
+
+[full_gallery_gallery_photo]
+Source=node/view/full.tpl
+MatchFile=full/ayaline_gallery_gallery_photo.tpl
+Subdir=templates
+Match[class_identifier]=gallery_gallery_photo
+
+#Fin Mediatheque
+
 [line_brochure]
 Source=node/view/line.tpl
 MatchFile=line/brochure.tpl
