@@ -1836,6 +1836,12 @@ ul p.ss-titre{
 /*** Ajouts Alexia ***/
 /*********************/
 
+/*** Fil d'ariane ***/
+.fil-ariane{
+	margin-left: 34px;
+}
+
+
 /*** Pagination ***/
 .pagenavigator{
 	text-align: center;
@@ -1935,6 +1941,19 @@ ul.menu-left li.actif a{
 .taille-pagination{
 	width: 1048px;
 	/*width: 1100px; ne pas toucher pour le moment */
+}
+
+
+/*** Page Plan du site ***/
+.site-map ul li{
+	margin: 0px 0px 10px 0px;
+	padding: 0px;
+}
+.site-map ul li ul li{
+	margin: 0px 0px 5px 10px;
+}
+.site-map ul li ul li ul li{
+	margin: 0px 0px 0px 30px;
 }
 
 /************************/
