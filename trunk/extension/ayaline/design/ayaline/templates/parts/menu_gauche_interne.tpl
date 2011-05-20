@@ -25,7 +25,7 @@
 		<li>
 		{/if}
 			<span>{$childP.name}</span>
-			{if $childParent|count}
+			{if $children1|count}
 				<ul class="s-menu">
 				{foreach $children1 as $child}
 					<li><a href={$child.url_alias|ezurl}>{$child.name}</a></li>
