@@ -2,6 +2,11 @@
 
 #ayaline
 
+[full_defaut]
+Source=node/view/full.tpl
+MatchFile=node/view/full.tpl
+Subdir=templates
+
 #Mediatheque
 
 [full_ayaline_gallery]
