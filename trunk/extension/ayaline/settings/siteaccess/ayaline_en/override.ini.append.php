@@ -2,10 +2,16 @@
 
 #ayaline
 
-[full_defaut]
+[full_sitemap_list]
 Source=node/view/full.tpl
-MatchFile=node/view/full.tpl
+MatchFile=full/sitemap_list.tpl
 Subdir=templates
+Match[class_identifier]=site_map
+
+#[full_defaut]
+#Source=node/view/full.tpl
+#MatchFile=node/view/full.tpl
+#Subdir=templates
 
 #Mediatheque
 
