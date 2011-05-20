@@ -1,7 +1,7 @@
 <?php /*
 
-[TemplateSettings]
-ExtensionAutoloadPath[]=ez_sitemap
+#[TemplateSettings]
+#ExtensionAutoloadPath[]=ez_sitemap
 
 [RegionalSettings]
 TranslationExtensions[]=ez_sitemap
