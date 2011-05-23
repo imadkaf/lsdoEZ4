@@ -1,9 +1,10 @@
 {def $nb_max = 4 }
+{def $childrenShowed = $node.children|extract($view_parameters.offset,$nb_max)}
 			<div class="bloc-left-bis">
 				<div class="bloc-left-in-bis">
 					<div class="bloc-type">
 						<h2 class="menu-gauche-h2">
-							{attribute_view_gui attribute = $parent1.data_map.title}
+							{attribute_view_gui attribute = $node.parent.data_map.title}
 						</h2>
 						<p class="clear"></p>
 						<ul class="menu-left">
@@ -30,20 +31,22 @@
 								{attribute_view_gui attribute = $node.data_map.short_description}
 							</p>
 							<ul class="list">
-{foreach $node.children as $enfants sequence array( 'first', '' ) as $style}
+{foreach $childrenShowed as $enfants sequence array( 'first', '' ) as $style}
 								<li class="{$style}">
 									{node_view_gui content_node=$enfants view='line'}
 								</li>
 {/foreach}
-		</ul>
+							</ul>
 			{* Affichage de la pagination *}
 			{include 
-				name=navigator 
+				view_name='rubric'
 				uri='design:navigator/google.tpl' 
 				page_uri=$node.url_alias
-				item_count=$nb_elements
+				item_count=$node.children|count
 				view_parameters=$view_parameters 
 				item_limit=$nb_max
+				left_max=1
+				right_max=1
 			}
 						</div>
 					</div>

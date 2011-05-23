@@ -13,8 +13,7 @@
 {attribute_view_gui attribute = $node.data_map.thumbnail}
 
 <p>
-	{set $description = $node.data_map.short_description.content|word_cut(15)}
-	{$description|wash}...
+	{$node.data_map.short_description.content|wash|shorten(90)}
 </p>
 
 <p class="lien-bas">
