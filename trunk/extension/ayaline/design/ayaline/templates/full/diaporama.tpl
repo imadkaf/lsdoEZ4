@@ -188,5 +188,38 @@
 					<div id="headerimg2" class="headerimg"></div>
 				</div>
 				<!---->
+{else}
+	{def $defaultDiapo = false()}
+	{def $img_attribute = array()}
+	{if is_set($cNode.data_map.diapo)}
+		{if $cNode.data_map.diapo.has_content}
+			{set $img_attribute = $cNode.data_map.diapo}
+		{else}
+			{set $defaultDiapo = true()}
+		{/if}
+	{else}
+		{set $defaultDiapo = true()}
+	{/if}
+	{if $defaultDiapo}
+		{def $nodeSeasons = fetch(content, node, hash(node_id, ezini('NodeSettings','SeasonListNode','content.ini')))}
+		{foreach $nodeSeasons.children as $nodeSeason}
+			{if and($nodeSeason.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($nodeSeason.data_map.title.value.0))}
+				{if $nodeSeason.data_map.title.value.0|eq($saisonId)}
+					{if $nodeSeason.children|count}
+						{foreach $nodeSeason.children.0.data_map as $attribute}
+							{if $attribute.data_type_string|eq('ezimage')}
+								{set $img_attribute = $attribute}
+								{break}
+							{/if}
+						{/foreach}
+					{/if}
+				{/if}
+			{/if}
+		{/foreach}
+	{/if}
+				<div id="headerdiapos">
+					{attribute_view_gui attribute=$img_attribute img_class='headerdiapo' image_class='diapo_header' dimension=false()}
+				</div>
+	{undef $defaultDiapo $img_attribute}
 {/if}
 {undef $diaporamas $url}

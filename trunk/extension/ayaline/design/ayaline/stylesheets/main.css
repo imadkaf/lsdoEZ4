@@ -146,6 +146,16 @@ body {
 ############################################################################ */	
 /* Header ***************************************************************** */
 
+#headerdiapos{
+	text-align:center;
+}
+
+.headerdiapo {
+	position:relative;
+    height: 500px;
+	margin-bottom:-500px;
+    width:1500px;
+}
 .headerimg {
     background-position: center top;
     background-repeat: no-repeat;
@@ -166,6 +176,7 @@ body {
 }
 .header-in h1{
 	float:left;
+	width:500px;
 }
 .header-in h1 a:hover{
 	text-decoration:none;

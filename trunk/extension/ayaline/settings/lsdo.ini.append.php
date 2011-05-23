@@ -1,2 +1,0 @@
-[main]
-defaultSeasonId=3
