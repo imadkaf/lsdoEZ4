@@ -1387,8 +1387,8 @@ ul.liste .lien-bas{
 	line-height:14px !important;
 }
 .pagination ul.pagin{
-	float:left;
-	margin:0 150px 0 300px;
+	width:53px;
+	margin:0 Auto;
 }
 .no-margin{
 	padding: 5px 0px 5px 0px;

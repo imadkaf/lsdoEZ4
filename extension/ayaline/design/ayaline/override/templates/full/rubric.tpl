@@ -1,5 +1,5 @@
 {if eq($node.class_identifier, $node.parent.object.class_identifier)}
-	{node_view_gui content_node=$node view='full_left_menu'}
+	{node_view_gui content_node=$node view='full_left_menu' view_parameters=$view_parameters}
 {else}
 				<div class="bloc-left-bis">
 					<div class="bloc-type padding-35px-32px">
