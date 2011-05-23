@@ -13,5 +13,6 @@ ActiveExtensions[]=ezprestapiprovider
 ActiveExtensions[]=ez_aya_diaporama
 ActiveExtensions[]=ezurlga
 ActiveExtensions[]=ezreferencement
+ActiveExtensions[]=ayaline_gallery
 
 */ ?>

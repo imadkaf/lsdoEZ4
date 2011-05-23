@@ -1,6 +1,5 @@
 {def $cNode = fetch(content, node, hash(node_id, $module_result.node_id))}
 {def $rNode = fetch('content','node', hash('node_id',  ezini('NodeSettings','RootNode','content.ini')))}
-{def $sMenus = array()}
 {def $attributes=fetch( 'class', 'attribute_list', hash( 'class_id', ezini('ClassSettings','ClassSeasonId','content.ini') ) )}
 {def $nbSaison = 0}
 {def $saison = array()}
@@ -8,7 +7,7 @@
 {if ezhttp('saison', 'session', 'hasVariable')}
 	{def $saisonId = ezhttp('saison', 'session')}
 {else}
-	{def $saisonId = 3}
+	{def $saisonId = ezini('main','defaultSeasonId','lsdo.ini')}
 {/if}
 {if ezhttp('topics', 'session', 'hasVariable')}
 	{def $topicIds = ezhttp('topics', 'session')}
@@ -38,9 +37,8 @@
 						</h1>
 						<div class="header-in-right">
 {if $rNode.data_map.header_menu.has_content}
-	{set $sMenus = fetch('content', 'list', hash('parent_node_id', $rNode.data_map.header_menu.content.main_node_id, 'sort_by', $rNode.data_map.header_menu.content.main_node.sort_array))}
 							<ul class="list-top">
-	{foreach $sMenus as $sMenu}
+	{foreach $rNode.data_map.header_menu.content.main_node.children as $sMenu}
 		<li>{node_view_gui content_node=$sMenu view='menu'}</li>
 	{/foreach}
 {*Gestion des langues*}
@@ -85,11 +83,10 @@
 							</div>
 							<div class="clear"></div>
 {if $rNode.data_map.main_menu.has_content}
-	{set $sMenus = fetch('content', 'list', hash('parent_node_id', $rNode.data_map.main_menu.content.main_node_id, 'sort_by', $rNode.data_map.main_menu.content.main_node.sort_array, 'limit', 3))}
 							<div class="menu">
 								<ul>
 	{def $mainMenuShowed = false()}
-	{foreach $sMenus as $key => $sMenu}
+	{foreach $rNode.data_map.main_menu.content.main_node.children as $key => $sMenu}
 									<li class="rubrique{$key}">
 										<a class="element" href={$sMenu.data_map.content.content.main_node.url_alias|ezurl}><span></span></a>
 {*
@@ -129,7 +126,9 @@
 						{set $mainMenuShowed = true()}
 					{/if}
 					{if $mainMenuShowed}
-{node_view_gui content_node=$nodeRubric.data_map.content.content.main_node view=main_menu style=$style}
+												<li class="{$style}">
+{node_view_gui content_node=$nodeRubric.data_map.content.content.main_node view=main_menu}
+												</li>
 						{set $mainMenuShowed = false()}
 					{/if}
 				{/if}
@@ -172,4 +171,4 @@
 		</div>
 	</body>
 </html>
-{undef $cNode $rNode $sMenus $attributes $nbSaison $saison $curLang $topicsList}
+{undef $cNode $rNode $attributes $nbSaison $saison $curLang $topicsList}

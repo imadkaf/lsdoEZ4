@@ -4,7 +4,7 @@
 
 [SiteSettings]
 SiteName=LSDO
-SiteURL=lsdo.loc
+SiteURL=dev.lsdo.loc
 LoginPage=embedded
 
 [UserSettings]
@@ -23,7 +23,6 @@ AdditionalSiteDesignList[]=base
 
 [RegionalSettings]
 Locale=fre-FR
-ContentObjectLocale=fre-FR
 SiteLanguageList[]=fre-FR
 TextTranslation=enabled
 
