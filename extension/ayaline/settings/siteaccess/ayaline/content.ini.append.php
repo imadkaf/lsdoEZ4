@@ -8,6 +8,7 @@ AvailableSiteDesignList[]=admin
 
 [ClassSettings]
 ClassSeasonId=37
+DefaultSeasonId=3
 ClassSubMenuIdentifier=sub_menu
 ClassRubricIdentifier=rubric
 
@@ -16,4 +17,5 @@ ClassAttributeSeasonIdentifier=title
 
 [NodeSettings]
 topicListNode=121
+SeasonListNode=342
 */ ?>
