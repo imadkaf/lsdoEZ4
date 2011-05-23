@@ -1,0 +1,2 @@
+[main]
+defaultSeasonId=3

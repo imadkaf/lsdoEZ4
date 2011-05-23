@@ -2,4 +2,7 @@
 
 [CharacterSettings]
 Charset=utf-8
+
+[TranslationSettings]
+FallbackLanguages[fre-FR]=fre-FR
 */ ?>

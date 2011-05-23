@@ -145,6 +145,12 @@ MatchFile=main_menu/rubric.tpl
 Subdir=templates
 Match[class_identifier]=rubric
 
+[full_left_menu_rubric]
+Source=node/view/full_left_menu.tpl
+MatchFile=full_left_menu/rubric.tpl
+Subdir=templates
+Match[class_identifier]=rubric
+
 [line_topic]
 Source=node/view/line.tpl
 MatchFile=line/topic.tpl

@@ -114,13 +114,13 @@ Subdir=templates
 Match[class_identifier]=home
 
 	#Navigation
-
+	
 [menu_lien_externe]
 Source=node/view/menu.tpl
 MatchFile=menu/lien_externe.tpl
 Subdir=templates
 Match[class_identifier]=lien_externe
-
+	
 [menu_simple_free_content]
 Source=node/view/menu.tpl
 MatchFile=menu/simple_free_content.tpl
@@ -142,6 +142,12 @@ Match[class_identifier]=sub_menu
 [main_menu_rubric]
 Source=node/view/main_menu.tpl
 MatchFile=main_menu/rubric.tpl
+Subdir=templates
+Match[class_identifier]=rubric
+
+[full_left_menu_rubric]
+Source=node/view/full_left_menu.tpl
+MatchFile=full_left_menu/rubric.tpl
 Subdir=templates
 Match[class_identifier]=rubric
 

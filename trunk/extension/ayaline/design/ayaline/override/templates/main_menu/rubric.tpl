@@ -1,4 +1,3 @@
-												<li class="{$style}">
 {if $node.data_map.thumbnail.has_content}
 													{attribute_view_gui attribute = $node.data_map.thumbnail image_class='main_menu' href=$node.url_alias|ezurl}
 {/if}
@@ -8,4 +7,3 @@
 														{attribute_view_gui attribute = $node.data_map.short_description nbChar=60}
 													</p>
 {/if}
-												</li>
