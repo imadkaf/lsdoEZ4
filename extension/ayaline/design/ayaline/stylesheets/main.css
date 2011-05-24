@@ -1398,8 +1398,8 @@ ul.liste .lien-bas{
 	line-height:14px !important;
 }
 .pagination ul.pagin{
-	width:89px;
-	margin:0 Auto;
+	float:left;
+	margin:0 150px 0 300px;
 }
 .no-margin{
 	padding: 5px 0px 5px 0px;
@@ -1965,6 +1965,57 @@ ul.menu-left li.actif a{
 }
 .site-map ul li ul li ul li{
 	margin: 0px 0px 0px 30px;
+}
+
+
+/*** Page de formulaire ***/
+.content-view-full{
+	background: white;
+	padding: 30px;
+	margin-bottom: 15px;
+}
+.survey-view{
+	background: #F6EFE9;
+	border: 1px solid #E9E3DE;
+	margin: 20px 0px 20px 0px;
+	padding: 20px 0px 20px 30px;
+}
+.survey-view .block{
+	margin-top: 15px;
+}
+.survey-view .block h2{
+	font-size: 14px;
+}
+.survey-view .block .lsdo-label{
+	float: left;
+	width: 100px;
+	margin-right: 15px;
+}
+.survey-view .radio-ligne{
+	float: left;
+	margin-right: 15px;
+}
+.survey-view .radio-ligne span{
+	position: relative;
+	bottom: 2px;
+	left: 3px;
+}
+.checkbox-column span{
+	position: relative;
+	bottom: 2px;
+	left: 2px;
+}
+.survey-view .block .non-textarea{
+	text-align: right;
+}
+.survey-view .button{
+	margin-left: 115px;
+}
+.survey-view .button-envoyer, .survey-view .button-effacer{
+	margin: 20px 0px 30px 0px;
+}
+.survey-view .button-effacer{
+	margin-right: 10px;
 }
 
 /************************/
