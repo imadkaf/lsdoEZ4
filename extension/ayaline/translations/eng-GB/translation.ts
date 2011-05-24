@@ -8,4 +8,18 @@
         <translation>Language</translation>
     </message>
 </context>
+<context>
+    <name>ayaline/pageSuivante</name>
+    <message>
+        <source>Page suivante</source>
+        <translation>Next page</translation>
+    </message>
+</context>
+<context>
+    <name>ayaline/pagePrecedente</name>
+    <message>
+        <source>Page précédente</source>
+        <translation>Previous page</translation>
+    </message>
+</context>
 </TS>

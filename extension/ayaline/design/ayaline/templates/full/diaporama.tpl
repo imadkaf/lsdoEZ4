@@ -1,7 +1,10 @@
 {* Récupération du diaporama associé à la page courante *}
-{def $diaporamas=fetch( 'content', 'reverse_related_objects',
-                     hash( 'object_id',            $cNode.contentobject_id,
-                           'attribute_identifier', 'diaporama/pages_cibles' ) )}
+{def $diaporamas=array()}
+{if is_set($cNode.node_id)}
+	{set $diaporamas=fetch( 'content', 'reverse_related_objects',
+	                     hash( 'object_id',            $cNode.contentobject_id,
+	                           'attribute_identifier', 'diaporama/pages_cibles' ) )}
+{/if}
 {def $url = ""}
 {if $diaporamas|count}
 	{* Récupération des diapos du diaporama *}
@@ -168,18 +171,6 @@
 						});
 						
 					});
-	
-					function showHideSelect(select)
-					{
-					    var objSelect = document.getElementById(select);
-					    objSelect.style.display = (objSelect.style.display == 'block') ? 'none' : 'block';
-					}
-					function validAndHide(txt, obj, input, select)
-					{
-					    document.getElementsByName(input).value = txt;
-					    obj.parentNode.parentNode.style.display = 'none';
-					    document.getElementById(select).innerHTML = obj.innerHTML;
-					}
 				</script>
 {/literal}
 				<!-- jQuery handles to place the header background images -->

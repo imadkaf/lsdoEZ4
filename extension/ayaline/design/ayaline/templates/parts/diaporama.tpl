@@ -1,7 +1,10 @@
 {* Récupération du diaporama associé à la page courante *}
-{def $diaporamas=fetch( 'content', 'reverse_related_objects',
-                     hash( 'object_id',            $cNode.contentobject_id,
-                           'attribute_identifier', 'diaporama/pages_cibles' ) )}
+{def $diaporamas=array()}
+{if is_set($cNode.node_id)}
+	{set $diaporamas=fetch( 'content', 'reverse_related_objects',
+	                     hash( 'object_id',            $cNode.contentobject_id,
+	                           'attribute_identifier', 'diaporama/pages_cibles' ) )}
+{/if}
 {if $diaporamas|count}
 				<!-- Slideshow controls -->
 				<div id="headernav-outer">						

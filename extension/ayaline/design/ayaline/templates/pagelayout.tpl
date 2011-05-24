@@ -1,4 +1,7 @@
-{def $cNode = fetch(content, node, hash(node_id, $module_result.node_id))}
+{def $cNode = array()}
+{if is_set($module_result.node_id)}
+	{set $cNode = fetch(content, node, hash(node_id, $module_result.node_id))}
+{/if}
 {def $rNode = fetch('content','node', hash('node_id',  ezini('NodeSettings','RootNode','content.ini')))}
 {def $attributes=fetch( 'class', 'attribute_list', hash( 'class_id', ezini('ClassSettings','ClassSeasonId','content.ini') ) )}
 {def $nbSaison = 0}
@@ -75,9 +78,9 @@
 							</ul>
 {/if}
 							<div class="search">
-								<form method="post" action="#">
+								<form action={"/content/search/"|ezurl} method="get">
 									<label for="recherche" class="none">Votre recherche</label>
-									<input type="text" name="recherche" onblur="if(this.value=='')this.value='Votre recherche'" onfocus="if(this.value=='Votre recherche')this.value=''" value="Votre recherche" id="recherche" />
+									<input type="text" name="SearchText" onblur="if(this.value=='')this.value='Votre recherche'" onfocus="if(this.value=='Votre recherche')this.value=''" value="Votre recherche" id="recherche" />
 									<button type="submit"><span class="none">OK</span></button>
 								</form>
 							</div>
@@ -151,7 +154,7 @@
 {include uri='design:parts/diaporama.tpl'}
 			</div>
 			<div class="clear"></div>
-
+{if is_set($cNode.node_id)}
 			{if ne($cNode.node_id, 2)}
 				<p class="fil-ariane">
 				{foreach $module_result.path as $Path}
@@ -163,6 +166,7 @@
 				{/foreach}
 				</p>
 			{/if}
+{/if}
 			
 			<div class="content">
 {$module_result.content}
