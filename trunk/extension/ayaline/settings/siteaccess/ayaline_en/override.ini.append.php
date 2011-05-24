@@ -2,6 +2,12 @@
 
 #ayaline
 
+[full_survey]
+Source=node/view/full.tpl
+MatchFile=full/survey.tpl
+Subdir=templates
+Match[class_identifier]=survey
+
 [full_sitemap_list]
 Source=node/view/full.tpl
 MatchFile=full/sitemap_list.tpl
@@ -14,6 +20,12 @@ Match[class_identifier]=site_map
 #Subdir=templates
 
 #Mediatheque
+
+[full_detail_video]
+Source=node/view/full.tpl
+MatchFile=full/ayaline_video.tpl
+Subdir=templates
+Match[class_identifier]=gallery_video
 
 [full_ayaline_gallery]
 Source=node/view/full.tpl
