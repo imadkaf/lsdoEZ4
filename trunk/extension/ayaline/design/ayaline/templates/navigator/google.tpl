@@ -1,6 +1,7 @@
-		{default page_uri_suffix=false()
+{default page_uri_suffix=false()
          left_max=7
-         right_max=6}
+         right_max=6
+         view_name='default'}
 {default name=ViewParameter
          page_uri_suffix=false()
          left_max=$left_max
@@ -32,7 +33,7 @@
 							<div class="pagination no-margin">
 						     {switch match=$:item_previous|lt(0) }
 						       {case match=0}
-								<p class="float-g"><a href={concat($page_uri,$:item_previous|gt(0)|choose('',concat($:offset_text,$:item_previous)),$:view_parameter_text,$page_uri_suffix)|ezurl}>&lt; Page précédente</a></p>
+								<p class="float-g"><a href={concat($page_uri,$:item_previous|gt(0)|choose('',concat($:offset_text,$:item_previous)),$:view_parameter_text,$page_uri_suffix)|ezurl}>&lt; {"Page précédente"|i18n("ayaline/pagePrecedente")}</a></p>
 						       {/case}
 						       {case match=1}
 						       {/case}
@@ -54,7 +55,7 @@
 								</ul>
 						    {switch match=$:item_next|lt($item_count)}
 						      {case match=1}
-								<p class="float-d"><a href={concat($page_uri,$:offset_text,$:item_next,$:view_parameter_text,$page_uri_suffix)|ezurl}>Page suivante &gt;</a></p>
+								<p class="float-d"><a href={concat($page_uri,$:offset_text,$:item_next,$:view_parameter_text,$page_uri_suffix)|ezurl}>{"Page suivante"|i18n("ayaline/pageSuivante")} &gt;</a></p>
 						      {/case}
 						      {case}
 						      {/case}

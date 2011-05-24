@@ -7,4 +7,6 @@ DesignExtensions[]=ayaline
 [StylesheetSettings]
 CSSFileList[]=main.css
 
+[JavaScriptSettings]
+JavaScriptList[]=script.js
 */ ?>
