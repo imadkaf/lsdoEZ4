@@ -43,7 +43,9 @@
 			{foreach $videos as $video}
 				<li {if eq($compteur, 1)}class="first"{/if}>
 					<p class="box-img">
-						<a href={$video.url_alias|ezurl}>{attribute_view_gui attribute=$video.data_map.thumbnail image_class=medium}</a>
+						{*<a href={$video.url_alias|ezurl}>{attribute_view_gui attribute=$video.data_map.thumbnail image_class=medium}</a>*}
+						<a class="link-popin" target="_blank" href={concat('layout/set/vide/', $video.url_alias)|ezurl}>{attribute_view_gui attribute=$video.data_map.thumbnail image_class=medium}</a>
+						<a class="link-popin" target="_blank" href="/layout/set/vide/configuration-generale/Le-saviez-vous/Creation-d-emploi">En savoir plus</a>
 					</p>
 					<h3 class="titre"><a href={$video.url_alias|ezurl}>{$video.name|wash}</a></h3>
 					<p class="text">
