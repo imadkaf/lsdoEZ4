@@ -15,5 +15,6 @@ ShowClasses[]=webcams
 ShowClasses[]=webcam
 ShowClasses[]=gallery_photo
 ShowClasses[]=gallery_video
+ShowClasses[]=survey
 
 */ ?>
