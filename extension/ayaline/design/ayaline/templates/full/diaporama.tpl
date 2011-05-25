@@ -182,11 +182,28 @@
 {else}
 	{def $defaultDiapo = false()}
 	{def $img_attribute = array()}
+	{def $pNode = array()}
+	{def $continue = true()}
 	{if is_set($cNode.data_map.diapo)}
 		{if $cNode.data_map.diapo.has_content}
 			{set $img_attribute = $cNode.data_map.diapo}
 		{else}
-			{set $defaultDiapo = true()}
+			{set $pNode = $cNode.parent}
+			{while $continue}
+				{if eq($pNode.class_identifier, ezini('ClassSettings','ClassRubricIdentifier','content.ini'))}
+					{if $pNode.data_map.diapo.has_content}
+						{set $img_attribute = $pNode.data_map.diapo}
+						{set $continue = false()}
+						{break}
+					{/if}
+					{set $pNode = $pNode.parent}
+				{else}
+					{set $continue = false()}
+				{/if}
+			{/while}
+			{if eq(0, $img_attribute|count)}
+				{set $defaultDiapo = true()}
+			{/if}
 		{/if}
 	{else}
 		{set $defaultDiapo = true()}

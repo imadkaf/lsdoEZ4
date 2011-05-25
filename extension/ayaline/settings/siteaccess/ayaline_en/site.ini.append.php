@@ -21,6 +21,7 @@ AdditionalSiteDesignList[]=base
 
 [RegionalSettings]
 Locale=eng-GB
+ContentObjectLocale=eng-GB
 SiteLanguageList[]=eng-GB
 SiteLanguageList[]=fre-FR
 TextTranslation=enabled

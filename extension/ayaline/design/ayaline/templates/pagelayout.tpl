@@ -92,54 +92,54 @@
 	{foreach $rNode.data_map.main_menu.content.main_node.children as $key => $sMenu}
 									<li class="rubrique{$key}">
 										<a class="element" href={$sMenu.data_map.content.content.main_node.url_alias|ezurl}><span></span></a>
-{*
-	Gestion des sous-menu du menu général
-*}
+	{*
+		Gestion des sous-menu du menu général
+	*}
 										<div class="ss-menu">
 											<ul class="top">
-{foreach $topicsList.children as $topic}
-{node_view_gui content_node=$topic view=line topicIds=$topicIds redirectURI=$module_result.uri|ezurl}
-{/foreach}
+		{foreach $topicsList.children as $topic}
+		{node_view_gui content_node=$topic view=line topicIds=$topicIds redirectURI=$module_result.uri|ezurl}
+		{/foreach}
 											</ul>
 											<div class="clear"></div>
 											<ul class="bottom">
-{foreach $sMenu.children as $nodeSeason}
-	{if and($nodeSeason.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($nodeSeason.data_map.title.value.0))}
-		{if $nodeSeason.data_map.title.value.0|eq($saisonId)}
-			{foreach $nodeSeason.children as $nodeRubric sequence array( '', 'right' ) as $style}
-				{if $nodeRubric.class_identifier|eq(ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
-					{if $topicIds|count}
-						{if $nodeRubric.data_map.content.content.main_node.class_identifier|eq(ezini('ClassSettings','ClassRubricIdentifier','content.ini'))}
-							{if $nodeRubric.data_map.content.content.main_node.data_map.topics.content.relation_list|count}
-								{foreach $nodeRubric.data_map.content.content.main_node.data_map.topics.content.relation_list as $relation}
-									{foreach $topicIds as $topicId}
-										{if $relation.node_id|eq($topicId)}
-											{set $mainMenuShowed = true()}
-											{break}
-										{/if}
-									{/foreach}
-								{/foreach}
+		{foreach $sMenu.children as $nodeSeason}
+			{if and($nodeSeason.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($nodeSeason.data_map.title.value.0))}
+				{if $nodeSeason.data_map.title.value.0|eq($saisonId)}
+					{foreach $nodeSeason.children as $nodeRubric sequence array( '', 'right' ) as $style}
+						{if $nodeRubric.class_identifier|eq(ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
+							{if $topicIds|count}
+								{if $nodeRubric.data_map.content.content.main_node.class_identifier|eq(ezini('ClassSettings','ClassRubricIdentifier','content.ini'))}
+									{if $nodeRubric.data_map.content.content.main_node.data_map.topics.content.relation_list|count}
+										{foreach $nodeRubric.data_map.content.content.main_node.data_map.topics.content.relation_list as $relation}
+											{foreach $topicIds as $topicId}
+												{if $relation.node_id|eq($topicId)}
+													{set $mainMenuShowed = true()}
+													{break}
+												{/if}
+											{/foreach}
+										{/foreach}
+									{else}
+										{set $mainMenuShowed = true()}
+									{/if}
+								{else}
+									{set $mainMenuShowed = true()}
+								{/if}
 							{else}
 								{set $mainMenuShowed = true()}
 							{/if}
-						{else}
-							{set $mainMenuShowed = true()}
-						{/if}
-					{else}
-						{set $mainMenuShowed = true()}
-					{/if}
-					{if $mainMenuShowed}
+							{if $mainMenuShowed}
 												<li class="{$style}">
-{node_view_gui content_node=$nodeRubric.data_map.content.content.main_node view=main_menu}
+{node_view_gui content_node=$nodeRubric.data_map.content.content.main_node view=main_menu name=$nodeRubric.name}
 												</li>
-						{set $mainMenuShowed = false()}
-					{/if}
+								{set $mainMenuShowed = false()}
+							{/if}
+						{/if}
+					{/foreach}
+					{break}	
 				{/if}
-			{/foreach}
-			{break}	
-		{/if}
-	{/if}
-{/foreach}
+			{/if}
+		{/foreach}
 											</ul>
 										</div>
 									</li>
@@ -155,17 +155,17 @@
 			</div>
 			<div class="clear"></div>
 {if is_set($cNode.node_id)}
-			{if ne($cNode.node_id, 2)}
+	{if ne($cNode.node_id, 2)}
 				<p class="fil-ariane">
-				{foreach $module_result.path as $Path}
-				{if $Path.url}
+		{foreach $module_result.path as $Path}
+			{if $Path.url}
 					<a href={$Path.url_alias|ezroot}>{$Path.text|wash}</a> >
-				{else}
+			{else}
 					<strong>{$Path.text|wash}</strong>
-				{/if}
-				{/foreach}
-				</p>
 			{/if}
+		{/foreach}
+				</p>
+	{/if}
 {/if}
 			
 			<div class="content">
