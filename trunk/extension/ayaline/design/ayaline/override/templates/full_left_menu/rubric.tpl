@@ -1,7 +1,7 @@
 {if ezhttp('saison', 'session', 'hasVariable')}
 	{def $saisonId = ezhttp('saison', 'session')}
 {else}
-	{def $saisonId = ezini('main','defaultSeasonId','lsdo.ini')}
+	{def $saisonId = ezini('ClassSettings','DefaultSeasonId','content.ini')}
 {/if}
 {if ezhttp('topics', 'session', 'hasVariable')}
 	{def $topicIds = ezhttp('topics', 'session')}
