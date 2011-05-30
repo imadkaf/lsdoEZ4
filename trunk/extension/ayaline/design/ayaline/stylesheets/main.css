@@ -2018,6 +2018,55 @@ ul.menu-left li.actif a{
 	margin-right: 10px;
 }
 
+
+/*** Page Contactez-nous ***/
+.page-contact .chapeau{
+	margin-right: 30px;
+	padding: 0px 0 25px 0px !important;
+}
+.page-contact .bloc-error h2{
+	color: #E643AC;
+}
+.page-contact .bloc-error{
+	border-bottom:1px solid #E9E3DE;
+	padding-bottom: 25px;
+	margin-bottom: 25px;
+}
+.page-contact .label-erreur{
+	width: 100px;
+	float: left;
+	text-align: right;
+}
+.page-contact textarea{
+	height: 50px;
+}
+.page-contact .deux-colonnes input{
+	width: 300px;
+}
+.page-contact .deux-colonnes.droite label{
+	margin-left: 100px;
+}
+.page-contact .checkbox-column{
+	margin-left: 110px;
+}
+.page-contact .checkbox-column label{
+	position: relative;
+	bottom: 2px;
+	left: 2px;
+}
+.page-contact .required{
+	color: #E643AC !important;
+}
+.page-contact .border-haut{
+	border-top:1px solid #E9E3DE;
+	margin-top: 35px;
+	padding-top: 20px;
+	margin-right: 30px;
+}
+.page-contact .message h2{
+	color: #0BBCFF;
+}
+
 /************************/
 /*** Fin ajout Alexia ***/
 /************************/
