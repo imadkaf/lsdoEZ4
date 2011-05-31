@@ -19,11 +19,11 @@
 #
 #PublicKey[hostname]=Enter your Public Key here for hostname
 #PublicKey[localhost]=Enter your Public Key here for localhost
-PublicKey=Enter your Public Key here
+PublicKey=6Ldq08QSAAAAAI42NuIc18tquwnidDSHjPlTH6Lp
 
 #PrivateKey[hostname]=Enter your Private Key here for hostname
 #PrivateKey[localhost]=Enter your Private Key here for localhost
-PrivateKey=Enter your Private Key here
+PrivateKey=6Ldq08QSAAAAAOj5879QeC2YKicZGD2UIpjPr9vs
 
 [Display]
 # Possible themes 'red' | 'white' | 'blackglass' | 'clean' | 'custom'
@@ -49,6 +49,6 @@ Theme=white
 #   Russian     ru
 #   Spanish     es
 #   Turkish     tr
-OverrideLang=
+OverrideLang=fr
 
 */ ?>
