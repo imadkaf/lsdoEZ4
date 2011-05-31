@@ -1980,6 +1980,19 @@ ul.menu-left li.actif a{
 	margin: 20px 0px 20px 0px;
 	padding: 20px 0px 20px 30px;
 }
+.survey-view .message-warning h2{
+	color: #E643AC;
+}
+.survey-view .message-warning{
+	border-bottom:1px solid #E9E3DE;
+	padding-bottom: 25px;
+	margin-right: 35px;
+}
+.survey-view .label-erreur{
+	width: 100px;
+	float: left;
+	text-align: right;
+}
 .survey-view .block{
 	margin-top: 15px;
 }
@@ -1991,6 +2004,9 @@ ul.menu-left li.actif a{
 	width: 100px;
 	margin-right: 15px;
 }
+div.survey-view .required{
+	color: #E643AC !important;
+}
 .survey-view .radio-ligne{
 	float: left;
 	margin-right: 15px;
@@ -2000,13 +2016,19 @@ ul.menu-left li.actif a{
 	bottom: 2px;
 	left: 3px;
 }
-.checkbox-column span{
+.element-column span{
 	position: relative;
 	bottom: 2px;
 	left: 2px;
 }
+.survey-view .element-column{
+	margin-left: 110px;
+}
 .survey-view .block .non-textarea{
 	text-align: right;
+}
+.survey-view .lsdo-recaptcha{
+	margin-left: 110px;
 }
 .survey-view .button{
 	margin-left: 115px;
@@ -2031,6 +2053,7 @@ ul.menu-left li.actif a{
 	border-bottom:1px solid #E9E3DE;
 	padding-bottom: 25px;
 	margin-bottom: 25px;
+	margin-right: 35px;
 }
 .page-contact .label-erreur{
 	width: 100px;
@@ -2065,6 +2088,9 @@ ul.menu-left li.actif a{
 }
 .page-contact .message h2{
 	color: #0BBCFF;
+}
+.page-contact #recaptcha_area{
+	margin-left: 110px;
 }
 
 /************************/
