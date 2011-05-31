@@ -98,7 +98,7 @@
 					<h2>Code de sécurité (CAPTCHA)<strong class="required">*</strong></h2>
 				</div>
 				<div class="block">
-					{attribute_view_gui attribute = $node.data_map.recaptcha}
+					{attribute_view_gui attribute = $node.data_map.recapture}
 				</div>
 				
 				<div class="block button">
