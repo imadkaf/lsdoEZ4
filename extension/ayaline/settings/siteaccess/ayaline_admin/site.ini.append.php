@@ -20,6 +20,7 @@ ShowHiddenNodes=true
 [DesignSettings]
 SiteDesign=admin2
 AdditionalSiteDesignList[]=admin
+AdditionalSiteDesignList[]=ayaline_admin
 
 [RegionalSettings]
 Locale=fre-FR
