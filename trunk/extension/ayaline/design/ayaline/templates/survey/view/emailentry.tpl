@@ -1,6 +1,9 @@
-<label class="lsdo-label non-textarea">{$question.text|wash('xhtml')} {section show=$question.mandatory}<strong class="required">*</strong>{/section}</label>
+<div class="label-form">
+	<label class="lsdo-label non-textarea">
+	{$question.text|wash('xhtml')}{section show=$question.mandatory}<strong class="required">*</strong>{/section} :</label>
+</div>
 
-<div class="survey-choices">
+<div class="input-form">
 {section show=$question_result}
   <input class="box" name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_{$attribute_id}" type="text" size="20" value="{$question_result.text|wash('xhtml')}" />
 {section-else}

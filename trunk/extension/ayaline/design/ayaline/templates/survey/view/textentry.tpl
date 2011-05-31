@@ -1,22 +1,8 @@
-{if not(is_set($compteurQuestion))}
-	{def $compteurQuestion = ''}
-{/if}
-
-{if eq($question.num2, 1)}
-	{if $compteurQuestion|ne('')}
-		{set $compteurQuestion = $compteurQuestion|inc}
-	{else}
-		{set $compteurQuestion = 1}
-	{/if}
-{else}
-	{if is_set($compteurQuestion)}
-		{undef $compteurQuestion}
-	{/if}
-{/if}
-
-<label class="lsdo-label {if eq($question.num2, 1)}non-textarea{/if}">{$question.text|wash('xhtml')} {section show=$question.mandatory}<strong class="required">*</strong>{/section}</label>
-
-<div class="survey-choices {if and(eq($question.num2, 1) ,eq($compteurQuestion|mod(2), 1))}float-g{/if}">
+<div class="label-form">
+	<label class="lsdo-label {if eq($question.num2, 1)}non-textarea{/if}">{$question.text|wash('xhtml')}{section show=$question.mandatory}<strong class="required">*</strong>{/section} :</label>
+</div>
+	
+<div class="input-form">
 {switch match=$question.num2}
 {case match=1}
 {section show=$question_result}
@@ -40,7 +26,3 @@
 {/case}
 {/switch}
 </div>
-
-{if is_set($compteurQuestion)}
-	Test : {$compteurQuestion}
-{/if}
