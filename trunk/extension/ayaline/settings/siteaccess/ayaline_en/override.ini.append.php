@@ -2,6 +2,18 @@
 
 #ayaline
 
+[full_contact]
+Source=node/view/full.tpl
+MatchFile=full/page_contact.tpl
+Subdir=templates
+Match[class_identifier]=page_contact
+
+[contact_reponse]
+Source=content/collectedinfo/form.tpl
+MatchFile=full/contact_reponse.tpl
+Subdir=templates
+Match[class_identifier]=page_contact
+
 [full_survey]
 Source=node/view/full.tpl
 MatchFile=full/survey.tpl

@@ -17,5 +17,6 @@ ShowClasses[]=gallery_photo
 ShowClasses[]=gallery_video
 ShowClasses[]=survey
 ShowClasses[]=page_contact
+ShowClasses[]=simple_free_content
 
 */ ?>
