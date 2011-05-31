@@ -1,1 +1,1 @@
-<p>{$question.text|wash('email')|nl2br()}</p>
+<p>{$question.text|wash('xhtml')|nl2br()}</p>
