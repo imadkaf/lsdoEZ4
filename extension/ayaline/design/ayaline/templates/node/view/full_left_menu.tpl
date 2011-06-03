@@ -1,7 +1,7 @@
 {if ezhttp('saison', 'session', 'hasVariable')}
 	{def $saisonId = ezhttp('saison', 'session')}
 {else}
-	{def $saisonId = ezini('main','defaultSeasonId','lsdo.ini')}
+	{def $saisonId = ezini('ClassSettings','DefaultSeasonId','content.ini')}
 {/if}
 {if ezhttp('topics', 'session', 'hasVariable')}
 	{def $topicIds = ezhttp('topics', 'session')}
@@ -12,6 +12,8 @@
 {def $nb_max = 4 }
 {def $childrenShowed = $node.children|extract($view_parameters.offset,$nb_max)}
 {def $mainMenuShowed = false()}
+{def $nameRubric = ''}
+{def $nameRubricSelected = ''}
 			<div class="bloc-left-bis">
 				<div class="bloc-left-in-bis">
 					<div class="bloc-type">
@@ -26,15 +28,19 @@
 		{foreach $sMenu.children as $nodeSeason}
 			{if and($nodeSeason.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($nodeSeason.data_map.title.value.0))}
 				{if $nodeSeason.data_map.title.value.0|eq($saisonId)}
-					{foreach $nodeSeason.children as $nodeRubric}
-						{if $nodeRubric.class_identifier|eq(ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
+					{foreach $nodeSeason.children as $nodeSub_menu}
+						{set $nameRubric = $nodeSub_menu.name}
+						{if $nodeSub_menu.class_identifier|eq(ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
 							{if $topicIds|count}
-								{if $nodeRubric.data_map.content.content.main_node.class_identifier|eq(ezini('ClassSettings','ClassRubricIdentifier','content.ini'))}
-									{if $nodeRubric.data_map.content.content.main_node.data_map.topics.content.relation_list|count}
-										{foreach $nodeRubric.data_map.content.content.main_node.data_map.topics.content.relation_list as $relation}
+								{if $nodeSub_menu.data_map.content.content.main_node.class_identifier|eq(ezini('ClassSettings','ClassRubricIdentifier','content.ini'))}
+									{if $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list|count}
+										{foreach $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list as $relation}
 											{foreach $topicIds as $topicId}
 												{if $relation.node_id|eq($topicId)}
 													{set $mainMenuShowed = true()}
+													{if 1|eq($topicIds|count)}
+														{set $nameRubric = $nodeSub_menu.data_map[concat('title_topic_', $topicId)].value}
+													{/if}
 													{break}
 												{/if}
 											{/foreach}
@@ -49,7 +55,7 @@
 								{set $mainMenuShowed = true()}
 							{/if}
 							{if $mainMenuShowed}
-							<li{if eq($nodeRubric.data_map.content.content.main_node.node_id,$node.node_id)} class="actif"{/if}>{node_view_gui content_node=$nodeRubric.data_map.content.content.main_node view=left_menu}</li>
+							<li{if eq($nodeSub_menu.data_map.content.content.main_node.node_id,$node.node_id)} class="actif"{set $nameRubricSelected=$nameRubric}{/if}>{node_view_gui content_node=$nodeSub_menu.data_map.content.content.main_node view=left_menu name=$nameRubric}</li>
 								{set $mainMenuShowed = false()}
 							{/if}
 						{/if}
@@ -67,7 +73,11 @@
 					<div class="bloc-right-in-bis">
 						<div class="bloc-type">
 							<h2>
+{if is_set($nameRubricSelected)}
+								{$nameRubricSelected|wash}
+{else}
 								{$node.name|wash}
+{/if}
 							</h2>
 							<p class="clear"></p>
 {if is_set($node.data_map.short_description)}
@@ -109,4 +119,4 @@
 					});
 			</script>
 {/literal}
-{undef $rNode $saisonId $topicIds}
+{undef $rNode $saisonId $topicIds $nameRubric $nameRubricSelected}
