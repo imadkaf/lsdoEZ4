@@ -98,10 +98,10 @@ class aYacMail extends ezMail
 		        // mail was sent ok
 		        if ( eZMailTransport::send( $this ) )
 		        {
-		            $responseArray['re'] = 'ok';
+		            $responseArray['re'] = true;
 		            eZLog::write( "email ($subject) send to $elem", 'sqli_notification.log' );
 		        }else{
-					$responseArray['re'] = 'ko';
+					$responseArray['re'] = false;
 	        		$responseArray['er'] =  urlencode('Erreur de la méthode send de eZMailTransport : '.$fromEmail);
 				}
 			}
