@@ -39,8 +39,14 @@ DesignLocationCache=enabled
 
 [MailSettings]
 Transport=sendmail
-AdminEmail=nlescure@ayaline.com
-EmailSender=
+ContentType=text/html
+TransportServer=carib.lnet.fr
+TransportPort=25
+TransportUser=
+TransportPassword=
+AdminEmail=gseguin@ayaline.com
+AdminName=Guillaume SEGUIN
+EmailSender=gseguin@ayaline.com
 
 [RegionalSettings]
 ContentObjectLocale=fre-FR
