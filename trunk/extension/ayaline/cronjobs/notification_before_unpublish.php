@@ -59,7 +59,6 @@ foreach( $rootNodeIDList as $nodeID )
     }
 }
 if (count($contentsNameToUnpublish)>0){
-	$cli->output( $cli->stylize( 'green', 'Envoi de la notification'), true );
 	// Envoi de la notification
 	$mail = new aYacMail();
 	$data_mails["subject"] = '['.$iniSite->variable( 'SiteSettings', 'SiteName' ).'] Notification : contenus bientot supprimes';
@@ -72,8 +71,13 @@ if (count($contentsNameToUnpublish)>0){
 	foreach ($groupUserIds as $groupUserId) {
 		$data_mails["email"] .= implode("\n", $mail->emailsGroupUser($groupUserId));
 	}
-//	$cli->output( $cli->stylize( 'magenta', print_r($data_mails, true)), true );
-	$mail->send_mail($data_mails);
+	$result = $mail->send_mail($data_mails);
+	if (isset($result['re'])){
+		if ($result['re']){
+			$cli->output( $cli->stylize( 'green', 'Envoi de la notification'), true );
+			$cli->output( $cli->stylize( 'magenta', print_r($data_mails, true)), true );
+		}
+	}
 }
 $cli->output( $cli->stylize( 'black', 'Fin du script'), true );
 ?>
