@@ -35,8 +35,7 @@
 					<br />
 					<h2>Vos informations</h2>
 				</div>
-				<div class="block">
-					<label class="lsdo-label non-textarea">{$node.data_map.sqli_civilite.contentclass_attribute_name|wash()} :</label>
+				<div class="block civilite">					
 					{attribute_view_gui attribute = $node.data_map.sqli_civilite}
 				</div>
 				
@@ -92,12 +91,14 @@
 					{attribute_view_gui attribute = $node.data_map.bons_plans_sejours}
 					<label>{$node.data_map.bons_plans_sejours.contentclass_attribute_name|wash()}</label>
 				</div>
-				
+
 				<div class="block">
 					<br />
 					<h2>Code de sécurité (CAPTCHA)<strong class="required">*</strong></h2>
 				</div>
-				<div class="block">
+				<div class="block recaptcha-droite">
+					<p class="text-captcha">Saisir le code ci-dessous. Si vous ne pouvez lire toutes les lettres ou chiffres, <a href="javascript:Recaptcha.reload ();">Cliquez ici</a>.</p>
+					<br />
 					{attribute_view_gui attribute = $node.data_map.recapture}
 				</div>
 				
