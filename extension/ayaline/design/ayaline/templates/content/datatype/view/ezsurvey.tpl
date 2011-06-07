@@ -68,6 +68,7 @@
 		<br />
 		<div class="input-form lsdo-recaptcha">
 			<p class="text-captcha">Saisir le code ci-dessous. Si vous ne pouvez lire toutes les lettres ou chiffres, <a href="javascript:Recaptcha.reload ();">Cliquez ici</a>.</p>
+			<br />
 			<div id="captcha" class="f-left">
 				{*set $class='text-champs' set $class='text-champs textearea600' def $class='skin_select'*}
 				{attribute_view_gui attribute=$node.data_map.recaptcha class='skin_select'}
