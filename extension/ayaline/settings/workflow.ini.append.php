@@ -2,6 +2,6 @@
 
 [EventSettings]
 ExtensionDirectories[]=ayaline
-AvailableEventTypes[]=event_webform
+#AvailableEventTypes[]=event_webform
 
 */ ?>
