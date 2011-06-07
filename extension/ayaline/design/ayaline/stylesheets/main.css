@@ -2034,7 +2034,7 @@ div.survey-view .required{
 	margin-left: 115px;
 }
 .survey-view .button-envoyer, .survey-view .button-effacer{
-	margin: 20px 0px 30px 0px;
+	margin: 10px 0px 30px 0px;
 }
 .survey-view .button-effacer{
 	margin-right: 10px;
@@ -2063,6 +2063,9 @@ div.survey-view .required{
 .page-contact textarea{
 	height: 50px;
 }
+.page-contact .civilite{
+	margin-left: 70px;
+}
 .page-contact .deux-colonnes input{
 	width: 300px;
 }
@@ -2090,7 +2093,16 @@ div.survey-view .required{
 	color: #0BBCFF;
 }
 .page-contact #recaptcha_area{
+	/*margin-left: 110px;*/
+}
+.page-contact .recaptcha-droite{
 	margin-left: 110px;
+}
+
+
+/*** Page de résultats de recherche photos ***/
+.bloc-container.recherche{
+	padding:50px 0 0 29px;
 }
 
 /************************/
