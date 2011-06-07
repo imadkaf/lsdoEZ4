@@ -4,4 +4,6 @@
 ExtensionRepositories[]=ayaline
 ModuleList[]=saisons
 ModuleList[]=themes
+ModuleList[]=webform
+
 */ ?>
