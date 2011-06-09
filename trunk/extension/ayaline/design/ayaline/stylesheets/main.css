@@ -314,9 +314,11 @@ li.last form{
 
 .header-in-right div.search{
 	margin:11px 0 0 0px;
-	overflow:hidden;
+	/*overflow:hidden;*/
 	height:1%;
 	float:right;
+	position:relative;
+	z-index:30000;
 }
 .header-in-right div.menu{
 	position:relative;
@@ -1944,6 +1946,13 @@ ul.menu-left li.actif a{
 .container-diapo .video{
 	text-align:center;
 }
+/* Bloc video dans en popin */
+.popin-top{
+	text-align: center;
+}
+.popin-top a{
+	color: white;
+}
 /* Bloc galerie Flickr dans la page de détail d'une galerie de type Flickr */
 .container-diapo .flickr{
 	text-align:center;
@@ -2103,6 +2112,125 @@ div.survey-view .required{
 /*** Page de résultats de recherche photos ***/
 .bloc-container.recherche{
 	padding:50px 0 0 29px;
+}
+
+
+/*** Page de resultats ***/
+.bloc-similaire a{
+	font-weight:bold;
+	text-decoration:underline;
+	font-size: 1.3em;
+}
+.bloc-similaire a:hover{
+	text-decoration:none;
+}
+.list-result-search{
+    border-top: 1px dotted #8C9195;
+    margin: 0px 10px 0px 0px;
+    padding: 15px 0px 0px 0px;
+}
+.list-result-search li:first-child{
+    border-top: none;
+    padding: 0px 0px 0px 0px !important;
+}
+.list-result-search li{
+    border-top: 1px dotted #8C9195;
+    margin: 0px 0px 20px 0px;
+    padding: 15px 0px 0px 0px !important;
+}
+.bloc-pertinence-global{
+    margin: 0px 0px 5px 0px;
+}
+.bloc-pertinence-global .modification{
+	float: right;
+}
+.bloc-pertinence-global span{
+    float: left;
+}
+.bloc-pertinence{
+    background: url("../images/bg_pertinence.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 9px;
+    margin: 4px 4px 0px 4px;
+    position: relative;
+    width: 64px;
+}
+.bloc-pertinence div{
+    background: url("../images/bg_pertinence-on.png") no-repeat scroll 0 0 transparent;
+}
+.bloc-pertinence-global span.date{
+    float: none;
+    text-transform: capitalize;
+}
+.list-result-search li h3 {
+    padding: 0px;
+    font-size: 1.5em;
+}
+
+
+/*** Reprise des styles uniquement pour l'autocompletion du champs de recherche contenu dans pagelayout.tpl ***/
+div#ezautocomplete2 {
+    z-index: 1000;
+}
+.customResult {
+    display: block;
+}
+div#ezautocomplete2 .yui-ac, div#ezautocomplete2 .yui-ac-input {
+    position: relative;
+}
+div#ezautocomplete2 .yui-ac-container {
+    position: absolute;
+    top: 1.6em;
+    text-align:left;
+}
+div#ezautocomplete2 .yui-ac-content {
+    width: 100%;
+    border: 1px solid #808080;
+    background: #fff;
+    overflow:auto;
+    overflow-y:hidden;
+    z-index: 9050;
+    ^padding-bottom: 15px;
+}
+div#ezautocomplete2 .yui-ac-shadow {
+    position: absolute;
+    margin: .3em;
+    width: 100%;
+    background: #000;
+    -moz-opacity: .10;
+    opacity: .10;
+    filter: alpha(opacity = 10);
+    z-index: 9049;
+}
+div#ezautocomplete2 .yui-ac iframe {
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    padding-right: .3em;
+    padding-bottom: .3em;
+}
+div#ezautocomplete2 .yui-ac-content ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+div#ezautocomplete2 .yui-ac-content li {
+    background-image: none !important;
+    margin: 0 !important;
+    padding: 2px 5px !important;
+    cursor: default !important;
+    white-space: nowrap !important;
+    list-style: none !important;
+    zoom: 1 !important;
+    display: block !important;
+    float:none !important;
+    color:black !important;
+}
+div#ezautocomplete2 .yui-ac-content li.yui-ac-prehighlight {
+    background: #BABABA !important;
+}
+div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
+    background: #B0B0B0 !important;
+    color: #FFF !important;
 }
 
 /************************/
