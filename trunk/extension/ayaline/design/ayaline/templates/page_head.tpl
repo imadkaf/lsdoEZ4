@@ -59,6 +59,7 @@
 {foreach ezini( 'JavaScriptSettings', 'JavaScriptList', 'design.ini' ) as $js_fichier }
 		<script type="text/javascript" src={concat( 'javascript/', $js_fichier )|ezdesign}></script>
 {/foreach}
+		{ezscript_load( array('ezjsc::jqueryio'))}
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', '{$googleAccountKey}']);
