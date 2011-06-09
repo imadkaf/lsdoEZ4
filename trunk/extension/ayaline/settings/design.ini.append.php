@@ -6,13 +6,14 @@ DesignExtensions[]=ayaline
 
 [StylesheetSettings]
 CSSFileList[]=main.css
+CSSFileList[]=ezfind.css
+CSSFileList[]=ezajax_autocomplete.css
 
 [JavaScriptSettings]
-# deja inclus dans l'extension ayaline_gallery
-#JavaScriptList[]=jquery.js
+JavaScriptList[]=jquery-1.5.2.min.js
 JavaScriptList[]=script.js
 JavaScriptList[]=menu_gauche_interne.js
-JavaScriptList[]=main.js
 JavaScriptList[]=jquery.popin.pack.js
+JavaScriptList[]=main.js
 
 */ ?>
