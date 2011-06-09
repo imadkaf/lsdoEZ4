@@ -2,9 +2,9 @@
 //
 // ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 // SOFTWARE NAME: eZ Publish Community Project
-// SOFTWARE RELEASE:  4.2011
+// SOFTWARE RELEASE:  2011.5
 // COPYRIGHT NOTICE: Copyright (C) 1999-2011 eZ Systems AS
-// SOFTWARE LICENSE: GNU General Public License v2.0
+// SOFTWARE LICENSE: GNU General Public License v2
 // NOTICE: >
 //   This program is free software; you can redistribute it and/or
 //   modify it under the terms of version 2.0  of the GNU General
@@ -29,19 +29,19 @@ class ezjscoreInfo
         $eZCopyrightString = 'Copyright (C) 1999-2011 eZ Systems AS';
 
         return array( 'Name'      => '<a href="http://projects.ez.no/ezjscore">eZ JSCore</a> extension',
-                      'Version'   => '1.3.0',
+                      'Version'   => '1.4.0-dev',
                       'Copyright' => $eZCopyrightString,
-                      'License'   => 'GNU General Public License v2.0',
+                      'License'   => 'GNU General Public License v2',
                       'Includes the following third-party software' => array( 'Name' => 'YUI',
-                                                                              'Version' => "3.3.0 and 2.8.1",
+                                                                              'Version' => "3.3.0 and 2.9.0",
                                                                               'Copyright' => 'Copyright (c) 2010, Yahoo! Inc. All rights reserved.',
                                                                               'License' => 'Licensed under the BSD License',),
                       'Includes the following third-party software (2)' => array( 'Name' => 'jQuery',
-                                                                              'Version' => "1.4.3",
+                                                                              'Version' => "1.5.2",
                                                                               'Copyright' => 'Copyright (c) 2009 John Resig',
                                                                               'License' => 'Dual licensed under the MIT and GPL licenses',),
-                      'Includes the following third-party software (3)' => array( 'Name' => 'JSMin (jsmin-php)',
-                                                                              'Version' => "1.1.1",
+                      'Includes the following third-party software (3)' => array( 'Name' => 'JSMin ( jsmin-php: https://github.com/rgrove/jsmin-php )',
+                                                                              'Version' => "1.1.1+",
                                                                               'Copyright' => '2002 Douglas Crockford <douglas@crockford.com> (jsmin.c), 2008 Ryan Grove <ryan@wonko.com> (PHP port)',
                                                                               'License' => 'Licensed under the MIT License',),
                     );
