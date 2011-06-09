@@ -15,19 +15,29 @@
     {set $search_data=$search}
 {/if}
 
-<div class="content-view-full">
-	<div class="content-search">
+{def $searchSpellCheck = fetch( ezfind, search, 
+								hash( query, $search_text|wash, 
+								spell_check, array( true(), 'default' )
+								) )}
+
+<div class="bloc-left-bis">
+	<div class="bloc-type padding-35px-32px">
 	
 		<form action={"/content/search/"|ezurl} method="get">
-			<h2 class="bloc-liste-h2">{"Search"|i18n("design/base")}</h2><br /><br />
-		
-		    <input class="halfbox" type="text" size="20" name="SearchText" id="Search" value="{$search_text|wash}" />
-		    <input class="button" name="SearchButton" type="submit" value="{'Search'|i18n('design/base')}" />
-		
-		    {def $adv_url=concat('/content/advancedsearch/',$search_text|count_chars()|gt(0)|choose('',concat('?SearchText=',$search_text|urlencode)))|ezurl}
-		    <label>{"For more options try the %1Advanced search%2"|i18n("design/base","The parameters are link start and end tags.",array(concat("<a href=",$adv_url,">"),"</a>"))}</label>
+			<h2 class="bloc-liste-h2">{"Search"|i18n("design/base")}</h2>
+			<p class="clear"></p><br />
+			
+			<div id="ezautocomplete">
+			    <input class="halfbox" type="text" size="20" name="SearchText" id="recherche" value="{$search_text|wash}" />
+			    <input class="button" name="SearchButton" type="submit" value="{'Search'|i18n('design/base')}" />
+			    <div id="ezautocompletecontainer"></div>
+		    </div>
 		    <br /><br />
-		
+		    
+		    {if $searchSpellCheck.SearchExtras.spellcheck_collation|ne('')}
+				<p class="bloc-similaire">Recherche similaire : <a href={concat('/content/search?SearchText=',$searchSpellCheck.SearchExtras.spellcheck_collation)|ezurl}>{$searchSpellCheck.SearchExtras.spellcheck_collation}</a></p>
+			{/if}
+			
 			{if $stop_word_array}
 			    <p>
 				    {"The following words were excluded from the search"|i18n("design/base")}:
@@ -41,7 +51,7 @@
 			{switch name=Sw match=$search_count}
 				{case match=0}
 					<div class="warning">
-						<h2>{'No results were found when searching for "%1"'|i18n("design/base",,array($search_text|wash))}</h2>
+						<h3>{'No results were found when searching for "%1"'|i18n("design/base",,array($search_text|wash))}</h3>
 					  	{if $search_extras.hasError}
 					    	{$search_extras.error|wash}
 					  	{/if}
@@ -56,31 +66,25 @@
 			  	{/case}
 			  	{case}
 			  		<div class="feedback">
-						<h2>{'Search for "%1" returned %2 matches'|i18n("design/base",,array($search_text|wash,$search_count))}</h2>
-					  	<p>{'Core search time: %1 msecs'|i18n( 'ezfind',,array( $search_extras.responseHeader.QTime|wash ) )}</p>
+						<h3>{'Search for "%1" returned %2 matches'|i18n("design/base",,array($search_text|wash,$search_count))} :</h3>
 					</div>
 			  	{/case}
 			{/switch}
 		
-			{* Experimental *}
-			{*
-			<h3>Categories matched</h3>
-			<p>
-				{foreach $search_extras.FacetArray.facet_fields.m_class_name as $keyword_name => $keyword_count}
-					{$keyword_name}({$keyword_count})&nbsp;
-				{/foreach}
-			</p>
-			*}
-			<table style="width: 100%;margin-bottom:2ex;margin-top:2ex;">
+			{*<table style="width: 100%;margin-bottom:2ex;margin-top:2ex;">*}
+			<ul class="list-result-search">
 				{if $search_result }
 				    {foreach $search_result as $result
 				             sequence array('bglight','bgdark') as $bgColor}
-				        <tr class="{$bgColor}">
+				        {*<tr class="{$bgColor}">*}
+				        <li>
 				        	{node_view_gui view=search sequence=$bgColor content_node=$result}
-				        </tr>
+				        </li>
+				        {*</tr>*}
 				    {/foreach}
 				{/if}
-			</table>
+			</ul>
+			{*</table>*}
 		
 			{include name=Navigator
 			         uri='design:navigator/google.tpl'
@@ -90,9 +94,23 @@
 			         view_parameters=$view_parameters
 			         item_limit=$page_limit}
 		</form>
+
 		
-		{*<p class="small"><i>{$search_extras.engine}</i></p>*}
-		{*$search_extras|attribute(show)*}
+		<script type="text/javascript">
+			jQuery('#ezautocompletecontainer').css('width', jQuery('input#recherche').width());
+			var ezAutoHeader = eZAJAXAutoComplete();
+			ezAutoHeader.init({ldelim}
+			    url: "{'ezjscore/call/ezfind::autocomplete'|ezurl('no')}",
+			    inputid: 'recherche',
+			    containerid: 'ezautocompletecontainer',
+			    minquerylength: {ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )},
+			    resultlimit: {ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )}
+			{rdelim});
+		</script>
 		
 	</div>
+</div>
+
+<div class="bloc-right-bis">
+	{include uri='design:parts/reserver.tpl'}
 </div>
