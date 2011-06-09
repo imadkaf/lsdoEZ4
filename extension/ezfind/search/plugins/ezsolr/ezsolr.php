@@ -2,14 +2,14 @@
 //
 // ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 // SOFTWARE NAME: eZ Publish Community Project
-// SOFTWARE RELEASE:  4.2011
+// SOFTWARE RELEASE:  2011.5
 // COPYRIGHT NOTICE: Copyright (C) 1999-2011 eZ Systems AS
 // EXTENDED COPYRIGHT NOTICE :
 //      Part of this class was inspired from the following contributors' work :
 //      * Kristof Coomans <kristof[dot]coomans[at]telenet[dot]be>
 //      * Paul Borgermans <pb[at]ez[dot]no> ( when not employed yet by eZ Systems )
 //      * SCK-CEN as a legal entity <http://www.sckcen.be/>
-// SOFTWARE LICENSE: GNU General Public License v2.0
+// SOFTWARE LICENSE: GNU General Public License v2
 // NOTICE: >
 //   This program is free software; you can redistribute it and/or
 //   modify it under the terms of version 2.0  of the GNU General
@@ -111,12 +111,12 @@ class eZSolr
     static function nodeAttributes()
     {
         return array( 'node_id' => 'sint',
-                      'path_string' => 'string',
-                      'url_alias' => 'string',
+                      'path_string' => 'mstring',
+                      'url_alias' => 'mstring',
                       'is_hidden' => 'boolean',
                       'is_invisible' => 'boolean',
-                      'sort_field' => 'string',
-                      'sort_order' => 'string',
+                      'sort_field' => 'mstring',
+                      'sort_order' => 'mstring',
                       'depth' => 'sint',
                       'view_count' => 'sint');
     }
@@ -146,7 +146,7 @@ class eZSolr
                                              'owner_name' => 'text',
                                              'owner_group_id' => 'sint',
                                              'path' => 'sint',
-                                             'object_states' => 'mstring'),
+                                             'object_states' => 'sint'),
                                       self::metaAttributes(),
                                       self::nodeAttributes() ),
                                 'facet' =>  array(
@@ -353,8 +353,7 @@ class eZSolr
                 }
             }
         }
-
-        return (int) $doc[ezfSolrDocumentFieldBase::generateMetaFieldName( 'main_node_id' )][0];
+        return (int) $doc[ezfSolrDocumentFieldBase::generateMetaFieldName( 'main_node_id' )];
     }
 
     /**
@@ -912,7 +911,6 @@ class eZSolr
                 if ( $doc[ezfSolrDocumentFieldBase::generateMetaFieldName( 'installation_id' )] == self::installationID() )
                 {
                     // Search result document is from current installation
-//                    var_dump( ezfSolrDocumentFieldBase::generateMetaFieldName( 'main_node_id' ), $doc, $nodeRowList );die();
                     $nodeID = $this->getNodeID( $doc );
                     $resultTree = new eZFindResultNode( $nodeRowList[$nodeID] );
                     $resultTree->setContentObject( new eZContentObject( $nodeRowList[$nodeID] ) );

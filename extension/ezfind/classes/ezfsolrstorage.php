@@ -3,8 +3,8 @@
 /**
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @author pb
- * @license http://ez.no/licenses/gnu_gpl GNU General Public License v2.0
- * @version 2.4.0
+ * @license http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+ * @version 2.5.0-dev
  * @package ezfind
  *
  * @todo: see if we need to make this an abstract class to accomodate CouchDB, MongoDB, so API is not frozen

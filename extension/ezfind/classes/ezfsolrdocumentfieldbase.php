@@ -3,9 +3,9 @@
 //
 // ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 // SOFTWARE NAME: eZ Publish Community Project
-// SOFTWARE RELEASE:  4.2011
+// SOFTWARE RELEASE:  2011.5
 // COPYRIGHT NOTICE: Copyright (C) 1999-2011 eZ Systems AS
-// SOFTWARE LICENSE: GNU General Public License v2.0
+// SOFTWARE LICENSE: GNU General Public License v2
 // NOTICE: >
 //   This program is free software; you can redistribute it and/or
 //   modify it under the terms of version 2.0  of the GNU General
@@ -421,7 +421,10 @@ class ezfSolrDocumentFieldBase
      */
     public static function generateSubattributeFieldName( eZContentClassAttribute $classAttribute, $subfieldName, $type )
     {
-        return self::$DocumentFieldName->lookupSchemaName( self::SUBATTR_FIELD_PREFIX . $classAttribute->attribute( 'identifier' ) . self::SUBATTR_FIELD_SEPARATOR . $subfieldName,
+        // base name of subfields ends with self::SUBATTR_FIELD_PREFIX so
+        // that it's possible to differentiate those fields in schema.xml
+        return self::$DocumentFieldName->lookupSchemaName( self::SUBATTR_FIELD_PREFIX . $classAttribute->attribute( 'identifier' )
+                                                            . self::SUBATTR_FIELD_SEPARATOR . $subfieldName . self::SUBATTR_FIELD_SEPARATOR,
                                                            $type );
     }
 
