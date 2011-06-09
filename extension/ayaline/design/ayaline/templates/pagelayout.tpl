@@ -80,10 +80,29 @@
 {/if}
 							<div class="search">
 								<form action={"/content/search/"|ezurl} method="get">
+									
 									<label for="recherche" class="none">Votre recherche</label>
-									<input type="text" name="SearchText" onblur="if(this.value=='')this.value='Votre recherche'" onfocus="if(this.value=='Votre recherche')this.value=''" value="Votre recherche" id="recherche" />
-									<button type="submit"><span class="none">OK</span></button>
+									<div id="ezautocomplete2">
+										<input type="text" name="SearchText" onblur="if(this.value=='')this.value='Votre recherche'" onfocus="if(this.value=='Votre recherche')this.value=''" value="Votre recherche" id="Search" />
+										<button type="submit"><span class="none">OK</span></button>
+										<div id="ezautocompletecontainer2"></div>
+									</div>
+									
 								</form>
+								
+								{ezscript_require( array('ezjsc::yui2', 'ezajax_autocomplete.js') )}
+								<script type="text/javascript">
+									jQuery('#ezautocompletecontainer2').css('width', jQuery('input#Search').width());
+									var ezAutoHeader = eZAJAXAutoComplete();
+									ezAutoHeader.init({ldelim}
+									    url: "{'ezjscore/call/ezfind::autocomplete'|ezurl('no')}",
+									    inputid: 'Search',
+									    containerid: 'ezautocompletecontainer2',
+									    minquerylength: {ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )},
+									    resultlimit: {ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )}
+									{rdelim});
+								</script>
+								
 							</div>
 							<div class="clear"></div>
 {if $rNode.data_map.main_menu.has_content}
