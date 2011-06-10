@@ -169,6 +169,18 @@ MatchFile=main_menu/rubric.tpl
 Subdir=templates
 Match[class_identifier]=rubric
 
+[main_focus_menu_main_menu]
+Source=node/view/main_focus_menu.tpl
+MatchFile=main_focus_menu/main_menu.tpl
+Subdir=templates
+Match[class_identifier]=main_menu
+
+[main_focus_menu_embed_code]
+Source=node/view/main_focus_menu.tpl
+MatchFile=main_focus_menu/embed_code.tpl
+Subdir=templates
+Match[class_identifier]=embed_code
+
 [full_left_menu_rubric]
 Source=node/view/full_left_menu.tpl
 MatchFile=full_left_menu/rubric.tpl
