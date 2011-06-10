@@ -1,6 +1,7 @@
 <?php /* #?ini charset="utf-8"?
 
 [IndexExclude]
+ClassIdentifierList[]
 ClassIdentifierList[]=folder
 ClassIdentifierList[]=embed_code
 ClassIdentifierList[]=ba_flux_rss_blog
