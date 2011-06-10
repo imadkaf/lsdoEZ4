@@ -82,8 +82,9 @@ h2 {font-size: 12px}
 .display-inline{
 	display:inline;
 }
-.display-none{
-	display:none;
+.display-none, 
+.none{
+	display:none !important;
 }
 .none-border{
 	border:none;
@@ -314,7 +315,6 @@ li.last form{
 
 .header-in-right div.search{
 	margin:11px 0 0 0px;
-	/*overflow:hidden;*/
 	height:1%;
 	float:right;
 	position:relative;
@@ -1052,6 +1052,12 @@ ul.menu-left li.actif ul li a{
 	font-weight:normal;
 	display:block;
 }
+ul.menu-left li.actif ul li ul.s-menu-in li{
+	border:none;
+}
+ul.menu-left li.actif ul li ul.s-menu-in li.actif a{
+	font-weight:bold;
+}
 ul.menu-left li.actif:hover a, 
 li.actif ul li:hover a, 
 ul.menu-left li:hover a{
@@ -1199,7 +1205,7 @@ ul.list-right{
 .list-right .link a:hover{
 	text-decoration:none;
 }
-/****M�diath�que photo****/
+/****Mediathiaque photo****/
 .bloc-search{
 	background:#f6efe9;
 	border:1px solid #E9E3DE;
@@ -1209,7 +1215,6 @@ ul.list-right{
 .bloc-search input, 
 .bloc-search select{
 	width:260px;
-	/* float:left; */
 	border:1px solid #cfcfcf;
 }
 .bloc-search input{
@@ -1231,7 +1236,6 @@ ul.list-right{
 	font-family:arial;
 	font-size:12px;
 	padding:2px 15px;
-	/* margin:0 0 0 33px; */
 	cursor:pointer;
 }
 .menu-h{
@@ -1359,7 +1363,7 @@ li:hover a.menu-g-off {
 .padding-35px-32px{
 	padding:35px 25px 10px 32px;
 }
-/****D�couvrir****/
+/****Decouvrir****/
 /*.container-list-3col li.niv{
 	background:url('../images/border-b-list-3col.png') 0 100% no-repeat;
 	width:825px;
@@ -1446,13 +1450,16 @@ ul.liste .lien-bas{
 .top li a:hover{
 	text-decoration:none;
 }
-.bottom h2 a{
+.bottom h2 a, .bottom-2 h2 a{
 	color:#e644ab !important;
 	font-size:14px !important;
 	text-transform:none !important;
 	float:none !important;
 }
-.bottom li{
+.bottom-2 h2 a{
+	color:#00bcd6 !important;
+}
+.bottom li, .bottom-2 li{
 	background:url('../images/border.png') 0 0 repeat-x;
 	display:inline;
 	float:left;
@@ -1460,26 +1467,29 @@ ul.liste .lien-bas{
 	width:275px;
 	margin:0 28px 0 0;
 }
-.bottom li.right{
+.bottom-2 li.first{
+	background: transparent none;
+}
+.bottom li.right, .bottom-2 li.right{
 	margin:0 0px 0 0;
 }
-.bottom p{
+.bottom p, .bottom-2 p{
 	font-size:11px;
 }
-.bottom li a{
+.bottom li a, .bottom-2 li a{
 	border-left:none !important;
 	padding:0px !important;
 	position:static !important;
 	top:0px !important;
 }
-.bottom li a img{
+.bottom li a img, .bottom-2 li a img{
 	margin:0 15px 0 0;
 }
 .ss-menu li.actif input{
 	background:#e843ab;
 	color:#ffffff !important;
 }
-/****Photo d�tail****/
+/****Photo detail****/
 .bloc-container h3{
 	font-size:18px;
 }
@@ -1664,7 +1674,7 @@ p.lien-bas a:hover.reserver{
 ul li.spec-bis{
 	padding:0px 18px 10px 18px !important;
 }
-/****Liste h�tels****/
+/****Liste hôtels****/
 ul.bloc-search-left li span {
     background: url("../images/fleche-r.png") no-repeat scroll 98% 50% #303A43;
     color: #FFFFFF;
@@ -1842,9 +1852,173 @@ ul p.ss-titre{
 	right:110px;
 	top:5px;
 }
+/****page contenu****/
+div.chapeau {
+    font-size:13px;
+	font-weight:bold;
+	font-style:italic;
+	text-align:justify;
+	background:#F6EFE9;
+	border: 1px solid #E9E3DE;
+	padding:18px 19px 22px 14px !important;
+	margin:10px 0 0 0;
+}
+div.chapeau p{
+	line-height:15px !important;	
+}
+.bloc-content p.padding-b-5px{
+	padding:0 0 5px 0 !important;
+}
 
-
-
+div.chapeau img{
+    float:left;
+	margin:0 16px 0 0px;
+}
+.bloc-content{
+	padding:14px 5px 20px 14px;
+}
+.bloc-content p{
+	text-align:justify;
+}
+.bloc-content h3{
+	font-weight:bold;
+	font-size:14px;
+	padding:14px 0 11px 0;
+}
+.bloc-content span{
+	color:#f340b8;
+}
+.bloc-content img.float-d{
+	margin:0 0 0 11px;
+}
+.bloc-content img.float-g{
+	margin:0 11px 0 0px;
+}
+.bloc-content ul li span{
+	color:#000000;
+	background:url('../images/puce-contenu.png') 0 3px no-repeat;
+	display:block;
+	padding:0px 0 0 12px;;
+}
+.bloc-content ul li{
+	padding:0 0 5px 0 !important;
+}
+.bloc-content ul{
+	margin:0 0 12px 0;
+}
+/*****ss-menu à la une****/
+.rubrique2 .ss-menu{
+	width:425px;
+	background:#FAF5F2 url('../images/bg-ss-menu-rubrique2.png') 0 0 repeat-x;
+	border: 1px solid #E9E3DE;
+    display: none;
+    right:0px;
+    padding: 18px 30px 18px 15px;
+    position: absolute;
+    top: 26px;
+    z-index: 5;
+	left:auto;
+}
+.rubrique2 .ss-menu ul li{
+	display:inline;
+	float:left;
+	border-right:1px solid #E9E3DE;
+	padding:0 9px 0 0;
+}
+.rubrique2 .ss-menu ul li.right{
+	border:none;
+	padding:0px;
+}
+.rubrique2 .ss-menu ul li div.border{
+	background: url("../images/border.png") repeat-x scroll 0 100% transparent;
+	padding:0 64px 8px 0;
+}
+.rubrique2 .ss-menu ul li div p{
+	font-size:11px;
+}
+.rubrique2 .ss-menu ul li div p.text{
+	font-size:14px;font-weight:bold;
+	padding:10px 0 16px 0;
+}
+.rubrique2 .ss-menu ul li div p span{
+	display:block;
+}
+.rubrique2 .ss-menu ul li div p span.spec{
+	color:#bcc701;
+	font-weight:bold;
+}
+.rubrique2 .ss-menu ul li div p strong{
+	display:block;
+}
+.rubrique2 .ss-menu ul li ul.list-in li{
+	display:block;
+	float:none;
+	padding:0 0 2px 0;
+	border:none;
+	width:auto;
+}
+.rubrique2 .ss-menu ul li ul.list-in li.last{
+	padding:17px 0 0px 0;
+}
+.rubrique2 .ss-menu ul li ul.list-in li a{
+	padding:0px;
+	border:none;
+    float: none;
+	font-size:12px;
+	color:#000000;
+	font-weight:bold;
+	text-transform:none;
+}
+.rubrique2 .ss-menu ul li div img{
+	float:left;
+	margin:0 24px 0 0;
+}
+.rubrique2 .ss-menu ul li div.border img{
+	margin:0 33px 0 0;
+}
+.rubrique2 .ss-menu ul li ul.list-in{
+	float:left;
+}
+.rubrique2 .ss-menu ul li.right p.title{
+	font-size:14px;
+	font-weight:bold;
+	padding:0px;
+}
+.rubrique2 .ss-menu ul li.right span{
+	color:#bcc701;
+	font-weight:bold;
+}
+.rubrique2 .ss-menu ul li.right p{
+	font-size:11px;
+	width:192px;
+	padding:15px 0 10px 0;
+}
+.rubrique2 .ss-menu ul li{
+	width:200px;
+}
+.rubrique2 .ss-menu ul li.right{
+	padding:0 0 0 22px;
+	width:auto;
+}
+.rubrique2 .ss-menu ul li.right img{
+	border: 1px solid #E9E3DE;
+	margin:0 0 6px 0;
+}
+.lien-bas a.type5 {
+    background: url("../images/picto5.gif") no-repeat scroll 0 50% transparent;
+	font-weight:bold;
+	font-size:12px !important;
+	color:#000000;
+	text-transform:none !important;
+	border:none !important;
+	float:none !important;
+	padding: 3px 0 3px 20px !important;
+	position:static !important;
+}
+p.lien-bas{
+    width:auto !important;
+	padding:0 5px 0 0 !important;
+}
 /*********************/
 /*** Ajouts Alexia ***/
 /*********************/

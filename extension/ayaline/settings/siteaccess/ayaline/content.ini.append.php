@@ -9,8 +9,15 @@ AvailableSiteDesignList[]=admin
 [ClassSettings]
 ClassSeasonId=37
 DefaultSeasonId=3
+ClassMainMenuIdentifier=main_menu
 ClassSubMenuIdentifier=sub_menu
 ClassRubricIdentifier=rubric
+ClassEmbedCodeIdentifier=embed_code
+
+[classList]
+HomeMainMenu[]
+HomeMainMenu[]=sub_menu
+HomeMainMenu[]=main_menu
 
 [ClassAttributeSettings]
 ClassAttributeSeasonIdentifier=title

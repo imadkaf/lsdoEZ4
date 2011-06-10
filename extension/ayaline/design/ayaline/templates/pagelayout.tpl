@@ -20,6 +20,7 @@
 {def $topicsList = fetch('content','node', hash('node_id',  ezini('NodeSettings','topicListNode','content.ini')))}
 {def $curLang = ezini( 'RegionalSettings', 'Locale' )}
 {def $nameRubric = ''}
+{def $i=0}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 {include uri="design:page_head.tpl"}
@@ -80,7 +81,6 @@
 {/if}
 							<div class="search">
 								<form action={"/content/search/"|ezurl} method="get">
-									
 									<label for="recherche" class="none">Votre recherche</label>
 									<div id="ezautocomplete2">
 										<input type="text" name="SearchText" onblur="if(this.value=='')this.value='Votre recherche'" onfocus="if(this.value=='Votre recherche')this.value=''" value="Votre recherche" id="Search" />
@@ -109,54 +109,92 @@
 							<div class="menu">
 								<ul>
 	{def $mainMenuShowed = false()}
-	{foreach $rNode.data_map.main_menu.content.main_node.children as $key => $sMenu}
+	{foreach $rNode.data_map.main_menu.content.main_node.children as $key => $sMenu sequence array( 'bottom', 'bottom-2', '' ) as $menuStyle}
 									<li class="rubrique{$key}">
 										<a class="element" href={$sMenu.data_map.content.content.main_node.url_alias|ezurl}><span></span></a>
 	{*
 		Gestion des sous-menu du menu général
 	*}
 										<div class="ss-menu">
+{if $key|eq(0)}
 											<ul class="top">
 		{foreach $topicsList.children as $topic}
 		{node_view_gui content_node=$topic view=line topicIds=$topicIds redirectURI=$module_result.uri|ezurl}
 		{/foreach}
 											</ul>
 											<div class="clear"></div>
-											<ul class="bottom">
+{/if}
+											<ul class="{$menuStyle}">
 		{foreach $sMenu.children as $nodeSeason}
+{*			Sélection de la saison souhaitée*}
 			{if and($nodeSeason.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($nodeSeason.data_map.title.value.0))}
 				{if $nodeSeason.data_map.title.value.0|eq($saisonId)}
-					{foreach $nodeSeason.children as $nodeSub_menu sequence array( '', 'right' ) as $style}
+					{foreach $nodeSeason.children as $subKey => $nodeSub_menu sequence array( '', 'right' ) as $style}
 						{set $nameRubric = $nodeSub_menu.name}
-						{if $nodeSub_menu.class_identifier|eq(ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
-							{if $topicIds|count}
-								{if $nodeSub_menu.data_map.content.content.main_node.class_identifier|eq(ezini('ClassSettings','ClassRubricIdentifier','content.ini'))}
-									{if $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list|count}
-										{foreach $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list as $relation}
-											{foreach $topicIds as $topicId}
-												{if $relation.node_id|eq($topicId)}
-													{set $mainMenuShowed = true()}
-													{if 1|eq($topicIds|count)}
-														{set $nameRubric = $nodeSub_menu.data_map[concat('title_topic_', $topicId)].value}
+						{if ezini('classList','HomeMainMenu','content.ini')|contains($nodeSub_menu.class_identifier)}
+							{if $key|eq(2)}
+{*								Gestion du menu à la une*}							
+								{switch match=$subKey}
+									{case match=0}
+											<li>
+												<div class="border">
+										{if $nodeSub_menu.class_identifier|eq(ezini('ClassSettings','ClassMainMenuIdentifier','content.ini'))}
+													{node_view_gui content_node=$nodeSub_menu view=main_focus_menu name=$nameRubric}
+										{else}
+											<span>Vous devez placer un contenu de type {ezini('ClassSettings','ClassMainMenuIdentifier','content.ini')} à cet emplacement.</span>
+										{/if}
+												</div>
+									{/case}
+									{case match=1}
+										{if $nodeSub_menu.class_identifier|eq(ezini('ClassSettings','ClassEmbedCodeIdentifier','content.ini'))}
+												{node_view_gui content_node=$nodeSub_menu view=main_focus_menu name=$nameRubric}
+										{else}
+											<span>Vous devez placer un contenu de type {ezini('ClassSettings','ClassEmbedCodeIdentifier','content.ini')} à cet emplacement.</span>
+										{/if}
+											</li>
+									{/case}
+									{case match=2}
+											<li class="right">
+										{if $nodeSub_menu.class_identifier|eq(ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
+												{node_view_gui content_node=$nodeSub_menu.data_map.content.content.main_node view=main_focus_menu name=$nameRubric}
+										{else}
+											<span>Vous devez placer un contenu de type {ezini('ClassSettings','ClassSubMenuIdentifier','content.ini')} à cet emplacement.</span>
+										{/if}
+											</li>
+									{/case}
+								{/switch}
+							{else}
+{*								Gestion de l'affichage des items en fonction des thèmes*}
+								{if $topicIds|count}
+									{if $nodeSub_menu.data_map.content.content.main_node.class_identifier|eq(ezini('ClassSettings','ClassRubricIdentifier','content.ini'))}
+										{if $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list|count}
+											{foreach $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list as $relation}
+												{foreach $topicIds as $topicId}
+													{if $relation.node_id|eq($topicId)}
+														{set $mainMenuShowed = true()}
+														{if 1|eq($topicIds|count)}
+															{set $nameRubric = $nodeSub_menu.data_map[concat('title_topic_', $topicId)].value}
+														{/if}
+														{break}
 													{/if}
-													{break}
-												{/if}
+												{/foreach}
 											{/foreach}
-										{/foreach}
+										{else}
+											{set $mainMenuShowed = true()}
+										{/if}
 									{else}
 										{set $mainMenuShowed = true()}
 									{/if}
 								{else}
 									{set $mainMenuShowed = true()}
 								{/if}
-							{else}
-								{set $mainMenuShowed = true()}
-							{/if}
-							{if $mainMenuShowed}
-												<li class="{$style}">
-{node_view_gui content_node=$nodeSub_menu.data_map.content.content.main_node view=main_menu name=$nameRubric}
-												</li>
-								{set $mainMenuShowed = false()}
+								{if $mainMenuShowed}
+									{set $i=inc( $i )}
+													<li class="{$style}{if or($i|eq(1), $i|eq(2))} first{/if}">
+	{node_view_gui content_node=$nodeSub_menu.data_map.content.content.main_node view=main_menu name=$nameRubric}
+													</li>
+									{set $mainMenuShowed = false()}
+								{/if}
 							{/if}
 						{/if}
 					{/foreach}
@@ -199,4 +237,4 @@
 		</div>
 	</body>
 </html>
-{undef $cNode $rNode $attributes $nbSaison $saison $curLang $topicsList $nameRubric}
+{undef $cNode $rNode $attributes $nbSaison $saison $curLang $topicsList $nameRubric $i}
