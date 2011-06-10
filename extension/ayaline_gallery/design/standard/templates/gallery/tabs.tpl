@@ -20,3 +20,4 @@
 	</ul>
 	<p class="clear"></p>
 {/if}
+{*test*}
