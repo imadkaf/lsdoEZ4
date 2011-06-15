@@ -13,7 +13,7 @@
 {switch match=$question.num}
 {case match=1} {* Radio buttons in a row *}
 {section var=option loop=$question.options}
-    <div class="element-row"><label><input class="survey-multiple" id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($option.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if} onchange="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );">{$option.label}</label></div>
+    <div class="element-row"><label><input class="survey-multiple" id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($option.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if} onchange="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );" />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
      <div class="element"><label><input class="survey-multiple" id="{$attr_id}" name="{$attr_name}" type="radio" value="{$question.extra_info.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($question.extra_info.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if} onchange="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
@@ -21,7 +21,7 @@
 {/case}
 {case match=2} {* Radio buttons in a column *}
 {section var=option loop=$question.options}
-    <div class="element-column"><label><input class="survey-multiple" id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($option.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )}{/if} checked="checked"{/if} onchange="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );">{$option.label}</label></div>
+    <div class="element-column"><label><input class="survey-multiple" id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($option.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )}{/if} checked="checked"{/if} onchange="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );" />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
      <div class="block"><label><input class="survey-multiple" id="{$attr_id}" name="{$attr_name}" type="radio" value="{$question.extra_info.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($question.extra_info.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if} onchange="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
@@ -70,7 +70,7 @@
 {case match=1} {* Radio buttons in a row *}
 <div class="block float-break">
 {section var=option loop=$question.options}
-    <div class="element-row radio-ligne"><label><input class="survey-multiple" class="survey-multiple" id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} onchange="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );">{$option.label}</label></div>
+    <div class="element-row radio-ligne"><label><input class="survey-multiple" id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} onchange="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );" />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
     <div class="element"><label><input id="{$attr_id}" name="{$attr_name}" type="radio" value="{$question.extra_info.value|wash(xhtml)}"{section show=$question.extra_info.value_checked|eq(1)} checked="checked"{/section} onchange="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
@@ -79,7 +79,7 @@
 {/case}
 {case match=2} {* Radio buttons in a column *}
 {section var=option loop=$question.options}
-    <div class="element-column"><label><input class="survey-multiple" id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} onchange="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );">{$option.label}</label></div>
+    <div class="element-column"><label><input class="survey-multiple" id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} onchange="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );" />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
 <div class="block"><label><input class="survey-multiple" id="{$attr_id}" name="{$attr_name}" type="radio" value="{$question.extra_info.value|wash(xhtml)}"{section show=$question.extra_info.value_checked|eq(1)} checked="checked"{/section} onchange="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
