@@ -103,9 +103,9 @@
 				</div>
 				
 				<div class="block button">
-					<input name="TopLevelNode" value="{$node.node_id}" type="hidden">
-					<input name="ContentNodeID" value="{$node.node_id}" type="hidden">
-					<input name="ContentObjectID" value="{$node.object.id}" type="hidden">
+					<input name="TopLevelNode" value="{$node.node_id}" type="hidden" />
+					<input name="ContentNodeID" value="{$node.node_id}" type="hidden" />
+					<input name="ContentObjectID" value="{$node.object.id}" type="hidden" />
 					<input class="button-effacer" type="image" src={"effacer.png"|ezimage} name="reset" value="Effacer" onclick="this.form.reset(); return false;" />
 					<input class="button-envoyer" type="image" src={"envoyer.png"|ezimage} name="ActionCollectInformation" value="Envoyer" />
 				</div>
