@@ -63,7 +63,7 @@
 	<div class="block">
 		<div class="label-form">
 			<br />
-			<label for="securite" class="oblagatoire-champs"><h2>Code de sécurité (CAPTCHA)<strong class="required">*</strong></h2></label>
+			<h2>Code de sécurité (CAPTCHA)<strong class="required">*</strong></h2>
 		</div>
 		<br />
 		<div class="input-form lsdo-recaptcha">
