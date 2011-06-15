@@ -1,0 +1,10 @@
+@CHARSET "ISO-8859-1";
+
+#debug, .footer, #header, .bloc-left-in-bis, .bloc-right-bis{
+	display:none;
+}
+
+.content{
+	width: auto;
+	float: none;
+}
