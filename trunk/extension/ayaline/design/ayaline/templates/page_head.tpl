@@ -55,6 +55,8 @@
 		<!--[if IE 8]>
 			<link rel="stylesheet" type="text/css" href={'stylesheets/main_ie8.css'|ezdesign} media="all" />
 		<![endif]-->
+		
+		<link rel="stylesheet" type="text/css" href={'stylesheets/print.css'|ezdesign} media="print" />
 {* Javascript *}
 {foreach ezini( 'JavaScriptSettings', 'JavaScriptList', 'design.ini' ) as $js_fichier }
 		<script type="text/javascript" src={concat( 'javascript/', $js_fichier )|ezdesign}></script>
