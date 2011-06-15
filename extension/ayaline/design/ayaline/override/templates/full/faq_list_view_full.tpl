@@ -40,7 +40,7 @@
 					
 					<ul class="faq_list_full">
 					{foreach $faqs as $faq}
-						<li><a name="{$faq.object.id}"></a>{node_view_gui content_node=$faq view='line'}</li><br />
+						<li><a name="{$faq.object.id}"></a>{node_view_gui content_node=$faq view='line'}<br /></li>
 					{/foreach}
 					</ul>		
 					<a class="anchor_ref_top" href="#top_page">Retour en haut de page</a><br /><br />
@@ -49,7 +49,7 @@
 				{elseif eq($view,1)}
 					<ul class="faq_list_grouped">
 					{foreach $faqs as $faq}
-						<li>{node_view_gui content_node=$faq view='grouped'}</li><br />
+						<li>{node_view_gui content_node=$faq view='grouped'}<br /></li>
 					{/foreach}
 					</ul>
 				{/if}
