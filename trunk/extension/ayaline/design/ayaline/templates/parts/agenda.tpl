@@ -30,13 +30,13 @@
 			<h3><a href="#">Théâtre Atlante</a></h3>
 			<p class="l-spacing">										
 				<span class="display-block">Le 14/12/2010</span>
-				La Médaille- spectacle de Zabou Breitman<br>
+				La Médaille- spectacle de Zabou Breitman<br />
 				Les Sables d'Olonne
 			</p>
 		</li>
 		<li>
 			<a href="#"><img alt="" src={"illustration44.png"|ezimage} /></a>
-			<h3><a href="#">sortie découverte<br>du rivage</a></h3>
+			<h3><a href="#">sortie découverte<br />du rivage</a></h3>
 			<p class="l-spacing">Le 23 décembre 2010 - Paracou</p>
 		</li>
 	</ul>

@@ -112,6 +112,7 @@
 							<p><a href={$gallery.url_alias|ezurl}>{$gallery.name|wash}</a></p>
 	
 						</li>
+						
 						{if eq($compteurPhoto|mod(3), 0)}
 							<p class="clear"></p>
 						{/if}

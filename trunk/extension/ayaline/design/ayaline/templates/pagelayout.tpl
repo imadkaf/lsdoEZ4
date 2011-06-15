@@ -33,10 +33,10 @@
 						<h1>
 							<span class="style-png">							
 								<a href={$rNode.url_alias|ezurl}>
-									<img class="home-title" src="/makeImage/makeImage.php?lsdo=o1&t={$rNode.data_map.title.data_text}" alt="{$rNode.data_map.title.data_text}" />
+									<img class="home-title" src="/makeImage/makeImage.php?lsdo=o1&amp;t={$rNode.data_map.title.data_text}" alt="{$rNode.data_map.title.data_text}" />
 									<br />
 									<img src={"logo_accueil.png"|ezimage} alt="" />
-									<img class="home-grip" src="/makeImage/makeImage.php?lsdo=o2&t={$rNode.data_map.grip.data_text}" alt="{$rNode.data_map.grip.data_text}" />
+									<img class="home-grip" src="/makeImage/makeImage.php?lsdo=o2&amp;t={$rNode.data_map.grip.data_text}" alt="{$rNode.data_map.grip.data_text}" />
 								</a>
 							</span>
 						</h1>
@@ -81,7 +81,7 @@
 {/if}
 							<div class="search">
 								<form action={"/content/search/"|ezurl} method="get">
-									<label for="recherche" class="none">Votre recherche</label>
+									<label for="Search" class="none">Votre recherche</label>
 									<div id="ezautocomplete2">
 										<input type="text" name="SearchText" onblur="if(this.value=='')this.value='Votre recherche'" onfocus="if(this.value=='Votre recherche')this.value=''" value="Votre recherche" id="Search" />
 										<button type="submit"><span class="none">OK</span></button>
