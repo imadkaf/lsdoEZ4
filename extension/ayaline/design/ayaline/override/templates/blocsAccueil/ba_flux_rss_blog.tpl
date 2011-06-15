@@ -3,7 +3,7 @@
 </h2>
 
 <a class="float-d" href="{attribute_view_gui attribute = $node.data_map.adresse_flux_rss_blog}">
-	<img alt="Flux RSS" src={"rss.gif"|ezimage}>
+	<img alt="Flux RSS" src={"rss.gif"|ezimage} />
 </a>
 <p class="clear"></p>
 
