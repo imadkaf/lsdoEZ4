@@ -72,7 +72,7 @@
 				</div>
 					<div class="bloc-right-in-bis">
 						<div class="bloc-type">
-							<h2>
+							<h2 class="bloc-liste-h2">
 {if is_set($nameRubricSelected)}
 								{$nameRubricSelected|wash}
 {else}

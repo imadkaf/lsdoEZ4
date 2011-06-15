@@ -3,7 +3,7 @@
 {else}
 				<div class="bloc-left-bis">
 					<div class="bloc-type padding-35px-32px">
-						<h2>
+						<h2 class="bloc-liste-h2">
 							{attribute_view_gui attribute = $node.data_map.title}
 						</h2>
 						<p class="clear"></p>
