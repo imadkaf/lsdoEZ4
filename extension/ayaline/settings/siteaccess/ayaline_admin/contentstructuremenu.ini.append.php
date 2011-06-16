@@ -18,5 +18,8 @@ ShowClasses[]=gallery_video
 ShowClasses[]=survey
 ShowClasses[]=page_contact
 ShowClasses[]=simple_free_content
+ShowClasses[]=sit_liste
+ShowClasses[]=sit_fiche
+ShowClasses[]=sit_mise_en_avant
 
 */ ?>
