@@ -59,7 +59,11 @@
 		<link rel="stylesheet" type="text/css" href={'stylesheets/print.css'|ezdesign} media="print" />
 {* Javascript *}
 {foreach ezini( 'JavaScriptSettings', 'JavaScriptList', 'design.ini' ) as $js_fichier }
+	{if eq("http://",$js_fichier|extract_left(7))}
+		<script type="text/javascript" src="{$js_fichier}"></script>
+	{else}
 		<script type="text/javascript" src={concat( 'javascript/', $js_fichier )|ezdesign}></script>
+	{/if}
 {/foreach}
 		{ezscript_load( array('ezjsc::jqueryio'))}
 		<script type="text/javascript">
