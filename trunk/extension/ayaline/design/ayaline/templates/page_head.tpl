@@ -6,22 +6,41 @@
 {def $keywords = false()}
 {def $description = false()}
 {def $googleAccountKey = ezini('TagsGA','googleAccountKey','ezurlga.ini')}
-{if is_set($cNode.node_id)}
-	{if is_set($cNode.data_map.referencement)}
-		{set $referencement = $cNode.data_map.referencement}
-		{if $referencement.content[0]|trim|ne('')}
-			{set $title = $referencement.content[0]|trim}
-		{/if}
-		{if $referencement.content[1]|trim|ne('')}
-			{set $keywords = $referencement.content[1]|trim}
-		{/if}
-		{if $referencement.content[2]|trim|ne('')}
-			{set $description = $referencement.content[2]|trim}
-		{/if}
+{if is_set($cNode.data_map.referencement)}
+	{set $referencement = $cNode.data_map.referencement}
+	{if $referencement.content[1]|trim|ne('')}
+		{set $keywords = $referencement.content[1]|trim}
+	{/if}
+	{if $referencement.content[2]|trim|ne('')}
+		{set $description = $referencement.content[2]|trim}
+	{/if}
 {/if}
+{def $reverse_path = array()}
+{def $path = $module_result.path}
+{if is_set($pagedata.path_array)}
+	{set $path = $pagedata.path_array}
+{elseif is_set($module_result.title_path)}
+	{set path=$module_result.title_path}
 {/if}
+{def $cPathNode = false()}
+{foreach $path as $pathNode}
+	{set $cPathNode = fetch(content, node, hash(node_path, $pathNode.url))}
+	{if is_set($cPathNode.data_map.referencement)}
+		{def $referencementPathNode = $cPathNode.data_map.referencement}
+		{if $referencementPathNode.content[0]|trim|ne('')}
+			{set $reverse_path=$reverse_path|prepend($referencementPathNode.content[0]|trim)}
+		{else}
+			{set $reverse_path=$reverse_path|prepend($pathNode.text)}
+		{/if}
+	{else}
+		{set $reverse_path=$reverse_path|prepend($pathNode.text)}
+	{/if}
+{/foreach}
+{set-block scope=root variable=site_title}
+{foreach $reverse_path as $pathNode}{$pathNode|wash}{delimiter} / {/delimiter}{/foreach}
+{/set-block}
 	<head>
-		<title>{$title|wash()}</title>
+		<title>{$site_title}</title>
 {* Balises META *}
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 {foreach ezini('SiteSettings','MetaDataArray') as $metaName => $value}
