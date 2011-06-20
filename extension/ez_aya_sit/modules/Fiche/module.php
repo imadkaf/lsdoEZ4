@@ -7,7 +7,7 @@ $Module = array(
 
 $ViewList['Detail'] = array(
 	'script' => 'fiche_detail.php',
-	'params' => array('idFiche', 'identifierFiche', 'cheminCategorie'),
+	'params' => array('idFiche', 'cheminCategorie', 'identifierFiche'),
 	'ui_context' => 'default'
 );
 
