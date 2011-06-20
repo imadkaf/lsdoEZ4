@@ -216,19 +216,17 @@
 {include uri='design:parts/diaporama.tpl'}
 			</div>
 			<div class="clear"></div>
-{if is_set($cNode.node_id)}
-	{if ne($cNode.node_id, 2)}
+	{if ne($cNode.node_id, ezini('NodeSettings', 'RootNode', 'content.ini'))}
 				<p class="fil-ariane">
 		{foreach $module_result.path as $Path}
 			{if $Path.url}
-					<a href={$Path.url_alias|ezroot}>{$Path.text|wash}</a> >
+					<a href={$Path.url|ezroot}>{$Path.text|wash}</a> >
 			{else}
 					<strong>{$Path.text|wash}</strong>
 			{/if}
 		{/foreach}
 				</p>
 	{/if}
-{/if}
 			
 			<div class="content">
 {$module_result.content}
