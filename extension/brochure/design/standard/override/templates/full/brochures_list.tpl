@@ -3,10 +3,12 @@
 {* Variables *}
 {def $nb_max = ezini('BrochureList','maxBrochureList','brochure.ini')}
 
-{def $brochures = fetch( 'content','list',hash( 'parent_node_id', $node.node_id,
-												'offset', $view_parameters.offset,
-												'limit', $nb_max,
-											   'sort_by', $node.sort_array))}
+{def $brochures = fetch( 'content','list',hash(	'parent_node_id', $node.node_id,
+										'offset', $view_parameters.offset,
+										'limit', $nb_max,
+										'sort_by', $node.sort_array,
+										'class_filter_type' , 'include',
+										'class_filter_array', array('brochure')))}
 
 {def $nb_brochures = fetch( 'content','list_count',hash( 'parent_node_id', $node.node_id,))}
 
