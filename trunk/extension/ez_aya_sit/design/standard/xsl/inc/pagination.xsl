@@ -31,7 +31,7 @@
 
 	<xsl:template name="toute-pagination">
 		<xsl:if test="$nbPages &gt; 1">
-			<div style="padding:5px;background-color:#E5DCD3;border:1px solid black;text-align:center;margin-bottom:7px">
+			<div style="padding:5px;text-align:center;margin-bottom:7px" class="pagination no-margin">
 				<div class="sit-pagination">
 					<xsl:if test="$pageCourante &gt; 1"><a><xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute><xsl:value-of select="$termePremierePage"/></a><span> - </span></xsl:if>
 					<xsl:if test="$pageCourante &lt;= 1"><xsl:value-of select="$termePremierePage"/><span> - </span></xsl:if>
@@ -57,8 +57,8 @@
 	</xsl:template>
 
 	<xsl:template name="nb-produits">
-		<div style="padding:5px;background-color:#DDDDDD;border:1px solid black;margin-bottom:7px">
-			<xsl:if test="$nbResultatsTotal = 0"><xsl:value-of select="$termeAucun"/></xsl:if><xsl:if test="$nbResultatsTotal &gt; 0"><strong><xsl:value-of select="$nbResultatsTotal"/></strong>&amp;nbsp;<xsl:value-of select="$termeResultatsTrouves"/></xsl:if>
+		<div class="pagination no-margin align-l">
+			<p class="padding-l"><xsl:if test="$nbResultatsTotal = 0"><xsl:value-of select="$termeAucun"/></xsl:if><xsl:if test="$nbResultatsTotal &gt; 0"><strong><xsl:value-of select="$nbResultatsTotal"/></strong>&amp;nbsp;<xsl:value-of select="$termeResultatsTrouves"/></xsl:if></p>
 		</div>
 	</xsl:template>
 

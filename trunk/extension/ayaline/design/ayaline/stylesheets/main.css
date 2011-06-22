@@ -1011,7 +1011,7 @@ ul#listeSelect1 li{
 }
 .bloc-left-in-bis .bloc-type{
 	margin:0px;
-	padding: 15px 5px 410px 10px !important;
+	padding: 15px 5px 50px 10px !important;
 }
 .bloc-right-in-bis{
 	width:660px;
@@ -1848,9 +1848,10 @@ ul p.ss-titre{
 	padding:0 12px 0 6px !important;
 }
 .list-block-bis div.titre-container p{
-	position:absolute;
+	/*position:absolute;
 	right:110px;
-	top:5px;
+	top:5px;*/
+	float: right;
 }
 /****page contenu****/
 div.chapeau {
@@ -2405,6 +2406,83 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-prehighlight {
 div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
     background: #B0B0B0 !important;
     color: #FFF !important;
+}
+
+
+/*** Page liste hotels ***/
+.bloc-liste-h2-recherche{
+	font-family: 'OmnesLight';
+    font-size: 25px !important;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+.menu-gauche-h2-recherche{
+	font-family: 'OmnesLight';
+	font-size: 18px !important;
+	font-weight: bold;
+	padding-bottom: 5px;
+	display: block;
+}
+.choisissez{
+	background: url("../images/fleche-r.png") no-repeat scroll 98% 50% #303A43;
+    color: #FFFFFF;
+    display: block;
+    padding: 2px 0 2px 4px;
+}
+.liste-modalites{
+	background: none repeat scroll 0 0 #FAF9F7; padding: 5px 0 5px 4px;
+}
+.list-inline-bis .titre-top2{
+	font-family: 'OmnesLight';
+	font-size: 32px !important;
+}
+.list-inline-bis .top2{
+	margin-right: 10px;
+}
+.criteres.liste-hotel li{
+    border-top: 1px solid #D2CBC5;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    float: none;
+    display: block;
+}
+.criteres.liste-hotel li:first-child{
+    border-top: none;
+}
+.criteres{
+	border-bottom: 1px solid #D2CBC5;
+	margin-bottom: 5px;
+}
+.criteres img{
+	float: none !important;
+}
+.form-search-left button{
+	background: none repeat scroll 0 0 #303A42;
+    color: #FFFFFF;
+    margin: 0px;
+    padding: 1px 0 !important;
+    text-align: center;
+    width: 138px;
+}
+
+/*** Page liste activites ***/
+.liste-act-border{
+	border-top: 1px solid #F6EFE9;
+    margin: 24px 0px 20px 0px;
+    padding: 20px 0 0;
+}
+.criteres.liste-act li{
+    border-top: 1px solid #D2CBC5;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    margin: 0px;
+    float: none;
+    display: block;
+}
+.criteres.liste-act li:first-child{
+    border-top: none;
 }
 
 /************************/

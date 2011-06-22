@@ -1,9 +1,12 @@
 <?php /* #?ini charset="utf-8"?
 
 [ExtensionSettings]
-ActiveExtensions[]
 ActiveExtensions[]=ayaline
+ActiveExtensions[]=ez_aya_sit
 ActiveExtensions[]=brochure
+ActiveExtensions[]=ayaline_gallery
+ActiveExtensions[]=faq
+ActiveExtensions[]=ez_sitemap
 ActiveExtensions[]=ezmultiupload
 ActiveExtensions[]=ezjscore
 ActiveExtensions[]=ezie
@@ -13,7 +16,9 @@ ActiveExtensions[]=ezprestapiprovider
 ActiveExtensions[]=ez_aya_diaporama
 ActiveExtensions[]=ezurlga
 ActiveExtensions[]=ezreferencement
-ActiveExtensions[]=ayaline_gallery
 ActiveExtensions[]=ezfind
-
+ActiveExtensions[]=recaptcha
+ActiveExtensions[]=ezsurvey
+ActiveExtensions[]=ezfeedparse
+ActiveExtensions[]=wordCut
 */ ?>
