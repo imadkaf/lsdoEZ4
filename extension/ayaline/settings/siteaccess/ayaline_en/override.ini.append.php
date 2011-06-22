@@ -1,6 +1,12 @@
 <?php /* #?ini charset="utf-8"?
 
-#ayaline
+	#ayaline
+
+[full_sit_liste]
+Source=node/view/full.tpl
+MatchFile=full/sit_liste.tpl
+Subdir=templates
+Match[class_identifier]=sit_liste
 
 [full_contact]
 Source=node/view/full.tpl
@@ -26,12 +32,7 @@ MatchFile=full/sitemap_list.tpl
 Subdir=templates
 Match[class_identifier]=site_map
 
-#[full_defaut]
-#Source=node/view/full.tpl
-#MatchFile=node/view/full.tpl
-#Subdir=templates
-
-#Mediatheque
+		#Mediatheque
 
 [full_detail_video]
 Source=node/view/full.tpl
@@ -63,13 +64,7 @@ MatchFile=full/ayaline_gallery_gallery_photo.tpl
 Subdir=templates
 Match[class_identifier]=gallery_gallery_photo
 
-[full_gallery_video]
-Source=node/view/full.tpl
-MatchFile=full/ayaline_video.tpl
-Subdir=templates
-Match[class_identifier]=gallery_video
-
-#Fin Mediatheque
+		#Fin Mediatheque
 
 [line_brochure]
 Source=node/view/line.tpl
@@ -137,7 +132,7 @@ MatchFile=full/home.tpl
 Subdir=templates
 Match[class_identifier]=home
 
-	#Navigation
+		#Navigation
 	
 [menu_lien_externe]
 Source=node/view/menu.tpl
@@ -169,6 +164,18 @@ MatchFile=main_menu/rubric.tpl
 Subdir=templates
 Match[class_identifier]=rubric
 
+[main_focus_menu_main_menu]
+Source=node/view/main_focus_menu.tpl
+MatchFile=main_focus_menu/main_menu.tpl
+Subdir=templates
+Match[class_identifier]=main_menu
+
+[main_focus_menu_embed_code]
+Source=node/view/main_focus_menu.tpl
+MatchFile=main_focus_menu/embed_code.tpl
+Subdir=templates
+Match[class_identifier]=embed_code
+
 [full_left_menu_rubric]
 Source=node/view/full_left_menu.tpl
 MatchFile=full_left_menu/rubric.tpl
@@ -181,7 +188,7 @@ MatchFile=line/topic.tpl
 Subdir=templates
 Match[class_identifier]=topic
 	
-#config initiale
+	#config initiale
 
 [full_folder]
 Source=node/view/full.tpl
