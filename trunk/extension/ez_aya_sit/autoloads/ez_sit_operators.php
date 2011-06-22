@@ -60,21 +60,28 @@ class eZSitOperators {
 		$currentNode = $tpl->variable('node');
 		if (!$currentNode) {
 			$currentNodeId = $tpl->variable('module_result');
-			$currentNodeId = $currentNodeId['node_id'];
-			$currentNode = eZFunctionHandler::execute(
-				'content',
-				'node',
-				array (
-					'node_id' => $currentNodeId,
-				)
-			);
+			if ($currentNodeId) {
+				$currentNodeId = $currentNodeId['node_id'];
+				if ($currentNodeId) {
+					$currentNode = eZFunctionHandler::execute(
+						'content',
+						'node',
+						array (
+							'node_id' => $currentNodeId,
+						)
+					);
+				}
+			}
+		}
+		if (!$currentNode) {
+			$currentNode = $tpl->variable('previousNode');
 		}
 		switch ($operatorName) {
 			case 'sit_liste':
-				$operatorValue = $this->sitListe($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_liste');
+				$operatorValue = $currentNode ? $this->sitListe($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_liste') : "";
 				break;
 			case 'sit_recherche':
-				$operatorValue = $this->sitRecherche($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_recherche');
+				$operatorValue = $currentNode ? $this->sitRecherche($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_recherche') : "";
 				break;
 		}
 	}
@@ -192,6 +199,7 @@ class eZSitOperators {
 		$dureeDispo = null;
 		$debutOuv = null;
 		$finOuv = null;
+		
 		if ($http->hasPostVariable("search_sit")) {
 			$rechercheEnCours = "oui";
 
