@@ -288,6 +288,8 @@ $contenuBloc = preg_replace("/(http:\/\/[^\/]+):\d+/si", "$1", $contenuBloc);
 $contenuBloc = "\n".preg_replace("/  /si", "\t", utf8_decode(str_replace("__euro__", "&euro;", $contenuBloc)))."\n";
 
 $tpl->setVariable('contenuBloc', $contenuBloc);
+$tpl->setVariable('previousNode', $previousNode);
+$tpl->setVariable('view_parameters', $Params['UserParameters']);
 
 $Result['content'] = $tpl->fetch("design:fiche_detail/fiche_detail.tpl");
 
