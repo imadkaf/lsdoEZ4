@@ -684,7 +684,7 @@ class eZSitOperators {
 		$xsltParemters['termeSuivant'] = utf8_encode("Suivant");
 		$xsltParemters['termeAucun'] = utf8_encode("Aucune fiche ne correspond à votre recherche");
 		$xsltParemters['termeResultatsTrouves'] = utf8_encode("fiche(s) correspond(ent) à votre recherche");
-		$xsltParemters['termeOuvertTouteAnnee'] = utf8_encode("Ouvert tout l'année");
+		$xsltParemters['termeOuvertTouteAnnee'] = utf8_encode("Ouvert toute l'année");
 		$xsltParemters['termePeriodesOuverture'] = utf8_encode("Périodes d'ouverture");
 		$xsltParemters['termeLe'] = utf8_encode("Le");
 		$xsltParemters['termeDu'] = utf8_encode("Du");
