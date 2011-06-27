@@ -18,6 +18,7 @@ ClassEmbedCodeIdentifier=embed_code
 HomeMainMenu[]
 HomeMainMenu[]=sub_menu
 HomeMainMenu[]=main_menu
+HomeMainMenu[]=embed_code
 
 [ClassAttributeSettings]
 ClassAttributeSeasonIdentifier=title
