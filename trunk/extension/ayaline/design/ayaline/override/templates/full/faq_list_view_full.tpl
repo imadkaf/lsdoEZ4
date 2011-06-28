@@ -1,5 +1,7 @@
 ﻿{* Faqs full view *}
 
+{def $nbPubs = 5}
+
 <div class="bloc-left-bis">
 
 	<div class="bloc-left-in-bis">
@@ -63,4 +65,5 @@
 
 <div class="bloc-right-bis">
 	{include uri='design:parts/reserver.tpl'}
+	{include uri='design:parts/publicites.tpl' nbPubs = $nbPubs}
 </div>
