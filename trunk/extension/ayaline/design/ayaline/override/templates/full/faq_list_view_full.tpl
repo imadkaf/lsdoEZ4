@@ -23,7 +23,9 @@
 			</p>
 		
 			{def $faqs = fetch( 'content','list',hash( 'parent_node_id', $node.node_id,
-													   'sort_by', $node.sort_array))}
+													   'sort_by', $node.sort_array,
+													   'class_filter_type' , 'include',
+													   'class_filter_array', array('faq')))}
 			
 			{def $typeOfView = $node.object.data_map.type_of_view}
 			{def $view = $typeOfView.content[0]}
