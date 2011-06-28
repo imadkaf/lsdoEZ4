@@ -6,7 +6,9 @@
 	<h1 class="faq_list_title">{$node.name|wash}</h1>
 	
 	{def $faqs = fetch( 'content','list',hash( 'parent_node_id', $node.node_id,
-											   'sort_by', $node.sort_array))}
+											   'sort_by', $node.sort_array,
+											   'class_filter_type' , 'include',
+											   'class_filter_array', array('faq')))}
 	{*$node|attribute(show,3)*}
 	
 	{def $typeOfView = $node.object.data_map.type_of_view}
