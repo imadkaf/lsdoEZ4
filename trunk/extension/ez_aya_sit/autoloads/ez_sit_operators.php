@@ -165,6 +165,8 @@ class eZSitOperators {
 		$cheminCacheXml = $_SERVER['DOCUMENT_ROOT']."/".$cheminCacheXml;
 
 		$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParameters','XslPath');
+		
+		$traductionsStatiques = $sitIni->variable('SitTranslations','StaticSitTranslations');
 
 		$triEnCours = "";
 		if (array_key_exists('tri', $viewParameters) && $viewParameters['tri']) {
@@ -316,24 +318,20 @@ class eZSitOperators {
 		$xsltParemters['finOuv'] = utf8_encode($finOuv);
 		$xsltParemters['debutDispo'] = utf8_encode($debutDispo);
 		$xsltParemters['dureeDispo'] = utf8_encode($dureeDispo);
-
-		$xsltParemters['termeReinitialiserRecherche'] = utf8_encode("Réinitialiser la recherche");
-		$xsltParemters['termeAffinerRecherche'] = utf8_encode("Affiner la recherche");
-		$xsltParemters['termeTrierPar'] = utf8_encode("Trier par");
-		$xsltParemters['termeTriCroissant'] = utf8_encode("Tri croissant");
-		$xsltParemters['termeTriDecroissant'] = utf8_encode("Tri décroissant");
-		$xsltParemters['termeAnnulerTri'] = utf8_encode("Annuler le tri");
-		$xsltParemters['termeCommune'] = utf8_encode("Commune");
-		$xsltParemters['termeMotsCles'] = utf8_encode("Mots-clés");
-		$xsltParemters['termeAPartirde'] = utf8_encode("A partir de");
-		$xsltParemters['termeNombreNuitees'] = utf8_encode("Nombre de nuitées");
-		$xsltParemters['termeDebutOuv'] = utf8_encode("Début ouverture");
-		$xsltParemters['termeFinOuv'] = utf8_encode("Fin ouverture");
-		$xsltParemters['termeIndifferent'] = utf8_encode("—");
+		
+		foreach ($traductionsStatiques as $traductionStatique) {
+			$xsltParemters['terme'.$traductionStatique] = ezpI18n::tr("sit/termes", $traductionStatique);
+		}
 
 		$cheminFichierXsl = $cheminXsl.$xslFile."_".$categorie.".xsl";
 		if (!file_exists($cheminFichierXsl)) {
 			$cheminFichierXsl = $cheminXsl.$xslFile.".xsl";
+		}
+		if (!file_exists($cheminFichierXsl)) {
+			$cheminFichierXsl = $cheminXsl."sit_recherche_".$categorie.".xsl";
+		}
+		if (!file_exists($cheminFichierXsl)) {
+			$cheminFichierXsl = $cheminXsl."sit_recherche.xsl";
 		}
 
 		$contenuBloc = "";
@@ -368,6 +366,8 @@ class eZSitOperators {
 		$cheminCacheXml = $_SERVER['DOCUMENT_ROOT']."/".$cheminCacheXml;
 
 		$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParameters','XslPath');
+
+		$traductionsStatiques = $sitIni->variable('SitTranslations','StaticSitTranslations');
 
 		$cheminRacineSite = "/";
 		eZURI::transformURI($cheminRacineSite);
@@ -678,21 +678,19 @@ class eZSitOperators {
 		$xsltParemters['caracteresKo'] = utf8_encode("ŠŒŽŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝß");
 		$xsltParemters['caracteresOk'] = utf8_encode("šœžÿ¥µàáâãäåæçèéêëìíîïðñòóôõöøùúûüýß");
 
-		$xsltParemters['termePremierePage'] = utf8_encode("Première page");
-		$xsltParemters['termeDernierePage'] = utf8_encode("Dernière page");
-		$xsltParemters['termePrecedent'] = utf8_encode("Précédent");
-		$xsltParemters['termeSuivant'] = utf8_encode("Suivant");
-		$xsltParemters['termeAucun'] = utf8_encode("Aucune fiche ne correspond à votre recherche");
-		$xsltParemters['termeResultatsTrouves'] = utf8_encode("fiche(s) correspond(ent) à votre recherche");
-		$xsltParemters['termeOuvertTouteAnnee'] = utf8_encode("Ouvert toute l'année");
-		$xsltParemters['termePeriodesOuverture'] = utf8_encode("Périodes d'ouverture");
-		$xsltParemters['termeLe'] = utf8_encode("Le");
-		$xsltParemters['termeDu'] = utf8_encode("Du");
-		$xsltParemters['termeAu'] = utf8_encode("au");
+		foreach ($traductionsStatiques as $traductionStatique) {
+			$xsltParemters['terme'.$traductionStatique] = ezpI18n::tr("sit/termes", $traductionStatique);
+		}
 
 		$cheminFichierXsl = $cheminXsl.$xslFile."_".$categorie.".xsl";
 		if (!file_exists($cheminFichierXsl)) {
 			$cheminFichierXsl = $cheminXsl.$xslFile.".xsl";
+		}
+		if (!file_exists($cheminFichierXsl)) {
+			$cheminFichierXsl = $cheminXsl."sit_liste_".$categorie.".xsl";
+		}
+		if (!file_exists($cheminFichierXsl)) {
+			$cheminFichierXsl = $cheminXsl."sit_liste.xsl";
 		}
 
 		$contenuBloc = "";

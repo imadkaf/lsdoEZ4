@@ -27,6 +27,8 @@ $cheminCacheXml = $_SERVER['DOCUMENT_ROOT']."/".$cheminCacheXml;
 
 $cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParameters','XslPath');
 
+$traductionsStatiques = $sitIni->variable('SitTranslations','StaticSitTranslations');
+
 $dureeVieCache = $sitIni->variable('GlobalSitParameters','DureeVieCacheFiche') * 60;
 $idFiche = $Params['idFiche'];
 $cheminCategorie = $Params['cheminCategorie'];
@@ -211,34 +213,9 @@ $xsltParemters['modeAffichageCriteres'] = $modeAffichageCriteres[0] == '1' ? "af
 $xsltParemters['criteresAffiches'] = "|".implode("|", $criteresAffiches)."|";
 $xsltParemters['criteresNonAffiches'] = "|".implode("|", $criteresNonAffiches)."|";
 
-$xsltParemters['termeRetourListe'] = utf8_encode("Retour à la liste de résultats");
-$xsltParemters['termeAdresseFiche'] = utf8_encode("Adresse de la fiche");
-$xsltParemters['termeAdressePrestataire'] = utf8_encode("Adresse du prestataire");
-$xsltParemters['termeTelephone'] = utf8_encode("Tél");
-$xsltParemters['termeFax'] = utf8_encode("Fax");
-$xsltParemters['termeCaracteristiques'] = utf8_encode("Caractéristiques");
-$xsltParemters['termeDispos'] = utf8_encode("Disponibilités");
-$xsltParemters['termeInformationProposeePar'] = utf8_encode("Cette information vous est proposée par");
-$xsltParemters['termeJanvier'] = utf8_encode("Janvier");
-$xsltParemters['termeFevrier'] = utf8_encode("Février");
-$xsltParemters['termeMars'] = utf8_encode("Mars");
-$xsltParemters['termeAvril'] = utf8_encode("Avril");
-$xsltParemters['termeMai'] = utf8_encode("Mai");
-$xsltParemters['termeJuin'] = utf8_encode("Juin");
-$xsltParemters['termeJuillet'] = utf8_encode("Juillet");
-$xsltParemters['termeAout'] = utf8_encode("Août");
-$xsltParemters['termeSeptembre'] = utf8_encode("Septembre");
-$xsltParemters['termeOctobre'] = utf8_encode("Octobre");
-$xsltParemters['termeNovembre'] = utf8_encode("Novembre");
-$xsltParemters['termeDecembre'] = utf8_encode("Décembre");
-$xsltParemters['termeFerme'] = utf8_encode("Fermé");
-$xsltParemters['termeComplet'] = utf8_encode("Complet");
-$xsltParemters['termeDisponible'] = utf8_encode("Disponible");
-$xsltParemters['termeOuvertTouteAnnee'] = utf8_encode("Ouvert tout l'année");
-$xsltParemters['termePeriodesOuverture'] = utf8_encode("Périodes d'ouverture");
-$xsltParemters['termeLe'] = utf8_encode("Le");
-$xsltParemters['termeDu'] = utf8_encode("Du");
-$xsltParemters['termeAu'] = utf8_encode("au");
+foreach ($traductionsStatiques as $traductionStatique) {
+	$xsltParemters['terme'.$traductionStatique] = ezpI18n::tr("sit/termes", $traductionStatique);
+}
 
 if (!$categorie && $previousNode) {
 	$sitListe = $previousNode->attribute('object');
