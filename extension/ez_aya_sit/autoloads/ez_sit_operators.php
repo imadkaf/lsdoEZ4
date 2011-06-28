@@ -320,7 +320,7 @@ class eZSitOperators {
 		$xsltParemters['dureeDispo'] = utf8_encode($dureeDispo);
 		
 		foreach ($traductionsStatiques as $traductionStatique) {
-			$xsltParemters['terme'.$traductionStatique] = ezpI18n::tr("sit/termes", $traductionStatique);
+			$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes", $traductionStatique));
 		}
 
 		$cheminFichierXsl = $cheminXsl.$xslFile."_".$categorie.".xsl";
@@ -679,7 +679,7 @@ class eZSitOperators {
 		$xsltParemters['caracteresOk'] = utf8_encode("šœžÿ¥µàáâãäåæçèéêëìíîïðñòóôõöøùúûüýß");
 
 		foreach ($traductionsStatiques as $traductionStatique) {
-			$xsltParemters['terme'.$traductionStatique] = ezpI18n::tr("sit/termes", $traductionStatique);
+			$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes", $traductionStatique));
 		}
 
 		$cheminFichierXsl = $cheminXsl.$xslFile."_".$categorie.".xsl";

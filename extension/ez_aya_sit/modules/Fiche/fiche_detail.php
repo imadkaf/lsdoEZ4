@@ -214,7 +214,7 @@ $xsltParemters['criteresAffiches'] = "|".implode("|", $criteresAffiches)."|";
 $xsltParemters['criteresNonAffiches'] = "|".implode("|", $criteresNonAffiches)."|";
 
 foreach ($traductionsStatiques as $traductionStatique) {
-	$xsltParemters['terme'.$traductionStatique] = ezpI18n::tr("sit/termes", $traductionStatique);
+	$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes", $traductionStatique));
 }
 
 if (!$categorie && $previousNode) {
