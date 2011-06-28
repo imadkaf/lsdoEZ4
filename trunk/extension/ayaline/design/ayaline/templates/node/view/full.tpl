@@ -22,9 +22,14 @@
 			{foreach $node.data_map as $attribute}
 				{if and(ne($attribute.contentclass_attribute.identifier, 'title'), 
 						ne($attribute.contentclass_attribute.identifier, 'short_description'), 
-						ne($attribute.contentclass_attribute.identifier, 'referencement'))}
+						ne($attribute.contentclass_attribute.identifier, 'referencement'),
+						ne($attribute.contentclass_attribute.identifier, 'code'))}
 					<br /><br />
 					{attribute_view_gui attribute = $attribute}
+				{/if}
+				{if eq($attribute.contentclass_attribute.identifier, 'code')}
+					<br /><br />
+					{$attribute.content}
 				{/if}
 			{/foreach}
 
