@@ -10,7 +10,7 @@
 										'class_filter_type' , 'include',
 										'class_filter_array', array('brochure')))}
 
-{def $nb_brochures = fetch( 'content','list_count',hash( 'parent_node_id', $node.node_id,))}
+{def $nb_brochures = fetch( 'content','list_count',hash( 'parent_node_id', $node.node_id, 'class_filter_type' , 'include', 'class_filter_array', array('brochure')))}
 
 <div name="brochure">
 
