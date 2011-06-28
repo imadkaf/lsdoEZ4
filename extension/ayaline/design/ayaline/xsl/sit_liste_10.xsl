@@ -56,7 +56,7 @@
 			]]>
 		</script>
 		
-		<span class="picto-hotel">Hotels</span>
+		<span class="picto-hotel">H&amp;ocirc;tels</span>
 
 		<xsl:call-template name="nb-produits"/>
 		<xsl:if test="count(resultats/produit) &gt; 0">
