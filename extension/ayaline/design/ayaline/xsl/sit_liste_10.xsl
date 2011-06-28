@@ -16,6 +16,48 @@
 	<xsl:include href="inc/periodes_ouverture.xsl"/>
 
 	<xsl:template match="/">
+	
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"><![CDATA[ ]]></script>
+		<script type="text/javascript">
+			<![CDATA[
+				function initialize() {
+					//Mettre les coordonnees du centre des Sables d'Olonne
+				    var latlng = new google.maps.LatLng(46.162000, -1.1550);
+				    
+				    var myOptions = {
+				      zoom: 13,
+				      center: latlng,
+				      mapTypeId: google.maps.MapTypeId.ROADMAP
+				    };
+				    
+				    var map = new google.maps.Map(document.getElementById("mapContainerListe"), myOptions);
+				    
+				    ]]>
+				    <xsl:if test="count(resultats/produit) &gt; 0">
+				    	<xsl:for-each select="resultats/details/detail[position() &gt;= ((($pageCourante - 1)*$nbItemsParPage) + 1) and position() &lt;= ($pageCourante * $nbItemsParPage)]">
+						    <![CDATA[
+							    var marker = new google.maps.Marker({
+								    position: new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[),
+								    map: map,
+								    icon: '/extension/ayaline/design/ayaline/images/picto-hotel.png',
+									title:"]]><xsl:value-of select="intitule"/><![CDATA["
+								});
+							]]>
+						</xsl:for-each>
+					</xsl:if>
+				    <![CDATA[
+			  	}
+			]]>
+		</script>
+		<div id="mapContainerListe" style="width:635px;height:250px;margin-bottom:10px;border: 1px solid #E9E3DE;"><![CDATA[ ]]></div>
+		<script type="text/javascript">
+			<![CDATA[
+				initialize();
+			]]>
+		</script>
+		
+		<span class="picto-hotel">Hotels</span>
+
 		<xsl:call-template name="nb-produits"/>
 		<xsl:if test="count(resultats/produit) &gt; 0">
 			<ul class="list-inline-bis">
@@ -29,7 +71,7 @@
 						<h3 class="titre-top2">
 							<a class="float-g top2"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="intitule"/></a>
 							<xsl:choose>
-											<xsl:when test="not(criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite = '')">
+								<xsl:when test="not(criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite = '')">
 									<img alt="" class="float-g">
 										<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
 										<xsl:attribute name="title">Cat&amp;eacute;gorie : <xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/intModalite"/></xsl:attribute>
@@ -74,7 +116,7 @@
 								<xsl:for-each select="criteres/critere">
 									<xsl:variable name="idCritere" select="@id"/>
 									<xsl:variable name="intituleCritere" select="intCritere"/>
-									<xsl:if test="not($idCritere = '400002615') and not($idCritere = '400002787') and not($idCritere = '400003056')">
+									<xsl:if test="not($idCritere = '400002615') and not($idCritere = '400002787') and not($idCritere = '400003056') and not($idCritere = '999000149')">
 										<xsl:if test="count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', $idCritere, '|'))]) &gt; 0">
 											<li style="padding: 5px 0px 5px 0px !important;">
 												<div style="padding: 0px 0px 0px 5px">
@@ -212,7 +254,7 @@
 									<xsl:for-each select="criteres/critere">
 										<xsl:variable name="idCritere" select="@id"/>
 										<xsl:variable name="intituleCritere" select="intCritere"/>
-										<xsl:if test="not($idCritere = '400002616') and not($idCritere = '400002615') and not($idCritere = '400002787') and not($idCritere = '400003056')">
+										<xsl:if test="not($idCritere = '400002616') and not($idCritere = '400002615') and not($idCritere = '400002787') and not($idCritere = '400003056') and not($idCritere = '999000149')">
 											<xsl:if test="count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', $idCritere, '|'))]) &gt; 0">
 												<li style="padding: 5px 0px 5px 0px !important;">
 													<div style="padding: 0px 0px 0px 5px">
