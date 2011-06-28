@@ -135,7 +135,7 @@
 				</input>
 			</div>
 			<div style="margin-bottom:10px">
-				<label for="sit_debut_ouv" style="float:left;">
+				<label for="sit_debut_ouv" style="float:left; width:100px;">
 					<strong class="menu-gauche-h2-recherche"><xsl:value-of select="$termeDebutOuv"/></strong>
 				</label>
 				<label for="sit_fin_ouv">
