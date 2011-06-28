@@ -1181,7 +1181,8 @@ ul.list-right{
 	top:15px;
 	left:-32px;
 }
-.list-right .link{
+.list-right .link, 
+.list-right .link-bis{
 	background:url('../images/bg-btn-r-tl.png') 0 0 no-repeat #f13db7;
 	float:right;
 	position:relative;
@@ -1768,7 +1769,7 @@ ul.ss-titre-bis{
 	float:none !important;
 	margin:0px !important;
 }
-ul p.ss-titre{
+p.ss-titre{
 	color:#00bbd6 !important;
 	font-style:italic !important;
 	font-weight:bold;
@@ -2020,6 +2021,203 @@ p.lien-bas{
     width:auto !important;
 	padding:0 5px 0 0 !important;
 }
+/****Fiche hotel****/
+.box-left{
+	width:326px;
+	margin:0 16px 0 0;
+	float:left;
+}
+.box-right{
+	width:294px;
+	float:left;
+}
+.box-right .ss-titre-bis{
+	padding:14px 0 0 0;
+}
+.box-right .ss-titre{
+	font-size:13px;
+	float:left;
+	padding:0 21px 0 0 !important;
+}
+.box-right p.lien-bas a.reserver {
+    float: left;
+}
+.box-right ul.inline{
+	overflow:hidden;
+	height:1%;
+	padding:0 0 12px 0;
+}
+.box-right ul.inline li{
+	display:inline;
+	float:left;
+	padding:0px;
+}
+.box-right div a{
+	color:#00bbd4;
+}
+.box-right div ul.inline{
+	overflow:hidden;
+	height:1%;
+	margin:34px 0 0 0;
+	padding:0px;
+}
+.box-right div ul.inline li{
+	display:inline;
+	float:left;
+	padding:0 1px 0 0;
+}
+.box-right div ul.inline li a{
+	display:block;
+	padding:5px 8px;
+	text-transform:uppercase;
+	background:#f5f2ef;
+	color:#000000;
+	font-size:10px;
+}
+.box-right div ul.inline li.actif a{
+	font-weight:bold;
+	background:#ece5df;
+}
+.box-right div ul.inline li.last a{
+	background:#7ad6e1;
+	color:#ffffff;
+	padding:5px 9px;
+}
+.box-right div ul.inline li a:hover{
+	text-decoration:none;
+}
+.box-right div.texte{
+	margin:8px 0 0 0;
+	border:1px solid #ece5df;
+	padding:16px 11px 0 11px;
+}
+.box-right div.texte p{
+	line-height:14px;
+}
+.padd-t12px-b14px{
+	padding:12px 0 14px 0 !important;
+	line-height:14px !important;
+}
+.box-left div ul.inline li{
+	display:inline;
+	float:left;
+	padding:0px 7px 0 0;
+}
+.box-left div ul.inline li.last{
+	padding:0px;
+}
+.box-left div ul.inline li img{
+	margin:0px;
+}
+.box-left div.list-img{
+	background:#ece5df;
+	padding:14px 5px;
+	overflow:hidden;
+	height:1%;
+	width:314px;
+	margin:0 0 17px 0;
+}
+.box-left div ul.inline li.prev, 
+.box-left div ul.inline li.next{
+	position:relative;
+	top:12px;
+}
+.box-left div ul.inline li.separator{
+	position:relative;
+	top:5px;
+}
+.box-left .map{
+	border:1px solid #d6cdc7;
+	margin:0 0 17px 0;
+}
+.box-left .form-rech span{
+	display:block;
+	background:#303a42;
+	color:#ffffff;
+	padding:10px 0 10px 9px;
+	font-weight:bold;
+}
+.box-left .form-rech form{
+	background:#c0c4c6;
+	font-size:11px;
+	padding:12px 0 26px 11px;
+	overflow:hidden;
+	height:1%;
+}
+.box-left .form-rech div.date p, .box-left .form-rech div.date label, 
+.box-left .form-rech div.date select{
+	float:left;
+}
+.box-left .form-rech div.date p.label, 
+.box-left .form-rech p.float-g{
+	padding:0px !important;
+	width:25%;
+}
+.box-left .form-rech input{
+	padding:0px !important;
+	margin:0px !important;
+}
+.box-left .form-rech select{
+	font-size:11px;
+}
+select#nbre-semaine{
+	margin:0 0 0 20px;
+}
+.nbr{
+	padding:0 0 11px 0;
+	overflow:hidden;
+	height:1%;
+}
+.box-left .form-rech .button{
+	background:#ff8b33;
+	color:#ffffff;
+	font-weight:bold !important;
+	padding:3px 7px !important;
+    font-size: 11px;
+    margin: 5px 0 0 78px !important;
+    text-align: left !important;
+    width: 180px !important;
+}
+.bloc-stars{
+	padding:3px 0 0 0 !important;
+	overflow:hidden;
+	height:1%;
+}
+.bloc-stars img{
+	margin:0px !important;
+}
+.list-right .link-bis{
+	background:url('../images/bg-btn-r-bis-tl.png') 0 0 no-repeat #02bdff;
+	top:19px;
+}
+.list-right .link-bis .bg-btn-r-tr{
+	background:url('../images/bg-btn-r-bis-tr.png') 100% 0 no-repeat;
+}
+.list-right .link-bis .bg-btn-r-bl{
+	background:url('../images/bg-btn-r-bis-bl.png') 0 100% no-repeat;
+	display:block;
+}
+.list-right .link-bis a{
+	background:url('../images/bg-btn-r-bis-br.png') 100% 100% no-repeat;
+	padding:2px 5px;
+	color:#ffffff;
+	font-weight:bold;
+	display:block;
+}
+.list-right .link-bis a:hover{
+	text-decoration:none;
+}
+.space{
+	height:20px;
+}
+.form-rech .width-auto{
+	width:auto;
+}
+.form-rech p.agenda img{
+	margin:2px 0 0 0;
+}
+
+
 /*********************/
 /*** Ajouts Alexia ***/
 /*********************/
@@ -2466,6 +2664,7 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
     width: 138px;
 }
 
+
 /*** Page liste activites ***/
 .liste-act-border{
 	border-top: 1px solid #F6EFE9;
@@ -2483,6 +2682,20 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 .criteres.liste-act li:first-child{
     border-top: none;
+}
+
+
+/*** Menu A la Une - Meteo ***/
+.meteo{
+	border: none !important;
+	background: none !important;
+	margin-top: 20px;
+}
+.meteo a{
+	border-left: none !important;
+}
+.meteo-lien{
+	display: none;
 }
 
 /************************/
