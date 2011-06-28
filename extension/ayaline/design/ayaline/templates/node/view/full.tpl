@@ -1,3 +1,5 @@
+{def $nbPubs = 5}
+
 <div class="bloc-left-bis">
 	<div class="bloc-left-in-bis">
 		{include uri='design:parts/menu_gauche_interne.tpl'}
@@ -34,5 +36,6 @@
 
 <div class="bloc-right-bis">
 	{include uri='design:parts/reserver.tpl'}
+	{include uri='design:parts/publicites.tpl' nbPubs = $nbPubs}
 	{include uri='design:parts/les_plus_consultes.tpl'}
 </div>

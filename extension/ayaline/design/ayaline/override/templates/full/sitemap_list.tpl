@@ -1,5 +1,7 @@
 ﻿{set-block scope=root variable=cache_ttl}0{/set-block}
 
+{def $nbPubs = 5}
+
 {* Récupération des sous-contenus (3 niveaux en tout) *}
 {def $menuItemsArray = fetch_alias('sitemap',hash('parent_node_id', ezini('NodeSettings', 'RootNode', 'content.ini')))}
 
@@ -64,5 +66,6 @@
 
 <div class="bloc-right-bis">
 	{include uri='design:parts/reserver.tpl'}
+	{include uri='design:parts/publicites.tpl' nbPubs = $nbPubs}
 	{include uri='design:parts/les_plus_consultes.tpl'}
 </div>
