@@ -21,4 +21,6 @@ ActiveExtensions[]=recaptcha
 ActiveExtensions[]=ezsurvey
 ActiveExtensions[]=ezfeedparse
 ActiveExtensions[]=wordCut
+ActiveExtensions[]=arraysortoperator
+
 */ ?>
