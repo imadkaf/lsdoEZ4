@@ -2690,15 +2690,15 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 
 
 /*** Menu A la Une - Meteo ***/
-.meteo{
+.rubrique2 .meteo{
 	border: none !important;
 	background: none !important;
 	margin-top: 20px;
 }
-.meteo a{
+.rubrique2 .meteo a{
 	border-left: none !important;
 }
-.meteo-lien{
+.rubrique2 .meteo-lien{
 	display: none;
 }
 
