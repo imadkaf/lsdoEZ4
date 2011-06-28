@@ -390,7 +390,7 @@ li.last form{
 	background:url('../images/a-la-une-over.png') 0px 0 no-repeat;
 }
 .header-in-right div.menu li.rubrique2 a{
-	padding:0 0px 10px 15px;
+	padding:0 15px 10px 15px;
 }
 .header-in-right div.menu li.rubrique0:hover a.element, 
 .header-in-right div.menu li.rubrique2:hover a.element, 
@@ -2020,6 +2020,10 @@ div.chapeau img{
 p.lien-bas{
     width:auto !important;
 	padding:0 5px 0 0 !important;
+}
+/*****ss-menu Sejourner****/
+.rubrique1 .ss-menu{
+	left: -325px;
 }
 /****Fiche hotel****/
 .box-left{
