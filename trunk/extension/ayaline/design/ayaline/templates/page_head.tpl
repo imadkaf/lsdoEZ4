@@ -74,7 +74,18 @@
 		<!--[if IE 8]>
 			<link rel="stylesheet" type="text/css" href={'stylesheets/main_ie8.css'|ezdesign} media="all" />
 		<![endif]-->
-		
+
+{def $chemin = $cNode.path_string|extract(0, 8)}
+{if eq($chemin, ezini('Chemins', 'decouvrir', 'ayaline.ini'))}
+		<link rel="stylesheet" type="text/css" href={'stylesheets/decouvrir.css'|ezdesign} media="all" />
+{/if}
+{if eq($chemin, ezini('Chemins', 'sejourner', 'ayaline.ini'))}
+		<link rel="stylesheet" type="text/css" href={'stylesheets/sejourner.css'|ezdesign} media="all" />
+{/if}
+{if eq($chemin, ezini('Chemins', 'alaune', 'ayaline.ini'))}
+		<link rel="stylesheet" type="text/css" href={'stylesheets/alaune.css'|ezdesign} media="all" />
+{/if}
+
 		<link rel="stylesheet" type="text/css" href={'stylesheets/print.css'|ezdesign} media="print" />
 {* Javascript *}
 {foreach ezini( 'JavaScriptSettings', 'JavaScriptList', 'design.ini' ) as $js_fichier }

@@ -1,0 +1,22 @@
+/*** Page A la Une ***/
+ul.list .lien-bas a, ul.liste .lien-bas a, .cp-coeur .lien-bas a {
+    background: url("../images/picto5.gif") no-repeat scroll 0 50% transparent;
+}
+
+.list-right .link, .list-right .link-bis {
+    background: url("../images/bg-btn-r-bis-tl.png") no-repeat scroll 0 0 #BCC601;
+}
+.list-right .bg-btn-r-tr {
+    background: url("../images/bg-btn-r-bis-tr.png") no-repeat scroll 100% 0 transparent;
+}
+.list-right .bg-btn-r-bl {
+    background: url("../images/bg-btn-r-bis-bl.png") no-repeat scroll 0 100% transparent;
+}
+.list-right .link a {
+    background: url("../images/bg-btn-r-bis-br.png") no-repeat scroll 100% 100% transparent;
+}
+
+.lien-bas a.type3 {
+    background: url("../images/picto5.gif") no-repeat scroll 0 50% transparent;
+    color: #BCC601;
+}
