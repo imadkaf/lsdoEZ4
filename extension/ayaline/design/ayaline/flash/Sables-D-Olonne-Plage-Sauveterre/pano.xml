@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<panorama>
+	<parameters>
+	panoName = /extension/ayaline/design/ayaline/flash/Sables-D-Olonne-Plage-Sauveterre/small/pano
+	layer_9 = /extension/ayaline/design/ayaline/flash/autorotator.swf
+	layer_4 = /extension/ayaline/design/ayaline/flash/loadMeter.swf
+	layer_5 = /extension/ayaline/design/ayaline/flash/hotspots.swf
+    layer_20 = /extension/ayaline/design/ayaline/flash/tooltips.swf
+	layer_100 = /extension/ayaline/design/ayaline/flash/cl_context_menu_1.swf
+	loaderTextColor = #FFFFFF
+	loaderBackColor = #000000
+	loaderText = 
+	zoomMax = 1.5
+	zoomMin = 0.9
+	</parameters>
+	
+<cl_context_menu>
+Studio Loecsen = http://www.studioloecsen.com
+</cl_context_menu>
+
+<tooltips>
+ altFont = Arial
+ altSize = 12
+ altFill = 0xFFFFFF
+ altAlpha=.8 
+ altStroke=0xffffff
+</tooltips>
+
+
+	
+	<hotspots>
+	<global 
+	LocalConnectionID="lc_test"
+	
+		onStart = "loadPreview();
+		fs.visible=0;
+		menu.visible=0;" 
+		loadPreview = "
+		external.autorotator.disabled=1;
+		loadPano(?panoName=/extension/ayaline/design/ayaline/flash/Sables-D-Olonne-Plage-Sauveterre/small/pano);
+		onTransitionEnd=loadMain();" 
+
+	    loadMain = "pano.leash=lock;
+		loadPano(?panoName=/extension/ayaline/design/ayaline/flash/Sables-D-Olonne-Plage-Sauveterre/pano,400);
+		onTransitionEnd=loadHotspots();"
+		loadHotspots = "
+	external.autorotator.disabled=0;
+	pano.pan=60,1000;
+	pano.tilt=-3,1000;
+		"
+	>
+		
+	 <spot id="infoscreen" url="/extension/ayaline/design/ayaline/flash/Sables-D-Olonne-Plage-Sauveterre/logoInfo.png" smoothing="1" static="1" visible="1" 
+	onLoad="alpha=1; timer+=1,2500,,off;"  
+	off="alpha=0,200;
+	menu.visible=1;
+	fs.visible=1;"
+	onClick="visible=0;fullscreen(-);"  
+	alt = "Cliquez dans cette zone pour un affichage plein écran"
+	depth="15"
+/>
+
+	<spot id="fs" static="1" salign="RB" align="RB" staticX="-5" staticY="-3" url="/extension/ayaline/design/ayaline/flash/fs.png" blendMode="lighten"  depth="0"
+		onOver="
+		change:-,alpha,2.5,200; "
+    	onOut="
+		change:-,alpha,1,400;"
+	    onClick="fullscreen(-)" 
+alt = "Affichage plein écran"
+onClick="fullscreen(-); infoscreen.visible=0;" 
+		/>
+	
+<spot id="information" static="1" salign="RB" align="RB" staticX="-5" staticY="-65" url="/extension/ayaline/design/ayaline/flash/information.png"  visible="0" />
+<spot id="copyright" static="1" sAlign="LB" align="LB" staticY="-1" depth="7" url="/extension/ayaline/design/ayaline/flash/copyright.png" />
+
+<spot id="menu" static="1" depth="100" visible="1" url="/extension/ayaline/design/ayaline/flash/menu/HScroller.swf" 
+salign="MB" align="MB" staticY="-14" staticX="20"
+onOver="external.autorotator.disabled=1;"
+onOut="external.autorotator.disabled=0;"
+/>
+
+</global>
+</hotspots>
+</panorama>
