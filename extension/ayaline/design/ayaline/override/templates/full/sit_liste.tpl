@@ -12,9 +12,15 @@
 			<h2 class="bloc-liste-h2">{$node.name|wash(xhtml)}</h2>
 			<p class="clear"></p>
 			{if eq($node.name, 'Hôtellerie')}
-				<p class="chapeau-bis">
-					{attribute_view_gui attribute=$node.data_map.description}
-				</p>
+				{def $affichageListeSIT = fetch( 'content', 'reverse_related_objects',
+									hash( 'object_id', $node.contentobject_id,
+											'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
+
+				{if $affichageListeSIT|count}
+					<p class="chapeau-bis">
+						{attribute_view_gui attribute=$affichageListeSIT.0.data_map.short_description}
+					</p>
+				{/if}
 			{/if}
 			
 			{sit_liste()}
