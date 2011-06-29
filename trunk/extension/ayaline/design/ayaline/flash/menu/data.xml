@@ -1,0 +1,6 @@
+<scroller>
+	<item image="/extension/ayaline/design/ayaline/flash/menu/thumbs/1.jpg" label="Remblai" data="Sables-d-Olonne-Le-Remblai" />
+	<item image="/extension/ayaline/design/ayaline/flash/menu/thumbs/2.jpg" label="Baie de Cayola " data="Sables-D-Olonne-Baie-de-Cayola" />
+	<item image="/extension/ayaline/design/ayaline/flash/menu/thumbs/3.jpg" label="Plage Sauveterre" data="Sables-D-Olonne-Plage-Sauveterre" />
+	<item image="/extension/ayaline/design/ayaline/flash/menu/thumbs/5.jpg" label="Le Marais" data="Sables-D-Olonne-marais" />
+</scroller>
