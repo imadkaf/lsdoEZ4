@@ -2,6 +2,12 @@
 
 	#ayaline
 
+[line_sit_liste]
+Source=node/view/line.tpl
+MatchFile=line/sit_liste.tpl
+Subdir=templates
+Match[class_identifier]=sit_liste
+
 [full_sit_liste]
 Source=node/view/full.tpl
 MatchFile=full/sit_liste.tpl

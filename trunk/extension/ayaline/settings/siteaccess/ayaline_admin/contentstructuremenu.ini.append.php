@@ -21,5 +21,6 @@ ShowClasses[]=simple_free_content
 ShowClasses[]=sit_liste
 ShowClasses[]=sit_fiche
 ShowClasses[]=sit_mise_en_avant
+ShowClasses[]=affichage_liste_sit
 
 */ ?>
