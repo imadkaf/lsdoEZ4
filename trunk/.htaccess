@@ -37,4 +37,6 @@ RewriteRule ^robots\.txt - [L]
 RewriteRule ^w3c/p3p\.xml - [L]
 RewriteRule ^makeImage/makeImage\.php - [L]
 
+RewriteRule ^sitemap.xml - [L]
+
 RewriteRule .* index\.php
