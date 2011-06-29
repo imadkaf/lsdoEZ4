@@ -996,8 +996,9 @@ ul#listeSelect1 li{
 /****Visites excursions****/
 .fil-ariane{
 	font-size:11px;
-	margin:-15px 0 0 0;
-	padding:0 0 5px 5px;
+	margin:-15px auto 0 auto;
+	padding:0 0 5px 0;
+    width: 1193px;
 }
 .bloc-left-bis{
 	margin:0 7px 0 0 !important;
@@ -2225,12 +2226,6 @@ select#nbre-semaine{
 /*********************/
 /*** Ajouts Alexia ***/
 /*********************/
-
-/*** Fil d'ariane ***/
-.fil-ariane{
-	margin-left: 34px;
-}
-
 
 /*** Pagination ***/
 .pagenavigator{
