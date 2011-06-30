@@ -11,4 +11,7 @@ alaune=/1/2/150
 [Noeuds]
 home=2
 
+[Urls]
+rssBlog=http://blog.lsdo.lnet.fr/feed/
+
 */ ?>
