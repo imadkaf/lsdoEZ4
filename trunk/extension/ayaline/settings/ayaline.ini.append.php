@@ -8,4 +8,7 @@ decouvrir=/1/2/126
 sejourner=/1/2/145
 alaune=/1/2/150
 
+[Noeuds]
+home=2
+
 */ ?>
