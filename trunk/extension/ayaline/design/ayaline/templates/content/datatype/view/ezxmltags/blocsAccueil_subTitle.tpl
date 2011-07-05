@@ -1,7 +1,7 @@
 <p class="clear"></p>
 
 {if eq($couleur, 'rose')}
-<h3 class="bloc-accueil-h3" style="color: #E941AE;">
+<h3 class="bloc-accueil-h3" style="color: #E941AE !important;">
 {/if}
 
 {if eq($couleur, 'ciel')}

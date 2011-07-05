@@ -53,7 +53,7 @@ input, textarea , select{
 }
 img {border:0;}
 
-p {padding: 0 0 0 0;color: #000000;}
+p {padding: 0 0 0 0; /*color: #000000;*/}
 
 caption, th {text-align:left;}
 
