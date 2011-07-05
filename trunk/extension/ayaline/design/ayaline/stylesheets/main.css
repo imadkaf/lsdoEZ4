@@ -2232,6 +2232,11 @@ select#nbre-semaine{
 	color:#000000;
 }
 
+.header-in-right .list-top .first{
+	text-transform:capitalize;
+	margin-right: 10px;
+}
+
 /*** Page de contenu ***/
 ul.contenu li{
 	background: url("../images/puce-contenu-noir.png") no-repeat scroll 0 3px transparent;
