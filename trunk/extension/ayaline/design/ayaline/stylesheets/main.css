@@ -2227,6 +2227,11 @@ select#nbre-semaine{
 /*** Ajouts Alexia ***/
 /*********************/
 
+/*** General ***/
+.menu .ss-menu p{
+	color:#000000;
+}
+
 /*** Page de contenu ***/
 ul.contenu li{
 	background: url("../images/puce-contenu-noir.png") no-repeat scroll 0 3px transparent;

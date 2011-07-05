@@ -12,6 +12,6 @@ alaune=/1/2/150
 home=2
 
 [Urls]
-rssBlog=http://blog.lsdo.lnet.fr/feed/
+rssBlog=http://www.messablesdolonne.fr/feed/
 
 */ ?>
