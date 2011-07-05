@@ -11,7 +11,7 @@ alaune=/1/2/150
 [Noeuds]
 home=2
 
-[Urls]
-rssBlog=http://www.messablesdolonne.fr/feed/
+#[Urls]
+#rssBlog=http://www.messablesdolonne.fr/feed/
 
 */ ?>
