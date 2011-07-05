@@ -1,5 +1,9 @@
 <?php /* #?ini charset="utf-8"?
 
+# La bibliotheque jquery est appellee via l'extension 'ayaline' donc les 
+# extensions 'faq' et 'ayaline_gallery' qui utilisent cette biblio. doivent
+# etre appellees apres 'ayaline' !
+
 [ExtensionSettings]
 ActiveExtensions[]=ayaline_gallery
 ActiveExtensions[]=faq
