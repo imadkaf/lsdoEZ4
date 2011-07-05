@@ -1,3 +1,5 @@
+{def $timestamp=currentdate()}
+
 {def $cNode = array()}
 {if is_set($module_result.node_id)}
 	{set $cNode = fetch(content, node, hash(node_id, $module_result.node_id))}
@@ -43,9 +45,12 @@
 						<div class="header-in-right">
 {if $rNode.data_map.header_menu.has_content}
 							<ul class="list-top">
+								<li class="first">{$timestamp|datetime(custom, '%l %d %F %Y')}</li>
+								
 	{foreach $rNode.data_map.header_menu.content.main_node.children as $sMenu}
 		<li>{node_view_gui content_node=$sMenu view='menu'}</li>
 	{/foreach}
+	
 {*Gestion des langues*}
 								<li class="langue">
 									<label for="langue" class="none">{"Langue"|i18n("ayaline/langue")}</label>

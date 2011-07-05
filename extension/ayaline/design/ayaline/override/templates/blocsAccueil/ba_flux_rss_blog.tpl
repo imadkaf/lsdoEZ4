@@ -11,10 +11,9 @@
 	{attribute_view_gui attribute = $node.data_map.sub_title}
 </h3>
 
-
 {* Utilisation de l'extention ezfeedparse *}
 {cache-block ignore_content_expiry expiry=7200}
-{def $feed = fetch( feed, parse, hash( 'rss_url', $node.data_map.adresse_flux_rss_blog ) )}
+{def $feed = fetch( feed, parse, hash( 'rss_url', $node.data_map.adresse_flux_rss_blog.content ) )}
 {def $limit = $node.data_map.nb_flux.content}
 {def $description = ''}
 
