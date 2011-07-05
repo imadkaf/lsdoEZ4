@@ -1,11 +1,11 @@
 <?php /* #?ini charset="utf-8"?
 
 [ExtensionSettings]
+ActiveExtensions[]=ayaline_gallery
+ActiveExtensions[]=faq
 ActiveExtensions[]=ayaline
 ActiveExtensions[]=ez_aya_sit
 ActiveExtensions[]=brochure
-ActiveExtensions[]=ayaline_gallery
-ActiveExtensions[]=faq
 ActiveExtensions[]=ez_sitemap
 ActiveExtensions[]=ezmultiupload
 ActiveExtensions[]=ezjscore
