@@ -12,7 +12,6 @@ CSSFileList[]=jquery-ui.custom.css
 BackendJavaScriptList[]=http://code.jquery.com/jquery-latest.min.js
 BackendJavaScriptList[]=ezcategoryselection.js
 BackendJavaScriptList[]=ezcategoryselection_ajax.js
-JavaScriptList[]=http://code.jquery.com/jquery-latest.min.js
 JavaScriptList[]=jquery.lightbox-latest.min.js
 JavaScriptList[]=jquery.ui.core.js
 JavaScriptList[]=jquery.ui.datepicker.js

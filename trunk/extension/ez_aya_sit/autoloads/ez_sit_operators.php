@@ -152,9 +152,17 @@ class eZSitOperators {
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
 
-		$rootSitUrl = $sitIni->variable('GlobalSitParameters','RootSitUrl');
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'RootSitUrl')) {
+			$rootSitUrl = $sitIni->variable('GlobalSitParametersOverride','RootSitUrl');
+		} else {
+			$rootSitUrl = $sitIni->variable('GlobalSitParameters', 'RootSitUrl');
+		}
 
-		$cheminCacheXml = $sitIni->variable('GlobalSitParameters','XmlCachePath');
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'XmlCachePath')) {
+			$cheminCacheXml = $sitIni->variable('GlobalSitParametersOverride','XmlCachePath');
+		} else {
+			$cheminCacheXml = $sitIni->variable('GlobalSitParameters','XmlCachePath');
+		}
 		$currentDirectory = $_SERVER['DOCUMENT_ROOT'];
 		foreach (explode("/", $cheminCacheXml) as $cheminCacheXmlPart) {
 			$currentDirectory .= "/".$cheminCacheXmlPart;
@@ -164,9 +172,22 @@ class eZSitOperators {
 		}
 		$cheminCacheXml = $_SERVER['DOCUMENT_ROOT']."/".$cheminCacheXml;
 
-		$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParameters','XslPath');
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'XslPath')) {
+			$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParametersOverride','XslPath');
+		} else {
+			$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParameters','XslPath');
+		}
 		
-		$traductionsStatiques = $sitIni->variable('SitTranslations','StaticSitTranslations');
+		$traductionsStatiques = $sitIni->variable('SitTranslations', 'StaticSitTranslations');
+		$traductionsStatiquesComplementaires = array();
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'StaticSitTranslations')) {
+			$traductionsStatiquesComplementaires = $sitIni->variable('GlobalSitParametersOverride','StaticSitTranslations');
+		}
+		foreach ($traductionsStatiquesComplementaires as $traductionStatiqueComplementaire) {
+			if (!in_array($traductionStatiqueComplementaire, $traductionsStatiques)) {
+				$traductionsStatiques[] = $traductionStatiqueComplementaire;
+			}
+		}
 
 		$triEnCours = "";
 		if (array_key_exists('tri', $viewParameters) && $viewParameters['tri']) {
@@ -320,7 +341,11 @@ class eZSitOperators {
 		$xsltParemters['dureeDispo'] = utf8_encode($dureeDispo);
 		
 		foreach ($traductionsStatiques as $traductionStatique) {
-			$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes", $traductionStatique));
+			if (ezpI18n::tr("sit/termes/override", $traductionStatique) != $traductionStatique) {
+				$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes/override", $traductionStatique));
+			} else {
+				$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes", $traductionStatique));
+			}
 		}
 
 		$cheminFichierXsl = $cheminXsl.$xslFile."_".$categorie.".xsl";
@@ -353,9 +378,17 @@ class eZSitOperators {
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
 
-		$rootSitUrl = $sitIni->variable('GlobalSitParameters','RootSitUrl');
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'RootSitUrl')) {
+			$rootSitUrl = $sitIni->variable('GlobalSitParametersOverride','RootSitUrl');
+		} else {
+			$rootSitUrl = $sitIni->variable('GlobalSitParameters', 'RootSitUrl');
+		}
 
-		$cheminCacheXml = $sitIni->variable('GlobalSitParameters','XmlCachePath');
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'XmlCachePath')) {
+			$cheminCacheXml = $sitIni->variable('GlobalSitParametersOverride','XmlCachePath');
+		} else {
+			$cheminCacheXml = $sitIni->variable('GlobalSitParameters','XmlCachePath');
+		}
 		$currentDirectory = $_SERVER['DOCUMENT_ROOT'];
 		foreach (explode("/", $cheminCacheXml) as $cheminCacheXmlPart) {
 			$currentDirectory .= "/".$cheminCacheXmlPart;
@@ -365,9 +398,22 @@ class eZSitOperators {
 		}
 		$cheminCacheXml = $_SERVER['DOCUMENT_ROOT']."/".$cheminCacheXml;
 
-		$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParameters','XslPath');
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'XslPath')) {
+			$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParametersOverride','XslPath');
+		} else {
+			$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParameters','XslPath');
+		}
 
 		$traductionsStatiques = $sitIni->variable('SitTranslations','StaticSitTranslations');
+		$traductionsStatiquesComplementaires = array();
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'StaticSitTranslations')) {
+			$traductionsStatiquesComplementaires = $sitIni->variable('GlobalSitParametersOverride','StaticSitTranslations');
+		}
+		foreach ($traductionsStatiquesComplementaires as $traductionStatiqueComplementaire) {
+			if (!in_array($traductionStatiqueComplementaire, $traductionsStatiques)) {
+				$traductionsStatiques[] = $traductionStatiqueComplementaire;
+			}
+		}
 
 		$cheminRacineSite = "/";
 		eZURI::transformURI($cheminRacineSite);
@@ -679,7 +725,11 @@ class eZSitOperators {
 		$xsltParemters['caracteresOk'] = utf8_encode("šœžÿ¥µàáâãäåæçèéêëìíîïðñòóôõöøùúûüýß");
 
 		foreach ($traductionsStatiques as $traductionStatique) {
-			$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes", $traductionStatique));
+			if (ezpI18n::tr("sit/termes/override", $traductionStatique) != $traductionStatique) {
+				$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes/override", $traductionStatique));
+			} else {
+				$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes", $traductionStatique));
+			}
 		}
 
 		$cheminFichierXsl = $cheminXsl.$xslFile."_".$categorie.".xsl";

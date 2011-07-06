@@ -5,9 +5,9 @@
 # etre appellees apres 'ayaline' !
 
 [ExtensionSettings]
+ActiveExtensions[]=ayaline
 ActiveExtensions[]=ayaline_gallery
 ActiveExtensions[]=faq
-ActiveExtensions[]=ayaline
 ActiveExtensions[]=ez_aya_sit
 ActiveExtensions[]=brochure
 ActiveExtensions[]=ez_sitemap

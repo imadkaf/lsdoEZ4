@@ -10,9 +10,11 @@ CSSFileList[]=ezfind.css
 CSSFileList[]=ezajax_autocomplete.css
 
 [JavaScriptSettings]
+RequiredJavaScriptList[]=jquery.js
 JavaScriptList[]=script.js
 JavaScriptList[]=menu_gauche_interne.js
 JavaScriptList[]=jquery.popin.pack.js
 JavaScriptList[]=main.js
+JavaScriptList[]=swfobject.js
 
 */ ?>
