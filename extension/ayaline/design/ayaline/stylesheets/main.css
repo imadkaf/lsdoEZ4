@@ -2701,6 +2701,15 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 
 
+/*** Page fiche hotel ***/
+.box-left #galleria{
+    height: 280px;
+}
+.box-left #galleria .galleria-container{
+	background: none repeat scroll 0 0 #ECE5DF;
+}
+
+
 /*** Menu A la Une - Meteo ***/
 .rubrique2 .meteo{
 	border: none !important;

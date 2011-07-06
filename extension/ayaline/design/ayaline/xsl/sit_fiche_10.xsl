@@ -20,51 +20,34 @@
 		<br/>
 		
 		<div class="box-left">
-			<xsl:if test="count(newPhotos/newPhoto) = 0">
-				<img alt="">
-					<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_grande.jpg</xsl:attribute>
-				</img>
-			</xsl:if>
-			<xsl:for-each select="newPhotos/newPhoto[position() = 1]">
-				<div><a target="_blank" style="display:block" rel="lightbox">
-					<xsl:attribute name="href"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=750&amp;amp;mw=1</xsl:attribute>
-					<img alt="">
-						<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=300&amp;amp;mw=1</xsl:attribute>
-					</img>
-				</a></div>
-			</xsl:for-each>
-			<xsl:if test="count(newPhotos/newPhoto[position() &gt; 1]) &gt; 0">
-				<div style="margin-top:5px;margin-bottom:17px">
-					<xsl:for-each select="newPhotos/newPhoto[position() &gt; 1]">
-						<a target="_blank" rel="lightbox">
-							<xsl:attribute name="style">float:left;display:block<xsl:if test="position() &gt; 1">;margin-left:5px</xsl:if></xsl:attribute>
-							<xsl:attribute name="href"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=750&amp;amp;mw=1</xsl:attribute>
-							<img alt="">
-								<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=56&amp;amp;mw=1</xsl:attribute>
+			<xsl:if test="count(newPhotos/newPhoto) &gt; 0">
+				<div id="galleria">
+					<xsl:for-each select="newPhotos/newPhoto">
+						<a>
+							<xsl:attribute name="href"><xsl:value-of select="."/></xsl:attribute>
+							<img>
+								<xsl:attribute name="alt">""</xsl:attribute>
+								<xsl:attribute name="src"><xsl:value-of select="."/></xsl:attribute>
 							</img>
 						</a>
-						<xsl:if test="(position() mod 5) = 0">
-							<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
-						</xsl:if>
 					</xsl:for-each>
-					<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
+					
+					<script type="text/javascript">
+						<![CDATA[
+							// Load the classic theme
+				   			Galleria.loadTheme("/extension/ayaline_gallery/design/standard/javascript/galleria/themes/classic/galleria.classic.min.js");
+				    
+							// Initialize Galleria
+							$('#galleria').galleria({
+								autoplay: 5000,
+								lightbox: true
+							});
+						]]>
+					</script>
 				</div>
+				<div class="clear"><![CDATA[ ]]></div><br />
 			</xsl:if>
-			<script type="text/javascript">
-			<![CDATA[
-				var cheminImages = ']]><xsl:value-of select="$cheminImages"/><![CDATA[';
-				jQuery('[rel="lightbox"]').lightBox({
-					imageLoading: cheminImages+'lightbox/loading.gif',
-					imageBtnClose: cheminImages+'lightbox/close.gif',
-					imageBtnPrev: cheminImages+'lightbox/prev.png',
-					imageBtnNext: cheminImages+'lightbox/next.png',
-					imageBlank: cheminImages+'lightbox/blank.gif',
-					txtImage: '',
-					txtOf: ' / '
-				});
-			]]>
-			</script>
-
+			
 			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"><![CDATA[ ]]></script>
 			<script type="text/javascript">
 				<![CDATA[

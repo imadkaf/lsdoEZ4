@@ -41,6 +41,7 @@
 {/set-block}
 	<head>
 		<title>{$site_title}</title>
+		
 {* Balises META *}
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 {foreach ezini('SiteSettings','MetaDataArray') as $metaName => $value}
@@ -64,6 +65,7 @@
 			{/case}
 		{/switch}
 {/foreach}
+
 {* Styles *}
 {foreach ezini( 'StylesheetSettings', 'CSSFileList', 'design.ini' ) as $css_fichier }
 		<link rel="stylesheet" type="text/css" href={concat( 'stylesheets/', $css_fichier )|ezdesign} media="all" />
@@ -74,7 +76,6 @@
 		<!--[if IE 8]>
 			<link rel="stylesheet" type="text/css" href={'stylesheets/main_ie8.css'|ezdesign} media="all" />
 		<![endif]-->
-
 {def $chemin = $cNode.path_string|extract(0, 8)}
 {if eq($chemin, ezini('Chemins', 'decouvrir', 'ayaline.ini'))}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/decouvrir.css'|ezdesign} media="all" />
@@ -85,9 +86,18 @@
 {if eq($chemin, ezini('Chemins', 'alaune', 'ayaline.ini'))}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/alaune.css'|ezdesign} media="all" />
 {/if}
-
 		<link rel="stylesheet" type="text/css" href={'stylesheets/print.css'|ezdesign} media="print" />
-{* Javascript *}
+		
+{*** Javascript ***}
+{* Pour appeller jquery en premier ! *}
+{foreach ezini( 'JavaScriptSettings', 'RequiredJavaScriptList', 'design.ini' ) as $js_fichier }
+	{if eq("http://",$js_fichier|extract_left(7))}
+		<script type="text/javascript" src="{$js_fichier}"></script>
+	{else}
+		<script type="text/javascript" src={concat( 'javascript/', $js_fichier )|ezdesign}></script>
+	{/if}
+{/foreach}
+{* Ensuite les autres javascripts *}
 {foreach ezini( 'JavaScriptSettings', 'JavaScriptList', 'design.ini' ) as $js_fichier }
 	{if eq("http://",$js_fichier|extract_left(7))}
 		<script type="text/javascript" src="{$js_fichier}"></script>

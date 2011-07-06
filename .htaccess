@@ -38,5 +38,6 @@ RewriteRule ^w3c/p3p\.xml - [L]
 RewriteRule ^makeImage/makeImage\.php - [L]
 
 RewriteRule ^sitemap.xml - [L]
+RewriteRule ^menu/data.xml /extension/ayaline/design/ayaline/flash/menu/data.xml [L]
 
 RewriteRule .* index\.php

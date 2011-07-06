@@ -13,9 +13,17 @@ if (!$rootNode) {
 	$rootNode = "2";
 }
 
-$rootSitUrl = $sitIni->variable('GlobalSitParameters','RootSitUrl');
+if ($sitIni->hasVariable('GlobalSitParametersOverride', 'RootSitUrl')) {
+	$rootSitUrl = $sitIni->variable('GlobalSitParametersOverride','RootSitUrl');
+} else {
+	$rootSitUrl = $sitIni->variable('GlobalSitParameters', 'RootSitUrl');
+}
 
-$cheminCacheXml = $sitIni->variable('GlobalSitParameters','XmlCachePath');
+if ($sitIni->hasVariable('GlobalSitParametersOverride', 'XmlCachePath')) {
+	$cheminCacheXml = $sitIni->variable('GlobalSitParametersOverride','XmlCachePath');
+} else {
+	$cheminCacheXml = $sitIni->variable('GlobalSitParameters','XmlCachePath');
+}
 $currentDirectory = $_SERVER['DOCUMENT_ROOT'];
 foreach (explode("/", $cheminCacheXml) as $cheminCacheXmlPart) {
 	if ($cheminCacheXmlPart && !file_exists($currentDirectory)) {
@@ -25,9 +33,22 @@ foreach (explode("/", $cheminCacheXml) as $cheminCacheXmlPart) {
 }
 $cheminCacheXml = $_SERVER['DOCUMENT_ROOT']."/".$cheminCacheXml;
 
-$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParameters','XslPath');
+if ($sitIni->hasVariable('GlobalSitParametersOverride', 'XslPath')) {
+	$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParametersOverride','XslPath');
+} else {
+	$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParameters','XslPath');
+}
 
 $traductionsStatiques = $sitIni->variable('SitTranslations','StaticSitTranslations');
+$traductionsStatiquesComplementaires = array();
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'StaticSitTranslations')) {
+			$traductionsStatiquesComplementaires = $sitIni->variable('GlobalSitParametersOverride','StaticSitTranslations');
+		}
+		foreach ($traductionsStatiquesComplementaires as $traductionStatiqueComplementaire) {
+			if (!in_array($traductionStatiqueComplementaire, $traductionsStatiques)) {
+				$traductionsStatiques[] = $traductionStatiqueComplementaire;
+			}
+		}
 
 $dureeVieCache = $sitIni->variable('GlobalSitParameters','DureeVieCacheFiche') * 60;
 $idFiche = $Params['idFiche'];
@@ -214,7 +235,11 @@ $xsltParemters['criteresAffiches'] = "|".implode("|", $criteresAffiches)."|";
 $xsltParemters['criteresNonAffiches'] = "|".implode("|", $criteresNonAffiches)."|";
 
 foreach ($traductionsStatiques as $traductionStatique) {
-	$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes", $traductionStatique));
+	if (ezpI18n::tr("sit/termes/override", $traductionStatique) != $traductionStatique) {
+		$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes/override", $traductionStatique));
+	} else {
+		$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes", $traductionStatique));
+	}
 }
 
 if (!$categorie && $previousNode) {

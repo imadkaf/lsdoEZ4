@@ -9,14 +9,11 @@
 	    </message>
 	</context>
 	<context>
-		<name>sit/termes</name>
+		<name>sit/termes/override</name>
 		<message>
 			<source>DebutOuv</source>
 			<translation>Ouvert du :</translation>
 		</message>
-	</context>
-	<context>
-		<name>sit/termes</name>
 		<message>
 			<source>FinOuv</source>
 			<translation>au :</translation>
