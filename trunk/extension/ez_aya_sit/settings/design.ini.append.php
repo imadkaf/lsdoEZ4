@@ -9,7 +9,7 @@ CSSFileList[]=jquery.lightbox-0.5.css
 CSSFileList[]=jquery-ui.custom.css
 
 [JavaScriptSettings]
-BackendJavaScriptList[]=http://code.jquery.com/jquery-latest.min.js
+#BackendJavaScriptList[]=http://code.jquery.com/jquery-latest.min.js
 BackendJavaScriptList[]=ezcategoryselection.js
 BackendJavaScriptList[]=ezcategoryselection_ajax.js
 JavaScriptList[]=jquery.lightbox-latest.min.js

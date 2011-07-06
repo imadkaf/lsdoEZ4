@@ -7,6 +7,7 @@ DesignExtensions[]=ayaline_gallery
 CSSFileList[]=ayaline_gallery.css
 
 [JavaScriptSettings]
+#JavaScriptList[]=jquery.js
 JavaScriptList[]=galleria-1.2.4.min.js
 
 */ ?>
