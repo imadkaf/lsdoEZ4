@@ -224,8 +224,8 @@
 	{if ne($cNode.node_id, ezini('NodeSettings', 'RootNode', 'content.ini'))}
 				<p class="fil-ariane">
 		{foreach $module_result.path as $Path}
-			{if $Path.url}
-					<a href={$Path.url|ezroot}>{$Path.text|wash}</a> >
+			{if or($Path.url_alias, $Path.url)}
+					<a href={$Path.url_alias|ezurl}>{$Path.text|wash}</a> >
 			{else}
 					<strong>{$Path.text|wash}</strong>
 			{/if}

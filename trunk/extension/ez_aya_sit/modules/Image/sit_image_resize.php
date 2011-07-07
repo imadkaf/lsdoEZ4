@@ -46,7 +46,7 @@ if (file_exists($cheminFichierCacheImages)) {
 }
 $contenuImagesDistant = "";
 if ($cacheExpire) {
-	$contenuImagesDistant = SitUtils::urlGetContentsCurl($fileName, 5);
+	$contenuImagesDistant = SitUtils::urlGetContentsCurl($fileName, 20);
 	if ($contenuImagesDistant) {
 		file_put_contents($cheminFichierCacheImages, $contenuImagesDistant, LOCK_EX);
 	}

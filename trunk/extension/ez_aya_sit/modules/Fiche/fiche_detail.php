@@ -125,7 +125,7 @@ $homeNode = eZFunctionHandler::execute(
 	array ('node_path' => "/")
 );
 
-$modulePath[] = array('url' => '/', 'text' => $homeNode->attribute('name'));
+$modulePath[] = array('url' => '/', 'url_alias' => '/', 'text' => $homeNode->attribute('name'));
 
 $currentCheminCategorie = "";
 
@@ -144,7 +144,7 @@ if ($cheminCategorie) {
 		if ($currentNode) {
 			$nodeExist = true;
 			$previousNode = $currentNode;
-			$modulePath[] = array('url' => $currentNode->attribute('url_alias'), 'text' => $currentNode->attribute('name'));
+			$modulePath[] = array('url' => $currentNode->attribute('url_alias'), 'url_alias' => $currentNode->attribute('url_alias'), 'text' => $currentNode->attribute('name'));
 		}
 	}
 }
@@ -157,7 +157,7 @@ if (!$nodeExist && array_key_exists('HTTP_REFERER', $_SERVER)) {
 	);
 
 	if ($previousNode) {
-		$modulePath[] = array('url' => $previousNode->attribute('url_alias'), 'text' => $previousNode->attribute('name'));
+		$modulePath[] = array('url' => $previousNode->attribute('url_alias'), 'url_alias' => $previousNode->attribute('url_alias'), 'text' => $previousNode->attribute('name'));
 	}
 }
 
@@ -295,7 +295,7 @@ $tpl->setVariable('view_parameters', $Params['UserParameters']);
 
 $Result['content'] = $tpl->fetch("design:fiche_detail/fiche_detail.tpl");
 
-$modulePath[] = array('url' => false, 'text' => $intituleFiche);
+$modulePath[] = array('url' => false, 'url_alias' => false, 'text' => $intituleFiche);
 
 $Result['path'] = $modulePath;
 
