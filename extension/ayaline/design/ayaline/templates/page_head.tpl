@@ -2,12 +2,16 @@
 {if is_set($cNode.node_id)}
 	{set $title = concat($cNode.name|wash(), " - ")}
 {/if}
+{def $pageTitle = false()}
 {def $referencement = false()}
 {def $keywords = false()}
 {def $description = false()}
 {def $googleAccountKey = ezini('TagsGA','googleAccountKey','ezurlga.ini')}
 {if is_set($cNode.data_map.referencement)}
 	{set $referencement = $cNode.data_map.referencement}
+	{if $referencement.content[0]|trim|ne('')}
+		{set $page = $referencement.content[1]|trim}
+	{/if}
 	{if $referencement.content[1]|trim|ne('')}
 		{set $keywords = $referencement.content[1]|trim}
 	{/if}
@@ -23,8 +27,13 @@
 	{set path=$module_result.title_path}
 {/if}
 {def $cPathNode = false()}
+{def $pathUrl = false()}
 {foreach $path as $pathNode}
-	{set $cPathNode = fetch(content, node, hash(node_path, $pathNode.url))}
+	{if and(not($pathNode.url_alias), not($pathNode.url))}
+		{set $cPathNode = $cNode}
+	{else}
+		{set $cPathNode = fetch(content, node, hash(node_path, $pathNode.url_alias))}
+	{/if}
 	{if is_set($cPathNode.data_map.referencement)}
 		{def $referencementPathNode = $cPathNode.data_map.referencement}
 		{if $referencementPathNode.content[0]|trim|ne('')}
