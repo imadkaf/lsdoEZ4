@@ -8,6 +8,7 @@ DesignExtensions[]=ayaline
 CSSFileList[]=main.css
 CSSFileList[]=ezfind.css
 CSSFileList[]=ezajax_autocomplete.css
+CSSFileList[]=jquery-ui.css
 
 [JavaScriptSettings]
 RequiredJavaScriptList[]=jquery.js
