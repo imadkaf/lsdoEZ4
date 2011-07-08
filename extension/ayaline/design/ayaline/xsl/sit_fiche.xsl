@@ -11,7 +11,7 @@
 	<xsl:include href="inc/rendu_adresse.xsl"/>
 
 	<xsl:template match="/produit">
-		<div style="float:left">
+		<div style="float:left; width: 326px;">
 			<h2 class="bloc-liste-h2"><xsl:value-of select="intitule"/></h2>
 			<p class="clear" style="margin-bottom:20px;"></p>
 		
