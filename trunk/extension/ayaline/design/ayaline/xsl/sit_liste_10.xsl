@@ -35,14 +35,16 @@
 				    ]]>
 				    <xsl:if test="count(resultats/produit) &gt; 0">
 				    	<xsl:for-each select="resultats/details/detail[position() &gt;= ((($pageCourante - 1)*$nbItemsParPage) + 1) and position() &lt;= ($pageCourante * $nbItemsParPage)]">
-						    <![CDATA[
-							    var marker = new google.maps.Marker({
-								    position: new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[),
-								    map: map,
-								    icon: '/extension/ayaline/design/ayaline/images/picto-hotel.png',
-									title:"]]><xsl:value-of select="intitule"/><![CDATA["
-								});
-							]]>
+				    		<xsl:if test="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite != '' and criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite != ''">
+							    <![CDATA[
+								    var marker = new google.maps.Marker({
+									    position: new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[),
+									    map: map,
+									    icon: '/extension/ayaline/design/ayaline/images/picto-hotel.png',
+										title:"]]><xsl:value-of select="intitule"/><![CDATA["
+									});
+								]]>
+							</xsl:if>
 						</xsl:for-each>
 					</xsl:if>
 				    <![CDATA[
@@ -71,7 +73,7 @@
 						<h3 class="titre-top2">
 							<a class="float-g top2"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="intitule"/></a>
 							<xsl:choose>
-								<xsl:when test="not(criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite = '')">
+								<xsl:when test="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite != ''">
 									<img alt="" class="float-g">
 										<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
 										<xsl:attribute name="title">Cat&amp;eacute;gorie : <xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/intModalite"/></xsl:attribute>
@@ -116,7 +118,7 @@
 								<xsl:for-each select="criteres/critere">
 									<xsl:variable name="idCritere" select="@id"/>
 									<xsl:variable name="intituleCritere" select="intCritere"/>
-									<xsl:if test="not($idCritere = '400002615') and not($idCritere = '400002787') and not($idCritere = '400003056') and not($idCritere = '999000149')">
+									<xsl:if test="$idCritere != '400002615' and $idCritere != '400002787' and $idCritere != '400003056' and $idCritere != '999000149'">
 										<xsl:if test="count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', $idCritere, '|'))]) &gt; 0">
 											<li style="padding: 5px 0px 5px 0px !important;">
 												<div style="padding: 0px 0px 0px 5px">
@@ -206,7 +208,7 @@
 						</a>
 						<div style="margin-left:160px; float:none;">
 							<div class="titre-container">
-								<xsl:if test="not(criteres/critere[@id='400002616']/modalites/modalite[1]/logoModalite = '')">
+								<xsl:if test="criteres/critere[@id='400002616']/modalites/modalite[1]/logoModalite != ''">
 									<p>
 										<img alt="">
 											<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='400002616']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
@@ -220,7 +222,7 @@
 										<span class="float-g nom"><xsl:value-of select="intitule"/></span>
 									</a>
 									<xsl:choose>
-	 											<xsl:when test="not(criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite = '')">
+	 											<xsl:when test="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite != ''">
 											<img alt="">
 												<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
 												<xsl:attribute name="title">Cat&amp;eacute;gorie : <xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/intModalite"/></xsl:attribute>
@@ -254,7 +256,7 @@
 									<xsl:for-each select="criteres/critere">
 										<xsl:variable name="idCritere" select="@id"/>
 										<xsl:variable name="intituleCritere" select="intCritere"/>
-										<xsl:if test="not($idCritere = '400002616') and not($idCritere = '400002615') and not($idCritere = '400002787') and not($idCritere = '400003056') and not($idCritere = '999000149')">
+										<xsl:if test="$idCritere != '400002616' and $idCritere != '400002615' and $idCritere != '400002787' and $idCritere != '400003056' and $idCritere != '999000149'">
 											<xsl:if test="count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', $idCritere, '|'))]) &gt; 0">
 												<li style="padding: 5px 0px 5px 0px !important;">
 													<div style="padding: 0px 0px 0px 5px">

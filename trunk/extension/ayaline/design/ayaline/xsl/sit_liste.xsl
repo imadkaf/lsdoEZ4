@@ -66,7 +66,7 @@
 								<xsl:for-each select="criteres/critere">
 									<xsl:variable name="idCritere" select="@id"/>
 									<xsl:variable name="intituleCritere" select="intCritere"/>
-									<xsl:if test="not($idCritere = '400002616') and not($idCritere = '400002615') and not($idCritere = '400002787') and not($idCritere = '400003056')">
+									<xsl:if test="$idCritere != '400002616' and $idCritere != '400002615' and $idCritere != '400002787' and $idCritere != '400003056'">
 										<xsl:if test="count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', $idCritere, '|'))]) &gt; 0">
 											<li style="padding: 5px 0px 5px 0px !important;">
 												<div style="padding: 0px 0px 0px 5px">

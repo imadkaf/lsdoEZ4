@@ -8,10 +8,10 @@ DesignExtensions[]=ayaline
 CSSFileList[]=main.css
 CSSFileList[]=ezfind.css
 CSSFileList[]=ezajax_autocomplete.css
-CSSFileList[]=jquery-ui.css
+CSSFileList[]=jquery-ui-1.8.14.custom.css
 
 [JavaScriptSettings]
-RequiredJavaScriptList[]=jquery.js
+RequiredJavaScriptList[]=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
 JavaScriptList[]=script.js
 JavaScriptList[]=menu_gauche_interne.js
 JavaScriptList[]=jquery.popin.pack.js
