@@ -3,7 +3,7 @@
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 	<xsl:template name="rendu-adresse">
-		<p style="margin:0 0 5px 0">
+		<p style="padding: 0px 0px 5px 0px;">
 			<xsl:if test="string-length(concat(civilite, prenom, nom)) &gt; 0">
 				<xsl:if test="string-length(civilite) &gt; 0"><xsl:value-of select="civilite"/>&amp;nbsp;</xsl:if><xsl:if test="string-length(prenom) &gt; 0"><xsl:value-of select="prenom"/>&amp;nbsp;</xsl:if><xsl:value-of select="nom"/><br/>
 			</xsl:if>

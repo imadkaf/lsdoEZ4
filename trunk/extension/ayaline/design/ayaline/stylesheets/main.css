@@ -2733,19 +2733,19 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 
 
 /*** Page fiche hotel ***/
-.box-left #galleria{
+.galerie-fiche#galleria{
     height: 280px;
 }
-.box-left #galleria .galleria-container{
+.galerie-fiche .galleria-container{
 	background: none repeat scroll 0 0 #ECE5DF;
 }
 
-.box-left .galleria-thumb-nav-left,
-.box-left .galleria-thumb-nav-right,
-.box-left .galleria-info-link,
-.box-left .galleria-info-close,
-.box-left .galleria-image-nav-left,
-.box-left .galleria-image-nav-right {
+.galerie-fiche .galleria-thumb-nav-left,
+.galerie-fiche .galleria-thumb-nav-right,
+.galerie-fiche .galleria-info-link,
+.galerie-fiche .galleria-info-close,
+.galerie-fiche .galleria-image-nav-left,
+.galerie-fiche .galleria-image-nav-right {
 	background-image: url("../images/classic-map.png");
 }
 

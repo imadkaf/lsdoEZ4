@@ -27,6 +27,7 @@
 				    var myOptions = {
 				      zoom: 13,
 				      center: latlng,
+				      scrollwheel: false,
 				      mapTypeId: google.maps.MapTypeId.ROADMAP
 				    };
 				    
@@ -91,7 +92,6 @@
 								    var marker = new google.maps.Marker({
 									    position: new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[),
 									    map: map,
-									    icon: '/extension/ayaline/design/ayaline/images/picto-hotel.png',
 										title:"]]><xsl:value-of select="intitule"/><![CDATA["
 									});
 									
@@ -224,12 +224,12 @@
 							</p>
 						</xsl:if>
 						
-						<p class="lien-bas">
+						<p class="lien-bas" style="display: inline;">
 							<a>
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 								En savoir plus
 							</a>
-							<a class="reserver" href="#">R&amp;eacute;server</a>
+							<a style="margin: 0px 0px 0px 0px;" class="reserver" href="#">R&amp;eacute;server</a>
 						</p>
 					</li>
 				</xsl:for-each>
