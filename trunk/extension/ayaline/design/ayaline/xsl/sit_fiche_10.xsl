@@ -35,8 +35,8 @@
 					<script type="text/javascript">
 						<![CDATA[
 							// Load the classic theme
-				   			Galleria.loadTheme("/extension/ayaline_gallery/design/standard/javascript/galleria/themes/classic/galleria.classic.min.js");
-				    
+							Galleria.loadTheme("/extension/ayaline_gallery/design/standard/javascript/galleria/themes/classic/galleria.classic.min.js");
+
 							// Initialize Galleria
 							$('#galleria').galleria({
 								autoplay: 5000,
@@ -54,7 +54,7 @@
 					function initialize() {
 						]]>
 						<xsl:choose>
-							<xsl:when test="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite != '' and criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite != ''">
+							<xsl:when test="string-length(criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite) &gt; 0 and string-length(criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite) &gt; 0">
 								<![CDATA[
 							    	var latlng = new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[);
 							    ]]>
@@ -65,23 +65,24 @@
 							    ]]>
 							</xsl:otherwise>
 						</xsl:choose>
-						
-					    <![CDATA[
-					    var myOptions = {
-					      zoom: 15,
-					      center: latlng,
-					      mapTypeId: google.maps.MapTypeId.ROADMAP
-					    };
-					    
-					    var map = new google.maps.Map(document.getElementById("mapContainer"), myOptions);
-					    
-					    var marker = new google.maps.Marker({
-						    position: latlng, 
-						    map: map,
-						    icon: '/extension/ayaline/design/ayaline/images/picto-hotel.png',
+
+						<![CDATA[
+						var myOptions = {
+							zoom: 15,
+							center: latlng,
+							scrollwheel: false,
+							mapTypeId: google.maps.MapTypeId.ROADMAP
+						};
+
+						var map = new google.maps.Map(document.getElementById("mapContainer"), myOptions);
+
+						var marker = new google.maps.Marker({
+							position: latlng, 
+							map: map,
+							icon: '/extension/ayaline/design/ayaline/images/picto-hotel.png',
 							title:"]]><xsl:value-of select="intitule"/><![CDATA["
 						});
-				  	}
+					}
 				]]>
 			</script>
 			<div class="map">
@@ -118,11 +119,11 @@
 						<div class="float-g width-auto">
 							<p>
 								<input type="radio" id="semaine" name="semaine" />
-								<label for="semaine" class="none">Semaine</label>											
+								<label for="semaine" class="none">Semaine</label>
 							</p>
 							<p>
 								<input type="radio" id="nuit" name="nuit" />
-								<label for="nuit" class="none">Nuit</label>											
+								<label for="nuit" class="none">Nuit</label>
 							</p>
 						</div>
 						<div class="float-g width-auto">
@@ -142,10 +143,10 @@
 					</div>
 					<p class="clear"></p>
 					<div class="nbr">
-						<p class="float-g">												
+						<p class="float-g">
 							<label for="nb-ad">Nb d'adultes :</label>
 						</p>
-						<div class="float-g">												
+						<div class="float-g">
 							<select id="nb-ad" name="nb-ad">
 								<option value="2 adultes">2 adultes</option>
 							</select>
@@ -153,10 +154,10 @@
 					</div>
 					<p class="clear"></p>
 					<div class="nbr">
-						<p class="float-g">												
+						<p class="float-g">
 							<label for="nb-enf">Nb d'enfants :</label>
 						</p>
-						<div class="float-g">												
+						<div class="float-g">
 							<select id="nb-enf" name="nb-enf">
 								<option value="Aucun">Aucun</option>
 							</select>
