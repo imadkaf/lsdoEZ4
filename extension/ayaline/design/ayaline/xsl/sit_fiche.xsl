@@ -15,53 +15,81 @@
 			<h2 class="bloc-liste-h2"><xsl:value-of select="intitule"/></h2>
 			<p class="clear" style="margin-bottom:20px;"></p>
 		
-			<xsl:if test="count(newPhotos/newPhoto) = 0">
-				<img alt="">
-					<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_grande.jpg</xsl:attribute>
-				</img>
-			</xsl:if>
-			<xsl:for-each select="newPhotos/newPhoto[position() = 1]">
-				<div><a target="_blank" style="display:block" rel="lightbox">
-					<xsl:attribute name="href"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=750&amp;amp;mw=1</xsl:attribute>
-					<img alt="">
-						<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=300&amp;amp;mw=1</xsl:attribute>
-					</img>
-				</a></div>
-			</xsl:for-each>
-			<xsl:if test="count(newPhotos/newPhoto[position() &gt; 1]) &gt; 0">
-				<div style="margin-top:5px">
-					<xsl:for-each select="newPhotos/newPhoto[position() &gt; 1]">
-						<a target="_blank" rel="lightbox">
-							<xsl:attribute name="style">float:left;display:block<xsl:if test="position() &gt; 1">;margin-left:5px</xsl:if></xsl:attribute>
-							<xsl:attribute name="href"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=750&amp;amp;mw=1</xsl:attribute>
-							<img alt="">
-								<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=56&amp;amp;mw=1</xsl:attribute>
+			<xsl:if test="count(newPhotos/newPhoto) &gt; 0">
+				<div id="galleria" class="galerie-fiche">
+					<xsl:for-each select="newPhotos/newPhoto">
+						<a>
+							<xsl:attribute name="href"><xsl:value-of select="."/></xsl:attribute>
+							<img>
+								<xsl:attribute name="alt">""</xsl:attribute>
+								<xsl:attribute name="src"><xsl:value-of select="."/></xsl:attribute>
 							</img>
 						</a>
-						<xsl:if test="(position() mod 5) = 0">
-							<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
-						</xsl:if>
 					</xsl:for-each>
-					<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
+					<script type="text/javascript">
+						<![CDATA[
+							// Load the classic theme
+				   			Galleria.loadTheme("/extension/ayaline_gallery/design/standard/javascript/galleria/themes/classic/galleria.classic.min.js");
+				    
+							// Initialize Galleria
+							$('#galleria').galleria({
+								autoplay: 5000,
+								lightbox: true
+							});
+						]]>
+					</script>
 				</div>
+				<div class="clear"><![CDATA[ ]]></div><br />
 			</xsl:if>
+			
+			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"><![CDATA[ ]]></script>
 			<script type="text/javascript">
-			<![CDATA[
-				var cheminImages = ']]><xsl:value-of select="$cheminImages"/><![CDATA[';
-				jQuery('[rel="lightbox"]').lightBox({
-					imageLoading: cheminImages+'lightbox/loading.gif',
-					imageBtnClose: cheminImages+'lightbox/close.gif',
-					imageBtnPrev: cheminImages+'lightbox/prev.png',
-					imageBtnNext: cheminImages+'lightbox/next.png',
-					imageBlank: cheminImages+'lightbox/blank.gif',
-					txtImage: '',
-					txtOf: ' / '
-				});
-			]]>
+				<![CDATA[
+					function initialize() {
+						]]>
+						<xsl:choose>
+							<xsl:when test="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite != '' and criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite != ''">
+								<![CDATA[
+							    	var latlng = new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[);
+							    ]]>
+							</xsl:when>
+							<xsl:otherwise>
+								<![CDATA[
+							    	var latlng = new google.maps.LatLng(46.162000, -1.1550);
+							    ]]>
+							</xsl:otherwise>
+						</xsl:choose>
+						
+					    <![CDATA[
+					    var myOptions = {
+					      zoom: 15,
+					      center: latlng,
+					      scrollwheel: false,
+					      mapTypeId: google.maps.MapTypeId.ROADMAP
+					    };
+					    
+					    var map = new google.maps.Map(document.getElementById("mapContainer"), myOptions);
+					    
+					    var marker = new google.maps.Marker({
+						    position: latlng, 
+						    map: map,
+							title:"]]><xsl:value-of select="intitule"/><![CDATA["
+						});
+				  	}
+				]]>
 			</script>
-			<div style="margin:15px 0">
+			<div class="map">
+				<div id="mapContainer" style="width:325px;height:220px;"><![CDATA[ ]]></div>
+			</div>
+			<script type="text/javascript">
+				<![CDATA[
+					initialize();
+				]]>
+			</script>
+			
+			<div style="margin:15px 0px 15px 0px">
 				<xsl:for-each select="adresses/adresse[@type='produit']">
-					<div style="padding:5px;background-color:#EEEEEE;margin-bottom:10px">
+					<div style="padding:15px;background-color:#EEEEEE;">
 						<div><strong><xsl:value-of select="$termeAdresseFiche"/></strong></div>
 						<xsl:call-template name="rendu-adresse"/>
 					</div>
@@ -69,6 +97,8 @@
 				<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
 			</div>
 		</div>
+		
+		
 		
 		<div>
 			<xsl:if test="string-length($lienPrecedent) &gt; 0">
@@ -88,7 +118,10 @@
 							<xsl:with-param name="by" select="'&lt;br/&gt;'"/>
 						</xsl:call-template></p>
 					</xsl:if>
+					
 					<xsl:call-template name="periodes-ouverture"/>
+					<br />
+					
 					<xsl:if test="count(criteres/critere[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0]) &gt; 0">
 						<div style="margin-bottom:3px"><strong><xsl:value-of select="$termeCaracteristiques"/></strong></div>
 						<table cellspacing="0" width="100%">
