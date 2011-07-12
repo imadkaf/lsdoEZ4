@@ -2638,6 +2638,7 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 .list-inline-bis .titre-top2{
 	font-family: 'OmnesLight';
 	font-size: 32px !important;
+	padding-top: 0px;
 }
 .list-inline-bis .top2{
 	margin-right: 10px;
@@ -2669,6 +2670,42 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
     width: 138px;
 }
 
+.moninfobulle{
+	height: 180px;
+}
+.moninfobulle .titre{
+	margin-bottom: 10px;
+}
+.moninfobulle .titre h3{
+	display: inline;
+}
+.moninfobulle .etoile{
+	position: relative;
+	top: 3px;
+	margin-left: 5px;
+}
+.moninfobulle .photo{
+	margin-right: 10px;
+	width:120px;
+}
+.moninfobulle span.float-d{
+	margin-right: 10px;
+	margin-bottom: 5px;
+	color: #BABABA;
+	font-style: italic;
+	font-weight: bold;
+	width:160px;
+	text-align: right;
+}
+.moninfobulle .commentaire{
+	padding-bottom: 5px;
+	text-align: justify;
+}
+.moninfobulle p.lien{
+	margin-right: 5px;
+	padding: 0px;
+}
+
 
 /*** Page liste activites ***/
 .liste-act-border{
@@ -2687,6 +2724,11 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 .criteres.liste-act li:first-child{
     border-top: none;
+}
+
+.moninfobulle .titre-defaut{
+	margin: 0px 0px 10px 0px;
+	padding: 0px;
 }
 
 

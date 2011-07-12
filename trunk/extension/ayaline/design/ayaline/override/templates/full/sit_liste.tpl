@@ -11,15 +11,17 @@
 		<div class="bloc-type{if eq($node.name, 'Hôtellerie')} padding-lr{/if}">
 			<h2 class="bloc-liste-h2">{$node.name|wash(xhtml)}</h2>
 			<p class="clear"></p>
-			{if eq($node.name, 'Hôtellerie')}
-				{def $affichageListeSIT = fetch( 'content', 'reverse_related_objects',
-									hash( 'object_id', $node.contentobject_id,
-											'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
+			{def $affichageListeSIT = fetch( 'content', 'reverse_related_objects',
+								hash( 'object_id', $node.contentobject_id,
+										'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
 
-				{if $affichageListeSIT|count}
+			{if $affichageListeSIT|count}
+				{if ne($affichageListeSIT.0.data_map.short_description.content, '')}
 					<p class="chapeau-bis">
 						{attribute_view_gui attribute=$affichageListeSIT.0.data_map.short_description}
 					</p>
+				{else}
+					<br />
 				{/if}
 			{/if}
 			
