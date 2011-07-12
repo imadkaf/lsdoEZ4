@@ -750,6 +750,7 @@ class eZSitOperators {
 
 		$contenuBloc = preg_replace("/&([\w\d]+|\#\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
 		$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
+		$contenuBloc = preg_replace("/\r\n/si", "", $contenuBloc);
 		$contenuBloc = preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc);
 		$contenuBloc = preg_replace("/(http:\/\/[^\/]+):\d+/si", "$1", $contenuBloc);
 		$contenuBloc = "\n".preg_replace("/  /si", "\t", utf8_decode(str_replace("__euro__", "&euro;", $contenuBloc)))."\n";
