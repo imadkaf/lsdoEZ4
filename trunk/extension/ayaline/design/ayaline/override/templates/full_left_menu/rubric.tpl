@@ -83,11 +83,18 @@
 							<p class="chapeau">
 								{attribute_view_gui attribute = $node.data_map.short_description}
 							</p>
+							
+{def $compteurlisterubrique2 = 1}
 							<ul class="list">
 {foreach $childrenShowed as $enfants sequence array( 'first', '' ) as $style}
 								<li class="{$style}">
 									{node_view_gui content_node=$enfants view='line'}
 								</li>
+	{if and($childrenShowed|count|gt($compteurlisterubrique2), $style|ne('first'))}
+							</ul>
+							<ul class="list">
+	{/if}
+	{set $compteurlisterubrique2 = $compteurlisterubrique2|inc}
 {/foreach}
 							</ul>
 			{* Affichage de la pagination *}
@@ -115,6 +122,10 @@
 						$("ul.menu-left > li.actif").removeClass("actif");
 						$(this).addClass("actif");
 					});
+			</script>
+			
+			<script type="text/javascript">
+				$(window).load(equilibrerHauteursBlocs);
 			</script>
 {/literal}
 {undef $rNode $saisonId $topicIds $nameRubric $nameRubricSelected}

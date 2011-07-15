@@ -23,6 +23,14 @@
 				{else}
 					<br />
 				{/if}
+				
+				{if eq($affichageListeSIT.0.data_map.googlemaps.data_int, '1')}
+					{if eq($node.name, 'Hôtellerie')}
+						{sit_liste('sit_liste_carte_10')}
+					{else}
+						{sit_liste('sit_liste_carte')}
+					{/if}
+				{/if}
 			{/if}
 			
 			{sit_liste()}
