@@ -9,6 +9,7 @@ CSSFileList[]=main.css
 CSSFileList[]=ezfind.css
 CSSFileList[]=ezajax_autocomplete.css
 CSSFileList[]=jquery-ui-1.8.14.custom.css
+CSSFileList[]=itineraire.css
 
 [JavaScriptSettings]
 RequiredJavaScriptList[]=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
