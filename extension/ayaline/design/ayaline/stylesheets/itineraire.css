@@ -1,0 +1,47 @@
+#map-container, #side-container, #side-container li {
+  float: left;
+}
+#map-container {
+  width: 800px;
+  height: 715px;
+}
+
+#side-container {
+  border: 1px solid #bbb;
+  margin-right: 5px;
+  padding: 2px 4px;
+  text-align: right;
+  width: 300px;
+}
+#side-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#side-container li input {
+  font-size: 0.85em;
+  width: 245px;
+}
+#side-container .dir-label {
+  font-weight: bold;
+  padding-right: 3px;
+  text-align: right;
+  width: 50px;
+}
+#side-container .lieu-arrivee {
+  width: 241px;
+  border: 1px solid #7F9DB9;
+  text-align: left;
+  background-color: #EEEEEE;
+  padding-left: 2px;
+}
+
+#dir-container {
+  height: 600px;
+  overflow: auto;
+  padding: 2px 4px 2px 0;
+}
+#dir-container table {
+  font-size: 1em;
+  width: 100%;
+}

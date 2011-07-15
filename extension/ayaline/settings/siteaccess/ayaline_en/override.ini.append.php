@@ -2,6 +2,12 @@
 
 	#ayaline
 
+[full_itineraire]
+Source=node/view/full.tpl
+MatchFile=full/itineraire.tpl
+Subdir=templates
+Match[class_identifier]=itineraire
+
 [line_sit_liste]
 Source=node/view/line.tpl
 MatchFile=line/sit_liste.tpl

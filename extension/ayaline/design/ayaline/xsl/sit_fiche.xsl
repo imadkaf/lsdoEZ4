@@ -79,13 +79,17 @@
 				]]>
 			</script>
 			<div class="map">
-				<div id="mapContainer" style="width:325px;height:220px;"><![CDATA[ ]]></div>
+				<div id="mapContainer" style="width:325px;height:220px;margin-bottom:5px;"><![CDATA[ ]]></div>
 			</div>
 			<script type="text/javascript">
 				<![CDATA[
 					initialize();
 				]]>
 			</script>
+			<a class="link-popin" target="_blank" style="margin-left: 120px;">
+				
+				<b>&amp;gt;&amp;gt; Itin&amp;eacute;raire</b>
+			</a>
 			
 			<div style="margin:15px 0px 15px 0px">
 				<xsl:for-each select="adresses/adresse[@type='produit']">

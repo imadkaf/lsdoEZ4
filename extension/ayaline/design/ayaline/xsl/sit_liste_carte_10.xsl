@@ -79,8 +79,8 @@
 													</p>
 												</xsl:if><![CDATA[<div class="clear"></div>'+
 											'<p class="lien">]]>
-												<a class="float-g">
-													<xsl:attribute name="href">#</xsl:attribute>
+												<a class="link-popin" target="_blank">
+													<xsl:attribute name="href">http://lsdo.loc/layout/set/vide/Itineraire-Rubrique?nom=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><![CDATA[&coord=]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[ ]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/></xsl:attribute>
 													<![CDATA[<b>>> Itin&eacute;raire</b>]]>
 												</a>
 												<a class="float-d">
