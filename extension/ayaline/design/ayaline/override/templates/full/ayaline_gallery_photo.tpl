@@ -55,10 +55,11 @@
 		
 		<div class="bloc-container">
 	
+			{def $compteurlistegalerie = 1}
 			{if $galleries_count|gt(0)}
-				<ul>
+				<ul class="ulhauteurjs">
 					{foreach $galleries as $gallery}
-						<li>
+						<li {if eq(mod($compteurlistegalerie, 3), 1)}class="premierli"{/if}>
 							
 							{* get photo of the gallery, or take the first one in the gallery *}
 							{if $gallery.data_map.image.content.is_valid}
@@ -118,6 +119,12 @@
 						{/if}
 						
 						{set $compteurPhoto = $compteurPhoto|inc}
+						
+						{if and($galleries|count|gt($compteurlistegalerie), eq(mod($compteurlistegalerie, 3), 0))}
+							</ul>
+							<ul class="ulhauteurjs">
+						{/if}
+						{set $compteurlistegalerie = $compteurlistegalerie|inc}
 					{/foreach}
 				</ul>
 				<p class="clear"></p>
@@ -126,6 +133,9 @@
 			{/if}
 	        
 		</div>
+		<script type="text/javascript">
+			$(window).load(equilibrerHauteursBlocs);
+		</script>
 		
 		<div class="taille-pagination">
 			{include name=navigator

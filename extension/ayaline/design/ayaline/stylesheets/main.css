@@ -474,6 +474,10 @@ li.last form{
 	margin:0 23px 0 0;
 	float:left;
 }
+.bloc-left-home{
+	width:833px;
+	float:left;
+}
 .bloc-right{
 	width:337px;
 	float:left;
@@ -2762,6 +2766,7 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 .rubrique2 .meteo-lien{
 	display: none;
 }
+
 
 /************************/
 /*** Fin ajout Alexia ***/

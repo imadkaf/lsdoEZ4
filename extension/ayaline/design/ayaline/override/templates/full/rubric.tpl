@@ -10,11 +10,19 @@
 						<p class="chapeau">
 							{attribute_view_gui attribute = $node.data_map.short_description}
 						</p>
+
+{def $compteurlisterubrique = 1}
+
 						<ul class="liste">
 {foreach $node.children as $enfants sequence array( '', '', 'last' ) as $style}
 							<li class="{$style}">
 								{node_view_gui content_node=$enfants view='line'}
 							</li>
+	{if and($node.children|count|gt($compteurlisterubrique), $style|eq('last'))}
+						</ul>
+						<ul class="liste">
+	{/if}
+	{set $compteurlisterubrique = $compteurlisterubrique|inc}
 {/foreach}
 						</ul>
 					</div>
@@ -24,4 +32,8 @@
 {include uri='design:parts/les_plus_consultes.tpl'}
 {include uri='design:parts/agenda.tpl'}
 				</div>
+				
+				<script type="text/javascript">
+					$(window).load(equilibrerHauteursBlocs);
+				</script>
 {/if}

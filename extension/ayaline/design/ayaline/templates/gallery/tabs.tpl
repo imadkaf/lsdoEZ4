@@ -15,7 +15,7 @@
 				</a>
 			{/if}
 		</li>
-		{set $compteurMenu = inc($compteurMenu)}
+		{set $compteurMenu = $compteurMenu|inc}
 	{/foreach}
 	</ul>
 	<p class="clear"></p>
