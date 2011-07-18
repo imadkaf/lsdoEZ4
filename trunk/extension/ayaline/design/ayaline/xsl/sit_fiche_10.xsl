@@ -92,6 +92,10 @@
 					initialize();
 				]]>
 			</script>
+			<a class="link-popin" target="_blank" style="margin-left: 120px;">
+				
+				<b>&amp;gt;&amp;gt; Itin&amp;eacute;raire</b>
+			</a>
 			
 			<div class="form-rech">
 				<span>Recherchez les disponibilites</span>
