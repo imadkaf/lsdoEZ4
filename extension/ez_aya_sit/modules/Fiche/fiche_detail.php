@@ -24,14 +24,10 @@ if ($sitIni->hasVariable('GlobalSitParametersOverride', 'XmlCachePath')) {
 } else {
 	$cheminCacheXml = $sitIni->variable('GlobalSitParameters','XmlCachePath');
 }
-$currentDirectory = $_SERVER['DOCUMENT_ROOT'];
-foreach (explode("/", $cheminCacheXml) as $cheminCacheXmlPart) {
-	if ($cheminCacheXmlPart && !file_exists($currentDirectory)) {
-		$currentDirectory .= "/".$cheminCacheXmlPart;
-		mkdir($currentDirectory);
-	}
-}
 $cheminCacheXml = $_SERVER['DOCUMENT_ROOT']."/".$cheminCacheXml;
+if (!file_exists($cheminCacheXml)) {
+	mkdir($cheminCacheXml, 0777, true);
+}
 
 if ($sitIni->hasVariable('GlobalSitParametersOverride', 'XslPath')) {
 	$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParametersOverride','XslPath');
@@ -150,10 +146,12 @@ if ($cheminCategorie) {
 }
 
 if (!$nodeExist && array_key_exists('HTTP_REFERER', $_SERVER)) {
+	$httpReferer = preg_replace("{^".$cheminRacineSite."/(.*?)(/\([^\)]*\)/[^/]*)*$}", "$1", $_SERVER['HTTP_REFERER']);
+	$httpReferer = $httpReferer ? $httpReferer : "/";
 	$previousNode = eZFunctionHandler::execute(
 		'content',
 		'node',
-		array ('node_path' => preg_replace("{^".$cheminRacineSite."/(.*?)(/\([^\)]*\)/[^/]*)*$}", "$1", $_SERVER['HTTP_REFERER']))
+		array ('node_path' => $httpReferer)
 	);
 
 	if ($previousNode) {

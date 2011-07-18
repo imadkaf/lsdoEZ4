@@ -9,7 +9,8 @@ $eZTemplateOperatorArray[] = array(
 	'class' => 'eZSitOperators',
 	'operator_names' => array(
 		'sit_liste',
-		'sit_recherche'
+		'sit_recherche',
+		'sit_mise_en_avant'
 	)
 );
 

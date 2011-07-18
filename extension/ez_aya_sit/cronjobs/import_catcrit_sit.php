@@ -6,9 +6,13 @@ if (!$isQuiet) {
 	$cli->output($cli->stylize('cyan', "\tDébut import données catégories critères SIT dans les classes SIT."));
 }
 
-$ini = eZINI::instance();
 $sitIni = eZINI::instance('ez_aya_sit.ini');
-$rootSitUrl = $sitIni->variable('GlobalSitParameters','RootSitUrl');
+
+if ($sitIni->hasVariable('GlobalSitParametersOverride', 'RootSitUrl')) {
+	$rootSitUrl = $sitIni->variable('GlobalSitParametersOverride','RootSitUrl');
+} else {
+	$rootSitUrl = $sitIni->variable('GlobalSitParameters', 'RootSitUrl');
+}
 
 $classesSIT = $sitIni->variable('ClassesAttributsSit','ClassesSit');
 

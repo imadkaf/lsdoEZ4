@@ -50,20 +50,6 @@
 						<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
 					</div>
 				</xsl:if>
-				<script type="text/javascript">
-				<![CDATA[
-					var cheminImages = ']]><xsl:value-of select="$cheminImages"/><![CDATA[';
-					jQuery('[rel="lightbox"]').lightBox({
-						imageLoading: cheminImages+'lightbox/loading.gif',
-						imageBtnClose: cheminImages+'lightbox/close.gif',
-						imageBtnPrev: cheminImages+'lightbox/prev.png',
-						imageBtnNext: cheminImages+'lightbox/next.png',
-						imageBlank: cheminImages+'lightbox/blank.gif',
-						txtImage: '',
-						txtOf: ' / '
-					});
-				]]>
-				</script>
 				<div style="margin:15px 0">
 					<xsl:for-each select="adresses/adresse[@type='produit']">
 						<div style="padding:5px;background-color:#EEEEEE;margin-bottom:10px">

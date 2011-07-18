@@ -65,7 +65,6 @@ Studio Loecsen = http://www.studioloecsen.com
 		change:-,alpha,2.5,200; "
     	onOut="
 		change:-,alpha,1,400;"
-	    onClick="fullscreen(-)" 
 alt = "Affichage plein écran"
 onClick="fullscreen(-); infoscreen.visible=0;" 
 		/>

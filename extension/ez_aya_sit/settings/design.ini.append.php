@@ -4,7 +4,7 @@
 DesignExtensions[]=ez_aya_sit
 
 [StylesheetSettings]
-CSSFileList[]=ezcategoryselection.css
+BackendCSSFileList[]=ezcategoryselection.css
 
 [JavaScriptSettings]
 BackendJavaScriptList[]=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
