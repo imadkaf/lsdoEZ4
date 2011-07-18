@@ -9,7 +9,8 @@ class eZSitOperators {
 	function eZSitOperators() {
 		$this->Operators = array(
 			'sit_liste',
-			'sit_recherche'
+			'sit_recherche',
+			'sit_mise_en_avant'
 		);
 	}
 
@@ -48,6 +49,18 @@ class eZSitOperators {
 					'required' => false,
 					'default' => 'sit_recherche'
 				)
+			),
+			'sit_mise_en_avant' => array(
+				'categories' => array(
+					'type' => 'array',
+					'required' => false,
+					'default' => array()
+				),
+				'xslFile' => array(
+					'type' => 'string',
+					'required' => false,
+					'default' => 'sit_mise_en_avant'
+				)
 			)
 		);
 	}
@@ -76,12 +89,16 @@ class eZSitOperators {
 		if (!$currentNode) {
 			$currentNode = $tpl->variable('previousNode');
 		}
+
 		switch ($operatorName) {
+			case 'sit_recherche':
+				$operatorValue = $currentNode ? $this->sitRecherche($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_recherche') : "";
+				break;
 			case 'sit_liste':
 				$operatorValue = $currentNode ? $this->sitListe($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_liste') : "";
 				break;
-			case 'sit_recherche':
-				$operatorValue = $currentNode ? $this->sitRecherche($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_recherche') : "";
+			case 'sit_mise_en_avant':
+				$operatorValue = $currentNode ? $this->sitMiseEnAvant($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_mise_en_avant', $namedParameters['categories']) : "";
 				break;
 		}
 	}
@@ -144,6 +161,53 @@ class eZSitOperators {
 		return $this->sitListeHtml($sitListe->dataMap(), $viewParameters, $lienCourant, $cheminImages, $currentNode->attribute('url_alias'), $xslFile);
 	}
 
+	function sitMiseEnAvant($currentNode, $viewParameters, $cheminImages, $xslFile, $categories) {
+		$lienCourant = $currentNode->attribute('url_alias');
+		eZURI::transformURI($lienCourant);
+
+		$sitMiseEnAvant = $currentNode->attribute('object');
+
+		if (!$categories) {
+			$categories = array();
+		}
+
+		$sitMiseEnAvantMatchCategories = false;
+		if ($sitMiseEnAvant && $sitMiseEnAvant->ClassIdentifier == 'sit_mise_en_avant') {
+			$sitMiseEnAvantDataMap = $sitMiseEnAvant->dataMap();
+			$categorie = $sitMiseEnAvantDataMap['categorie']->value();
+			$categorie = $categorie[0];
+			if (count($categories) == 0 || !$categorie || in_array($categorie, $categories)) {
+				$sitMiseEnAvantMatchCategories = true;
+			}
+		}
+		if (!$sitMiseEnAvant || $sitMiseEnAvant->ClassIdentifier != 'sit_mise_en_avant' || !$sitMiseEnAvantMatchCategories) {
+			$fetchParameters = array (
+				'parent_node_id' => $currentNode->attribute('node_id'),
+				'offset' => 0,
+				'limit' => 1,
+				'class_filter_type' => 'include',
+				'class_filter_array' => array('sit_mise_en_avant')
+			);
+			if (count($categories) > 0) {
+				$fetchParameters['attribute_filter'] = array(array('sit_mise_en_avant/categorie', 'in', $categories));
+			}
+
+			$currentNodeObjects = eZFunctionHandler::execute(
+				'content',
+				'list',
+				$fetchParameters
+			);
+
+			if (!$currentNodeObjects) {
+				return "";
+			}
+
+			$sitMiseEnAvant = $currentNodeObjects[0];
+		}
+
+		return $this->sitMiseEnAvantHtml($sitMiseEnAvant->dataMap(), $viewParameters, $lienCourant, $cheminImages, $currentNode->attribute('url_alias'), $xslFile);
+	}
+
 	// Private section
 	var $Operators;
 
@@ -163,14 +227,10 @@ class eZSitOperators {
 		} else {
 			$cheminCacheXml = $sitIni->variable('GlobalSitParameters','XmlCachePath');
 		}
-		$currentDirectory = $_SERVER['DOCUMENT_ROOT'];
-		foreach (explode("/", $cheminCacheXml) as $cheminCacheXmlPart) {
-			$currentDirectory .= "/".$cheminCacheXmlPart;
-			if ($cheminCacheXmlPart && !file_exists($currentDirectory)) {
-				mkdir($currentDirectory);
-			}
-		}
 		$cheminCacheXml = $_SERVER['DOCUMENT_ROOT']."/".$cheminCacheXml;
+		if (!file_exists($cheminCacheXml)) {
+			mkdir($cheminCacheXml, 0777, true);
+		}
 
 		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'XslPath')) {
 			$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParametersOverride','XslPath');
@@ -389,14 +449,10 @@ class eZSitOperators {
 		} else {
 			$cheminCacheXml = $sitIni->variable('GlobalSitParameters','XmlCachePath');
 		}
-		$currentDirectory = $_SERVER['DOCUMENT_ROOT'];
-		foreach (explode("/", $cheminCacheXml) as $cheminCacheXmlPart) {
-			$currentDirectory .= "/".$cheminCacheXmlPart;
-			if ($cheminCacheXmlPart && !file_exists($currentDirectory)) {
-				mkdir($currentDirectory);
-			}
-		}
 		$cheminCacheXml = $_SERVER['DOCUMENT_ROOT']."/".$cheminCacheXml;
+		if (!file_exists($cheminCacheXml)) {
+			mkdir($cheminCacheXml, 0777, true);
+		}
 
 		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'XslPath')) {
 			$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParametersOverride','XslPath');
@@ -711,7 +767,7 @@ class eZSitOperators {
 		$xsltParemters['lienCourant'] = $lienCourant;
 		$xsltParemters['cheminImages'] = $cheminImages;
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
-		$xsltParemters['sitListeUrlAlias'] = str_replace("/", "~", $sitListeUrlAlias);
+		$xsltParemters['sitMiseEnAvantUrlAlias'] = str_replace("/", "~", $sitMiseEnAvantUrlAlias);
 
 		$xsltParemters['nbItemsParPage'] = $nbItemsParPage;
 		$xsltParemters['nbResultatsTotal'] = $nbResultatsTotal;
@@ -741,6 +797,219 @@ class eZSitOperators {
 		}
 		if (!file_exists($cheminFichierXsl)) {
 			$cheminFichierXsl = $cheminXsl."sit_liste.xsl";
+		}
+
+		$contenuBloc = "";
+		if (file_exists($cheminFichierCacheXml) && file_exists($cheminFichierXsl)) {
+			$contenuBloc = SitUtils::getHtmlResult($cheminFichierCacheXml, $cheminFichierXsl, $xsltParemters);
+		}
+
+		$contenuBloc = preg_replace("/&([\w\d]+|\#\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
+		$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
+		$contenuBloc = preg_replace("/\r\n/si", "", $contenuBloc);
+		$contenuBloc = preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc);
+		$contenuBloc = preg_replace("/(http:\/\/[^\/]+):\d+/si", "$1", $contenuBloc);
+		$contenuBloc = "\n".preg_replace("/  /si", "\t", utf8_decode(str_replace("__euro__", "&euro;", $contenuBloc)))."\n";
+
+		return $contenuBloc;
+	}
+
+	function sitMiseEnAvantHtml($sitMiseEnAvant, $viewParameters, $lienCourant, $cheminImages, $sitMiseEnAvantUrlAlias, $xslFile) {
+		$http = eZHTTPTool::instance();
+
+		$sitIni = eZINI::instance('ez_aya_sit.ini');
+
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'RootSitUrl')) {
+			$rootSitUrl = $sitIni->variable('GlobalSitParametersOverride','RootSitUrl');
+		} else {
+			$rootSitUrl = $sitIni->variable('GlobalSitParameters', 'RootSitUrl');
+		}
+
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'XmlCachePath')) {
+			$cheminCacheXml = $sitIni->variable('GlobalSitParametersOverride','XmlCachePath');
+		} else {
+			$cheminCacheXml = $sitIni->variable('GlobalSitParameters','XmlCachePath');
+		}
+		$cheminCacheXml = $_SERVER['DOCUMENT_ROOT']."/".$cheminCacheXml;
+		if (!file_exists($cheminCacheXml)) {
+			mkdir($cheminCacheXml, 0777, true);
+		}
+
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'XslPath')) {
+			$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParametersOverride','XslPath');
+		} else {
+			$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParameters','XslPath');
+		}
+
+		$traductionsStatiques = $sitIni->variable('SitTranslations','StaticSitTranslations');
+		$traductionsStatiquesComplementaires = array();
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'StaticSitTranslations')) {
+			$traductionsStatiquesComplementaires = $sitIni->variable('GlobalSitParametersOverride','StaticSitTranslations');
+		}
+		foreach ($traductionsStatiquesComplementaires as $traductionStatiqueComplementaire) {
+			if (!in_array($traductionStatiqueComplementaire, $traductionsStatiques)) {
+				$traductionsStatiques[] = $traductionStatiqueComplementaire;
+			}
+		}
+
+		$cheminRacineSite = "/";
+		eZURI::transformURI($cheminRacineSite);
+		$cheminRacineSite = $cheminRacineSite == "/" ? "" : $cheminRacineSite;
+
+		$categorie = $sitMiseEnAvant['categorie']->value();
+		$categorie = $categorie[0];
+
+		$nbItems = $sitMiseEnAvant['nb_items']->value();
+
+		$dureeVieCache = $sitMiseEnAvant['duree_vie_cache']->value() * 60;
+
+		$sitParams = array();
+
+		$sitParams['dwimg'] = "1";
+		$sitParams['dwadd'] = "111";
+		$sitParams['dwdate'] = "111";
+		$sitParams['dwcom'] = "11111";
+		$sitParams['dwlien'] = "1";
+		$sitParams['dwref'] = "1";
+
+		$entites = $sitMiseEnAvant['entites']->value();
+		foreach ($entites as $entite) {
+			if ($entite) {
+				if (array_key_exists('ide', $sitParams)) {
+					$sitParams['ide'] .= ",".$entite;
+				} else {
+					$sitParams['ide'] = $entite;
+				}
+			}
+		}
+
+		$paysEpci = $sitMiseEnAvant['pays_epci']->value();
+		foreach ($paysEpci as $unPaysEpci) {
+			if ($unPaysEpci) {
+				if (array_key_exists('idp', $sitParams)) {
+					$sitParams['idp'] .= ",".$unPaysEpci;
+				} else {
+					$sitParams['idp'] = $unPaysEpci;
+				}
+			}
+		}
+
+		$criteresAffiches = $sitMiseEnAvant['criteres_affiches']->value();
+		foreach ($criteresAffiches as $idCritere) {
+			if ($idCritere) {
+				if (!array_key_exists('dwcrit', $sitParams) || !preg_match("/(^|\|)".substr($idCritere, 0, 9)."/", $sitParams['dwcrit'])) {
+					if (array_key_exists('dwcrit', $sitParams)) {
+						$sitParams['dwcrit'] .= "|".substr($idCritere, 0, 9);
+					} else {
+						$sitParams['dwcrit'] = substr($idCritere, 0, 9);
+					}
+				}
+			}
+		}
+
+		$critereTriPrincipal = $sitMiseEnAvant['critere_tri_principal']->value();
+		$critereTriPrincipal = $critereTriPrincipal[0];
+
+		$sensTriPrincipal = $sitMiseEnAvant['sens_tri_principal']->value();
+		$sensTriPrincipal = $sensTriPrincipal[0];
+
+		$sitParams['sort'] = "pho";
+		$sitParams['order'] = "desc";
+		if ($critereTriPrincipal == '1') {
+			$sitParams['sort'] .= ",com";
+			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
+		} else if ($critereTriPrincipal == '2') {
+			$sitParams['sort'] .= ",ran";
+			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
+		} else if ($critereTriPrincipal) {
+			$sitParams['sort'] .= ",".(strlen($critereTriPrincipal) > 9 ? "m" : (preg_match("/^\d+$/", $critereTriPrincipal) ? "c" : "")).$critereTriPrincipal;
+			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
+		}
+
+		$parametresDiffusionSupplementaires = $sitMiseEnAvant['parametres_diffusion_supplementaires']->value()->attribute('matrix');
+		$parametresDiffusionSupplementaires = $parametresDiffusionSupplementaires['rows']['sequential'];
+
+		foreach ($parametresDiffusionSupplementaires as $parametreDiffusionSupplementaire) {
+			$sitParamName = $parametreDiffusionSupplementaire['columns'][0];
+			$sitParamValue = $parametreDiffusionSupplementaire['columns'][1];
+
+			if ($sitParamName && $sitParamValue) {
+				if (array_key_exists($sitParamName, $sitParams)) {
+					$sitParams[$sitParamName] .= (preg_match("{^dwcrit|mr2$}", $sitParamName) ? "|" : (preg_match("{^mc$}", $sitParamName) ? " " : ",")).$sitParamValue;
+				} else {
+					$sitParams[$sitParamName] = $sitParamValue;
+				}
+				if ($sitParamName == 'dwcrit') {
+					$criteresAffiches = array_merge($criteresAffiches, explode("|", $sitParamValue));
+				}
+			}
+		}
+
+		$sitParams['nbr'] = $nbItems;
+		$sitParams['ofs'] = '0';
+
+		$sitParamsString = "";
+		$sitParamsEncodedString = "";
+		foreach ($sitParams as $sitParamName=>$sitParamValue) {
+			$sitParamsString .= "&".$sitParamName."=".$sitParamValue;
+			$sitParamsEncodedString .= "&".urlencode($sitParamName)."=".urlencode($sitParamValue);
+		}
+
+		$sitParamsString .= $categorie ? "&idc=".$categorie : "";
+		$sitParamsEncodedString .= $categorie ? "&idc=".$categorie : "";
+
+		$sitParamsStringCrypte = sha1("Recherche__".substr($sitParamsString, 1));
+
+		$cheminFichierCacheXml = $cheminCacheXml.$sitParamsStringCrypte.".xml";
+
+		$cacheExpire = true;
+		if (file_exists($cheminFichierCacheXml)) {
+			$maintenant = time();
+			$dateExpirationCache = filemtime($cheminFichierCacheXml)+$dureeVieCache;
+			if ($dateExpirationCache > $maintenant) {
+				$cacheExpire = false;
+			}
+		}
+		$contenuXmlDistant = "";
+		if ($cacheExpire) {
+			$contenuXmlDistant = SitUtils::urlGetContentsCurl($rootSitUrl."Recherche".$sitParamsEncodedString, 120);
+			if ($contenuXmlDistant) {
+				$contenuXmlCache = utf8_encode(str_replace("&#128;", "__euro__", $contenuXmlDistant));
+				file_put_contents($cheminFichierCacheXml, $contenuXmlCache, LOCK_EX);
+			}
+		}
+
+		eZLog::write($rootSitUrl."Recherche".$sitParamsString, "ez_aya_sit.log");
+
+		$xsltParemters = array();
+
+		$xsltParemters['lienCourant'] = $lienCourant;
+		$xsltParemters['cheminImages'] = $cheminImages;
+		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
+		$xsltParemters['sitMiseEnAvantUrlAlias'] = str_replace("/", "~", $sitMiseEnAvantUrlAlias);
+
+		$xsltParemters['criteresAffiches'] = "|".implode("|", $criteresAffiches)."|";
+
+		$xsltParemters['caracteresKo'] = utf8_encode("ŠŒŽŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝß");
+		$xsltParemters['caracteresOk'] = utf8_encode("šœžÿ¥µàáâãäåæçèéêëìíîïðñòóôõöøùúûüýß");
+
+		foreach ($traductionsStatiques as $traductionStatique) {
+			if (ezpI18n::tr("sit/termes/override", $traductionStatique) != $traductionStatique) {
+				$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes/override", $traductionStatique));
+			} else {
+				$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes", $traductionStatique));
+			}
+		}
+
+		$cheminFichierXsl = $cheminXsl.$xslFile."_".$categorie.".xsl";
+		if (!file_exists($cheminFichierXsl)) {
+			$cheminFichierXsl = $cheminXsl.$xslFile.".xsl";
+		}
+		if (!file_exists($cheminFichierXsl)) {
+			$cheminFichierXsl = $cheminXsl."sit_mise_en_avant_".$categorie.".xsl";
+		}
+		if (!file_exists($cheminFichierXsl)) {
+			$cheminFichierXsl = $cheminXsl."sit_mise_en_avant.xsl";
 		}
 
 		$contenuBloc = "";
