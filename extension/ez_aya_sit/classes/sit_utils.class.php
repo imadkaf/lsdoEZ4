@@ -1,6 +1,7 @@
 <?php
 
 class SitUtils {
+
 	static function urlGetContentsCurl() {
 		// traitement des arguments optionnels et des valeurs par défaut.
 		$arg_names = array('url', 'timeout', 'getContent', 'offset', 'maxLen');
@@ -65,6 +66,7 @@ class SitUtils {
 
 		return $xslt->transformToXML($xml);
 	}
+
 }
 
 ?>

@@ -23,5 +23,4 @@ ActiveExtensions[]=ezfeedparse
 ActiveExtensions[]=wordCut
 ActiveExtensions[]=arraysortoperator
 ActiveExtensions[]=all2egooglesitemaps
-
 */ ?>

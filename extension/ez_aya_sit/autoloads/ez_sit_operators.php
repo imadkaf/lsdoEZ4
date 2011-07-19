@@ -51,15 +51,20 @@ class eZSitOperators {
 				)
 			),
 			'sit_mise_en_avant' => array(
-				'categories' => array(
+				'modesAffichage' => array(
 					'type' => 'array',
-					'required' => false,
+					'required' => true,
 					'default' => array()
 				),
 				'xslFile' => array(
 					'type' => 'string',
 					'required' => false,
-					'default' => 'sit_mise_en_avant'
+					'default' => ''
+				),
+				'categories' => array(
+					'type' => 'array',
+					'required' => false,
+					'default' => array()
 				)
 			)
 		);
@@ -98,7 +103,7 @@ class eZSitOperators {
 				$operatorValue = $currentNode ? $this->sitListe($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_liste') : "";
 				break;
 			case 'sit_mise_en_avant':
-				$operatorValue = $currentNode ? $this->sitMiseEnAvant($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_mise_en_avant', $namedParameters['categories']) : "";
+				$operatorValue = $currentNode ? $this->sitMiseEnAvant($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['modesAffichage'], $namedParameters['xslFile'] ? $namedParameters['xslFile'] : '', $namedParameters['categories']) : "";
 				break;
 		}
 	}
@@ -161,7 +166,7 @@ class eZSitOperators {
 		return $this->sitListeHtml($sitListe->dataMap(), $viewParameters, $lienCourant, $cheminImages, $currentNode->attribute('url_alias'), $xslFile);
 	}
 
-	function sitMiseEnAvant($currentNode, $viewParameters, $cheminImages, $xslFile, $categories) {
+	function sitMiseEnAvant($currentNode, $viewParameters, $cheminImages, $modesAffichage, $xslFile, $categories) {
 		$lienCourant = $currentNode->attribute('url_alias');
 		eZURI::transformURI($lienCourant);
 
@@ -171,16 +176,18 @@ class eZSitOperators {
 			$categories = array();
 		}
 
-		$sitMiseEnAvantMatchCategories = false;
+		$sitMiseEnAvantMatch = false;
 		if ($sitMiseEnAvant && $sitMiseEnAvant->ClassIdentifier == 'sit_mise_en_avant') {
 			$sitMiseEnAvantDataMap = $sitMiseEnAvant->dataMap();
 			$categorie = $sitMiseEnAvantDataMap['categorie']->value();
 			$categorie = $categorie[0];
-			if (count($categories) == 0 || !$categorie || in_array($categorie, $categories)) {
-				$sitMiseEnAvantMatchCategories = true;
+			$modeAffichage = $sitMiseEnAvantDataMap['mode_affichage']->value();
+			$modeAffichage = $modeAffichage[0];
+			if ((count($categories) == 0 || !$categorie || in_array($categorie, $categories)) && (count($modesAffichage) == 0 || !$modeAffichage || in_array($modeAffichage, $modesAffichage))) {
+				$sitMiseEnAvantMatch = true;
 			}
 		}
-		if (!$sitMiseEnAvant || $sitMiseEnAvant->ClassIdentifier != 'sit_mise_en_avant' || !$sitMiseEnAvantMatchCategories) {
+		if (!$sitMiseEnAvant || $sitMiseEnAvant->ClassIdentifier != 'sit_mise_en_avant' || !$sitMiseEnAvantMatch) {
 			$fetchParameters = array (
 				'parent_node_id' => $currentNode->attribute('node_id'),
 				'offset' => 0,
@@ -190,6 +197,14 @@ class eZSitOperators {
 			);
 			if (count($categories) > 0) {
 				$fetchParameters['attribute_filter'] = array(array('sit_mise_en_avant/categorie', 'in', $categories));
+			}
+			if (count($modesAffichage) > 0) {
+				if (count($categories) > 0) {
+					array_unshift($fetchParameters['attribute_filter'], 'and');
+				} else {
+					$fetchParameters['attribute_filter'] = array();
+				}
+				$fetchParameters['attribute_filter'][] = array('sit_mise_en_avant/mode_affichage', 'in', $modesAffichage);
 			}
 
 			$currentNodeObjects = eZFunctionHandler::execute(
@@ -205,23 +220,42 @@ class eZSitOperators {
 			$sitMiseEnAvant = $currentNodeObjects[0];
 		}
 
-		$contentIni = eZINI::instance('content.ini');
-		$rootNodeId = $contentIni->variable('NodeSettings','RootNode');
-		$sitMiseEnAvantDataMap = $sitMiseEnAvant->dataMap();
-		$sitListeNodes = eZFunctionHandler::execute(
-			'content',
-			'list',
-			array (
-				'parent_node_id' => $rootNodeId,
-				'offset' => 0,
-				'limit' => 1,
-				'depth' => 10,
-				'class_filter_type' => 'include',
-				'class_filter_array' => array('sit_liste'),
-				'attribute_filter' => array(array('sit_liste/categorie', 'in', $sitMiseEnAvantDataMap['categorie']->value()))
-			)
-		);
 		$sitMiseEnAvantUrlAlias = "";
+		$sitMiseEnAvantDataMap = $sitMiseEnAvant->dataMap();
+
+		$sitListeReliee = $sitMiseEnAvantDataMap['liste_reliee']->value();
+		$sitListeNodes = false;
+		if ($sitListeReliee && $sitListeReliee->ClassIdentifier == 'sit_liste') {
+			$sitListeNodes = eZFunctionHandler::execute(
+				'content',
+				'node',
+				array (
+					'node_id' => $sitListeReliee->attribute('main_node_id')
+				)
+			);
+			if ($sitListeNodes) {
+				$sitListeNodes = array($sitListeNodes);
+			}
+		}
+
+		if (!$sitListeNodes) {
+			$contentIni = eZINI::instance('content.ini');
+			$rootNodeId = $contentIni->variable('NodeSettings','RootNode');
+			$sitListeNodes = eZFunctionHandler::execute(
+				'content',
+				'list',
+				array (
+					'parent_node_id' => $rootNodeId,
+					'offset' => 0,
+					'limit' => 1,
+					'depth' => 10,
+					'class_filter_type' => 'include',
+					'class_filter_array' => array('sit_liste'),
+					'attribute_filter' => array(array('sit_liste/categorie', 'in', $sitMiseEnAvantDataMap['categorie']->value()))
+				)
+			);
+		}
+
 		if ($sitListeNodes) {
 			$sitMiseEnAvantUrlAlias = $sitListeNodes[0]->attribute('url_alias');
 		}
@@ -315,7 +349,7 @@ class eZSitOperators {
 				$sitModalitesRapides[$idCritere] = preg_replace("/(^,|,$)/", "", preg_replace("/,+/", ",", implode(",", $sitModaliteRapide)));
 			}
 
-			$sitModalitesRapides = preg_replace("/(^\||\|$)/", "", preg_replace("/\|+/", "|", implode("|", $sitModalitesRapides)));
+			$sitModalitesRapides = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesRapides)));
 
 			$http->setSessionVariable(sha1("sit_mr_".$lienCourant), $sitModalitesRapides);
 
@@ -326,7 +360,7 @@ class eZSitOperators {
 			$http->setSessionVariable(sha1("sit_mc_".$lienCourant), $motsCles);
 
 			if ($http->hasPostVariable("sit_debut_ouv")) {
-				if (preg_match("/^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_debut_ouv"))) {
+				if (preg_match("/^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_debut_ouv"))) {
 					$debutOuv = $http->postVariable("sit_debut_ouv");
 				}
 			}
@@ -334,7 +368,7 @@ class eZSitOperators {
 			$http->setSessionVariable(sha1("sit_debut_ouv_".$lienCourant), $debutOuv);
 
 			if ($http->hasPostVariable("sit_fin_ouv")) {
-				if (preg_match("/^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_fin_ouv"))) {
+				if (preg_match("/^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_fin_ouv"))) {
 					$finOuv = $http->postVariable("sit_fin_ouv");
 				}
 			}
@@ -342,7 +376,7 @@ class eZSitOperators {
 			$http->setSessionVariable(sha1("sit_fin_ouv_".$lienCourant), $finOuv);
 
 			if ($http->hasPostVariable("sit_debut_dispo")) {
-				if (preg_match("/^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_debut_dispo"))) {
+				if (preg_match("/^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_debut_dispo"))) {
 					$debutDispo = $http->postVariable("sit_debut_dispo");
 				}
 			}
@@ -445,10 +479,10 @@ class eZSitOperators {
 			$contenuBloc = SitUtils::getHtmlResult($cheminFichierCacheXml, $cheminFichierXsl, $xsltParemters);
 		}
 
-		$contenuBloc = preg_replace("/&([\w\d]+|\#\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
+		$contenuBloc = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
 		$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
 		$contenuBloc = preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc);
-		$contenuBloc = preg_replace("/(http:\/\/[^\/]+):\d+/si", "$1", $contenuBloc);
+		$contenuBloc = preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc);
 		$contenuBloc = "\n".preg_replace("/  /si", "\t", utf8_decode(str_replace("__euro__", "&euro;", $contenuBloc)))."\n";
 
 		return $contenuBloc;
@@ -552,7 +586,7 @@ class eZSitOperators {
 		$criteresAffiches = $sitListe['criteres_affiches']->value();
 		foreach ($criteresAffiches as $idCritere) {
 			if ($idCritere) {
-				if (!array_key_exists('dwcrit', $sitParams) || !preg_match("/(^|\|)".substr($idCritere, 0, 9)."/", $sitParams['dwcrit'])) {
+				if (!array_key_exists('dwcrit', $sitParams) || !preg_match("/(^|\\|)".substr($idCritere, 0, 9)."/", $sitParams['dwcrit'])) {
 					if (array_key_exists('dwcrit', $sitParams)) {
 						$sitParams['dwcrit'] .= "|".substr($idCritere, 0, 9);
 					} else {
@@ -577,7 +611,7 @@ class eZSitOperators {
 			$sitParams['sort'] .= ",ran";
 			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
 		} else if ($critereTriPrincipal) {
-			$sitParams['sort'] .= ",".(strlen($critereTriPrincipal) > 9 ? "m" : (preg_match("/^\d+$/", $critereTriPrincipal) ? "c" : "")).$critereTriPrincipal;
+			$sitParams['sort'] .= ",".(strlen($critereTriPrincipal) > 9 ? "m" : (preg_match("/^\\d+$/", $critereTriPrincipal) ? "c" : "")).$critereTriPrincipal;
 			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
 		}
 
@@ -604,7 +638,7 @@ class eZSitOperators {
 				$sitModalitesRapides[$idCritere] = preg_replace("/(^,|,$)/", "", preg_replace("/,+/", ",", implode(",", $sitModaliteRapide)));
 			}
 
-			$sitModalitesRapides = preg_replace("/(^\||\|$)/", "", preg_replace("/\|+/", "|", implode("|", $sitModalitesRapides)));
+			$sitModalitesRapides = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesRapides)));
 
 			$http->setSessionVariable(sha1("sit_mr_".$lienCourant), $sitModalitesRapides);
 
@@ -615,7 +649,7 @@ class eZSitOperators {
 			$http->setSessionVariable(sha1("sit_mc_".$lienCourant), $motsCles);
 
 			if ($http->hasPostVariable("sit_debut_ouv")) {
-				if (preg_match("/^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_debut_ouv"))) {
+				if (preg_match("/^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_debut_ouv"))) {
 					$debutOuv = $http->postVariable("sit_debut_ouv");
 				}
 			}
@@ -623,7 +657,7 @@ class eZSitOperators {
 			$http->setSessionVariable(sha1("sit_debut_ouv_".$lienCourant), $debutOuv);
 
 			if ($http->hasPostVariable("sit_fin_ouv")) {
-				if (preg_match("/^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_fin_ouv"))) {
+				if (preg_match("/^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_fin_ouv"))) {
 					$finOuv = $http->postVariable("sit_fin_ouv");
 				}
 			}
@@ -631,7 +665,7 @@ class eZSitOperators {
 			$http->setSessionVariable(sha1("sit_fin_ouv_".$lienCourant), $finOuv);
 
 			if ($http->hasPostVariable("sit_debut_dispo")) {
-				if (preg_match("/^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_debut_dispo"))) {
+				if (preg_match("/^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_debut_dispo"))) {
 					$debutDispo = $http->postVariable("sit_debut_dispo");
 				}
 			}
@@ -825,11 +859,11 @@ class eZSitOperators {
 			$contenuBloc = SitUtils::getHtmlResult($cheminFichierCacheXml, $cheminFichierXsl, $xsltParemters);
 		}
 
-		$contenuBloc = preg_replace("/&([\w\d]+|\#\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
+		$contenuBloc = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
 		$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
 		$contenuBloc = preg_replace("/\r\n/si", "", $contenuBloc);
 		$contenuBloc = preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc);
-		$contenuBloc = preg_replace("/(http:\/\/[^\/]+):\d+/si", "$1", $contenuBloc);
+		$contenuBloc = preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc);
 		$contenuBloc = "\n".preg_replace("/  /si", "\t", utf8_decode(str_replace("__euro__", "&euro;", $contenuBloc)))."\n";
 
 		return $contenuBloc;
@@ -877,6 +911,9 @@ class eZSitOperators {
 		eZURI::transformURI($cheminRacineSite);
 		$cheminRacineSite = $cheminRacineSite == "/" ? "" : $cheminRacineSite;
 
+		$modeAffichage = $sitMiseEnAvant['mode_affichage']->value();
+		$modeAffichage = $modeAffichage[0];
+		
 		$categorie = $sitMiseEnAvant['categorie']->value();
 		$categorie = $categorie[0];
 
@@ -918,7 +955,7 @@ class eZSitOperators {
 		$criteresAffiches = $sitMiseEnAvant['criteres_affiches']->value();
 		foreach ($criteresAffiches as $idCritere) {
 			if ($idCritere) {
-				if (!array_key_exists('dwcrit', $sitParams) || !preg_match("/(^|\|)".substr($idCritere, 0, 9)."/", $sitParams['dwcrit'])) {
+				if (!array_key_exists('dwcrit', $sitParams) || !preg_match("/(^|\\|)".substr($idCritere, 0, 9)."/", $sitParams['dwcrit'])) {
 					if (array_key_exists('dwcrit', $sitParams)) {
 						$sitParams['dwcrit'] .= "|".substr($idCritere, 0, 9);
 					} else {
@@ -943,7 +980,7 @@ class eZSitOperators {
 			$sitParams['sort'] .= ",ran";
 			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
 		} else if ($critereTriPrincipal) {
-			$sitParams['sort'] .= ",".(strlen($critereTriPrincipal) > 9 ? "m" : (preg_match("/^\d+$/", $critereTriPrincipal) ? "c" : "")).$critereTriPrincipal;
+			$sitParams['sort'] .= ",".(strlen($critereTriPrincipal) > 9 ? "m" : (preg_match("/^\\d+$/", $critereTriPrincipal) ? "c" : "")).$critereTriPrincipal;
 			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
 		}
 
@@ -1024,14 +1061,26 @@ class eZSitOperators {
 			}
 		}
 
-		$cheminFichierXsl = $cheminXsl.$xslFile."_".$categorie.".xsl";
-		if (!file_exists($cheminFichierXsl)) {
-			$cheminFichierXsl = $cheminXsl.$xslFile.".xsl";
+		$cheminFichierXsl = "";
+		if ($xslFile) {
+			$cheminFichierXsl = $cheminXsl.$xslFile."_".$categorie.".xsl";
+			if (!file_exists($cheminFichierXsl)) {
+				$cheminFichierXsl = $cheminXsl.$xslFile.".xsl";
+			}
+			if (!file_exists($cheminFichierXsl)) {
+				$cheminFichierXsl = "";
+			}
 		}
-		if (!file_exists($cheminFichierXsl)) {
+		if ((!$cheminFichierXsl || !file_exists($cheminFichierXsl)) && $modeAffichage) {
+			$cheminFichierXsl = $cheminXsl."sit_mise_en_avant_mode".$modeAffichage."_".$categorie.".xsl";
+		}
+		if ((!$cheminFichierXsl || !file_exists($cheminFichierXsl)) && $modeAffichage) {
+			$cheminFichierXsl = $cheminXsl."sit_mise_en_avant_mode".$modeAffichage.".xsl";
+		}
+		if (!$cheminFichierXsl || !file_exists($cheminFichierXsl)) {
 			$cheminFichierXsl = $cheminXsl."sit_mise_en_avant_".$categorie.".xsl";
 		}
-		if (!file_exists($cheminFichierXsl)) {
+		if (!$cheminFichierXsl || !file_exists($cheminFichierXsl)) {
 			$cheminFichierXsl = $cheminXsl."sit_mise_en_avant.xsl";
 		}
 
@@ -1040,11 +1089,11 @@ class eZSitOperators {
 			$contenuBloc = SitUtils::getHtmlResult($cheminFichierCacheXml, $cheminFichierXsl, $xsltParemters);
 		}
 
-		$contenuBloc = preg_replace("/&([\w\d]+|\#\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
+		$contenuBloc = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
 		$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
 		$contenuBloc = preg_replace("/\r\n/si", "", $contenuBloc);
 		$contenuBloc = preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc);
-		$contenuBloc = preg_replace("/(http:\/\/[^\/]+):\d+/si", "$1", $contenuBloc);
+		$contenuBloc = preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc);
 		$contenuBloc = "\n".preg_replace("/  /si", "\t", utf8_decode(str_replace("__euro__", "&euro;", $contenuBloc)))."\n";
 
 		return $contenuBloc;
