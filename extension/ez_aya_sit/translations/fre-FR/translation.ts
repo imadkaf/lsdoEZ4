@@ -109,7 +109,7 @@
 		</message>
 		<message>
 			<source>RetourListe</source>
-			<translation>Retour à la liste de résultats</translation>
+			<translation>Retour à la liste</translation>
 		</message>
 		<message>
 			<source>AdresseFiche</source>

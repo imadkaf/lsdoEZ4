@@ -1,8 +1,3 @@
-<div>
-{sit_mise_en_avant(array(19))}
-</div>
-<div style="clear:both"></div>
-
 {def $blocsContenus = $node.data_map.blocks.content.relation_list}
 {def $blocsCont = ''}
 {def $compteur = 0}

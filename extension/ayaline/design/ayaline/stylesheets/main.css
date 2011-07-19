@@ -2125,8 +2125,7 @@ p.lien-bas{
 	top:5px;
 }
 .box-left .map{
-	border:1px solid #d6cdc7;
-	margin:0 0 17px 0;
+	margin:0;
 }
 .box-left .form-rech span{
 	display:block;
@@ -2264,12 +2263,18 @@ ul.contenu li{
 	font-size:32px !important;
 	font-weight: bold;
 }
+.bloc-accueil-h2 .contenu{
+	margin-top: 10px;
+}
 .bloc-accueil-h3{
 	font-family: 'OmnesMedium' !important;
 	font-size: 22px;
 	font-weight: normal;
 	color: #2B80B9;
-	padding: 0px 0px 10px 0px !important;
+	padding: 0px 0px 15px 0px !important;
+}
+.bloc-accueil-h3 .contenu{
+	padding-bottom: 0px;
 }
 .bloc-type .float-d img {
     position: relative;
