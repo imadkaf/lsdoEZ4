@@ -205,7 +205,28 @@ class eZSitOperators {
 			$sitMiseEnAvant = $currentNodeObjects[0];
 		}
 
-		return $this->sitMiseEnAvantHtml($sitMiseEnAvant->dataMap(), $viewParameters, $lienCourant, $cheminImages, $currentNode->attribute('url_alias'), $xslFile);
+		$contentIni = eZINI::instance('content.ini');
+		$rootNodeId = $contentIni->variable('NodeSettings','RootNode');
+		$sitMiseEnAvantDataMap = $sitMiseEnAvant->dataMap();
+		$sitListeNodes = eZFunctionHandler::execute(
+			'content',
+			'list',
+			array (
+				'parent_node_id' => $rootNodeId,
+				'offset' => 0,
+				'limit' => 1,
+				'depth' => 10,
+				'class_filter_type' => 'include',
+				'class_filter_array' => array('sit_liste'),
+				'attribute_filter' => array(array('sit_liste/categorie', 'in', $sitMiseEnAvantDataMap['categorie']->value()))
+			)
+		);
+		$sitMiseEnAvantUrlAlias = "";
+		if ($sitListeNodes) {
+			$sitMiseEnAvantUrlAlias = $sitListeNodes[0]->attribute('url_alias');
+		}
+
+		return $this->sitMiseEnAvantHtml($sitMiseEnAvant->dataMap(), $viewParameters, $lienCourant, $cheminImages, $sitMiseEnAvantUrlAlias, $xslFile);
 	}
 
 	// Private section
@@ -767,7 +788,7 @@ class eZSitOperators {
 		$xsltParemters['lienCourant'] = $lienCourant;
 		$xsltParemters['cheminImages'] = $cheminImages;
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
-		$xsltParemters['sitMiseEnAvantUrlAlias'] = str_replace("/", "~", $sitMiseEnAvantUrlAlias);
+		$xsltParemters['sitListeUrlAlias'] = str_replace("/", "~", $sitListeUrlAlias);
 
 		$xsltParemters['nbItemsParPage'] = $nbItemsParPage;
 		$xsltParemters['nbResultatsTotal'] = $nbResultatsTotal;
@@ -987,6 +1008,8 @@ class eZSitOperators {
 		$xsltParemters['cheminImages'] = $cheminImages;
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
 		$xsltParemters['sitMiseEnAvantUrlAlias'] = str_replace("/", "~", $sitMiseEnAvantUrlAlias);
+		eZURI::transformURI($sitMiseEnAvantUrlAlias);
+		$xsltParemters['sitListeUrlAlias'] = $sitMiseEnAvantUrlAlias;
 
 		$xsltParemters['criteresAffiches'] = "|".implode("|", $criteresAffiches)."|";
 

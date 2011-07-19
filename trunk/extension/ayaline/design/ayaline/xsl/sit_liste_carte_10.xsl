@@ -12,7 +12,8 @@
 
 	<xsl:template match="/">
 	
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"><![CDATA[ ]]></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAOZJQqoDBwAknMtPNKR-dvRSi2OoyjRwg8X5jAJmNj4togrBv2xSClpdvpd4FJNt4C5i-i6aTtWzs-g"><![CDATA[ ]]></script>
+		
 		<script type="text/javascript">
 			<![CDATA[
 				function initialize() {
@@ -80,7 +81,7 @@
 												</xsl:if><![CDATA[<div class="clear"></div>'+
 											'<p class="lien">]]>
 												<a class="link-popin" target="_blank">
-													<xsl:attribute name="href">http://lsdo.loc/layout/set/vide/Itineraire-Rubrique?nom=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><![CDATA[&coord=]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[ ]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/></xsl:attribute>
+													<xsl:attribute name="href">/layout/set/vide/Itineraire-Rubrique?nom=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template></xsl:attribute>
 													<![CDATA[<b>>> Itin&eacute;raire</b>]]>
 												</a>
 												<a class="float-d">
@@ -106,12 +107,107 @@
 									
 									google.maps.event.addListener(marker, 'click', function() {
 										this._infowindow.open(map, this);
+										
+										//Pour lancer la popin
+										$(".moninfobulle .link-popin").popin({
+											width:1150,
+											height:770,
+											opacity:.6,
+											className:'searchPopin',
+											onComplete: function() {
+											
+												$(".popin-content-bloc").css('height', "auto");
+												
+												Demo.toInput = "]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[ ]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[";
+												Demo.mapContainer = document.getElementById('map-container');
+												Demo.dirContainer = document.getElementById('dir-container');
+												Demo.fromInput = document.getElementById('from-input');
+												Demo.travelModeInput = document.getElementById('travel-mode-input');
+												Demo.unitInput = document.getElementById('unit-input');
+
+												// Onload handler to fire off the app.
+												Demo.init();
+											}
+										});
 									});
 								]]>
 							</xsl:if>
 						</xsl:for-each>
 					</xsl:if>
 				    <![CDATA[
+					    //Js du calcul de l'itineraire
+						Demo = {
+							// HTML Nodes
+							mapContainer: document.getElementById('map-container'),
+							dirContainer: document.getElementById('dir-container'),
+							fromInput: document.getElementById('from-input'),
+							toInput:"",
+							travelModeInput: document.getElementById('travel-mode-input'),
+							unitInput: document.getElementById('unit-input'),
+				
+							// API Objects
+							dirService: new google.maps.DirectionsService(),
+							dirRenderer: new google.maps.DirectionsRenderer(),
+							map: null,
+				
+							showDirections: function(dirResult, dirStatus) {
+								if (dirStatus != google.maps.DirectionsStatus.OK) {
+									alert('Directions failed: ' + dirStatus);
+									return;
+								}
+				
+								// Show directions
+								Demo.dirRenderer.setMap(Demo.map);
+								Demo.dirRenderer.setPanel(Demo.dirContainer);
+								Demo.dirRenderer.setDirections(dirResult);
+							},
+				
+							getSelectedTravelMode: function() {
+								var value =
+									Demo.travelModeInput.options[Demo.travelModeInput.selectedIndex].value;
+								if (value == 'driving') {
+								  value = google.maps.DirectionsTravelMode.DRIVING;
+								} else if (value == 'bicycling') {
+								  value = google.maps.DirectionsTravelMode.BICYCLING;
+								} else if (value == 'walking') {
+								  value = google.maps.DirectionsTravelMode.WALKING;
+								} else {
+								  alert('Unsupported travel mode.');
+								}
+								return value;
+							},
+				
+							getSelectedUnitSystem: function() {
+								return Demo.unitInput.options[Demo.unitInput.selectedIndex].value == 'metric' ?
+									google.maps.DirectionsUnitSystem.METRIC :
+									google.maps.DirectionsUnitSystem.IMPERIAL;
+							},
+				
+							getDirections: function() {
+								var fromStr = Demo.fromInput.value;
+								var toStr = Demo.toInput;
+								var dirRequest = {
+								  origin: fromStr,
+								  destination: toStr,
+								  travelMode: Demo.getSelectedTravelMode(),
+								  unitSystem: Demo.getSelectedUnitSystem(),
+								  provideRouteAlternatives: true
+								};
+								Demo.dirService.route(dirRequest, Demo.showDirections);
+							},
+				
+							init: function() {
+								var latLng = new google.maps.LatLng(46.5, -1.7833);
+								Demo.map = new google.maps.Map(Demo.mapContainer, {
+								  zoom: 13,
+								  center: latLng,
+								  mapTypeId: google.maps.MapTypeId.ROADMAP
+								});
+				
+								// Show directions onload
+								Demo.getDirections();
+							}
+						};
 			  	}
 			]]>
 		</script>
