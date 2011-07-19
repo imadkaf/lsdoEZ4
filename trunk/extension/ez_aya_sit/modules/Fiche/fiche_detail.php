@@ -146,7 +146,7 @@ if ($cheminCategorie) {
 }
 
 if (!$nodeExist && array_key_exists('HTTP_REFERER', $_SERVER)) {
-	$httpReferer = preg_replace("{^".$cheminRacineSite."/(.*?)(/\([^\)]*\)/[^/]*)*$}", "$1", $_SERVER['HTTP_REFERER']);
+	$httpReferer = preg_replace("{^".$cheminRacineSite."/(.*?)(/\\([^\\)]*\\)/[^/]*)*$}", "$1", $_SERVER['HTTP_REFERER']);
 	$httpReferer = $httpReferer ? $httpReferer : "/";
 	$previousNode = eZFunctionHandler::execute(
 		'content',
@@ -281,10 +281,10 @@ if (file_exists($cheminFichierCacheXml) && file_exists($cheminFichierXsl)) {
 	$contenuBloc = SitUtils::getHtmlResult($cheminFichierCacheXml, $cheminFichierXsl, $xsltParemters);
 }
 
-$contenuBloc = preg_replace("/&([\w\d]+|\#\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
+$contenuBloc = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
 $contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
 $contenuBloc = preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc);
-$contenuBloc = preg_replace("/(http:\/\/[^\/]+):\d+/si", "$1", $contenuBloc);
+$contenuBloc = preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc);
 $contenuBloc = "\n".preg_replace("/  /si", "\t", utf8_decode(str_replace("__euro__", "&euro;", $contenuBloc)))."\n";
 
 $tpl->setVariable('contenuBloc', $contenuBloc);

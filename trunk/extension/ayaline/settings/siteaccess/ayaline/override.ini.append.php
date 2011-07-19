@@ -2,9 +2,9 @@
 
 	#ayaline
 
-[full_sit_mise_en_avant]
-Source=content/view/full.tpl
-MatchFile=full/sit_mise_en_avant.tpl
+[embed_sit_mise_en_avant]
+Source=content/view/embed.tpl
+MatchFile=embed/sit_mise_en_avant.tpl
 Subdir=templates
 Match[class_identifier]=sit_mise_en_avant
 
