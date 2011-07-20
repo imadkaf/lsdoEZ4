@@ -15,7 +15,5 @@
 <div class="bloc-right-bis">
 	{include uri='design:parts/reserver.tpl'}
 	{include uri='design:parts/publicites_fiche.tpl' nbPubs = $nbPubs}
-	{if eq($previousNode.name, 'Hôtellerie')}
-		{include uri='design:parts/voir_aussi.tpl'}
-	{/if}
+	{sit_liste('sit_liste_voir_aussi')}
 </div>

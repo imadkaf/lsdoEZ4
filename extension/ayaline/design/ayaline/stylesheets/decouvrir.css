@@ -12,3 +12,8 @@ ul.contenu li{
     background: url("../images/picto1.gif") no-repeat scroll 0 50% transparent;
     color: #E644AC;
 }
+
+/*** Bloc voir aussi ***/
+.lien-plus-infos{
+	background-color: #E644AC;
+}
