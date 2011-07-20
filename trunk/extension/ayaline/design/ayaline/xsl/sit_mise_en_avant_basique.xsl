@@ -91,7 +91,6 @@
 								</ul>
 							</xsl:if>
 						</div>
-						<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
 					</li>
 				</xsl:for-each>
 			</ul>

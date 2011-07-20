@@ -29,8 +29,7 @@
 				</div>
 				<div class="bloc-right-bis">
 {include uri='design:parts/reserver.tpl'}
-{include uri='design:parts/les_plus_consultes.tpl'}
-{include uri='design:parts/agenda.tpl'}
+{include uri='design:parts/liste_mises_en_avant.tpl'}
 				</div>
 				
 				<script type="text/javascript">
