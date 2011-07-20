@@ -29,3 +29,8 @@ ul.list .lien-bas a, ul.liste .lien-bas a, .cp-coeur .lien-bas a {
     background: url("../images/picto5.gif") no-repeat scroll 0 50% transparent;
     color: #BCC601;
 }
+
+/*** Bloc voir aussi ***/
+.lien-plus-infos{
+	background-color: #BCC601;
+}

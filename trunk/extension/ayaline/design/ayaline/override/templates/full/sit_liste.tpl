@@ -44,4 +44,5 @@
 	{if eq($node.name, 'Hôtellerie')}
 		{include uri='design:parts/agenda.tpl'}
 	{/if}
+	{include uri='design:parts/liste_mises_en_avant.tpl'}
 </div>

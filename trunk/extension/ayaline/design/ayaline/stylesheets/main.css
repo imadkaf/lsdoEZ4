@@ -2773,6 +2773,40 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 
 
+/*** Bloc Voir aussi ***/
+.bloc-liste-h2-cote{
+    font-family: 'OmnesLight';
+    font-size: 27px !important;
+    font-weight: bold;
+}
+
+.liste-voir-aussi{
+	margin: 10px 0px 20px 0px !important;
+}
+.liste-voir-aussi li{
+	border-top: 1px solid #E9E3DE;
+	border-bottom: none;
+	margin: 10px 0px 0px 0px;
+    padding: 10px 0px 0px 0px !important;
+}
+.liste-voir-aussi li:first-child{
+	border-top: none;
+	border-bottom: none;
+	margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px !important;
+}
+
+.lien-plus-infos{
+	display: block;
+	padding: 3px 4px 3px 5px;
+	width: 50px;
+	background-color: black;
+	color: white;
+}
+.lien-plus-infos:hover{
+	text-decoration: none;
+}
+
 /************************/
 /*** Fin ajout Alexia ***/
 /************************/

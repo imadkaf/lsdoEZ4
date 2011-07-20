@@ -24,3 +24,8 @@ ul.list .lien-bas a, ul.liste .lien-bas a, .cp-coeur .lien-bas a {
 .list-right .link a {
     background: url("../images/bg-btn-r-bis-br.png") no-repeat scroll 100% 100% transparent;
 }
+
+/*** Bloc voir aussi ***/
+.lien-plus-infos{
+	background-color: #02BDFF;
+}
