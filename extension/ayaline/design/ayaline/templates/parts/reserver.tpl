@@ -1,4 +1,4 @@
-<div class="bloc-type">
+<div class="bloc-type" id="bloc-ac-res">
 	<h2>
 		<img src={"reserver.png"|ezimage} alt="" />
 	</h2>

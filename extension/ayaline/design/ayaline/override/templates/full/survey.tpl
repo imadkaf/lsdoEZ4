@@ -1,5 +1,5 @@
 {set-block scope=root variable=cache_ttl}0{/set-block}
-<div class="box-left">
+<!-- <div class="box-left"> -->
 	<div class="box-left-in">
 		<div class="content-view-full">
 			<div class="attribute-header">
@@ -113,4 +113,4 @@
 			</div>
 		</div>
     </div>
-</div>
+<!-- </div> -->

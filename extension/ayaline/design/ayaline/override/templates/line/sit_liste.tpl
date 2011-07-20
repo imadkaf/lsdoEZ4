@@ -7,7 +7,7 @@
 		<a href={$node.url_alias|ezurl}>{attribute_view_gui attribute = $affichageListeSIT.0.data_map.title}</a>
 	</h3>
 	
-	{attribute_view_gui attribute=$affichageListeSIT.0.data_map.thumbnail image_class='list_rubric'}
+	<a href={$node.url_alias|ezurl}>{attribute_view_gui attribute=$affichageListeSIT.0.data_map.thumbnail image_class='list_rubric'}</a>
 	
 	<p>
 		{$affichageListeSIT.0.data_map.short_description.content|wash|shorten(65)}

@@ -32,3 +32,13 @@ function equilibrerHauteursBlocs() {
 		$(elementOfArray).css('min-height', $(elementOfArray).parent().height()-37);
 	});
 }
+
+function fixH(one,two) {
+	if (document.getElementById(one)) {
+		var lh=document.getElementById(one).offsetHeight;
+		var rh=document.getElementById(two).offsetHeight;
+		var nh = Math.max(lh, rh);
+		document.getElementById(one).style.height=nh-15-9+"px";
+		document.getElementById(two).style.height=nh-15-9+"px";
+	}
+}

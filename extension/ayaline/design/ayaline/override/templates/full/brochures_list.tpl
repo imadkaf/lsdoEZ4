@@ -16,7 +16,7 @@
 <div class="bloc-left-bis">
 
 	<div class="bloc-left-in-bis">
-		{include uri='design:parts/menu_gauche_faq.tpl'}
+		{include uri='design:parts/menu_gauche_interne.tpl'}
 	</div>
 	
 	<div class="bloc-right-in-bis">

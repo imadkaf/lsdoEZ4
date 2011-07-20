@@ -11,20 +11,27 @@
 							{attribute_view_gui attribute = $node.data_map.short_description}
 						</p>
 
+{def $children = fetch( 'content','list',hash( 'parent_node_id', $node.node_id,
+												'sort_by', $node.sort_array,
+												'class_filter_type' , 'include',
+												'class_filter_array', array('rubric', 'sit_liste')))}
+
 {def $compteurlisterubrique = 1}
 
+{if $children|count}
 						<ul class="liste">
-{foreach $node.children as $enfants sequence array( '', '', 'last' ) as $style}
+	{foreach $children as $enfants sequence array( '', '', 'last' ) as $style}
 							<li class="{$style}">
 								{node_view_gui content_node=$enfants view='line'}
 							</li>
-	{if and($node.children|count|gt($compteurlisterubrique), $style|eq('last'))}
+		{if and($node.children|count|gt($compteurlisterubrique), $style|eq('last'))}
 						</ul>
 						<ul class="liste">
-	{/if}
-	{set $compteurlisterubrique = $compteurlisterubrique|inc}
-{/foreach}
+		{/if}
+		{set $compteurlisterubrique = $compteurlisterubrique|inc}
+	{/foreach}
 						</ul>
+{/if}
 					</div>
 				</div>
 				<div class="bloc-right-bis">
