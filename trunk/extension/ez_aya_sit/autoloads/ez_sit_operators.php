@@ -100,7 +100,7 @@ class eZSitOperators {
 				$operatorValue = $currentNode ? $this->sitRecherche($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_recherche') : "";
 				break;
 			case 'sit_liste':
-				$operatorValue = $currentNode ? $this->sitListe($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_liste') : "";
+				$operatorValue = $currentNode ? $this->sitListe($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['xslFile'] ? $namedParameters['xslFile'] : 'sit_liste', $tpl->variable('idFicheEnCours')) : "";
 				break;
 			case 'sit_mise_en_avant':
 				$operatorValue = $currentNode ? $this->sitMiseEnAvant($currentNode, $tpl->variable('view_parameters'), eZURLOperator::eZImage($tpl, 'sit/', ''), $namedParameters['modesAffichage'], $namedParameters['xslFile'] ? $namedParameters['xslFile'] : '', $namedParameters['categories']) : "";
@@ -137,7 +137,7 @@ class eZSitOperators {
 		return $this->sitRechercheHtml($sitListe->dataMap(), $viewParameters, $lienCourant, $cheminImages, $xslFile);
 	}
 
-	function sitListe($currentNode, $viewParameters, $cheminImages, $xslFile) {
+	function sitListe($currentNode, $viewParameters, $cheminImages, $xslFile, $idFicheEnCours) {
 		$lienCourant = $currentNode->attribute('url_alias');
 		eZURI::transformURI($lienCourant);
 
@@ -163,7 +163,7 @@ class eZSitOperators {
 			$sitListe = $currentNodeObjects[0];
 		}
 
-		return $this->sitListeHtml($sitListe->dataMap(), $viewParameters, $lienCourant, $cheminImages, $currentNode->attribute('url_alias'), $xslFile);
+		return $this->sitListeHtml($sitListe->dataMap(), $viewParameters, $lienCourant, $cheminImages, $currentNode->attribute('url_alias'), $xslFile, $idFicheEnCours);
 	}
 
 	function sitMiseEnAvant($currentNode, $viewParameters, $cheminImages, $modesAffichage, $xslFile, $categories) {
@@ -488,7 +488,7 @@ class eZSitOperators {
 		return $contenuBloc;
 	}
 
-	function sitListeHtml($sitListe, $viewParameters, $lienCourant, $cheminImages, $sitListeUrlAlias, $xslFile) {
+	function sitListeHtml($sitListe, $viewParameters, $lienCourant, $cheminImages, $sitListeUrlAlias, $xslFile, $idFicheEnCours) {
 		$http = eZHTTPTool::instance();
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
@@ -823,6 +823,10 @@ class eZSitOperators {
 		$xsltParemters['cheminImages'] = $cheminImages;
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
 		$xsltParemters['sitListeUrlAlias'] = str_replace("/", "~", $sitListeUrlAlias);
+		eZURI::transformURI($sitListeUrlAlias);
+		$xsltParemters['sitListeLien'] = $sitListeUrlAlias;
+		
+		$xsltParemters['idFicheEnCours'] = $idFicheEnCours;
 
 		$xsltParemters['nbItemsParPage'] = $nbItemsParPage;
 		$xsltParemters['nbResultatsTotal'] = $nbResultatsTotal;

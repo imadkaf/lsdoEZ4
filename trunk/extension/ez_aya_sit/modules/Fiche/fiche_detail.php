@@ -287,6 +287,8 @@ $contenuBloc = preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc);
 $contenuBloc = preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc);
 $contenuBloc = "\n".preg_replace("/  /si", "\t", utf8_decode(str_replace("__euro__", "&euro;", $contenuBloc)))."\n";
 
+$tpl->setVariable('idFicheEnCours', $idFiche);
+
 $tpl->setVariable('contenuBloc', $contenuBloc);
 $tpl->setVariable('previousNode', $previousNode);
 $tpl->setVariable('view_parameters', $Params['UserParameters']);

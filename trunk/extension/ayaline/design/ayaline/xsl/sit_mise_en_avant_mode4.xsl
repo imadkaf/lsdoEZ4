@@ -14,19 +14,20 @@
 
 	<xsl:template match="/">
 		<xsl:if test="count(resultats/produit) &gt; 0">
+			<!-- Coup de coeur -->
 			<div class="bloc-type">
-				<h2 class="bloc-liste-h2-cote" style="color:pink;">Coup de coeur</h2>
-				<p class="clear"></p>
+				<h2 class="bloc-liste-h2-cote" style="color:#E645AD;">Coup de coeur</h2>
+				<p class="clear"><![CDATA[ ]]></p>
 				
 				<xsl:for-each select="resultats/details/detail[position() = 1]">
 					<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(translate(translate(intitule, concat('/-?_.', $apos, $amp), '       '), $caracteresKo, $caracteresOk), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')), ' ', '-')"/></xsl:variable>
 					<a style="overflow:hidden;"><xsl:attribute name="id">fiche-<xsl:value-of select="@id"/></xsl:attribute><![CDATA[ ]]></a>
 					
-					<a>
+					<a style="display: block; margin: 15px 0px 10px 0px;">
 						<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-						<img alt="">
+						<img alt="" style="width: 250px">
 							<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
-							<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=100</xsl:attribute>
+							<xsl:attribute name="src"><xsl:value-of select="newPhotos/newPhoto"/></xsl:attribute>
 							</xsl:if>
 							<xsl:if test="count(newPhotos/newPhoto) = 0">
 							<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
@@ -34,7 +35,7 @@
 						</img>
 					</a>
 					
-					<h3>
+					<h3 style="padding: 0px 0 10px;">
 						<a>
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 							<strong><xsl:value-of select="intitule"/></strong>
@@ -102,14 +103,14 @@
 							</xsl:for-each>
 						</ul>
 					</xsl:if>
+					
+					<p class="lien-bas">
+						<a class="type3">
+							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
+							En savoir plus
+						</a>
+					</p>
 				</xsl:for-each>
-			
-				<p class="lien-bas">
-					<a>
-						<xsl:attribute name="href"><xsl:value-of select="$sitListeUrlAlias" /></xsl:attribute>
-						En savoir plus
-					</a>
-				</p>
 			</div>
 		</xsl:if>
 	</xsl:template>
