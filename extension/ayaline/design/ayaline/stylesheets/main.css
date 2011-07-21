@@ -2761,17 +2761,61 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 
 
+/*** Menu A la Une - Meteo-Maree ***/
+.meteo-maree{
+	background-color: #FFFFFF;
+	width: 195px;
+}
+
+
 /*** Menu A la Une - Meteo ***/
 .rubrique2 .meteo{
 	border: none !important;
 	background: none !important;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 .rubrique2 .meteo a{
 	border-left: none !important;
 }
 .rubrique2 .meteo-lien{
 	display: none;
+}
+
+
+/*** Menu A la Une - Maree ***/
+.maree{
+	color: black;
+	margin-top: 10px;
+	padding: 5px;
+	width: 195px;
+}
+.maree thead th{
+	font-weight: bold;
+}
+.maree .vert{
+	color: #BEC505;
+}
+.maree .taille{
+	width: 80px;
+}
+.maree .centre{
+	text-align: center;
+}
+.maree .centre.vert{
+	font-weight: bold;
+}
+.maree a{
+	padding: 0px !important;
+	border-left: none !important;
+	float: none !important;
+	font-size: 11px !important;
+	position: relative !important;
+	top: 0px !important;
+    text-transform: none !important;
+    color: black !important;
+}
+.maree tfoot th{
+	text-align: right;
 }
 
 
@@ -2783,7 +2827,7 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 
 .liste-voir-aussi{
-	margin: 10px 0px 20px 0px !important;
+	margin: 14px 0px 20px 0px !important;
 }
 .liste-voir-aussi li{
 	border-top: 1px solid #E9E3DE;
@@ -2807,6 +2851,13 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 .lien-plus-infos:hover{
 	text-decoration: none;
+}
+
+
+/*** Bloc Accueil SIT - Diaporama ***/
+.bxslider{
+	width: 285px;
+	margin: 0px 0px 20px 35px;
 }
 
 /************************/

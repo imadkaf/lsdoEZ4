@@ -14,6 +14,7 @@
 
 	<xsl:template match="/">
 		<xsl:if test="count(resultats/produit) &gt; 0">
+			<!-- Basique -->
 			<ul>
 				<xsl:for-each select="resultats/details/detail">
 					<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(translate(translate(intitule, concat('/-?_.', $apos, $amp), '       '), $caracteresKo, $caracteresOk), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')), ' ', '-')"/></xsl:variable>
@@ -39,7 +40,7 @@
 								<strong><xsl:value-of select="intitule"/></strong>
 							</a>
 							
-							<p>
+							<p style="font-size: 11px;">
 								<xsl:if test="adresses/adresse[@type='produit']/ligne1 != ''">
 									<xsl:value-of select="adresses/adresse[@type='produit']/ligne1"/>
 									<xsl:if test="adresses/adresse[@type='produit']/ligne2 != ''">

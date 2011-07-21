@@ -14,11 +14,12 @@
 
 	<xsl:template match="/">
 		<xsl:if test="count(resultats/produit) &gt; 0">
+			<!-- Les plus consultes -->
 			<div class="bloc-type">
-				<h2 class="bloc-liste-h2-cote">Agenda</h2>
+				<h2 class="bloc-liste-h2-cote">Les plus consult&amp;eacute;s</h2>
 				<p class="clear"></p>
-				
-				<ul class="list-agenda">
+		
+				<ul class="list-right liste-voir-aussi">
 					<xsl:for-each select="resultats/details/detail">
 						<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(translate(translate(intitule, concat('/-?_.', $apos, $amp), '       '), $caracteresKo, $caracteresOk), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')), ' ', '-')"/></xsl:variable>
 						<li>
@@ -37,13 +38,10 @@
 								</img>
 							</a>
 							
-							<div style="margin-left:110px">
-								<a>
-									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-									<strong><xsl:value-of select="intitule"/></strong>
-								</a>
+							<div style="margin-left: 115px">
+								<h3><a><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="intitule"/></a></h3>
 								
-								<p>
+								<p style="font-size: 11px; margin-bottom: 10px;">
 									<xsl:if test="adresses/adresse[@type='produit']/ligne1 != ''">
 										<xsl:value-of select="adresses/adresse[@type='produit']/ligne1"/>
 										<xsl:if test="adresses/adresse[@type='produit']/ligne2 != ''">
@@ -55,8 +53,6 @@
 									</xsl:if>
 									- <xsl:value-of select="ville/intituleVille"/>
 								</p>
-								
-								<xsl:call-template name="periodes-ouverture"/>
 								
 								<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0]) &gt; 0">
 									<ul>
@@ -93,17 +89,14 @@
 										</xsl:for-each>
 									</ul>
 								</xsl:if>
+								
+								<a class="lien-plus-infos"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
+									+ d'infos
+								</a>
 							</div>
 						</li>
 					</xsl:for-each>
 				</ul>
-			
-				<p class="lien-bas">
-					<a class="type3">
-						<xsl:attribute name="href"><xsl:value-of select="$sitListeUrlAlias" /></xsl:attribute>
-						Toutes les dates
-					</a>
-				</p>
 			</div>
 		</xsl:if>
 	</xsl:template>

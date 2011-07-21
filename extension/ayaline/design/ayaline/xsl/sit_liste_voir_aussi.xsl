@@ -21,49 +21,53 @@
 				<p class="clear"></p>
 				
 				<ul class="list-right liste-voir-aussi">		
-					<xsl:for-each select="resultats/details/detail[position() &gt;= 1 and position() &lt;= 5]">
-						<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitListeUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(translate(translate(intitule, concat('/-?_.', $apos, $amp), '       '), $caracteresKo, $caracteresOk), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')), ' ', '-')"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0 and $pageCourante &gt; 1">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if></xsl:variable>
-						<li>
-							<a>
-								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-								<img alt="" style="width: 85px;">
-									<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
-										<xsl:attribute name="src"><xsl:value-of select="newPhotos/newPhoto"/></xsl:attribute>
-									</xsl:if>
-									<xsl:if test="count(newPhotos/newPhoto) = 0">
-										<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
-									</xsl:if>
-								</img>
-							</a>
-							
-							<div style="margin-left: 100px;">
-								<h3><a><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="intitule"/></a></h3>
-								
-								<p class="bloc-stars">
-									<xsl:choose>
-										<xsl:when test="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite != ''">
-											<img alt="">
-												<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
-												<xsl:attribute name="title">Cat&amp;eacute;gorie : <xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/intModalite"/></xsl:attribute>
-											</img>
-										</xsl:when>
-										<xsl:otherwise>
-											<xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/intModalite"/>
-										</xsl:otherwise>
-									</xsl:choose>
-								</p>
-								<br />
-								
-								<a class="lien-plus-infos"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-									+ d'infos
+					<xsl:for-each select="resultats/details/detail[@id != $idFicheEnCours]">
+						<xsl:if test="position() &lt;= 5">
+							<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitListeUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(translate(translate(intitule, concat('/-?_.', $apos, $amp), '       '), $caracteresKo, $caracteresOk), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')), ' ', '-')"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0 and $pageCourante &gt; 1">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if></xsl:variable>
+							<li>
+								<a>
+									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
+									<img alt="" style="width: 85px;">
+										<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
+											<xsl:attribute name="src"><xsl:value-of select="newPhotos/newPhoto"/></xsl:attribute>
+										</xsl:if>
+										<xsl:if test="count(newPhotos/newPhoto) = 0">
+											<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
+										</xsl:if>
+									</img>
 								</a>
-							</div>
-						</li>
+								
+								<div style="margin-left: 100px;">
+									<h3><a><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="intitule"/></a></h3>
+									
+									<xsl:if test="criteres/critere[@id='400002615']">
+										<p class="bloc-stars">
+											<xsl:choose>
+												<xsl:when test="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite != ''">
+													<img alt="">
+														<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
+														<xsl:attribute name="title">Cat&amp;eacute;gorie : <xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/intModalite"/></xsl:attribute>
+													</img>
+												</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/intModalite"/>
+												</xsl:otherwise>
+											</xsl:choose>
+										</p>
+									</xsl:if>
+									<p style="margin-bottom: 10px;"><![CDATA[ ]]></p>
+									
+									<a class="lien-plus-infos"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
+										+ d'infos
+									</a>
+								</div>
+							</li>
+						</xsl:if>
 					</xsl:for-each>
 				</ul>
 
 				<p class="lien-bas">
-					<a class="type3"><xsl:attribute name="href">#</xsl:attribute>Toutes les fiches de m&amp;ecirc;me cat&amp;eacute;gorie</a>
+					<a class="type3"><xsl:attribute name="href"><xsl:value-of select="$sitListeLien" /></xsl:attribute>Toutes les fiches de m&amp;ecirc;me cat&amp;eacute;gorie</a>
 				</p>
 			</div>
 		</xsl:if>

@@ -14,47 +14,70 @@
 
 	<xsl:template match="/">
 		<xsl:if test="count(resultats/produit) &gt; 0">
-			<ul>
-				<xsl:for-each select="resultats/details/detail">
-					<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(translate(translate(intitule, concat('/-?_.', $apos, $amp), '       '), $caracteresKo, $caracteresOk), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')), ' ', '-')"/></xsl:variable>
-					<li>
-						<xsl:attribute name="style"><xsl:if test="position() &lt; count(../detail)"></xsl:if></xsl:attribute>
-						<a style="overflow:hidden;"><xsl:attribute name="id">fiche-<xsl:value-of select="@id"/></xsl:attribute><![CDATA[ ]]></a>
-						
-						<a>
-							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-							<img alt="">
-								<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
-								<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=100</xsl:attribute>
-								</xsl:if>
-								<xsl:if test="count(newPhotos/newPhoto) = 0">
-								<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
-								</xsl:if>
-							</img>
-						</a>
-						
-						<div style="margin-left:110px">
+			<!-- Diaporama -->
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('#bxslider').bxSlider({
+						auto: true,
+						pause: 5000,
+						pager: true
+					});
+				});
+			</script>
+			<div class="bxslider">
+				<ul id="bxslider">
+					<xsl:for-each select="resultats/details/detail">
+						<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(translate(translate(intitule, concat('/-?_.', $apos, $amp), '       '), $caracteresKo, $caracteresOk), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')), ' ', '-')"/></xsl:variable>
+						<li>
+							<xsl:attribute name="style"><xsl:if test="position() &lt; count(../detail)"></xsl:if></xsl:attribute>
+							<a style="overflow:hidden;"><xsl:attribute name="id">fiche-<xsl:value-of select="@id"/></xsl:attribute><![CDATA[ ]]></a>
+							
 							<a>
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-								<strong><xsl:value-of select="intitule"/></strong>
-							</a>
-							
-							<p>
-								<xsl:if test="adresses/adresse[@type='produit']/ligne1 != ''">
-									<xsl:value-of select="adresses/adresse[@type='produit']/ligne1"/>
-									<xsl:if test="adresses/adresse[@type='produit']/ligne2 != ''">
-										<br /><xsl:value-of select="adresses/adresse[@type='produit']/ligne2"/>
-										<xsl:if test="adresses/adresse[@type='produit']/ligne3 != ''">
-											<br /><xsl:value-of select="adresses/adresse[@type='produit']/ligne3"/>
-										</xsl:if>
+								<img alt="" style="width: 285px">
+									<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
+									<xsl:attribute name="src"><xsl:value-of select="newPhotos/newPhoto"/></xsl:attribute>
 									</xsl:if>
-								</xsl:if>
-								- <xsl:value-of select="ville/intituleVille"/>
-							</p>
+									<xsl:if test="count(newPhotos/newPhoto) = 0">
+									<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
+									</xsl:if>
+								</img>
+							</a>
+							<p class="clear"><![CDATA[ ]]></p>
 							
+							<h3 style="padding: 10px 0px 10px 0px;">
+								<a>
+									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
+									<strong><xsl:value-of select="intitule"/></strong>
+								</a>
+							</h3>
 							
-							<xsl:call-template name="periodes-ouverture"/>
-							
+							<xsl:if test="string-length(commentaires/commentaire1) &gt; 0">
+								<xsl:variable name="commentaire1Nettoye">
+									<xsl:call-template name="string-replace-all">
+										<xsl:with-param name="text" select="commentaires/commentaire1"/>
+										<xsl:with-param name="replace" select="'\n'"/>
+										<xsl:with-param name="by" select="' '"/>
+									</xsl:call-template>
+								</xsl:variable>
+								<xsl:variable name="commentaire1NettoyeCoupe">
+									<xsl:if test="string-length($commentaire1Nettoye) &lt;= 200">
+										<xsl:value-of select="$commentaire1Nettoye"/>
+									</xsl:if>
+									<xsl:if test="string-length($commentaire1Nettoye) &gt; 200">
+										<xsl:call-template name="enhanced-substring">
+											<xsl:with-param name="text" select="$commentaire1Nettoye"/>
+											<xsl:with-param name="currentSize" select="0"/>
+											<xsl:with-param name="totalSize" select="200"/>
+											<xsl:with-param name="delimiter" select="' '"/>
+										</xsl:call-template>
+									</xsl:if>
+								</xsl:variable>
+								<p>
+									<xsl:value-of select="$commentaire1NettoyeCoupe"/><xsl:if test="string-length($commentaire1Nettoye) &gt; 200">&amp;hellip;</xsl:if>
+								</p>
+							</xsl:if>
+
 							<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0]) &gt; 0">
 								<ul>
 									<xsl:for-each select="criteres/critere">
@@ -90,13 +113,13 @@
 									</xsl:for-each>
 								</ul>
 							</xsl:if>
-						</div>
-					</li>
-				</xsl:for-each>
-			</ul>
+						</li>
+					</xsl:for-each>
+				</ul>
+			</div>
 			
 			<p class="lien-bas">
-				<a class="type3">
+				<a class="type1">
 					<xsl:attribute name="href"><xsl:value-of select="$sitListeUrlAlias" /></xsl:attribute>
 					En savoir plus
 				</a>

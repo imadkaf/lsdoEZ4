@@ -2,15 +2,15 @@
 
 	#ayaline
 
-[embed_sit_mise_en_avant]
+[embed_content_sit_mise_en_avant]
 Source=content/view/embed.tpl
-MatchFile=embed/sit_mise_en_avant.tpl
+MatchFile=embed/content/sit_mise_en_avant.tpl
 Subdir=templates
 Match[class_identifier]=sit_mise_en_avant
 
-[full_sit_mise_en_avant]
-Source=node/view/full.tpl
-MatchFile=full/sit_mise_en_avant.tpl
+[embed_node_sit_mise_en_avant]
+Source=node/view/embed.tpl
+MatchFile=embed/node/sit_mise_en_avant.tpl
 Subdir=templates
 Match[class_identifier]=sit_mise_en_avant
 
