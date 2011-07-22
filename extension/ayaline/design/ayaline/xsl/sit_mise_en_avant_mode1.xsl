@@ -34,7 +34,7 @@
 							
 							<a>
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-								<img alt="" style="width: 285px">
+								<img alt="" style="width: 320px">
 									<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
 									<xsl:attribute name="src"><xsl:value-of select="newPhotos/newPhoto"/></xsl:attribute>
 									</xsl:if>
@@ -61,20 +61,20 @@
 									</xsl:call-template>
 								</xsl:variable>
 								<xsl:variable name="commentaire1NettoyeCoupe">
-									<xsl:if test="string-length($commentaire1Nettoye) &lt;= 200">
+									<xsl:if test="string-length($commentaire1Nettoye) &lt;= 300">
 										<xsl:value-of select="$commentaire1Nettoye"/>
 									</xsl:if>
-									<xsl:if test="string-length($commentaire1Nettoye) &gt; 200">
+									<xsl:if test="string-length($commentaire1Nettoye) &gt; 300">
 										<xsl:call-template name="enhanced-substring">
 											<xsl:with-param name="text" select="$commentaire1Nettoye"/>
 											<xsl:with-param name="currentSize" select="0"/>
-											<xsl:with-param name="totalSize" select="200"/>
+											<xsl:with-param name="totalSize" select="300"/>
 											<xsl:with-param name="delimiter" select="' '"/>
 										</xsl:call-template>
 									</xsl:if>
 								</xsl:variable>
 								<p>
-									<xsl:value-of select="$commentaire1NettoyeCoupe"/><xsl:if test="string-length($commentaire1Nettoye) &gt; 200">&amp;hellip;</xsl:if>
+									<xsl:value-of select="$commentaire1NettoyeCoupe"/><xsl:if test="string-length($commentaire1Nettoye) &gt; 300">&amp;hellip;</xsl:if>
 								</p>
 							</xsl:if>
 

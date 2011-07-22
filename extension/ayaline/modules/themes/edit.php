@@ -29,8 +29,7 @@ if ($http->hasSessionVariable('topics')){
 $http->setSessionVariable('topics', $topic_ids);	
 
 // *	- 2 : Redirection vers la page consultée
-$userRedirectURI = $http->postVariable( 'RedirectURI', $http->sessionVariable( 'LastAccessesURI', '/' ) );
-eZRedirectManager::redirectTo( $Module, $userRedirectURI );
-return;
-?>
+$userRedirectURI = $http->postVariable( 'RedirectURI', $homeUri );
+eZRedirectManager::redirectTo( $Module, false, true, false, $userRedirectURI );
 
+?>
