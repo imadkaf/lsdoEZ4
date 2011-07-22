@@ -7,13 +7,32 @@ ul.contenu li{
 	padding: 0px 0px 5px 10px;
 }
 
+/*** Liste hotel ***/
+.list-inline-bis li p.lien-bas a, .list-block-bis li p.lien-bas a{
+    background: url("../images/picto1.gif") no-repeat scroll 0 50% transparent;
+}
+
 /*** Page Decouvrir ***/
+ul.list .lien-bas a, ul.liste .lien-bas a, .cp-coeur .lien-bas a {
+    background: url("../images/picto1.gif") no-repeat scroll 0 50% transparent;
+}
+
+.lien-bas a.type0 {
+    background: url("../images/picto1.gif") no-repeat scroll 0 50% transparent;
+    color: #E644AC;
+}
+/*
+.lien-bas a.type2 {
+    background: url("../images/picto1.gif") no-repeat scroll 0 50% transparent;
+    color: #E644AC;
+}
 .lien-bas a.type3 {
     background: url("../images/picto1.gif") no-repeat scroll 0 50% transparent;
     color: #E644AC;
 }
+*/
 
 /*** Bloc voir aussi ***/
 .lien-plus-infos{
-	background-color: #E644AC;
+	background: url("../images/+dinfos-rose.png") no-repeat;
 }

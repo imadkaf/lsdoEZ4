@@ -18,7 +18,7 @@
 		<xsl:if test="count(resultats/produit) &gt; 0">
 			<div class="bloc-type">
 				<h2 class="bloc-liste-h2-cote">Voir aussi</h2>
-				<p class="clear"></p>
+				<p class="clear"><![CDATA[ ]]></p>
 				
 				<ul class="list-right liste-voir-aussi">		
 					<xsl:for-each select="resultats/details/detail[@id != $idFicheEnCours]">
@@ -57,9 +57,7 @@
 									</xsl:if>
 									<p style="margin-bottom: 10px;"><![CDATA[ ]]></p>
 									
-									<a class="lien-plus-infos"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-										+ d'infos
-									</a>
+									<a class="lien-plus-infos"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><![CDATA[ ]]></a>
 								</div>
 							</li>
 						</xsl:if>
@@ -67,7 +65,7 @@
 				</ul>
 
 				<p class="lien-bas">
-					<a class="type3"><xsl:attribute name="href"><xsl:value-of select="$sitListeLien" /></xsl:attribute>Toutes les fiches de m&amp;ecirc;me cat&amp;eacute;gorie</a>
+					<a class="type0"><xsl:attribute name="href"><xsl:value-of select="$sitListeLien" /></xsl:attribute>Toutes les fiches de m&amp;ecirc;me cat&amp;eacute;gorie</a>
 				</p>
 			</div>
 		</xsl:if>

@@ -17,7 +17,7 @@
 			<!-- Les plus consultes -->
 			<div class="bloc-type">
 				<h2 class="bloc-liste-h2-cote">Les plus consult&amp;eacute;s</h2>
-				<p class="clear"></p>
+				<p class="clear"><![CDATA[ ]]></p>
 		
 				<ul class="list-right liste-voir-aussi">
 					<xsl:for-each select="resultats/details/detail">
@@ -90,9 +90,7 @@
 									</ul>
 								</xsl:if>
 								
-								<a class="lien-plus-infos"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-									+ d'infos
-								</a>
+								<a class="lien-plus-infos"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><![CDATA[ ]]></a>
 							</div>
 						</li>
 					</xsl:for-each>
