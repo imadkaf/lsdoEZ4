@@ -105,7 +105,7 @@
 					</xsl:if>
 					
 					<p class="lien-bas">
-						<a class="type3">
+						<a class="type1">
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 							En savoir plus
 						</a>

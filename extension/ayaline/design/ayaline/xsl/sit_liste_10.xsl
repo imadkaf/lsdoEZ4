@@ -133,7 +133,7 @@
 						</xsl:if>
 						
 						<p class="lien-bas">
-							<a class="picto3">
+							<a>
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 								En savoir plus
 							</a>
@@ -272,7 +272,7 @@
 							</xsl:if>
 							
 							<p class="lien-bas align-l">
-								<a class="picto3">
+								<a>
 									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 									En savoir plus
 								</a>

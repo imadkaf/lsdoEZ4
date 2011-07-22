@@ -537,7 +537,8 @@ li.last form{
 	text-align:right;
 	padding:0 12px 0 0 !important;
 }
-.lien-bas a.type1, 
+.lien-bas a.type0,
+.lien-bas a.type1,  
 .lien-bas a.type2, 
 .lien-bas a.type3, 
 .lien-bas a.type4{
@@ -1141,7 +1142,7 @@ ul.liste .lien-bas{
 ul.list .lien-bas a, 
 ul.liste .lien-bas a, 
 .cp-coeur .lien-bas a{
-	background: url("../images/picto1.gif") no-repeat scroll 0 50% transparent;
+	background: url("../images/picto-noir.png") no-repeat scroll 0 50% transparent;
     color: #000000;
     font-weight: bold;
     padding: 3px 0 3px 25px;
@@ -1644,10 +1645,10 @@ ul.list p.ss-titre span.picto{
 	padding:4px 0 1px 0;
 }
 p.lien-bas a.reserver{
-	background:#ff8b33;
+	background:#ff8b33 !important;
 	color:#ffffff;
 	font-weight:bold;
-	padding:3px 8px;
+	padding:3px 8px !important;
 	float:right;
 	margin:0 -12px 0 0;
 }
@@ -1770,15 +1771,22 @@ p.ss-titre{
 	font-weight:bold;
 	padding:0 0 8px 0px !important;
 }
-.list-inline-bis li p.lien-bas{
+.list-inline-bis li p.lien-bas a, .list-block-bis li p.lien-bas a{
+	background: url("../images/picto-noir.png") no-repeat scroll 0 50% transparent;
+	font-weight: bold;
+    padding: 3px 0 3px 25px;
+}
+.list-inline-bis li p.lien-bas, .list-block-bis li p.lien-bas{
 	text-align:left;
 }
+/*
 .list-inline-bis li p.lien-bas a.picto3, 
 .list-block-bis li p.lien-bas a.picto3{
 	background: url("../images/picto3.gif") no-repeat scroll 0 50% transparent;
 	font-weight: bold;
     padding: 3px 0 3px 25px;
 }
+*/
 .list-inline-bis li p.text, 
 .list-block-bis li p.text{
 	line-height:15px;
@@ -2229,6 +2237,11 @@ select#nbre-semaine{
 .header-in-right .list-top .first{
 	text-transform:capitalize;
 	margin-right: 10px;
+}
+
+.lien-bas a.type0{
+	background:url('../images/picto-noir.png') 0 50% no-repeat;
+	color:black;
 }
 
 /*** Page de contenu ***/
@@ -2843,14 +2856,10 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 
 .lien-plus-infos{
+	background: url("../images/+dinfos-noir.png") no-repeat;
 	display: block;
-	padding: 3px 4px 3px 5px;
-	width: 50px;
-	background-color: black;
-	color: white;
-}
-.lien-plus-infos:hover{
-	text-decoration: none;
+	width: 63px;
+	height: 19px;
 }
 
 
