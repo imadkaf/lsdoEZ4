@@ -16,8 +16,11 @@ else
 $http->setSessionVariable('saison', $season_id);
 
 // *	- 2 : Redirection vers la page consultée
-$userRedirectURI = $http->postVariable( 'RedirectURI', $http->sessionVariable( 'LastAccessesURI', '/' ) );
-eZRedirectManager::redirectTo( $Module, $userRedirectURI );
-return;
-?>
 
+$homeUri = "/";
+eZURI::transformURI($homeUri);
+
+$userRedirectURI = $http->postVariable( 'RedirectURI', $homeUri );
+eZRedirectManager::redirectTo( $Module, false, true, false, $userRedirectURI );
+
+?>

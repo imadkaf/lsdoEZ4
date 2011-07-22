@@ -2777,7 +2777,7 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 /*** Menu A la Une - Meteo-Maree ***/
 .meteo-maree{
 	background-color: #FFFFFF;
-	width: 195px;
+	width: 205px;
 }
 
 
@@ -2865,8 +2865,8 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 
 /*** Bloc Accueil SIT - Diaporama ***/
 .bxslider{
-	width: 285px;
-	margin: 0px 0px 20px 35px;
+	width: 320px;
+	margin: 0px 0px 20px 20px;
 }
 
 /************************/

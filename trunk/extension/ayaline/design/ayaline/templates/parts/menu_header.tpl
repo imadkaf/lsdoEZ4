@@ -75,7 +75,7 @@
 										   	
 										   	<tfoot>
 										    	<tr>
-										           	<th colspan="3"><a href="http://www.horaire-maree.fr/maree/LES_SABLES-D_OLONNE/">http://www.horaire-maree.fr</a></th>
+										           	<th colspan="3"><a href="http://www.horaire-maree.fr/maree/LES_SABLES-D_OLONNE/" target="blank">http://www.horaire-maree.fr</a></th>
 										    	</tr>
 										   	</tfoot>
 										</table>
