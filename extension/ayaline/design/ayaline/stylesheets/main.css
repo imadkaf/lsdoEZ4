@@ -308,7 +308,7 @@ li.last form{
 	height:1%;
 	float:right;
 	position:relative;
-	z-index:30000;
+	z-index:1000;
 }
 .header-in-right div.menu{
 	position:relative;
@@ -2572,7 +2572,7 @@ div.survey-view .required{
 
 /*** Reprise des styles uniquement pour l'autocompletion du champs de recherche contenu dans pagelayout.tpl ***/
 div#ezautocomplete2 {
-    z-index: 1000;
+    z-index: 500;
 }
 .customResult {
     display: block;

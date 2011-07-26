@@ -9,8 +9,23 @@
 	{def $topicIds = array()}
 {/if}
 {def $rNode = fetch('content','node', hash('node_id',  ezini('NodeSettings','RootNode','content.ini')))}
+
 {def $nb_max = 4 }
-{def $childrenShowed = $node.children|extract($view_parameters.offset,$nb_max)}
+{def $offset = 0}
+{if $view_parameters.offset|gt(0)}
+	{set $offset = $view_parameters.offset}
+{/if}
+{def $childrenShowed = fetch( 'content','list',hash( 'parent_node_id', $node.node_id,
+												'sort_by', $node.sort_array,
+												'class_filter_type' , 'include',
+												'class_filter_array', array('rubric', 'sit_liste'),
+												'limit',$nb_max,
+	              								'offset',$offset))}
+{def $childrenShowedCount = fetch( 'content','list_count',hash( 'parent_node_id', $node.node_id,
+												'sort_by', $node.sort_array,
+												'class_filter_type' , 'include',
+												'class_filter_array', array('rubric', 'sit_liste')))}
+
 {def $mainMenuShowed = false()}
 {def $nameRubric = ''}
 {def $nameRubricSelected = ''}
@@ -99,14 +114,11 @@
 							</ul>
 			{* Affichage de la pagination *}
 			{include 
-				view_name='rubric'
 				uri='design:navigator/google.tpl' 
 				page_uri=$node.url_alias
-				item_count=$node.children|count
+				item_count=$childrenShowedCount
 				view_parameters=$view_parameters 
 				item_limit=$nb_max
-				left_max=1
-				right_max=1
 			}
 						</div>
 					</div>

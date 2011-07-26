@@ -182,6 +182,12 @@ MatchFile=menu/sub_menu.tpl
 Subdir=templates
 Match[class_identifier]=sub_menu
 
+[main_menu_sit_liste]
+Source=node/view/main_menu.tpl
+MatchFile=main_menu/sit_liste.tpl
+Subdir=templates
+Match[class_identifier]=sit_liste
+
 [main_menu_rubric]
 Source=node/view/main_menu.tpl
 MatchFile=main_menu/rubric.tpl
