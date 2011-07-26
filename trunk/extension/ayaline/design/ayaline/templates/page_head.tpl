@@ -85,7 +85,15 @@
 		<!--[if IE 8]>
 			<link rel="stylesheet" type="text/css" href={'stylesheets/main_ie8.css'|ezdesign} media="all" />
 		<![endif]-->
-{def $chemin = $cNode.path_string|extract(0, 8)}
+{def $chemin = ''}
+{if is_set($path.1)}
+	{if and(not($path.1.url_alias), not($path.1.url))}
+		{set $chemin = $cNode.path_string}
+	{else}
+		{set $chemin = fetch(content, node, hash(node_path, $path.1.url_alias))}
+		{set $chemin = $chemin.path_string}
+	{/if}
+{/if}
 {if eq($chemin, ezini('Chemins', 'decouvrir', 'ayaline.ini'))}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/decouvrir.css'|ezdesign} media="all" />
 {/if}

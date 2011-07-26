@@ -224,36 +224,36 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 
 {*** Cas image ***}
 {else}
+	{def $imageEntete = array()}
 	{def $defaultDiapo = false()}
 	{def $img_attribute = array()}
 	{def $pNode = array()}
 	{def $continue = true()}
-	{if is_set($cNode.data_map.diapo)}
-		{if $cNode.data_map.diapo.has_content}
-			{set $img_attribute = $cNode.data_map.diapo}
-		{else}
-			{set $pNode = $cNode.parent}
-			{while $continue}
-				{if eq($pNode.class_identifier,	ezini('ClassSettings','ClassRubricIdentifier','content.ini'))}
-					{if	$pNode.data_map.diapo.has_content}
-						{set $img_attribute = $pNode.data_map.diapo}
-						{set $continue = false()}
-						{break}
-					{/if}
-					{set $pNode = $pNode.parent}
-				{else}
-					{set $continue = false()}
-				{/if}
-			{/while}
-			
-			{if eq(0, $img_attribute|count)}
-				{set $defaultDiapo = true()}
-			{/if}
-		{/if}
-	{else}
-		{set $defaultDiapo = true()}
+	{if is_set($cNode.node_id)}
+		{set $imageEntete = fetch('content', 'reverse_related_objects', hash( 'object_id',$cNode.contentobject_id, 'attribute_identifier', 'image_entete/pages_cibles' ) )}
 	{/if}
-
+	{if $imageEntete|count}
+		{set $img_attribute = $imageEntete.0.data_map.image}
+	{else}
+		{set $pNode = $cNode.parent}
+		{while $continue}
+			{if ne($pNode.node_id, ezini('Noeuds','home','ayaline.ini'))}
+				{set $imageEntete = fetch('content', 'reverse_related_objects', hash( 'object_id',$pNode.contentobject_id, 'attribute_identifier', 'image_entete/pages_cibles' ) )}
+				{if $imageEntete|count}
+					{set $img_attribute = $imageEntete.0.data_map.image}
+					{set $continue = false()}
+					{break}
+				{/if}
+				{set $pNode = $pNode.parent}
+			{else}
+				{set $continue = false()}
+			{/if}
+		{/while}
+		{if eq(0, $img_attribute|count)}
+			{set $defaultDiapo = true()}
+		{/if}
+	{/if}
+	
 	{if $defaultDiapo}
 		{def $nodeSeasons = fetch(content, node, hash(node_id, ezini('NodeSettings','SeasonListNode','content.ini')))}
 		{foreach $nodeSeasons.children as $nodeSeason}

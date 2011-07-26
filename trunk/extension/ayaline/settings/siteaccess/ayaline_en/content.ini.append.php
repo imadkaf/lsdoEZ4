@@ -10,10 +10,20 @@ AvailableSiteDesignList[]=admin
 ClassSeasonId=37
 ClassSubMenuIdentifier=sub_menu
 ClassRubricIdentifier=rubric
+ClassMainMenuIdentifier=main_menu
+ClassEmbedCodeIdentifier=embed_code
+
+[classList]
+HomeMainMenu[]
+HomeMainMenu[]=sub_menu
+HomeMainMenu[]=main_menu
+HomeMainMenu[]=embed_code
 
 [ClassAttributeSettings]
 ClassAttributeSeasonIdentifier=title
 
 [NodeSettings]
 topicListNode=121
+SeasonListNode=342
+
 */ ?>

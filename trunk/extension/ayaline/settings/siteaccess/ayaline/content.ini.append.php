@@ -26,4 +26,5 @@ ClassAttributeSeasonIdentifier=title
 [NodeSettings]
 topicListNode=121
 SeasonListNode=342
+
 */ ?>
