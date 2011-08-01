@@ -69,7 +69,7 @@
 					<ul class="niv-2">
 {foreach $liensHorizontaux as $keyVar =>$itemVar}
 	{set $liensHoriz = fetch('content', 'node', hash('node_id', $itemVar.node_id))}
-						<li{if eq($keyVar, 0)} class="first"{/if}>{if ne($keyVar, 0)}-{/if}{node_view_gui content_node=$liensHoriz view='menu' nomHoriz=$liensHoriz.name}</li>
+						<li{if eq($keyVar, 0)} class="first"{/if}>{if ne($keyVar, 0)}-{else}&nbsp;{/if}{node_view_gui content_node=$liensHoriz view='menu' nomHoriz=$liensHoriz.name}</li>
 {/foreach}
 					</ul>
 				</div>

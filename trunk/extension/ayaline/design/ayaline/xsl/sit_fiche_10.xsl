@@ -25,26 +25,26 @@
 				<div id="galleria" class="galerie-fiche">
 					<xsl:for-each select="newPhotos/newPhoto">
 						<a>
-							<xsl:attribute name="href"><xsl:value-of select="."/></xsl:attribute>
-							<img>
-								<xsl:attribute name="alt">""</xsl:attribute>
-								<xsl:attribute name="src"><xsl:value-of select="."/></xsl:attribute>
+							<xsl:attribute name="rel"><xsl:value-of select="."/></xsl:attribute>
+							<xsl:attribute name="href"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=306&amp;amp;mw=1</xsl:attribute>
+							<img alt="">
+								<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=60&amp;amp;mw=1</xsl:attribute>
 							</img>
 						</a>
 					</xsl:for-each>
-					<script type="text/javascript">
-						<![CDATA[
-							// Load the classic theme
-				   			Galleria.loadTheme("/extension/ayaline_gallery/design/standard/javascript/galleria/themes/classic/galleria.classic.min.js");
-				    
-							// Initialize Galleria
-							$('#galleria').galleria({
-								autoplay: 5000,
-								lightbox: true
-							});
-						]]>
-					</script>
 				</div>
+				<script type="text/javascript">
+					<![CDATA[
+						// Load the classic theme
+						Galleria.loadTheme("/extension/ayaline_gallery/design/standard/javascript/galleria/themes/classic/galleria.classic.min.js");
+
+						// Initialize Galleria
+						$('#galleria').galleria({
+							autoplay: 5000,
+							lightbox: true
+						});
+					]]>
+				</script>
 				<div class="clear"><![CDATA[ ]]></div><br />
 			</xsl:if>
 			

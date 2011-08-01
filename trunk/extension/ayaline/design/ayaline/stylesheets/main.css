@@ -564,7 +564,7 @@ li.last form{
 	font-size:14px;
 	text-transform:uppercase;
 	padding:0 0 5px 0;
-	margin:-3px 0 0 0;
+	margin:0;
 }
 .bloc-type ul li img{
 	margin:0 14px 0 0;
@@ -1166,7 +1166,7 @@ ul.list-right{
 }
 .list-right li h3{
 	padding:0px;
-	margin:-3px 0 0 0;
+	margin:0;
 }
 .list-right p{
 	font-size:10px;
@@ -1393,7 +1393,7 @@ ul.liste .lien-bas{
 	font-size:11px;
 	text-transform:uppercase;
 	padding:0px;
-	margin:-3px 0 3px 0;
+	margin:0 0 3px 0;
 }
 .l-spacing{
 	font-size:11px;
@@ -2710,7 +2710,6 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 .moninfobulle .photo{
 	margin-right: 10px;
-	width:120px;
 }
 .moninfobulle span.float-d{
 	margin-right: 10px;

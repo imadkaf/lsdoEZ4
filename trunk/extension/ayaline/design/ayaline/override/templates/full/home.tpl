@@ -22,12 +22,11 @@
 			<div class="bloc-type" style="width:358px; float:left; margin-right:20px;">
 		{else}
 			{if eq($compteur, 1)}
-			<div class="bloc-type" style="width:358px; float:left;" id="bloc-ac2">
+			<div class="bloc-type" style="width:358px; float:left;">
 			{else}
 			<div class="bloc-type" style="width:358px; float:left;">
 			{/if}
 		{/if}
-		
 				{node_view_gui content_node=$blocsCont view='blocsAccueil'}
 			</div>
 	{/if}
@@ -52,10 +51,10 @@
 	{set $compteur2 = $compteur2|inc}
 {/foreach}
 <script type="text/javascript">
+	//Blocs de la premiere ligne de gauche + bloc reserver
+	$(window).load({ldelim}one: '.bloc-left-home:first-child', two: '#bloc-ac-res'{rdelim}, fixH);
 	//Blocs 2 a 2 de gauche
 	$(window).load(equilibrerHauteursBlocs);
-	//Blocs de la premiere ligne de gauche + bloc reserver
-	$(window).load(fixH('bloc-ac2', 'bloc-ac-res'));
 </script>
 
 		</div>

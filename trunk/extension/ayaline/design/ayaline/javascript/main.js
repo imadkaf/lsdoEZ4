@@ -1,14 +1,14 @@
 /****POPIN****/
 $(function() {
 	$(".link-popin").popin ({
-	width:621,
-	height:450,
-	opacity:.6,
-	className:'searchPopin',
-	onComplete: function(){
-		$(".popin-content-bloc").css('height', "414px");
-	}
-	} );
+		width:621,
+		height:450,
+		opacity:.6,
+		className:'searchPopin',
+		onComplete: function(){
+			$(".popin-content-bloc").css('height', "414px");
+		}
+	});
 });
 
 function equilibrerHauteursBlocs() {
@@ -33,12 +33,8 @@ function equilibrerHauteursBlocs() {
 	});
 }
 
-function fixH(one,two) {
-	if (document.getElementById(one)) {
-		var lh=document.getElementById(one).offsetHeight;
-		var rh=document.getElementById(two).offsetHeight;
-		var nh = Math.max(lh, rh);
-		document.getElementById(one).style.height=nh-15-9+"px";
-		document.getElementById(two).style.height=nh-15-9+"px";
+function fixH(event) {
+	if ($(event.data.one).size() == 1 && $(event.data.two).size() == 1) {
+		$(event.data.one+", "+event.data.two).css('min-height', Math.max($(event.data.one).height(), $(event.data.two).height())-15-9-15-2);
 	}
 }

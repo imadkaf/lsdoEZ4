@@ -6,7 +6,7 @@ $Module = array(
 );
 
 $ViewList['Detail'] = array(
-	'script' => 'fiche_detail.php',
+	'script' => 'sit_fiche_detail.php',
 	'params' => array('idFiche', 'cheminCategorie', 'identifierFiche'),
 	'ui_context' => 'default'
 );

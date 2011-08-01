@@ -1,12 +1,12 @@
 <?php /* #?ini charset="utf-8"?
 
 [ExtensionSettings]
-ActiveExtensions[]=ayaline
-ActiveExtensions[]=ayaline_gallery
-ActiveExtensions[]=faq
-ActiveExtensions[]=ez_aya_sit
-ActiveExtensions[]=brochure
 ActiveExtensions[]=ez_sitemap
+ActiveExtensions[]=brochure
+ActiveExtensions[]=ez_aya_sit
+ActiveExtensions[]=faq
+ActiveExtensions[]=ayaline_gallery
+ActiveExtensions[]=ayaline
 ActiveExtensions[]=ezmultiupload
 ActiveExtensions[]=ezjscore
 ActiveExtensions[]=ezie
@@ -23,5 +23,5 @@ ActiveExtensions[]=ezfeedparse
 ActiveExtensions[]=wordCut
 ActiveExtensions[]=arraysortoperator
 ActiveExtensions[]=all2egooglesitemaps
-
+ActiveExtensions[]=nl_cronjobs
 */ ?>
