@@ -1,1 +1,1 @@
-{attribute_view_gui attribute = $node.data_map.description}
+<a href={$node.url_alias|ezurl}>{$node.name|wash}</a>

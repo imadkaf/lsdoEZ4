@@ -3,7 +3,7 @@
 [CronjobSettings]
 ExtensionDirectories[]=ez_aya_sit
 
-[CronjobPart-import_catcrit_sit]
-Scripts[]=import_catcrit_sit.php
+[CronjobPart-importation_categories_criteres_sit]
+Scripts[]=importation_categories_criteres_sit.php
 
 */ ?>

@@ -1,1 +1,1 @@
-										{$node.data_map.code.content}
+{$node.data_map.code.content}

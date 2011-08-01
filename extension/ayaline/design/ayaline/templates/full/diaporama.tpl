@@ -147,45 +147,49 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 					
 					var currentZindex = -1;
 					var showImage = function(photoObject, currentContainer, activeContainer) {
-						animating = true;
-						
-						// Make sure the new container is always on the background
-						currentZindex--;
-						
-						// Set the background image of the new active container
-						$("#headerimg" + activeContainer).css({
-							"background-image" : "url(" + photoObject.image + ")",
-							"display" : "block",
-							"z-index" : currentZindex
-						});
-						
-						// Hide the header text
-						$("#headertxt").css({"display" : "none"});
-						
-						// Set the new header text
-						$("#firstline").html(photoObject.firstline);
-						$("#secondline")
-							.attr("href", photoObject.url)
-							.html(photoObject.secondline);
-						if(photoObject.nouvelonglet == 1){
-							$("#secondline").attr("target", "_blank");
+						if (photoObject) {
+							animating = true;
+							
+							// Make sure the new container is always on the background
+							currentZindex--;
+							
+							// Set the background image of the new active container
+							if (photoObject.image) {
+								$("#headerimg" + activeContainer).css({
+									"background-image" : "url(" + photoObject.image + ")",
+									"display" : "block",
+									"z-index" : currentZindex
+								});
+							}
+							
+							// Hide the header text
+							$("#headertxt").css({"display" : "none"});
+							
+							// Set the new header text
+							$("#firstline").html(photoObject.firstline);
+							$("#secondline")
+								.attr("href", photoObject.url)
+								.html(photoObject.secondline);
+							if(photoObject.nouvelonglet == 1){
+								$("#secondline").attr("target", "_blank");
+							}
+							else{
+								$("#secondline").attr("target", "_top");
+							}
+							$("#pictureduri")
+								.attr("href", photoObject.url)
+								.html(photoObject.title);
+							
+							
+							// Fade out the current container
+							// and display the header text when animation is complete
+							$("#headerimg" + currentContainer).fadeOut(function() {
+								setTimeout(function() {
+									$("#headertxt").css({"display" : "block"});
+									animating = false;
+								}, 500);
+							});
 						}
-						else{
-							$("#secondline").attr("target", "_top");
-						}
-						$("#pictureduri")
-							.attr("href", photoObject.url)
-							.html(photoObject.title);
-						
-						
-						// Fade out the current container
-						// and display the header text when animation is complete
-						$("#headerimg" + currentContainer).fadeOut(function() {
-							setTimeout(function() {
-								$("#headertxt").css({"display" : "block"});
-								animating = false;
-							}, 500);
-						});
 					};
 					
 					var stopAnimation = function() {
@@ -235,20 +239,26 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 	{if $imageEntete|count}
 		{set $img_attribute = $imageEntete.0.data_map.image}
 	{else}
-		{set $pNode = $cNode.parent}
-		{while $continue}
-			{if ne($pNode.node_id, ezini('Noeuds','home','ayaline.ini'))}
-				{set $imageEntete = fetch('content', 'reverse_related_objects', hash( 'object_id',$pNode.contentobject_id, 'attribute_identifier', 'image_entete/pages_cibles' ) )}
-				{if $imageEntete|count}
-					{set $img_attribute = $imageEntete.0.data_map.image}
+		{if and($cNode, $cNode.parent}
+			{set $pNode = $cNode.parent}
+		{else}
+			{set $pNode = $previousNode}
+		{/if}
+		{if $pNode}
+			{while $continue}
+				{if ne($pNode.node_id, ezini('Noeuds','home','ayaline.ini'))}
+					{set $imageEntete = fetch('content', 'reverse_related_objects', hash( 'object_id',$pNode.contentobject_id, 'attribute_identifier', 'image_entete/pages_cibles' ) )}
+					{if $imageEntete|count}
+						{set $img_attribute = $imageEntete.0.data_map.image}
+						{set $continue = false()}
+						{break}
+					{/if}
+					{set $pNode = $pNode.parent}
+				{else}
 					{set $continue = false()}
-					{break}
 				{/if}
-				{set $pNode = $pNode.parent}
-			{else}
-				{set $continue = false()}
-			{/if}
-		{/while}
+			{/while}
+		{/if}
 		{if eq(0, $img_attribute|count)}
 			{set $defaultDiapo = true()}
 		{/if}

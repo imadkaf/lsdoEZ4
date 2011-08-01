@@ -240,45 +240,49 @@
 					
 					var currentZindex = -1;
 					var showImage = function(photoObject, currentContainer, activeContainer) {ldelim}
-						animating = true;
-						
-						// Make sure the new container is always on the background
-						currentZindex--;
-						
-						// Set the background image of the new active container
-						$("#headerimg" + activeContainer).css({ldelim}
-							"background-image" : "url(" + photoObject.image + ")",
-							"display" : "block",
-							"z-index" : currentZindex
-						{rdelim});
-						
-						// Hide the header text
-						$("#headertxt").css({ldelim}"display" : "none"{rdelim});
-						
-						// Set the new header text
-						$("#firstline").html(photoObject.firstline);
-						if(photoObject.url != "") {ldelim}
-							$("#secondline").html('<a href="' + photoObject.url + '">' + photoObject.secondline + '</a>');
-							if(photoObject.nouvelonglet == 1) {ldelim}
-								$("#secondline").find("a").attr("target", "_blank")
+						if (photoObject) {ldelim}
+							animating = true;
+							
+							// Make sure the new container is always on the background
+							currentZindex--;
+							
+							// Set the background image of the new active container
+							if (photoObject.image) {ldelim}
+								$("#headerimg" + activeContainer).css({ldelim}
+									"background-image" : "url(" + photoObject.image + ")",
+									"display" : "block",
+									"z-index" : currentZindex
+								{rdelim});
 							{rdelim}
-						{rdelim} else {ldelim}
-							$("#secondline").html(photoObject.secondline);
+							
+							// Hide the header text
+							$("#headertxt").css({ldelim}"display" : "none"{rdelim});
+							
+							// Set the new header text
+							$("#firstline").html(photoObject.firstline);
+							if(photoObject.url != "") {ldelim}
+								$("#secondline").html('<a href="' + photoObject.url + '">' + photoObject.secondline + '</a>');
+								if(photoObject.nouvelonglet == 1) {ldelim}
+									$("#secondline").find("a").attr("target", "_blank")
+								{rdelim}
+							{rdelim} else {ldelim}
+								$("#secondline").html(photoObject.secondline);
+							{rdelim}
+							
+							// Code qui permet de mettre à jour le bloc "Pictured" (à modifier si on veut afficher ce bloc)
+							$("#pictureduri")
+								.attr("href", photoObject.url)
+								.html(photoObject.title);
+							
+							// Fade out the current container
+							// and display the header text when animation is complete
+							$("#headerimg" + currentContainer).fadeOut(function() {ldelim}
+								setTimeout(function() {ldelim}
+									$("#headertxt").css({ldelim}"display" : "block"{rdelim});
+									animating = false;
+								{rdelim}, 500);
+							{rdelim});
 						{rdelim}
-						
-						// Code qui permet de mettre à jour le bloc "Pictured" (à modifier si on veut afficher ce bloc)
-						$("#pictureduri")
-							.attr("href", photoObject.url)
-							.html(photoObject.title);
-						
-						// Fade out the current container
-						// and display the header text when animation is complete
-						$("#headerimg" + currentContainer).fadeOut(function() {ldelim}
-							setTimeout(function() {ldelim}
-								$("#headertxt").css({ldelim}"display" : "block"{rdelim});
-								animating = false;
-							{rdelim}, 500);
-						{rdelim});
 					{rdelim};
 					
 					var stopAnimation = function() {ldelim}

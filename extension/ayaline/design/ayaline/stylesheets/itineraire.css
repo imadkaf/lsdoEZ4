@@ -3,12 +3,11 @@
 }
 #map-container {
   width: 830px;
-  height: 730px;
+  height: 736px;
 }
 
 #side-container {
   border: 1px solid #bbb;
-  margin-right: 5px;
   padding: 5px 0 0 5px;
   text-align: right;
   width: 300px;
