@@ -2243,6 +2243,11 @@ select#nbre-semaine{
 	color:black;
 }
 
+.footer p{
+	padding: 5px 0px 0 0 !important;
+}
+
+
 /*** Page de contenu ***/
 ul.contenu li{
 	background: url("../images/puce-contenu-noir.png") no-repeat scroll 0 3px transparent;
