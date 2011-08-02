@@ -23,7 +23,7 @@
 ############################################################################ */
 
 /* ############################################################################
-     1. CSS RESET
+	 1. CSS RESET
 ############################################################################ */
 
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, p, blockquote, th, td {margin:0; padding:0;}
@@ -97,7 +97,7 @@ h2 {font-size: 12px}
 	text-align:left !important;
 }
 /* ############################################################################
-     STRUCTURE
+	 STRUCTURE
 ############################################################################ */
 #global-page{
 }
@@ -120,7 +120,7 @@ h2 {font-size: 12px}
 	height:1%;
 }
 /* ############################################################################
-     2. GENERIC STYLES FOR TAGS
+	 2. GENERIC STYLES FOR TAGS
 ############################################################################ */
 
 /* PAGE ***************************************************************** */
@@ -131,7 +131,7 @@ body {
 }
 
 /* ############################################################################
-     5. CONTENU
+	 5. CONTENU
 ############################################################################ */	
 /* Header ***************************************************************** */
 
@@ -141,23 +141,23 @@ body {
 
 .headerdiapo {
 	position:relative;
-    /*height: 500px;*/
+	/*height: 500px;*/
 	/*margin-bottom:-500px;*/
 	height: 300px;
 	margin-bottom:-300px;
-    width:1500px;
+	width:1500px;
 }
 .headerimg {
-    background-position: center top;
-    background-repeat: no-repeat;
-    height: 500px;
-    position: absolute;
+	background-position: center top;
+	background-repeat: no-repeat;
+	height: 500px;
+	position: absolute;
 	width:100%;
 }
 .header-in{
 	background: url("../images/headerbg.png") 50% 0 repeat;
 	height: 122px;
-    position: relative;
+	position: relative;
 	top:28px;
 	padding:0 119px 0 121px;
 }
@@ -240,8 +240,8 @@ li.last form{
 .img2 input, 
 .img3 input{
 	border:none !important;
-    float: none !important;
-    padding:0px !important;
+	float: none !important;
+	padding:0px !important;
 	cursor:pointer;
 }
 .img0 input{
@@ -398,72 +398,72 @@ li.last form{
 
 /****Diaporama****/
 #headernav-outer {
-    margin: 0 auto;
-    position: relative;
-    top: 300px;
-    width: 960px;
+	margin: 0 auto;
+	position: relative;
+	top: 300px;
+	width: 960px;
 }
 #headernav {
-    padding-left: 864px;
+	padding-left: 864px;
 }
 #headertxt {
-    clear: both;
-    margin: 0 auto;
-    position: relative;
-    top: 129px;
-    width: 960px;
+	clear: both;
+	margin: 0 auto;
+	position: relative;
+	top: 129px;
+	width: 960px;
 	left:-28px;
 }
 .btns-carres .btn {
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    display: block;
-    float: left;
-    height: 34px;
-    overflow: hidden;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	display: block;
+	float: left;
+	height: 34px;
+	overflow: hidden;
 }
 .btn {
-    cursor: pointer;
+	cursor: pointer;
 }
 .btns-carres #back span {
-    background-image: url("../images/carousel-previous.png");
-    display: block;
-    height: 68px;
-    width: 28px;
+	background-image: url("../images/carousel-previous.png");
+	display: block;
+	height: 68px;
+	width: 28px;
 }
 .btns-carres #control span {
-    background-image: url("../images/carousel-pause.png");
-    display: block;
-    height: 68px;
-    width: 20px;
+	background-image: url("../images/carousel-pause.png");
+	display: block;
+	height: 68px;
+	width: 20px;
 }
 .btns-carres #next span {
-    background-image: url("../images/carousel-next.png");
-    display: block;
-    height: 68px;
-    width: 28px;
+	background-image: url("../images/carousel-next.png");
+	display: block;
+	height: 68px;
+	width: 28px;
 }
 .btns-carres .btn:hover span, .header-controls .btn:focus span {
-    margin-top: -34px;
+	margin-top: -34px;
 }
 #firstline {
-    background: url("../images/textbg.png");
-    color: #313e47;
-    display: block;
-    float: left;
-    font-size: 45px;
-    padding: 4px 13px 7px;
+	background: url("../images/textbg.png");
+	color: #313e47;
+	display: block;
+	float: left;
+	font-size: 45px;
+	padding: 4px 13px 7px;
 	margin:0 0 2px 0;
 }
 #secondline {
-    background: url("../images/textbg-bis.png");
-    clear: both;
-    color: #ffffff;
-    display: block;
-    float: left;
-    font-size: 22px;
-    padding: 10px 13px;
-    text-decoration: none;
+	background: url("../images/textbg-bis.png");
+	clear: both;
+	color: #ffffff;
+	display: block;
+	float: left;
+	font-size: 22px;
+	padding: 10px 13px;
+	text-decoration: none;
 }
 /****Content****/
 .content{
@@ -678,10 +678,10 @@ li.last form{
 	padding:0 0 5px 0 !important;
 }
 button.button {
-    background:none;
-    border:none;
-    cursor: pointer;
-    padding: 0 !important;
+	background:none;
+	border:none;
+	cursor: pointer;
+	padding: 0 !important;
 	margin:20px 0 15px 0;
 	text-align:left;
 	font-size:12px;
@@ -920,37 +920,37 @@ ul li.partager a{
 	top:3px;
 }
 .conteneurSelect .inputsSelect{
-	background      : #ffffff url("../images/select.gif") 95% 50% no-repeat;
-	position        : relative;
-	border          : 1px solid #999;
-	text-align      : center;
-	float           : left;
+	background	  : #ffffff url("../images/select.gif") 95% 50% no-repeat;
+	position		: relative;
+	border		  : 1px solid #999;
+	text-align	  : center;
+	float		   : left;
 }
 .inputsSelect .selects{
-    padding         : 1px;
+	padding		 : 1px;
 	font-size:		11px;
-    cursor          : pointer;
-    width           : 42px;
-    white-space     : nowrap;
-    overflow        : hidden;
+	cursor		  : pointer;
+	width		   : 42px;
+	white-space	 : nowrap;
+	overflow		: hidden;
 	color:#8a8a8a;
 }
 .inputsSelect ul{
-    position        : absolute;
-    text-align      : left;
-    border          : 1px solid #999;
-    padding         : 1px;
-    display         : none;
-    background      : #ffffff;
-    z-index         : 200;
-    list-style      : none;
-    margin          : 0;
+	position		: absolute;
+	text-align	  : left;
+	border		  : 1px solid #999;
+	padding		 : 1px;
+	display		 : none;
+	background	  : #ffffff;
+	z-index		 : 200;
+	list-style	  : none;
+	margin		  : 0;
 	left:-1px;
 	width:42px;
 }
 .inputsSelect ul li span.Flag_en, 
 .inputsSelect p span.Flag_en{
-    background:url("../images/en_flag.png") 0 50% no-repeat;
+	background:url("../images/en_flag.png") 0 50% no-repeat;
 	font-size:11px;
 	color:#8A8A8A;
 	width:20px;
@@ -959,7 +959,7 @@ ul li.partager a{
 }
 .inputsSelect ul li span.Flag_fr, 
 .inputsSelect p span.Flag_fr{
-    background:url("../images/fr_flag.png") 0 50% no-repeat;
+	background:url("../images/fr_flag.png") 0 50% no-repeat;
 	font-size:11px;
 	color:#8A8A8A;
 	width:20px;
@@ -967,14 +967,14 @@ ul li.partager a{
 	display:block;
 }
 .inputsSelect ul li a{
-    display         : block;
-    cursor          : pointer;
-    text-decoration : none;
-    width           : 100%;
+	display		 : block;
+	cursor		  : pointer;
+	text-decoration : none;
+	width		   : 100%;
 }
 .inputsSelect ul li a:hover{
-    color           : #fff;
-    background      : #093e6d;
+	color		   : #fff;
+	background	  : #093e6d;
 	text-decoration:none;
 }
 ul#listeSelect1 li{
@@ -993,7 +993,7 @@ ul#listeSelect1 li{
 	font-size:11px;
 	margin:-15px auto 0 auto;
 	padding:0 0 5px 0;
-    width: 1193px;
+	width: 1193px;
 }
 .bloc-left-bis{
 	margin:0 7px 0 0 !important;
@@ -1143,9 +1143,9 @@ ul.list .lien-bas a,
 ul.liste .lien-bas a, 
 .cp-coeur .lien-bas a{
 	background: url("../images/picto-noir.png") no-repeat scroll 0 50% transparent;
-    color: #000000;
-    font-weight: bold;
-    padding: 3px 0 3px 25px;
+	color: #000000;
+	font-weight: bold;
+	padding: 3px 0 3px 25px;
 }
 ul.list-right{
 	margin:14px 0px 0 0;
@@ -1384,7 +1384,7 @@ ul.liste .lien-bas{
 }
 .border-2col{
 	background: url("../images/border-b-list-2col.png") no-repeat scroll 0 100% transparent !important;
-    width: 540px !important;
+	width: 540px !important;
 }*/
 .list-agenda{
 	margin:14px 0 0px 0;
@@ -1522,10 +1522,10 @@ ul.liste .lien-bas{
 	border-bottom:1px solid #E9E3DE;
 	padding:21px 0px;
 	display: block;
-    float: none;
-    height: 1%;
-    margin: 0px;
-    overflow: hidden;
+	float: none;
+	height: 1%;
+	margin: 0px;
+	overflow: hidden;
 }
 .bloc-container .list-video li.first{
 	padding:0px 0 21px 0;
@@ -1539,19 +1539,19 @@ ul.liste .lien-bas{
 }
 /****popup***/
 .popin-voile {
-    background:#000000;
-    height: 0;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 5000;
+	background:#000000;
+	height: 0;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 5000;
 }
 .popin {
-    left: 27%;
-    position: absolute;
-    top: 145%;
-    z-index: 5500;
+	left: 27%;
+	position: absolute;
+	top: 145%;
+	z-index: 5500;
 }
 /****Page promenades mer****/
 ul.list-thm li{
@@ -1673,28 +1673,28 @@ ul li.spec-bis{
 }
 /****Liste hôtels****/
 ul.bloc-search-left li span {
-    background: url("../images/fleche-r.png") no-repeat scroll 98% 50% #303A43;
-    color: #FFFFFF;
-    display: block;
-    font-weight: normal;
-    margin: 0;
-    padding: 2px 0px 2px 4px;
+	background: url("../images/fleche-r.png") no-repeat scroll 98% 50% #303A43;
+	color: #FFFFFF;
+	display: block;
+	font-weight: normal;
+	margin: 0;
+	padding: 2px 0px 2px 4px;
 }
 ul.bloc-search-left li ul.champs {
-    background:#faf9f7;
+	background:#faf9f7;
 	padding:11px 0 11px 4px;
 }
 ul.bloc-search-left li ul.champs li{
-    padding:0px 0 2px 0;
+	padding:0px 0 2px 0;
 }
 ul.bloc-search-left li ul.champs li.last{
-    padding:0px;
+	padding:0px;
 }
 ul.bloc-search-left li ul.champs li input{
-    float:right;
+	float:right;
 }
 ul.bloc-search-left li ul.champs li label{
-    float:left;
+	float:left;
 }
 form.form-search-left h3{
 	padding:0px 0 7px 0;
@@ -1703,7 +1703,7 @@ h2.margin-b{
 	margin:0 0 19px 0;
 }
 ul.bloc-search-left li{
-    padding:0px 0 12px 0;
+	padding:0px 0 12px 0;
 }
 .chapeau-bis{
 	padding:22px 0 17px 0 !important;
@@ -1727,8 +1727,8 @@ ul.ss-titre-bis li{
 	display:inline;
 	float:left;
 	margin: 0px;
-    padding: 0px 5px 0 0 !important;
-    width: auto;
+	padding: 0px 5px 0 0 !important;
+	width: auto;
 	border:none;
 	background:url('../images/separator.png') 100% 50% no-repeat;
 }
@@ -1774,7 +1774,7 @@ p.ss-titre{
 .list-inline-bis li p.lien-bas a, .list-block-bis li p.lien-bas a{
 	background: url("../images/picto-noir.png") no-repeat scroll 0 50% transparent;
 	font-weight: bold;
-    padding: 3px 0 3px 25px;
+	padding: 3px 0 3px 25px;
 }
 .list-inline-bis li p.lien-bas, .list-block-bis li p.lien-bas{
 	text-align:left;
@@ -1784,7 +1784,7 @@ p.ss-titre{
 .list-block-bis li p.lien-bas a.picto3{
 	background: url("../images/picto3.gif") no-repeat scroll 0 50% transparent;
 	font-weight: bold;
-    padding: 3px 0 3px 25px;
+	padding: 3px 0 3px 25px;
 }
 */
 .list-inline-bis li p.text, 
@@ -1806,7 +1806,6 @@ p.ss-titre{
 	float:left;
 }
 .list-block-bis div{
-	padding:0 0 0 34px;
 	width:414px;
 }
 .list-block-bis div.titre-container{
@@ -1859,7 +1858,7 @@ p.ss-titre{
 }
 /****page contenu****/
 div.chapeau {
-    font-size:13px;
+	font-size:13px;
 	font-weight:bold;
 	font-style:italic;
 	text-align:justify;
@@ -1876,7 +1875,7 @@ div.chapeau p{
 }
 
 div.chapeau img{
-    float:left;
+	float:left;
 	margin:0 16px 0 0px;
 }
 .bloc-content{
@@ -1916,12 +1915,12 @@ div.chapeau img{
 	width:425px;
 	background:#FAF5F2 url('../images/bg-ss-menu-rubrique2.png') 0 0 repeat-x;
 	border: 1px solid #E9E3DE;
-    display: none;
-    right:0px;
-    padding: 18px 30px 18px 15px;
-    position: absolute;
-    top: 26px;
-    z-index: 5;
+	display: none;
+	right:0px;
+	padding: 18px 30px 18px 15px;
+	position: absolute;
+	top: 26px;
+	z-index: 5;
 	left:auto;
 }
 .rubrique2 .ss-menu ul li{
@@ -1968,7 +1967,7 @@ div.chapeau img{
 .rubrique2 .ss-menu ul li ul.list-in li a{
 	padding:0px;
 	border:none;
-    float: none;
+	float: none;
 	font-size:12px;
 	color:#000000;
 	font-weight:bold;
@@ -2010,7 +2009,7 @@ div.chapeau img{
 	margin:0 0 6px 0;
 }
 .lien-bas a.type5 {
-    background: url("../images/picto5.gif") no-repeat scroll 0 50% transparent;
+	background: url("../images/picto5.gif") no-repeat scroll 0 50% transparent;
 	font-weight:bold;
 	font-size:12px !important;
 	color:#000000;
@@ -2021,7 +2020,7 @@ div.chapeau img{
 	position:static !important;
 }
 p.lien-bas{
-    width:auto !important;
+	width:auto !important;
 	padding:0 5px 0 0 !important;
 }
 /*****ss-menu Sejourner****/
@@ -2047,7 +2046,7 @@ p.lien-bas{
 	padding:0 21px 0 0 !important;
 }
 .box-right p.lien-bas a.reserver {
-    float: left;
+	float: left;
 }
 .box-right ul.inline{
 	overflow:hidden;
@@ -2180,10 +2179,10 @@ select#nbre-semaine{
 	color:#ffffff;
 	font-weight:bold !important;
 	padding:3px 7px !important;
-    font-size: 11px;
-    margin: 5px 0 0 78px !important;
-    text-align: left !important;
-    width: 180px !important;
+	font-size: 11px;
+	margin: 5px 0 0 78px !important;
+	text-align: left !important;
+	width: 180px !important;
 }
 .bloc-stars{
 	padding:3px 0 0 0 !important;
@@ -2255,7 +2254,7 @@ ul.contenu li{
 .pagenavigator{
 	text-align: center;
 	background: none repeat scroll 0 0 #E5DCD3;
-    border: 1px solid #D6CDC4;
+	border: 1px solid #D6CDC4;
 }
 .pagenavigator p{
 	padding: 5px 10px 5px 10px;
@@ -2292,15 +2291,15 @@ ul.contenu li{
 	padding-bottom: 0px;
 }
 .bloc-type .float-d img {
-    position: relative;
-    top: 10px !important;
+	position: relative;
+	top: 10px !important;
 }
 
 
 /*** Page des rubriques ***/
 /* Bloc liste (page decouvrir, visites...) */
 .bloc-liste-h2{
-	font-family: 'OmnesLight';
+	font-family: 'OmnesMedium';
 	font-size: 32px !important;
 	font-weight: bold;
 }
@@ -2527,121 +2526,121 @@ div.survey-view .required{
 	text-decoration:none;
 }
 .list-result-search{
-    border-top: 1px dotted #8C9195;
-    margin: 0px 10px 0px 0px;
-    padding: 15px 0px 0px 0px;
+	border-top: 1px dotted #8C9195;
+	margin: 0px 10px 0px 0px;
+	padding: 15px 0px 0px 0px;
 }
 .list-result-search li:first-child{
-    border-top: none;
-    padding: 0px 0px 0px 0px !important;
+	border-top: none;
+	padding: 0px 0px 0px 0px !important;
 }
 .list-result-search li{
-    border-top: 1px dotted #8C9195;
-    margin: 0px 0px 20px 0px;
-    padding: 15px 0px 0px 0px !important;
+	border-top: 1px dotted #8C9195;
+	margin: 0px 0px 20px 0px;
+	padding: 15px 0px 0px 0px !important;
 }
 .bloc-pertinence-global{
-    margin: 0px 0px 5px 0px;
+	margin: 0px 0px 5px 0px;
 }
 .bloc-pertinence-global .modification{
 	float: right;
 }
 .bloc-pertinence-global span{
-    float: left;
+	float: left;
 }
 .bloc-pertinence{
-    background: url("../images/bg_pertinence.png") no-repeat scroll 0 0 transparent;
-    float: left;
-    height: 9px;
-    margin: 4px 4px 0px 4px;
-    position: relative;
-    width: 64px;
+	background: url("../images/bg_pertinence.png") no-repeat scroll 0 0 transparent;
+	float: left;
+	height: 9px;
+	margin: 4px 4px 0px 4px;
+	position: relative;
+	width: 64px;
 }
 .bloc-pertinence div{
-    background: url("../images/bg_pertinence-on.png") no-repeat scroll 0 0 transparent;
+	background: url("../images/bg_pertinence-on.png") no-repeat scroll 0 0 transparent;
 }
 .bloc-pertinence-global span.date{
-    float: none;
-    text-transform: capitalize;
+	float: none;
+	text-transform: capitalize;
 }
 .list-result-search li h3 {
-    padding: 0px;
-    font-size: 1.5em;
+	padding: 0px;
+	font-size: 1.5em;
 }
 
 
 /*** Reprise des styles uniquement pour l'autocompletion du champs de recherche contenu dans pagelayout.tpl ***/
 div#ezautocomplete2 {
-    z-index: 500;
+	z-index: 500;
 }
 .customResult {
-    display: block;
+	display: block;
 }
 div#ezautocomplete2 .yui-ac, div#ezautocomplete2 .yui-ac-input {
-    position: relative;
+	position: relative;
 }
 div#ezautocomplete2 .yui-ac-container {
-    position: absolute;
-    top: 1.6em;
-    text-align:left;
+	position: absolute;
+	top: 1.6em;
+	text-align:left;
 }
 div#ezautocomplete2 .yui-ac-content {
-    width: 100%;
-    border: 1px solid #808080;
-    background: #fff;
-    overflow:auto;
-    overflow-y:hidden;
-    z-index: 9050;
-    ^padding-bottom: 15px;
+	width: 100%;
+	border: 1px solid #808080;
+	background: #fff;
+	overflow:auto;
+	overflow-y:hidden;
+	z-index: 9050;
+	^padding-bottom: 15px;
 }
 div#ezautocomplete2 .yui-ac-shadow {
-    position: absolute;
-    margin: .3em;
-    width: 100%;
-    background: #000;
-    -moz-opacity: .10;
-    opacity: .10;
-    filter: alpha(opacity = 10);
-    z-index: 9049;
+	position: absolute;
+	margin: .3em;
+	width: 100%;
+	background: #000;
+	-moz-opacity: .10;
+	opacity: .10;
+	filter: alpha(opacity = 10);
+	z-index: 9049;
 }
 div#ezautocomplete2 .yui-ac iframe {
-    opacity: 0;
-    filter: alpha(opacity = 0);
-    padding-right: .3em;
-    padding-bottom: .3em;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	padding-right: .3em;
+	padding-bottom: .3em;
 }
 div#ezautocomplete2 .yui-ac-content ul {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
 }
 div#ezautocomplete2 .yui-ac-content li {
-    background-image: none !important;
-    margin: 0 !important;
-    padding: 2px 5px !important;
-    cursor: default !important;
-    white-space: nowrap !important;
-    list-style: none !important;
-    zoom: 1 !important;
-    display: block !important;
-    float:none !important;
-    color:black !important;
+	background-image: none !important;
+	margin: 0 !important;
+	padding: 2px 5px !important;
+	cursor: default !important;
+	white-space: nowrap !important;
+	list-style: none !important;
+	zoom: 1 !important;
+	display: block !important;
+	float:none !important;
+	color:black !important;
 }
 div#ezautocomplete2 .yui-ac-content li.yui-ac-prehighlight {
-    background: #BABABA !important;
+	background: #BABABA !important;
 }
 div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
-    background: #B0B0B0 !important;
-    color: #FFF !important;
+	background: #B0B0B0 !important;
+	color: #FFF !important;
 }
 
 
 /*** Page liste hotels ***/
 .bloc-liste-h2-recherche{
-	font-family: 'OmnesLight';
-    font-size: 25px !important;
-    font-weight: bold;
-    padding-bottom: 15px;
+	font-family: 'OmnesMedium';
+	font-size: 23px !important;
+	font-weight: bold;
+	padding-bottom: 15px;
 }
 .menu-gauche-h2-recherche{
 	font-family: 'OmnesLight';
@@ -2652,9 +2651,9 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 .choisissez{
 	background: url("../images/fleche-r.png") no-repeat scroll 98% 50% #303A43;
-    color: #FFFFFF;
-    display: block;
-    padding: 2px 0 2px 4px;
+	color: #FFFFFF;
+	display: block;
+	padding: 2px 0 2px 4px;
 }
 .liste-modalites{
 	background: none repeat scroll 0 0 #FAF9F7; padding: 5px 0 5px 4px;
@@ -2668,15 +2667,15 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 	margin-right: 10px;
 }
 .criteres.liste-hotel li{
-    border-top: 1px solid #D2CBC5;
-    border-bottom: none;
-    border-right: none;
-    border-left: none;
-    float: none;
-    display: block;
+	border-top: 1px solid #D2CBC5;
+	border-bottom: none;
+	border-right: none;
+	border-left: none;
+	float: none;
+	display: block;
 }
 .criteres.liste-hotel li:first-child{
-    border-top: none;
+	border-top: none;
 }
 .criteres{
 	border-bottom: 1px solid #D2CBC5;
@@ -2687,11 +2686,11 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 .form-search-left button{
 	background: none repeat scroll 0 0 #303A42;
-    color: #FFFFFF;
-    margin: 0px;
-    padding: 1px 0 !important;
-    text-align: center;
-    width: 138px;
+	color: #FFFFFF;
+	margin: 0px;
+	padding: 1px 0 !important;
+	text-align: center;
+	width: 138px;
 }
 
 .moninfobulle{
@@ -2733,20 +2732,20 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 /*** Page liste activites ***/
 .liste-act-border{
 	border-top: 1px solid #F6EFE9;
-    margin: 24px 0px 20px 0px;
-    padding: 20px 0 0;
+	margin: 24px 0px 20px 0px;
+	padding: 20px 0 0;
 }
 .criteres.liste-act li{
-    border-top: 1px solid #D2CBC5;
-    border-bottom: none;
-    border-right: none;
-    border-left: none;
-    margin: 0px;
-    float: none;
-    display: block;
+	border-top: 1px solid #D2CBC5;
+	border-bottom: none;
+	border-right: none;
+	border-left: none;
+	margin: 0px;
+	float: none;
+	display: block;
 }
 .criteres.liste-act li:first-child{
-    border-top: none;
+	border-top: none;
 }
 
 .moninfobulle .titre-defaut{
@@ -2757,7 +2756,7 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 
 /*** Page fiche hotel ***/
 .galerie-fiche#galleria{
-    height: 280px;
+	height: 280px;
 }
 .galerie-fiche .galleria-container{
 	background: none repeat scroll 0 0 #ECE5DF;
@@ -2823,8 +2822,8 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 	font-size: 11px !important;
 	position: relative !important;
 	top: 0px !important;
-    text-transform: none !important;
-    color: black !important;
+	text-transform: none !important;
+	color: black !important;
 }
 .maree tfoot th{
 	text-align: right;
@@ -2833,9 +2832,9 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 
 /*** Bloc Voir aussi ***/
 .bloc-liste-h2-cote{
-    font-family: 'OmnesLight';
-    font-size: 27px !important;
-    font-weight: bold;
+	font-family: 'OmnesMedium';
+	font-size: 27px !important;
+	font-weight: bold;
 }
 
 .liste-voir-aussi{
@@ -2845,13 +2844,13 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 	border-top: 1px solid #E9E3DE;
 	border-bottom: none;
 	margin: 10px 0px 0px 0px;
-    padding: 10px 0px 0px 0px !important;
+	padding: 10px 0px 0px 0px !important;
 }
 .liste-voir-aussi li:first-child{
 	border-top: none;
 	border-bottom: none;
 	margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px !important;
+	padding: 0px 0px 0px 0px !important;
 }
 
 .lien-plus-infos{

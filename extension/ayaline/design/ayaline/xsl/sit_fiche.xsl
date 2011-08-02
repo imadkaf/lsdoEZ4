@@ -190,7 +190,7 @@
 					mapopinfiche();
 				]]>
 			</script>
-			
+
 			<div style="margin:15px 0px 15px 0px">
 				<xsl:for-each select="adresses/adresse[@type='produit']">
 					<div style="padding:15px;background-color:#EEEEEE;">
@@ -199,6 +199,10 @@
 					</div>
 				</xsl:for-each>
 				<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
+			</div>
+
+			<div style="float:left">
+				<img alt="" style="float:right;margin-left:20px"><xsl:attribute name="src"><xsl:value-of select="partenaire/logoPartenaire"/></xsl:attribute></img><xsl:value-of select="$termeInformationProposeePar"/>&amp;nbsp;:<br/><strong><xsl:if test="string-length(partenaire/webPartenaire) &gt; 0"><a target="_blank"><xsl:attribute name="href"><xsl:value-of select="partenaire/webPartenaire"/></xsl:attribute><xsl:value-of select="partenaire/intPartenaire"/></a></xsl:if><xsl:if test="string-length(partenaire/webPartenaire) = 0"><xsl:value-of select="partenaire/intPartenaire"/></xsl:if></strong>
 			</div>
 		</div>
 		
@@ -213,7 +217,7 @@
 			</xsl:if>
 			<br/>
 			
-			<table cellspacing="0" cellpadding="0" style="margin-top: 15px;">
+			<table cellspacing="0" cellpadding="0">
 				<tr><td style="padding:0 0 0 15px">
 					<xsl:if test="string-length(commentaires/commentaire1) &gt; 0">
 						<p><xsl:call-template name="string-replace-all">
@@ -224,7 +228,7 @@
 					</xsl:if>
 					
 					<xsl:call-template name="periodes-ouverture"/>
-					<br />
+					<br/>
 					
 					<xsl:if test="count(criteres/critere[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0]) &gt; 0">
 						<div style="margin-bottom:3px"><strong><xsl:value-of select="$termeCaracteristiques"/></strong></div>
@@ -264,104 +268,6 @@
 					</xsl:for-each>
 				</td></tr>
 			</table>
-		</div>
-		
-		<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
-		
-		<xsl:if test="count(dispos/dispo[@annee=$anneeCourante]) &gt; 0">
-			<xsl:variable name="chaineDisposTotales"><xsl:value-of select="dispos/dispo[@annee=$anneeCourante]"/></xsl:variable>
-			<xsl:variable name="anneeBissextile"><xsl:if test="($anneeCourante mod 4) = 0">1</xsl:if><xsl:if test="($anneeCourante mod 4) != 0">0</xsl:if></xsl:variable>
-			<div style="margin:15px 0">
-				<div style="margin-bottom:5px"><strong><xsl:value-of select="$termeDispos"/></strong></div>
-				<div style="margin-bottom:2px;font-size:90%;color:#999"><strong><xsl:value-of select="$termeJanvier"/></strong></div>
-				<xsl:call-template name="display-dispos">
-					<xsl:with-param name="disposChaine" select="substring($chaineDisposTotales, 1 , 31)"/>
-					<xsl:with-param name="index" select="1"/>
-					<xsl:with-param name="mois" select="$termeJanvier"/>
-				</xsl:call-template>
-				<div style="clear:both;height:3px;overflow:hidden;font-size:0%"><span style="display:none">&amp;nbsp;</span></div>
-				<div style="margin-bottom:2px;font-size:90%;color:#999"><strong><xsl:value-of select="$termeFevrier"/></strong></div>
-				<xsl:call-template name="display-dispos">
-					<xsl:with-param name="disposChaine" select="substring($chaineDisposTotales, 32, 28 + $anneeBissextile)"/>
-					<xsl:with-param name="index" select="1"/>
-					<xsl:with-param name="mois" select="$termeFevrier"/>
-				</xsl:call-template>
-				<div style="clear:both;height:3px;overflow:hidden;font-size:0%"><span style="display:none">&amp;nbsp;</span></div>
-				<div style="margin-bottom:2px;font-size:90%;color:#999"><strong><xsl:value-of select="$termeMars"/></strong></div>
-				<xsl:call-template name="display-dispos">
-					<xsl:with-param name="disposChaine" select="substring($chaineDisposTotales, 60 + $anneeBissextile, 31)"/>
-					<xsl:with-param name="index" select="1"/>
-					<xsl:with-param name="mois" select="$termeMars"/>
-				</xsl:call-template>
-				<div style="clear:both;height:3px;overflow:hidden;font-size:0%"><span style="display:none">&amp;nbsp;</span></div>
-				<div style="margin-bottom:2px;font-size:90%;color:#999"><strong><xsl:value-of select="$termeAvril"/></strong></div>
-				<xsl:call-template name="display-dispos">
-					<xsl:with-param name="disposChaine" select="substring($chaineDisposTotales, 91 + $anneeBissextile, 30)"/>
-					<xsl:with-param name="index" select="1"/>
-					<xsl:with-param name="mois" select="$termeAvril"/>
-				</xsl:call-template>
-				<div style="clear:both;height:3px;overflow:hidden;font-size:0%"><span style="display:none">&amp;nbsp;</span></div>
-				<div style="margin-bottom:2px;font-size:90%;color:#999"><strong><xsl:value-of select="$termeMai"/></strong></div>
-				<xsl:call-template name="display-dispos">
-					<xsl:with-param name="disposChaine" select="substring($chaineDisposTotales, 121 + $anneeBissextile, 31)"/>
-					<xsl:with-param name="index" select="1"/>
-					<xsl:with-param name="mois" select="$termeMai"/>
-				</xsl:call-template>
-				<div style="clear:both;height:3px;overflow:hidden;font-size:0%"><span style="display:none">&amp;nbsp;</span></div>
-				<div style="margin-bottom:2px;font-size:90%;color:#999"><strong><xsl:value-of select="$termeJuin"/></strong></div>
-				<xsl:call-template name="display-dispos">
-					<xsl:with-param name="disposChaine" select="substring($chaineDisposTotales, 152 + $anneeBissextile, 30)"/>
-					<xsl:with-param name="index" select="1"/>
-					<xsl:with-param name="mois" select="$termeJuin"/>
-				</xsl:call-template>
-				<div style="clear:both;height:3px;overflow:hidden;font-size:0%"><span style="display:none">&amp;nbsp;</span></div>
-				<div style="margin-bottom:2px;font-size:90%;color:#999"><strong><xsl:value-of select="$termeJuillet"/></strong></div>
-				<xsl:call-template name="display-dispos">
-					<xsl:with-param name="disposChaine" select="substring($chaineDisposTotales, 182 + $anneeBissextile, 31)"/>
-					<xsl:with-param name="index" select="1"/>
-					<xsl:with-param name="mois" select="$termeJuillet"/>
-				</xsl:call-template>
-				<div style="clear:both;height:3px;overflow:hidden;font-size:0%"><span style="display:none">&amp;nbsp;</span></div>
-				<div style="margin-bottom:2px;font-size:90%;color:#999"><strong><xsl:value-of select="$termeAout"/></strong></div>
-				<xsl:call-template name="display-dispos">
-					<xsl:with-param name="disposChaine" select="substring($chaineDisposTotales, 213 + $anneeBissextile, 31)"/>
-					<xsl:with-param name="index" select="1"/>
-					<xsl:with-param name="mois" select="$termeAout"/>
-				</xsl:call-template>
-				<div style="clear:both;height:3px;overflow:hidden;font-size:0%"><span style="display:none">&amp;nbsp;</span></div>
-				<div style="margin-bottom:2px;font-size:90%;color:#999"><strong><xsl:value-of select="$termeSeptembre"/></strong></div>
-				<xsl:call-template name="display-dispos">
-					<xsl:with-param name="disposChaine" select="substring($chaineDisposTotales, 244 + $anneeBissextile, 30)"/>
-					<xsl:with-param name="index" select="1"/>
-					<xsl:with-param name="mois" select="$termeSeptembre"/>
-				</xsl:call-template>
-				<div style="clear:both;height:3px;overflow:hidden;font-size:0%"><span style="display:none">&amp;nbsp;</span></div>
-				<div style="margin-bottom:2px;font-size:90%;color:#999"><strong><xsl:value-of select="$termeOctobre"/></strong></div>
-				<xsl:call-template name="display-dispos">
-					<xsl:with-param name="disposChaine" select="substring($chaineDisposTotales, 274 + $anneeBissextile, 31)"/>
-					<xsl:with-param name="index" select="1"/>
-					<xsl:with-param name="mois" select="$termeOctobre"/>
-				</xsl:call-template>
-				<div style="clear:both;height:3px;overflow:hidden;font-size:0%"><span style="display:none">&amp;nbsp;</span></div>
-				<div style="margin-bottom:2px;font-size:90%;color:#999"><strong><xsl:value-of select="$termeNovembre"/></strong></div>
-				<xsl:call-template name="display-dispos">
-					<xsl:with-param name="disposChaine" select="substring($chaineDisposTotales, 305 + $anneeBissextile, 30)"/>
-					<xsl:with-param name="index" select="1"/>
-					<xsl:with-param name="mois" select="$termeNovembre"/>
-				</xsl:call-template>
-				<div style="clear:both;height:3px;overflow:hidden;font-size:0%"><span style="display:none">&amp;nbsp;</span></div>
-				<div style="margin-bottom:2px;font-size:90%;color:#999"><strong><xsl:value-of select="$termeDecembre"/></strong></div>
-				<xsl:call-template name="display-dispos">
-					<xsl:with-param name="disposChaine" select="substring($chaineDisposTotales, 335 + $anneeBissextile, 31)"/>
-					<xsl:with-param name="index" select="1"/>
-					<xsl:with-param name="mois" select="$termeDecembre"/>
-				</xsl:call-template>
-				<div style="clear:both;height:3px;overflow:hidden;font-size:0%"><span style="display:none">&amp;nbsp;</span></div>
-			</div>
-		</xsl:if>
-		
-		<div style="float:left">
-			<img alt="" style="float:right;margin-left:20px"><xsl:attribute name="src"><xsl:value-of select="partenaire/logoPartenaire"/></xsl:attribute></img><xsl:value-of select="$termeInformationProposeePar"/>&amp;nbsp;:<br/><strong><xsl:if test="string-length(partenaire/webPartenaire) &gt; 0"><a target="_blank"><xsl:attribute name="href"><xsl:value-of select="partenaire/webPartenaire"/></xsl:attribute><xsl:value-of select="partenaire/intPartenaire"/></a></xsl:if><xsl:if test="string-length(partenaire/webPartenaire) = 0"><xsl:value-of select="partenaire/intPartenaire"/></xsl:if></strong>
 		</div>
 		<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
 	</xsl:template>
