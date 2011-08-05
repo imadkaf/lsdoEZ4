@@ -86,10 +86,10 @@
 								{*Noeud 'BALADES DISCUTEES DANS LES MARAIS'*}
 								{case match=2}
 					<li class="right">
-									{if $nodeSub_menu.class_identifier|eq(ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
-										{node_view_gui content_node=$nodeSub_menu.data_map.content.content.main_node view=main_focus_menu name=$nameRubric}
+									{if $nodeSub_menu.class_identifier|eq(ezini('ClassSettings','ClassAlaUne','content.ini'))}
+										{node_view_gui content_node=$nodeSub_menu view=main_focus_menu}
 									{else}
-						<span>Vous devez placer un contenu de type {ezini('ClassSettings','ClassSubMenuIdentifier','content.ini')} à cet emplacement.</span>
+										<span>Vous devez placer un contenu de type {ezini('ClassSettings','ClassAlaUne','content.ini')} à cet emplacement.</span>
 									{/if}
 					</li>
 								{/case}

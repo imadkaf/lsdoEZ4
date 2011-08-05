@@ -8,7 +8,7 @@ LoginPage=embedded
 
 [UserSettings]
 RegistrationEmail=
-
+LogoutRedirect=/
 
 [SiteAccessSettings]
 RequireUserLogin=false

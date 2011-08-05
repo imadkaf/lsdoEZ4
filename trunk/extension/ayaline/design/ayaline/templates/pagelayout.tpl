@@ -46,6 +46,9 @@
 {if $rNode.data_map.header_menu.has_content}
 							<ul class="list-top">
 								<li class="first">{$timestamp|datetime(custom, '%l %d %F %Y')}</li>
+								{if ne($current_user.contentobject_id, $anonymous_user_id)}
+									<li style="margin-right: 10px;"><a href={'user/logout'|ezurl}>Déconnexion</a></li>
+								{/if}
 								
 	{foreach $rNode.data_map.header_menu.content.main_node.children as $sMenu}
 		<li>{node_view_gui content_node=$sMenu view='menu'}</li>

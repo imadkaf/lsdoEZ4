@@ -51,6 +51,11 @@ class eZSitOperators {
 				)
 			),
 			'sit_mise_en_avant' => array(
+				'currentNode' => array(
+					'type' => 'eZContentObjectTreeNode',
+					'required' => true,
+					'default' => null
+				),
 				'modesAffichage' => array(
 					'type' => 'array',
 					'required' => true,
@@ -75,8 +80,13 @@ class eZSitOperators {
 	Checks operator names, and calls the appropriate functions.
 	*/
 	function modify(&$tpl, &$operatorName, &$operatorParameters, &$rootNamespace, &$currentNamespace, &$operatorValue, &$namedParameters) {
-		$currentNode = $tpl->variable('node');
-		if (!$currentNode) {
+		$currentNode = array_key_exists('currentNode', $namedParameters) ? $namedParameters['currentNode'] : false;
+
+		if (!$currentNode || get_class($currentNode) != 'eZContentObjectTreeNode') {
+			$currentNode = $tpl->variable('node');
+		}
+
+		if (!$currentNode || get_class($currentNode) != 'eZContentObjectTreeNode') {
 			$currentNodeId = $tpl->variable('module_result');
 			if ($currentNodeId) {
 				$currentNodeId = $currentNodeId['node_id'];

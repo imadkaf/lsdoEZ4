@@ -12,6 +12,7 @@ ClassSubMenuIdentifier=sub_menu
 ClassRubricIdentifier=rubric
 ClassMainMenuIdentifier=main_menu
 ClassEmbedCodeIdentifier=embed_code
+ClassAlaUne=sit_mise_en_avant
 
 [classList]
 HomeMainMenu[]

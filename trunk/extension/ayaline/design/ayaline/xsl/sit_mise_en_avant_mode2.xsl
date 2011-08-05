@@ -53,7 +53,6 @@
 								- <xsl:value-of select="ville/intituleVille"/>
 							</p>
 							
-							
 							<xsl:call-template name="periodes-ouverture"/>
 							
 							<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0]) &gt; 0">

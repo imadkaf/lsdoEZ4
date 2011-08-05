@@ -71,7 +71,7 @@
 		
 		     {switch match=$:item_previous|lt(0) }
 		       {case match=0}
-		      <span class="previous"><a href={concat($page_uri,$:item_previous|gt(0)|choose('',concat($:offset_text,$:item_previous)),$:view_parameter_text,$page_uri_suffix)|ezurl}><span class="text">&laquo;&nbsp;{"Page pr&eacute;c&eacute;dente"|i18n("design/standard/navigator")}</span></a></span>
+		      <span class="previous"><a href={concat($page_uri,$:item_previous|gt(0)|choose('',concat($:offset_text,$:item_previous)),$:view_parameter_text,$page_uri_suffix)|ezurl}><span class="text">&lt;&nbsp;{"Page pr&eacute;c&eacute;dente"|i18n("design/standard/navigator")}</span></a></span>
 		       {/case}
 		       {case match=1}
 		       {/case}
@@ -112,7 +112,7 @@
 		
 		    {switch match=$:item_next|lt($item_count)}
 		      {case match=1}
-		        <span class="next"><a href={concat($page_uri,$:offset_text,$:item_next,$:view_parameter_text,$page_uri_suffix)|ezurl}><span class="text">{"Page suivante"|i18n("design/standard/navigator")}&nbsp;&raquo;</span></a></span>
+		        <span class="next"><a href={concat($page_uri,$:offset_text,$:item_next,$:view_parameter_text,$page_uri_suffix)|ezurl}><span class="text">{"Page suivante"|i18n("design/standard/navigator")}&nbsp;&gt;</span></a></span>
 		      {/case}
 		      {case}
 		      {/case}

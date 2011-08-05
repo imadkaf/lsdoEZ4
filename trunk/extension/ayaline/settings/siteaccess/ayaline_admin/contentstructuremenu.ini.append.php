@@ -23,5 +23,9 @@ ShowClasses[]=sit_fiche
 ShowClasses[]=sit_mise_en_avant
 ShowClasses[]=affichage_liste_sit
 ShowClasses[]=image_entete
+ShowClasses[]=espace_presse
+ShowClasses[]=phototheque
+ShowClasses[]=dossier_phototheque
+ShowClasses[]=album_phototheque
 
 */ ?>
