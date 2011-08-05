@@ -2871,6 +2871,72 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 	margin:0 0 20px 20px;
 }
 
+
+/*** Espace presse ***/
+.espace_presse h2{
+	float: none;
+	font-size: 16px;
+}
+
+
+/*** Phototheque ***/
+ul.phototheque .no-vignette img{
+	width: 225px;
+}
+ul.phototheque li.last{
+	margin: 0px 0px 34px 0px;
+}
+ul.phototheque li.last{
+	margin: 0px 0px 34px 0px;
+}
+div.phototheque{
+	text-align: center;
+}
+div.image{
+	margin-top: 5px;
+}
+
+
+/*** Page user login / identification ***/
+.user-login h2{
+	float: none;
+	font-size:18px;
+}
+.user-login label{
+	display: block;
+    float: left;
+	margin-right: 5px;
+	width: 100px;
+	text-align: right;
+	position: relative;
+	top: 1px;
+}
+.user-login .defaultbutton{
+	margin-left: 105px;
+}
+
+
+/*** Remontee a la une ***/
+.remontee-alaune{
+	width: 190px;
+	color: black !important;
+}
+.remontee-alaune a{
+	padding: 0px !important;
+	border-left: none !important;
+    float: none !important;
+    font-size: 100% !important;
+    color: black !important;
+}
+.remontee-alaune img{
+    float: none !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+.remontee-alaune p{
+	padding: 5px 0 5px !important;
+}
+
 /************************/
 /*** Fin ajout Alexia ***/
 /************************/
