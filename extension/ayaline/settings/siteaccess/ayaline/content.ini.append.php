@@ -13,12 +13,14 @@ ClassMainMenuIdentifier=main_menu
 ClassSubMenuIdentifier=sub_menu
 ClassRubricIdentifier=rubric
 ClassEmbedCodeIdentifier=embed_code
+ClassAlaUne=sit_mise_en_avant
 
 [classList]
 HomeMainMenu[]
 HomeMainMenu[]=sub_menu
 HomeMainMenu[]=main_menu
 HomeMainMenu[]=embed_code
+HomeMainMenu[]=sit_mise_en_avant
 
 [ClassAttributeSettings]
 ClassAttributeSeasonIdentifier=title

@@ -6,15 +6,22 @@
 	<div class="bloc-left-in-bis">
 		{sit_recherche()}
 	</div>
-	
+
 	<div class="bloc-right-in-bis">
 		<div class="bloc-type{if eq($node.data_map.categorie.data_text, '10')} padding-lr{/if}">
-			<h2 class="bloc-liste-h2">{$node.name|wash(xhtml)}</h2>
-			<p class="clear"></p>
 			{def $affichageListeSIT = fetch( 'content', 'reverse_related_objects',
 								hash( 'object_id', $node.contentobject_id,
 										'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-
+										
+			<h2 class="bloc-liste-h2">
+				{if $affichageListeSIT|count}
+					{$affichageListeSIT.0.name}
+				{else}
+					{$node.name}
+				{/if}
+			</h2>
+			<p class="clear"></p>
+			
 			{if $affichageListeSIT|count}
 				{if ne($affichageListeSIT.0.data_map.short_description.content, '')}
 					<p class="chapeau-bis">

@@ -2,6 +2,46 @@
 
 	#ayaline
 
+	#Phototheque
+
+[line_album_phototheque]
+Source=node/view/line.tpl
+MatchFile=line/album_phototheque.tpl
+Subdir=templates
+Match[class_identifier]=album_phototheque
+
+[line_dossier_phototheque]
+Source=node/view/line.tpl
+MatchFile=line/dossier_phototheque.tpl
+Subdir=templates
+Match[class_identifier]=dossier_phototheque
+
+[full_album_phototheque]
+Source=node/view/full.tpl
+MatchFile=full/album_phototheque.tpl
+Subdir=templates
+Match[class_identifier]=album_phototheque
+
+[full_dossier_phototheque]
+Source=node/view/full.tpl
+MatchFile=full/dossier_phototheque.tpl
+Subdir=templates
+Match[class_identifier]=dossier_phototheque
+
+[full_phototheque]
+Source=node/view/full.tpl
+MatchFile=full/phototheque.tpl
+Subdir=templates
+Match[class_identifier]=phototheque
+
+[full_espace_presse]
+Source=node/view/full.tpl
+MatchFile=full/espace_presse.tpl
+Subdir=templates
+Match[class_identifier]=espace_presse
+
+	#Fin Phototheque
+
 [embed_content_sit_mise_en_avant]
 Source=content/view/embed.tpl
 MatchFile=embed/content/sit_mise_en_avant.tpl
@@ -193,6 +233,12 @@ Source=node/view/main_menu.tpl
 MatchFile=main_menu/rubric.tpl
 Subdir=templates
 Match[class_identifier]=rubric
+
+[main_focus_menu_sit_mise_en_avant]
+Source=node/view/main_focus_menu.tpl
+MatchFile=main_focus_menu/sit_mise_en_avant.tpl
+Subdir=templates
+Match[class_identifier]=sit_mise_en_avant
 
 [main_focus_menu_main_menu]
 Source=node/view/main_focus_menu.tpl

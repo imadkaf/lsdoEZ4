@@ -1,1 +1,1 @@
-{sit_mise_en_avant($node.data_map.mode_affichage.value)}
+{sit_mise_en_avant($node, $node.data_map.mode_affichage.value)}
