@@ -2,11 +2,13 @@
 
 [SiteSettings]
 SiteName=LSDO
-SiteURL=dev.en.lsdo.loc
+SiteURL=en.lsdo.loc
 LoginPage=embedded
+
 
 [UserSettings]
 RegistrationEmail=
+
 
 [SiteAccessSettings]
 RequireUserLogin=false
@@ -15,9 +17,11 @@ RelatedSiteAccessList[]=ayaline_en
 RelatedSiteAccessList[]=ayaline_admin
 ShowHiddenNodes=false
 
+
 [DesignSettings]
 SiteDesign=ayaline
 AdditionalSiteDesignList[]=base
+
 
 [RegionalSettings]
 Locale=eng-GB
@@ -31,13 +35,15 @@ TextTranslation=enabled
 TranslationList=
 ViewCaching=disabled
 
+
 [MailSettings]
 AdminEmail=gseguin@ayaline.com
 EmailSender=
 
- 
+
 [TemplateSettings]
 TemplateCache=disabled
 TemplateCompile=disabled
 DevelopmentMode=enabled
+
 */ ?>
