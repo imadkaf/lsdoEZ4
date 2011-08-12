@@ -22,7 +22,7 @@
 					
 					<a style="display: block; margin: 0px 0px 10px 0px;">
 						<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-						<img alt="" style="width: 200px">
+						<img alt="" style="width: 200px; max-height: 300px;">
 							<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
 							<xsl:attribute name="src"><xsl:value-of select="newPhotos/newPhoto"/></xsl:attribute>
 							</xsl:if>

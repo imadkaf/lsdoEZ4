@@ -2,7 +2,7 @@
 
 [SiteSettings]
 SiteName=LSDO
-SiteURL=lsdo.loc
+SiteURL=dev.lsdo.loc
 LoginPage=embedded
 
 

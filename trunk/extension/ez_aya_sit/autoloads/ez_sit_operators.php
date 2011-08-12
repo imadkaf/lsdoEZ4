@@ -620,6 +620,9 @@ class eZSitOperators {
 		} else if ($critereTriPrincipal == '2') {
 			$sitParams['sort'] .= ",ran";
 			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
+		} else if ($critereTriPrincipal == '3') {
+			$sitParams['sort'] .= ",nco";
+			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
 		} else if ($critereTriPrincipal) {
 			$sitParams['sort'] .= ",".(strlen($critereTriPrincipal) > 9 ? "m" : (preg_match("/^\\d+$/", $critereTriPrincipal) ? "c" : "")).$critereTriPrincipal;
 			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
@@ -992,6 +995,9 @@ class eZSitOperators {
 			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
 		} else if ($critereTriPrincipal == '2') {
 			$sitParams['sort'] .= ",ran";
+			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
+		} else if ($critereTriPrincipal == '3') {
+			$sitParams['sort'] .= ",nco";
 			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
 		} else if ($critereTriPrincipal) {
 			$sitParams['sort'] .= ",".(strlen($critereTriPrincipal) > 9 ? "m" : (preg_match("/^\\d+$/", $critereTriPrincipal) ? "c" : "")).$critereTriPrincipal;
