@@ -22,7 +22,11 @@
 							<ul class="list-block">
 {foreach $liensColonne1 as $itemVar}
 	{set $liensCol1 = fetch('content', 'node', hash('node_id', $itemVar.node_id))}
+		{if eq($liensCol1.object.class_identifier, ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
+								<li>{node_view_gui content_node=$liensCol1 view='menu' nomSousMenu=$liensCol1.name}</li>
+		{else}
 								<li>{node_view_gui content_node=$liensCol1 view='menu'}</li>
+		{/if}
 {/foreach}
 							</ul>
 						</li>
@@ -31,7 +35,11 @@
 							<ul class="list-block">
 {foreach $liensColonne2 as $itemVar}
 	{set $liensCol2 = fetch('content', 'node', hash('node_id', $itemVar.node_id))}
+		{if eq($liensCol2.object.class_identifier, ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
+								<li class="parag">{node_view_gui content_node=$liensCol2 view='menu' nomSousMenu=$liensCol2.name}</li>
+		{else}
 								<li class="parag">{node_view_gui content_node=$liensCol2 view='menu'}</li>
+		{/if}
 {/foreach}
 							</ul>
 						</li>
@@ -40,7 +48,11 @@
 							<ul class="list-block">
 {foreach $liensColonne3 as $itemVar}
 	{set $liensCol3 = fetch('content', 'node', hash('node_id', $itemVar.node_id))}
+		{if eq($liensCol3.object.class_identifier, ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
+								<li>{node_view_gui content_node=$liensCol3 view='menu' nomSousMenu=$liensCol3.name}</li>
+		{else}
 								<li>{node_view_gui content_node=$liensCol3 view='menu'}</li>
+		{/if}
 {/foreach}
 							</ul>
 						</li>
@@ -49,7 +61,11 @@
 							<ul class="list-block">
 {foreach $liensColonne4 as $itemVar}
 	{set $liensCol4 = fetch('content', 'node', hash('node_id', $itemVar.node_id))}
+		{if eq($liensCol4.object.class_identifier, ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
+								<li>{node_view_gui content_node=$liensCol4 view='menu' nomSousMenu=$liensCol4.name}</li>
+		{else}
 								<li>{node_view_gui content_node=$liensCol4 view='menu'}</li>
+		{/if}
 {/foreach}
 							</ul>
 						</li>
@@ -58,7 +74,11 @@
 							<ul class="list-block">
 {foreach $liensColonne5 as $itemVar}
 	{set $liensCol5 = fetch('content', 'node', hash('node_id', $itemVar.node_id))}
+		{if eq($liensCol5.object.class_identifier, ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
+								<li>{node_view_gui content_node=$liensCol5 view='menu' nomSousMenu=$liensCol5.name}</li>
+		{else}
 								<li>{node_view_gui content_node=$liensCol5 view='menu'}</li>
+		{/if}
 {/foreach}
 							</ul>
 						</li>
@@ -69,7 +89,11 @@
 					<ul class="niv-2">
 {foreach $liensHorizontaux as $keyVar =>$itemVar}
 	{set $liensHoriz = fetch('content', 'node', hash('node_id', $itemVar.node_id))}
-						<li{if eq($keyVar, 0)} class="first"{/if}>{if ne($keyVar, 0)}-{else}&nbsp;{/if}{node_view_gui content_node=$liensHoriz view='menu' nomHoriz=$liensHoriz.name}</li>
+		{if eq($liensHoriz.object.class_identifier, ezini('ClassSettings','ClassSubMenuIdentifier','content.ini'))}
+						<li{if eq($keyVar, 0)} class="first"{/if}>{if ne($keyVar, 0)}-{else}&nbsp;{/if}{node_view_gui content_node=$liensHoriz view='menu' nomSousMenu=$liensHoriz.name}</li>		
+		{else}
+						<li{if eq($keyVar, 0)} class="first"{/if}>{if ne($keyVar, 0)}-{else}&nbsp;{/if}{node_view_gui content_node=$liensHoriz view='menu'}</li>
+		{/if}
 {/foreach}
 					</ul>
 				</div>

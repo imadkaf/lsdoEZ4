@@ -34,7 +34,7 @@
 							
 							<a>
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-								<img alt="" style="width: 320px">
+								<img alt="" style="width: 338px">
 									<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
 									<xsl:attribute name="src"><xsl:value-of select="newPhotos/newPhoto"/></xsl:attribute>
 									</xsl:if>

@@ -128,13 +128,6 @@
 {include uri='design:parts/liste_mises_en_avant.tpl'}
 				</div>
 {literal}
-			<script type="text/javascript">		
-					//Menu left
-					$("ul.menu-left > li").click(function(){
-						$("ul.menu-left > li.actif").removeClass("actif");
-						$(this).addClass("actif");
-					});
-			</script>
 			
 			<script type="text/javascript">
 				$(window).load(equilibrerHauteursBlocs);

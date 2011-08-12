@@ -8,25 +8,35 @@
 /*next button*/
 .bx-next {
 	position:absolute;
-	top:40%;
-	right:-35px;
+	/*top:40%;*/
+	top:24%;
+	/*right:-35px;*/
+	right:-23px;
 	z-index:999;
-	width: 30px;
-	height: 30px;
+	/*width: 30px;*/
+	width: 23px;
+	/*height: 30px;*/
+	height: 53px;
 	text-indent: -999999px;
-	background: url(images/gray_next.png) no-repeat 0 -30px;
+	/*background: url(images/gray_next.png) no-repeat 0 -30px;*/
+	background: url(images/fleche-droite.png) no-repeat 0 -53px;
 }
 
 /*previous button*/
 .bx-prev {
 	position:absolute;
-	top:40%;
-	left:-35px;
+	/*top:40%;*/
+	top:24%;
+	/*left:-35px;*/
+	left:-23px;
 	z-index:999;
-	width: 30px;
-	height: 30px;
+	/*width: 30px;*/
+	width: 23px;
+	/*height: 30px;*/
+	height: 53px;
 	text-indent: -999999px;
-	background: url(images/gray_prev.png) no-repeat 0 -30px;
+	/*background: url(images/gray_prev.png) no-repeat 0 -30px;*/
+	background: url(images/fleche-gauche.png) no-repeat 0 -53px;
 }
 
 /*pager links*/

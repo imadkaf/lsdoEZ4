@@ -1,10 +1,8 @@
 <?php
 
-require_once('kernel/common/template.php');
-
 $http = eZHTTPTool::instance();
 
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 
 $search = "";
 if ($http->hasVariable('s')) {
@@ -50,13 +48,12 @@ if ($attribute) {
 	}
 }
 
+
 $tpl->setVariable('foundOptions', $foundOptions);
 
 $tpl->setVariable('attributeId', $attributeId);
 
-
 $Result['pagelayout'] = 'empty_pagelayout.tpl';
 $Result['content'] = $tpl->fetch('design:ezcategoryselection/related_options.tpl');
-
 ?>
 

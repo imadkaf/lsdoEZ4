@@ -1,1 +1,1 @@
-<a href={$node.url_alias|ezurl}>{if is_set($nomHorizSubMenu)}{$nomHorizSubMenu|wash}{else}{$node.name|wash}{/if}</a>
+<a href={$node.url_alias|ezurl}>{if is_set($nomSousMenu)}{$nomSousMenu|wash}{else}{$node.name|wash}{/if}</a>

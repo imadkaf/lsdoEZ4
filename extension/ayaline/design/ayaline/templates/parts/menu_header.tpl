@@ -11,7 +11,9 @@
 	{if $key|eq(0)}
 				<ul class="top">
 		{foreach $topicsList.children as $topic}
-			{node_view_gui content_node=$topic view=line topicIds=$topicIds redirectURI=$module_result.uri|ezurl}
+			{if ne($topic.node_id, ezini('NodeSettings','topicDefaut','content.ini'))}
+				{node_view_gui content_node=$topic view=line topicIds=$topicIds redirectURI=$module_result.uri|ezurl}
+			{/if}
 		{/foreach}
 				</ul>
 				<div class="clear"></div>

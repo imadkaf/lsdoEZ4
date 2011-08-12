@@ -138,6 +138,18 @@ if ($xmlStringCategories) {
 
 									$optionsNode->appendChild($optionNode);
 								}
+								
+								$optionNode = $doc->createElement("option");
+								$optionNode->setAttribute('id', "3");
+								$optionNode->setAttribute('name', "Nombre de consultations");
+
+								$optionCategoriesNode = $doc->createElement("category");
+								$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
+								$optionCategoriesNode->setAttribute('category_value', "0-".join("-", array_keys($categoriesArray)));
+
+								$optionNode->appendChild($optionCategoriesNode);
+
+								$optionsNode->appendChild($optionNode);
 							}
 
 							foreach ($criteresArray as $idCritereSIT=>$critereSIT) {
