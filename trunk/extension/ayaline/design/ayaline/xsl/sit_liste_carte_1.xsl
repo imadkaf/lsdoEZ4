@@ -17,8 +17,8 @@
 			<script type="text/javascript">
 				<![CDATA[
 					function initialize() {
-						//Mettre les coordonnees du centre des Sables d'Olonne
-						var latlng = new google.maps.LatLng(46.1667, -1.15);
+						//Les coordonnees du centre des Sables d'Olonne
+						var latlng = new google.maps.LatLng(46.5, -1.7833);
 						
 						var myOptions = {
 						  zoom: 13,
@@ -31,20 +31,20 @@
 						
 						]]>
 						<xsl:for-each select="resultats/details/detail[position() &gt;= ((($pageCourante - 1)*$nbItemsParPage) + 1) and position() &lt;= ($pageCourante * $nbItemsParPage)]">
-							<xsl:if test="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite != '' and criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite != ''">
+							<xsl:if test="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite != '' and criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite != ''">
 								<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitListeUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(translate(translate(intitule, concat('/-?_.', $apos, $amp), '	   '), $caracteresKo, $caracteresOk), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')), ' ', '-')"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0 and $pageCourante &gt; 1">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if></xsl:variable>
 								<![CDATA[
 									var contentString = '<div class="moninfobulle">'+
 											'<div class="titre"><h3>]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><![CDATA[</h3>'+
 											']]><xsl:choose>
-													<xsl:when test="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite != ''">
+													<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite != ''">
 														<img alt="" class="etoile">
-															<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
-															<xsl:attribute name="title"><![CDATA[Cat&eacute;gorie : ]]><xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/intModalite"/></xsl:attribute>
+															<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
+															<xsl:attribute name="title"><![CDATA[Cat&eacute;gorie : ]]><xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/></xsl:attribute>
 														</img>
 													</xsl:when>
 													<xsl:otherwise>
-														<xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/intModalite"/>
+														<xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/>
 													</xsl:otherwise>
 												</xsl:choose><![CDATA[</div>'+
 											']]><xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
@@ -96,7 +96,7 @@
 									});
 
 									var marker = new google.maps.Marker({
-										position: new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[),
+										position: new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite"/><![CDATA[),
 										map: map,
 										icon: '/extension/ayaline/design/ayaline/images/picto-hotel.png',
 										title:"]]><xsl:value-of select="intitule"/><![CDATA["
@@ -117,7 +117,7 @@
 											
 												$(".popin-content-bloc").css('height', "auto");
 												
-												Demo.toInput = "]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[ ]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[";
+												Demo.toInput = "]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite"/><![CDATA[ ]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite"/><![CDATA[";
 												Demo.mapContainer = document.getElementById('map-container');
 												Demo.dirContainer = document.getElementById('dir-container');
 												Demo.fromInput = document.getElementById('from-input');

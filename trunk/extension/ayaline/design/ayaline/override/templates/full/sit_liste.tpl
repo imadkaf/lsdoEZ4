@@ -8,7 +8,7 @@
 	</div>
 
 	<div class="bloc-right-in-bis">
-		<div class="bloc-type{if eq($node.data_map.categorie.data_text, '10')} padding-lr{/if}">
+		<div class="bloc-type{if eq($node.data_map.categorie.data_text, '1')} padding-lr{/if}">
 			{def $affichageListeSIT = fetch( 'content', 'reverse_related_objects',
 								hash( 'object_id', $node.contentobject_id,
 										'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
@@ -32,8 +32,8 @@
 				{/if}
 				
 				{if eq($affichageListeSIT.0.data_map.googlemaps.data_int, '1')}
-					{if eq($node.data_map.categorie.data_text, '10')}
-						{sit_liste('sit_liste_carte_10')}
+					{if eq($node.data_map.categorie.data_text, '1')}
+						{sit_liste('sit_liste_carte_1')}
 					{else}
 						{sit_liste('sit_liste_carte')}
 					{/if}
