@@ -50,14 +50,14 @@
 					function initialize() {
 						]]>
 						<xsl:choose>
-							<xsl:when test="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite != '' and criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite != ''">
+							<xsl:when test="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite != '' and criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite != ''">
 								<![CDATA[
-							    	var latlng = new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[);
+							    	var latlng = new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite"/><![CDATA[);
 							    ]]>
 							</xsl:when>
 							<xsl:otherwise>
 								<![CDATA[
-							    	var latlng = new google.maps.LatLng(46.162000, -1.1550);
+							    	var latlng = new google.maps.LatLng(46.5, -1.7833);
 							    ]]>
 							</xsl:otherwise>
 						</xsl:choose>
@@ -105,7 +105,7 @@
 									mapContainer: document.getElementById('map-container'),
 									dirContainer: document.getElementById('dir-container'),
 									fromInput: document.getElementById('from-input'),
-									toInput:"]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[ ]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[",
+									toInput:"]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite"/><![CDATA[ ]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite"/><![CDATA[",
 									travelModeInput: document.getElementById('travel-mode-input'),
 									unitInput: document.getElementById('unit-input'),
 						
