@@ -239,7 +239,7 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 	{if $imageEntete|count}
 		{set $img_attribute = $imageEntete.0.data_map.image}
 	{else}
-		{if and($cNode, $cNode.parent}
+		{if and($cNode, $cNode.parent)}
 			{set $pNode = $cNode.parent}
 		{else}
 			{set $pNode = $previousNode}

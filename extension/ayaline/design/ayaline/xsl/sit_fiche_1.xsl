@@ -7,7 +7,7 @@
 	<xsl:variable name="apos">'</xsl:variable>
 
 	<xsl:include href="inc/string_replace_all.xsl"/>
-	<xsl:include href="inc/periodes_ouverture_10.xsl"/>
+	<xsl:include href="inc/periodes_ouverture_1.xsl"/>
 	<xsl:include href="inc/display_dispos.xsl"/>
 	<xsl:include href="inc/rendu_adresse.xsl"/>
 
@@ -55,14 +55,14 @@
 					function initialize() {
 						]]>
 						<xsl:choose>
-							<xsl:when test="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite != '' and criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite != ''">
+							<xsl:when test="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite != '' and criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite != ''">
 								<![CDATA[
-							    	var latlng = new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[);
+							    	var latlng = new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite"/><![CDATA[);
 							    ]]>
 							</xsl:when>
 							<xsl:otherwise>
 								<![CDATA[
-							    	var latlng = new google.maps.LatLng(46.162000, -1.1550);
+							    	var latlng = new google.maps.LatLng(46.5, -1.7833);
 							    ]]>
 							</xsl:otherwise>
 						</xsl:choose>
@@ -111,7 +111,7 @@
 									mapContainer: document.getElementById('map-container'),
 									dirContainer: document.getElementById('dir-container'),
 									fromInput: document.getElementById('from-input'),
-									toInput:"]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000001']/valModalite"/><![CDATA[ ]]><xsl:value-of select="criteres/critere[@id='999000149']/modalites/modalite[@id='999000149000002']/valModalite"/><![CDATA[",
+									toInput:"]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite"/><![CDATA[ ]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite"/><![CDATA[",
 									travelModeInput: document.getElementById('travel-mode-input'),
 									unitInput: document.getElementById('unit-input'),
 						
@@ -274,30 +274,30 @@
 		<div class="box-right">
 			<h2 class="bloc-liste-h2"><xsl:value-of select="intitule"/></h2>
 			<xsl:choose>
-				<xsl:when test="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite != ''">
+				<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite != ''">
 					<img alt="">
-						<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
-						<xsl:attribute name="title">Cat&amp;eacute;gorie : <xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/intModalite"/></xsl:attribute>
+						<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
+						<xsl:attribute name="title">Cat&amp;eacute;gorie : <xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/></xsl:attribute>
 					</img>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="criteres/critere[@id='400002615']/modalites/modalite[1]/intModalite"/>
+					<xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/>
 				</xsl:otherwise>
 			</xsl:choose>
 			
 			<ul class="ss-titre-bis">
 				<li><xsl:value-of select="ville/intituleVille"/></li>
-				<li class="last"><xsl:value-of select="criteres/critere[@id='400002787']/modalites/modalite[1]/intModalite"/></li>
+				<li class="last"><xsl:value-of select="criteres/critere[@id='851000001']/modalites/modalite[1]/intModalite"/></li>
 			</ul>
 			
 			<p class="ss-titre">
 				<xsl:choose>
-					<xsl:when test="criteres/critere[@id='400003056']/modalites/modalite[@id='400003056000001']/valModalite">
-						<span class="picto">A partir de <span><xsl:value-of select="criteres/critere[@id='400003056']/modalites/modalite[@id='400003056000001']/valModalite"/> &amp;euro;</span></span>
+					<xsl:when test="criteres/critere[@id='851000023']/modalites/modalite[@id='8510000230002']/valModalite">
+						<span class="picto">A partir de <span><xsl:value-of select="criteres/critere[@id='851000023']/modalites/modalite[@id='8510000230002']/valModalite"/> &amp;euro;</span></span>
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:if test="criteres/critere[@id='400003056']/modalites/modalite[@id='400003056000003']/valModalite">
-							<span class="picto">A partir de <span><xsl:value-of select="criteres/critere[@id='400003056']/modalites/modalite[@id='400003056000003']/valModalite"/> &amp;euro;</span></span>
+						<xsl:if test="criteres/critere[@id='851000020']/modalites/modalite[@id='8510000200002']/valModalite">
+							<span class="picto">A partir de <span><xsl:value-of select="criteres/critere[@id='851000020']/modalites/modalite[@id='8510000200002']/valModalite"/> &amp;euro;</span></span>
 						</xsl:if>
 					</xsl:otherwise>
 				</xsl:choose>
@@ -317,21 +317,42 @@
 				</p>
 			</xsl:if>
 			
-			<ul class="inline">
-				<xsl:if test="criteres/critere[@id='400002616']/modalites/modalite[1]/logoModalite != ''">
+			<ul class="inline">		
+				<xsl:if test="criteres/critere[@id='851000010']">
 					<li>
-						<img alt="">
-							<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='400002616']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
-							<xsl:attribute name="title">Cha&amp;icirc;nes d'h&amp;ocirc;tel : <xsl:value-of select="criteres/critere[@id='400002616']/modalites/modalite[1]/intModalite"/></xsl:attribute>
-						</img>
+						<xsl:for-each select="criteres/critere[@id='851000010']/modalites/modalite">
+							<xsl:choose>
+									<xsl:when test="logoModalite != ''">
+										<img alt="">
+											<xsl:attribute name="src"><xsl:value-of select="logoModalite"/></xsl:attribute>
+											<xsl:attribute name="title">Cha&amp;icirc;nes d'h&amp;ocirc;tel : <xsl:value-of select="intModalite"/></xsl:attribute>
+										</img>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="intModalite"/>
+								</xsl:otherwise>
+							</xsl:choose>
+							<xsl:if test="position() &lt; count(../modalite)">, </xsl:if>
+						</xsl:for-each>
 					</li>
 				</xsl:if>
-				<xsl:if test="criteres/critere[@id='999000107']/modalites/modalite[1]/logoModalite != ''">
+				
+				<xsl:if test="criteres/critere[@id='851000007']">
 					<li>
-						<img alt="">
-							<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='999000107']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
-							<xsl:attribute name="title">Cha&amp;icirc;nes d'h&amp;ocirc;tel : <xsl:value-of select="criteres/critere[@id='999000107']/modalites/modalite[1]/intModalite"/></xsl:attribute>
-						</img>
+						<xsl:for-each select="criteres/critere[@id='851000007']/modalites/modalite">
+							<xsl:choose>
+									<xsl:when test="logoModalite != ''">
+										<img alt="">
+											<xsl:attribute name="src"><xsl:value-of select="logoModalite"/></xsl:attribute>
+											<xsl:attribute name="title">Cha&amp;icirc;nes d'h&amp;ocirc;tel : <xsl:value-of select="intModalite"/></xsl:attribute>
+										</img>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="intModalite"/>
+								</xsl:otherwise>
+							</xsl:choose>
+							<xsl:if test="position() &lt; count(../modalite)">, </xsl:if>
+						</xsl:for-each>
 					</li>
 				</xsl:if>
 			</ul>
@@ -401,19 +422,22 @@
 				</div>
 				
 				<div id="onglet-tarifs">
-					<xsl:if test="criteres/critere[@id='400003056']/modalites">
+					<xsl:if test="criteres/critere[@id='851000020'] or criteres/critere[@id='851000021'] or criteres/critere[@id='851000022'] or criteres/critere[@id='851000023'] or criteres/critere[@id='851000024'] or criteres/critere[@id='851000025'] or criteres/critere[@id='851000026'] or criteres/critere[@id='851000027']">
 						<table cellspacing="0" width="100%">
-							<xsl:for-each select="criteres/critere[@id='400003056']/modalites/modalite">
-								<tr>
-									<td>
-										<xsl:attribute name="style">width:70%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">7A7368</xsl:if><xsl:if test="(position() mod 2) = 0">E0E0E0</xsl:if>;color:#<xsl:if test="(position() mod 2) = 1">FFFFFF</xsl:if><xsl:if test="(position() mod 2) = 0">353535</xsl:if></xsl:attribute>
-										<xsl:value-of select="intModalite"/>
-									</td>
-									<td>
-										<xsl:attribute name="style">text-align:center;width:30%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">E4E0DB</xsl:if><xsl:if test="(position() mod 2) = 0">EEEEEE</xsl:if>;color:#353535</xsl:attribute>
-										<xsl:value-of select="valModalite"/> &amp;euro;
-									</td>
-								</tr>
+							<xsl:for-each select="criteres/critere[@id='851000020'] and criteres/critere[@id='851000021'] and criteres/critere[@id='851000022'] and criteres/critere[@id='851000023'] and criteres/critere[@id='851000024'] and criteres/critere[@id='851000025'] and criteres/critere[@id='851000026'] and criteres/critere[@id='851000027']">
+								<xsl:variable name="idCritereTarif" select="@id"/>
+								<xsl:for-each select="criteres/critere[@id=$idCritereTarif]/modalites/modalite">
+									<tr>
+										<td>
+											<xsl:attribute name="style">width:70%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">7A7368</xsl:if><xsl:if test="(position() mod 2) = 0">E0E0E0</xsl:if>;color:#<xsl:if test="(position() mod 2) = 1">FFFFFF</xsl:if><xsl:if test="(position() mod 2) = 0">353535</xsl:if></xsl:attribute>
+											<xsl:value-of select="intModalite"/>
+										</td>
+										<td>
+											<xsl:attribute name="style">text-align:center;width:30%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">E4E0DB</xsl:if><xsl:if test="(position() mod 2) = 0">EEEEEE</xsl:if>;color:#353535</xsl:attribute>
+											<xsl:value-of select="valModalite"/> &amp;euro;
+										</td>
+									</tr>
+								</xsl:for-each>
 							</xsl:for-each>
 						</table>
 					</xsl:if>
@@ -422,8 +446,8 @@
 				<div id="onglet-caracteristiques">
 					<xsl:if test="count(criteres/critere[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0]) &gt; 0">
 						<table cellspacing="0" width="100%">
-							<!-- Les criteres suivants sont retires pour ne pas etre repetes - etoile 400002615, type : 400002787, prix 400003056, chaine 400002616, label 999000107 -->
-							<xsl:for-each select="criteres/critere[($modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0) and (@id != '400002615') and (@id != '400002787') and (@id != '400003056') and (@id != '400002616') and (@id != '999000107')]">
+							<!-- Les criteres suivants sont retires pour ne pas etre repetes - etoile 851000005, type : 851000001, prix1 851000020, prix2 851000021, prix3 851000022, prix4 851000023, prix5 851000024, prix6 851000025, prix7 851000026, prix8 851000027, chaine 851000010, label 851000007 -->
+							<xsl:for-each select="criteres/critere[($modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0) and (@id != '851000005') and (@id != '851000001') and (@id != '851000020') and (@id != '851000021') and (@id != '851000022') and (@id != '851000023') and (@id != '851000024') and (@id != '851000025') and (@id != '851000026') and (@id != '851000027') and (@id != '851000010') and (@id != '851000007')]">
 								<xsl:if test="count(modalites/modalite) &gt; 0">
 									<xsl:variable name="idCritere" select="@id"/>
 									<tr>
