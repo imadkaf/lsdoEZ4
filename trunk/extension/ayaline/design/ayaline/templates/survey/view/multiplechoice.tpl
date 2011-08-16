@@ -1,5 +1,5 @@
 <div class="label-form">
-	<label class="lsdo-label non-textarea">{$question.text|wash('xhtml')}{switch match=$question.num}{case match=1}<strong class="required">*</strong>{/case}{case match=2}<strong class="required">*</strong>{/case}{/switch}{if ne($question.text, '')} :{/if}</label>
+	<label class="lsdo-label non-textarea">{$question.text|wash('xhtml')}{switch match=$question.num}{case match=1}<strong class="required">*</strong>{/case}{case match=2}<strong class="required">*</strong>{/case}{case}{/case}{/switch}{if ne($question.text, '')} :{/if}</label>
 </div>
 <div class="input-form">
 {def $attr_id=concat($prefix_attribute,'_ezsurvey_answer_id_',$question.id,'_', $attribute_id)}

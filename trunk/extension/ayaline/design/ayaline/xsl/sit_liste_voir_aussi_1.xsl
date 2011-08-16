@@ -39,6 +39,21 @@
 								<div style="margin-left: 100px;">
 									<h3><a><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="intitule"/></a></h3>
 									
+									<xsl:if test="criteres/critere[@id='851000005']">
+										<p class="bloc-stars">
+											<xsl:choose>
+												<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite != ''">
+													<img alt="">
+														<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
+														<xsl:attribute name="title">Cat&amp;eacute;gorie : <xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/></xsl:attribute>
+													</img>
+												</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/>
+												</xsl:otherwise>
+											</xsl:choose>
+										</p>
+									</xsl:if>
 									<p style="margin-bottom: 10px;"><![CDATA[ ]]></p>
 									
 									<a class="lien-plus-infos"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><![CDATA[ ]]></a>

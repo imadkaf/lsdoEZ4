@@ -15,5 +15,9 @@
 <div class="bloc-right-bis">
 	{include uri='design:parts/reserver.tpl'}
 	{include uri='design:parts/publicites_fiche.tpl' nbPubs = $nbPubs}
-	{sit_liste('sit_liste_voir_aussi')}
+	{*if eq($previousNode.data_map.categorie.data_text, '1')*}
+		{*sit_liste('sit_liste_voir_aussi_1.xsl')*}
+	{*else*}
+		{sit_liste('sit_liste_voir_aussi')}
+	{*/if*}
 </div>

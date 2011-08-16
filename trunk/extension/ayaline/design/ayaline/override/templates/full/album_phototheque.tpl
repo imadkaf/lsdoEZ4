@@ -55,9 +55,9 @@
 				$(function() {
 					$('a.galeriephototheque').lightBox({
 						imageLoading: {/literal}{'lightbox/lightbox-ico-loading.gif'|ezimage}{literal},
-						imageBtnClose: {/literal}{'lightbox/lightbox-btn-close.gif'|ezimage}{literal},
-						imageBtnPrev: {/literal}{'lightbox/lightbox-btn-prev.gif'|ezimage}{literal},
-						imageBtnNext: {/literal}{'lightbox/lightbox-btn-next.gif'|ezimage}{literal},
+						imageBtnClose: {/literal}{'lightbox/lightbox-btn-fermer.gif'|ezimage}{literal},
+						imageBtnPrev: {/literal}{'lightbox/lightbox-btn-prec.gif'|ezimage}{literal},
+						imageBtnNext: {/literal}{'lightbox/lightbox-btn-suiv.gif'|ezimage}{literal},
 						imageBlank: {/literal}{'lightbox/lightbox-blank.gif'|ezimage}{literal}
 					});
 				});
