@@ -10,7 +10,7 @@
 {/if}
 {def $rNode = fetch('content','node', hash('node_id',  ezini('NodeSettings','RootNode','content.ini')))}
 
-{def $nb_max = 4 }
+{def $nb_max = 4}
 {def $offset = 0}
 {if $view_parameters.offset|gt(0)}
 	{set $offset = $view_parameters.offset}
