@@ -1,17 +1,20 @@
 <div class="menu">
 	<ul>
 {def $mainMenuShowed = false()}
+{* sur le noeud racine (classe accueil), on récupère les noeuds qui constitue le menu principal et on boucle dessus *}
 {foreach $rNode.data_map.main_menu.content.main_node.children as $key => $sMenu sequence array( 'bottom', 'bottom-2', '' ) as $menuStyle}
-		<li class="rubrique{$key}">
-			<a class="element" href={$sMenu.data_map.content.content.main_node.url_alias|ezurl}><span></span></a>
+		<li class="rubrique{$key}"> {* en principe rubrique0 => Découvrir, rubrique1 => Séjourner, rubrique2 => A la une *}
+			{*<a class="element" href={$sMenu.data_map.content.content.main_node.url_alias|ezurl}><span></span></a>*}
+			{* suppression du lien sur la rubrique de niveau 1 car lien inutile puisque menu déroulant *}
+			<a class="element" href="#"><span>{*$sMenu.data_map.content.content.name|wash*}</span></a> {* TO DO : mettre le titre de la rubrique plutôt qu'un span vide pour le menu principal !!! *}
 	{*
 		Gestion des sous-menu du menu général
 	*}
 			<div class="ss-menu">
-	{if $key|eq(0)}
+	{if $key|eq(0)} {* Cas du menu Découvrir *}
 				<ul class="top">
-		{foreach $topicsList.children as $topic}
-			{if ne($topic.node_id, ezini('NodeSettings','topicDefaut','content.ini'))}
+		{foreach $topicsList.children as $topic} {* themes Mer/ville/plage/Nature définis dans le pagelayout *}
+			{if ne($topic.node_id, ezini('NodeSettings','topicDefaut','content.ini'))} {* on n'affiche pas le thème par défaut *}
 				{node_view_gui content_node=$topic view=line topicIds=$topicIds redirectURI=$module_result.uri|ezurl}
 			{/if}
 		{/foreach}
@@ -48,40 +51,8 @@
 									{else}
 										<span>Vous devez placer un contenu de type {ezini('ClassSettings','ClassEmbedCodeIdentifier','content.ini')} à cet emplacement.</span>
 									{/if}
+									{include uri='design:parts/maree.tpl'}
 									
-									{*Affichage bloc maree*}
-									{def $tabMaree = file_get_contents('http://www.horaire-maree.fr/widget_data.php?port=LES_SABLES-D_OLONNE')}
-									{set $tabMaree = $tabMaree|explode(';')}
-									<div class="maree">
-										<table>
-											<thead>
-										    	<tr>
-										        	<th class="taille">Pleine Mer</th>
-										           	<th class="taille">Basse Mer</th>
-										           	<th class="vert">Coef</th>
-										       	</tr>
-										   	</thead>
-										   	
-										   	<tbody>
-										    	<tr>
-										        	<td class="taille">Matin : {$tabMaree.1}</td>
-										           	<td class="taille">Matin : {$tabMaree.2}</td>
-										           	<td class="centre vert">{$tabMaree.0}</td>
-										       	</tr>
-										       	<tr>
-										           	<td class="taille">Soir : {$tabMaree.4}</td>
-										           	<td class="taille">Soir : {$tabMaree.5}</td>
-										           	<td class="centre vert">{$tabMaree.3}</td>
-										       	</tr>
-										   	</tbody>
-										   	
-										   	<tfoot>
-										    	<tr>
-										           	<th colspan="3"><a href="http://www.horaire-maree.fr/maree/LES_SABLES-D_OLONNE/" target="blank">http://www.horaire-maree.fr</a></th>
-										    	</tr>
-										   	</tfoot>
-										</table>
-									</div>
 						</div>
 					</li>
 								{/case}

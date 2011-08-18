@@ -19,9 +19,13 @@
 {else}
 	{def $topicIds = array()}
 {/if}
+
+{* récupération des themes (mer / ville / plage / nature dans le dossier Configuration Generale -> Themes *}
 {def $topicsList = fetch('content','node', hash('node_id',  ezini('NodeSettings','topicListNode','content.ini')))}
+
 {def $curLang = ezini( 'RegionalSettings', 'Locale' )}
 {def $nameRubric = ''}
+{def $diaporamas = array()}
 {def $i=0}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -121,6 +125,7 @@
 					</div>
 				</div>
 {include uri='design:parts/diaporama.tpl'}
+
 			</div>
 			<div class="clear"></div>
 	{if ne($cNode.node_id, ezini('NodeSettings', 'RootNode', 'content.ini'))}

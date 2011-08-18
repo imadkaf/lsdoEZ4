@@ -1,18 +1,18 @@
 {def $url = ""}
 
-{def $diaporamas1 = array()}
-{def $diaporamas2 = array()}
+
+{*def $diaporamas="" commenté car déclaré dans pagelayout et réutilisé sans parts/diaporama.tpl *}
 
 {def $diapos = ""}
 
 {*** Cas du diaporama associé à la page courante ***}
 {if is_set($cNode.node_id)}
-	{set $diaporamas1=fetch('content', 'reverse_related_objects', hash( 'object_id',$cNode.contentobject_id, 'attribute_identifier', 'diaporama/pages_cibles' ) )}
+	{set $diaporamas=fetch('content', 'reverse_related_objects', hash( 'object_id',$cNode.contentobject_id, 'attribute_identifier', 'diaporama/pages_cibles' ) )}
 {/if}
 
-{if $diaporamas1|count}
+{if $diaporamas|count}
 	{* Récupération des diapos du diaporama *}
-	{def $diapos1=fetch('content','list',hash('parent_node_id',$diaporamas1.0.main_node_id, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
+	{def $diapos1=fetch('content','list',hash('parent_node_id',$diaporamas.0.main_node_id, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
 	
 	{* Si le diaporama n'est pas vide *}
 	{if $diapos1|count}
@@ -26,13 +26,13 @@
 	{foreach $nodeSeasons1.children as $nodeSeason1}
 		{if and($nodeSeason1.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')),is_set($nodeSeason1.data_map.title.value.0))}
 			{if $nodeSeason1.data_map.title.value.0|eq($saisonId)}
-				{set $diaporamas2 = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $nodeSeason1.contentobject_id, 'attribute_identifier', 'diaporama/pages_cibles' ) )}
+				{set $diaporamas = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $nodeSeason1.contentobject_id, 'attribute_identifier', 'diaporama/pages_cibles' ) )}
 			{/if}
 		{/if}
 	{/foreach}
-	{if $diaporamas2|count}
+	{if $diaporamas|count}
 		{* Récupération des diapos du diaporama *}
-		{def $diapos2=fetch('content','list',hash('parent_node_id', $diaporamas2.0.main_node_id, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
+		{def $diapos2=fetch('content','list',hash('parent_node_id', $diaporamas.0.main_node_id, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
 		
 		{* Si le diaporama n'est pas vide *}
 		{if $diapos2|count}
@@ -71,7 +71,7 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 			{/if}
 			{ldelim}
 					"title" : "{$diapo.data_map.titre.content}",
-					"image" : "{$diapo.data_map.image.content.original.full_path}",
+					"image" : {$diapo.data_map.image.content.original.full_path|ezurl},
 					"url" : "{$url}",
 					"firstline" : "{$diapo.data_map.titre.content}",
 					"secondline" : "{$diapo.data_map.accroche.content}",
