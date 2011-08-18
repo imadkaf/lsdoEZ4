@@ -20,7 +20,7 @@
 	{if $affichageListeSIT.0.data_map.thumbnail.has_content}
 		<a href={$node.url_alias|ezurl}>{attribute_view_gui attribute=$affichageListeSIT.0.data_map.thumbnail image_class=$typeImage}</a>
 	{else}
-		<a href={$node.url_alias|ezurl}><img src={'sit/image_fiche_defaut_grande.jpg'|ezimage} width="{$tailleDef}px" alt="{attribute_view_gui attribute = $node.name}" title="{attribute_view_gui attribute = $node.name}" /></a>
+		<a href={$node.url_alias|ezurl}><img src={'sit/image_fiche_defaut_grande.jpg'|ezimage} width="{$tailleDef}px" alt="{$node.name}" title="{$node.name}" /></a>
 	{/if}
 	
 	<p>
