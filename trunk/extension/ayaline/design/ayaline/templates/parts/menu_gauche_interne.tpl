@@ -4,6 +4,10 @@
 											'class_filter_type' , 'include',
 											'class_filter_array', array('rubric', 'simple_free_content', 'page_contact', 'sit_liste', 'ayaline_gallery', 'gallery_category_photo', 'gallery_category_video', 'gallery_gallery_photo', 'site_map', 'brochures', 'survey', 'faqs', 'faq', 'brochure') ))}
 
+
+
+
+
 {def $children1 = ''}
 
 <div class="bloc-type">
