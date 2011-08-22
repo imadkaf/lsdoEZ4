@@ -1,7 +1,7 @@
 <div class="menu">
 	<ul>
 {def $mainMenuShowed = false()}
-{* sur le noeud racine (classe accueil), on récupère les noeuds qui constitue le menu principal et on boucle dessus *}
+{* sur le noeud racine (classe accueil), on récupère les noeuds qui constitue le menu principal et on boucle dessus -> menu général dans lequel on retrouve les arbos par saison *}
 {foreach $rNode.data_map.main_menu.content.main_node.children as $key => $sMenu sequence array( 'bottom', 'bottom-2', '' ) as $menuStyle}
 		<li class="rubrique{$key}"> {* en principe rubrique0 => Découvrir, rubrique1 => Séjourner, rubrique2 => A la une *}
 			{*<a class="element" href={$sMenu.data_map.content.content.main_node.url_alias|ezurl}><span></span></a>*}
@@ -12,6 +12,7 @@
 	*}
 			<div class="ss-menu">
 	{if $key|eq(0)} {* Cas du menu Découvrir *}
+				{* affichage des thème en haut du menu découvrir *}
 				<ul class="top">
 		{foreach $topicsList.children as $topic} {* themes Mer/ville/plage/Nature définis dans le pagelayout *}
 			{if ne($topic.node_id, ezini('NodeSettings','topicDefaut','content.ini'))} {* on n'affiche pas le thème par défaut *}
@@ -22,12 +23,17 @@
 				<div class="clear"></div>
 	{/if}
 				<ul class="{$menuStyle}">
+	{* $sMenu.children correspond à Découvrir / Séjourner / A la une du menu 'Configuration générale'->'Menu Général'-> Découvrir ou Séjourner ou A la Une *}
+	{* Dans chaque arbo Découvrir / Séjourner / A la une, on retrouve les 4 saisons. on boucle sur ces saisons *}
 	{foreach $sMenu.children as $nodeSeason}
 		{*Sélection de la saison souhaitée*}
 		{if and($nodeSeason.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($nodeSeason.data_map.title.value.0))}
 			{if $nodeSeason.data_map.title.value.0|eq($saisonId)}
-				{foreach $nodeSeason.children as $subKey => $nodeSub_menu sequence array( '', 'right' ) as $style}
+				{* pour la saison sélectionnée, on parcourt les sous-éléments *}
+				{def $index=0}
+				{foreach $nodeSeason.children as $subKey => $nodeSub_menu}
 					{set $nameRubric = $nodeSub_menu.name}
+					{* on n'affiche que certaines classes de contenu dans le menu *}
 					{if ezini('classList','HomeMainMenu','content.ini')|contains($nodeSub_menu.class_identifier)}
 						{if $key|eq(2)}
 							{*Gestion du menu à la une*}
@@ -67,16 +73,20 @@
 					</li>
 								{/case}
 							{/switch}
-						{else}
+						{else} {* menu découvrir ou séjourner*}
 							{*Gestion de l'affichage des items en fonction des thèmes*}
 							{if $topicIds|count}
+								{* si un theme est sélectionné, on vérifie que la classe à afficher est un contenu de type 'rubric' *}
 								{if $nodeSub_menu.data_map.content.content.main_node.class_identifier|eq(ezini('ClassSettings','ClassRubricIdentifier','content.ini'))}
+									{* on récupère les themes sélectionnés au niveau de la rubrique et pour chacun de ces thèmes on teste si le theme courant fait partie de ceux de la rubrique *}
 									{if $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list|count}
 										{foreach $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list as $relation}
+											{* NB : un seul theme sélectionné par l'internaute à la fois *}
 											{foreach $topicIds as $topicId}
+												{* cas ou la rubrique est associé au thème courant : dans ce cas on récupère le titre de la rubrique*}
 												{if $relation.node_id|eq($topicId)}
 													{set $mainMenuShowed = true()}
-													{if 1|eq($topicIds|count)}
+													{if and(1|eq($topicIds|count),$nodeSub_menu.data_map[concat('title_topic_', $topicId)].value|ne(""))}
 														{set $nameRubric = $nodeSub_menu.data_map[concat('title_topic_', $topicId)].value}
 													{/if}
 													{break}
@@ -94,14 +104,16 @@
 							{/if}
 							{if $mainMenuShowed}
 								{set $i=inc( $i )}
-					<li class="{$style}{if or($i|eq(1), $i|eq(2))} first{/if}">
+					<li class="{if eq($index|mod(2),1)}right{/if}{if or($i|eq(1), $i|eq(2))} first{/if}">
 								{node_view_gui content_node=$nodeSub_menu.data_map.content.content.main_node view=main_menu name=$nameRubric}
 					</li>
+								{set $index=inc( $index )}
 								{set $mainMenuShowed = false()}
 							{/if}
 						{/if}
 					{/if}
 				{/foreach}
+				{undef $index}
 				{break}	
 			{/if}
 		{/if}

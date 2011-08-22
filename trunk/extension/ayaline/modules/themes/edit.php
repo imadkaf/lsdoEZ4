@@ -20,7 +20,8 @@ if ($http->hasSessionVariable('topics')){
 		foreach ($topic_ids as $key=>$value) {
 			if ($value==$topic_id) unset($topic_ids[$key]);
 		} 
-	}else{
+	} else {
+		$topic_ids = array(); // JMA : un seul thème possible à fois, donc si un autre thème est sélectioné, je vide le tableau. (le tableau aura donc tjs 0 ou 1 valeur)
 		array_push($topic_ids, $topic_id);		
 	}
 }else{
