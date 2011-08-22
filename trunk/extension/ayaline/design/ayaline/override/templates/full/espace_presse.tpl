@@ -15,22 +15,10 @@
 		<div class="bloc-type">
 			
 			<h2 class="bloc-liste-h2">{$node.name|wash}</h2>
-			<p class="clear"></p>
-			
-			<p class="chapeau">
-			{if is_set($node.data_map.short_description)}
-				{attribute_view_gui attribute = $node.data_map.short_description}
+			{if $node.data_map.short_description.value.is_empty|not}
+				<p class="chapeau">{attribute_view_gui attribute = $node.data_map.description}</p>
 			{/if}
-			</p>
 			
-			<div class="espace_presse">
-				Vous souhaitez accéder à :<br /><br />
-				{if $nodePhototheque|count|gt(0)}
-					{set $nodePhototheque = $nodePhototheque.0}
-					<a href={$nodePhototheque.url_alias|ezurl}>- La photothèque</a><br />
-				{/if}
-				<a href={''|ezurl()}>- L'accueil</a>
-			</div>
 			<br /><br />
 		</div>
 	</div>

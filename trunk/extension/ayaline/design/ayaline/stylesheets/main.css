@@ -1870,6 +1870,13 @@ div.chapeau {
 div.chapeau p{
 	line-height:15px !important;
 }
+div.chapeauMedia {
+	font-size:14px;
+	font-weight:bold;
+	padding:24px 0 25px 0 !important;
+	border-bottom:1px solid #E9E3DE;
+	margin:0 0 24px 0;
+}
 .bloc-content p.padding-b-5px{
 	padding:0 0 5px 0 !important;
 }
@@ -2248,9 +2255,13 @@ select#nbre-semaine{
 }
 
 /*** Page de contenu ***/
+.contenu a {
+	text-decoration:underline;
+}
 ul.contenu li{
 	background:url("../images/puce-contenu-noir.png") no-repeat scroll 0 3px transparent;
 	padding:0 0 5px 10px;
+	margin-left:10px;
 }
 
 
@@ -2340,6 +2351,9 @@ ul.menu-left li.actif a{
 /*** Pages Médiathèque ***/
 /* Affichage du bloc de description de la Médiathèque */
 .chapeau.gallery{
+	margin-right:102px;
+}
+.chapeauMedia.gallery{
 	margin-right:102px;
 }
 /* Bloc de recherche dans les pages de la médiathèque */

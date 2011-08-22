@@ -28,9 +28,9 @@
 	<h2 class="bloc-liste-h2">{$node.parent.name|wash}</h2>
 	<p class="clear"></p>
 	
-	<p class="chapeau gallery">
-		{attribute_view_gui attribute=$node.data_map.description}			
-	</p>
+	<div class="chapeauMedia gallery">
+			{attribute_view_gui attribute=$node.data_map.description}			
+	</div>
 	
 	<div class="menu-h">
 		{include uri='design:gallery/tabs.tpl' rubriques=$rubriques}

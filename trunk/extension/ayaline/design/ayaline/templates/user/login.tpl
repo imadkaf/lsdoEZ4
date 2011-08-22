@@ -2,10 +2,14 @@
 	<div class="bloc-type padding-35px-32px">
 		<form method="post" action={"/user/login/"|ezurl} class="user-login">
 			<div class="maincontentheader">
-				<h2>{"Login"|i18n("design/standard/user")}</h2>
+				<h2>Accès à l'espace presse</h2>
 			</div>
 			<br />
-			
+			<div class="maincontentheader">
+				Pour accéder à l'espace presse, il est nécessaire de s'authentifier. Pour cela, renseigner les champs ci-dessous avec les accès qui vous ont été fournis.
+				Si vous ne disposez pas d'accès vous pouvez en faire la demande au niveau du formulaire de contact. 
+			</div>
+			<br /> 
 			{if $User:warning.bad_login}
 				<div class="warning">
 					<b>{"Could not login"|i18n("design/standard/user")}</b>
@@ -53,7 +57,17 @@
 			    <p><a href={'/user/forgotpassword'|ezurl}>{'Forgot your password?'|i18n( 'design/standard/user' )}</a></p>
 			{/if}
 			
+			{if $User:redirect_uri}
 			<input type="hidden" name="RedirectURI" value="{$User:redirect_uri|wash}" />
+			{else}
+				{* Espace presse *}
+				{def $pageEspace = fetch('content','tree', hash(
+													'parent_node_id', 2,
+													'class_filter_type' , 'include', 
+													'limitation' , array(), 
+													'class_filter_array' , array('espace_presse')))}
+				<input type="hidden" name="RedirectURI" value="/{$pageEspace[0].url_alias|wash}" />
+			{/if}
 			
 			{section show=and( is_set( $User:post_data ), is_array( $User:post_data ) )}
 			  {section name=postData loop=$User:post_data }

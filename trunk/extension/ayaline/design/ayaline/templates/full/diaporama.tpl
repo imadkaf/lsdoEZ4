@@ -22,7 +22,7 @@
 
 {*** Cas du diaporama de la saison courante ***}
 {* le diapo de la saison ne doit s'afficher que pour la page d'accueil car sinon on va le retrouver partout et l'image entete reduite ne servira jamais (puisque que les diaporamas saisons seront configurés) ! *}
-{if eq($diapos, "")}
+{if and(is_set($cNode.node_id),eq($diapos, ""))}
 	{if $cNode.node_id|eq(ezini('NodeSettings','RootNode','content.ini'))}
 		{def $nodeSeasons1 = fetch(content, node, hash(node_id,ezini('NodeSettings','SeasonListNode','content.ini')))}
 		{foreach $nodeSeasons1.children as $nodeSeason1}
@@ -244,11 +244,12 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 		{set $img_attribute = $imageEntete.0.data_map.image}
 	{else}
 		{if $cNode|is_set}
-		{* test sur le noeud : si on est sur l'accueil, on ne récupère pas le noeud parent *}
-		{if and($cNode.node_id|ne(ezini('NodeSettings','RootNode','content.ini')), $cNode.parent|is_set)}
-			{set $pNode = $cNode.parent}
-		{else}
-			{set $pNode = $cNode}
+			{* test sur le noeud : si on est sur l'accueil, on ne récupère pas le noeud parent *}
+			{if and($cNode.node_id|ne(ezini('NodeSettings','RootNode','content.ini')), $cNode.parent|is_set)}
+				{set $pNode = $cNode.parent}
+			{else}
+				{set $pNode = $cNode}
+			{/if}
 		{/if}
 		{if $pNode|is_set}
 			{* Tant qu'on n'est pas sur le noeud 2 (accueil) ou 43 (accueil Media) on remonte au noeud parent pour récupérer l'image de l'entete *}
