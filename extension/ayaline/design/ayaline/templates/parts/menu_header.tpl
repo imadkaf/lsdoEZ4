@@ -83,13 +83,17 @@
 										{foreach $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list as $relation}
 											{* NB : un seul theme sélectionné par l'internaute à la fois *}
 											{foreach $topicIds as $topicId}
-												{* cas ou la rubrique est associé au thème courant : dans ce cas on récupère le titre de la rubrique*}
-												{if $relation.node_id|eq($topicId)}
-													{set $mainMenuShowed = true()}
-													{if and(1|eq($topicIds|count),$nodeSub_menu.data_map[concat('title_topic_', $topicId)].value|ne(""))}
-														{set $nameRubric = $nodeSub_menu.data_map[concat('title_topic_', $topicId)].value}
+												{if $topicId|ne(ezini('NodeSettings','topicDefaut','content.ini'))} {* cas du thème par defaut à ne pas prendre en compte*}
+													{* cas ou la rubrique est associé au thème courant : dans ce cas on récupère le titre de la rubrique*}
+													{if $relation.node_id|eq($topicId)}
+														{set $mainMenuShowed = true()}
+														{if and(1|eq($topicIds|count),$nodeSub_menu.data_map[concat('title_topic_', $topicId)].value|ne(""))}
+															{set $nameRubric = $nodeSub_menu.data_map[concat('title_topic_', $topicId)].value}
+														{/if}
+														{break}
 													{/if}
-													{break}
+												{else}
+													{set $mainMenuShowed = true()}													
 												{/if}
 											{/foreach}
 										{/foreach}
