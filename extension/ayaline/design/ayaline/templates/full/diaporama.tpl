@@ -21,15 +21,19 @@
 {/if}
 
 {*** Cas du diaporama de la saison courante ***}
+{* le diapo de la saison ne doit s'afficher que pour la page d'accueil car sinon on va le retrouver partout et l'image entete reduite ne servira jamais (puisque que les diaporamas saisons seront configurés) ! *}
 {if eq($diapos, "")}
-	{def $nodeSeasons1 = fetch(content, node, hash(node_id,ezini('NodeSettings','SeasonListNode','content.ini')))}
-	{foreach $nodeSeasons1.children as $nodeSeason1}
-		{if and($nodeSeason1.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')),is_set($nodeSeason1.data_map.title.value.0))}
-			{if $nodeSeason1.data_map.title.value.0|eq($saisonId)}
-				{set $diaporamas = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $nodeSeason1.contentobject_id, 'attribute_identifier', 'diaporama/pages_cibles' ) )}
+	{if $cNode.node_id|eq(ezini('NodeSettings','RootNode','content.ini'))}
+		{def $nodeSeasons1 = fetch(content, node, hash(node_id,ezini('NodeSettings','SeasonListNode','content.ini')))}
+		{foreach $nodeSeasons1.children as $nodeSeason1}
+			{if and($nodeSeason1.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')),is_set($nodeSeason1.data_map.title.value.0))}
+				{if $nodeSeason1.data_map.title.value.0|eq($saisonId)}
+					{set $diaporamas = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $nodeSeason1.contentobject_id, 'attribute_identifier', 'diaporama/pages_cibles' ) )}
+				{/if}
 			{/if}
-		{/if}
-	{/foreach}
+		{/foreach}
+		{undef $nodeSeasons1}
+	{/if}
 	{if $diaporamas|count}
 		{* Récupération des diapos du diaporama *}
 		{def $diapos2=fetch('content','list',hash('parent_node_id', $diaporamas.0.main_node_id, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
@@ -239,14 +243,17 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 	{if $imageEntete|count}
 		{set $img_attribute = $imageEntete.0.data_map.image}
 	{else}
-		{if and($cNode, $cNode.parent)}
+		{if $cNode|is_set}
+		{* test sur le noeud : si on est sur l'accueil, on ne récupère pas le noeud parent *}
+		{if and($cNode.node_id|ne(ezini('NodeSettings','RootNode','content.ini')), $cNode.parent|is_set)}
 			{set $pNode = $cNode.parent}
 		{else}
-			{set $pNode = $previousNode}
+			{set $pNode = $cNode}
 		{/if}
-		{if $pNode}
-			{while $continue}
-				{if ne($pNode.node_id, ezini('Noeuds','home','ayaline.ini'))}
+		{if $pNode|is_set}
+			{* Tant qu'on n'est pas sur le noeud 2 (accueil) ou 43 (accueil Media) on remonte au noeud parent pour récupérer l'image de l'entete *}
+			{while $continue}	
+				{if and(ne($pNode.node_id, ezini('NodeSettings','RootNode','content.ini')), ne($pNode.node_id, ezini('NodeSettings','MediaRootNode','content.ini')))}
 					{set $imageEntete = fetch('content', 'reverse_related_objects', hash( 'object_id',$pNode.contentobject_id, 'attribute_identifier', 'image_entete/pages_cibles' ) )}
 					{if $imageEntete|count}
 						{set $img_attribute = $imageEntete.0.data_map.image}
@@ -259,16 +266,23 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 				{/if}
 			{/while}
 		{/if}
+		{* si pas d'image paramétrée, on prend l'image par défaut de la saison *}
 		{if eq(0, $img_attribute|count)}
 			{set $defaultDiapo = true()}
 		{/if}
 	{/if}
 	
 	{if $defaultDiapo}
+		{* on regarde s'il existe une image par défaut (de type 'diapo') pour chaque saison *}
 		{def $nodeSeasons = fetch(content, node, hash(node_id, ezini('NodeSettings','SeasonListNode','content.ini')))}
 		{foreach $nodeSeasons.children as $nodeSeason}
+			{* s'il s'agit de la classe 'saison' et que la valeur de la saison est renseignée *}
 			{if and($nodeSeason.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($nodeSeason.data_map.title.value.0))}
+				{* on teste si la valeur de la saison (id de liste déroulante) correspond à la saison en cours *}
 				{if	$nodeSeason.data_map.title.value.0|eq($saisonId)}
+					{* si la saison a des sous-éléments, on passe 1 à 1 les attributs du 1er sous-élément jusqu'à ce qu'on trouve un élément de type image *}
+					
+					{* -- TODO -- ne pas passer un à un les attributs mais faire un fetch spécifique sur une image d'entete (ou une image simple) *}
 					{if	$nodeSeason.children|count}
 						{foreach $nodeSeason.children.0.data_map as	$attribute}
 							{if $attribute.data_type_string|eq('ezimage')}
@@ -280,8 +294,16 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 				{/if}
 			{/if}
 		{/foreach}
+		{* si pas d'image par défaut pour la saison, on prend alors l'image par défaut de type 'image_entete' *}
+		{if eq(0, $img_attribute|count)}
+			{def $defaultImg = fetch( 'content', 'tree', hash( 'parent_node_id', ezini('NodeSettings','MediaRootNode','content.ini'),
+																'class_filter_type', 'include',
+           														'class_filter_array', array('image_entete') ) )}
+           	
+           	{* on prend la 1ère*}
+           	{set $img_attribute = $defaultImg.0.data_map.image}
+		{/if}
 	{/if}
-
 	<div id="headerdiapos">
 		{attribute_view_gui attribute=$img_attribute img_class='headerdiapo' image_class='diapo_header' dimension=false()}
 	</div>

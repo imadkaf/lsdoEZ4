@@ -12,6 +12,7 @@
 {if ezhttp('saison', 'session', 'hasVariable')}
 	{def $saisonId = ezhttp('saison', 'session')}
 {else}
+	{*si pas de saison sélectionné : c'est l'été la saison par défaut *}
 	{def $saisonId = ezini('ClassSettings','DefaultSeasonId','content.ini')}
 {/if}
 {if ezhttp('topics', 'session', 'hasVariable')}
