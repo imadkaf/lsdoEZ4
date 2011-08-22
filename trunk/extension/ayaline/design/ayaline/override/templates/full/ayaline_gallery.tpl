@@ -24,14 +24,14 @@
 			{attribute_view_gui attribute=$node.data_map.description}			
 		</p>
 		
-		{* Formulaire de recherche *}
+		{* Formulaire de recherche 
 		<div class="bloc-search">
 			{include uri='design:gallery/search_form.tpl' rubriques=$rubriques}
-		</div>
+		</div>*}
 		
-		<div class="menu-h">
+		{*<div class="menu-h">
 			{include uri='design:gallery/tabs.tpl' rubriques=$rubriques}
-		</div>
+		</div>*}
 		
 		<div class="bloc-container">
 			<p class="clear"></p>
