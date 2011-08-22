@@ -6,12 +6,19 @@
 	<xsl:template match="/">
 		<div class="bloc-type">
 			<ul class="list-thm">
+				<li class="first"><strong>Changer de<br />saison &gt;</strong></li>
+				<li><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm1-bis.png" alt="" /></a></li>
+				<li><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm2-bis.png" alt="" /></a></li>
+				<li><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm3-bis.png" alt="" /></a></li>
+				<li class="last"><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm4-bis.png" alt="" /></a></li>
+			</ul>
+			<!-- ul class="list-thm">
 				<li class="first"><strong>Changer de<br />th&amp;egrave;me &gt;</strong></li>
 				<li><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm1.png" alt="" /></a></li>
 				<li><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm2.png" alt="" /></a></li>
 				<li><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm3.png" alt="" /></a></li>
 				<li class="last"><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm4.png" alt="" /></a></li>
-			</ul>
+			</ul-->
 			<h2 class="bloc-liste-h2-recherche">Affiner votre recherche :</h2>
 			<p class="clear"></p>
 			<form method="post" class="form-search-left">
