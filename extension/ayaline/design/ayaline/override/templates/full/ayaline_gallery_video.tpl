@@ -29,7 +29,7 @@
 	<p class="clear"></p>
 	
 	<p class="chapeau gallery">
-		{attribute_view_gui attribute=$node.parent.data_map.description}			
+		{attribute_view_gui attribute=$node.data_map.description}			
 	</p>
 	
 	<div class="menu-h">

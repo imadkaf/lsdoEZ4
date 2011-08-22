@@ -40,9 +40,7 @@
 		<h2 class="bloc-liste-h2">{$node.parent.name|wash}</h2>
 		<p class="clear"></p>
 		
-		<p class="chapeau gallery">
-			{attribute_view_gui attribute=$node.parent.data_map.description}			
-		</p>
+		<p class="chapeau gallery">{attribute_view_gui attribute=$node.data_map.description}</p>
 		
 		{* Formulaire de recherche *}
 		<div class="bloc-search">
