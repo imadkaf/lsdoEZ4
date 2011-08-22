@@ -15,12 +15,11 @@
 	{*si pas de saison sélectionné : c'est l'été la saison par défaut *}
 	{def $saisonId = ezini('ClassSettings','DefaultSeasonId','content.ini')}
 {/if}
-{if ezhttp('topics', 'session', 'hasVariable')}
+{if and(ezhttp('topics', 'session', 'hasVariable'),ezhttp('topics', 'session')|count|ne(0))}
 	{def $topicIds = ezhttp('topics', 'session')}
 {else}
-	{def $topicIds = array()}
+	{def $topicIds = array(ezini('NodeSettings','topicDefaut','content.ini'))}
 {/if}
-
 {* récupération des themes (mer / ville / plage / nature dans le dossier Configuration Generale -> Themes *}
 {def $topicsList = fetch('content','node', hash('node_id',  ezini('NodeSettings','topicListNode','content.ini')))}
 
@@ -129,17 +128,7 @@
 
 			</div>
 			<div class="clear"></div>
-	{if ne($cNode.node_id, ezini('NodeSettings', 'RootNode', 'content.ini'))}
-				<p class="fil-ariane">
-		{foreach $module_result.path as $Path}
-			{if or($Path.url_alias, $Path.url)}
-					<a href={$Path.url_alias|ezurl}>{$Path.text|wash}</a> >
-			{else}
-					<strong>{$Path.text|wash}</strong>
-			{/if}
-		{/foreach}
-				</p>
-	{/if}
+			{include uri='design:parts/fil_ariane.tpl'}
 			
 			<div class="content">
 {$module_result.content}
