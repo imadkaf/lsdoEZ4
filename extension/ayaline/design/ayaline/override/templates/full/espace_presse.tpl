@@ -8,7 +8,7 @@
 <div class="bloc-left-bis">
 
 	<div class="bloc-left-in-bis">
-		{include uri='design:parts/menu_gauche_interne.tpl'}
+		{include uri='design:parts/menu_gauche_interne_espace_presse.tpl'}
 	</div>
 	
 	<div class="bloc-right-in-bis">
@@ -16,7 +16,7 @@
 			
 			<h2 class="bloc-liste-h2">{$node.name|wash}</h2>
 			{if $node.data_map.short_description.value.is_empty|not}
-				<p class="chapeau">{attribute_view_gui attribute = $node.data_map.description}</p>
+				<p class="chapeau">{attribute_view_gui attribute = $node.data_map.short_description}</p>
 			{/if}
 			
 			<br /><br />
