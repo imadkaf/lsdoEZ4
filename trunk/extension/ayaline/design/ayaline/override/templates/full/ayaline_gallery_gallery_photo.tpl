@@ -11,7 +11,7 @@
 	{include uri='design:content/search_photo.tpl' noeud=$node search_text=$search_text}
 {else}
 	{def $rubriques = fetch( 'content','list',hash( 'parent_node_id', $node.parent.parent_node_id, 
-													'sort_by', $node.sort_array,
+													'sort_by', $node.parent.sort_array,
 													'class_filter_type',  'include',
 	              									'class_filter_array', array('gallery_category_video', 'gallery_category_photo') ))}
 	
@@ -29,8 +29,8 @@
 		<h2 class="bloc-liste-h2">{$node.parent.parent.name|wash}</h2>
 		<p class="clear"></p>
 	
-		<p class="chapeau gallery">
-			{attribute_view_gui attribute=$node.parent.parent.data_map.description}			
+		<div class="chapeauMedia gallery">
+			{attribute_view_gui attribute=$node.parent.data_map.description}			
 		</p>
 		
 		{* Formulaire de recherche *}
