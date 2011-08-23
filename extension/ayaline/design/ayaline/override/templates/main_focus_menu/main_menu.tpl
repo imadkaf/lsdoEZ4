@@ -5,7 +5,7 @@
 {/if}
 <ul class="list-in">
 {foreach $node.children as $sMenu}
-	<li><a href={$node.url_alias|ezurl}>{$sMenu.name|wash}</a></li>
+	<li><a href={$sMenu.data_map.content.content.main_node.url_alias|ezurl}>{$sMenu.name|wash}</a></li>
 {/foreach}
 </ul>
 <div class="clear"></div>
