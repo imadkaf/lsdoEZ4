@@ -31,7 +31,7 @@
 	
 		<div class="chapeauMedia gallery">
 			{attribute_view_gui attribute=$node.parent.data_map.description}			
-		</p>
+		</div>
 		
 		{* Formulaire de recherche *}
 		<div class="bloc-search">
