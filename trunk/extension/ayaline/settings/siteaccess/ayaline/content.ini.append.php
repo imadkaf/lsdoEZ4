@@ -22,6 +22,22 @@ HomeMainMenu[]=sub_menu
 HomeMainMenu[]=main_menu
 HomeMainMenu[]=embed_code
 HomeMainMenu[]=sit_mise_en_avant
+ClassesMenuInterne[]
+ClassesMenuInterne[]=faqs
+ClassesMenuInterne[]=survey
+ClassesMenuInterne[]=brochures
+ClassesMenuInterne[]=site_map
+ClassesMenuInterne[]=ayaline_gallery
+ClassesMenuInterne[]=gallery_category_photo
+ClassesMenuInterne[]=gallery_category_video
+ClassesMenuInterne[]=album_phototheque
+ClassesMenuInterne[]=simple_free_content
+ClassesMenuInterne[]=dossier_phototheque
+ClassesMenuInterne[]=espace_presse
+ClassesMenuInterne[]=page_contact
+ClassesMenuInterne[]=phototheque
+ClassesMenuInterne[]=rubric
+ClassesMenuInterne[]=sit_liste
 
 [ClassAttributeSettings]
 ClassAttributeSeasonIdentifier=title

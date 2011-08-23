@@ -10,6 +10,8 @@ alaune=/1/2/150/
 
 [Noeuds]
 home=2
+decouvrir=126
+sejourner=145
 
 #[Urls]
 #rssBlog=http://www.messablesdolonne.fr/feed/
