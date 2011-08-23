@@ -1,6 +1,7 @@
 <div class="menu">
 	<ul>
 {def $mainMenuShowed = false()}
+{def $affMenuListeSIT=""}
 {* sur le noeud racine (classe accueil), on récupère les noeuds qui constitue le menu principal et on boucle dessus -> menu général dans lequel on retrouve les arbos par saison *}
 {foreach $rNode.data_map.main_menu.content.main_node.children as $key => $sMenu sequence array( 'bottom', 'bottom-2', '' ) as $menuStyle}
 		<li class="rubrique{$key}"> {* en principe rubrique0 => Découvrir, rubrique1 => Séjourner, rubrique2 => A la une *}
@@ -100,10 +101,39 @@
 									{else}
 										{set $mainMenuShowed = true()}
 									{/if}
-								{else}
+								{elseif $nodeSub_menu.data_map.content.content.main_node.class_identifier|eq(ezini('ClassSettings','ClassSITListe','content.ini'))}
+								{* cas des Listes SIT : on n'a pas directement la correspondance entre la classe et le thème, on est obligé d'aller récupérer le thème dans la classe associée (affichage_liste_sit) *}
+									{set $affMenuListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $nodeSub_menu.data_map.content.content.main_node.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
+									{set $affMenuListeSIT = $affMenuListeSIT.0}
+									{* on a récupéré l'élément Affichage Liste SIT qui a le champ theme, on peut faire le meme traitement que dans le if précédent *}
+									{if $affMenuListeSIT.data_map.topics.content.relation_list|count}
+										{foreach $affMenuListeSIT.data_map.topics.content.relation_list as $relation}
+											{* NB : un seul theme sélectionné par l'internaute à la fois *}
+											{foreach $topicIds as $topicId}
+												{if $topicId|ne(ezini('NodeSettings','topicDefaut','content.ini'))} {* cas du thème par defaut à ne pas prendre en compte*}
+													{* cas ou la rubrique est associé au thème courant : dans ce cas on récupère le titre de la rubrique*}
+													{if $relation.node_id|eq($topicId)}
+														{set $mainMenuShowed = true()}
+														{if and(1|eq($topicIds|count),$nodeSub_menu.data_map[concat('title_topic_', $topicId)].value|ne(""))}
+															{set $nameRubric = $nodeSub_menu.data_map[concat('title_topic_', $topicId)].value}
+														{/if}
+														{break}
+													{/if}
+												{else}
+													{* on prend le nom de la rubrique par défaut *}
+													{set $mainMenuShowed = true()}													
+												{/if}
+											{/foreach}
+										{/foreach}
+									{*else}
+										{set $mainMenuShowed = true()*}
+									{/if}
+								{else} 
+									{* cas ou un autre type de contenu (que 'Rubrique' et 'Liste SIT' seraient dans le menu : une page de contenu libre par ex, mais ceci ne devrait pas arriver car aucune vignette ne s'affichera dans le menu *}
 									{set $mainMenuShowed = true()}
 								{/if}
 							{else}
+								{* cas ou il y a aucun thème de sélectionné : ne devrait jamais arriver car meme si aucun theme n'est sélectionné, c'est le theme 'defaut' qui est renseigné *}
 								{set $mainMenuShowed = true()}
 							{/if}
 							{if $mainMenuShowed}
