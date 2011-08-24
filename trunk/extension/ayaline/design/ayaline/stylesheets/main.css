@@ -1989,6 +1989,7 @@ div.chapeau img{
 }
 .rubrique2 .ss-menu ul li ul.list-in{
 	float:left;
+	width:65px;
 }
 .rubrique2 .ss-menu ul li.right p.title{
 	font-size:14px;

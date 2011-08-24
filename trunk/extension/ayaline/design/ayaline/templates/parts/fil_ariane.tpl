@@ -1,34 +1,47 @@
+{def $titreTheme=''}
 {if $module_result.uri|eq('/user/login')}
 		<p class="fil-ariane"><a href="/">Les Sables d'Olonne</a> > <strong>Connexion</strong></p>
 {/if}
-{if $cNode|is_set()}
+
 	{if ne($cNode.node_id, ezini('NodeSettings', 'RootNode', 'content.ini'))}
 		<p class="fil-ariane">
 		{foreach $module_result.path as $Path}
-			{* on regarde si la rubrique ‡ un titre diffÈrent en fonction du theme *}
+			{set $titreTheme=''}
+			{* on regarde si la rubrique a un titre different en fonction du theme *}
 			
-			{* pour cela : 1. on recupËre le noeud 
+			{* pour cela : 1. on recupere le noeud 
 						   2. on regarde si ya une relation inverse depuis un contenu de type rubrique 
-						   3. on recupere la rubrique correspondant ‡ la saison
-						   4. on rÈcupËre le thËme courant et on regarde si la rubrique ‡ un titre spÈcifique au theme
+						   3. on recupere la rubrique correspondant a la saison
+						   4. on recupere le theme courant et on regarde si la rubrique a un titre spÔøΩcifique au theme
 			*}
 			{* 1 *}
 			{def $node = fetch( 'content', 'node', hash( 'node_id', $Path.node_id ) )}
 			{* 2 *}
 			{def $rubriques = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
-			{* 3 *}
+			{* 3 & 4 *}
 			{foreach $rubriques as $rubrique}
-				===============>{$rubrique.main_parent_node_id}
+				{* test sur le theme : si on est sur le theme par d√©faut, pas la peine de chercher le titre li√© au theme *}
+				{if $topicId|ne(ezini('NodeSettings','topicDefaut','content.ini'))}
+					{* test sur la saison *}
+					{if and($rubrique.main_node.parent.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($rubrique.main_node.parent.data_map.title.value.0))}
+						{* on v√©rifie qu'on est sur le theme en cours ET qu'un titre a √©t√© renseign√© pour le theme en question *}
+						{if and($rubrique.main_node.parent.data_map.title.value.0|eq($saisonId),$rubrique.data_map[concat('title_topic_', $topicId)].value|ne(""))}	
+							{set $titreTheme=$rubrique.data_map[concat('title_topic_', $topicId)].value}
+							{break}
+						{/if}
+					{/if}
+				{/if}	
 			{/foreach}
-			{* 4 *}
-			{$Path.text|wash} {*$rubric|attribute(show)*}
+			{* si le titre du theme est d√©fini on s'en sert, sinon on utilise le titre par d√©faut *}
+			{if $titreTheme|eq('')}{set $titreTheme=$Path.text}{/if}
 			{undef $node $rubriques}
 			{if or($Path.url_alias, $Path.url)}
-					<a href={$Path.url_alias|ezurl}>{$Path.text|wash}</a> >
+					<a href={$Path.url_alias|ezurl}>{$titreTheme|wash}</a> >
 			{else}
-					<strong>{$Path.text|wash}</strong>
+					<strong>{$titreTheme|wash}</strong>
 			{/if}
 		{/foreach}
 		</p>
 	{/if}
-{/if}
+
+{undef $titreTheme}
