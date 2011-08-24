@@ -146,7 +146,33 @@
 
 <div class="bloc-type">
 	<h2 class="menu-gauche-h2">
-		{attribute_view_gui attribute = $node.parent.data_map.title}
+		{* Si le grand-parent du noeud en cour est Decouvrir ou Sejourner *}
+		{if or(eq($node.parent.parent.node_id, ezini('Noeuds','decouvrir','ayaline.ini')), eq($node.parent.parent.node_id, ezini('Noeuds','sejourner','ayaline.ini')))}
+			{* Recuperation des objets associes au pere *}
+			{def $menusAssoPere = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.parent.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
+			{* Pour chaque objet associe *}
+			{foreach $menusAssoPere as $menuAssoPere}
+				{* Si le pere de l'objet associe est une saison et qu'il a un titre *}
+				{if and($menuAssoPere.main_node.parent.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($menuAssoPere.main_node.parent.data_map.title.value.0))}
+					{* Si le pere de l'objet associe correspond a la saison en cours *}
+					{if $menuAssoPere.main_node.parent.data_map.title.value.0|eq($saisonID)}
+						{* Si le theme en cours n'est pas celui par defaut *}
+						{if ne($topicIDs.0, ezini('NodeSettings','topicDefaut','content.ini'))}
+							{* Si l'attribut title_topic du theme en cours n'est pas vide *}
+							{if ne($menuAssoPere.main_node.data_map[concat('title_topic_', $topicIDs.0)].value, '')}
+								{$menuAssoPere.main_node.data_map[concat('title_topic_', $topicIDs.0)].value}
+							{else}
+								{$menuAssoPere.main_node.name}
+							{/if}
+						{else}
+							{$menuAssoPere.main_node.name}
+						{/if}
+					{/if}
+				{/if}
+			{/foreach}
+		{else}
+			{attribute_view_gui attribute = $node.parent.data_map.title}
+		{/if}
 	</h2>
 	<p class="clear"></p>
 	

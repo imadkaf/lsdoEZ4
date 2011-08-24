@@ -46,6 +46,7 @@
 							</li>
 						</xsl:if>
 					</xsl:for-each>
+					<![CDATA[ ]]>
 				</ul>
 
 				<p class="lien-bas">
