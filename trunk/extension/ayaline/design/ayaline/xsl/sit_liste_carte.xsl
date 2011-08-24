@@ -17,7 +17,7 @@
 			<script type="text/javascript">
 				<![CDATA[
 					function initialize() {
-						//Mettre les coordonnees du centre des Sables d'Olonne
+						//Les coordonnees du centre des Sables d'Olonne
 						var latlng = new google.maps.LatLng(46.5, -1.7833);
 						
 						var myOptions = {

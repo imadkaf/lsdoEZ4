@@ -7,7 +7,7 @@
 	<xsl:variable name="apos">'</xsl:variable>
 
 	<xsl:include href="inc/string_replace_all.xsl"/>
-	<xsl:include href="inc/periodes_ouverture.xsl"/>
+	<xsl:include href="inc/periodes_ouverture_1.xsl"/>
 	<xsl:include href="inc/display_dispos.xsl"/>
 	<xsl:include href="inc/rendu_adresse.xsl"/>
 
@@ -219,53 +219,78 @@
 			
 			<table cellspacing="0" cellpadding="0">
 				<tr><td style="padding:0 0 0 15px">
-					<xsl:if test="string-length(commentaires/commentaire1) &gt; 0">
-						<p><xsl:call-template name="string-replace-all">
-							<xsl:with-param name="text" select="commentaires/commentaire1"/>
-							<xsl:with-param name="replace" select="'\n'"/>
-							<xsl:with-param name="by" select="'&lt;br/&gt;'"/>
-						</xsl:call-template></p>
-					</xsl:if>
-					
-					<xsl:call-template name="periodes-ouverture"/>
-					<br/>
-					
-					<xsl:if test="count(criteres/critere[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0]) &gt; 0">
-						<div style="margin-bottom:3px"><strong><xsl:value-of select="$termeCaracteristiques"/></strong></div>
-						<table cellspacing="0" width="100%">
-							<xsl:for-each select="criteres/critere[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0]">
-								<xsl:if test="count(modalites/modalite) &gt; 0">
-									<xsl:variable name="idCritere" select="@id"/>
-									<tr>
-										<td>
-											<xsl:attribute name="style">width:40%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">7A7368</xsl:if><xsl:if test="(position() mod 2) = 0">E0E0E0</xsl:if>;color:#<xsl:if test="(position() mod 2) = 1">FFFFFF</xsl:if><xsl:if test="(position() mod 2) = 0">353535</xsl:if></xsl:attribute>
-											<xsl:if test="string-length(intCritere) &gt; 0"><strong><xsl:value-of select="intCritere"/></strong></xsl:if><xsl:if test="string-length(intCritere) = 0">&amp;nbsp;</xsl:if>
-										</td>
-										<td>
-											<xsl:attribute name="style">width:60%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">E4E0DB</xsl:if><xsl:if test="(position() mod 2) = 0">EEEEEE</xsl:if>;color:#353535</xsl:attribute>
-											<xsl:for-each select="modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', $idCritere, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', $idCritere, '|'))))]">
-												<div>
-													<xsl:value-of select="intModalite"/><xsl:if test="string-length(intModalite) &gt; 0 and string-length(valModalite) &gt; 0">&amp;nbsp;:&amp;nbsp;</xsl:if><xsl:if test="string-length(valModalite) &gt; 0"><strong><xsl:value-of select="valModalite"/></strong></xsl:if>
-												</div>
-											</xsl:for-each>
-										</td>
-									</tr>
-								</xsl:if>
-							</xsl:for-each>
-						</table>
-					</xsl:if>
-					<xsl:for-each select="liensMultimedia/lienMultimedia[@type='sons' and string-length(codeHtmlLienMultimedia) &gt; 0]">
-						<div style="margin:15px 0;text-align:center">
-							<p>
-								<a target="_blank">
-									<xsl:attribute name="href"><xsl:value-of select="lienLienMultimedia"/></xsl:attribute>
-									<strong><xsl:value-of select="titreLienMultimedia"/></strong> &amp;mdash; <span style="font-style:italic;color:#999999"><xsl:value-of select="creditLienMultimedia"/></span>
-								</a>
-							</p>
-							<p><xsl:value-of select="descriptionLienMultimedia"/></p>
-							<div><xsl:value-of select="codeHtmlLienMultimedia"/></div>
+					<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><![CDATA[ ]]></script>
+					<script xml:space="preserve" type="text/javascript">
+						<![CDATA[
+							$(document).ready(function() {
+								$("#tabs").tabs();
+							});
+						]]>
+					</script>
+					<div id="tabs">
+						<ul>
+							<li><a href="#onglet-description"><span>Descriptif</span></a></li>
+							<li><a href="#onglet-caracteristiques"><span>Caract&amp;eacute;ristiques</span></a></li>
+							<li style="background-color: #7AD6E1 !important;"><a href="#onglet-avis"><span>Avis</span></a></li>
+						</ul>
+						
+						<div id="onglet-description">
+							<xsl:if test="string-length(commentaires/commentaire1) &gt; 0">
+								<p class="padding-bottom: 14px">
+									<xsl:call-template name="string-replace-all">
+									<xsl:with-param name="text" select="commentaires/commentaire1"/>
+									<xsl:with-param name="replace" select="'\n'"/>
+									<xsl:with-param name="by" select="'&lt;br/&gt;'"/>
+									</xsl:call-template>
+								</p>
+							</xsl:if>
+							
+							<xsl:call-template name="periodes-ouverture"/>
 						</div>
-					</xsl:for-each>
+						
+						<div id="onglet-caracteristiques">
+							<xsl:if test="count(criteres/critere[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0]) &gt; 0">
+								<table cellspacing="0" width="100%">
+									<xsl:for-each select="criteres/critere[($modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0)]">
+										<xsl:if test="count(modalites/modalite) &gt; 0">
+											<xsl:variable name="idCritere" select="@id"/>
+											<tr>
+												<td>
+													<xsl:attribute name="style">width:40%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">7A7368</xsl:if><xsl:if test="(position() mod 2) = 0">E0E0E0</xsl:if>;color:#<xsl:if test="(position() mod 2) = 1">FFFFFF</xsl:if><xsl:if test="(position() mod 2) = 0">353535</xsl:if></xsl:attribute>
+													<xsl:if test="string-length(intCritere) &gt; 0"><strong><xsl:value-of select="intCritere"/></strong></xsl:if><xsl:if test="string-length(intCritere) = 0">&amp;nbsp;</xsl:if>
+												</td>
+												<td>
+													<xsl:attribute name="style">width:60%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">E4E0DB</xsl:if><xsl:if test="(position() mod 2) = 0">EEEEEE</xsl:if>;color:#353535</xsl:attribute>
+													<xsl:for-each select="modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', $idCritere, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', $idCritere, '|'))))]">
+														<div>
+															<xsl:value-of select="intModalite"/><xsl:if test="string-length(intModalite) &gt; 0 and string-length(valModalite) &gt; 0">&amp;nbsp;:&amp;nbsp;</xsl:if><xsl:if test="string-length(valModalite) &gt; 0"><strong><xsl:value-of select="valModalite"/></strong></xsl:if>
+														</div>
+													</xsl:for-each>
+												</td>
+											</tr>
+										</xsl:if>
+									</xsl:for-each>
+								</table>
+							</xsl:if>
+						</div>
+						
+						<div id="onglet-avis">
+							<xsl:choose>
+								<xsl:when test="count(liensMultimedia/lienMultimedia[@type='image']) &gt; 0">
+									<xsl:for-each select="liensMultimedia/lienMultimedia[@type='image' and string-length(codeHtmlLienMultimedia) &gt; 0]">
+										<div><xsl:value-of select="codeHtmlLienMultimedia"/></div>
+									</xsl:for-each>
+								</xsl:when>
+								<xsl:otherwise>
+									<p>
+										Aucun avis pour le moment.<br />
+										Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
+									</p>
+								</xsl:otherwise>
+							</xsl:choose>
+						</div>
+					</div>
+					<br/>
 				</td></tr>
 			</table>
 		</div>

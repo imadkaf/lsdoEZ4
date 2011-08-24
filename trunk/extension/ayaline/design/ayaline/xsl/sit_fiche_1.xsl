@@ -305,17 +305,8 @@
 			<p class="lien-bas">
 				<a class="reserver" href="#">R&amp;eacute;server</a>
 			</p>
-			<p class="clear"></p>
-			
-			<xsl:if test="string-length(commentaires/commentaire1) &gt; 0">
-				<p class="padd-t12px-b14px">
-					<xsl:call-template name="string-replace-all">
-					<xsl:with-param name="text" select="commentaires/commentaire1"/>
-					<xsl:with-param name="replace" select="'\n'"/>
-					<xsl:with-param name="by" select="'&lt;br/&gt;'"/>
-					</xsl:call-template>
-				</p>
-			</xsl:if>
+			<p class="clear"><![CDATA[ ]]></p>
+			<br />
 			
 			<ul class="inline">		
 				<xsl:if test="criteres/critere[@id='851000010']">
@@ -414,10 +405,20 @@
 					<li><a href="#onglet-description"><span>Descriptif</span></a></li>
 					<li><a href="#onglet-tarifs"><span>Tarifs</span></a></li>
 					<li><a href="#onglet-caracteristiques"><span>Caract&amp;eacute;ristiques</span></a></li>
-					<li><a href="#onglet-avis"><span>Avis</span></a></li>
+					<li style="background-color: #7AD6E1 !important;"><a href="#onglet-avis"><span>Avis</span></a></li>
 				</ul>
 				
 				<div id="onglet-description">
+					<xsl:if test="string-length(commentaires/commentaire1) &gt; 0">
+						<p class="padding-bottom: 14px">
+							<xsl:call-template name="string-replace-all">
+							<xsl:with-param name="text" select="commentaires/commentaire1"/>
+							<xsl:with-param name="replace" select="'\n'"/>
+							<xsl:with-param name="by" select="'&lt;br/&gt;'"/>
+							</xsl:call-template>
+						</p>
+					</xsl:if>
+					
 					<xsl:call-template name="periodes-ouverture"/>
 				</div>
 				
@@ -471,9 +472,19 @@
 				</div>
 				
 				<div id="onglet-avis">
-					<p>
-						Avis...
-					</p>
+					<xsl:choose>
+						<xsl:when test="count(liensMultimedia/lienMultimedia[@type='image']) &gt; 0">
+							<xsl:for-each select="liensMultimedia/lienMultimedia[@type='image' and string-length(codeHtmlLienMultimedia) &gt; 0]">
+								<div><xsl:value-of select="codeHtmlLienMultimedia"/></div>
+							</xsl:for-each>
+						</xsl:when>
+						<xsl:otherwise>
+							<p>
+								Aucun avis pour le moment.<br />
+								Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
+							</p>
+						</xsl:otherwise>
+					</xsl:choose>
 				</div>
 			</div>
 
