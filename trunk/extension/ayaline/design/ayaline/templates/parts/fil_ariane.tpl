@@ -2,7 +2,8 @@
 {if $module_result.uri|eq('/user/login')}
 		<p class="fil-ariane"><a href="/">Les Sables d'Olonne</a> > <strong>Connexion</strong></p>
 {/if}
-
+{def $affListeSIT=''}
+{if $cNode|is_set()} {* cas particulier pour les fiches "SIT" (qui ne sont pas des noeuds pour avoir un fil d'ariane *}
 	{if ne($cNode.node_id, ezini('NodeSettings', 'RootNode', 'content.ini'))}
 		<p class="fil-ariane">
 		{foreach $module_result.path as $Path}
@@ -33,7 +34,16 @@
 				{/if}	
 			{/foreach}
 			{* si le titre du theme est défini on s'en sert, sinon on utilise le titre par défaut *}
-			{if $titreTheme|eq('')}{set $titreTheme=$Path.text}{/if}
+			{if $titreTheme|eq('')}
+				{* cas particulier de liste SIT : il faut récupérer la classe affichage_liste_sit liée pour récupérer le titre à afficher *}
+				{if eq($node.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
+					{set $affListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
+					{set $affListeSIT = $affListeSIT.0}
+					{set $titreTheme=$affListeSIT.name}
+				{else}
+					{set $titreTheme=$Path.text}
+				{/if}
+			{/if}
 			{undef $node $rubriques}
 			{if or($Path.url_alias, $Path.url)}
 					<a href={$Path.url_alias|ezurl}>{$titreTheme|wash}</a> >
@@ -43,5 +53,15 @@
 		{/foreach}
 		</p>
 	{/if}
-
-{undef $titreTheme}
+{elseif $module_result.ui_component|eq('Fiche')}
+	<p class="fil-ariane">
+	{foreach $module_result.path as $Path}
+		{if or($Path.url_alias, $Path.url)}
+				<a href={$Path.url_alias|ezurl}>{$Path.text|wash}</a> >
+		{else}
+				<strong>{$Path.text|wash}</strong>
+		{/if}
+	{/foreach}
+	</p>
+{/if}
+{undef $titreTheme $affListeSIT}
