@@ -68,21 +68,19 @@
 			</h2>
 			<p class="clear"></p>
 			
-			{if $affichageListeSIT|count}
-				{if ne($affichageListeSIT.0.data_map.short_description.content, '')}
-					<p class="chapeau-bis">
-						{attribute_view_gui attribute=$affichageListeSIT.0.data_map.short_description}
-					</p>
+			{if ne($affichageListeSIT.data_map.short_description.content, '')}
+				<p class="chapeau-bis">
+					{attribute_view_gui attribute=$affichageListeSIT.data_map.short_description}
+				</p>
+			{else}
+				<br />
+			{/if}
+			
+			{if eq($affichageListeSIT.data_map.googlemaps.data_int, '1')}
+				{if eq($node.data_map.categorie.data_text, '1')}
+					{sit_liste('sit_liste_carte_1')}
 				{else}
-					<br />
-				{/if}
-				
-				{if eq($affichageListeSIT.0.data_map.googlemaps.data_int, '1')}
-					{if eq($node.data_map.categorie.data_text, '1')}
-						{sit_liste('sit_liste_carte_1')}
-					{else}
-						{sit_liste('sit_liste_carte')}
-					{/if}
+					{sit_liste('sit_liste_carte')}
 				{/if}
 			{/if}
 			
