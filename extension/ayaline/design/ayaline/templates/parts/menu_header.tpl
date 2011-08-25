@@ -101,7 +101,7 @@
 									{else}
 										{set $mainMenuShowed = true()}
 									{/if}
-								{elseif $nodeSub_menu.data_map.content.content.main_node.class_identifier|eq(ezini('ClassSettings','ClassSITListe','content.ini'))}
+								{elseif $nodeSub_menu.data_map.content.content.main_node.class_identifier|eq(ezini('ClassSettings','ClassListeSIT','content.ini'))}
 								{* cas des Listes SIT : on n'a pas directement la correspondance entre la classe et le thème, on est obligé d'aller récupérer le thème dans la classe associée (affichage_liste_sit) *}
 									{set $affMenuListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $nodeSub_menu.data_map.content.content.main_node.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
 									{set $affMenuListeSIT = $affMenuListeSIT.0}

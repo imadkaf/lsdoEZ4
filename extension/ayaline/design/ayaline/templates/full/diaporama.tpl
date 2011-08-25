@@ -295,11 +295,11 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 				{/if}
 			{/if}
 		{/foreach}
-		{* si pas d'image par défaut pour la saison, on prend alors l'image par défaut de type 'image_entete' *}
+		{* si pas d'image par défaut pour la saison, on prend alors l'image par défaut de type 'image_entete_defaut' *}
 		{if eq(0, $img_attribute|count)}
 			{def $defaultImg = fetch( 'content', 'tree', hash( 'parent_node_id', ezini('NodeSettings','MediaRootNode','content.ini'),
 																'class_filter_type', 'include',
-           														'class_filter_array', array('image_entete') ) )}
+           														'class_filter_array', array('image_entete_defaut') ) )}
            	
            	{* on prend la 1ère*}
            	{set $img_attribute = $defaultImg.0.data_map.image}
