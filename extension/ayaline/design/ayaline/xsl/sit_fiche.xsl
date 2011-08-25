@@ -12,10 +12,15 @@
 	<xsl:include href="inc/rendu_adresse.xsl"/>
 
 	<xsl:template match="/produit">
+		<xsl:if test="string-length($lienPrecedent) &gt; 0">
+			<div style="text-align:right;"><a>
+				<xsl:attribute name="href"><xsl:value-of select="$lienPrecedent"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if>#fiche-<xsl:value-of select="@id"/></xsl:attribute>
+				&amp;lt;&amp;lt;&amp;nbsp;<xsl:value-of select="$termeRetourListe"/>
+			</a></div>
+		</xsl:if>
+		<br/>
+	
 		<div style="float:left; width: 326px;">
-			<h2 class="bloc-liste-h2"><xsl:value-of select="intitule"/></h2>
-			<p class="clear" style="margin-bottom:20px;"></p>
-		
 			<xsl:if test="count(newPhotos/newPhoto) &gt; 0">
 				<div id="galleria" class="galerie-fiche">
 					<xsl:for-each select="newPhotos/newPhoto">
@@ -190,8 +195,31 @@
 					mapopinfiche();
 				]]>
 			</script>
-
-			<div style="margin:15px 0px 15px 0px">
+			
+			<div style="float:left;margin-top:20px;">
+				<img alt="" style="float:right;margin-left:20px"><xsl:attribute name="src"><xsl:value-of select="partenaire/logoPartenaire"/></xsl:attribute></img><xsl:value-of select="$termeInformationProposeePar"/>&amp;nbsp;:<br/><strong><xsl:if test="string-length(partenaire/webPartenaire) &gt; 0"><a target="_blank"><xsl:attribute name="href"><xsl:value-of select="partenaire/webPartenaire"/></xsl:attribute><xsl:value-of select="partenaire/intPartenaire"/></a></xsl:if><xsl:if test="string-length(partenaire/webPartenaire) = 0"><xsl:value-of select="partenaire/intPartenaire"/></xsl:if></strong>
+			</div>
+			<br />
+			
+			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='son']) &gt; 0">
+				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='son' and string-length(codeHtmlLienMultimedia) &gt; 0]">
+					<div style="margin-top: 20px; display: inline-block;"><xsl:value-of select="codeHtmlLienMultimedia"/></div>
+				</xsl:for-each>
+			</xsl:if>
+			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='video']) &gt; 0">
+				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='video' and string-length(codeHtmlLienMultimedia) &gt; 0]">
+					<div style="margin-top: 20px; display: inline-block;"><xsl:value-of select="codeHtmlLienMultimedia"/></div>
+				</xsl:for-each>
+			</xsl:if>
+		</div>
+		
+		
+		
+		<div style="float:left; width: 310px;">
+			<h2 class="bloc-liste-h2" style="width: 295px; margin-left:10px;"><xsl:value-of select="intitule"/></h2>
+			<p class="clear" style="margin-bottom:20px;"></p>
+			
+			<div style="margin:0px 0px 20px 10px">
 				<xsl:for-each select="adresses/adresse[@type='produit']">
 					<div style="padding:15px;background-color:#EEEEEE;">
 						<div><strong><xsl:value-of select="$termeAdresseFiche"/></strong></div>
@@ -200,22 +228,6 @@
 				</xsl:for-each>
 				<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
 			</div>
-
-			<div style="float:left">
-				<img alt="" style="float:right;margin-left:20px"><xsl:attribute name="src"><xsl:value-of select="partenaire/logoPartenaire"/></xsl:attribute></img><xsl:value-of select="$termeInformationProposeePar"/>&amp;nbsp;:<br/><strong><xsl:if test="string-length(partenaire/webPartenaire) &gt; 0"><a target="_blank"><xsl:attribute name="href"><xsl:value-of select="partenaire/webPartenaire"/></xsl:attribute><xsl:value-of select="partenaire/intPartenaire"/></a></xsl:if><xsl:if test="string-length(partenaire/webPartenaire) = 0"><xsl:value-of select="partenaire/intPartenaire"/></xsl:if></strong>
-			</div>
-		</div>
-		
-		
-		
-		<div>
-			<xsl:if test="string-length($lienPrecedent) &gt; 0">
-				<div style="text-align:right; margin-top:10px;"><a>
-					<xsl:attribute name="href"><xsl:value-of select="$lienPrecedent"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if>#fiche-<xsl:value-of select="@id"/></xsl:attribute>
-					&amp;lt;&amp;lt;&amp;nbsp;<xsl:value-of select="$termeRetourListe"/>
-				</a></div>
-			</xsl:if>
-			<br/>
 			
 			<table cellspacing="0" cellpadding="0">
 				<tr><td style="padding:0 0 0 15px">

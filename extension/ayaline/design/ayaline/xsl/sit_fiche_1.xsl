@@ -269,6 +269,18 @@
 					<button class="button" type="submit">Rechechez les disponibilites</button>
 				</form>
 			</div>
+			<br />
+			
+			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='son']) &gt; 0">
+				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='son' and string-length(codeHtmlLienMultimedia) &gt; 0]">
+					<div style="margin-top: 20px; display: inline-block;"><xsl:value-of select="codeHtmlLienMultimedia"/></div>
+				</xsl:for-each>
+			</xsl:if>
+			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='video']) &gt; 0">
+				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='video' and string-length(codeHtmlLienMultimedia) &gt; 0]">
+					<div style="margin-top: 20px; display: inline-block;"><xsl:value-of select="codeHtmlLienMultimedia"/></div>
+				</xsl:for-each>
+			</xsl:if>
 		</div>
 		
 		<div class="box-right">
