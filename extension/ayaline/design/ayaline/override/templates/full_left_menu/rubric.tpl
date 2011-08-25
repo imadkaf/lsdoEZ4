@@ -37,7 +37,6 @@
 									{else}
 										{set $titre = $objetAsso.main_node.name}
 									{/if}
-									{break}
 								{else}
 									{set $titre = $objetAsso.main_node.name}
 								{/if}
