@@ -10,7 +10,7 @@
 	{def $topicIDs = array(ezini('NodeSettings','topicDefaut','content.ini'))}
 {/if}
 
-{* Tableau qui contiendra les fils a afficher *}
+{* Tableau qui contiendra les entrees a afficher *}
 {def $entreeAssocie = array()}
 
 {* Tableau qui contiendra les noms des entrees a ajouter *}
@@ -21,7 +21,7 @@
 {def $entreeAjoute = false()}
 {def $affEntreeListeSIT = ''}
 
-{* Si le parent est le noeud Decouvrir ou Sejourner *}
+{* Si le pere est le noeud Decouvrir ou Sejourner *}
 {if or(eq($node.parent.node_id, ezini('Noeuds','decouvrir','ayaline.ini')), eq($node.parent.node_id, ezini('Noeuds','sejourner','ayaline.ini')))}
 	{* Recuperation du menu associe au noeud parent *}
 	{def $menuPere = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.parent.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
@@ -34,11 +34,11 @@
 			{if $saison.data_map.title.value.0|eq($saisonID)}
 				{* Pour chaque entree du menu saison choisi *}
 				{foreach $saison.children as $entree}
-					{* Si l'objet associe possede l'attribut topics *}
+					{* Si l'objet associe a l'entree possede l'attribut topics *}
 					{if is_set($entree.data_map.content.content.main_node.data_map.topics)}
 						{* Pour chaque theme associe *}
 						{foreach $entree.data_map.content.content.main_node.data_map.topics.content.relation_list as $monTheme1}
-							{* Si le fils n'est pas deja ajoute *}
+							{* Si l'entree n'est pas deja ajoutee *}
 							{if ne($entreeAjoute, true())}
 								{* Si un theme associe correspond a un theme selectionne *}
 								{if $monTheme1.node_id|eq($topicIDs.0)}
@@ -59,14 +59,14 @@
 							{/if}
 						{/foreach}
 					{else}
-						{* Si le noeud est de type liste_sit *}
+						{* Si l'entree est de type liste_sit *}
 						{if eq($entree.data_map.content.content.main_node.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
 							{* On recupere ses themes associes *}
 							{set $affEntreeListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $entree.data_map.content.content.main_node.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
 							{set $affEntreeListeSIT = $affEntreeListeSIT.0}
 							{* Pour chacun de ses themes associes *}
 							{foreach $affEntreeListeSIT.data_map.topics.content.relation_list as $monTheme2}
-								{* Si le fils n'est pas deja ajoute *}
+								{* Si l'entree n'est pas deja ajoutee *}
 								{if ne($entreeAjoute, true())}
 									{* Si un theme associe correspond a un theme selectionne *}
 									{if $monTheme2.node_id|eq($topicIDs.0)}
@@ -106,11 +106,11 @@
 		{* Si le noeud possede l'attribut topics *}
 		{if is_set($childP.data_map.topics)}
 			{* Pour chaque theme associe *}
-			{foreach $childP.data_map.topics.content.relation_list as $theme1}
+			{foreach $childP.data_map.topics.content.relation_list as $unTheme1}
 				{* Si le fils n'est pas deja ajoute *}
 				{if ne($entreeAjoute, true())}
 					{* Si un theme associe correspond a un theme selectionne *}
-					{if $theme1.node_id|eq($topicIDs.0)}
+					{if $unTheme1.node_id|eq($topicIDs.0)}
 						{set $entreeAssocie = $entreeAssocie|append($childP)}
 						{set $nomEntreeAssocie = $nomEntreeAssocie|append($childP.name)}
 						{set $entreeAjoute = true()}
@@ -124,11 +124,11 @@
 				{set $affEntreeListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $childP.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
 				{set $affEntreeListeSIT = $affEntreeListeSIT.0}
 				{* Pour chacun de ses themes associes *}
-				{foreach $affEntreeListeSIT.data_map.topics.content.relation_list as $theme2}
+				{foreach $affEntreeListeSIT.data_map.topics.content.relation_list as $unTheme2}
 					{* Si le fils n'est pas deja ajoute *}
 					{if ne($entreeAjoute, true())}
 						{* Si un theme associe correspond a un theme selectionne *}
-						{if $theme2.node_id|eq($topicIDs.0)}
+						{if $unTheme2.node_id|eq($topicIDs.0)}
 							{set $entreeAssocie = $entreeAssocie|append($childP)}
 							{set $nomEntreeAssocie = $nomEntreeAssocie|append($affEntreeListeSIT.name)}
 							{set $entreeAjoute = true()}
@@ -146,6 +146,7 @@
 
 <div class="bloc-type">
 	<h2 class="menu-gauche-h2">
+		{def $titreMenu = ''}
 		{* Si le grand-parent du noeud en cour est Decouvrir ou Sejourner *}
 		{if or(eq($node.parent.parent.node_id, ezini('Noeuds','decouvrir','ayaline.ini')), eq($node.parent.parent.node_id, ezini('Noeuds','sejourner','ayaline.ini')))}
 			{* Recuperation des objets associes au pere *}
@@ -160,31 +161,35 @@
 						{if ne($topicIDs.0, ezini('NodeSettings','topicDefaut','content.ini'))}
 							{* Si l'attribut title_topic du theme en cours n'est pas vide *}
 							{if ne($menuAssoPere.main_node.data_map[concat('title_topic_', $topicIDs.0)].value, '')}
-								{$menuAssoPere.main_node.data_map[concat('title_topic_', $topicIDs.0)].value}
+								{set $titreMenu = $menuAssoPere.main_node.data_map[concat('title_topic_', $topicIDs.0)].value}
 							{else}
-								{$menuAssoPere.main_node.name}
+								{set $titreMenu = $menuAssoPere.main_node.name}
 							{/if}
 						{else}
-							{$menuAssoPere.main_node.name}
+							{set $titreMenu = $menuAssoPere.main_node.name}
 						{/if}
 					{/if}
 				{/if}
 			{/foreach}
 		{else}
-			{attribute_view_gui attribute = $node.parent.data_map.title}
+			{set $titreMenu = $node.parent.name}
+		{/if}
+		{if ne($titreMenu, '')}
+			{$titreMenu}
+		{else} {* Cas ou la rubrique parente n'est pas associee a la saison selectionnee *}
+			{$node.parent.name}
 		{/if}
 	</h2>
 	<p class="clear"></p>
 	
 	<ul class="menu-left">
-	{* Initialisations avant la boucle *}
+	{* Declaration des variables avant la boucle *}
 	{def $subChildren = ''}
 	{def $subChildParentAssocie = array()}
 	{def $subChildParentAjoute = false()}
 	{def $subAffParentListeSIT = ''}
-
 	{def $nomSousFils = ''}
-	{def $affListeSITSousFils = ''}
+	{def $subNomChildParentAssocie = array()}
 	
 	{* Pour chaque fils a afficher *}
 	{foreach $entreeAssocie as $entreeKey => $childPA}
@@ -194,11 +199,11 @@
 															'class_filter_type' , 'include',
 															'class_filter_array', ezini('classList','ClassesMenuInterne','content.ini') ))}
 
-		{* Tableau qui contiendra les sous-fils a afficher *}
+		{* Initialisation des variables *}
 		{set $subChildParentAssocie = array()}
-
 		{set $subChildParentAjoute = false()}
 		{set $subAffParentListeSIT = ''}
+		{set $subNomChildParentAssocie = array()}
 		
 		{* Ajout des sous-fils a afficher *}
 		{foreach $subChildren as $subChildP}
@@ -211,6 +216,7 @@
 						{* Si un theme associe correspond a un theme selectionne *}
 						{if $subTheme1.node_id|eq($topicIDs.0)}
 							{set $subChildParentAssocie = $subChildParentAssocie|append($subChildP)}
+							{set $subNomChildParentAssocie = $subNomChildParentAssocie|append($subChildP.name)}
 							{set $subChildParentAjoute = true()}
 						{/if}
 					{/if}
@@ -228,6 +234,7 @@
 							{* Si un theme associe correspond a un theme selectionne *}
 							{if $subTheme2.node_id|eq($topicIDs.0)}
 								{set $subChildParentAssocie = $subChildParentAssocie|append($subChildP)}
+								{set $subNomChildParentAssocie = $subNomChildParentAssocie|append($subAffParentListeSIT.name)}
 								{set $subChildParentAjoute = true()}
 							{/if}
 						{/if}
@@ -255,17 +262,8 @@
 		{if $subChildParentAssocie|count}
 				<ul class="s-menu">
 				{* Pour chacun des sous-fils *}
-				{foreach $subChildParentAssocie as $subChildPA}
-					{* Traitement pour recuperer le bon nom du sous-fils *}
-					{set $nomSousFils = ''}
-					{if eq($subChildPA.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
-						{set $affListeSITSousFils = fetch('content', 'reverse_related_objects', hash( 'object_id', $subChildPA.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-						{set $affListeSITSousFils = $affListeSITSousFils.0}
-						{set $nomSousFils = $affListeSITSousFils.name}
-					{else}
-						{set $nomSousFils = $subChildPA.name}
-					{/if}
-					<li><a href={$subChildPA.url_alias|ezurl}>{$nomSousFils}</a></li>
+				{foreach $subChildParentAssocie as $subKey => $subChildPA}
+					<li><a href={$subChildPA.url_alias|ezurl}>{$subNomChildParentAssocie.$subKey}</a></li>
 				{/foreach}
 				</ul>
 		{/if}

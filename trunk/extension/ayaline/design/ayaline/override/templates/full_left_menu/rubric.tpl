@@ -1,86 +1,56 @@
-{* Récuperation des variables session *}
-{if ezhttp('saison', 'session', 'hasVariable')}
-	{def $saisonId = ezhttp('saison', 'session')}
-{else}
-	{def $saisonId = ezini('ClassSettings','DefaultSeasonId','content.ini')}
-{/if}
-{if and(ezhttp('topics', 'session', 'hasVariable'),ezhttp('topics', 'session')|count|ne(0))}
-	{def $topicIds = ezhttp('topics', 'session')}
-{else}
-	{def $topicIds = array(ezini('NodeSettings','topicDefaut','content.ini'))}
-{/if}
-
 <div class="bloc-left-bis">
 	<div class="bloc-left-in-bis">
 		{include uri='design:parts/menu_gauche_interne.tpl'}
 	</div>
 
 	<div class="bloc-right-in-bis">
-		{*** Liste des fils de la rubrique ***}
-		{* Initialisations pour la pagination *}
-		{def $nb_max = 4}
-		{def $offset = 0}
-		{if $view_parameters.offset|gt(0)}
-			{set $offset = $view_parameters.offset}
-		{/if}
-	
-		{*** Traitement pour recuperer les fils a afficher ***}
-		{* Liste totale des fils *}
-		{def $childrenTotal = fetch( 'content','list',hash( 'parent_node_id', $node.node_id,
-															'sort_by', $node.sort_array,
-															'class_filter_type' , 'include',
-															'class_filter_array', array('rubric', 'sit_liste')))}
-		
-		{* Tableau qui contiendra les fils a afficher *}
-		{def $childrenAssocie = array()}
-		
-		{def $childAjoute = false()}
-		{def $affichageListeSIT = ''}
-	
-		{* Ajout des fils a afficher *}
-		{foreach $childrenTotal as $children}
-			{* Si le noeud possede l'attribut topics *}
-			{if is_set($children.data_map.topics)}
-				{* Pour chaque theme associe *}
-				{foreach $children.data_map.topics.content.relation_list as $relation1}
-					{* Si le fils n'est pas deja ajoute *}
-					{if ne($childAjoute, true())}
-						{* Si un theme associe correspond a un theme selectionne *}
-						{if $relation1.node_id|eq($topicIds.0)}
-							{set $childrenAssocie = $childrenAssocie|append($children)}
-							{set $childAjoute = true()}
-						{/if}
-					{/if}
-				{/foreach}
+		<div class="bloc-type">
+			{* Récuperation des variables session *}
+			{if ezhttp('saison', 'session', 'hasVariable')}
+				{def $saisonId = ezhttp('saison', 'session')}
 			{else}
-				{* Si le noeud est de type liste_sit *}
-				{if eq($children.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
-					{* On recupere ses themes associes *}
-					{set $affichageListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $children.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-					{set $affichageListeSIT = $affichageListeSIT.0}
-					{* Pour chacun de ses themes associes *}
-					{foreach $affichageListeSIT.data_map.topics.content.relation_list as $relation2}
-						{* Si le fils n'est pas deja ajoute *}
-						{if ne($childAjoute, true())}
-							{* Si un theme associe correspond a un theme selectionne *}
-							{if $relation2.node_id|eq($topicIds.0)}
-								{set $childrenAssocie = $childrenAssocie|append($children)}
-								{set $childAjoute = true()}
+				{def $saisonId = ezini('ClassSettings','DefaultSeasonId','content.ini')}
+			{/if}
+			{if and(ezhttp('topics', 'session', 'hasVariable'),ezhttp('topics', 'session')|count|ne(0))}
+				{def $topicId = ezhttp('topics', 'session')}
+			{else}
+				{def $topicId = array(ezini('NodeSettings','topicDefaut','content.ini'))}
+			{/if}
+			
+			<h2 class="bloc-liste-h2">
+				{def $titre = ''}
+				{* Si le pere de la rubrique est Decouvrir ou Sejourner *}
+				{if or(eq($node.parent.node_id, ezini('Noeuds','decouvrir','ayaline.ini')), eq($node.parent.node_id, ezini('Noeuds','sejourner','ayaline.ini')))}
+					{* Recuperation de ces objets associes *}
+					{def $objetsAsso = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
+					{* Pour chaque objet associe *}
+					{foreach $objetsAsso as $objetAsso}
+						{* Si le pere de l'objet associe est une saison et qu'il a un titre *}
+						{if and($objetAsso.main_node.parent.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($objetAsso.main_node.parent.data_map.title.value.0))}
+							{* Si le pere de l'objet associe correspond a la saison en cours *}
+							{if $objetAsso.main_node.parent.data_map.title.value.0|eq($saisonId)}
+								{* Si le theme en cours n'est pas celui par defaut *}
+								{if ne($topicId.0, ezini('NodeSettings','topicDefaut','content.ini'))}
+									{* Si l'attribut title_topic du theme en cours n'est pas vide *}
+									{if ne($objetAsso.main_node.data_map[concat('title_topic_', $topicId.0)].value, '')}
+										{set $titre = $objetAsso.main_node.data_map[concat('title_topic_', $topicId.0)].value}
+									{else}
+										{set $titre = $objetAsso.main_node.name}
+									{/if}
+									{break}
+								{else}
+									{set $titre = $objetAsso.main_node.name}
+								{/if}
 							{/if}
 						{/if}
 					{/foreach}
-				{/if}
-			{/if}
-			
-			{set $childAjoute = false()}
-		{/foreach}
-		
-		<div class="bloc-type">
-			<h2 class="bloc-liste-h2">
-				{if is_set($nameRubricSelected)}
-					{$nameRubricSelected|wash}
 				{else}
-					{attribute_view_gui attribute = $node.data_map.title}
+					{set $titre = $node.name}
+				{/if}
+				{if ne($titre, '')}
+					{$titre}
+				{else} {* Cas ou la rubrique n'est pas associee a la saison selectionnee *}
+					{$node.name}
 				{/if}
 			</h2>
 			<p class="clear"></p>
@@ -89,31 +59,115 @@
 				{attribute_view_gui attribute = $node.data_map.short_description}
 			</p>
 			
-			{def $compteurlisterubrique2 = 1}
-			<ul class="list">
-				{foreach $childrenAssocie as $enfants sequence array( 'first', '' ) as $style offset $offset max $nb_max}
-					<li class="{$style}">
-						{node_view_gui content_node=$enfants view='line'}
-					</li>
-					{if and($childrenAssocie|count|gt($compteurlisterubrique2), $style|ne('first'))}
-						</ul>
-						<ul class="list">
-					{/if}
-					{set $compteurlisterubrique2 = $compteurlisterubrique2|inc}
-				{/foreach}
-			</ul>
+			{* Traitement pour voir si la rubrique est associe au theme courant *}
+			{def $rubriqueAssoTheme = false()}
+			{* Pour chacun de ses themes *}
+			{foreach $node.data_map.topics.content.relation_list as $myTheme}
+				{* Si un theme associe correspond a un theme selectionne *}
+				{if $myTheme.node_id|eq($topicId.0)}
+					{set $rubriqueAssoTheme = true()}
+				{/if}
+			{/foreach}
 			
-			{* Affichage de la pagination *}
-			{include 
-				uri='design:navigator/google.tpl' 
-				page_uri=$node.url_alias
-				item_count=$childrenAssocie|count
-				view_parameters=$view_parameters 
-				item_limit=$nb_max
-			}
+			{* Si la rubrique est associe au theme courant *}
+			{if $rubriqueAssoTheme}
+				{* Si le champs description est rempli *}
+				{if $node.data_map.description.has_content}
+					{attribute_view_gui attribute = $node.data_map.description}
+				{else}
+					{* Initialisations pour la pagination *}
+					{def $nb_max = 4}
+					{def $offset = 0}
+					{if $view_parameters.offset|gt(0)}
+						{set $offset = $view_parameters.offset}
+					{/if}
+					
+					{* Tableau qui contiendra les fils a afficher *}
+					{def $filsAssocie = array()}
+					
+					{* Tableau qui contiendra les noms des fils a afficher *}
+					{def $nomFilsAssocie = array()}
+					{* Variable qui contiendra le nom du fils a ajouter *}
+					{def $nomFilsAjouter = ''}
+					
+					{def $filsAjoute = false()}
+					{def $affFilsListeSIT = ''}
+					
+					{* Recuperation des fils de la rubrique *}
+					{def $filsRubrique = fetch('content','list', hash( 'parent_node_id', $node.node_id,
+																		'sort_by', $node.sort_array,
+																		'class_filter_type' , 'include',
+																		'class_filter_array', array('rubric', 'sit_liste')))}
+					
+					{* Ajout des fils a afficher *}
+					{foreach $filsRubrique as $filsR}
+						{* Si le fils possede l'attribut topics *}
+						{if is_set($filsR.data_map.topics)}
+							{* Pour chaque theme associe *}
+							{foreach $filsR.data_map.topics.content.relation_list as $theme1}
+								{* Si le fils n'est pas deja ajoute *}
+								{if ne($filsAjoute, true())}
+									{* Si un theme associe correspond a un theme selectionne *}
+									{if $theme1.node_id|eq($topicId.0)}
+										{set $filsAssocie = $filsAssocie|append($filsR)}
+										{set $nomFilsAssocie = $nomFilsAssocie|append($filsR.name)}
+										{set $filsAjoute = true()}
+									{/if}
+								{/if}
+							{/foreach}
+						{else}
+							{* Si le fils est de type liste_sit *}
+							{if eq($filsR.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
+								{* On recupere ses themes associes *}
+								{set $affFilsListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $filsR.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
+								{set $affFilsListeSIT = $affFilsListeSIT.0}
+								{* Pour chacun de ses themes associes *}
+								{foreach $affFilsListeSIT.data_map.topics.content.relation_list as $theme2}
+									{* Si le fils n'est pas deja ajoute *}
+									{if ne($filsAjoute, true())}
+										{* Si un theme associe correspond a un theme selectionne *}
+										{if $theme2.node_id|eq($topicId.0)}
+											{set $filsAssocie = $filsAssocie|append($filsR)}
+											{set $nomFilsAssocie = $nomFilsAssocie|append($affFilsListeSIT.name)}
+											{set $filsAjoute = true()}
+										{/if}
+									{/if}
+								{/foreach}
+							{/if}
+						{/if}
+							
+						{set $filsAjoute = false()}
+					{/foreach}
+					
+					{* Affichage de la selection *}
+					{def $compteurlisterubrique2 = 1}
+					<ul class="list">
+					{foreach $filsAssocie as $key => $enfant sequence array( 'first', '' ) as $style offset $offset max $nb_max}
+						<li class="{$style}">
+							{node_view_gui content_node=$enfant view='line' nomEnfant=$nomFilsAssocie.$key}
+						</li>
+						{if and($filsAssocie|count|gt($compteurlisterubrique2), $style|ne('first'))}
+							</ul>
+							<ul class="list">
+						{/if}
+						{set $compteurlisterubrique2 = $compteurlisterubrique2|inc}
+					{/foreach}
+					</ul>
+					
+					{* Affichage de la pagination *}
+					{include 
+						uri='design:navigator/google.tpl' 
+						page_uri=$node.url_alias
+						item_count=$filsAssocie|count
+						view_parameters=$view_parameters
+						item_limit=$nb_max
+					}
+				{/if}
+			{else}
+				<p>Cette page n'est pas associée au thème sélectionné.</p>
+			{/if}
 		</div>
 	</div>
-	{*** Fin liste des fils de la rubrique ***}
 </div>
 
 <div class="bloc-right-bis">
