@@ -34,6 +34,7 @@
 									</xsl:if>
 									<xsl:if test="count(newPhotos/newPhoto) = 0">
 									<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
+									<xsl:attribute name="style">width: 100px;</xsl:attribute>
 									</xsl:if>
 								</img>
 							</a>

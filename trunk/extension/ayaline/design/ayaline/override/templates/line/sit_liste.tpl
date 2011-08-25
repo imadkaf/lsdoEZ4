@@ -1,6 +1,5 @@
-{def $affichageListeSIT = fetch( 'content', 'reverse_related_objects',
-									hash( 'object_id', $node.contentobject_id,
-											'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
+{def $affichageListeSIT = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id,
+																				'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
 
 {def $typeImage = ''}
 {def $tailleDef = 0}
@@ -14,13 +13,13 @@
 
 {if $affichageListeSIT|count}
 	<h3 class="bloc-liste-h3">
-		<a href={$node.url_alias|ezurl}>{attribute_view_gui attribute = $affichageListeSIT.0.data_map.title}</a>
+		<a href={$node.url_alias|ezurl}>{if is_set($nomEnfant)}{$nomEnfant}{else}{attribute_view_gui attribute = $affichageListeSIT.0.data_map.title}{/if}</a>
 	</h3>
 	
 	{if $affichageListeSIT.0.data_map.thumbnail.has_content}
 		<a href={$node.url_alias|ezurl}>{attribute_view_gui attribute=$affichageListeSIT.0.data_map.thumbnail image_class=$typeImage}</a>
 	{else}
-		<a href={$node.url_alias|ezurl}><img src={'sit/image_fiche_defaut_grande.jpg'|ezimage} width="{$tailleDef}px" alt="{$node.name}" title="{$node.name}" /></a>
+		<a href={$node.url_alias|ezurl}><img src={'sit/image_fiche_defaut_grande.jpg'|ezimage} width="{$tailleDef}px" alt="{if is_set($nomEnfant)}{$nomEnfant}{else}{attribute_view_gui attribute = $affichageListeSIT.0.data_map.title}{/if}" title="{if is_set($nomEnfant)}{$nomEnfant}{else}{attribute_view_gui attribute = $affichageListeSIT.0.data_map.title}{/if}" /></a>
 	{/if}
 	
 	<p>
@@ -35,7 +34,7 @@
 		<a href={$node.url_alias|ezurl}>{$node.name}</a>
 	</h3>
 	
-	<a href={$node.url_alias|ezurl}><img src={'sit/image_fiche_defaut_grande.jpg'|ezimage} width="{$tailleDef}px" alt="{attribute_view_gui attribute = $node.name}" title="{attribute_view_gui attribute = $node.name}" /></a>
+	<a href={$node.url_alias|ezurl}><img src={'sit/image_fiche_defaut_grande.jpg'|ezimage} width="{$tailleDef}px" alt="{if is_set($nomEnfant)}{$nomEnfant}{else}{$node.name}{/if}" title="{if is_set($nomEnfant)}{$nomEnfant}{else}{$node.name}{/if}" /></a>
 	<br /><br />
 	
 	<p class="lien-bas">
