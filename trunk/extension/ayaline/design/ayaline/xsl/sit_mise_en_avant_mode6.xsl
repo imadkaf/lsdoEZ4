@@ -24,10 +24,10 @@
 						<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 						<img alt="" style="width: 200px; max-height: 300px;">
 							<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
-							<xsl:attribute name="src"><xsl:value-of select="newPhotos/newPhoto"/></xsl:attribute>
+								<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=200</xsl:attribute>
 							</xsl:if>
 							<xsl:if test="count(newPhotos/newPhoto) = 0">
-							<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
+								<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
 							</xsl:if>
 						</img>
 					</a>

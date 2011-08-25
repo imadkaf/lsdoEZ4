@@ -9,15 +9,55 @@
 
 	<div class="bloc-right-in-bis">
 		<div class="bloc-type{if eq($node.data_map.categorie.data_text, '1')} padding-lr{/if}">
-			{def $affichageListeSIT = fetch( 'content', 'reverse_related_objects',
-								hash( 'object_id', $node.contentobject_id,
-										'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-										
+			{* Récuperation des variables session *}
+			{if ezhttp('saison', 'session', 'hasVariable')}
+				{def $saisonId = ezhttp('saison', 'session')}
+			{else}
+				{def $saisonId = ezini('ClassSettings','DefaultSeasonId','content.ini')}
+			{/if}
+			{if and(ezhttp('topics', 'session', 'hasVariable'),ezhttp('topics', 'session')|count|ne(0))}
+				{def $topicId = ezhttp('topics', 'session')}
+			{else}
+				{def $topicId = array(ezini('NodeSettings','topicDefaut','content.ini'))}
+			{/if}
+			
+			{def $affichageListeSIT = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id,
+																							'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
+			{set $affichageListeSIT = $affichageListeSIT.0}
+			
 			<h2 class="bloc-liste-h2">
-				{if $affichageListeSIT|count}
-					{$affichageListeSIT.0.name}
+				{def $titreListe = ''}
+				{* Si le pere de la liste est Decouvrir ou Sejourner *}
+				{if or(eq($node.parent.node_id, ezini('Noeuds','decouvrir','ayaline.ini')), eq($node.parent.node_id, ezini('Noeuds','sejourner','ayaline.ini')))}
+					{* Recuperation de objets associes a la liste *}
+					{def $objetsAsso = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
+					{* Pour chaque objet associe *}
+					{foreach $objetsAsso as $objetAsso}
+						{* Si le pere de l'objet associe est une saison et qu'il a un titre *}
+						{if and($objetAsso.main_node.parent.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($objetAsso.main_node.parent.data_map.title.value.0))}
+							{* Si le pere de l'objet associe correspond a la saison en cours *}
+							{if $objetAsso.main_node.parent.data_map.title.value.0|eq($saisonId)}
+								{* Si le theme en cours n'est pas celui par defaut *}
+								{if ne($topicId.0, ezini('NodeSettings','topicDefaut','content.ini'))}
+									{* Si l'attribut title_topic du theme en cours n'est pas vide *}
+									{if ne($objetAsso.main_node.data_map[concat('title_topic_', $topicId.0)].value, '')}
+										{set $titreListe = $objetAsso.main_node.data_map[concat('title_topic_', $topicId.0)].value}
+									{else}
+										{set $titreListe = $objetAsso.main_node.name}
+									{/if}
+								{else}
+									{set $titreListe = $objetAsso.main_node.name}
+								{/if}
+							{/if}
+						{/if}
+					{/foreach}
 				{else}
-					{$node.name}
+					{set $titreListe = $affichageListeSIT.name}
+				{/if}
+				{if ne($titreListe, '')}
+					{$titreListe}
+				{else} {* Cas ou la rubrique n'est pas associee a la saison selectionnee *}
+					{$affichageListeSIT.name}
 				{/if}
 			</h2>
 			<p class="clear"></p>

@@ -23,7 +23,8 @@
 				{if and(ne($attribute.contentclass_attribute.identifier, 'title'), 
 						ne($attribute.contentclass_attribute.identifier, 'short_description'), 
 						ne($attribute.contentclass_attribute.identifier, 'referencement'),
-						ne($attribute.contentclass_attribute.identifier, 'code'))}
+						ne($attribute.contentclass_attribute.identifier, 'code'),
+						ne($attribute.contentclass_attribute.identifier, 'topics'))}
 					<br /><br />
 					{attribute_view_gui attribute = $attribute}
 				{/if}
@@ -32,9 +33,6 @@
 					{$attribute.content}
 				{/if}
 			{/foreach}
-
-			<br /><br /><br />
-			
 		</div>
 	</div>
 </div>
