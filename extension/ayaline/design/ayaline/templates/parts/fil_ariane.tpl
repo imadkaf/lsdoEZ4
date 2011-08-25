@@ -13,33 +13,43 @@
 			{* pour cela : 1. on recupere le noeud 
 						   2. on regarde si ya une relation inverse depuis un contenu de type rubrique 
 						   3. on recupere la rubrique correspondant a la saison
-						   4. on recupere le theme courant et on regarde si la rubrique a un titre sp�cifique au theme
+						   4. on recupere le theme courant et on regarde si la rubrique a un titre specifique au theme
 			*}
 			{* 1 *}
 			{def $node = fetch( 'content', 'node', hash( 'node_id', $Path.node_id ) )}
 			{* 2 *}
 			{def $rubriques = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
 			{* 3 & 4 *}
-			{foreach $rubriques as $rubrique}
+
+			{foreach $rubriques as $key=>$rubrique}
 				{* test sur le theme : si on est sur le theme par défaut, pas la peine de chercher le titre lié au theme *}
 				{if $topicId|ne(ezini('NodeSettings','topicDefaut','content.ini'))}
-					{* test sur la saison *}
-					{if and($rubrique.main_node.parent.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($rubrique.main_node.parent.data_map.title.value.0))}
-						{* on vérifie qu'on est sur le theme en cours ET qu'un titre a été renseigné pour le theme en question *}
-						{if and($rubrique.main_node.parent.data_map.title.value.0|eq($saisonId),$rubrique.data_map[concat('title_topic_', $topicId)].value|ne(""))}	
-							{set $titreTheme=$rubrique.data_map[concat('title_topic_', $topicId)].value}
-							{break}
+					{* cas des contenus avec plusieurs emplacements : il faut regarder les différents noeuds *}
+					{foreach $rubrique.assigned_nodes as $rub}
+						{if and($rub.parent.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($rub.parent.data_map.title.value.0))}
+							{* on vérifie qu'on est sur le theme en cours ET qu'un titre a été renseigné pour le theme en question *}
+							{if and($rub.parent.data_map.title.value.0|eq($saisonId),$rub.data_map[concat('title_topic_', $topicId)].value|ne(""))}	
+								{set $titreTheme=$rub.data_map[concat('title_topic_', $topicId)].value}
+								{break}
+							{/if}
 						{/if}
-					{/if}
+					{/foreach}
 				{/if}	
 			{/foreach}
 			{* si le titre du theme est défini on s'en sert, sinon on utilise le titre par défaut *}
 			{if $titreTheme|eq('')}
-				{* cas particulier de liste SIT : il faut récupérer la classe affichage_liste_sit liée pour récupérer le titre à afficher *}
+				{* cas particulier de liste SIT :
+					1. la liste SIT est associée à un sous menu (rubrique de niveau 2 Séjourner -> Hotels par ex) : il faut récupérer le titre du thème
+					2. pas d'association avec un sous menu : il faut récupérer la classe affichage_liste_sit liée pour récupérer le titre à afficher *}
+				
 				{if eq($node.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
+				{* 1. *}
+					{set $affListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
+					
+				{* 2. *}
 					{set $affListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
 					{set $affListeSIT = $affListeSIT.0}
-					{set $titreTheme=$affListeSIT.name}
+					{set $titreTheme=$affListeSIT.name}					
 				{else}
 					{set $titreTheme=$Path.text}
 				{/if}
