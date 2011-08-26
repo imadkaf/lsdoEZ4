@@ -258,6 +258,7 @@
 							</xsl:if>
 							
 							<xsl:call-template name="periodes-ouverture"/>
+							<![CDATA[ ]]>
 						</div>
 						
 						<div id="onglet-caracteristiques">
@@ -284,6 +285,7 @@
 									</xsl:for-each>
 								</table>
 							</xsl:if>
+							<![CDATA[ ]]>
 						</div>
 						
 						<div id="onglet-avis">
