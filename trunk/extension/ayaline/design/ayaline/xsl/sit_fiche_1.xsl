@@ -435,25 +435,8 @@
 				</div>
 				
 				<div id="onglet-tarifs">
-					<xsl:if test="criteres/critere[@id='851000020'] or criteres/critere[@id='851000021'] or criteres/critere[@id='851000022'] or criteres/critere[@id='851000023'] or criteres/critere[@id='851000024'] or criteres/critere[@id='851000025'] or criteres/critere[@id='851000026'] or criteres/critere[@id='851000027']">
-						<table cellspacing="0" width="100%">
-							<xsl:for-each select="criteres/critere[@id='851000020'] and criteres/critere[@id='851000021'] and criteres/critere[@id='851000022'] and criteres/critere[@id='851000023'] and criteres/critere[@id='851000024'] and criteres/critere[@id='851000025'] and criteres/critere[@id='851000026'] and criteres/critere[@id='851000027']">
-								<xsl:variable name="idCritereTarif" select="@id"/>
-								<xsl:for-each select="criteres/critere[@id=$idCritereTarif]/modalites/modalite">
-									<tr>
-										<td>
-											<xsl:attribute name="style">width:70%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">7A7368</xsl:if><xsl:if test="(position() mod 2) = 0">E0E0E0</xsl:if>;color:#<xsl:if test="(position() mod 2) = 1">FFFFFF</xsl:if><xsl:if test="(position() mod 2) = 0">353535</xsl:if></xsl:attribute>
-											<xsl:value-of select="intModalite"/>
-										</td>
-										<td>
-											<xsl:attribute name="style">text-align:center;width:30%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">E4E0DB</xsl:if><xsl:if test="(position() mod 2) = 0">EEEEEE</xsl:if>;color:#353535</xsl:attribute>
-											<xsl:value-of select="valModalite"/> &amp;euro;
-										</td>
-									</tr>
-								</xsl:for-each>
-							</xsl:for-each>
-						</table>
-					</xsl:if>
+					
+					<![CDATA[ ]]>
 				</div>
 				
 				<div id="onglet-caracteristiques">
