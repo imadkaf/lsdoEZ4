@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="false" always-available="false" sort-field="path" sort-order="1">
+  <serialized-name-list>a:2:{s:6:"fre-FR";s:9:"SIT Fiche";s:16:"always-available";s:6:"fre-FR";}</serialized-name-list>
+  <identifier>sit_fiche</identifier>
+  <serialized-description-list>a:2:{s:6:"fre-FR";s:0:"";s:16:"always-available";s:6:"fre-FR";}</serialized-description-list>
+  <remote-id>40020930da9c7c71fe22bd74e47cf08d</remote-id>
+  <object-name-pattern>Détail &lt;categorie&gt;</object-name-pattern>
+  <url-alias-pattern></url-alias-pattern>
+  <remote>
+    <site-url>http://demo.ez44.lnet.fr/index.php/</site-url>
+    <url>http://demo.ez44.lnet.fr/index.php/class/view/57</url>
+    <groups>
+      <group id="5" name="SIT"/>
+    </groups>
+    <id>57</id>
+    <created>1307376835</created>
+    <modified>1307633757</modified>
+    <creator>
+      <user-id>14</user-id>
+      <user-login>admin</user-login>
+    </creator>
+    <modifier>
+      <user-id>14</user-id>
+      <user-login>admin</user-login>
+    </modifier>
+  </remote>
+  <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+    <attribute datatype="ezselection" required="true" searchable="true" information-collector="false" translatable="true">
+      <remote>
+        <id>388</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:"fre-FR";s:10:"Catégorie";s:16:"always-available";s:6:"fre-FR";}</serialized-name-list>
+      <identifier>categorie</identifier>
+      <serialized-description-list>a:2:{s:6:"fre-FR";s:0:"";s:16:"always-available";s:6:"fre-FR";}</serialized-description-list>
+      <category></category>
+      <serialized-data-text>a:2:{s:6:"fre-FR";s:0:"";s:16:"always-available";s:6:"fre-FR";}</serialized-data-text>
+      <placement>1</placement>
+      <datatype-parameters>
+        <options>
+          <option id="1" name="Hôtellerie"/>
+          <option id="2" name="Hôtellerie de plein air"/>
+          <option id="3" name="Hébergement locatif"/>
+          <option id="4" name="Fêtes et manifestations"/>
+          <option id="5" name="Patrimoine culturel"/>
+          <option id="6" name="Patrimoine naturel"/>
+          <option id="7" name="Restauration"/>
+          <option id="8" name="Dégustations"/>
+          <option id="9" name="Loisirs"/>
+          <option id="10" name="Activités sportives et culturelles"/>
+          <option id="11" name="Itinéraires touristiques"/>
+          <option id="12" name="Villages de vacances"/>
+          <option id="13" name="Organismes"/>
+        </options>
+        <is-multiselect>0</is-multiselect>
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezselection" required="false" searchable="true" information-collector="false" translatable="true">
+      <remote>
+        <id>395</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:"fre-FR";s:30:"Mode d'affichage des critères";s:16:"always-available";s:6:"fre-FR";}</serialized-name-list>
+      <identifier>mode_affichage_criteres</identifier>
+      <serialized-description-list>a:2:{s:6:"fre-FR";s:218:"Choix entre « Afficher tous critères », « N'afficher que les critères séléctionnés dans "Critères Affichés" » et « Afficher tous les critères exceptés ceux sélectionnés dans "Critères non affichés" »";s:16:"always-available";s:6:"fre-FR";}</serialized-description-list>
+      <category></category>
+      <serialized-data-text>a:2:{s:6:"fre-FR";s:0:"";s:16:"always-available";s:6:"fre-FR";}</serialized-data-text>
+      <placement>2</placement>
+      <datatype-parameters>
+        <options>
+          <option id="0" name="Tout afficher"/>
+          <option id="1" name="Afficher les critères"/>
+          <option id="2" name="Ne pas afficher les critères"/>
+        </options>
+        <is-multiselect>0</is-multiselect>
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezcategoryselection" required="false" searchable="true" information-collector="false" translatable="true">
+      <remote>
+        <id>392</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:"fre-FR";s:19:"Critères affichés";s:16:"always-available";s:6:"fre-FR";}</serialized-name-list>
+      <identifier>criteres_affiches</identifier>
+      <serialized-description-list>a:2:{s:6:"fre-FR";s:31:"Liste des critères à afficher";s:16:"always-available";s:6:"fre-FR";}</serialized-description-list>
+      <category></category>
+      <serialized-data-text>a:2:{s:6:"fre-FR";s:0:"";s:16:"always-available";s:6:"fre-FR";}</serialized-data-text>
+      <placement>3</placement>
+      <datatype-parameters>
+        <options/>
+        <categories>
+          <category id="1" category_class="" category_id="388" category_value=""/>
+        </categories>
+        <is-multiselect>1</is-multiselect>
+        <is-crossclass>0</is-crossclass>
+        <description></description>
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezcategoryselection" required="false" searchable="true" information-collector="false" translatable="true">
+      <remote>
+        <id>394</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:"fre-FR";s:23:"Critères non affichés";s:16:"always-available";s:6:"fre-FR";}</serialized-name-list>
+      <identifier>criteres_non_affiches</identifier>
+      <serialized-description-list>a:2:{s:6:"fre-FR";s:38:"Liste des critères à ne pas afficher";s:16:"always-available";s:6:"fre-FR";}</serialized-description-list>
+      <category></category>
+      <serialized-data-text>a:2:{s:6:"fre-FR";s:0:"";s:16:"always-available";s:6:"fre-FR";}</serialized-data-text>
+      <placement>4</placement>
+      <datatype-parameters>
+        <options/>
+        <categories>
+          <category id="1" category_class="" category_id="388" category_value=""/>
+        </categories>
+        <is-multiselect>1</is-multiselect>
+        <is-crossclass>0</is-crossclass>
+        <description></description>
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezinteger" required="true" searchable="true" information-collector="false" translatable="true">
+      <remote>
+        <id>393</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:"fre-FR";s:22:"Durée de vie du cache";s:16:"always-available";s:6:"fre-FR";}</serialized-name-list>
+      <identifier>duree_vie_cache</identifier>
+      <serialized-description-list>a:2:{s:6:"fre-FR";s:10:"en minutes";s:16:"always-available";s:6:"fre-FR";}</serialized-description-list>
+      <category></category>
+      <serialized-data-text>a:2:{s:6:"fre-FR";s:0:"";s:16:"always-available";s:6:"fre-FR";}</serialized-data-text>
+      <placement>5</placement>
+      <datatype-parameters>
+        <default-value>1440</default-value>
+        <min-value>0</min-value>
+      </datatype-parameters>
+    </attribute>
+  </ezcontentclass-attri:attributes>
+</content-class>
