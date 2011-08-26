@@ -440,7 +440,7 @@ class eZSitOperators {
 		if ($cacheExpire) {
 			$contenuXmlDistant = SitUtils::urlGetContentsCurl($rootSitUrl."Criteres".$sitParamsString);
 			if ($contenuXmlDistant) {
-				$contenuXmlCache = utf8_encode(str_replace("&#128;", "__euro__", $contenuXmlDistant));
+				$contenuXmlCache = utf8_encode(preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", $contenuXmlDistant));
 				file_put_contents($cheminFichierCacheXml, $contenuXmlCache, LOCK_EX);
 			}
 		}
@@ -491,9 +491,9 @@ class eZSitOperators {
 
 		$contenuBloc = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
 		$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
-		$contenuBloc = preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc);
-		$contenuBloc = preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc);
-		$contenuBloc = "\n".preg_replace("/  /si", "\t", utf8_decode(str_replace("__euro__", "&euro;", $contenuBloc)))."\n";
+		$contenuBloc = utf8_decode(preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc));
+		$contenuBloc = "\n".preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc)."\n";
+
 
 		return $contenuBloc;
 	}
@@ -791,7 +791,7 @@ class eZSitOperators {
 		if ($cacheExpire) {
 			$contenuXmlDistant = SitUtils::urlGetContentsCurl($rootSitUrl."Recherche".$sitParamsEncodedString, 120);
 			if ($contenuXmlDistant) {
-				$contenuXmlCache = utf8_encode(str_replace("&#128;", "__euro__", $contenuXmlDistant));
+				$contenuXmlCache = utf8_encode(preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", $contenuXmlDistant));
 				file_put_contents($cheminFichierCacheXml, $contenuXmlCache, LOCK_EX);
 			}
 		}
@@ -879,9 +879,9 @@ class eZSitOperators {
 		$contenuBloc = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
 		$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
 		$contenuBloc = preg_replace("/\r\n/si", "", $contenuBloc);
-		$contenuBloc = preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc);
-		$contenuBloc = preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc);
-		$contenuBloc = "\n".preg_replace("/  /si", "\t", utf8_decode(str_replace("__euro__", "&euro;", $contenuBloc)))."\n";
+		$contenuBloc = utf8_decode(preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc));
+		$contenuBloc = "\n".preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc)."\n";
+
 
 		return $contenuBloc;
 	}
@@ -1052,7 +1052,7 @@ class eZSitOperators {
 		if ($cacheExpire) {
 			$contenuXmlDistant = SitUtils::urlGetContentsCurl($rootSitUrl."Recherche".$sitParamsEncodedString, 120);
 			if ($contenuXmlDistant) {
-				$contenuXmlCache = utf8_encode(str_replace("&#128;", "__euro__", $contenuXmlDistant));
+				$contenuXmlCache = utf8_encode(preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", $contenuXmlDistant));
 				file_put_contents($cheminFichierCacheXml, $contenuXmlCache, LOCK_EX);
 			}
 		}
@@ -1112,9 +1112,9 @@ class eZSitOperators {
 		$contenuBloc = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
 		$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
 		$contenuBloc = preg_replace("/\r\n/si", "", $contenuBloc);
-		$contenuBloc = preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc);
-		$contenuBloc = preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc);
-		$contenuBloc = "\n".preg_replace("/  /si", "\t", utf8_decode(str_replace("__euro__", "&euro;", $contenuBloc)))."\n";
+		$contenuBloc = utf8_decode(preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc));
+		$contenuBloc = "\n".preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc)."\n";
+
 
 		return $contenuBloc;
 	}
