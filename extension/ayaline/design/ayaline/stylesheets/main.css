@@ -2254,6 +2254,12 @@ select#nbre-semaine{
 .footer p{
 	padding:5px 0 0 0 !important;
 }
+.footer .contenu a{
+	text-decoration: none;
+}
+.footer .contenu a:hover{
+	text-decoration: underline;
+}
 
 /*** Page de contenu ***/
 .contenu a {
@@ -2386,21 +2392,22 @@ ul.menu-left li.actif a{
 
 /*** Page Plan du site ***/
 .site-map ul li{
-	margin:0 0 10px 0;
-	padding:0;
+	margin: 0 0 10px 0;
+	padding: 0px;
 }
-.site-map ul li a{
-	color: #E644AC;
+.site-map > ul > li > a{
 	font-weight:bold;
+	font-size: 16px;
+	display: block;
+	padding-bottom: 10px;
 }
 
 .site-map ul li ul li{
 	margin:0 0 5px 20px;
 }
 .site-map ul li ul li a{
-	color: #02BDFF;
-	font-weight:normal;
-	background: url("../images/puce-contenu-bleu.png") no-repeat scroll 0 3px transparent;
+	color: #E644AC;
+	background: url("../images/puce-contenu.png") no-repeat scroll 0 3px transparent;
 	padding-left: 10px;
 }
 
@@ -2408,9 +2415,9 @@ ul.menu-left li.actif a{
 	margin:0 0 0 25px;
 }
 .site-map ul li ul li ul li a{
-	color: #BCC601;
-	font-weight:normal;
-	background: url("../images/puce-contenu-vert.png") no-repeat scroll 0 3px transparent;
+	/*color: #BCC601;*/
+	color: #02BDFF;
+	background: url("../images/puce-contenu-bleu.png") no-repeat scroll 0 3px transparent;
 	padding-left: 10px;
 }
 

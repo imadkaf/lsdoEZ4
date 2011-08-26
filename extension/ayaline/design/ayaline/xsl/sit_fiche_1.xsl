@@ -436,7 +436,33 @@
 				</div>
 				
 				<div id="onglet-tarifs">
-					
+					<table cellspacing="0" width="100%">
+						<xsl:for-each select="criteres/critere[@id='851000020' or @id='851000021' or @id='851000022' or @id='851000023' or @id='851000024' or @id='851000025' or @id='851000026' or @id='851000027']">
+							<xsl:variable name="positionCritere" select="position()"/>
+							<tr>
+								<td>
+									<xsl:attribute name="style">width:60%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">7A7368</xsl:if><xsl:if test="(position() mod 2) = 0">E0E0E0</xsl:if>;color:#<xsl:if test="(position() mod 2) = 1">FFFFFF</xsl:if><xsl:if test="(position() mod 2) = 0">353535</xsl:if></xsl:attribute>
+									<strong><xsl:value-of select="intCritere"/> :</strong>
+								</td>
+								<td>
+									<xsl:attribute name="style">text-align:center;width:40%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">E4E0DB</xsl:if><xsl:if test="(position() mod 2) = 0">EEEEEE</xsl:if>;color:#353535</xsl:attribute>
+									<![CDATA[ ]]>
+								</td>
+							</tr>
+							<xsl:for-each select="modalites/modalite">
+								<tr>
+									<td>
+										<xsl:attribute name="style">width:60%;vertical-align:top;font-size:90%;padding:1px 10px;background-color:#<xsl:if test="($positionCritere mod 2) = 1">7A7368</xsl:if><xsl:if test="($positionCritere mod 2) = 0">E0E0E0</xsl:if>;color:#<xsl:if test="($positionCritere mod 2) = 1">FFFFFF</xsl:if><xsl:if test="($positionCritere mod 2) = 0">353535</xsl:if></xsl:attribute>
+										<strong><xsl:value-of select="intModalite"/></strong>
+									</td>
+									<td>
+										<xsl:attribute name="style">text-align:center;width:40%;vertical-align:top;font-size:90%;padding:1px 10px;background-color:#<xsl:if test="($positionCritere mod 2) = 1">E4E0DB</xsl:if><xsl:if test="($positionCritere mod 2) = 0">EEEEEE</xsl:if>;color:#353535</xsl:attribute>
+										<xsl:value-of select="valModalite"/> &amp;euro;
+									</td>
+								</tr>
+							</xsl:for-each>
+						</xsl:for-each>
+					</table>
 					<![CDATA[ ]]>
 				</div>
 				
