@@ -1,0 +1,22 @@
+/* Diaporama */
+.headerdiapo{
+	margin-bottom: -296px;
+}
+
+
+/* Fiche SIT */
+.bloc-liste-h2{
+	float: none !important;
+}
+
+
+/* Menu de recherche SIT */
+#sit_mc{
+	width: 193px !important;
+}
+#sit_debut_ouv{
+	width: 74px !important;
+}
+.liste-modalites li{
+	padding-left: 1px !important;
+}
