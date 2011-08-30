@@ -280,7 +280,13 @@ class eZSitOperators {
 		$http = eZHTTPTool::instance();
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
-
+		$ayaIni = eZINI::instance('ayaline.ini');
+		$cheminImagesLSDO = $ayaIni->variable('Images','Chemin');
+		
+		if ($http->hasSessionVariable('saison')) {
+			$saisonId=$http->sessionVariable('saison');
+		}
+		
 		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'RootSitUrl')) {
 			$rootSitUrl = $sitIni->variable('GlobalSitParametersOverride','RootSitUrl');
 		} else {
@@ -420,6 +426,33 @@ class eZSitOperators {
 				$dureeDispo = $http->sessionVariable(sha1("sit_duree_dispo_".$lienCourant));
 			}
 		}
+		if ($http->hasSessionVariable("saison") && $debutOuv=='') {
+		
+			/*
+			* du 21-03 au 20-06 : printemps
+			* du 21-06 au 20-09 : été
+			* du 21-09 au 20-12 : automne
+			* du 21-12 au 20-03 : hiver
+			*/
+			
+			$saisonId=$http->sessionVariable("saison");
+			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Printemps')) {
+				$debutOuv=$ayaIni->variable('Saisons','debPrintemps').'/'.date('Y');
+				$finOuv=$ayaIni->variable('Saisons','finPrintemps').'/'.date('Y');
+			}
+			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Ete')) {
+				$debutOuv=$ayaIni->variable('Saisons','debEte').'/'.date('Y');
+				$finOuv=$ayaIni->variable('Saisons','finEte').'/'.date('Y');
+			}
+			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Automne')) {
+				$debutOuv=$ayaIni->variable('Saisons','debAutomne').'/'.date('Y');
+				$finOuv=$ayaIni->variable('Saisons','finAutomne').'/'.date('Y');
+			}
+			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Hiver')) {
+				$debutOuv=$ayaIni->variable('Saisons','debHiver').'/'.date('Y');
+				$finOuv=$ayaIni->variable('Saisons','finHiver').'/'.date('Y');
+			}
+		}
 
 		$sitParamsString = $categorie ? "&idC=".$categorie : "";
 
@@ -447,6 +480,8 @@ class eZSitOperators {
 
 		$xsltParemters = array();
 
+		$xsltParemters['saisonId'] = $saisonId;
+		$xsltParemters['cheminImagesLSDO'] = $cheminImagesLSDO;
 		$xsltParemters['lienCourant'] = $lienCourant;
 		$xsltParemters['cheminImages'] = $cheminImages;
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
@@ -502,7 +537,13 @@ class eZSitOperators {
 		$http = eZHTTPTool::instance();
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
-
+		$ayaIni = eZINI::instance('ayaline.ini');
+		$cheminImagesLSDO = $ayaIni->variable('Images','Chemin');
+		
+		if ($http->hasSessionVariable('saison')) {
+			$saisonId=$http->sessionVariable('saison');
+		}
+		
 		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'RootSitUrl')) {
 			$rootSitUrl = $sitIni->variable('GlobalSitParametersOverride','RootSitUrl');
 		} else {
@@ -712,6 +753,32 @@ class eZSitOperators {
 				$dureeDispo = $http->sessionVariable(sha1("sit_duree_dispo_".$lienCourant));
 			}
 		}
+		if ($http->hasSessionVariable("saison") && $debutOuv=='') {
+			/*
+			* du 21-03 au 20-06 : printemps
+			* du 21-06 au 20-09 : été
+			* du 21-09 au 20-12 : automne
+			* du 21-12 au 20-03 : hiver
+			*/
+			$saisonId=$http->sessionVariable("saison");
+			$cheminImagesLSDO = $ayaIni->variable('Images','Chemin');
+			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Printemps')) {
+				$debutOuv=$ayaIni->variable('Saisons','debPrintemps').'/'.date('Y');
+				$finOuv=$ayaIni->variable('Saisons','finPrintemps').'/'.date('Y');
+			}
+			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Ete')) {
+				$debutOuv=$ayaIni->variable('Saisons','debEte').'/'.date('Y');
+				$finOuv=$ayaIni->variable('Saisons','finEte').'/'.date('Y');
+			}
+			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Automne')) {
+				$debutOuv=$ayaIni->variable('Saisons','debAutomne').'/'.date('Y');
+				$finOuv=$ayaIni->variable('Saisons','finAutomne').'/'.date('Y');
+			}
+			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Hiver')) {
+				$debutOuv=$ayaIni->variable('Saisons','debHiver').'/'.date('Y');
+				$finOuv=$ayaIni->variable('Saisons','finHiver').'/'.date('Y');
+			}
+		}
 
 		if ($sitModalitesRapides) {
 			if (array_key_exists('mr2', $sitParams)) {
@@ -831,7 +898,9 @@ class eZSitOperators {
 			$nbResultatsTotal = trim(SitUtils::getHtmlResult($cheminFichierCacheXmlNbProduits, $cheminFichierXsl));
 			$xsltParemters['nbPages'] = ceil($nbItemsParPage > 0 ? $nbResultatsTotal/$nbItemsParPage : 1);
 		}
-
+		
+		$xsltParemters['saisonId'] = $saisonId;
+		$xsltParemters['cheminImagesLSDO'] = $cheminImagesLSDO;
 		$xsltParemters['lienCourant'] = $lienCourant;
 		$xsltParemters['cheminImages'] = $cheminImages;
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
@@ -878,7 +947,7 @@ class eZSitOperators {
 
 		$contenuBloc = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
 		$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
-		$contenuBloc = preg_replace("/\r\n/si", "", $contenuBloc);
+		$contenuBloc = preg_replace("/_dw_entity__#13__\n/si", "", $contenuBloc);
 		$contenuBloc = utf8_decode(preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc));
 		$contenuBloc = "\n".preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc)."\n";
 
@@ -1111,7 +1180,7 @@ class eZSitOperators {
 
 		$contenuBloc = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
 		$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
-		$contenuBloc = preg_replace("/\r\n/si", "", $contenuBloc);
+		$contenuBloc = preg_replace("/_dw_entity__#13__\n/si", "", $contenuBloc);
 		$contenuBloc = utf8_decode(preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc));
 		$contenuBloc = "\n".preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc)."\n";
 
