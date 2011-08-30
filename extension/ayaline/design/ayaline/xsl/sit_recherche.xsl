@@ -7,10 +7,42 @@
 		<div class="bloc-type">
 			<ul class="list-thm">
 				<li class="first"><strong>Changer de<br />saison &gt;</strong></li>
-				<li><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm1-bis.png" alt="" /></a></li>
-				<li><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm2-bis.png" alt="" /></a></li>
-				<li><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm3-bis.png" alt="" /></a></li>
-				<li class="last"><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm4-bis.png" alt="" /></a></li>
+				<li>
+					<form method="post" action="/saisons/edit/">
+						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/></xsl:attribute></input>
+						<input type="hidden" value="0" name="season_id" />
+						<input class="actif" type="image">
+							<xsl:attribute name="src" alt="Automne"><xsl:value-of select="$cheminImagesLSDO"/>saison0<xsl:if test="$saisonId = '0'">-on</xsl:if>.png</xsl:attribute>
+						</input>
+					</form>
+				</li>
+				<li>
+					<form method="post" action="/saisons/edit/">
+						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/></xsl:attribute></input>
+						<input type="hidden" value="1" name="season_id" />
+						<input class="actif" type="image">
+							<xsl:attribute name="src" alt="Hiver"><xsl:value-of select="$cheminImagesLSDO"/>saison1<xsl:if test="$saisonId = '1'">-on</xsl:if>.png</xsl:attribute>
+						</input>
+					</form>
+				</li>
+				<li>
+					<form method="post" action="/saisons/edit/">
+						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/></xsl:attribute></input>
+						<input type="hidden" value="2" name="season_id" />
+						<input class="actif" type="image">
+							<xsl:attribute name="src" alt="Printemps"><xsl:value-of select="$cheminImagesLSDO"/>saison2<xsl:if test="$saisonId = '2'">-on</xsl:if>.png</xsl:attribute>
+						</input>
+					</form>
+				</li>
+				<li class="last">
+					<form method="post" action="/saisons/edit/">
+						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/></xsl:attribute></input>
+						<input type="hidden" value="3" name="season_id" />
+						<input class="actif" type="image">
+							<xsl:attribute name="src" alt="Eté"><xsl:value-of select="$cheminImagesLSDO"/>saison3<xsl:if test="$saisonId = '3'">-on</xsl:if>.png</xsl:attribute>
+						</input>
+					</form>
+				</li>
 			</ul>
 			<!-- ul class="list-thm">
 				<li class="first"><strong>Changer de<br />th&amp;egrave;me &gt;</strong></li>
