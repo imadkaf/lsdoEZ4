@@ -2325,6 +2325,11 @@ ul.contenu li{
 	font-size:32px !important;
 	font-weight:bold;
 }
+.bloc-detail-h2{
+	font-family:'OmnesMedium';
+	font-size:25px !important;
+	font-weight:bold;
+}
 .bloc-liste-h3{
 	font-family:'OmnesMedium';
 	font-size:22px;

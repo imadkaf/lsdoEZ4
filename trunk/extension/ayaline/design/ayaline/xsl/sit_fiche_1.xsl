@@ -12,14 +12,6 @@
 	<xsl:include href="inc/rendu_adresse.xsl"/>
 
 	<xsl:template match="/produit">
-		<xsl:if test="string-length($lienPrecedent) &gt; 0">
-			<div style="text-align:right"><a>
-				<xsl:attribute name="href"><xsl:value-of select="$lienPrecedent"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if>#fiche-<xsl:value-of select="@id"/></xsl:attribute>
-				&amp;lt;&amp;lt;&amp;nbsp;<xsl:value-of select="$termeRetourListe"/>
-			</a></div>
-		</xsl:if>
-		<br/>
-		
 		<div class="box-left">
 			<xsl:if test="count(newPhotos/newPhoto) &gt; 0">
 				<div id="galleria" class="galerie-fiche">
@@ -284,7 +276,7 @@
 		</div>
 		
 		<div class="box-right">
-			<h2 class="bloc-liste-h2"><xsl:value-of select="intitule"/></h2>
+			<h2 class="bloc-detail-h2"><xsl:value-of select="intitule"/></h2>
 			<xsl:choose>
 				<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite != ''">
 					<img alt="">
@@ -516,6 +508,12 @@
 		
 		<p class="clear"></p>
 		<p class="space"></p>
+		<xsl:if test="string-length($lienPrecedent) &gt; 0">
+			<div style="text-align:right"><a>
+				<xsl:attribute name="href"><xsl:value-of select="$lienPrecedent"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if>#fiche-<xsl:value-of select="@id"/></xsl:attribute>
+				&amp;lt;&amp;lt;&amp;nbsp;<xsl:value-of select="$termeRetourListe"/>
+			</a></div>
+		</xsl:if>
 		
 		<div class="float-d" style="margin-bottom:10px;">
 			<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pubid=xa-4db82bbb1279e354"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>

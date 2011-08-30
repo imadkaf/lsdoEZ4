@@ -22,11 +22,13 @@ if ($http->hasSessionVariable('topics')){
 		} 
 	} else {
 		$topic_ids = array(); // JMA : un seul thème possible à fois, donc si un autre thème est sélectioné, je vide le tableau. (le tableau aura donc tjs 0 ou 1 valeur)
+	//	$topic_ids=array(); // on vide le thème courant, on ne doit avoir toujours qu'un seul thème de sélectionné
 		array_push($topic_ids, $topic_id);		
 	}
 }else{
 	$topic_ids = array($topic_id);
 }
+//print_r($topic_ids);exit;
 $http->setSessionVariable('topics', $topic_ids);	
 
 // *	- 2 : Redirection vers la page consultée
