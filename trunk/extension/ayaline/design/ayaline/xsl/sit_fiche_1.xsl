@@ -288,6 +288,7 @@
 					<xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/>
 				</xsl:otherwise>
 			</xsl:choose>
+			<p class="clear"><![CDATA[ ]]></p>
 			
 			<ul class="ss-titre-bis">
 				<li><xsl:value-of select="ville/intituleVille"/></li>
@@ -318,7 +319,7 @@
 						<xsl:for-each select="criteres/critere[@id='851000010']/modalites/modalite">
 							<xsl:choose>
 									<xsl:when test="logoModalite != ''">
-										<img alt="">
+										<img alt="" style="float: none;">
 											<xsl:attribute name="src"><xsl:value-of select="logoModalite"/></xsl:attribute>
 											<xsl:attribute name="title">Cha&amp;icirc;nes d'h&amp;ocirc;tel : <xsl:value-of select="intModalite"/></xsl:attribute>
 										</img>

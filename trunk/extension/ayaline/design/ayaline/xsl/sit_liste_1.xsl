@@ -174,7 +174,7 @@
 										<xsl:for-each select="criteres/critere[@id='851000010']/modalites/modalite">
 											<xsl:choose>
 			 									<xsl:when test="logoModalite != ''">
-														<img alt="">
+														<img alt="" style="float: none;">
 															<xsl:attribute name="src"><xsl:value-of select="logoModalite"/></xsl:attribute>
 															<xsl:attribute name="title">Cha&amp;icirc;nes d'h&amp;ocirc;tel : <xsl:value-of select="intModalite"/></xsl:attribute>
 														</img>
