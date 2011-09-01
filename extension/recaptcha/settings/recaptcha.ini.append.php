@@ -19,11 +19,17 @@
 #
 #PublicKey[hostname]=Enter your Public Key here for hostname
 #PublicKey[localhost]=Enter your Public Key here for localhost
-PublicKey=6Ldq08QSAAAAAI42NuIc18tquwnidDSHjPlTH6Lp
+#Pour lsdo.loc
+#PublicKey=6Ldq08QSAAAAAI42NuIc18tquwnidDSHjPlTH6Lp
+#Pour dev.lsdo.lnet.fr
+PublicKey=6LcZr8cSAAAAAHPw7Ye_NAmXPwG3Y3XdJkKQI0EQ 
 
 #PrivateKey[hostname]=Enter your Private Key here for hostname
 #PrivateKey[localhost]=Enter your Private Key here for localhost
-PrivateKey=6Ldq08QSAAAAAOj5879QeC2YKicZGD2UIpjPr9vs
+#Pour lsdo.loc
+#PrivateKey=6Ldq08QSAAAAAOj5879QeC2YKicZGD2UIpjPr9vs
+#Pour dev.lsdo.lnet.fr
+PrivateKey=6LcZr8cSAAAAAGfEatx4eomSEtDsc2rvFogGfbsm
 
 [Display]
 # Possible themes 'red' | 'white' | 'blackglass' | 'clean' | 'custom'
