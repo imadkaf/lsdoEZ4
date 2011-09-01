@@ -41,6 +41,11 @@
 														<xsl:variable name="photoInfobulle"><xsl:value-of select="newPhotos/newPhoto"/></xsl:variable>
 														<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$photoInfobulle"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="concat('\', $apos)"/></xsl:call-template>&amp;amp;w=120</xsl:attribute>
 													</img>
+												</xsl:if>
+												<xsl:if test="count(newPhotos/newPhoto) = 0">
+													<img class="float-g photo" alt="" style="max-height: 100px; width: 120px;">
+														<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
+													</img>
 												</xsl:if><![CDATA['+
 											'<span class="float-d">]]><xsl:value-of select="ville/intituleVille"/><![CDATA[</span><br />'+
 											']]><xsl:if test="string-length(commentaires/commentaire1) &gt; 0">
