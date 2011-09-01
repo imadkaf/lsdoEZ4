@@ -37,20 +37,27 @@
 									var contentString = '<div class="moninfobulle">'+
 											'<div class="titre"><h3>]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><![CDATA[</h3>'+
 											']]><xsl:choose>
-													<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite != ''">
+													<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1 and contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]/logoModalite != ''">
 														<img alt="" class="etoile">
 															<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
 															<xsl:attribute name="title"><![CDATA[Cat&eacute;gorie : ]]><xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/></xsl:attribute>
 														</img>
 													</xsl:when>
 													<xsl:otherwise>
-														<xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/>
+														<xsl:if test="criteres/critere[@id='851000005']/modalites/modalite[1 and contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]/intModalite != ''">
+															<xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/>
+														</xsl:if>
 													</xsl:otherwise>
 												</xsl:choose><![CDATA[</div>'+
 											']]><xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
-													<img class="float-g photo" alt="">
+													<img class="float-g photo" alt="" style="max-height: 100px">
 														<xsl:variable name="photoInfobulle"><xsl:value-of select="newPhotos/newPhoto"/></xsl:variable>
 														<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$photoInfobulle"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="concat('\', $apos)"/></xsl:call-template>&amp;amp;w=120</xsl:attribute>
+													</img>
+												</xsl:if>
+												<xsl:if test="count(newPhotos/newPhoto) = 0">
+													<img class="float-g photo" alt="" style="max-height: 100px; width: 120px;">
+														<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
 													</img>
 												</xsl:if><![CDATA['+
 											'<span class="float-d">]]><xsl:value-of select="ville/intituleVille"/><![CDATA[</span><br />'+
