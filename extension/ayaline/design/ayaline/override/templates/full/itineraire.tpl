@@ -9,7 +9,7 @@
 			<div id="side-container">
 				<ul>
 					<li class="dir-label">Départ :</li>
-					<li><input id="from-input" type=text value="Les Sables d'Olonne"/></li>
+					<li><input id="from-input" type=text value="Office de tourisme des Sables d'Olonne, 1, promenade Joffre, 85100 Les Sables d'Olonne"/></li>
 					<br clear="both"/>
 					<br />
 					<li class="dir-label">Arrivée :</li>
