@@ -12,7 +12,7 @@
 		Gestion des sous-menu du menu général
 	*}
 			<div class="ss-menu">
-	{if $key|eq(0)} {* Cas du menu Découvrir *}
+	{if or($key|eq(0),$key|eq(1))} {* Cas du menu Découvrir & Séjourner *}
 				{* affichage des thème en haut du menu découvrir *}
 				<ul class="top">
 		{foreach $topicsList.children as $topic} {* themes Mer/ville/plage/Nature définis dans le pagelayout *}
