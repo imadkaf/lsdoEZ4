@@ -18,19 +18,21 @@ SessionNameHandler=custom
 
 [SiteSettings]
 DefaultAccess=ayaline
-SiteList[]
-SiteList[]=ayaline
+SiteList[]=ayaline_mobi
+SiteList[]=ayaline_admin
 
 [SiteAccessSettings]
 CheckValidity=false
 AvailableSiteAccessList[]
 AvailableSiteAccessList[]=ayaline
+AvailableSiteAccessList[]=ayaline_mobi
 AvailableSiteAccessList[]=ayaline_en
 AvailableSiteAccessList[]=ayaline_admin
 MatchOrder=host
 HostMatchMapItems[]
-HostMatchMapItems[]=dev.lsdo.loc;ayaline
-HostMatchMapItems[]=dev.en.lsdo.loc;ayaline_en
+HostMatchMapItems[]=lsdo.loc;ayaline
+HostMatchMapItems[]=mobi.lsdo.loc;ayaline_mobi
+HostMatchMapItems[]=en.lsdo.loc;ayaline_en
 HostMatchMapItems[]=admin.lsdo.loc;ayaline_admin
 ForceVirtualHost=true
 
@@ -51,9 +53,11 @@ EmailSender=gseguin@ayaline.com
 [RegionalSettings]
 ContentObjectLocale=fre-FR
 TranslationExtensions[]=ayaline
-urlList[]
-urlList[fre-FR]=dev.lsdo.loc
-urlList[eng-GB]=dev.en.lsdo.loc
+TranslationExtensions[]=ayaline_admin
+TranslationExtensions[]=ayaline_mobi
+#urlList[]
+#urlList[fre-FR]=lsdo.loc
+#urlList[eng-GB]=en.lsdo.loc
 
 [FileSettings]
 VarDir=var/ayaline
