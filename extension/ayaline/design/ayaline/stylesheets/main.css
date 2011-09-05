@@ -573,6 +573,10 @@ li.last form{
 .bloc-type ul li p{
 	padding:0;
 }
+.bloc-type ul li p img {
+    padding: 0 0 0 10px;
+    float: right;
+}
 .lien-bas a.type3{
 	background:url('../images/picto3.gif') 0 50% no-repeat;
 	color:#02bdff;
@@ -1436,13 +1440,18 @@ ul.liste .lien-bas{
 .top li input{
 	background:#f6efe9;
 	padding:0 4px !important;
-	color:#e644ab !important;
 	text-transform:none !important;
 	font-size:14px !important;
 	font-weight:bold;
 	border-left:none !important;
 	width:auto !important;
 	cursor:pointer;
+}
+.rubrique0 .top li input{
+	color:#e644ab !important;
+}
+.rubrique1 .top li input{
+	color:#02bdff !important;
 }
 .top li a:hover{
 	text-decoration:none;
@@ -1482,8 +1491,12 @@ ul.liste .lien-bas{
 .bottom li a img, .bottom-2 li a img{
 	margin:0 15px 0 0;
 }
-.ss-menu li.actif input{
+.rubrique0 .ss-menu li.actif input{
 	background:#e843ab;
+	color:#ffffff !important;
+}
+.rubrique1 .ss-menu li.actif input{
+	background:#02bdff;
 	color:#ffffff !important;
 }
 /****Photo detail****/
@@ -1738,6 +1751,7 @@ ul.ss-titre-bis li.last{
 	font-weight:bold;
 }
 ul.ss-titre-bis{
+	clear: left;
 	overflow:hidden;
 	height:1%;
 	margin:0 0 8px 0;
@@ -1764,6 +1778,7 @@ ul.ss-titre-bis{
 .list-inline-bis li img{
 	float:none !important;
 	margin:0 !important;
+	padding: 0 3px 0 3px;
 }
 p.ss-titre{
 	color:#00bbd6 !important;
@@ -2046,7 +2061,7 @@ p.lien-bas{
 	float:left;
 }
 .box-right .ss-titre-bis{
-	padding:14px 0 0 0;
+	padding:6px 0 0 0;
 }
 .box-right .ss-titre{
 	font-size:13px;
