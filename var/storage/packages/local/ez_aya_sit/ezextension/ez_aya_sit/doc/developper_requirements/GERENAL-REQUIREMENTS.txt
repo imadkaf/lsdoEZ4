@@ -1,0 +1,12 @@
+INTRO: 
+- General requirements
+Some requirements apply to all kinds of development. These are mainly language and
+documentation requirements.
+
+- Language
+English is the working language of eZ Systems. All function names must be in English. All
+documentation must also be in English. This includes in-line, end-user, Doxygen, etc.
+documentation.
+
+- Character set
+All non-binary files must be encoded using the character set UTF-818.
