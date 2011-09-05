@@ -1,0 +1,372 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body {
+	width:100%;
+	margin:0;
+	background:#666666;
+}
+
+/* STANDARD SETS */
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:small;
+}
+p {
+	margin:0px;
+	text-align:justify;
+}
+img {
+	border:none;
+}
+img a:link{
+	border:none;
+}
+h1 {
+	font-size:1.1em;
+	text-transform:uppercase;
+	margin:0px;
+}
+a:link { color:#000; text-decoration:none; }
+a:visited { color:#000; text-decoration:none; }
+
+.clear{
+	clear:both;
+}
+.none{
+	display:none !important;
+}
+
+/*************************************/
+
+/* TOP */
+#Header{
+	background:#313d48;
+	padding:0 9px 0 10px;
+}
+
+.TopNavBar .menu{
+	float:left;
+}
+
+#Main{
+	background:#f6efe9;
+	border:1px solid #c9bdb2;
+	padding:23px 0 0 0px;
+}
+/* PUSH - MISES EN AVANT*/
+.push{
+	border-top:1px solid #c9bdb2;
+	padding:0px 1px 0 10px;
+	background:url('../images/bg-bloc.png') 0 0 repeat-x #DFD1C4;
+}
+.push .arrow {
+    float: right;
+    margin: 0 8px 0 0;
+	position: relative;
+	top:23px;
+}
+.push .text {
+    vertical-align: top;
+	padding-bottom: 5px;
+}
+.text .title{
+	font-weight:bold;
+	text-transform:none;
+	color:#000000;
+	padding:0px;
+}
+.text .description{
+	text-transform:none;
+	color:#000000;
+	font-weight:normal;
+	padding:0px;
+}
+.text span{
+	color:#e644ac;
+	text-transform:uppercase;
+	font-weight:bold;
+	display:block;
+	padding-top:5px;
+}
+.bottom{
+	padding:3px;
+	color:#FFFFFF;
+	background:#666666;
+	font-size:0.8em;
+}
+
+.icon {
+	margin-top:5px;
+	text-align:center;
+	float:left;
+	width:33%;
+	font-size:small;
+	vertical-align:top;
+}
+
+/* BOUTONS LARGE */
+.btnAffiner {
+	background:#A0A0A0 url(../images/bg_affiner.png) repeat-x;
+	padding:15px;
+	border-top:#999999 1px solid;
+	font-weight:bold;
+}
+.btnAffiner .arrow {
+	float:right;
+}
+.btnDispo {
+	background:#A0A0A0 url(../images/bg_affiner.png) repeat-x;
+	padding:15px;
+	border-bottom:#999999 1px solid;
+	font-weight:bold;
+}
+
+#Copyrights{
+	background:#313d48;
+	color:#ffffff;
+}
+#Copyrights p a{
+	font-weight:bold;
+	color:#ffffff !important;
+	padding:2px 0 0 0;
+	display:block;
+}
+#Copyrights p{
+	padding:18px 0 18px 18px;
+}
+.recherche .search .ui-icon-myapp-email {
+	background-image: url("../images/bt-ok.png") ;
+}
+
+
+
+/**************/
+/*** Alexia ***/
+/**************/
+
+/*** General ***/
+@font-face {
+	font-family: 'OmnesLight';
+	src: url("../fonts/omnes_light-webfont.eot") format("eot"),
+	url("../fonts/omnes_light-webfont.woff") format("woff"),
+	url("../fonts/Omnes_Light.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+#container{
+	text-shadow: none;
+}
+
+.menu{
+	width: 100%;
+}
+.menu a.ui-link{
+	color: #FFFFFF !important;
+}
+
+.item1, .item2, .item3{
+	background-color: #6F787F;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	font-family: 'OmnesLight';
+	text-transform: uppercase;
+	font-size: 14px;
+	width: 32%;
+	display:block;
+	float:left;
+	text-align: center;
+}
+.item1, .item2, .item3{
+	margin-right: 5px;
+}
+
+a.ui-link{
+	color: black !important;
+}
+
+.icons{
+	margin-bottom: 20px;
+}
+
+.recherche.accueil{
+	border-top: 1px solid #c9bdb2;
+}
+
+.form-recherche{
+	margin: 10px 0px 10px 0px;
+	text-align: center;
+}
+
+.PageRoot{
+	padding: 15px 0 15px 20px;
+	border-top: 1px solid #c9bdb2;
+	background: none repeat scroll 0 0 #FAF9F7;
+}
+.PageRoot a.ui-link{
+	font-weight: normal;
+}
+.PageRoot a.ui-link:hover{
+    text-decoration: underline;
+}
+
+
+
+/*** Page liste hotels ***/
+.liste-hotel #Main{
+	padding:0;
+}
+
+.titre-liste{
+	border-bottom: 1px solid #c9bdb2;
+	margin-bottom: 10px;
+}
+
+.rech-dispo{
+	border-bottom: 1px solid #c9bdb2;
+	background: url('../images/rech-dispo-degrade.png') 0 0 repeat-x;
+}
+.rech-dispo a{
+	margin-bottom: 10px;
+	padding-left: 15px;
+	display: block;
+	background: url("../images/picto-orange.png") no-repeat scroll 285px 0 transparent;
+	font-size: 14px;
+}
+
+.liste-hotel h2{
+	margin: 5px 0px 5px 15px;
+	padding: 0;
+	font-family: 'OmnesLight';
+	font-size: 27px;
+	color: #313E47;
+}
+
+.float-gauche{
+	float: left;
+}
+.float-droite-picto{
+	float: right;
+	position: relative;
+	right: 20px;
+}
+.float-droite{
+	float: right;
+	margin-right: 40px;
+}
+
+.liste-hotel-contenu{
+	background: none repeat scroll 0 0 #FAF9F7;
+	padding: 0px;
+	margin: 0px;
+	list-style:none;
+}
+.liste-hotel-contenu li{
+	border-top: 1px solid #c9bdb2;
+	padding: 10px 0px 10px 10px;
+	margin:0;
+}
+.liste-hotel-contenu li:first-child{
+	border-top: none;
+}
+.liste-hotel-contenu h3{
+	margin: 0px 0px 10px 150px;
+}
+.liste-hotel-contenu h3 a{
+	margin-right: 10px;
+}
+.sous-titre{
+	margin: 0px 0px 5px 150px;
+	font-size: 11px;
+}
+.sous-titre span{
+	text-transform: uppercase;
+}
+.prix{
+	margin: 0px 0px 10px 150px;
+	font-style: italic;
+	font-weight: bold;
+	color: #00BBD1;
+	font-size: 12px;
+}
+
+.result-suiv{
+	text-align: right;
+	background: none repeat scroll 0 0 #E5DCD3;
+	border-top: 1px solid #c9bdb2;
+	border-bottom: 1px solid #c9bdb2;
+	padding: 10px 15px 10px 0px;
+}
+
+
+
+/*** Page fiche hotel ***/
+.fiche-hotel #Main {
+    background: none repeat scroll 0 0 #F6F2EF;
+}
+
+.fiche-hotel h2{
+	float: left;
+	margin: 5px 15px 5px 15px;
+}
+
+.titre-fiche{
+	border-bottom: 1px solid #c9bdb2;
+	margin-bottom: 20px;
+	background: none repeat scroll 0 0 #F6EFE9;
+}
+.titre-fiche img{
+	position: relative;
+	top: 14px;
+}
+
+.apercu-fiche{
+	margin: 0px 0px 20px 15px;
+}
+.apercu-fiche img.float-gauche{
+	margin-right: 15px;
+}
+.apercu-fiche .prix {
+    font-size: 14px;
+}
+.adresse, .tel{
+    font-size: 12px;
+}
+.tel{
+	margin-bottom: 12px;
+}
+.apercu-fiche a img{
+	margin-right: 8px;
+}
+
+.titre-deroulant{
+	border-top: 1px solid #c9bdb2;
+	border-bottom: 1px solid #c9bdb2;
+	background: url('../images/fiche-hotel-degrade.png') 0 0 repeat-x #E4D6CB;
+}
+.titre-deroulant a{
+	margin: 0px;
+	padding: 7px 0px 7px 25px;
+	display: block;
+	background: url("../images/fleche-bleu-droite.png") no-repeat scroll 290px 6px transparent;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-family: verdana, sans-serif;
+}
+.titre-deroulant.actif a{
+	background: url("../images/fleche-bleu-bas.png") no-repeat scroll 284px 9px transparent;
+}
+
+.contenu-deroulant{
+	margin: 20px;
+}
+
+.result-suiv .retour{
+	float: left;
+	margin-left: 15px;
+}
+
+/******************/
+/*** Fin alexia ***/
+/******************/
