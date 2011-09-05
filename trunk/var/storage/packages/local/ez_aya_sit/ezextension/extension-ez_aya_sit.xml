@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension name="ez_aya_sit">
+  <file name="doc" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="changelogs" path="/doc" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="1.0" path="/doc/changelogs" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="CHANGELOG-x.x.x-to-x.x.x.txt" path="/doc/changelogs/1.0" md5sum="d41d8cd98f00b204e9800998ecf8427e"/>
+  <file name="developper_requirements" path="/doc" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="phpdoc" path="/doc/developper_requirements" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="README.txt" path="/doc/developper_requirements/phpdoc" md5sum="9c383c44e5315e023a5a57e1c14b1f15"/>
+  <file name="uml" path="/doc/developper_requirements" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="README.txt" path="/doc/developper_requirements/uml" md5sum="24e622ae03414cc1388c87a1a2bd1e4a"/>
+  <file name="GERENAL-REQUIREMENTS.txt" path="/doc/developper_requirements" md5sum="667895ab735478ed30ee23b5f7725f35"/>
+  <file name="end_user_documentation" path="/doc" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="classes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="sit_utils.class.php" path="/classes" md5sum="7ed32b3a3a3e497e7f5a767c6264fd1c"/>
+  <file name="cronjobs" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="import_catcrit_sit.php" path="/cronjobs" md5sum="32103333fd44a68eef748a9f3ac152e8"/>
+  <file name="translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="eng-EN" path="/translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="translation.ts" path="/translations/eng-EN" md5sum="1f29e8aff60e34fcf1086ee757062819"/>
+  <file name="fre-FR" path="/translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="translation.ts" path="/translations/fre-FR" md5sum="6683bbc07e2f0f108613ab8c5afc464e"/>
+  <file name="untranslated" path="/translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="translation.ts" path="/translations/untranslated" md5sum="1f29e8aff60e34fcf1086ee757062819"/>
+  <file name="settings" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ez_aya_sit.ini.php" path="/settings" md5sum="abd24820c7564a38e4974d853b47cea6"/>
+  <file name="content.ini.append.php" path="/settings" md5sum="3278f0c1bdaf1c9ee0fdf66b6186a5d8"/>
+  <file name="siteaccess" path="/settings" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="fre" path="/settings/siteaccess" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="override.ini.append.php" path="/settings/siteaccess/fre" md5sum="fa321ba6e3aacc98a3e027b56f14354c"/>
+  <file name="site.ini.append.php" path="/settings" md5sum="f0ecc08412afb2ee90e64b4669dc2d72"/>
+  <file name="design.ini.append.php" path="/settings" md5sum="e7a24e308934f14ad09e9e0806e9886f"/>
+  <file name="module.ini.append.php" path="/settings" md5sum="e72114c8c99ef7adb0a7f83b65cd61a5"/>
+  <file name="cronjob.ini.append.php" path="/settings" md5sum="4747dd987d5bfba4d60cec056d7efec3"/>
+  <file name="datatypes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ezcategoryselection" path="/datatypes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ezcategoryselectiontype.php" path="/datatypes/ezcategoryselection" md5sum="8ca6b51a24b04847b2b4bb0ae48936c9"/>
+  <file name="design" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="standard" path="/design" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="xsl" path="/design/standard" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="sit_fiche.xsl" path="/design/standard/xsl" md5sum="d3506937a46dbbdafb21ae2b72ede392"/>
+  <file name="sit_recherche.xsl" path="/design/standard/xsl" md5sum="071fc269ddafbc8d9cd70280410fba1b"/>
+  <file name="inc" path="/design/standard/xsl" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="periodes_ouverture.xsl" path="/design/standard/xsl/inc" md5sum="5b4bdc90aaa1020573f4c9c45d588685"/>
+  <file name="enhanced_substring.xsl" path="/design/standard/xsl/inc" md5sum="0c01ec7dab5dffb7d07471a3a811d039"/>
+  <file name="rendu_adresse.xsl" path="/design/standard/xsl/inc" md5sum="e3298948cad83a647e8f4d327fdf8433"/>
+  <file name="display_dispos.xsl" path="/design/standard/xsl/inc" md5sum="7ffa51f114e922f2c7d96992ff2137d4"/>
+  <file name="pagination.xsl" path="/design/standard/xsl/inc" md5sum="72da7472610353fbf7b1d1e266a4b240"/>
+  <file name="string_replace_all.xsl" path="/design/standard/xsl/inc" md5sum="a3cfcc14705298922d2b9c7afcaedb14"/>
+  <file name="sit_liste.xsl" path="/design/standard/xsl" md5sum="f4a997fc029a38816d4fe2b2130d5e6f"/>
+  <file name="sit_nb_produits.xsl" path="/design/standard/xsl" md5sum="5c6c17d1ed3fcd3f1d360cdc6800bb0f"/>
+  <file name="stylesheets" path="/design/standard" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ezcategoryselection.css" path="/design/standard/stylesheets" md5sum="94271d9afc17a489b5b865d70168cff9"/>
+  <file name="jquery.lightbox-0.5.css" path="/design/standard/stylesheets" md5sum="ecb4a407ae58e36459098e21915795fd"/>
+  <file name="jquery-ui.custom.css" path="/design/standard/stylesheets" md5sum="ed512d7c7d1c552aee0471255dc9e735"/>
+  <file name="templates" path="/design/standard" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="content" path="/design/standard/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="datatype" path="/design/standard/templates/content" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="collect" path="/design/standard/templates/content/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ezselection.tpl" path="/design/standard/templates/content/datatype/collect" md5sum="256691da1a58f4e33e731c999a65376c"/>
+  <file name="parts" path="/design/standard/templates/content/datatype/collect" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="category.tpl" path="/design/standard/templates/content/datatype/collect/parts" md5sum="d59c945b5e4d4836fee56538ffd2f776"/>
+  <file name="ezcategoryselection.tpl" path="/design/standard/templates/content/datatype/collect" md5sum="256691da1a58f4e33e731c999a65376c"/>
+  <file name="edit" path="/design/standard/templates/content/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ezselection.tpl" path="/design/standard/templates/content/datatype/edit" md5sum="00bc27ce8a2e47842bac6255caa023b7"/>
+  <file name="parts" path="/design/standard/templates/content/datatype/edit" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="category.tpl" path="/design/standard/templates/content/datatype/edit/parts" md5sum="544f64170cbb6f691323fea0f8fc0c16"/>
+  <file name="ezcategoryselection.tpl" path="/design/standard/templates/content/datatype/edit" md5sum="c8327cdfad40d9f47a15ee4d9e784565"/>
+  <file name="view" path="/design/standard/templates/content/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ezcategoryselection.tpl" path="/design/standard/templates/content/datatype/view" md5sum="9cc7a59518c6faf89df19f4e192da5d4"/>
+  <file name="pdf" path="/design/standard/templates/content/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="result" path="/design/standard/templates/content/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="info" path="/design/standard/templates/content/datatype/result" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ezcategoryselection.tpl" path="/design/standard/templates/content/datatype/result/info" md5sum="a6baa91ee3cd7ae7e3f3fe2565d89d12"/>
+  <file name="class" path="/design/standard/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="datatype" path="/design/standard/templates/class" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="edit" path="/design/standard/templates/class/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ezselection.tpl" path="/design/standard/templates/class/datatype/edit" md5sum="4808b770e0ba1846c3fa13093e3652f7"/>
+  <file name="parts" path="/design/standard/templates/class/datatype/edit" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="category.tpl" path="/design/standard/templates/class/datatype/edit/parts" md5sum="90651053d6e8f401778faddd2575a00c"/>
+  <file name="ezcategoryselection.tpl" path="/design/standard/templates/class/datatype/edit" md5sum="fc31e130a44b4bce024b71baa281fccd"/>
+  <file name="view" path="/design/standard/templates/class/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="empty_pagelayout.tpl" path="/design/standard/templates" md5sum="88787b6ed54b4817af7a84d12719f674"/>
+  <file name="fiche_detail" path="/design/standard/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="fiche_detail.tpl" path="/design/standard/templates/fiche_detail" md5sum="c4bc77a6a82b73410e0a579a9381a3d4"/>
+  <file name="ezcategoryselection" path="/design/standard/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="related_options.tpl" path="/design/standard/templates/ezcategoryselection" md5sum="71c0de23fa547a0bd71d3f6ef99d0e8c"/>
+  <file name="override" path="/design/standard" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="templates" path="/design/standard/override" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="full" path="/design/standard/override/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="sit_liste.tpl" path="/design/standard/override/templates/full" md5sum="97ece971e3ba2e1d0b5959f21e2b2101"/>
+  <file name="sit_liste_page_leftmenu.tpl" path="/design/standard/override/templates" md5sum="3efb5fbadb748dd6bce111a31a7dad1b"/>
+  <file name="javascript" path="/design/standard" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="jquery.lightbox-latest.min.js" path="/design/standard/javascript" md5sum="14b311d4e52c858c59e7ba05588be9fd"/>
+  <file name="ezcategoryselection.js" path="/design/standard/javascript" md5sum="1ae9b324ecf8a1c2461e945c47351bd2"/>
+  <file name="ezcategoryselection_ajax.js" path="/design/standard/javascript" md5sum="27fc16b4118a7b0df1c4c44b574179a2"/>
+  <file name="jquery.ui.core.js" path="/design/standard/javascript" md5sum="f44461aae0a3b8b099d76f95e6f4bc5b"/>
+  <file name="jquery.ui.datepicker-fr.js" path="/design/standard/javascript" md5sum="604331ea4daca5cba26c20b041816f08"/>
+  <file name="jquery.ui.datepicker.js" path="/design/standard/javascript" md5sum="60617bf3b81f3e1246ecfe201be2afb1"/>
+  <file name="images" path="/design/standard" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="grid-cal.gif" path="/design/standard/images" md5sum="a4c18801e4c34fc0fa5c930bfc2c230a"/>
+  <file name="jquery-ui" path="/design/standard/images" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ui-icons_ffd27a_256x240.png" path="/design/standard/images/jquery-ui" md5sum="ab8c30acc0e3608fb79e01fccf832c70"/>
+  <file name="ui-icons_ef8c08_256x240.png" path="/design/standard/images/jquery-ui" md5sum="ef9a6ccfe3b14041928ddc708665b226"/>
+  <file name="ui-bg_highlight-soft_75_ffe45c_1x100.png" path="/design/standard/images/jquery-ui" md5sum="b806658954cb4d16ade8977af737f486"/>
+  <file name="ui-bg_diagonals-thick_18_b81900_40x40.png" path="/design/standard/images/jquery-ui" md5sum="95f9cceeb9d742dd3e917ec16ed754f8"/>
+  <file name="ui-bg_gloss-wave_35_f6a828_500x100.png" path="/design/standard/images/jquery-ui" md5sum="58d2cd501e01573cf537089c694ba899"/>
+  <file name="ui-bg_diagonals-thick_20_666666_40x40.png" path="/design/standard/images/jquery-ui" md5sum="f040b255ca13e693da34ab33c7d6b554"/>
+  <file name="ui-icons_ffffff_256x240.png" path="/design/standard/images/jquery-ui" md5sum="342bc03f6264c75d3f1d7f99e34295b9"/>
+  <file name="ui-icons_228ef1_256x240.png" path="/design/standard/images/jquery-ui" md5sum="79f41c0765e9ec18562b20b0801d748b"/>
+  <file name="ui-bg_glass_100_f6f6f6_1x400.png" path="/design/standard/images/jquery-ui" md5sum="5f1847175ba18c41322cb9cb0581e0fb"/>
+  <file name="ui-bg_glass_100_fdf5ce_1x400.png" path="/design/standard/images/jquery-ui" md5sum="d26e8f463195a7b86f86b7d550cfc114"/>
+  <file name="ui-bg_highlight-soft_100_eeeeee_1x100.png" path="/design/standard/images/jquery-ui" md5sum="384c3f17709ba0f809b023b6e7b10b84"/>
+  <file name="ui-bg_glass_65_ffffff_1x400.png" path="/design/standard/images/jquery-ui" md5sum="e5a8f32e28fd5c27bf0fed33c8a8b9b5"/>
+  <file name="ui-bg_flat_10_000000_40x100.png" path="/design/standard/images/jquery-ui" md5sum="c18cd01623c7fed23c80d53e2f5e7c78"/>
+  <file name="ui-icons_222222_256x240.png" path="/design/standard/images/jquery-ui" md5sum="ebe6b6902a408fbf9cac6379a1477525"/>
+  <file name="sit" path="/design/standard/images" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="image_fiche_defaut_moyenne.jpg" path="/design/standard/images/sit" md5sum="a7c117acbd1832e580e4fb7b5c9092ef"/>
+  <file name="lightbox" path="/design/standard/images/sit" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="next.png" path="/design/standard/images/sit/lightbox" md5sum="f9ffa5d0ea0a72e938009118c93f4611"/>
+  <file name="close.gif" path="/design/standard/images/sit/lightbox" md5sum="6cf1184b57fdb99f3f1c9392f200bc62"/>
+  <file name="blank.gif" path="/design/standard/images/sit/lightbox" md5sum="fc94fb0c3ed8a8f909dbc7630a0987ff"/>
+  <file name="prev.png" path="/design/standard/images/sit/lightbox" md5sum="bb69833ecb3e70d9da4bdb9ec4a5bf9c"/>
+  <file name="loading.gif" path="/design/standard/images/sit/lightbox" md5sum="b5fe8df97005341f898e2cf84e68de01"/>
+  <file name="croix_noire.png" path="/design/standard/images/sit" md5sum="061e2bdd4b7a30424d5f94edf54babd0"/>
+  <file name="tri_asc.gif" path="/design/standard/images/sit" md5sum="ec995e241ee43e3f52039361ce49e4c5"/>
+  <file name="image_fiche_defaut_grande.jpg" path="/design/standard/images/sit" md5sum="e4ea4fd2b17e01d544985cee036b952e"/>
+  <file name="tri_desc.gif" path="/design/standard/images/sit" md5sum="6a3927bf1aec7c0a122965ab20f61c41"/>
+  <file name="picto_calendrier.png" path="/design/standard/images/sit" md5sum="069a8f0650b71a5d8520f9a2a694f575"/>
+  <file name="croix.png" path="/design/standard/images" md5sum="b0e8c5ef21d937c065ff5005febe99ae"/>
+  <file name="packages" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="Image" path="/modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="module.php" path="/modules/Image" md5sum="2572a29e58b24e594e8c6b8d5e94efdd"/>
+  <file name="sit_image_resize.php" path="/modules/Image" md5sum="931d3b804e26c5aa634a40cd2fd75215"/>
+  <file name="Fiche" path="/modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="module.php" path="/modules/Fiche" md5sum="82a8bfd2e6dea0c7138dca1ec59ef9b1"/>
+  <file name="fiche_detail.php" path="/modules/Fiche" md5sum="2b1bd3eee31a5cc300e7b3ceeea51167"/>
+  <file name="ezcategoryselection" path="/modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="module.php" path="/modules/ezcategoryselection" md5sum="408862289ba11c76f394ecc5c73db360"/>
+  <file name="related_options.php" path="/modules/ezcategoryselection" md5sum="edd02dff70f4478fdf9dc06e7386d449"/>
+  <file name="function_definition.php" path="/modules/ezcategoryselection" md5sum="892a21e372d1416da66d47a015dc2819"/>
+  <file name="ezcategoryselectionfunctioncollection.php" path="/modules/ezcategoryselection" md5sum="b00f1c0b08cda6abb0e56f0263941396"/>
+  <file name="autoloads" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ezcategoryselectionutiloperators.php" path="/autoloads" md5sum="208c1a9213e42994674fe866fe7ed54e"/>
+  <file name="eztemplateautoload.php" path="/autoloads" md5sum="23ae982a0466d19f112ebd46af814373"/>
+  <file name="ez_sit_operators.php" path="/autoloads" md5sum="ceb7e9c29136fffeedca17ad7adbfccf"/>
+  <file name="ezinfo.php" md5sum="b4db7bfa1669764334f2a0c3315073ba"/>
+</extension>

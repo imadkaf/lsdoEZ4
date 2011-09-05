@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package version="3.5.2" development="false" install_type="install">
+  <name>ez_aya_sit</name>
+  <summary>ez_aya_sit extension</summary>
+  <description>This package contains the ez_aya_sit eZ Publish extension</description>
+  <type value="extension"/>
+  <ezpublish>
+    <version>4.4.0</version>
+    <named-version>4.4</named-version>
+  </ezpublish>
+  <maintainers>
+    <maintainer>
+      <name>Administrator User</name>
+      <email>jmace@ayaline.com</email>
+      <role>lead</role>
+    </maintainer>
+  </maintainers>
+  <packaging>
+    <timestamp>1308132984</timestamp>
+    <host>demo.ez44.lnet.fr</host>
+  </packaging>
+  <documents>
+    <document mime-type="text/plain" name="LICENCE"/>
+  </documents>
+  <changelog>
+    <entry timestamp="1308132984" person="Administrator User" email="jmace@ayaline.com" release="1">
+      <change>Creation of package.</change>
+    </entry>
+  </changelog>
+  <simple-files/>
+  <version>
+    <number>1.0</number>
+    <release>1</release>
+  </version>
+  <licence>GPL</licence>
+  <state>stable</state>
+  <dependencies>
+    <provides/>
+    <requires/>
+    <obsoletes/>
+    <conflicts/>
+  </dependencies>
+  <install>
+    <item type="ezextension" filename="extension-ez_aya_sit" sub-directory="ezextension"/>
+  </install>
+  <uninstall>
+    <item type="ezextension" filename="extension-ez_aya_sit" sub-directory="ezextension"/>
+  </uninstall>
+</package>
