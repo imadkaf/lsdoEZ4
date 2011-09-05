@@ -9,27 +9,25 @@ LoginPage=embedded
 [UserSettings]
 RegistrationEmail=
 
-
 [SiteAccessSettings]
 RequireUserLogin=false
 RelatedSiteAccessList[]=ayaline
 RelatedSiteAccessList[]=ayaline_en
+RelatedSiteAccessList[]=ayaline_mobi
 RelatedSiteAccessList[]=ayaline_admin
 ShowHiddenNodes=false
 
-
 [DesignSettings]
 SiteDesign=ayaline
+AdditionalSiteDesignList[]=ayaline_mobi
 AdditionalSiteDesignList[]=base
 
-
-[RegionalSettings]
-Locale=eng-GB
-ContentObjectLocale=eng-GB
-SiteLanguageList[]=eng-GB
-SiteLanguageList[]=fre-FR
-TextTranslation=enabled
-
+#[RegionalSettings]
+#Locale=eng-GB
+#ContentObjectLocale=eng-GB
+#SiteLanguageList[]=eng-GB
+#SiteLanguageList[]=fre-FR
+#TextTranslation=enabled
 
 [ContentSettings]
 TranslationList=

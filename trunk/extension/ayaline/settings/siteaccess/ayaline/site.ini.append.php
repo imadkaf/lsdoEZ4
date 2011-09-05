@@ -2,8 +2,8 @@
 
 [SiteSettings]
 SiteName=LSDO
-SiteURL=dev.lsdo.loc
-LoginPage=embedded
+SiteURL=lsdo.loc
+#LoginPage=embedded
 
 
 [UserSettings]
@@ -13,13 +13,13 @@ LogoutRedirect=/
 [SiteAccessSettings]
 RequireUserLogin=false
 RelatedSiteAccessList[]=ayaline
-RelatedSiteAccessList[]=ayaline_en
 RelatedSiteAccessList[]=ayaline_admin
 ShowHiddenNodes=false
 
 
 [DesignSettings]
 SiteDesign=ayaline
+AdditionalSiteDesignList[]=ayaline
 AdditionalSiteDesignList[]=base
 
 
