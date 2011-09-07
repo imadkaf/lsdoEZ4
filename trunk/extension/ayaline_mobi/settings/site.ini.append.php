@@ -4,10 +4,11 @@
 ExtensionAutoloadPath[]=ayaline_mobi
 
 [ContentSettings]
-ViewCaching=enabled
+ViewCaching=disabled
 
 [TemplateSettings]
-#TemplateCache=enabled
-#TemplateCompile=enabled
+TemplateCache=disabled
+TemplateCompile=disabled
+DevelopmentMode=enabled
 
 */ ?>

@@ -1,7 +1,7 @@
 <?php /* #?ini charset="utf-8"?
 
 [SiteSettings]
-IndexPage=/content/view/full/2
+IndexPage=/content/view/full/1276
 SiteName=aYaline Mobile
 SiteURL=mobi.lsdo.loc
 MetaDataArray[author]=
@@ -18,8 +18,9 @@ AdditionalSiteDesignList[]=ayaline_mobi
 AdditionalSiteDesignList[]=ayaline
 AdditionalSiteDesignList[]=base
 
-[DebugSettings]
-DebugOutput=enabled
-DebugRedirection=disabled
+[RegionalSettings]
+Locale=fre-FR
+SiteLanguageList[]=fre-FR
+TextTranslation=enabled
 
 */ ?>
