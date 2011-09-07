@@ -108,7 +108,6 @@
 		{foreach ezini( 'JavaScriptSettings', 'JavaScriptListMobile', 'design.ini' ) as $js_fichier }
 			{if eq("http://",$js_fichier|extract_left(7))}
 				<script type="text/javascript" charset="utf-8" src="{$js_fichier}"></script>
-				
 			{else}
 				<script type="text/javascript" src={concat( 'javascript/', $js_fichier )|ezdesign}></script>
 			{/if}
