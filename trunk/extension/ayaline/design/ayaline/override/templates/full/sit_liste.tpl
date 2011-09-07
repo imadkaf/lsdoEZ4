@@ -5,8 +5,27 @@
 <div class="bloc-left-bis">
 	<div class="bloc-left-in-bis">
 		{sit_recherche()}
+		{if eq($node.parent.node_id, ezini('Noeuds','sejourner','ayaline.ini'))}
+		<div>
+			{def $listeHebergement = fetch('content','list', hash( 
+											'parent_node_id', $node.parent.node_id,
+											'sort_by', $node.sort_array,
+											'class_filter_type',  'include',
+											'class_filter_array', array('sit_liste')))}
+			<ul class="menu-left">
+				<li class="actif">
+					<span>Sélectionnez un type d'offres</span>
+					<ul class="s-menu">
+					{foreach $listeHebergement as $hbgt}
+						<li><a href={$hbgt.url_alias|ezurl}>{$hbgt.name}</a></li>
+					{/foreach}
+					</ul>
+				</li>
+			</ul>
+		</div>	
+		{/if}
 	</div>
-
+	
 	<div class="bloc-right-in-bis">
 		<div class="bloc-type{if eq($node.data_map.categorie.data_text, '1')} padding-lr{/if}">
 			{* Récuperation des variables session *}
