@@ -52,11 +52,10 @@ a:visited { color:#000; text-decoration:none; }
 #Main{
 	background:#f6efe9;
 	border:1px solid #c9bdb2;
-	padding:23px 0 0 0px;
+	padding:0px;
 }
 /* PUSH - MISES EN AVANT*/
 .push{
-	border-top:1px solid #c9bdb2;
 	padding:0px 1px 0 10px;
 	background:url('../images/bg-bloc.png') 0 0 repeat-x #DFD1C4;
 }
@@ -125,15 +124,13 @@ a:visited { color:#000; text-decoration:none; }
 #Copyrights{
 	background:#313d48;
 	color:#ffffff;
+	padding:18px 0 18px 18px;
 }
 #Copyrights p a{
 	font-weight:bold;
 	color:#ffffff !important;
 	padding:2px 0 0 0;
 	display:block;
-}
-#Copyrights p{
-	padding:18px 0 18px 18px;
 }
 .recherche .search .ui-icon-myapp-email {
 	background-image: url("../images/bt-ok.png") ;
@@ -153,6 +150,28 @@ a:visited { color:#000; text-decoration:none; }
 	url("../fonts/Omnes_Light.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
+}
+
+.logo img{
+	float: left;
+	position: relative;
+	top: 20px;
+	left: 100px;
+}
+.logo h2{
+	color: white;
+	font-family: 'OmnesLight';
+	font-size: 28px;
+	margin: 0px;
+	/*font-weight: normal;*/
+}
+.logo h3{
+	color: white;
+	font-family: 'OmnesLight';
+	font-size: 13px;
+	padding: 0px 0px 12px 0px;
+	margin: 0px;
+	font-weight: normal;
 }
 
 #container{
@@ -187,21 +206,27 @@ a.ui-link{
 }
 
 .icons{
+	padding-top: 25px !important;
 	margin-bottom: 20px;
 }
 
-.recherche.accueil{
-	border-top: 1px solid #c9bdb2;
+.recherche{
+	background: none repeat scroll 0 0 #F6EFE9;
+	border-left: 1px solid #C9BDB2;
+	border-right: 1px solid #C9BDB2;
+	border-bottom: 1px solid #C9BDB2;
 }
 
 .form-recherche{
-	margin: 10px 0px 10px 0px;
+	padding: 10px 0px 10px 0px;
 	text-align: center;
 }
 
 .PageRoot{
 	padding: 15px 0 15px 20px;
-	border-top: 1px solid #c9bdb2;
+	border-left: 1px solid #C9BDB2;
+	border-right: 1px solid #C9BDB2;
+	border-bottom: 1px solid #C9BDB2;
 	background: none repeat scroll 0 0 #FAF9F7;
 }
 .PageRoot a.ui-link{
@@ -211,6 +236,22 @@ a.ui-link{
     text-decoration: underline;
 }
 
+.mise-en-avant{
+	border-left: 1px solid #C9BDB2;
+	border-right: 1px solid #C9BDB2;
+	border-bottom: 1px solid #C9BDB2;
+}
+
+.titre-basique{
+	border-bottom: 1px solid #C9BDB2;
+}
+.titre-basique h2{
+	color: #313E47;
+    font-family: 'OmnesLight';
+    font-size: 27px;
+    margin: 5px 0 5px 15px;
+    padding: 0;
+}
 
 
 /*** Page liste hotels ***/
@@ -247,9 +288,11 @@ a.ui-link{
 	float: left;
 }
 .float-droite-picto{
+	background: url("../images/fleche-bleu.png") no-repeat scroll 0px 0px transparent;
 	float: right;
 	position: relative;
 	right: 20px;
+	bottom: 18px;
 }
 .float-droite{
 	float: right;
@@ -292,17 +335,20 @@ a.ui-link{
 }
 
 .result-suiv{
-	text-align: right;
 	background: none repeat scroll 0 0 #E5DCD3;
 	border-top: 1px solid #c9bdb2;
-	border-bottom: 1px solid #c9bdb2;
-	padding: 10px 15px 10px 0px;
+	padding: 10px;
+}
+.result-suiv a.ui-link{
+	font-weight: normal;
+}
+.result-suiv a.ui-link:hover{
+	text-decoration: underline;
 }
 
 
-
 /*** Page fiche hotel ***/
-.fiche-hotel #Main {
+.contenu-fiche {
     background: none repeat scroll 0 0 #F6F2EF;
 }
 
@@ -336,8 +382,29 @@ a.ui-link{
 .tel{
 	margin-bottom: 12px;
 }
-.apercu-fiche a img{
-	margin-right: 8px;
+
+.apercu-fiche .disponibilites{
+	background: url("../images/lien-dispo.png") no-repeat scroll 0px 0px transparent;
+	display: block;
+    height: 22px;
+    width: 100px;
+    float: left;
+    margin-right: 10px;
+}
+.apercu-fiche .telephone{
+	background: url("../images/lien-tel.jpg") no-repeat scroll 0px 0px transparent;
+	display: block;
+    height: 22px;
+    width: 24px;
+    float: left;
+    margin-right: 10px;
+}
+.apercu-fiche .mail{
+	background: url("../images/lien-mail.jpg") no-repeat scroll 0px 0px transparent;
+	display: block;
+    height: 22px;
+    width: 24px;
+    float: left;
 }
 
 .titre-deroulant{
@@ -362,9 +429,21 @@ a.ui-link{
 	margin: 20px;
 }
 
+#accordion > div a.ui-link{
+	font-weight: normal;
+}
+#accordion > div a.ui-link:hover{
+	text-decoration: underline;
+}
+
 .result-suiv .retour{
-	float: left;
 	margin-left: 15px;
+}
+
+
+/*** Page detail rubrique ***/
+.detail-rubrique{
+	padding: 20px 20px 20px 20px;
 }
 
 /******************/
