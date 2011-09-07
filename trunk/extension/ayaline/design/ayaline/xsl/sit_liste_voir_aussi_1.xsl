@@ -43,7 +43,7 @@
 										<p class="bloc-stars">
 											<xsl:choose>
 												<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite != ''">
-													<img alt="">
+													<img alt="" style="float:none;padding:0px;">
 														<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
 														<xsl:attribute name="title">Cat&amp;eacute;gorie : <xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/></xsl:attribute>
 													</img>

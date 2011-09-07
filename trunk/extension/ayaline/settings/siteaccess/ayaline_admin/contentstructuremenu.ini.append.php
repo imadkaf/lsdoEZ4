@@ -2,9 +2,9 @@
 
 [TreeMenu]
 Dynamic=enabled
-ShowClasses[]
-ShowClasses[]=folder
-ShowClasses[]=user_group
+#ShowClasses[]
+#ShowClasses[]=folder
+#ShowClasses[]=user_group
 ShowClasses[]=footer_menu
 ShowClasses[]=main_menu
 ShowClasses[]=sub_menu
