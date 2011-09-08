@@ -429,11 +429,22 @@ a.ui-link{
 	margin: 20px;
 }
 
+#accordion > div img{
+	margin-right: 10px;
+}
 #accordion > div a.ui-link{
 	font-weight: normal;
 }
 #accordion > div a.ui-link:hover{
 	text-decoration: underline;
+}
+
+#accordion h3{
+	background: url("../images/fiche-hotel-degrade.png") repeat-x scroll 0 0 #E4D6CB;
+	font-weight: bold;
+	text-transform:uppercase;
+	font-size: 10px;
+	font-family: verdana,sans-serif;
 }
 
 .result-suiv .retour{
