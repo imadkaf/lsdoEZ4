@@ -1,1 +1,0 @@
-<a class="ui-link item1" href={$node.data_map.content.content.main_node.url_alias|ezurl}>{$node.name|wash}</a>
