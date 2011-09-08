@@ -79,8 +79,17 @@
 			<p class="clear"><![CDATA[ ]]></p>
 		</div>
 		
-		<!-- Scripts ? -->
-		
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><![CDATA[ ]]></script>
+		<script type="text/javascript">
+			<![CDATA[
+			$(function() {
+				$( "#accordion" ).accordion({
+					autoHeight: false,
+					navigation: true
+				});
+			});
+			]]>
+		</script>
 		<div id="accordion">
 			<h3><a href="#">Description</a></h3>
 			<div>
@@ -100,7 +109,67 @@
 			
 			<h3><a href="#">Carte/Itin&amp;eacute;raires</a></h3>
 			<div>
-				La carte et les itin&amp;eacute;raires...		
+				<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAPzlBh0JjFUPqZKi3n0L3LxRNhXKcoHc6ILCDtHOsJEw_kWBWgBR1kXeQdewQ9aUBq3FH6LbXaDfhmw"><![CDATA[ ]]></script>
+				<div id="map-container" style="width:auto425px;height:300px;"><![CDATA[ ]]></div>
+				<script type="text/javascript">	
+					<![CDATA[
+						var pos;
+						var map;
+						var dirService;
+						var dirRenderer;
+						
+						function initialize() {
+							var latlng = new google.maps.LatLng(46.5, -1.7833);
+							
+							var myOptions = {
+							  zoom: 13,
+							  center: latlng,
+							  mapTypeId: google.maps.MapTypeId.ROADMAP
+							};
+							
+							map = new google.maps.Map(document.getElementById("map-container"), myOptions);
+							
+							dirService = new google.maps.DirectionsService();
+							dirRenderer = new google.maps.DirectionsRenderer();
+						}
+						
+						function showDirections(dirResult, dirStatus) {
+							if (dirStatus != google.maps.DirectionsStatus.OK) {
+							  alert('Aucun itineraire trouve : ' + dirStatus);
+							  return;
+							}
+			
+							// Show directions
+							dirRenderer.setMap(map);
+							dirRenderer.setDirections(dirResult);
+						}
+						
+						function getDirections() {
+							var dirRequest = {
+							  origin: pos,
+							  destination: ']]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite"/><![CDATA[ ]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite"/><![CDATA[',
+							  travelMode: google.maps.DirectionsTravelMode.DRIVING
+							};
+							
+							dirService.route(dirRequest, showDirections);
+						}
+					]]>
+				</script>
+				<script type="text/javascript">	
+					<![CDATA[
+						initialize();
+					
+						if (navigator.geolocation) {
+							navigator.geolocation.getCurrentPosition(function(position) {
+								pos = position.coords.latitude+' '+position.coords.longitude;
+								getDirections();
+						  	});
+						}
+						else {
+							alert("Votre navigateur ne prend pas en compte la geolocalisation HTML5");
+						}
+					]]>
+				</script>
 			</div>
 			
 			<h3><a href="#">Photos</a></h3>
@@ -134,7 +203,6 @@
 				</xsl:choose>
 			</div>
 		</div>
-		<br />
 		
 		<xsl:if test="string-length($lienPrecedent) &gt; 0">
 			<div class="result-suiv">
