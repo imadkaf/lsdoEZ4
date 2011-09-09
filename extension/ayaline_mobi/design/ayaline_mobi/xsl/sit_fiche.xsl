@@ -79,7 +79,8 @@
 			<p class="clear"><![CDATA[ ]]></p>
 		</div>
 		
-		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><![CDATA[ ]]></script>
+		<!-- Appel des definitions des 'ui' de la bibliotheque jquery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"><![CDATA[ ]]></script>
 		<script type="text/javascript">
 			<![CDATA[
 			$(function() {
