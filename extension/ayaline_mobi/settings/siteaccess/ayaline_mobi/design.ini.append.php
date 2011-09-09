@@ -22,7 +22,7 @@ FrontendCSSFileListPC[]=stylesheet_desktop.css
 JavaScriptListMobile[]
 #JavaScriptListMobile[]=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
 JavaScriptListMobile[]=jquery-1.5.2.min.js
-#JavaScriptListMobile[]=jquery.mobile-1.0a4.1.min.js
+JavaScriptListMobile[]=jquery.mobile-1.0a4.1.min.js
 JavaScriptListMobile[]=geo.js
 JavaScriptListMobile[]=http://code.google.com/apis/gears/gears_init.js
 

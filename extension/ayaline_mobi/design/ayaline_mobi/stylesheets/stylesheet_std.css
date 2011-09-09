@@ -210,6 +210,30 @@ a.ui-link{
 	margin-bottom: 20px;
 }
 
+.pagenavigator{
+	background: none repeat scroll 0 0 #E5DCD3;
+	border-top: 1px solid #c9bdb2;
+	padding: 10px;
+}
+.pagenavigator a.ui-link{
+	font-weight: normal;
+}
+.pagenavigator a.ui-link:hover{
+	text-decoration: underline;
+}
+.pagenavigator p{
+	text-align: center;	
+}
+.pagenavigator .next{
+	float:right;
+}
+.pagenavigator .previous{
+	float:left;
+}
+.pagenavigator .current{
+	font-weight:bold;
+}
+
 .recherche{
 	background: none repeat scroll 0 0 #F6EFE9;
 	border-left: 1px solid #C9BDB2;
@@ -455,6 +479,72 @@ a.ui-link{
 /*** Page detail rubrique ***/
 .detail-rubrique{
 	padding: 20px 20px 20px 20px;
+}
+
+
+/*** Page de resultats ***/
+.page-resultats-mobile .bloc-similaire{
+	margin: 10px 15px 10px 15px;
+}
+.page-resultats-mobile .bloc-similaire a{
+	font-size: 16px;
+}
+.page-resultats-mobile .bloc-similaire a:hover{
+	text-decoration: underline;
+}
+
+.page-resultats-mobile .feedback{
+	margin: 10px 15px 10px 15px;
+}
+.page-resultats-mobile .warning{
+	margin: 10px 15px 10px 15px;
+}
+
+.page-resultats-mobile .list-result-search{
+	margin: 10px 15px 10px 15px;
+	padding: 0px;
+}
+.page-resultats-mobile .list-result-search li{
+	list-style:none;
+	padding-top: 10px;
+	margin-bottom: 10px;
+	border-top: 1px dotted #8C9195;
+}
+
+.page-resultats-mobile .bloc-pertinence-global{
+	margin-bottom: 5px;
+}
+.page-resultats-mobile .bloc-pertinence-global span{
+    float: left;
+}
+.page-resultats-mobile .bloc-pertinence-global .modification {
+    float: right;
+}
+.page-resultats-mobile .bloc-pertinence-global span.date {
+    float: none;
+    text-transform: capitalize;
+}
+
+.page-resultats-mobile .bloc-pertinence{
+    background: url("../images/bg_pertinence.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 9px;
+    margin: 4px 4px 0;
+    position: relative;
+    width: 64px;
+}
+.page-resultats-mobile .bloc-pertinence div {
+    background: url("../images/bg_pertinence-on.png") no-repeat scroll 0 0 transparent;
+}
+
+.page-resultats-mobile .list-result-search li h3 {
+    font-size: 1.5em;
+    padding: 0;
+    margin: 0px;
+}
+
+.page-resultats-mobile .conseils{
+	margin: 10px 15px 10px 15px;
 }
 
 /******************/
