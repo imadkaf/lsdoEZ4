@@ -10,25 +10,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	{include uri="design:header.tpl"}
 	<body>
-		{literal}<script>
-			if(geo_position_js.init()){
-				geo_position_js.getCurrentPosition(success_callback,error_callback,{enableHighAccuracy:true});
-			}
-			else{
-				//alert("Functionality not available");
-			}
-	
-			function success_callback(p)
-			{
-				//alert('lat='+p.coords.latitude.toFixed(2)+';lon='+p.coords.longitude.toFixed(2));
-			}
-			
-			function error_callback(p)
-			{
-			//	alert('error='+p.code);
-			}
-		</script>{/literal}
-		
 		<div data-role="page">
 			<!-- Conteneur -->
 			<div id="container">
