@@ -137,6 +137,18 @@ if ($xmlStringCategories) {
 									$optionNode->appendChild($optionCategoriesNode);
 
 									$optionsNode->appendChild($optionNode);
+
+									$optionNode = $doc->createElement("option");
+									$optionNode->setAttribute('id', "4");
+									$optionNode->setAttribute('name', "Date d'ouverture");
+
+									$optionCategoriesNode = $doc->createElement("category");
+									$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
+									$optionCategoriesNode->setAttribute('category_value', "0-".join("-", array_keys($categoriesArray)));
+
+									$optionNode->appendChild($optionCategoriesNode);
+
+									$optionsNode->appendChild($optionNode);
 								}
 								
 								$optionNode = $doc->createElement("option");
