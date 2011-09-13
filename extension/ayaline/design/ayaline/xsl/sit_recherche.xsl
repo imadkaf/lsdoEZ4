@@ -2,6 +2,8 @@
 <!DOCTYPE xsl:stylesheet>
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="yes" indent="yes"/>
+	
+	<xsl:include href="inc/display_villes.xsl"/>
 
 	<xsl:template match="/">
 		<div class="bloc-type">
@@ -44,13 +46,6 @@
 					</form>
 				</li>
 			</ul>
-			<!-- ul class="list-thm">
-				<li class="first"><strong>Changer de<br />th&amp;egrave;me &gt;</strong></li>
-				<li><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm1.png" alt="" /></a></li>
-				<li><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm2.png" alt="" /></a></li>
-				<li><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm3.png" alt="" /></a></li>
-				<li class="last"><a href="#"><img src="/extension/ayaline/design/ayaline/images/thm4.png" alt="" /></a></li>
-			</ul-->
 			<h2 class="bloc-liste-h2-recherche">Affiner votre recherche :</h2>
 			<p class="clear"></p>
 			<form method="post" class="form-search-left">
@@ -161,7 +156,17 @@
 					<span><xsl:value-of select="$termeAffinerRecherche"/></span>
 				</button>
 			</div>
-			
+
+			<xsl:if test="string-length($villes) &gt; 0">
+				<div style="margin-bottom:10px">
+					<label for="sit_cinsee" class="choisissez"><strong><xsl:value-of select="$termeCommune"/></strong></label>
+					<select id="sit_cinsee" name="sit_cinsee[]" style="width:100%" multiple="multiple">
+						<xsl:call-template name="display-villes">
+							<xsl:with-param name="villesChaine" select="$villes"/>
+						</xsl:call-template>
+					</select>
+				</div>
+			</xsl:if>
 			<div style="margin-bottom:10px">
 				<label for="sit_mc" class="choisissez"><strong><xsl:value-of select="$termeMotsCles"/></strong></label>
 				<input type="text" id="sit_mc" name="sit_mc" style="border:1px solid #999999;width:99%">
