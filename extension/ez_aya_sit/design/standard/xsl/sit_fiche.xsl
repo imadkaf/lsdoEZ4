@@ -22,7 +22,7 @@
 			<div style="float:left">
 				<xsl:if test="count(newPhotos/newPhoto) = 0">
 					<img alt="">
-						<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_grande.jpg</xsl:attribute>
+						<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>image_fiche_defaut_grande.jpg</xsl:attribute>
 					</img>
 				</xsl:if>
 				<xsl:for-each select="newPhotos/newPhoto[position() = 1]">

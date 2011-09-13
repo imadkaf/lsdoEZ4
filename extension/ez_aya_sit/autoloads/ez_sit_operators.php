@@ -280,8 +280,7 @@ class eZSitOperators {
 		$http = eZHTTPTool::instance();
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
-		$ayaIni = eZINI::instance('ayaline.ini');
-		$cheminImagesLSDO = $ayaIni->variable('Images','Chemin');
+		$cheminImagesDesign = $sitIni->variable('ImagesDesign','Chemin');
 		
 		$saisonId = null;
 		if ($http->hasSessionVariable('saison')) {
@@ -498,7 +497,7 @@ class eZSitOperators {
 		$xsltParemters = array();
 
 		$xsltParemters['saisonId'] = $saisonId;
-		$xsltParemters['cheminImagesLSDO'] = $cheminImagesLSDO;
+		$xsltParemters['cheminImagesDesign'] = $cheminImagesDesign;
 		$xsltParemters['lienCourant'] = $lienCourant;
 		$xsltParemters['cheminImages'] = $cheminImages;
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
@@ -557,8 +556,7 @@ class eZSitOperators {
 		$http = eZHTTPTool::instance();
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
-		$ayaIni = eZINI::instance('ayaline.ini');
-		$cheminImagesLSDO = $ayaIni->variable('Images','Chemin');
+		$cheminImagesDesign = $sitIni->variable('Images','Chemin');
 		
 		$saisonId = null;
 		if ($http->hasSessionVariable('saison')) {
@@ -792,7 +790,7 @@ class eZSitOperators {
 			* du 21-12 au 20-03 : hiver
 			*/
 			$saisonId=$http->sessionVariable("saison");
-			$cheminImagesLSDO = $ayaIni->variable('Images','Chemin');
+			$cheminImages = $ayaIni->variable('Images','Chemin');
 			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Printemps')) {
 				$debutOuv=$ayaIni->variable('Saisons','debPrintemps').'/'.date('Y');
 				$finOuv=$ayaIni->variable('Saisons','finPrintemps').'/'.date('Y');
@@ -934,7 +932,7 @@ class eZSitOperators {
 		}
 		
 		$xsltParemters['saisonId'] = $saisonId;
-		$xsltParemters['cheminImagesLSDO'] = $cheminImagesLSDO;
+		$xsltParemters['cheminImagesDesign'] = $cheminImagesDesign;
 		$xsltParemters['lienCourant'] = $lienCourant;
 		$xsltParemters['cheminImages'] = $cheminImages;
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;

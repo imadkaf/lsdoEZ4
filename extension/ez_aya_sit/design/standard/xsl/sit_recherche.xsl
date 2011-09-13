@@ -18,7 +18,7 @@
 								<xsl:attribute name="title"><xsl:value-of select="$termeTriCroissant"/></xsl:attribute>
 								<xsl:attribute name="style">padding:2px<xsl:if test="concat('com', '~', 'asc') = $triEnCours">;background-color:#CCCCCC</xsl:if></xsl:attribute>
 								<img style="vertical-align:middle">
-									<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>tri_asc.gif</xsl:attribute>
+									<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>tri_asc.gif</xsl:attribute>
 									<xsl:attribute name="alt"><xsl:value-of select="$termeTriCroissant"/></xsl:attribute>
 								</img>
 							</a>&amp;nbsp;<a>
@@ -26,14 +26,14 @@
 								<xsl:attribute name="title"><xsl:value-of select="$termeTriDecroissant"/></xsl:attribute>
 								<xsl:attribute name="style">padding:2px<xsl:if test="concat('com', '~', 'desc') = $triEnCours">;background-color:#CCCCCC</xsl:if></xsl:attribute>
 								<img style="vertical-align:middle">
-									<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>tri_desc.gif</xsl:attribute>
+									<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>tri_desc.gif</xsl:attribute>
 									<xsl:attribute name="alt"><xsl:value-of select="$termeTriDecroissant"/></xsl:attribute>
 								</img>
 							</a><xsl:if test="concat('com', '~', 'asc') = $triEnCours or concat('com', '~', 'desc') = $triEnCours">&amp;nbsp;<a style="padding:2px">
 								<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($pageCourante) &gt; 0 and $pageCourante &gt; 1">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if></xsl:attribute>
 								<xsl:attribute name="title"><xsl:value-of select="$termeAnnulerTri"/></xsl:attribute>
 								<img style="vertical-align:middle">
-									<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>croix_noire.png</xsl:attribute>
+									<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>croix_noire.png</xsl:attribute>
 									<xsl:attribute name="alt"><xsl:value-of select="$termeAnnulerTri"/></xsl:attribute>
 								</img>
 							</a></xsl:if></div>
@@ -51,7 +51,7 @@
 										<xsl:attribute name="title"><xsl:value-of select="$termeTriCroissant"/></xsl:attribute>
 										<xsl:attribute name="style">padding:2px<xsl:if test="concat('c', $idCritere, '~', 'asc') = $triEnCours">;background-color:#CCCCCC</xsl:if></xsl:attribute>
 										<img style="vertical-align:middle">
-											<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>tri_asc.gif</xsl:attribute>
+											<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>tri_asc.gif</xsl:attribute>
 											<xsl:attribute name="alt"><xsl:value-of select="$termeTriCroissant"/></xsl:attribute>
 										</img>
 									</a>&amp;nbsp;<a>
@@ -59,14 +59,14 @@
 										<xsl:attribute name="title"><xsl:value-of select="$termeTriDecroissant"/></xsl:attribute>
 										<xsl:attribute name="style">padding:2px<xsl:if test="concat('c', $idCritere, '~', 'desc') = $triEnCours">;background-color:#CCCCCC</xsl:if></xsl:attribute>
 										<img style="vertical-align:middle">
-											<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>tri_desc.gif</xsl:attribute>
+											<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>tri_desc.gif</xsl:attribute>
 											<xsl:attribute name="alt"><xsl:value-of select="$termeTriDecroissant"/></xsl:attribute>
 										</img>
 									</a><xsl:if test="concat('c', $idCritere, '~', 'asc') = $triEnCours or concat('c', $idCritere, '~', 'desc') = $triEnCours">&amp;nbsp;<a style="padding:2px">
 										<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($pageCourante) &gt; 0 and $pageCourante &gt; 1">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if></xsl:attribute>
 										<xsl:attribute name="title"><xsl:value-of select="$termeAnnulerTri"/></xsl:attribute>
 										<img style="vertical-align:middle">
-											<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>croix_noire.png</xsl:attribute>
+											<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>croix_noire.png</xsl:attribute>
 											<xsl:attribute name="alt"><xsl:value-of select="$termeAnnulerTri"/></xsl:attribute>
 										</img>
 									</a></xsl:if></div>
@@ -80,7 +80,7 @@
 										<xsl:attribute name="title"><xsl:value-of select="$termeTriCroissant"/></xsl:attribute>
 										<xsl:attribute name="style">padding:2px<xsl:if test="concat('m', @id, '~', 'asc') = $triEnCours">;background-color:#CCCCCC</xsl:if></xsl:attribute>
 										<img style="vertical-align:middle">
-											<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>tri_asc.gif</xsl:attribute>
+											<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>tri_asc.gif</xsl:attribute>
 											<xsl:attribute name="alt"><xsl:value-of select="$termeTriCroissant"/></xsl:attribute>
 										</img>
 									</a>&amp;nbsp;<a>
@@ -88,14 +88,14 @@
 										<xsl:attribute name="title"><xsl:value-of select="$termeTriDecroissant"/></xsl:attribute>
 										<xsl:attribute name="style">padding:2px<xsl:if test="concat('m', @id, '~', 'desc') = $triEnCours">;background-color:#CCCCCC</xsl:if></xsl:attribute>
 										<img style="vertical-align:middle">
-											<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>tri_desc.gif</xsl:attribute>
+											<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>tri_desc.gif</xsl:attribute>
 											<xsl:attribute name="alt"><xsl:value-of select="$termeTriDecroissant"/></xsl:attribute>
 										</img>
 									</a><xsl:if test="concat('m', @id, '~', 'asc') = $triEnCours or concat('m', @id, '~', 'desc') = $triEnCours">&amp;nbsp;<a style="padding:2px">
 										<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($pageCourante) &gt; 0 and $pageCourante &gt; 1">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if></xsl:attribute>
 										<xsl:attribute name="title"><xsl:value-of select="$termeAnnulerTri"/></xsl:attribute>
 										<img style="vertical-align:middle">
-											<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>croix_noire.png</xsl:attribute>
+											<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>croix_noire.png</xsl:attribute>
 											<xsl:attribute name="alt"><xsl:value-of select="$termeAnnulerTri"/></xsl:attribute>
 										</img>
 									</a></xsl:if></div>
