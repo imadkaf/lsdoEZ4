@@ -9,6 +9,9 @@ ListeVilles[]=85112|L'Ile-d'Olonne
 ListeVilles[]=85214|Sainte Foy
 ListeVilles[]=85298|Vairé
 
+[Images]
+Chemin=/extension/ayaline/design/ayaline/images/
+
 [GlobalSitParametersOverride]
 RootSitUrl=http://dev.lsdo-sit.lnet.fr/servlets/Web?tache=Traitement
 
