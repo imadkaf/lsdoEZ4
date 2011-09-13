@@ -63,10 +63,10 @@ class SitUtils {
 		$arg = array (
 			'url' => null,
 			'timeout' => 30,
+			'modificationTime' => 60,
 			'getContent' => true,
 			'offset' => 0,
-			'maxLen' => null,
-			'modificationTime' => 0
+			'maxLen' => null
 		);
 
 		foreach ($arg_passed as $k=>$v) {
