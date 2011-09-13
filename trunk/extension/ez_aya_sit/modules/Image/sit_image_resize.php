@@ -42,8 +42,9 @@ if (file_exists($cheminFichierCacheImagesResized)) {
 }
 
 $requestHeaders = getallheaders();
+$imageType = "";
 if (!file_exists($cheminFichierCacheImagesResized) || ($fs && time() > $fs['mtime'] + $dureeVieCache)) {
-	$contenuImagesDistant = SitUtils::urlGetContentsCurlCustom($fileName, 120, file_exists($cheminFichierCacheImages) ? filemtime($cheminFichierCacheImages) : 0);
+	$contenuImagesDistant = SitUtils::urlGetContentsCurlCustom($fileName, 120, file_exists($cheminFichierCacheImages) ? filemtime($cheminFichierCacheImages) : 60);
 	if ($contenuImagesDistant) {
 		file_put_contents($cheminFichierCacheImages, $contenuImagesDistant, LOCK_EX);
 	}
@@ -54,7 +55,7 @@ if (!file_exists($cheminFichierCacheImagesResized) || ($fs && time() > $fs['mtim
 
 	if (($contenuImagesDistant || !array_key_exists('If-Modified-Since', $requestHeaders) || (array_key_exists('Pragma', $requestHeaders) && $requestHeaders['Pragma'] == "no-cache" && array_key_exists('Cache-Control', $requestHeaders) && $requestHeaders['Cache-Control'] == "no-cache"))) {
 		eZLog::write("Image ".$fileName." appelée", "ez_aya_sit.log");
-	
+
 		$imageInfo = getimagesize($cheminFichierCacheImages);
 		$imageType = $imageInfo[2];
 		$image = false;
@@ -65,7 +66,7 @@ if (!file_exists($cheminFichierCacheImagesResized) || ($fs && time() > $fs['mtim
 		} elseif ( $imageType == IMAGETYPE_PNG ) {
 			$image = imagecreatefrompng($cheminFichierCacheImages);
 		}
-	
+
 		if ($image && (!$minWidth || $width < imagesx($image))) {
 			$ratio = $width / imagesx($image);
 			$height = imagesy($image) * $ratio;

@@ -82,11 +82,11 @@ class eZSitOperators {
 	function modify(&$tpl, &$operatorName, &$operatorParameters, &$rootNamespace, &$currentNamespace, &$operatorValue, &$namedParameters) {
 		$currentNode = array_key_exists('currentNode', $namedParameters) ? $namedParameters['currentNode'] : false;
 
-		if (!$currentNode || get_class($currentNode) != 'eZContentObjectTreeNode') {
+		if (!$currentNode || $currentNode == 'null' || get_class($currentNode) != 'eZContentObjectTreeNode') {
 			$currentNode = $tpl->variable('node');
 		}
 
-		if (!$currentNode || get_class($currentNode) != 'eZContentObjectTreeNode') {
+		if (!$currentNode || $currentNode == 'null' || get_class($currentNode) != 'eZContentObjectTreeNode') {
 			$currentNodeId = $tpl->variable('module_result');
 			if ($currentNodeId) {
 				$currentNodeId = $currentNodeId['node_id'];
@@ -101,7 +101,7 @@ class eZSitOperators {
 				}
 			}
 		}
-		if (!$currentNode) {
+		if (!$currentNode || $currentNode == 'null') {
 			$currentNode = $tpl->variable('previousNode');
 		}
 
@@ -283,6 +283,7 @@ class eZSitOperators {
 		$ayaIni = eZINI::instance('ayaline.ini');
 		$cheminImagesLSDO = $ayaIni->variable('Images','Chemin');
 		
+		$saisonId = null;
 		if ($http->hasSessionVariable('saison')) {
 			$saisonId=$http->sessionVariable('saison');
 		}
@@ -319,6 +320,12 @@ class eZSitOperators {
 				$traductionsStatiques[] = $traductionStatiqueComplementaire;
 			}
 		}
+		
+		$villes = $sitIni->variable('GlobalSitParameters','ListeVilles');
+		if (!$villes) {
+			$villes = array();
+		}
+		$villes = join("#", $villes);
 
 		$triEnCours = "";
 		if (array_key_exists('tri', $viewParameters) && $viewParameters['tri']) {
@@ -348,6 +355,7 @@ class eZSitOperators {
 		$criteresRecherche = $sitListe['criteres_recherche']->value();
 
 		$sitModalitesRapides = array();
+		$codesInsee = null;
 		$motsCles = null;
 		$debutDispo = null;
 		$dureeDispo = null;
@@ -368,6 +376,12 @@ class eZSitOperators {
 			$sitModalitesRapides = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesRapides)));
 
 			$http->setSessionVariable(sha1("sit_mr_".$lienCourant), $sitModalitesRapides);
+
+			if ($http->hasPostVariable("sit_cinsee")) {
+				$codesInsee = join("|", $http->postVariable("sit_cinsee"));
+			}
+
+			$http->setSessionVariable(sha1("sit_cinsee_".$lienCourant), $codesInsee);
 
 			if ($http->hasPostVariable("sit_mc")) {
 				$motsCles = $http->postVariable("sit_mc");
@@ -409,6 +423,9 @@ class eZSitOperators {
 		} else if ($rechercheEnCours == "oui") {
 			if ($http->hasSessionVariable(sha1("sit_mr_".$lienCourant))) {
 				$sitModalitesRapides = $http->sessionVariable(sha1("sit_mr_".$lienCourant));
+			}
+			if ($http->hasSessionVariable(sha1("sit_cinsee_".$lienCourant))) {
+				$codesInsee = $http->sessionVariable(sha1("sit_cinsee_".$lienCourant));
 			}
 			if ($http->hasSessionVariable(sha1("sit_mc_".$lienCourant))) {
 				$motsCles = $http->sessionVariable(sha1("sit_mc_".$lienCourant));
@@ -487,6 +504,8 @@ class eZSitOperators {
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
 
 		$xsltParemters['pageCourante'] = $pageCourante;
+		
+		$xsltParemters['villes'] = utf8_encode($villes);
 
 		$xsltParemters['triEnCours'] = $triEnCours;
 		$xsltParemters['rechercheEnCours'] = $rechercheEnCours;
@@ -494,6 +513,7 @@ class eZSitOperators {
 		$xsltParemters['criteresRecherche'] = "|".implode("|", $criteresRecherche)."|";
 
 		$xsltParemters['modalitesRapides'] = "|".str_replace(",", "|", $sitModalitesRapides)."|";
+		$xsltParemters['codesInsee'] = utf8_encode($codesInsee);
 		$xsltParemters['motsCles'] = utf8_encode($motsCles);
 		$xsltParemters['debutOuv'] = utf8_encode($debutOuv);
 		$xsltParemters['finOuv'] = utf8_encode($finOuv);
@@ -540,6 +560,7 @@ class eZSitOperators {
 		$ayaIni = eZINI::instance('ayaline.ini');
 		$cheminImagesLSDO = $ayaIni->variable('Images','Chemin');
 		
+		$saisonId = null;
 		if ($http->hasSessionVariable('saison')) {
 			$saisonId=$http->sessionVariable('saison');
 		}
@@ -676,6 +697,7 @@ class eZSitOperators {
 		}
 
 		$sitModalitesRapides = array();
+		$codesInsee = null;
 		$motsCles = null;
 		$debutDispo = null;
 		$dureeDispo = null;
@@ -696,6 +718,12 @@ class eZSitOperators {
 
 			$http->setSessionVariable(sha1("sit_mr_".$lienCourant), $sitModalitesRapides);
 
+			if ($http->hasPostVariable("sit_cinsee")) {
+				$codesInsee = join("|", $http->postVariable("sit_cinsee"));
+			}
+
+			$http->setSessionVariable(sha1("sit_cinsee_".$lienCourant), $codesInsee);
+			
 			if ($http->hasPostVariable("sit_mc")) {
 				$motsCles = $http->postVariable("sit_mc");
 			}
@@ -736,6 +764,9 @@ class eZSitOperators {
 		} else if ($rechercheEnCours == "oui") {
 			if ($http->hasSessionVariable(sha1("sit_mr_".$lienCourant))) {
 				$sitModalitesRapides = $http->sessionVariable(sha1("sit_mr_".$lienCourant));
+			}
+			if ($http->hasSessionVariable(sha1("sit_cinsee_".$lienCourant))) {
+				$codesInsee = $http->sessionVariable(sha1("sit_cinsee_".$lienCourant));
 			}
 			if ($http->hasSessionVariable(sha1("sit_mc_".$lienCourant))) {
 				$motsCles = $http->sessionVariable(sha1("sit_mc_".$lienCourant));
@@ -786,6 +817,9 @@ class eZSitOperators {
 			} else {
 				$sitParams['mr2'] = $sitModalitesRapides;
 			}
+		}
+		if ($codesInsee) {
+			$sitParams['cinsee'] = utf8_decode($codesInsee);
 		}
 		if ($motsCles) {
 			$sitParams['mc'] = utf8_decode($motsCles);

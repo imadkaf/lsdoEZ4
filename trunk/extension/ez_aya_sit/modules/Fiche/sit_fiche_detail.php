@@ -294,7 +294,11 @@ $tpl->setVariable('view_parameters', $Params['UserParameters']);
 
 $Result['content'] = $tpl->fetch("design:fiche_detail/fiche_detail.tpl");
 
-$modulePath[] = array('url' => false, 'url_alias' => false, 'text' => $intituleFiche);
+$intituleFiche = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($intituleFiche));
+$intituleFiche = preg_replace("/&/si", "&amp;", $intituleFiche);
+$intituleFiche = utf8_decode(preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $intituleFiche));
+
+$modulePath[] = array('url' => false, 'url_alias' => false, 'text' => utf8_encode($intituleFiche));
 
 $Result['path'] = $modulePath;
 
