@@ -8,7 +8,6 @@
 
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:include href="inc/periodes_ouverture_1.xsl"/>
-	<xsl:include href="inc/rendu_adresse.xsl"/>
 
 	<xsl:template match="/produit">
 		<div class="titre-fiche">
