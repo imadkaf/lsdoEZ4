@@ -1,7 +1,9 @@
 <div class="bloc-type" id="bloc-ac-res">
+	{*
 	<h2>
 		<img src={"reserver.png"|ezimage} alt="" />
 	</h2>
+
 	<p class="clear"></p>
 	<h3 class="type5">
 		<img src={"je-recherche.png"|ezimage} alt="" />
@@ -105,4 +107,29 @@
 			</ul>
 		</form>
 	</div>
+	*}
+
+	{* Deja appele <script src="http://gadget.open-system.fr/jquery.min.js" type="text/JavaScript" ></script> *}
+	
+	{literal}
+	<script src="http://gadget.open-system.fr/osform.min.js" type="text/JavaScript" ></script>
+	<script type="text/javascript" xml:space="preserve">
+		$(function () {
+			document.oswidget = new OsFG("OSRecherche","22357-1608","fr");
+			document.oswidget.SetOptionAffichage({"Navigation":"accordeon","CouleurFond":"#ffffff"});
+			document.oswidget.Affiche();
+			
+		});
+	</script>
+	{/literal}
+	
+	<h2 class="bloc-accueil-h2">
+		Réserver
+	</h2>
+	<p class="clear"></p>
+	<h3 class="bloc-accueil-h3">
+		Je recherche
+	</h3>
+	<div id="OSRecherche"></div>
+
 </div>
