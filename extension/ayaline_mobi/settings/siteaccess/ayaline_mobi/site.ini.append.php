@@ -1,7 +1,7 @@
 <?php /* #?ini charset="utf-8"?
 
 [SiteSettings]
-IndexPage=/content/view/full/1276
+IndexPage=/content/view/full/1337
 SiteName=aYaline Mobile
 SiteURL=mobi.lsdo.loc
 MetaDataArray[author]=
