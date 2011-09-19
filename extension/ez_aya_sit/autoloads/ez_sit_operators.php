@@ -280,6 +280,7 @@ class eZSitOperators {
 		$http = eZHTTPTool::instance();
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
+		
 		$cheminImagesDesign = $sitIni->variable('ImagesDesign','Chemin');
 		
 		$saisonId = null;
@@ -497,9 +498,9 @@ class eZSitOperators {
 		$xsltParemters = array();
 
 		$xsltParemters['saisonId'] = $saisonId;
-		$xsltParemters['cheminImagesDesign'] = $cheminImagesDesign;
-		$xsltParemters['lienCourant'] = $lienCourant;
 		$xsltParemters['cheminImages'] = $cheminImages;
+		$xsltParemters['cheminImagesDesign'] = $cheminImagesDesign ? $cheminImagesDesign : $cheminImages;
+		$xsltParemters['lienCourant'] = $lienCourant;
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
 
 		$xsltParemters['pageCourante'] = $pageCourante;
@@ -556,7 +557,8 @@ class eZSitOperators {
 		$http = eZHTTPTool::instance();
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
-		$cheminImagesDesign = $sitIni->variable('Images','Chemin');
+		
+		$cheminImagesDesign = $sitIni->variable('ImagesDesign','Chemin');
 		
 		$saisonId = null;
 		if ($http->hasSessionVariable('saison')) {
@@ -932,9 +934,9 @@ class eZSitOperators {
 		}
 		
 		$xsltParemters['saisonId'] = $saisonId;
-		$xsltParemters['cheminImagesDesign'] = $cheminImagesDesign;
-		$xsltParemters['lienCourant'] = $lienCourant;
 		$xsltParemters['cheminImages'] = $cheminImages;
+		$xsltParemters['cheminImagesDesign'] = $cheminImagesDesign ? $cheminImagesDesign : $cheminImages;
+		$xsltParemters['lienCourant'] = $lienCourant;
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
 		$xsltParemters['sitListeUrlAlias'] = str_replace("/", "~", $sitListeUrlAlias);
 		eZURI::transformURI($sitListeUrlAlias);
@@ -991,6 +993,8 @@ class eZSitOperators {
 		$http = eZHTTPTool::instance();
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
+		
+		$cheminImagesDesign = $sitIni->variable('ImagesDesign','Chemin');
 
 		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'RootSitUrl')) {
 			$rootSitUrl = $sitIni->variable('GlobalSitParametersOverride','RootSitUrl');
@@ -1164,6 +1168,7 @@ class eZSitOperators {
 
 		$xsltParemters['lienCourant'] = $lienCourant;
 		$xsltParemters['cheminImages'] = $cheminImages;
+		$xsltParemters['cheminImagesDesign'] = $cheminImagesDesign ? $cheminImagesDesign : $cheminImages;
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
 		$xsltParemters['sitMiseEnAvantUrlAlias'] = str_replace("/", "~", $sitMiseEnAvantUrlAlias);
 		eZURI::transformURI($sitMiseEnAvantUrlAlias);

@@ -65,7 +65,7 @@
 										<div class="inputsSelect">
 											<p onclick="showHideSelect('listeSelect1')" class="selects"><span class="Flag_{$curLang|extract_left( 2 )}"></span></p>
 											<ul id="listeSelect1">
-	{foreach ezini( 'RegionalSettings', 'urlList' ) as $language => $url }
+	{foreach ezini( 'RegionalSettings', 'UrlList' ) as $language => $url}
 												<li><a onclick="validAndHide('DE', this, 'countryCode', 'p')" href="http://{$url}"><span class="Flag_{$language|extract_left( 2 )}"></span></a></li>
 	{/foreach}
 											</ul>
@@ -124,7 +124,6 @@
 						<div class="clear"></div>				
 					</div>
 				</div>
-{include uri='design:parts/diaporama.tpl'}
 
 			</div>
 			<div class="clear"></div>
