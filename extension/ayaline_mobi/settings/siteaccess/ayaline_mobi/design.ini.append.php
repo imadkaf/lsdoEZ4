@@ -23,7 +23,7 @@ JavaScriptListMobile[]
 #La derniere version de la bibliotheque jquery dans la famille 1.x
 JavaScriptListMobile[]=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
 #Complement de la bibliotheque jquery pour la version mobile
-#JavaScriptListMobile[]=jquery.mobile-1.0a4.1.min.js
+JavaScriptListMobile[]=jquery.mobile-1.0a4.1.min.js
 #A quoi sert ce script ?
 JavaScriptListMobile[]=http://code.google.com/apis/gears/gears_init.js
 
