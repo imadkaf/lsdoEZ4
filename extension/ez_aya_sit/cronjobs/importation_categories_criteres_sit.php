@@ -114,8 +114,8 @@ if ($xmlStringCategories) {
 
 							if (in_array($attributCritere, $attributsCriteresTri)) {
 								$optionNode = $doc->createElement("option");
-								$optionNode->setAttribute('id', "1");
-								$optionNode->setAttribute('name', "Commune");
+								$optionNode->setAttribute('id', "a1");
+								$optionNode->setAttribute('name', "Commune".($attributCritere == 'criteres_tri_principaux' ? " (Ascendant)" : ""));
 
 								$optionCategoriesNode = $doc->createElement("category");
 								$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
@@ -124,8 +124,20 @@ if ($xmlStringCategories) {
 								$optionNode->appendChild($optionCategoriesNode);
 
 								$optionsNode->appendChild($optionNode);
+								
+								if ($attributCritere == 'criteres_tri_principaux') {
+									$optionNode = $doc->createElement("option");
+									$optionNode->setAttribute('id', "d1");
+									$optionNode->setAttribute('name', "Commune (Descendant)");
 
-								if ($attributCritere == 'critere_tri_principal') {
+									$optionCategoriesNode = $doc->createElement("category");
+									$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
+									$optionCategoriesNode->setAttribute('category_value', "0-".join("-", array_keys($categoriesArray)));
+
+									$optionNode->appendChild($optionCategoriesNode);
+
+									$optionsNode->appendChild($optionNode);
+
 									$optionNode = $doc->createElement("option");
 									$optionNode->setAttribute('id', "2");
 									$optionNode->setAttribute('name', "Aléatoire");
@@ -139,8 +151,20 @@ if ($xmlStringCategories) {
 									$optionsNode->appendChild($optionNode);
 
 									$optionNode = $doc->createElement("option");
-									$optionNode->setAttribute('id', "4");
-									$optionNode->setAttribute('name', "Date d'ouverture");
+									$optionNode->setAttribute('id', "a4");
+									$optionNode->setAttribute('name', "Date d'ouverture (Ascendant)");
+
+									$optionCategoriesNode = $doc->createElement("category");
+									$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
+									$optionCategoriesNode->setAttribute('category_value', "0-".join("-", array_keys($categoriesArray)));
+
+									$optionNode->appendChild($optionCategoriesNode);
+
+									$optionsNode->appendChild($optionNode);
+									
+									$optionNode = $doc->createElement("option");
+									$optionNode->setAttribute('id', "d4");
+									$optionNode->setAttribute('name', "Date d'ouverture (Descendant)");
 
 									$optionCategoriesNode = $doc->createElement("category");
 									$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
@@ -152,8 +176,8 @@ if ($xmlStringCategories) {
 								}
 								
 								$optionNode = $doc->createElement("option");
-								$optionNode->setAttribute('id', "3");
-								$optionNode->setAttribute('name', "Nombre de consultations");
+								$optionNode->setAttribute('id', "a3");
+								$optionNode->setAttribute('name', "Nombre de consultations".($attributCritere == 'criteres_tri_principaux' ? " (Ascendant)" : ""));
 
 								$optionCategoriesNode = $doc->createElement("category");
 								$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
@@ -162,12 +186,26 @@ if ($xmlStringCategories) {
 								$optionNode->appendChild($optionCategoriesNode);
 
 								$optionsNode->appendChild($optionNode);
+								
+								if ($attributCritere == 'criteres_tri_principaux') {
+									$optionNode = $doc->createElement("option");
+									$optionNode->setAttribute('id', "d3");
+									$optionNode->setAttribute('name', "Nombre de consultations (Descendant)");
+
+									$optionCategoriesNode = $doc->createElement("category");
+									$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
+									$optionCategoriesNode->setAttribute('category_value', "0-".join("-", array_keys($categoriesArray)));
+
+									$optionNode->appendChild($optionCategoriesNode);
+
+									$optionsNode->appendChild($optionNode);
+								}
 							}
 
 							foreach ($criteresArray as $idCritereSIT=>$critereSIT) {
 								$optionNode = $doc->createElement("option");
-								$optionNode->setAttribute('id', $idCritereSIT);
-								$optionNode->setAttribute('name', $critereSIT['int_critere']);
+								$optionNode->setAttribute('id', "a".$idCritereSIT);
+								$optionNode->setAttribute('name', $critereSIT['int_critere'].($attributCritere == 'criteres_tri_principaux' ? " (Ascendant)" : ""));
 
 								$optionCategoriesNode = $doc->createElement("category");
 								$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
@@ -175,6 +213,19 @@ if ($xmlStringCategories) {
 
 								$optionNode->appendChild($optionCategoriesNode);
 								$optionsNode->appendChild($optionNode);
+								
+								if ($attributCritere == 'criteres_tri_principaux') {
+									$optionNode = $doc->createElement("option");
+									$optionNode->setAttribute('id', "d".$idCritereSIT);
+									$optionNode->setAttribute('name', $critereSIT['int_critere']." (Descendant)");
+
+									$optionCategoriesNode = $doc->createElement("category");
+									$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
+									$optionCategoriesNode->setAttribute('category_value', "0-".join("-", $critereSIT['categories']));
+
+									$optionNode->appendChild($optionCategoriesNode);
+									$optionsNode->appendChild($optionNode);
+								}
 							}
 
 							$root->appendChild($optionsNode);
