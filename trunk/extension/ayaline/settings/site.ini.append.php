@@ -55,9 +55,9 @@ ContentObjectLocale=fre-FR
 TranslationExtensions[]=ayaline
 TranslationExtensions[]=ayaline_admin
 TranslationExtensions[]=ayaline_mobi
-#urlList[]
-#urlList[fre-FR]=lsdo.loc
-#urlList[eng-GB]=en.lsdo.loc
+UrlList[]
+UrlList[fre-FR]=lsdo.loc
+UrlList[eng-GB]=en.lsdo.loc
 
 [FileSettings]
 VarDir=var/ayaline
