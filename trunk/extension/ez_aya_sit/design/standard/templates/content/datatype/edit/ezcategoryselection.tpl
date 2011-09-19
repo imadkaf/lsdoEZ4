@@ -9,11 +9,13 @@
 <td width="70%">
 <ul class="ezcategoryselection-selected-options ezcategoryselection-selected-options-{$attribute.class_content.categories.0.category_id}" id="{$attribute_base}_ezselect_selected_options_{$attribute.id}" style="margin:2px 5px 0 10px">
 {def $index = 0}
+{foreach $attribute.content as $SelectedOptions}
 {foreach $attribute.class_content.options as $option}
-{if |inarray($option.id, $attribute.content)}
+{if eq($option.id, $SelectedOptions)}
 <li style="padding:2px 0;margin:0;background-color:#{if mod($index, 2)|eq(1)}F5F5F5{else}FFFFFF{/if}"><span>{$option.name|wash(xhtml)}</span> <a href="#" class="ezcategoryselection-remove-option" rel="-{$option.categories.0.category_value|implode('-')}-"><img src={'croix.png'|ezimage} alt="" style="margin-top:-2px" /></a><input type="hidden" name="{$attribute_base}_ezselect_selected_array_{$attribute.id}[]" value="{$option.id}" /></li>
 {set $index=inc($index)}
 {/if}
+{/foreach}
 {/foreach}
 </ul>
 </td>

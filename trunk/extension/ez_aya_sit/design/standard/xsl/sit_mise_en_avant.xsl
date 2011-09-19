@@ -18,7 +18,7 @@
 				<div style="padding:5px 10px;background-color:#F6EFE9;list-style:none;border:1px solid black;margin-bottom:7px">
 					<ul style="background:none;list-style:none;padding-left:0;margin-left:0">
 					<xsl:for-each select="resultats/details/detail">
-						<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(translate(translate(intitule, concat('/-?_.', $apos, $amp), '       '), $caracteresKo, $caracteresOk), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')), ' ', '-')"/></xsl:variable>
+						<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(intitule, concat('/-?_.', $apos, $amp), '       ')), ' ', '-')"/></xsl:variable>
 						<li style="height:1%">
 							<xsl:attribute name="style">padding-bottom:5px;background:none;list-style:none;padding-left:0;margin-left:0<xsl:if test="position() &lt; count(../detail)">;border-bottom:2px solid #660000</xsl:if></xsl:attribute>
 							<a style="position:relative;z-index:-1;top:-10px;width:0;overflow:hidden;"><xsl:attribute name="id">fiche-<xsl:value-of select="@id"/></xsl:attribute><![CDATA[ ]]></a>

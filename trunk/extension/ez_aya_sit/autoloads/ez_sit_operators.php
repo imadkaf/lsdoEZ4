@@ -668,26 +668,30 @@ class eZSitOperators {
 			}
 		}
 
-		$critereTriPrincipal = $sitListe['critere_tri_principal']->value();
-		$critereTriPrincipal = $critereTriPrincipal[0];
-
-		$sensTriPrincipal = $sitListe['sens_tri_principal']->value();
-		$sensTriPrincipal = $sensTriPrincipal[0];
-
+		$criteresTriPrincipaux = $sitListe['criteres_tri_principaux']->value();
+		
 		$sitParams['sort'] = "pho";
 		$sitParams['order'] = "desc";
-		if ($critereTriPrincipal == '1') {
-			$sitParams['sort'] .= ",com";
-			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
-		} else if ($critereTriPrincipal == '2') {
-			$sitParams['sort'] .= ",ran";
-			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
-		} else if ($critereTriPrincipal == '3') {
-			$sitParams['sort'] .= ",nco";
-			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
-		} else if ($critereTriPrincipal) {
-			$sitParams['sort'] .= ",".(strlen($critereTriPrincipal) > 9 ? "m" : (preg_match("/^\\d+$/", $critereTriPrincipal) ? "c" : "")).$critereTriPrincipal;
-			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
+		foreach ($criteresTriPrincipaux as $critereTri) {
+			$idCritereTri = substr($critereTri, 1);
+			$sensCritereTri = substr($critereTri, 0, 1);
+			
+			if ($idCritereTri == '1') {
+				$sitParams['sort'] .= ",com";
+				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
+			} else if ($idCritereTri == '2') {
+				$sitParams['sort'] .= ",ran";
+				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
+			} else if ($idCritereTri == '3') {
+				$sitParams['sort'] .= ",nco";
+				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
+			} else if ($idCritereTri == '4') {
+				$sitParams['sort'] .= ",douv";
+				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
+			} else if ($idCritereTri) {
+				$sitParams['sort'] .= ",".(strlen($idCritereTri) > 9 ? "m" : (preg_match("/^\\d+$/", $idCritereTri) ? "c" : "")).$idCritereTri;
+				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
+			}
 		}
 
 		if (array_key_exists('tri', $viewParameters) && $viewParameters['tri']) {
@@ -1087,26 +1091,30 @@ class eZSitOperators {
 			}
 		}
 
-		$critereTriPrincipal = $sitMiseEnAvant['critere_tri_principal']->value();
-		$critereTriPrincipal = $critereTriPrincipal[0];
-
-		$sensTriPrincipal = $sitMiseEnAvant['sens_tri_principal']->value();
-		$sensTriPrincipal = $sensTriPrincipal[0];
+		$criteresTriPrincipaux = $sitMiseEnAvant['criteres_tri_principaux']->value();
 
 		$sitParams['sort'] = "pho";
 		$sitParams['order'] = "desc";
-		if ($critereTriPrincipal == '1') {
-			$sitParams['sort'] .= ",com";
-			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
-		} else if ($critereTriPrincipal == '2') {
-			$sitParams['sort'] .= ",ran";
-			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
-		} else if ($critereTriPrincipal == '3') {
-			$sitParams['sort'] .= ",nco";
-			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
-		} else if ($critereTriPrincipal) {
-			$sitParams['sort'] .= ",".(strlen($critereTriPrincipal) > 9 ? "m" : (preg_match("/^\\d+$/", $critereTriPrincipal) ? "c" : "")).$critereTriPrincipal;
-			$sitParams['order'] .= ",".($sensTriPrincipal == '1' ? "desc" : "asc");
+		foreach ($criteresTriPrincipaux as $critereTri) {
+			$idCritereTri = substr($critereTri, 1);
+			$sensCritereTri = substr($critereTri, 0, 1);
+			
+			if ($idCritereTri == '1') {
+				$sitParams['sort'] .= ",com";
+				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
+			} else if ($idCritereTri == '2') {
+				$sitParams['sort'] .= ",ran";
+				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
+			} else if ($idCritereTri == '3') {
+				$sitParams['sort'] .= ",nco";
+				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
+			} else if ($idCritereTri == '4') {
+				$sitParams['sort'] .= ",douv";
+				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
+			} else if ($idCritereTri) {
+				$sitParams['sort'] .= ",".(strlen($idCritereTri) > 9 ? "m" : (preg_match("/^\\d+$/", $idCritereTri) ? "c" : "")).$idCritereTri;
+				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
+			}
 		}
 
 		$parametresDiffusionSupplementaires = $sitMiseEnAvant['parametres_diffusion_supplementaires']->value()->attribute('matrix');
