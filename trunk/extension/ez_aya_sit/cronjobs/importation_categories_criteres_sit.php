@@ -3,7 +3,7 @@
 $cli->setUseStyles(true);
 
 if (!$isQuiet) {
-	$cli->output($cli->stylize('cyan', "\tDébut import données catégories critères SIT dans les classes SIT."));
+	$cli->output($cli->stylize('cyan', "\tDébut importation données catégories critères SIT dans les classes SIT."));
 }
 
 $sitIni = eZINI::instance('ez_aya_sit.ini');
@@ -206,7 +206,7 @@ if ($xmlStringCategories) {
 
 							foreach ($criteresArray as $idCritereSIT=>$critereSIT) {
 								$optionNode = $doc->createElement("option");
-								$optionNode->setAttribute('id', "a".$idCritereSIT);
+								$optionNode->setAttribute('id', ($attributCritere == 'criteres_tri_principaux' ? "a" : "").$idCritereSIT);
 								$optionNode->setAttribute('name', $critereSIT['int_critere'].($attributCritere == 'criteres_tri_principaux' ? " (Ascendant)" : ""));
 
 								$optionCategoriesNode = $doc->createElement("category");
