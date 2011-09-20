@@ -114,7 +114,7 @@ if ($xmlStringCategories) {
 
 							if (in_array($attributCritere, $attributsCriteresTri)) {
 								$optionNode = $doc->createElement("option");
-								$optionNode->setAttribute('id', "a1");
+								$optionNode->setAttribute('id', ($attributCritere == 'criteres_tri_principaux' ? "a" : "")."1");
 								$optionNode->setAttribute('name', "Commune".($attributCritere == 'criteres_tri_principaux' ? " (Ascendant)" : ""));
 
 								$optionCategoriesNode = $doc->createElement("category");
@@ -139,32 +139,8 @@ if ($xmlStringCategories) {
 									$optionsNode->appendChild($optionNode);
 
 									$optionNode = $doc->createElement("option");
-									$optionNode->setAttribute('id', "2");
+									$optionNode->setAttribute('id', "a2");
 									$optionNode->setAttribute('name', "Aléatoire");
-
-									$optionCategoriesNode = $doc->createElement("category");
-									$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
-									$optionCategoriesNode->setAttribute('category_value', "0-".join("-", array_keys($categoriesArray)));
-
-									$optionNode->appendChild($optionCategoriesNode);
-
-									$optionsNode->appendChild($optionNode);
-
-									$optionNode = $doc->createElement("option");
-									$optionNode->setAttribute('id', "a4");
-									$optionNode->setAttribute('name', "Date d'ouverture (Ascendant)");
-
-									$optionCategoriesNode = $doc->createElement("category");
-									$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
-									$optionCategoriesNode->setAttribute('category_value', "0-".join("-", array_keys($categoriesArray)));
-
-									$optionNode->appendChild($optionCategoriesNode);
-
-									$optionsNode->appendChild($optionNode);
-									
-									$optionNode = $doc->createElement("option");
-									$optionNode->setAttribute('id', "d4");
-									$optionNode->setAttribute('name', "Date d'ouverture (Descendant)");
 
 									$optionCategoriesNode = $doc->createElement("category");
 									$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
@@ -176,7 +152,7 @@ if ($xmlStringCategories) {
 								}
 								
 								$optionNode = $doc->createElement("option");
-								$optionNode->setAttribute('id', "a3");
+								$optionNode->setAttribute('id', ($attributCritere == 'criteres_tri_principaux' ? "a" : "")."3");
 								$optionNode->setAttribute('name', "Nombre de consultations".($attributCritere == 'criteres_tri_principaux' ? " (Ascendant)" : ""));
 
 								$optionCategoriesNode = $doc->createElement("category");
@@ -191,6 +167,32 @@ if ($xmlStringCategories) {
 									$optionNode = $doc->createElement("option");
 									$optionNode->setAttribute('id', "d3");
 									$optionNode->setAttribute('name', "Nombre de consultations (Descendant)");
+
+									$optionCategoriesNode = $doc->createElement("category");
+									$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
+									$optionCategoriesNode->setAttribute('category_value', "0-".join("-", array_keys($categoriesArray)));
+
+									$optionNode->appendChild($optionCategoriesNode);
+
+									$optionsNode->appendChild($optionNode);
+								}
+								
+								$optionNode = $doc->createElement("option");
+								$optionNode->setAttribute('id', ($attributCritere == 'criteres_tri_principaux' ? "a" : "")."4");
+								$optionNode->setAttribute('name', "Date d'ouverture (Ascendant)");
+
+								$optionCategoriesNode = $doc->createElement("category");
+								$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
+								$optionCategoriesNode->setAttribute('category_value', "0-".join("-", array_keys($categoriesArray)));
+
+								$optionNode->appendChild($optionCategoriesNode);
+
+								$optionsNode->appendChild($optionNode);
+								
+								if ($attributCritere == 'criteres_tri_principaux') {
+									$optionNode = $doc->createElement("option");
+									$optionNode->setAttribute('id', "d4");
+									$optionNode->setAttribute('name', "Date d'ouverture (Descendant)");
 
 									$optionCategoriesNode = $doc->createElement("category");
 									$optionCategoriesNode->setAttribute('category_id', $attributCategorieSIT->attribute('id'));
