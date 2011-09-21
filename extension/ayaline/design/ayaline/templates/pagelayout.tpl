@@ -124,7 +124,7 @@
 						<div class="clear"></div>				
 					</div>
 				</div>
-
+{include uri='design:parts/diaporama.tpl'}
 			</div>
 			<div class="clear"></div>
 			{include uri='design:parts/fil_ariane.tpl'}
