@@ -7,6 +7,7 @@ ActiveExtensions[]=ez_aya_sit
 ActiveExtensions[]=faq
 ActiveExtensions[]=ayaline_gallery
 ActiveExtensions[]=ayaline
+ActiveExtensions[]=ayaline_mobi
 ActiveExtensions[]=ezmultiupload
 ActiveExtensions[]=ezjscore
 ActiveExtensions[]=ezie

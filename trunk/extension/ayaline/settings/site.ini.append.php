@@ -10,28 +10,21 @@ Database=lsdo_integ
 Charset=
 Socket=disabled
 
-[ExtensionSettings]
-ActiveExtensions[]=ayaline
-
 [Session]
 SessionNameHandler=custom
 
 [SiteSettings]
 DefaultAccess=ayaline
-SiteList[]=ayaline_mobi
+SiteList[]=ayaline
 SiteList[]=ayaline_admin
 
 [SiteAccessSettings]
 CheckValidity=false
-AvailableSiteAccessList[]
 AvailableSiteAccessList[]=ayaline
-AvailableSiteAccessList[]=ayaline_mobi
 AvailableSiteAccessList[]=ayaline_en
 AvailableSiteAccessList[]=ayaline_admin
 MatchOrder=host
-HostMatchMapItems[]
 HostMatchMapItems[]=lsdo.loc;ayaline
-HostMatchMapItems[]=mobi.lsdo.loc;ayaline_mobi
 HostMatchMapItems[]=en.lsdo.loc;ayaline_en
 HostMatchMapItems[]=admin.lsdo.loc;ayaline_admin
 ForceVirtualHost=true
@@ -54,7 +47,6 @@ EmailSender=gseguin@ayaline.com
 ContentObjectLocale=fre-FR
 TranslationExtensions[]=ayaline
 TranslationExtensions[]=ayaline_admin
-TranslationExtensions[]=ayaline_mobi
 UrlList[]
 UrlList[fre-FR]=lsdo.loc
 UrlList[eng-GB]=en.lsdo.loc
