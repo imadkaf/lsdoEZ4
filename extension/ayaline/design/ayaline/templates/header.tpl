@@ -23,8 +23,6 @@
 {def $path = $module_result.path}
 {if is_set($pagedata.path_array)}
 	{set $path = $pagedata.path_array}
-{elseif is_set($module_result.title_path)}
-	{set path=$module_result.title_path}
 {/if}
 {def $cPathNode = false()}
 {def $pathUrl = false()}
