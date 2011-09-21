@@ -22,6 +22,8 @@ FrontendCSSFileListPC[]=stylesheet_desktop.css
 JavaScriptListMobile[]
 #La derniere version de la bibliotheque jquery dans la famille 1.x
 JavaScriptListMobile[]=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
+JavaScriptListMobile[]=http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js
+JavaScriptListMobile[]=http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAPzlBh0JjFUPqZKi3n0L3LxRNhXKcoHc6ILCDtHOsJEw_kWBWgBR1kXeQdewQ9aUBq3FH6LbXaDfhmw
 #Complement de la bibliotheque jquery pour la version mobile
 JavaScriptListMobile[]=jquery.mobile-1.0a4.1.min.js
 #A quoi sert ce script ?
