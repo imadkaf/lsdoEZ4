@@ -118,10 +118,10 @@ $modulePath = array();
 $homeNode = eZFunctionHandler::execute(
 	'content',
 	'node',
-	array ('node_path' => "/")
+	array ('node_id' => $rootNode)
 );
 
-$modulePath[] = array('url' => '/', 'url_alias' => '/', 'text' => $homeNode->attribute('name'));
+$modulePath[] = array('url' => '/', 'url_alias' => '/', 'text' => $homeNode->attribute('name'), 'node_id' => $rootNode);
 
 $currentCheminCategorie = "";
 
@@ -137,10 +137,11 @@ if ($cheminCategorie) {
 			array ('node_path' => $currentCheminCategorie)
 		);
 
-		if ($currentNode) {
+		$contentRootNode = $contentIni->variable('NodeSettings','ContentRootNode');
+		if ($currentNode && $currentNode->attribute('node_id') != $rootNode && $contentRootNode && $contentRootNode != $rootNode) {
 			$nodeExist = true;
 			$previousNode = $currentNode;
-			$modulePath[] = array('url' => $currentNode->attribute('url_alias'), 'url_alias' => $currentNode->attribute('url_alias'), 'text' => $currentNode->attribute('name'));
+			$modulePath[] = array('url' => $currentNode->attribute('url_alias'), 'url_alias' => $currentNode->attribute('url_alias'), 'text' => $currentNode->attribute('name'), 'node_id' => $currentNode->attribute('node_id'));
 		}
 	}
 }
@@ -155,7 +156,7 @@ if (!$nodeExist && array_key_exists('HTTP_REFERER', $_SERVER)) {
 	);
 
 	if ($previousNode) {
-		$modulePath[] = array('url' => $previousNode->attribute('url_alias'), 'url_alias' => $previousNode->attribute('url_alias'), 'text' => $previousNode->attribute('name'));
+		$modulePath[] = array('url' => $previousNode->attribute('url_alias'), 'url_alias' => $previousNode->attribute('url_alias'), 'text' => $previousNode->attribute('name'), 'node_id' => $previousNode->attribute('node_id'));
 	}
 }
 
@@ -298,7 +299,7 @@ $intituleFiche = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", h
 $intituleFiche = preg_replace("/&/si", "&amp;", $intituleFiche);
 $intituleFiche = utf8_decode(preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $intituleFiche));
 
-$modulePath[] = array('url' => false, 'url_alias' => false, 'text' => utf8_encode($intituleFiche));
+$modulePath[] = array('url' => false, 'url_alias' => false, 'text' => utf8_encode($intituleFiche), 'node_id' => false);
 
 $Result['path'] = $modulePath;
 
