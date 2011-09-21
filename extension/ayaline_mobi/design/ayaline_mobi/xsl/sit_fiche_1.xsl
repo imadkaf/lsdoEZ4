@@ -107,10 +107,9 @@
 			<p class="clear"><![CDATA[ ]]></p>
 		</div>
 		
-		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><![CDATA[ ]]></script>
 		<script type="text/javascript">
 			<![CDATA[
-			$(function() {
+			$(document).ready(function() {
 				$( "#accordion" ).accordion({
 					autoHeight: false,
 					navigation: true
@@ -137,7 +136,6 @@
 			
 			<h3><a href="#">Carte/Itin&amp;eacute;raires</a></h3>
 			<div>
-				<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAPzlBh0JjFUPqZKi3n0L3LxRNhXKcoHc6ILCDtHOsJEw_kWBWgBR1kXeQdewQ9aUBq3FH6LbXaDfhmw"><![CDATA[ ]]></script>
 				<div id="map-container" style="width:auto425px;height:300px;"><![CDATA[ ]]></div>
 				<script type="text/javascript">	
 					<![CDATA[

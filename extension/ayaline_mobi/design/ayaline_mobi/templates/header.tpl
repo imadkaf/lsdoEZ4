@@ -23,12 +23,14 @@
 {def $path = $module_result.path}
 {if is_set($pagedata.path_array)}
 	{set $path = $pagedata.path_array}
-{elseif is_set($module_result.title_path)}
-	{set path=$module_result.title_path}
 {/if}
 {def $cPathNode = false()}
 {def $pathUrl = false()}
+{def $titreChemin = ''}
 {foreach $path as $pathNode}
+	{if $pathNode.node_id|eq( ezini('NodeSettings','ContentRootNode','content.ini') )}
+		{continue}
+	{/if}
 	{if and(not($pathNode.url_alias), not($pathNode.url))}
 		{set $cPathNode = $cNode}
 	{else}
@@ -39,10 +41,20 @@
 		{if $referencementPathNode.content[0]|trim|ne('')}
 			{set $reverse_path=$reverse_path|prepend($referencementPathNode.content[0]|trim)}
 		{else}
-			{set $reverse_path=$reverse_path|prepend($pathNode.text)}
+			{if eq($pathNode.node_id, ezini('NodeSettings','RootNode','content.ini'))}
+				{set $titreChemin = "Les Sables d'Olonne"}
+			{else}
+				{set $titreChemin = $pathNode.text}
+			{/if}
+			{set $reverse_path=$reverse_path|prepend($titreChemin)}
 		{/if}
 	{else}
-		{set $reverse_path=$reverse_path|prepend($pathNode.text)}
+		{if eq($pathNode.node_id, ezini('NodeSettings','RootNode','content.ini'))}
+			{set $titreChemin = "Les Sables d'Olonne"}
+		{else}
+			{set $titreChemin = $pathNode.text}
+		{/if}
+		{set $reverse_path=$reverse_path|prepend($titreChemin)}
 	{/if}
 {/foreach}
 {set-block scope=root variable=site_title}

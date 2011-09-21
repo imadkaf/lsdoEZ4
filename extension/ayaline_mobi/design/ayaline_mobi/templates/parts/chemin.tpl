@@ -10,16 +10,21 @@
 {def $affListeSITFil = ''}
 {def $node = ''}
 
+{def $path = $module_result.path}
+{if is_set($pagedata.path_array)}
+	{set $path = $pagedata.path_array}
+{/if}
+
 {* Cas particulier pour les fiches "SIT" (qui ne sont pas des noeuds pour avoir un fil d'ariane) *}
 {if $cNode|is_set()}
 	<div class="PageRoot">Vous êtes sur : 
-		{foreach $module_result.path as $Path}
-			{set $node = fetch( 'content', 'node', hash( 'node_id', $Path.node_id ) )}
+		{foreach $path as $pathNode}
+			{set $node = fetch( 'content', 'node', hash( 'node_id', $pathNode.node_id ) )}
 			
 			{set $titreChemin = ''}
 			
 			{* Si le noeud est celui de l'accueil du site *}
-			{if $Path.node_id|eq( ezini('NodeSettings','RootNode','content.ini') )}
+			{if $pathNode.node_id|eq( ezini('NodeSettings','ContentRootNode','content.ini') )}
 				{continue}
 			{/if}
 			
@@ -30,15 +35,15 @@
 				{set $titreChemin = $affListeSITFil.name}
 			{else}
 				{* Si le noeud est celui de l'accueil du site mobile *}
-				{if eq($node.node_id, ezini('NodeSettings','RootMobile','content.ini'))}
+				{if eq($pathNode.node_id, ezini('NodeSettings','RootNode','content.ini'))}
 					{set $titreChemin = 'Accueil'}
 				{else}
-					{set $titreChemin = $Path.text}
+					{set $titreChemin = $pathNode.text}
 				{/if}
 			{/if}
 			
-			{if or($Path.url_alias, $Path.url)}
-					<a class="ui-link" href={$Path.url_alias|ezurl}>{$titreChemin|wash}</a> >
+			{if or($pathNode.url_alias, $pathNode.url)}
+					<a class="ui-link" href={$pathNode.url_alias|ezurl}>{$titreChemin|wash}</a> >
 			{else}
 					<strong>{$titreChemin|wash}</strong>
 			{/if}
@@ -46,11 +51,16 @@
 	</div>
 {elseif $module_result.ui_component|eq('Fiche')}
 	<div class="PageRoot">Vous êtes sur : 
-		{foreach $module_result.path as $Path}
-			{if or($Path.url_alias, $Path.url)}
-					<a class="ui-link" href={$Path.url_alias|ezurl}>{$Path.text|wash}</a> >
+		{foreach $path as $pathNode}
+			{if eq($pathNode.node_id, ezini('NodeSettings','RootNode','content.ini'))}
+				{set $titreChemin = 'Accueil'}
 			{else}
-					<strong>{$Path.text|wash}</strong>
+				{set $titreChemin = $pathNode.text}
+			{/if}
+			{if or($pathNode.url_alias, $pathNode.url)}
+					<a class="ui-link" href={$pathNode.url_alias|ezurl}>{$titreChemin|wash}</a> >
+			{else}
+					<strong>{$titreChemin|wash}</strong>
 			{/if}
 		{/foreach}
 	</div>

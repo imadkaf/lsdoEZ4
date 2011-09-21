@@ -3,7 +3,7 @@
 	{set $cNode = fetch(content, node, hash(node_id, $module_result.node_id))}
 {/if}
 
-{def $rNode = fetch('content','node', hash('node_id',  ezini('NodeSettings','RootMobile','content.ini')))}
+{def $rNode = fetch('content','node', hash('node_id',  ezini('NodeSettings','RootNode','content.ini')))}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
     "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

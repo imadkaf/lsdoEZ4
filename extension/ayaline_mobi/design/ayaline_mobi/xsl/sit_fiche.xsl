@@ -109,7 +109,7 @@
 			<h3><a href="#">Carte/Itin&amp;eacute;raires</a></h3>
 			<div>
 				<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAPzlBh0JjFUPqZKi3n0L3LxRNhXKcoHc6ILCDtHOsJEw_kWBWgBR1kXeQdewQ9aUBq3FH6LbXaDfhmw"><![CDATA[ ]]></script>
-				<div id="map-container" style="width:auto425px;height:300px;"><![CDATA[ ]]></div>
+				<div id="map-container" style="width:425px;height:300px;"><![CDATA[ ]]></div>
 				<script type="text/javascript">	
 					<![CDATA[
 						var pos;

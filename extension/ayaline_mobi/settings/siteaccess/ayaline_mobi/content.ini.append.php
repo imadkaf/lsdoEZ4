@@ -4,7 +4,7 @@
 ClassListeSIT=sit_liste
 
 [NodeSettings]
-RootNode=2
-RootMobile=1337
+RootNode=1337
+ContentRootNode=2
 
 */ ?>
