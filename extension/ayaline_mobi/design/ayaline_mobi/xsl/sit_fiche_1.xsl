@@ -109,10 +109,28 @@
 		
 		<script type="text/javascript">
 			<![CDATA[
-			$(document).ready(function() {
+			var firstGmapsInit = true;
+			$(function() {
 				$( "#accordion" ).accordion({
 					autoHeight: false,
 					navigation: true
+				});
+				$("#accordion").bind('accordionchange', function(event, ui) {
+					if (ui.newContent.attr('id') == 'tab-gmaps') {
+						if (firstGmapsInit) {
+							initialize();
+							if (navigator.geolocation) {
+								navigator.geolocation.getCurrentPosition(function(position) {
+									pos = position.coords.latitude+' '+position.coords.longitude;
+									getDirections();
+								});
+							}
+							else {
+								alert("Votre navigateur ne prend pas en compte la geolocalisation HTML5");
+							}
+							firstGmapsInit = false;
+						}
+					}
 				});
 			});
 			]]>
@@ -135,7 +153,7 @@
 			</div>
 			
 			<h3><a href="#">Carte/Itin&amp;eacute;raires</a></h3>
-			<div>
+			<div id="tab-gmaps">
 				<div id="map-container" style="width:auto425px;height:300px;"><![CDATA[ ]]></div>
 				<script type="text/javascript">	
 					<![CDATA[
@@ -178,21 +196,6 @@
 							};
 							
 							dirService.route(dirRequest, showDirections);
-						}
-					]]>
-				</script>
-				<script type="text/javascript">	
-					<![CDATA[
-						initialize();
-					
-						if (navigator.geolocation) {
-							navigator.geolocation.getCurrentPosition(function(position) {
-								pos = position.coords.latitude+' '+position.coords.longitude;
-								getDirections();
-						  	});
-						}
-						else {
-							alert("Votre navigateur ne prend pas en compte la geolocalisation HTML5");
 						}
 					]]>
 				</script>

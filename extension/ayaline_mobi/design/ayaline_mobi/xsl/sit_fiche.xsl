@@ -81,10 +81,28 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"><![CDATA[ ]]></script>
 		<script type="text/javascript">
 			<![CDATA[
+			var firstGmapsInit = true;
 			$(function() {
 				$( "#accordion" ).accordion({
 					autoHeight: false,
 					navigation: true
+				});
+				$("#accordion").bind('accordionchange', function(event, ui) {
+					if (ui.newContent.attr('id') == 'tab-gmaps') {
+						if (firstGmapsInit) {
+							initialize();
+							if (navigator.geolocation) {
+								navigator.geolocation.getCurrentPosition(function(position) {
+									pos = position.coords.latitude+' '+position.coords.longitude;
+									getDirections();
+								});
+							}
+							else {
+								alert("Votre navigateur ne prend pas en compte la geolocalisation HTML5");
+							}
+							firstGmapsInit = false;
+						}
+					}
 				});
 			});
 			]]>
@@ -107,7 +125,7 @@
 			</div>
 			
 			<h3><a href="#">Carte/Itin&amp;eacute;raires</a></h3>
-			<div>
+			<div id="tab-gmaps">
 				<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAPzlBh0JjFUPqZKi3n0L3LxRNhXKcoHc6ILCDtHOsJEw_kWBWgBR1kXeQdewQ9aUBq3FH6LbXaDfhmw"><![CDATA[ ]]></script>
 				<div id="map-container" style="width:425px;height:300px;"><![CDATA[ ]]></div>
 				<script type="text/javascript">	
@@ -151,21 +169,6 @@
 							};
 							
 							dirService.route(dirRequest, showDirections);
-						}
-					]]>
-				</script>
-				<script type="text/javascript">	
-					<![CDATA[
-						initialize();
-					
-						if (navigator.geolocation) {
-							navigator.geolocation.getCurrentPosition(function(position) {
-								pos = position.coords.latitude+' '+position.coords.longitude;
-								getDirections();
-						  	});
-						}
-						else {
-							alert("Votre navigateur ne prend pas en compte la geolocalisation HTML5");
 						}
 					]]>
 				</script>

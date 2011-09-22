@@ -33,8 +33,8 @@
 		<xsl:if test="$nbPages &gt; 1">
 			<div style="padding:5px;text-align:center;" class="pagination no-margin">
 				<div class="sit-pagination">
-					<xsl:if test="$pageCourante &gt; 1"><a><xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute><xsl:value-of select="$termePremierePage"/></a><span> - </span></xsl:if>
-					<xsl:if test="$pageCourante &lt;= 1"><xsl:value-of select="$termePremierePage"/><span> - </span></xsl:if>
+					<xsl:if test="$pageCourante &gt; 1"><a><xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute><xsl:attribute name="title" select="$termePremierePage"/>&amp;lt;&amp;lt;</a><span> - </span></xsl:if>
+					<xsl:if test="$pageCourante &lt;= 1">&amp;lt;&amp;lt;<span> - </span></xsl:if>
 					<xsl:if test="$pageCourante &gt; 1"><a><xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="$pageCourante &gt; 2">/(page)/<xsl:value-of select="$pageCourante - 1"/></xsl:if></xsl:attribute><xsl:value-of select="$termePrecedent"/></a><span> - </span></xsl:if>
 					<xsl:if test="$pageCourante &lt;= 1"><xsl:value-of select="$termePrecedent"/><span> - </span></xsl:if>
 					<xsl:variable name="numPageDebut">
