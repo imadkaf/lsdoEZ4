@@ -8,6 +8,10 @@ CSSFileList[]=jquery-ui-1.8.14.custom.css
 CSSFileList[]=itineraire.css
 CSSFileList[]=bxslider/bx_styles.css
 CSSFileList[]=jquery.lightbox-0.5.css
+CSSFileList[]=opensystem/mini.css
+CSSFileList[]=opensystem/std.css
+#CSSFileList[]=opensystem/maxi.css
+
 
 [JavaScriptSettings]
 RequiredJavaScriptList[]=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
@@ -18,6 +22,6 @@ JavaScriptList[]=main.js
 JavaScriptList[]=swfobject.js
 JavaScriptList[]=bxslider/jquery.bxSlider.min.js
 JavaScriptList[]=jquery.lightbox-0.5.pack.js
-
+JavaScriptList[]=http://gadget.open-system.fr/osform.min.js
 
 */ ?>

@@ -110,9 +110,8 @@
 	*}
 
 	{* Deja appele <script src="http://gadget.open-system.fr/jquery.min.js" type="text/JavaScript" ></script> *}
-	
+	{*<script src="http://gadget.open-system.fr/osform.min.js" type="text/JavaScript" ></script>*}
 	{literal}
-	<script src="http://gadget.open-system.fr/osform.min.js" type="text/JavaScript" ></script>
 	<script type="text/javascript" xml:space="preserve">
 		$(function () {
 			document.oswidget = new OsFG("OSRecherche","22357-1608","fr");

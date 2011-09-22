@@ -1,0 +1,231 @@
+
+/* Style moteur Général **/
+@import url("std.css");
+
+.moteurs
+{
+
+width:204px;
+}
+
+
+.ui-tabs .ui-tabs-panel{ padding:0px;}
+
+form{ margin:0px; padding:0px;}
+
+
+#OsBarreOnglet{ background-color:#fff; width:207px; text-align:left;  }
+
+#OsBarreOnglet { font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#333333;}
+
+#OsBarreOnglet ul li span{ font-weight:normal;}
+
+/* Intitulé ex: Type d'hébergement, situation ,durée... */
+.OsCritP{ font-weight:bold; line-height:15px; border-bottom:dashed 1px #666;margin-top:5px; margin-bottom:5px; text-align:left; clear:both;}
+
+/*  Intitulé particulier (suivie de radio bouton ou de select) **/
+.OsCrit_typehebecheck .OsCritP, .OsCrit_duree .OsCritP{ display: block; text-align:left;}
+
+
+/*  Option de selection **/
+.OsCritCont{/*display: inline;*/line-height:25px;   text-align:left;}
+
+.OsCritCont  ul {
+margin:0px;
+padding:0px;}
+
+.OsCritCont  ul li{
+	text-align:left;
+	margin: 2px; 
+	padding: 0; 
+	list-style: none;
+	line-height:15px;
+	}
+
+
+/*  Option de selection Checkbox **/
+
+.OsCrit_typehebecheck  ul li 
+{
+	width:48%;
+	float:left;
+}
+/*  Option de selection duree **/
+#OsCritCont_duree  ul li 
+{
+margin:0px;
+padding:0px;
+}
+
+#OsCritCont_duree  ul li 
+{
+	width:98%;
+}
+
+/*  Carcateristique **/
+.OsCrit_caract ul li {	
+	width:48%;
+	float:left;
+	}
+
+
+/*  Lsite déroulante Date  **/
+.OsCritCont  li span.OsCritBlocSelSem, .OsCritCont  li span.OsCritBlocSelJour{margin-left:10px; display: inline-block; line-height:15px;}
+
+
+/* Style Globale des input **/
+.OsListeIdTypeHebe, .OsListeIdCommune, .OsCapacite, .OsJourDebut, .OsMoisDebut, .OsAnDebut, .OsDureeSemaine, .OsDureeNuit, .OsListeIdClassement, .OsNbAdultes, .OsNbEnfants, .OsSelAgeEnfant ,.OsListeIdFournisseur
+ {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #f5f5f5;
+	border: 1px solid #000000;
+}
+.OsAgesEnfant{}
+.OsSelAgeEnfant{	background-color: #ccc; margin-right:5px;  margin-top:5px;}
+
+
+/* Bouton Rechercher image**/
+#OsCritCont_btnrech {
+	clear:both;
+	text-align:right;
+	padding-top:8px;
+	padding-right:5px;
+}
+
+.OsCrit_btnrech { }
+.OsCrit_btnrech .OsCritCont{display: block; padding:0;  color:#fff;}
+
+a.OsBtnEnvoiImg img,a.OsBtnEnvoiImg:link img, a.OsBtnEnvoiImg:active img, a.OsBtnEnvoiImg:visited img, a.OsBtnEnvoiImg:hover img{ border:0px;}
+
+/* Bouton Rechercher Lien**/
+a.OsBtnEnvoi, a.OsBtnEnvoi:link, a.OsBtnEnvoi:active, a.OsBtnEnvoi:visited{ /* background-color:#333333;*/ padding:5px; border:solid 1px #ccc; text-decoration:none; color:#ffffff; background-color:#FF8B33;}
+
+a.OsBtnEnvoi:hover{ background-color:#FF6C06; color:#fff;border:solid 1px #ccc;  }
+
+
+
+
+/* Image du calendroer **/
+span.OsImgDateDebut img{ /*display:none;*/ width:16px; height:20px; background-image:url(http://gadget.open-system.fr/img/calendrier.gif); background-repeat:no-repeat; background-position:left -2px;}
+
+
+
+/* Choix du moteur **/
+
+.OsChoixMoteur{-moz-border-radius: 8px; -webkit-border-radius: 8px; background-color:#a28e81; padding:4px;}
+
+.OsChoixMoteur .OsIntro{ display:inline-block; font-weight:bold; width:135px; color:#FFFFFF; background-image:url(http://gadget.open-system.fr/img/puce-hebe.gif); background-repeat:no-repeat; background-position:left center; text-indent:16px;}
+
+.OsChoixMoteur select{ 	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #d4d4d4;
+	border: 1px solid #a28e81}
+
+.OsChoixMoteur select option{}
+
+
+
+a.OsLienPrev, a.OsLienNext {
+	display:block;
+	width:35px;
+	height:32px;
+	position:absolute;
+	top:90px;
+	z-index:1000;
+	cursor:pointer;
+}
+
+a.OsLienPrev
+{
+	left:0px;
+}
+
+a.OsLienNext 
+ {
+	right:-1px;
+}
+
+/* disabled navigational button */
+a.disabled {
+	visibility:hidden !important;		
+}
+
+
+div.OsBlocLiens
+{
+	
+	position:relative;
+	width:207px;
+	height:300px;
+}
+
+div.OsListeLien
+{
+    /* required settings */
+	position:relative;
+	overflow:hidden;          
+	height:300px;
+
+}  
+
+div.OsListeLien div.OsListeLienCol
+{ 
+	position:absolute;         
+	/* this time we have very large space for height */         
+	width:20000em;     
+	top:10px;	
+}
+
+div.OsListeLien div.OsListeLienCol div.OsLienItem {
+	float:left; 
+	height:300px;
+/*	border-left:1px solid #333;*/
+	/*cursor:pointer; */
+	width:207px;
+	overflow:hidden;
+	
+}
+
+div.OsListeLien div.OsListeLienCol div.OsLienItem  div {
+	/*width:204px;*/
+}
+
+h3.OsLienTitre 
+{
+margin:0;
+padding:0;
+	font-size: 10px;
+	line-height:15px;
+	height:34px;
+	overflow:hidden;
+	margin-bottom:5px;
+	margin-top:3px;
+	padding-bottom:0px;
+	margin-left:3px;
+}
+
+p.OsLienResume{
+	clear:both;
+	height:86px;
+	margin:0px;
+	overflow:hidden;
+	margin:0px;
+	padding:0px;
+	margin-bottom:5px;
+	margin-left:3px;
+	
+	
+	
+}
+.OsDivLienBtn{padding:5px; text-align:right;  width:190px; padding-right:0px; width:200px; }
+a.OsLienBtn 
+{
+	clear:both;background-color:#333333; border:solid 1px #ccc; text-decoration:none; color:#ffffff; padding:5px;cursor:pointer;
+}
+
+ div.OsListeLienCol .OsLienDivImg{	border:solid 3px #f1930a; height:120px; overflow:hidden;}
+div.OsListeLienCol .OsLienDivImg  img{ 	width:201px; }
+/* quand pas d'image */
+.OsLienImgBlank{
+border:solid 3px #f1930a; height:120px; visibility:hidden;}
