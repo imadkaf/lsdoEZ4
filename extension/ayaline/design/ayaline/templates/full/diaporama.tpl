@@ -305,14 +305,7 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
            	{set $img_attribute = $defaultImg.0.data_map.image}
 		{/if}
 	{/if}
-	<div id="headerdiapos">
-		{attribute_view_gui attribute=$img_attribute img_class='headerdiapo' image_class='diapo_header' dimension=false()}
-	</div>
-	<script type="text/javascript">
-		var obj = document.getElementById('header');
-		obj.style.height = "300px";
-	</script>
-	
+	<div id="headerdiapos" style='background-image: url({$img_attribute.content.diapo_header.url|ezroot}); height: {$img_attribute.content.diapo_header.height}px'></div>
 	{undef $defaultDiapo $img_attribute}
 	
 {/if}

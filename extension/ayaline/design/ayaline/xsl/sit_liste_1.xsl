@@ -174,7 +174,7 @@
 						<div style="margin-left:194px; float:none;">
 							<div class="titre-container">
 								<xsl:if test="criteres/critere[@id='851000010']">
-									<p style="width: 170px;">
+									<p style="text-align:right">
 										<xsl:for-each select="criteres/critere[@id='851000010']/modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]">
 											<xsl:choose>
 			 									<xsl:when test="logoModalite != ''">
@@ -187,7 +187,6 @@
 													<xsl:value-of select="intModalite"/>
 												</xsl:otherwise>
 											</xsl:choose>
-											<xsl:if test="position() &lt; count(../modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))])">, </xsl:if>
 										</xsl:for-each>
 									</p>
 								</xsl:if>
