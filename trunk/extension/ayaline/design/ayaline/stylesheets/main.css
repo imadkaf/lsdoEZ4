@@ -102,8 +102,7 @@ h2 {font-size:12px}
 #global-page{
 }
 #header {
-	height:500px;
-	padding:0 0 20px 0;
+	padding:0 0 5px 0;
 }
 #content {
 	width:800px;
@@ -137,14 +136,17 @@ body {
 
 #headerdiapos{
 	text-align:center;
+	min-height: 178px;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+}
+
+#headerimgs {
+	height:505px;
 }
 
 .headerdiapo {
 	position:relative;
-	/*height:500px;*/
-	/*margin-bottom:-500px;*/
-	height:300px;
-	margin-bottom:-300px;
 }
 .headerimg {
 	background-position:center top;
@@ -156,9 +158,10 @@ body {
 .header-in{
 	background:url("../images/headerbg.png") 50% 0 repeat;
 	height:122px;
-	position:relative;
-	top:28px;
-	padding:0 119px 0 121px;
+	position:absolute;
+	top: 28px;
+	left: 0;
+	width: 100%;
 }
 .header-content{
 	margin:0 auto;
@@ -573,7 +576,7 @@ li.last form{
 	padding:0;
 }
 .bloc-type ul li p img {
-    padding: 0 0 0 10px;
+    padding: 0 0 0 5px;
     float: right;
 }
 .lien-bas a.type3{
@@ -994,7 +997,7 @@ ul#listeSelect1 li{
 /****Visites excursions****/
 .fil-ariane{
 	font-size:11px;
-	margin:-15px auto 0 auto;
+	margin:0 auto;
 	padding:0 0 5px 0;
 	width:1193px;
 }
