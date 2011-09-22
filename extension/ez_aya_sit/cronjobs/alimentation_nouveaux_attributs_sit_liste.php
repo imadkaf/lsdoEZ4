@@ -22,25 +22,27 @@ $nodeObjects = eZFunctionHandler::execute(
 foreach ($nodeObjects as $nodeObject) {
 	$nodeObjectDataMap = $nodeObject->dataMap();
 	$sitListeReliee = $nodeObjectDataMap['liaison_liste']->value();
-	
-	$sitListeRelieeDataMap = $sitListeReliee->dataMap();
-	
-	$originalThumbNail = $nodeObjectDataMap['thumbnail']->value()->attribute('original');
 
-	$attributeList = array(
-		'titre_liste' => $nodeObjectDataMap['title']->value(),
-		'thumbnail' => $originalThumbNail['url'],
-		'short_description' => $nodeObjectDataMap['short_description']->value(),
-		'googlemaps' => $nodeObjectDataMap['googlemaps']->value(),
-		'topics' => $nodeObjectDataMap['topics']->toString()
-	);
+	if ($sitListeReliee) {	
+		$sitListeRelieeDataMap = $sitListeReliee->dataMap();
+		
+		$originalThumbNail = $nodeObjectDataMap['thumbnail']->value()->attribute('original');
 
-	$res = eZContentFunctions::updateAndPublishObject($sitListeReliee, array('attributes' => $attributeList));
-	
-	if ($res) {
-		$cli->output($cli->stylize('green', "\tOK : ".$nodeObject->object()->ID."."));
-	} else {
-		$cli->output($cli->stylize('red', "\tKO : ".$nodeObject->object()->ID."."));
+		$attributeList = array(
+			'titre_liste' => $nodeObjectDataMap['title']->value(),
+			'thumbnail' => $originalThumbNail['url'],
+			'short_description' => $nodeObjectDataMap['short_description']->value(),
+			'googlemaps' => $nodeObjectDataMap['googlemaps']->value(),
+			'topics' => $nodeObjectDataMap['topics']->toString()
+		);
+
+		$res = eZContentFunctions::updateAndPublishObject($sitListeReliee, array('attributes' => $attributeList));
+		
+		if ($res) {
+			$cli->output($cli->stylize('green', "\tOK : ".$nodeObject->object()->ID."."));
+		} else {
+			$cli->output($cli->stylize('red', "\tKO : ".$nodeObject->object()->ID."."));
+		}
 	}
 }
 
