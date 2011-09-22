@@ -20,12 +20,18 @@
 						//Les coordonnees du centre des Sables d'Olonne
 						var latlng = new google.maps.LatLng(46.5, -1.7833);
 						
+						//Variable temp
+						var tempoMarker;
+						
 						var myOptions = {
 						  zoom: 13,
 						  center: latlng,
 						  scrollwheel: false,
 						  mapTypeId: google.maps.MapTypeId.ROADMAP
 						};
+						
+						//Tableau
+						latlng = new Array();
 						
 						var map = new google.maps.Map(document.getElementById("mapContainerListe"), myOptions);
 						
@@ -34,6 +40,9 @@
 							<xsl:if test="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite != '' and criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite != ''">
 								<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitListeUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(intitule, concat('/-?_.', $apos, $amp), '       ')), ' ', '-')"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0 and $pageCourante &gt; 1">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if></xsl:variable>
 								<![CDATA[
+									tempoMarker = new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite"/><![CDATA[);
+									latlng.push(tempoMarker);
+										
 									var contentString = '<div class="moninfobulle">'+
 											'<div class="titre"><h3>]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><![CDATA[</h3>'+
 											']]><xsl:choose>
@@ -141,6 +150,17 @@
 							</xsl:if>
 						</xsl:for-each>
 						<![CDATA[
+							//Pour centrer et zoomer correctement la map
+							if (latlng.length > 0) {
+								var latlngbounds = new google.maps.LatLngBounds( );
+								for ( var i = 0; i < latlng.length; i++ )
+								{
+								  latlngbounds.extend( latlng[ i ] );
+								}
+								map.fitBounds(latlngbounds);
+							}
+						
+						
 							//Js du calcul de l'itineraire
 							Demo = {
 								// HTML Nodes
@@ -209,7 +229,7 @@
 									  center: latLng,
 									  mapTypeId: google.maps.MapTypeId.ROADMAP
 									});
-					
+									
 									// Show directions onload
 									Demo.getDirections();
 								}
