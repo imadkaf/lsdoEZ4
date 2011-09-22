@@ -25,10 +25,19 @@
 
 
 .logo img {
-	left: 15px;
+	left: 25px;
+	top: 15px;
+}
+.logo h2 {
+	font-weight: normal;
 }
 .item1, .item2, .item3 {
     width: 31%;
+}
+.titre-basique h2 {
+	margin: 10px 0px 5px 15px;
+	font-weight: normal;
+	font-size: 22px;
 }
 
 

@@ -41,7 +41,7 @@
 						<xsl:if test="($pageCourante + ceiling($nbPagesMax div 2)) &lt;= $nbPages"><xsl:value-of select="0"/></xsl:if>
 						<xsl:if test="($pageCourante + ceiling($nbPagesMax div 2)) &gt; $nbPages"><xsl:value-of select="($pageCourante + ceiling($nbPagesMax div 2)) - $nbPages - 1"/></xsl:if>
 					</xsl:variable>
-					<span style="padding:0 10px">
+					<span>
 						<xsl:call-template name="pagination">
 							<xsl:with-param name="numPage" select="$pageCourante - (ceiling($nbPagesMax div 2) + $numPageDebut) + ($nbPagesMax mod 2)"/>
 							<xsl:with-param name="nbPagesAffiches" select="0"/>
