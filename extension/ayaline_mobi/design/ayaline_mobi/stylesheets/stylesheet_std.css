@@ -210,6 +210,10 @@ a.ui-link{
 	margin-bottom: 20px;
 }
 
+.icons a{
+	font-weight: normal !important;
+}
+
 .pagenavigator{
 	background: none repeat scroll 0 0 #E5DCD3;
 	border-top: 1px solid #c9bdb2;
