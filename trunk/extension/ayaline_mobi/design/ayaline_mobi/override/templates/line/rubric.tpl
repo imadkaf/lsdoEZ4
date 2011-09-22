@@ -3,6 +3,6 @@
 </a>
 
 <div class="title">
-	{$node.name}
+	<a href={$node.url_alias|ezurl}>{$node.name}</a>
 </div>
 <br />
