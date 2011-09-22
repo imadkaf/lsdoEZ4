@@ -84,7 +84,7 @@
 									{if $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list|count}
 										{foreach $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list as $relation}
 											{* NB : un seul theme sélectionné par l'internaute à la fois *}
-											{*foreach $topicIds as $topicId}
+											{foreach $topicIds as $topicId}
 												{if $topicId|ne(ezini('NodeSettings','TopicDefaut','content.ini'))} {* cas du thème par defaut à ne pas prendre en compte*}
 													{* cas ou la rubrique est associé au thème courant : dans ce cas on récupère le titre de la rubrique*}
 													{if $relation.node_id|eq($topicId)}
@@ -94,8 +94,8 @@
 														{/if}
 														{break}
 													{/if}
-												{else*}
-													{set $mainMenuShowed = true()}													
+												{else}
+													{set $mainMenuShowed = true()}
 												{/if}
 											{/foreach}
 										{/foreach}
