@@ -17,7 +17,7 @@
 		<div class="bloc-type site-map">
 
 			<h2 class="bloc-liste-h2">
-				{$node.name}
+				{$node.name|wash}
 			</h2>
 			<p class="clear"></p>
 			<br /><br />
@@ -30,12 +30,13 @@
 						<li class="sitemap-li-first-level-content-list">
 							{* Cas d'une liste SIT *}
 							{if eq($menuItem.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
-								{set $affListeSITPlan = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $menuItem.contentobject_id,
-																											'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-								{set $affListeSITPlan = $affListeSITPlan.0}
-								<a href={$menuItem.url_alias|ezurl()}>{$affListeSITPlan.name}</a>
+								{*set $affListeSITPlan = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $menuItem.contentobject_id,
+																											'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )*}
+								{* !! 20110922 !! suppression des affichage*liste*sit, tout est au niveau de la liste SIT directement *}
+								{set $affListeSITPlan = $menuItem}
+								<a href={$menuItem.url_alias|ezurl()}>{$affListeSITPlan.name|wash}</a>
 							{else}
-								<a href={$menuItem.url_alias|ezurl()}>{$menuItem.name}</a>
+								<a href={$menuItem.url_alias|ezurl()}>{$menuItem.name|wash}</a>
 							{/if}
 							
 							{* menu : level 2 *}
@@ -47,12 +48,13 @@
 										<li>
 											{* Cas d'une liste SIT *}
 											{if eq($sousMenuItem.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
-												{set $affListeSITPlan = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $sousMenuItem.contentobject_id,
-																															'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-												{set $affListeSITPlan = $affListeSITPlan.0}
-												<a href={$sousMenuItem.url_alias|ezurl()}>{$affListeSITPlan.name}</a>
+												{*set $affListeSITPlan = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $sousMenuItem.contentobject_id,
+																															'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )*}
+												{* !! 20110922 !! suppression des affichage*liste*sit, tout est au niveau de la liste SIT directement *}
+												{set $affListeSITPlan = $sousMenuItem}
+												<a href={$sousMenuItem.url_alias|ezurl()}>{$affListeSITPlan.name|wash}</a>
 											{else}
-												<a href={$sousMenuItem.url_alias|ezurl()}>{$sousMenuItem.name}</a>
+												<a href={$sousMenuItem.url_alias|ezurl()}>{$sousMenuItem.name|wash}</a>
 											{/if}
 										
 											{* menu : level 3 *}
@@ -65,11 +67,12 @@
 															{* Cas d'une liste SIT *}
 															{if eq($sousSousMenuItem.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
 																{set $affListeSITPlan = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $sousSousMenuItem.contentobject_id,
-																																			'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-																{set $affListeSITPlan = $affListeSITPlan.0}
-																<a href={$sousSousMenuItem.url_alias|ezurl()}>{$affListeSITPlan.name}</a>
+																																			'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )}
+																{* !! 20110922 !! suppression des affichage*liste*sit, tout est au niveau de la liste SIT directement *}
+																{set $affListeSITPlan = $sousSousMenuItem}
+																<a href={$sousSousMenuItem.url_alias|ezurl()}>{$affListeSITPlan.name|wash}</a>
 															{else}
-																<a href={$sousSousMenuItem.url_alias|ezurl()}>{$sousSousMenuItem.name}</a>
+																<a href={$sousSousMenuItem.url_alias|ezurl()}>{$sousSousMenuItem.name|wash}</a>
 															{/if}
 														</li>
 													{/foreach}

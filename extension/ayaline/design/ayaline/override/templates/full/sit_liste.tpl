@@ -62,9 +62,10 @@
 				{def $topicId = array(ezini('NodeSettings','topicDefaut','content.ini'))}
 			{/if}
 			
-			{def $affichageListeSIT = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id,
-																							'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-			{set $affichageListeSIT = $affichageListeSIT.0}
+			{*def $affichageListeSIT = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id,
+																							'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )*}
+			{* !! 20110922 !! suppression des affichage*liste*sit, tout est au niveau de la liste SIT directement *}
+			{set $affichageListeSIT = $node}
 			
 			<h2 class="bloc-liste-h2">
 				{def $titreListe = ''}
@@ -99,12 +100,12 @@
 						{/if}
 					{/foreach}
 				{else}
-					{set $titreListe = $affichageListeSIT.name}
+					{set $titreListe = $affichageListeSIT.name|wash}
 				{/if}
 				{if ne($titreListe, '')}
 					{$titreListe}
 				{else} {* Cas ou la rubrique n'est pas associee a la saison selectionnee *}
-					{$affichageListeSIT.name}
+					{$affichageListeSIT.name|wash}
 				{/if}
 			</h2>
 			<p class="clear"></p>

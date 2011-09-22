@@ -62,8 +62,10 @@
 						{* Si l'entree est de type liste_sit *}
 						{if eq($entree.data_map.content.content.main_node.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
 							{* On recupere ses themes associes *}
-							{set $affEntreeListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $entree.data_map.content.content.main_node.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-							{set $affEntreeListeSIT = $affEntreeListeSIT.0}
+							{* !! 20110922 !! suppression de la classe affichage*liste*sit, le champ est géré directement sur la liste SIT*}
+							{*set $affEntreeListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $entree.data_map.content.content.main_node.contentobject_id, 'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )}
+							{set $affEntreeListeSIT = $affEntreeListeSIT.0*}
+							{set $affEntreeListeSIT =  $entree.data_map.content.content.main_node}
 							{* Pour chacun de ses themes associes *}
 							{foreach $affEntreeListeSIT.data_map.topics.content.relation_list as $monTheme2}
 								{* Si l'entree n'est pas deja ajoutee *}
@@ -121,8 +123,8 @@
 			{* Si le noeud est de type liste_sit *}
 			{if eq($childP.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
 				{* On recupere ses themes associes *}
-				{set $affEntreeListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $childP.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-				{set $affEntreeListeSIT = $affEntreeListeSIT.0}
+				{*set $affEntreeListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $childP.contentobject_id, 'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )*}
+				{set $affEntreeListeSIT = $childP}
 				{* Pour chacun de ses themes associes *}
 				{foreach $affEntreeListeSIT.data_map.topics.content.relation_list as $unTheme2}
 					{* Si le fils n'est pas deja ajoute *}
@@ -225,8 +227,9 @@
 				{* Si le noeud est de type liste_sit *}
 				{if eq($subChildP.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
 					{* On recupere ses themes associes *}
-					{set $subAffParentListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $subChildP.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-					{set $subAffParentListeSIT = $subAffParentListeSIT.0}
+					{*set $subAffParentListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $subChildP.contentobject_id, 'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )*}
+					
+					{set $subAffParentListeSIT = $subChildP}
 					{* Pour chacun de ses themes associes *}
 					{foreach $subAffParentListeSIT.data_map.topics.content.relation_list as $subTheme2}
 						{* Si le sous-fils n'est pas deja ajoute *}
