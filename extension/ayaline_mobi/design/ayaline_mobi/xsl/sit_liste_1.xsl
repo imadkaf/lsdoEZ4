@@ -32,25 +32,6 @@
 							</img>
 						</a>
 						
-						<xsl:if test="criteres/critere[@id='851000010']/modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]">
-						<div class="float-droite">
-						<xsl:for-each select="criteres/critere[@id='851000010']/modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]">
-							<xsl:choose>
-									<xsl:when test="logoModalite != ''">
-										<img alt="" >
-											<xsl:attribute name="src"><xsl:value-of select="logoModalite"/></xsl:attribute>
-											<xsl:attribute name="title">Cha&amp;icirc;nes d'h&amp;ocirc;tel : <xsl:value-of select="intModalite"/></xsl:attribute>
-										</img>
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:value-of select="intModalite"/>
-								</xsl:otherwise>
-							</xsl:choose>
-							<xsl:if test="position() &lt; count(../modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))])">, </xsl:if>
-						</xsl:for-each>
-						</div>
-						</xsl:if>
-						
 						<h3>
 							<a>
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
