@@ -143,7 +143,16 @@
 									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 									En savoir plus
 								</a>
-								<a class="reserver" href="#">R&amp;eacute;server</a>
+								<xsl:if test="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280001']/valModalite">
+									<a class="reserver">
+									<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280001']/valModalite"/></xsl:attribute>
+									R&amp;eacute;server
+									</a>
+									
+								</xsl:if>
+								<!--a class="reserver" href="#">R&amp;eacute;server</a>
+								<a class="reserver" href="#">Disponibilit&amp;eacute;s</a>
+								<a class="reserver" href="#">R&amp;eacute;server</a-->
 							</p>
 						</li>
 					</xsl:for-each>
@@ -294,7 +303,12 @@
 									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 									En savoir plus
 								</a>
-								<a class="reserver" href="#">R&amp;eacute;server</a>
+								<xsl:if test="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280001']/valModalite != ''">
+									<a class="reserver">
+									<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280001']/valModalite"/></xsl:attribute>
+									R&amp;eacute;server
+									</a>
+								</xsl:if>
 							</p>
 						</div>
 						<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>

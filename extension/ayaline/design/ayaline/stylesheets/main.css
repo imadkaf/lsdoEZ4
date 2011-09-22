@@ -147,6 +147,7 @@ body {
 
 .headerdiapo {
 	position:relative;
+
 }
 .headerimg {
 	background-position:center top;
@@ -2657,7 +2658,7 @@ div#ezautocomplete2 .yui-ac-content {
 	overflow:auto;
 	overflow-y:hidden;
 	z-index:9050;
-	^padding-bottom:15px;
+	padding-bottom:15px;
 }
 div#ezautocomplete2 .yui-ac-shadow {
 	position:absolute;
@@ -3015,10 +3016,15 @@ div.image{
 #bloc-ac-res .bloc-accueil-h3{
 	color: #FF8B33;
 }
-#OsBarreOnglet {
-	width: 100%;
+#OSRechercheDetail #OsBarreOnglet {
+	width: 98%;
 }
-
+#OSRecherche #OsBarreOnglet {
+        width: 100%;
+}
+#OSRechercheDetail {
+/*	float:left;*/
+}
 /************************/
 /*** Fin ajout Alexia ***/
 /************************/

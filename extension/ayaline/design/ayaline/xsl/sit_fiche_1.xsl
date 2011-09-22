@@ -188,79 +188,17 @@
 					mapopinfiche();
 				]]>
 			</script>
-			
-			<div class="form-rech" style="margin-top: 15px;">
-				<span>Recherchez les disponibilites</span>
-				<form method="post" action="#">
-					<div class="date">
-						<p class="label">Date arrivee :</p>
-						<p class="agenda"><a href="#"><img alt="" src="/extension/ayaline/design/ayaline/images/agenda.gif" /></a></p>
-						<label for="date-arrivee"></label>
-						<select class="small" id="date-arrivee" name="date-arrivee">
-							<option value="19">19</option>
-						</select>
-						<label class="none" for="mois">Mois</label>
-						<select class="big" id="mois" name="mois">
-							<option value="Fevrier">Fevrier</option>
-						</select>
-						<label class="none" for="annee">Annee</label>
-						<select class="middle" id="annee" name="annee">
-							<option value="2011">2011</option>
-						</select>
-					</div>
-					<p class="clear"></p>
-					<div class="duree">
-						<p class="float-g">Duree :</p>
-						<div class="float-g width-auto">
-							<p>
-								<input type="radio" id="semaine" name="semaine" />
-								<label for="semaine" class="none">Semaine</label>											
-							</p>
-							<p>
-								<input type="radio" id="nuit" name="nuit" />
-								<label for="nuit" class="none">Nuit</label>											
-							</p>
-						</div>
-						<div class="float-g width-auto">
-							<p>
-								<label class="none" for="nbre-semaine">Semaine</label>
-								<select id="nbre-semaine" name="nbre-semaine">
-									<option value="">1 semaine</option>
-								</select>
-							</p>
-							<p class="none">
-								<label class="none" for="nbre-nuit">Nuit</label>
-								<select id="nbre-nuit" name="nbre-nuit">
-									<option value="">1 nuit</option>
-								</select>
-							</p>
-						</div>
-					</div>
-					<p class="clear"></p>
-					<div class="nbr">
-						<p class="float-g">												
-							<label for="nb-ad">Nb d'adultes :</label>
-						</p>
-						<div class="float-g">												
-							<select id="nb-ad" name="nb-ad">
-								<option value="2 adultes">2 adultes</option>
-							</select>
-						</div>
-					</div>
-					<p class="clear"></p>
-					<div class="nbr">
-						<p class="float-g">												
-							<label for="nb-enf">Nb d'enfants :</label>
-						</p>
-						<div class="float-g">												
-							<select id="nb-enf" name="nb-enf">
-								<option value="Aucun">Aucun</option>
-							</select>
-						</div>
-					</div>
-					<button class="button" type="submit">Rechechez les disponibilites</button>
-				</form>
-			</div>
+
+			<script type="text/javascript" xml:space="preserve">
+				$(function () {
+					document.oswidget = new OsFG("OSRechercheDetail","22357-1621","fr");
+					document.oswidget.AliasTerritoire("otsablesolonne");
+					document.oswidget.ListeIdFournisseur("17701");
+					document.oswidget.Affiche();
+					
+				});
+			</script>
+			<div id="OSRechercheDetail">&amp;nbsp;</div>
 			<br />
 			
 			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='son']) &gt; 0">

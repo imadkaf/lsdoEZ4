@@ -12,9 +12,10 @@
 											'sort_by', $node.sort_array,
 											'class_filter_type',  'include',
 											'class_filter_array', array('sit_liste')))}
+			{if $listeHebergement|count}
 			<ul class="menu-left">
 				<li class="actif">
-					<span>Sélectionnez un type d'offres</span>
+					<span>Autres hébergements</span>
 					<ul class="s-menu">
 					{foreach $listeHebergement as $hbgt}
 						<li><a href={$hbgt.url_alias|ezurl}>{$hbgt.name}</a></li>
@@ -22,7 +23,28 @@
 					</ul>
 				</li>
 			</ul>
+			{/if}
+			{undef $listeHebergement}
 		</div>	
+		{else}
+			{def $listeRubriques = fetch('content','list', hash( 
+											'parent_node_id', $node.parent.node_id,
+											'sort_by', $node.sort_array,
+											'class_filter_type',  'exclude',
+											'class_filter_array', array('sit_mise_en_avant')))}
+			{if $listeRubriques|count}
+			<ul class="menu-left">
+				<li class="actif">
+					<span>{$node.parent.name}</span>
+					<ul class="s-menu">
+					{foreach $listeRubriques as $rub}
+						<li><a href={$rub.url_alias|ezurl}>{$rub.name}</a></li>
+					{/foreach}
+					</ul>
+				</li>
+			</ul>
+			{/if}
+			{undef $listeRubriques}
 		{/if}
 	</div>
 	
