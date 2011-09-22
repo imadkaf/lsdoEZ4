@@ -400,24 +400,34 @@ li.last form{
 }
 
 /****Diaporama****/
-#headernav-outer {
-	margin:0 auto;
-	position:relative;
-	top:300px;
+#header #header-container {
 	width:960px;
+	position: absolute;
+	top:260px;
+	overflow: hidden;
+	left:50%;
+	margin-left:-480px;
 }
-#headernav {
-	padding-left:864px;
+#header #headernav-outer {
+	margin:0;
+	position:static;
+	top:0;
+	width:auto;
+	float:right;
 }
-#headertxt {
-	clear:both;
-	margin:0 auto;
-	position:relative;
-	top:129px;
-	width:960px;
-	left:-28px;
+#header #headernav {
+	padding-left:0;
 }
-.btns-carres .btn {
+#header #headertxt {
+	margin:0;
+	position:static;
+	top:0;
+	width:auto;
+	left:0;
+	clear: right;
+	overflow: hidden;
+}
+#header .btns-carres .btn {
 	background-position:0 0;
 	background-repeat:no-repeat;
 	display:block;
@@ -425,31 +435,31 @@ li.last form{
 	height:34px;
 	overflow:hidden;
 }
-.btn {
+#header .btn {
 	cursor:pointer;
 }
-.btns-carres #back span {
+#header .btns-carres #back span {
 	background-image:url("../images/carousel-previous.png");
 	display:block;
 	height:68px;
 	width:28px;
 }
-.btns-carres #control span {
+#header .btns-carres #control span {
 	background-image:url("../images/carousel-pause.png");
 	display:block;
 	height:68px;
 	width:20px;
 }
-.btns-carres #next span {
+#header .btns-carres #next span {
 	background-image:url("../images/carousel-next.png");
 	display:block;
 	height:68px;
 	width:28px;
 }
-.btns-carres .btn:hover span, .header-controls .btn:focus span {
+#header .btns-carres .btn:hover span, .header-controls .btn:focus span {
 	margin-top:-34px;
 }
-#firstline {
+#header #firstline {
 	background:url("../images/textbg.png");
 	color:#313e47;
 	display:block;
@@ -458,7 +468,7 @@ li.last form{
 	padding:4px 13px 7px;
 	margin:0 0 2px 0;
 }
-#secondline {
+#header #secondline {
 	background:url("../images/textbg-bis.png");
 	clear:both;
 	color:#ffffff;

@@ -18,7 +18,7 @@
 {if and(ezhttp('topics', 'session', 'hasVariable'),ezhttp('topics', 'session')|count|ne(0))}
 	{def $topicIds = ezhttp('topics', 'session')}
 {else}
-	{def $topicIds = array(ezini('NodeSettings','topicDefaut','content.ini'))}
+	{def $topicIds = array(ezini('NodeSettings','TopicDefaut','content.ini'))}
 {/if}
 {* récupération des themes (mer / ville / plage / nature dans le dossier Configuration Generale -> Themes *}
 {def $topicsList = fetch('content','node', hash('node_id',  ezini('NodeSettings','topicListNode','content.ini')))}

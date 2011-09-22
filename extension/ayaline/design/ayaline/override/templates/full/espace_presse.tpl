@@ -1,6 +1,6 @@
 {def $nbPubs = 5}
 
-{def $nodePhototheque = fetch('content', 'tree', hash('parent_node_id', ezini('Noeuds', 'home', 'ayaline.ini'),
+{def $nodePhototheque = fetch('content', 'tree', hash('parent_node_id', ezini('NodeSettings', 'RootNode', 'content.ini'),
 														'class_filter_type', 'include',
 														'class_filter_array', array('phototheque'),
 														'limit', 1))}

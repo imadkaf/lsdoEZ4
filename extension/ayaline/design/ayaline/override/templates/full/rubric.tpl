@@ -25,7 +25,7 @@
 				{if and(ezhttp('topics', 'session', 'hasVariable'),ezhttp('topics', 'session')|count|ne(0))}
 					{def $topicId = ezhttp('topics', 'session')}
 				{else}
-					{def $topicId = array(ezini('NodeSettings','topicDefaut','content.ini'))}
+					{def $topicId = array(ezini('NodeSettings','TopicDefaut','content.ini'))}
 				{/if}
 				
 				{* Tableau qui contiendra les fils a afficher *}
@@ -40,7 +40,7 @@
 				{def $affFilsListeSIT = ''}
 				
 				{* Si la rubrique est le noeud Decouvrir ou Sejourner *}
-				{if or(eq($node.node_id, ezini('Noeuds','decouvrir','ayaline.ini')), eq($node.node_id, ezini('Noeuds','sejourner','ayaline.ini')))}
+				{if or(eq($node.node_id, ezini('Noeuds','Decouvrir','ayaline.ini')), eq($node.node_id, ezini('Noeuds','Sejourner','ayaline.ini')))}
 					{* Recuperation du menu associe a la rubrique *}
 					{def $menuRubrique = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
 					{set $menuRubrique = $menuRubrique.0}
@@ -62,7 +62,7 @@
 												{if $monTheme1.node_id|eq($topicId.0)}
 													{set $filsAssocie = $filsAssocie|append($entree.data_map.content.content.main_node)}
 													{* Traitement pour ajouter le nom du fils en fonction du theme *}
-													{if ne($topicId.0, ezini('NodeSettings','topicDefaut','content.ini'))}
+													{if ne($topicId.0, ezini('NodeSettings','TopicDefaut','content.ini'))}
 														{if ne($entree.data_map[concat('title_topic_', $topicId.0)].value, '')}
 															{set $nomFilsAjouter = $entree.data_map[concat('title_topic_', $topicId.0)].value}
 														{else}
@@ -91,7 +91,7 @@
 													{if $monTheme2.node_id|eq($topicId.0)}
 														{set $filsAssocie = $filsAssocie|append($entree.data_map.content.content.main_node)}
 														{* Traitement pour ajouter le nom du fils en fonction du theme *}
-														{if ne($topicId.0, ezini('NodeSettings','topicDefaut','content.ini'))}
+														{if ne($topicId.0, ezini('NodeSettings','TopicDefaut','content.ini'))}
 															{if ne($entree.data_map[concat('title_topic_', $topicId.0)].value, '')}
 																{set $nomFilsAjouter = $entree.data_map[concat('title_topic_', $topicId.0)].value}
 															{else}
