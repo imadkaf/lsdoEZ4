@@ -57,11 +57,6 @@
 							<b><xsl:value-of select="criteres/critere[@id='851000001']/modalites/modalite[1]/intModalite"/></b>
 						</p>
 						
-						<a class="float-droite-picto">
-							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-							<span>&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
-						</a>
-						
 						<p class="prix">
 							<xsl:choose>
 								<xsl:when test="criteres/critere[@id='851000023']/modalites/modalite[@id='8510000230002']/valModalite">
@@ -74,6 +69,11 @@
 								</xsl:otherwise>
 							</xsl:choose>
 						</p>
+
+						<a class="float-droite-picto pito-liste-hotel">
+							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
+							<span>&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
+						</a>
 						
 						<p class="clear"><![CDATA[ ]]></p>
 					</li>
