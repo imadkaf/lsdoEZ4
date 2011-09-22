@@ -322,6 +322,9 @@ a.ui-link{
 	right: 20px;
 	bottom: 18px;
 }
+.float-droite-picto.pito-liste-hotel{
+	bottom: 25px !important;
+}
 .float-droite{
 	float: right;
 	margin-right: 40px;
