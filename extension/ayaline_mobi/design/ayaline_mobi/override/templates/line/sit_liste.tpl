@@ -7,6 +7,6 @@
 </a>
 
 <div class="title">
-	{$affichageListeSIT.name}
+	<a href={$node.url_alias|ezurl}>{$affichageListeSIT.name}</a>
 </div>
 <br />
