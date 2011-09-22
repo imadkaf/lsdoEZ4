@@ -49,8 +49,8 @@
 					</span>
 					<xsl:if test="$pageCourante &lt; $nbPages"><span> - </span><a><xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if>/(page)/<xsl:value-of select="$pageCourante + 1"/></xsl:attribute><xsl:value-of select="$termeSuivant"/></a></xsl:if>
 					<xsl:if test="$pageCourante &gt;= $nbPages"><span> - </span><xsl:value-of select="$termeSuivant"/></xsl:if>
-					<xsl:if test="$pageCourante &lt; $nbPages"><span> - </span><a><xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if>/(page)/<xsl:value-of select="$nbPages"/></xsl:attribute><xsl:value-of select="$termeDernierePage"/></a></xsl:if>
-					<xsl:if test="$pageCourante &gt;= $nbPages"><span> - </span><xsl:value-of select="$termeDernierePage"/></xsl:if>
+					<xsl:if test="$pageCourante &lt; $nbPages"><span> - </span><a><xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if>/(page)/<xsl:value-of select="$nbPages"/></xsl:attribute><xsl:attribute name="title" select="$termeDernierePage"/>&amp;gt;&amp;gt;</a></xsl:if>
+					<xsl:if test="$pageCourante &gt;= $nbPages"><span> - </span>&amp;gt;&amp;gt;</xsl:if>
 				</div>
 			</div>
 		</xsl:if>
