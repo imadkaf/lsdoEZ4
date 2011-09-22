@@ -80,8 +80,9 @@
 										{* Si l'objet associe est de type liste_sit *}
 										{if eq($entree.data_map.content.content.main_node.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
 											{* On recupere ses themes associes *}
-											{set $affFilsListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $entree.data_map.content.content.main_node.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-											{set $affFilsListeSIT = $affFilsListeSIT.0}
+											{*set $affFilsListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $entree.data_map.content.content.main_node.contentobject_id, 'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )*}
+											{* !! 20110922 !! suppression des affichage*liste*sit, tout est au niveau de la liste SIT directement *}
+											{set $affFilsListeSIT = $entree}
 											{* Pour chacun de ses themes associes *}
 											{foreach $affFilsListeSIT.data_map.topics.content.relation_list as $monTheme2}
 												{* Si le fils n'est pas deja ajoute *}
@@ -139,8 +140,9 @@
 							{* Si le fils est de type liste_sit *}
 							{if eq($filsR.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
 								{* On recupere ses themes associes *}
-								{set $affFilsListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $filsR.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-								{set $affFilsListeSIT = $affFilsListeSIT.0}
+								{*set $affFilsListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $filsR.contentobject_id, 'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )*}
+								{* !! 20110922 !! suppression des affichage*liste*sit, tout est au niveau de la liste SIT directement *}
+								{set $affFilsListeSIT = $filsR}
 								{* Pour chacun de ses themes associes *}
 								{foreach $affFilsListeSIT.data_map.topics.content.relation_list as $theme2}
 									{* Si le fils n'est pas deja ajoute *}

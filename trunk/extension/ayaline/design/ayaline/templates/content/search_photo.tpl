@@ -7,7 +7,7 @@
 						'class_id', array('gallery_photo'),
 						'sort_by', hash( 'score', 'desc', 'name', 'asc'),
 						offset,$view_parameters.offset,
-						limit,$page_limit) ) }
+						limit,$page_limit) ) } 
 
 {def $search_result=$search['SearchResult']}
 {def $search_count=$search['SearchCount']}

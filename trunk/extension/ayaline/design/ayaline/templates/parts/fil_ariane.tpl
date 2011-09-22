@@ -43,16 +43,18 @@
 			{if $titreTheme|eq('')}
 				{* cas particulier de liste SIT :
 					1. la liste SIT est associée à un sous menu (rubrique de niveau 2 Séjourner -> Hotels par ex) : il faut récupérer le titre du thème
-					2. pas d'association avec un sous menu : il faut récupérer la classe affichage_liste_sit liée pour récupérer le titre à afficher *}
+					2. pas d'association avec un sous menu : il faut récupérer la classe affichage*liste*sit liée pour récupérer le titre à afficher 
+					!! 20110922 !! modif du 2eme cas, suppression des affichage*liste*sit, le titre est au niveau de la liste SIT directement *}
 				
 				{if eq($node.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
 				{* 1. *}
 					{set $affListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
 					
 				{* 2. *}
-					{set $affListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
+					{*set $affListeSIT = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )}
 					{set $affListeSIT = $affListeSIT.0}
-					{set $titreTheme=$affListeSIT.name}					
+					{set $titreTheme=$affListeSIT.name*}
+					{set $titreTheme=$Path.text}			
 				{else}
 					{set $titreTheme=$Path.text}
 				{/if}
