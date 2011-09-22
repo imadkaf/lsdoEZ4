@@ -444,30 +444,31 @@ class eZSitOperators {
 			}
 		}
 		if ($http->hasSessionVariable("saison") && $debutOuv=='') {
-		
-			/*
-			* du 21-03 au 20-06 : printemps
-			* du 21-06 au 20-09 : été
-			* du 21-09 au 20-12 : automne
-			* du 21-12 au 20-03 : hiver
-			*/
-			
 			$saisonId=$http->sessionVariable("saison");
-			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Printemps')) {
-				$debutOuv=$ayaIni->variable('Saisons','debPrintemps').'/'.date('Y');
-				$finOuv=$ayaIni->variable('Saisons','finPrintemps').'/'.date('Y');
+			$ayaIni = eZINI::instance();
+			if ($ayaIni->hasVariable('Saisons', 'Printemps') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Printemps')) {
+				if ($ayaIni->hasVariable('Saisons','DebutPrintemps'))
+					$debutOuv=$ayaIni->variable('Saisons','DebutPrintemps').'/'.date('Y');
+				if ($ayaIni->hasVariable('Saisons','FinPrintemps'))
+					$finOuv=$ayaIni->variable('Saisons','FinPrintemps').'/'.date('Y');
 			}
-			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Ete')) {
-				$debutOuv=$ayaIni->variable('Saisons','debEte').'/'.date('Y');
-				$finOuv=$ayaIni->variable('Saisons','finEte').'/'.date('Y');
+			if ($ayaIni->hasVariable('Saisons', 'Ete') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Ete')) {
+				if ($ayaIni->hasVariable('Saisons','DebutEte'))
+					$debutOuv=$ayaIni->variable('Saisons','DebutEte').'/'.date('Y');
+				if ($ayaIni->hasVariable('Saisons','FinEte'))
+					$finOuv=$ayaIni->variable('Saisons','FinEte').'/'.date('Y');
 			}
-			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Automne')) {
-				$debutOuv=$ayaIni->variable('Saisons','debAutomne').'/'.date('Y');
-				$finOuv=$ayaIni->variable('Saisons','finAutomne').'/'.date('Y');
+			if ($ayaIni->hasVariable('Saisons', 'Automne') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Automne')) {
+				if ($ayaIni->hasVariable('Saisons','DebutAutomne'))
+					$debutOuv=$ayaIni->variable('Saisons','DebutAutomne').'/'.date('Y');
+				if ($ayaIni->hasVariable('Saisons','FinAutomne'))
+					$finOuv=$ayaIni->variable('Saisons','FinAutomne').'/'.date('Y');
 			}
-			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Hiver')) {
-				$debutOuv=$ayaIni->variable('Saisons','debHiver').'/'.date('Y');
-				$finOuv=$ayaIni->variable('Saisons','finHiver').'/'.date('Y');
+			if ($ayaIni->hasVariable('Saisons', 'Hiver') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Hiver')) {
+				if ($ayaIni->hasVariable('Saisons','DebutHiver'))
+					$debutOuv=$ayaIni->variable('Saisons','DebutHiver').'/'.date('Y');
+				if ($ayaIni->hasVariable('Saisons','FinHiver'))
+					$finOuv=$ayaIni->variable('Saisons','FinHiver').'/'.date('Y');
 			}
 		}
 
@@ -789,29 +790,31 @@ class eZSitOperators {
 			}
 		}
 		if ($http->hasSessionVariable("saison") && $debutOuv=='') {
-			/*
-			* du 21-03 au 20-06 : printemps
-			* du 21-06 au 20-09 : été
-			* du 21-09 au 20-12 : automne
-			* du 21-12 au 20-03 : hiver
-			*/
 			$saisonId=$http->sessionVariable("saison");
-			$cheminImages = $ayaIni->variable('Images','Chemin');
-			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Printemps')) {
-				$debutOuv=$ayaIni->variable('Saisons','debPrintemps').'/'.date('Y');
-				$finOuv=$ayaIni->variable('Saisons','finPrintemps').'/'.date('Y');
+			$ayaIni = eZINI::instance();
+			if ($ayaIni->hasVariable('Saisons', 'Printemps') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Printemps')) {
+				if ($ayaIni->hasVariable('Saisons','DebutPrintemps'))
+					$debutOuv=$ayaIni->variable('Saisons','DebutPrintemps').'/'.date('Y');
+				if ($ayaIni->hasVariable('Saisons','FinPrintemps'))
+					$finOuv=$ayaIni->variable('Saisons','FinPrintemps').'/'.date('Y');
 			}
-			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Ete')) {
-				$debutOuv=$ayaIni->variable('Saisons','debEte').'/'.date('Y');
-				$finOuv=$ayaIni->variable('Saisons','finEte').'/'.date('Y');
+			if ($ayaIni->hasVariable('Saisons', 'Ete') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Ete')) {
+				if ($ayaIni->hasVariable('Saisons','DebutEte'))
+					$debutOuv=$ayaIni->variable('Saisons','DebutEte').'/'.date('Y');
+				if ($ayaIni->hasVariable('Saisons','FinEte'))
+					$finOuv=$ayaIni->variable('Saisons','FinEte').'/'.date('Y');
 			}
-			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Automne')) {
-				$debutOuv=$ayaIni->variable('Saisons','debAutomne').'/'.date('Y');
-				$finOuv=$ayaIni->variable('Saisons','finAutomne').'/'.date('Y');
+			if ($ayaIni->hasVariable('Saisons', 'Automne') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Automne')) {
+				if ($ayaIni->hasVariable('Saisons','DebutAutomne'))
+					$debutOuv=$ayaIni->variable('Saisons','DebutAutomne').'/'.date('Y');
+				if ($ayaIni->hasVariable('Saisons','FinAutomne'))
+					$finOuv=$ayaIni->variable('Saisons','FinAutomne').'/'.date('Y');
 			}
-			if ($http->sessionVariable("saison")==$ayaIni->variable('Saisons','Hiver')) {
-				$debutOuv=$ayaIni->variable('Saisons','debHiver').'/'.date('Y');
-				$finOuv=$ayaIni->variable('Saisons','finHiver').'/'.date('Y');
+			if ($ayaIni->hasVariable('Saisons', 'Hiver') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Hiver')) {
+				if ($ayaIni->hasVariable('Saisons','DebutHiver'))
+					$debutOuv=$ayaIni->variable('Saisons','DebutHiver').'/'.date('Y');
+				if ($ayaIni->hasVariable('Saisons','FinHiver'))
+					$finOuv=$ayaIni->variable('Saisons','FinHiver').'/'.date('Y');
 			}
 		}
 

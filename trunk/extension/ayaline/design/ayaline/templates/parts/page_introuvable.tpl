@@ -1,4 +1,4 @@
-{def $nodePlan = fetch('content', 'tree', hash('parent_node_id', ezini('Noeuds', 'home', 'ayaline.ini'),
+{def $nodePlan = fetch('content', 'tree', hash('parent_node_id', ezini('NodeSettings', 'RootNode', 'content.ini'),
 												'class_filter_type', 'include',
 												'class_filter_array', array('site_map'),
 												'limit', 1))}

@@ -3,6 +3,7 @@
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="yes" indent="yes"/>
 
+	<xsl:variable name="quot">"</xsl:variable>
 	<xsl:variable name="apos">'</xsl:variable>
 	<xsl:variable name="amp">&amp;</xsl:variable>
 	<xsl:variable name="espace" select="' '"/>
@@ -20,7 +21,7 @@
 				<p class="clear"><![CDATA[ ]]></p>
 				
 				<xsl:for-each select="resultats/details/detail[position() = 1]">
-					<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(intitule, concat('/-?_.', $apos, $amp), '       ')), ' ', '-')"/></xsl:variable>
+					<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(intitule, concat('/-?_.', $quot, $apos, $amp), '        ')), ' ', '-')"/></xsl:variable>
 					<a style="overflow:hidden;"><xsl:attribute name="id">fiche-<xsl:value-of select="@id"/></xsl:attribute><![CDATA[ ]]></a>
 					
 					<a style="display: block; margin: 15px 0px 10px 0px;">

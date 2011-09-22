@@ -92,13 +92,13 @@
 		{set $chemin = $chemin.path_string}
 	{/if}
 {/if}
-{if eq($chemin, ezini('Chemins', 'decouvrir', 'ayaline.ini'))}
+{if eq($chemin, ezini('Chemins', 'Decouvrir', 'ayaline.ini'))}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/decouvrir.css'|ezdesign} media="all" />
 {/if}
-{if eq($chemin, ezini('Chemins', 'sejourner', 'ayaline.ini'))}
+{if eq($chemin, ezini('Chemins', 'Sejourner', 'ayaline.ini'))}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/sejourner.css'|ezdesign} media="all" />
 {/if}
-{if eq($chemin, ezini('Chemins', 'alaune', 'ayaline.ini'))}
+{if eq($chemin, ezini('Chemins', 'ALaUne', 'ayaline.ini'))}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/alaune.css'|ezdesign} media="all" />
 {/if}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/print.css'|ezdesign} media="print" />

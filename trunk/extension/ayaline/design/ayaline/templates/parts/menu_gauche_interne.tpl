@@ -7,7 +7,7 @@
 {if and(ezhttp('topics', 'session', 'hasVariable'),ezhttp('topics', 'session')|count|ne(0))}
 	{def $topicIDs = ezhttp('topics', 'session')}
 {else}
-	{def $topicIDs = array(ezini('NodeSettings','topicDefaut','content.ini'))}
+	{def $topicIDs = array(ezini('NodeSettings','TopicDefaut','content.ini'))}
 {/if}
 
 {* Tableau qui contiendra les entrees a afficher *}
@@ -22,7 +22,7 @@
 {def $affEntreeListeSIT = ''}
 
 {* Si le pere est le noeud Decouvrir ou Sejourner *}
-{if or(eq($node.parent.node_id, ezini('Noeuds','decouvrir','ayaline.ini')), eq($node.parent.node_id, ezini('Noeuds','sejourner','ayaline.ini')))}
+{if or(eq($node.parent.node_id, ezini('Noeuds','Decouvrir','ayaline.ini')), eq($node.parent.node_id, ezini('Noeuds','Sejourner','ayaline.ini')))}
 	{* Recuperation du menu associe au noeud parent *}
 	{def $menuPere = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.parent.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
 	{set $menuPere = $menuPere.0}
@@ -44,7 +44,7 @@
 								{if $monTheme1.node_id|eq($topicIDs.0)}
 									{set $entreeAssocie = $entreeAssocie|append($entree.data_map.content.content.main_node)}
 									{* Traitement pour ajouter le nom de l'entree en fonction du theme *}
-									{if ne($topicIDs.0, ezini('NodeSettings','topicDefaut','content.ini'))}
+									{if ne($topicIDs.0, ezini('NodeSettings','TopicDefaut','content.ini'))}
 										{if ne($entree.data_map[concat('title_topic_', $topicIDs.0)].value, '')}
 											{set $nomAjouter = $entree.data_map[concat('title_topic_', $topicIDs.0)].value}
 										{else}
@@ -74,7 +74,7 @@
 									{if $monTheme2.node_id|eq($topicIDs.0)}
 										{set $entreeAssocie = $entreeAssocie|append($entree.data_map.content.content.main_node)}
 										{* Traitement pour ajouter le nom de l'entree en fonction du theme *}
-										{if ne($topicIDs.0, ezini('NodeSettings','topicDefaut','content.ini'))}
+										{if ne($topicIDs.0, ezini('NodeSettings','TopicDefaut','content.ini'))}
 											{if ne($entree.data_map[concat('title_topic_', $topicIDs.0)].value, '')}
 												{set $nomAjouter = $entree.data_map[concat('title_topic_', $topicIDs.0)].value}
 											{else}
@@ -150,7 +150,7 @@
 	<h2 class="menu-gauche-h2">
 		{def $titreMenu = ''}
 		{* Si le grand-parent du noeud en cour est Decouvrir ou Sejourner *}
-		{if or(eq($node.parent.parent.node_id, ezini('Noeuds','decouvrir','ayaline.ini')), eq($node.parent.parent.node_id, ezini('Noeuds','sejourner','ayaline.ini')))}
+		{if or(eq($node.parent.parent.node_id, ezini('Noeuds','Decouvrir','ayaline.ini')), eq($node.parent.parent.node_id, ezini('Noeuds','Sejourner','ayaline.ini')))}
 			{* Recuperation des objets associes au pere *}
 			{def $menusAssoPere = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.parent.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
 			{* Pour chaque objet associe *}
@@ -160,7 +160,7 @@
 					{* Si le pere de l'objet associe correspond a la saison en cours *}
 					{if $menuAssoPere.main_node.parent.data_map.title.value.0|eq($saisonID)}
 						{* Si le theme en cours n'est pas celui par defaut *}
-						{if ne($topicIDs.0, ezini('NodeSettings','topicDefaut','content.ini'))}
+						{if ne($topicIDs.0, ezini('NodeSettings','TopicDefaut','content.ini'))}
 							{* Si l'attribut title_topic du theme en cours n'est pas vide *}
 							{if ne($menuAssoPere.main_node.data_map[concat('title_topic_', $topicIDs.0)].value, '')}
 								{set $titreMenu = $menuAssoPere.main_node.data_map[concat('title_topic_', $topicIDs.0)].value}

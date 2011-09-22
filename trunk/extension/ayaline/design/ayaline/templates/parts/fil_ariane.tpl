@@ -26,7 +26,7 @@
 
 			{foreach $rubriques as $key=>$rubrique}
 				{* test sur le theme : si on est sur le theme par défaut, pas la peine de chercher le titre lié au theme *}
-				{if $topicId|ne(ezini('NodeSettings','topicDefaut','content.ini'))}
+				{if $topicId|ne(ezini('NodeSettings','TopicDefaut','content.ini'))}
 					{* cas des contenus avec plusieurs emplacements : il faut regarder les différents noeuds *}
 					{foreach $rubrique.assigned_nodes as $rub}
 						{if and($rub.parent.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($rub.parent.data_map.title.value.0))}

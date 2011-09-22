@@ -16,7 +16,7 @@
 				{* affichage des thème en haut du menu découvrir *}
 				<ul class="top">
 		{foreach $topicsList.children as $topic} {* themes Mer/ville/plage/Nature définis dans le pagelayout *}
-			{if ne($topic.node_id, ezini('NodeSettings','topicDefaut','content.ini'))} {* on n'affiche pas le thème par défaut *}
+			{if ne($topic.node_id, ezini('NodeSettings','TopicDefaut','content.ini'))} {* on n'affiche pas le thème par défaut *}
 				{node_view_gui content_node=$topic view=line topicIds=$topicIds redirectURI=$module_result.uri|ezurl}
 			{/if}
 		{/foreach}
@@ -84,8 +84,8 @@
 									{if $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list|count}
 										{foreach $nodeSub_menu.data_map.content.content.main_node.data_map.topics.content.relation_list as $relation}
 											{* NB : un seul theme sélectionné par l'internaute à la fois *}
-											{foreach $topicIds as $topicId}
-												{if $topicId|ne(ezini('NodeSettings','topicDefaut','content.ini'))} {* cas du thème par defaut à ne pas prendre en compte*}
+											{*foreach $topicIds as $topicId}
+												{if $topicId|ne(ezini('NodeSettings','TopicDefaut','content.ini'))} {* cas du thème par defaut à ne pas prendre en compte*}
 													{* cas ou la rubrique est associé au thème courant : dans ce cas on récupère le titre de la rubrique*}
 													{if $relation.node_id|eq($topicId)}
 														{set $mainMenuShowed = true()}
@@ -94,7 +94,7 @@
 														{/if}
 														{break}
 													{/if}
-												{else}
+												{else*}
 													{set $mainMenuShowed = true()}													
 												{/if}
 											{/foreach}
