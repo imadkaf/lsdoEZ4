@@ -121,7 +121,18 @@
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 								En savoir plus
 							</a>
-							<a style="margin: 0px 0px 0px 0px;" class="reserver" href="#">R&amp;eacute;server</a>
+							<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite) &gt; 0">
+								<a class="reserver">
+								<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite"/></xsl:attribute>
+								R&amp;eacute;server
+								</a>
+							</xsl:if>
+							<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
+								<a class="reserver">
+								<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
+								Disponibilit&amp;eacute;s
+								</a>
+							</xsl:if>
 						</p>
 					</li>
 					<xsl:if test="position() mod 2 = 0"><![CDATA[</ul><ul class="list">]]></xsl:if>
