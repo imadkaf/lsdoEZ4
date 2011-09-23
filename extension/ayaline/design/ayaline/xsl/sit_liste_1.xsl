@@ -79,7 +79,7 @@
 							
 							<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000005' and @id != '851000001' and @id != '851000023' and @id != '851000020']) &gt; 0">
 								<ul class="criteres liste-hotel">
-									<xsl:for-each select="criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000005' and @id != '851000001' and @id != '851000023' and @id != '851000020']">
+									<xsl:for-each select="criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000005' and @id != '851000001' and @id != '851000023' and @id != '851000020' and @id != '851000028']">
 										<xsl:variable name="idCritere" select="@id"/>
 										<xsl:variable name="intituleCritere" select="intCritere"/>
 										<xsl:if test="count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', $idCritere, '|'))]) &gt; 0">
@@ -144,16 +144,18 @@
 									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 									En savoir plus
 								</a>
-								<xsl:if test="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280001']/valModalite">
+								<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite) &gt; 0">
 									<a class="reserver">
-									<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280001']/valModalite"/></xsl:attribute>
+									<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite"/></xsl:attribute>
 									R&amp;eacute;server
 									</a>
-									
 								</xsl:if>
-								<!--a class="reserver" href="#">R&amp;eacute;server</a>
-								<a class="reserver" href="#">Disponibilit&amp;eacute;s</a>
-								<a class="reserver" href="#">R&amp;eacute;server</a-->
+								<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
+									<a class="reserver">
+									<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
+									Disponibilit&amp;eacute;s
+									</a>
+								</xsl:if>
 							</p>
 						</li>
 					</xsl:for-each>
@@ -239,7 +241,7 @@
 							
 							<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000005' and @id != '851000001' and @id != '851000023' and @id != '851000020' and @id != '851000010']) &gt; 0">
 								<ul class="criteres">
-									<xsl:for-each select="criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000005' and @id != '851000001' and @id != '851000023' and @id != '851000020']">
+									<xsl:for-each select="criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000005' and @id != '851000001' and @id != '851000023' and @id != '851000020'] and @id != '851000028'">
 										<xsl:variable name="idCritere" select="@id"/>
 										<xsl:variable name="intituleCritere" select="intCritere"/>
 										<xsl:if test="count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', $idCritere, '|'))]) &gt; 0">
@@ -304,10 +306,16 @@
 									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 									En savoir plus
 								</a>
-								<xsl:if test="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280001']/valModalite != ''">
+								<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite) &gt; 0">
 									<a class="reserver">
-									<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280001']/valModalite"/></xsl:attribute>
+									<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite"/></xsl:attribute>
 									R&amp;eacute;server
+									</a>
+								</xsl:if>
+								<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
+									<a class="reserver">
+									<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
+									Disponibilit&amp;eacute;s
 									</a>
 								</xsl:if>
 							</p>
