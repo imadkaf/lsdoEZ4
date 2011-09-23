@@ -12,13 +12,6 @@
 	<xsl:include href="inc/rendu_adresse.xsl"/>
 
 	<xsl:template match="/produit">
-		<xsl:if test="string-length($lienPrecedent) &gt; 0">
-			<div style="text-align:right;"><a>
-				<xsl:attribute name="href"><xsl:value-of select="$lienPrecedent"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if>#fiche-<xsl:value-of select="@id"/></xsl:attribute>
-				&amp;lt;&amp;lt;&amp;nbsp;<xsl:value-of select="$termeRetourListe"/>
-			</a></div>
-		</xsl:if>
-		<br/>
 	
 		<div style="float:left; width: 326px;">
 			<xsl:if test="count(newPhotos/newPhoto) &gt; 0">
@@ -200,7 +193,7 @@
 			<script type="text/javascript" xml:space="preserve">
 			<![CDATA[
 				$(function () {
-					document.oswidget = new OsFG("OSRechercheDetail","22357-1624","fr");
+					document.oswidget = new OsFG("OSRechercheDetail","22357-1623","fr");
 					document.oswidget.AliasTerritoire("otsablesolonne");
 					document.oswidget.ListeIdFournisseur("]]><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280003']/valModalite"/><![CDATA[");
 					document.oswidget.Affiche();
@@ -210,9 +203,10 @@
 			</script>
 			<div id="OSRechercheDetail"><![CDATA[ ]]></div>
 			</xsl:if>
-			<!-- div style="float:left;margin-top:20px;">
+			
+			<div style="float:left;margin-top:20px;">
 				<img alt="" style="float:right;margin-left:20px"><xsl:attribute name="src"><xsl:value-of select="partenaire/logoPartenaire"/></xsl:attribute></img><xsl:value-of select="$termeInformationProposeePar"/>&amp;nbsp;:<br/><strong><xsl:if test="string-length(partenaire/webPartenaire) &gt; 0"><a target="_blank"><xsl:attribute name="href"><xsl:value-of select="partenaire/webPartenaire"/></xsl:attribute><xsl:value-of select="partenaire/intPartenaire"/></a></xsl:if><xsl:if test="string-length(partenaire/webPartenaire) = 0"><xsl:value-of select="partenaire/intPartenaire"/></xsl:if></strong>
-			</div-->
+			</div>
 			<br />
 			
 			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='son']) &gt; 0">
@@ -230,7 +224,7 @@
 		
 		
 		<div style="float:left; width: 310px;">
-			<h2 class="bloc-liste-h2" style="width: 295px; margin-left:10px;"><xsl:value-of select="intitule"/></h2>
+			<h2 class="bloc-detail-h2" style="width: 295px; margin-left:10px;"><xsl:value-of select="intitule"/></h2>
 			<p class="lien-bas" style="margin-right:7px;">
 				<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite) &gt; 0">
 					<a class="reserver">
@@ -246,6 +240,7 @@
 				</xsl:if>
 			</p>
 			<p class="clear" style="margin-bottom:5px;"></p>
+			
 			<div style="margin:0px 0px 20px 10px">
 				<xsl:for-each select="adresses/adresse[@type='produit']">
 					<div style="padding:15px;background-color:#EEEEEE;">
@@ -269,7 +264,6 @@
 					<div id="tabs">
 						<ul>
 							<li><a href="#onglet-description"><span>Descriptif</span></a></li>
-							<li><a href="#onglet-tarifs"><span>Tarifs</span></a></li>
 							<li><a href="#onglet-caracteristiques"><span>Caract&amp;eacute;ristiques</span></a></li>
 							<li style="background-color: #7AD6E1 !important;"><a href="#onglet-avis"><span>Avis</span></a></li>
 						</ul>
@@ -289,41 +283,10 @@
 							<![CDATA[ ]]>
 						</div>
 						
-						<div id="onglet-tarifs">
-							<table cellspacing="0" width="100%">
-								<xsl:for-each select="criteres/critere[@id='851000039' or @id='851000058' or @id='851000059' or @id='851000060' or @id='851000061' or @id='851000062' or @id='851000063' or @id='851000064' or @id='851000065' or @id='851000066' or @id='851000067' or @id='851000068' or @id='851000069' or @id='851000070' or @id='851000076' or @id='851000077' or @id='851000071' or @id='851000072' or @id='851000073' or @id='851000074' or @id='851000075']">
-									<xsl:variable name="positionCritere" select="position()"/>
-									<tr>
-										<td>
-											<xsl:attribute name="style">width:60%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">7A7368</xsl:if><xsl:if test="(position() mod 2) = 0">E0E0E0</xsl:if>;color:#<xsl:if test="(position() mod 2) = 1">FFFFFF</xsl:if><xsl:if test="(position() mod 2) = 0">353535</xsl:if></xsl:attribute>
-											<strong><xsl:value-of select="intCritere"/> :</strong>
-										</td>
-										<td>
-											<xsl:attribute name="style">text-align:center;width:40%;vertical-align:top;font-size:90%;padding:5px 10px;background-color:#<xsl:if test="(position() mod 2) = 1">E4E0DB</xsl:if><xsl:if test="(position() mod 2) = 0">EEEEEE</xsl:if>;color:#353535</xsl:attribute>
-											<![CDATA[ ]]>
-										</td>
-									</tr>
-									<xsl:for-each select="modalites/modalite">
-										<tr>
-											<td>
-												<xsl:attribute name="style">width:60%;vertical-align:top;font-size:90%;padding:1px 10px;background-color:#<xsl:if test="($positionCritere mod 2) = 1">7A7368</xsl:if><xsl:if test="($positionCritere mod 2) = 0">E0E0E0</xsl:if>;color:#<xsl:if test="($positionCritere mod 2) = 1">FFFFFF</xsl:if><xsl:if test="($positionCritere mod 2) = 0">353535</xsl:if></xsl:attribute>
-												<strong><xsl:value-of select="intModalite"/></strong>
-											</td>
-											<td>
-												<xsl:attribute name="style">text-align:center;width:40%;vertical-align:top;font-size:90%;padding:1px 10px;background-color:#<xsl:if test="($positionCritere mod 2) = 1">E4E0DB</xsl:if><xsl:if test="($positionCritere mod 2) = 0">EEEEEE</xsl:if>;color:#353535</xsl:attribute>
-												<xsl:value-of select="valModalite"/> &amp;euro;
-											</td>
-										</tr>
-									</xsl:for-each>
-								</xsl:for-each>
-							</table>
-							<![CDATA[ ]]>
-						</div>
-						
 						<div id="onglet-caracteristiques">
 							<xsl:if test="count(criteres/critere[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0]) &gt; 0">
 								<table cellspacing="0" width="100%">
-									<xsl:for-each select="criteres/critere[($modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0) and @id!='851000039' and @id!='851000058' and @id!='851000059' and @id!='851000060' and @id!='851000061' and @id!='851000062' and @id!='851000063' and @id!='851000064' and @id!='851000065' and @id!='851000066' and @id!='851000067' and @id!='851000068' and @id!='851000069' and @id!='851000070' and @id!='851000076' and @id!='851000077' and @id!='851000071' and @id!='851000072' and @id!='851000073' and @id!='851000074' and @id!='851000075']">
+									<xsl:for-each select="criteres/critere[($modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0)]">
 										<xsl:if test="count(modalites/modalite) &gt; 0">
 											<xsl:variable name="idCritere" select="@id"/>
 											<tr>
@@ -379,6 +342,21 @@
 				</td></tr>
 			</table>
 		</div>
+		<p class="clear"></p>
+		<p class="space"></p>
+		<xsl:if test="string-length($lienPrecedent) &gt; 0">
+			<div style="text-align:right"><a>
+				<xsl:attribute name="href"><xsl:value-of select="$lienPrecedent"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if>#fiche-<xsl:value-of select="@id"/></xsl:attribute>
+				&amp;lt;&amp;lt;&amp;nbsp;<xsl:value-of select="$termeRetourListe"/>
+			</a></div>
+		</xsl:if>
+		
+		<div class="float-d" style="margin-bottom:10px;">
+			<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pubid=xa-4db82bbb1279e354"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+			<!-- deja present dans le menu pied de page <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4db82bbb1279e354"></script> -->
+		</div>
+		
+		<p class="clear"></p>
 		<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
 	</xsl:template>
 </xsl:stylesheet>

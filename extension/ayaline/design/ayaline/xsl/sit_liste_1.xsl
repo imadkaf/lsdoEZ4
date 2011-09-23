@@ -79,7 +79,7 @@
 							
 							<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000005' and @id != '851000001' and @id != '851000023' and @id != '851000020']) &gt; 0">
 								<ul class="criteres liste-hotel">
-									<xsl:for-each select="criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000005' and @id != '851000001' and @id != '851000023' and @id != '851000020' and @id != '851000028']">
+									<xsl:for-each select="criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000005' and @id != '851000001' and @id != '851000023' and @id != '851000020' and @id != '851000028' and @id != '851000010']">
 										<xsl:variable name="idCritere" select="@id"/>
 										<xsl:variable name="intituleCritere" select="intCritere"/>
 										<xsl:if test="count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', $idCritere, '|'))]) &gt; 0">
