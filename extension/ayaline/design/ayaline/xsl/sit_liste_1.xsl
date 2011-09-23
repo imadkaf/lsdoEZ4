@@ -196,7 +196,7 @@
 														</img>
 												</xsl:when>
 												<xsl:otherwise>
-													<xsl:value-of select="intModalite"/>
+													<xsl:value-of select="intModalite"/><xsl:if test="position() &lt; count(../modalite)">, </xsl:if>
 												</xsl:otherwise>
 											</xsl:choose>
 										</xsl:for-each>
@@ -239,7 +239,7 @@
 								</xsl:choose>
 							</p>
 							
-							<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000005' and @id != '851000001' and @id != '851000023' and @id != '851000020' and @id != '851000010']) &gt; 0">
+							<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000005' and @id != '851000001' and @id != '851000023' and @id != '851000020' and @id != '851000028' and @id != '851000010']) &gt; 0">
 								<ul class="criteres">
 									<xsl:for-each select="criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000005' and @id != '851000001' and @id != '851000023' and @id != '851000020' and @id != '851000028' and @id != '851000010']">
 										<xsl:variable name="idCritere" select="@id"/>

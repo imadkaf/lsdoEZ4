@@ -278,10 +278,9 @@
 									</img>
 								</xsl:when>
 								<xsl:otherwise>
-									<xsl:value-of select="intModalite"/>
+									<xsl:value-of select="intModalite"/><xsl:if test="position() &lt; count(../modalite)">, </xsl:if>
 								</xsl:otherwise>
 							</xsl:choose>
-							<xsl:if test="position() &lt; count(../modalite) and logoModalite = ''">, </xsl:if>
 						</xsl:for-each>
 					</li>
 				</xsl:if>
