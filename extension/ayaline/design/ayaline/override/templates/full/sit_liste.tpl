@@ -65,7 +65,7 @@
 			{*def $affichageListeSIT = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id,
 																							'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )*}
 			{* !! 20110922 !! suppression des affichage*liste*sit, tout est au niveau de la liste SIT directement *}
-			{set $affichageListeSIT = $node}
+			{def $affichageListeSIT = $node}
 			
 			<h2 class="bloc-liste-h2">
 				{def $titreListe = ''}
