@@ -188,17 +188,21 @@
 					mapopinfiche();
 				]]>
 			</script>
-
+			<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280003']/valModalite) &gt; 0">
+			<script src="http://gadget.open-system.fr/osform.min.js" type="text/JavaScript" ><![CDATA[ ]]></script>
 			<script type="text/javascript" xml:space="preserve">
+			<![CDATA[
 				$(function () {
 					document.oswidget = new OsFG("OSRechercheDetail","22357-1621","fr");
 					document.oswidget.AliasTerritoire("otsablesolonne");
-					document.oswidget.ListeIdFournisseur("17701");
+					document.oswidget.ListeIdFournisseur("]]><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280003']/valModalite"/><![CDATA[");
 					document.oswidget.Affiche();
 					
 				});
+			]]>
 			</script>
-			<div id="OSRechercheDetail">&amp;nbsp;</div>
+			<div id="OSRechercheDetail"><![CDATA[ ]]></div>
+			</xsl:if>
 			<br />
 			
 			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='son']) &gt; 0">
@@ -246,7 +250,18 @@
 				</xsl:choose>
 			</p>
 			<p class="lien-bas">
-				<a class="reserver" href="#">R&amp;eacute;server</a>
+				<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite) &gt; 0">
+					<a class="reserver">
+					<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite"/></xsl:attribute>
+					R&amp;eacute;server
+					</a>
+				</xsl:if>
+				<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
+					<a class="reserver">
+					<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
+					Disponibilit&amp;eacute;s
+					</a>
+				</xsl:if>
 			</p>
 			<p class="clear"><![CDATA[ ]]></p>
 			<br />
@@ -256,17 +271,17 @@
 					<li>
 						<xsl:for-each select="criteres/critere[@id='851000010']/modalites/modalite">
 							<xsl:choose>
-									<xsl:when test="logoModalite != ''">
-										<img alt="" style="float: none;">
-											<xsl:attribute name="src"><xsl:value-of select="logoModalite"/></xsl:attribute>
-											<xsl:attribute name="title">Cha&amp;icirc;nes d'h&amp;ocirc;tel : <xsl:value-of select="intModalite"/></xsl:attribute>
-										</img>
+								<xsl:when test="logoModalite != ''">
+									<img alt="" style="float: none;">
+										<xsl:attribute name="src"><xsl:value-of select="logoModalite"/></xsl:attribute>
+										<xsl:attribute name="title">Cha&amp;icirc;nes d'h&amp;ocirc;tel : <xsl:value-of select="intModalite"/></xsl:attribute>
+									</img>
 								</xsl:when>
 								<xsl:otherwise>
 									<xsl:value-of select="intModalite"/>
 								</xsl:otherwise>
 							</xsl:choose>
-							<xsl:if test="position() &lt; count(../modalite)">, </xsl:if>
+							<xsl:if test="position() &lt; count(../modalite) and logoModalite = ''">, </xsl:if>
 						</xsl:for-each>
 					</li>
 				</xsl:if>
