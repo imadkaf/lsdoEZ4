@@ -3039,6 +3039,12 @@ div.image{
 #bloc-ac-res{
 	padding: 15px 10px 9px;
 }
+#bloc-ac-res .bloc-accueil-h2{
+	padding-left: 13px;
+}
+#bloc-ac-res .bloc-accueil-h3{
+	padding: 0px 0px 15px 13px !important
+}
 #OSRecherche .accordion-contenu{
 	background-color: #FF8B33;
 	color: white;
