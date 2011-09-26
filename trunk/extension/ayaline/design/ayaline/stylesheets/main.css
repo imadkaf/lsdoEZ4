@@ -3030,11 +3030,40 @@ div.image{
 	width: 98%;
 }
 #OSRecherche #OsBarreOnglet {
-        width: 100%;
+	width: 100%;
 }
 #OSRechercheDetail {
 /*	float:left;*/
 }
+
+#bloc-ac-res{
+	padding: 15px 10px 9px;
+}
+#OSRecherche .accordion-contenu{
+	background-color: #FF8B33;
+	color: white;
+	padding-left: 20px;
+}
+#OSRecherche .OsCritP {
+    border-bottom: none;
+}
+#OSRecherche span.OsImgDateDebut img {
+    background-image: url("../images/calendrier.png");
+    background-position: left 1px;
+    padding-right: 2px;
+}
+#OSRecherche a.OsBtnEnvoi{
+    background: url("../images/bouton-rech-dispo.png") no-repeat transparent;
+    border: none;
+    width: 259px;
+    margin: 10px 10px 10px 0px;
+    color: transparent;
+    font-size: 0px;
+    height: 29px;
+    display: block;
+    padding: 0px;
+}
+
 /************************/
 /*** Fin ajout Alexia ***/
 /************************/
