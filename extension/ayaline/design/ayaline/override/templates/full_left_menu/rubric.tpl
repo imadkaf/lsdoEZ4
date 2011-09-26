@@ -81,7 +81,7 @@
 					{attribute_view_gui attribute = $node.data_map.description}
 				{else}
 					{* Initialisations pour la pagination *}
-					{def $nb_max = 4}
+					{def $nb_max = 50}
 					{def $offset = 0}
 					{if $view_parameters.offset|gt(0)}
 						{set $offset = $view_parameters.offset}
