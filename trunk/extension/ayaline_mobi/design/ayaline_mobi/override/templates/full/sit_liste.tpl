@@ -1,7 +1,8 @@
-{def $affichageListeSIT = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id,
-																				'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
+{* !! 20110927 !! Idem site internet : suppression de la classe affichage*liste*sit *}
+{*def $affichageListeSIT = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id,
+																				'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )*}
 
-{set $affichageListeSIT = $affichageListeSIT.0}
+{def $affichageListeSIT = $node}
 
 <div class="contenu-liste liste-hotel">
 	<div class="titre-liste">

@@ -30,8 +30,9 @@
 			
 			{* Cas d'une liste SIT *}
 			{if eq($node.object.class_identifier, ezini('ClassSettings','ClassListeSIT','content.ini'))}
-				{set $affListeSITFil = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'affichage_liste_sit/liaison_liste' ) )}
-				{set $affListeSITFil = $affListeSITFil.0}
+				{* !! 20110927 !! Idem site internet : suppression de la classe affichage*liste*sit *}
+				{*set $affListeSITFil = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )*}
+				{set $affListeSITFil = $node}
 				{set $titreChemin = $affListeSITFil.name}
 			{else}
 				{* Si le noeud est celui de l'accueil du site mobile *}
