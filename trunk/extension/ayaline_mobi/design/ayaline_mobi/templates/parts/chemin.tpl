@@ -33,7 +33,7 @@
 				{* !! 20110927 !! Idem site internet : suppression de la classe affichage*liste*sit *}
 				{*set $affListeSITFil = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )*}
 				{set $affListeSITFil = $node}
-				{set $titreChemin = $affListeSITFil.name}
+				{set $titreChemin = $affListeSITFil.name|wash}
 			{else}
 				{* Si le noeud est celui de l'accueil du site mobile *}
 				{if eq($pathNode.node_id, ezini('NodeSettings','RootNode','content.ini'))}
