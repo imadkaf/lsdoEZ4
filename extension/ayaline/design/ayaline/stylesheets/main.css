@@ -2385,12 +2385,12 @@ ul.contenu li{
 /*** Page des rubriques ***/
 /* Bloc liste (page decouvrir, visites...) */
 .bloc-liste-h2{
-	font-family:'OmnesMedium';
+	font-family:'OmnesLight';
 	font-size:32px !important;
 	font-weight:bold;
 }
 .bloc-detail-h2{
-	font-family:'OmnesMedium';
+	font-family:'OmnesLight';
 	font-size:25px !important;
 	font-weight:bold;
 }
@@ -2750,7 +2750,7 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 
 /*** Page liste hotels ***/
 .bloc-liste-h2-recherche{
-	font-family:'OmnesMedium';
+	font-family:'OmnesLight';
 	font-size:23px !important;
 	font-weight:bold;
 	padding-bottom:15px;
@@ -2950,7 +2950,7 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 
 /*** Bloc Voir aussi ***/
 .bloc-liste-h2-cote{
-	font-family:'OmnesMedium';
+	font-family:'OmnesLight';
 	font-size:27px !important;
 	font-weight:bold;
 }

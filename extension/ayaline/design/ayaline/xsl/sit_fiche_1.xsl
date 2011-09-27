@@ -181,7 +181,7 @@
 			</script>
 			<a class="fiche-popin" target="_blank" style="margin-left: 120px;">
 				<xsl:attribute name="href">/layout/set/vide/Itineraire-Rubrique?nom=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template></xsl:attribute>
-				<b>&amp;gt;&amp;gt; Itin&amp;eacute;raire</b>
+				<b>&amp;gt;&amp;gt; <xsl:value-of select="$termeItineraire"/></b>
 			</a>
 			<script type="text/javascript">
 				<![CDATA[

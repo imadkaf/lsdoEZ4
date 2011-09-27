@@ -18,5 +18,9 @@
 			<source>FinOuv</source>
 			<translation>au :</translation>
 		</message>
+		<message>
+			<source>Itineraire</source>
+			<translation>Itinéraire</translation>
+		</message>
 	</context>
 </TS>
