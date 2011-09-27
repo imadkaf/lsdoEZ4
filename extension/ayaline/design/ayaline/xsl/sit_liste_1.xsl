@@ -151,9 +151,9 @@
 									</a>
 								</xsl:if>
 								<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
-									<a class="reserver">
+									<a class="dispos">
 									<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
-									Disponibilit&amp;eacute;s
+									Dispos
 									</a>
 								</xsl:if>
 							</p>
@@ -313,9 +313,9 @@
 									</a>
 								</xsl:if>
 								<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
-									<a class="reserver">
+									<a class="dispos">
 									<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
-									Disponibilit&amp;eacute;s
+									Dispos
 									</a>
 								</xsl:if>
 							</p>
