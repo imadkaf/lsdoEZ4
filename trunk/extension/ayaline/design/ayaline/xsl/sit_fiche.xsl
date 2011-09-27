@@ -189,21 +189,41 @@
 				]]>
 			</script>
 			
-			<div style="float:left;margin-top:20px;">
+			<!-- div style="float:left;margin-top:20px;">
 				<img alt="" style="float:right;margin-left:20px"><xsl:attribute name="src"><xsl:value-of select="partenaire/logoPartenaire"/></xsl:attribute></img><xsl:value-of select="$termeInformationProposeePar"/>&amp;nbsp;:<br/><strong><xsl:if test="string-length(partenaire/webPartenaire) &gt; 0"><a target="_blank"><xsl:attribute name="href"><xsl:value-of select="partenaire/webPartenaire"/></xsl:attribute><xsl:value-of select="partenaire/intPartenaire"/></a></xsl:if><xsl:if test="string-length(partenaire/webPartenaire) = 0"><xsl:value-of select="partenaire/intPartenaire"/></xsl:if></strong>
 			</div>
-			<br />
+			<br /-->
 			
 			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='son']) &gt; 0">
 				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='son' and string-length(codeHtmlLienMultimedia) &gt; 0]">
 					<div style="margin-top: 20px; display: inline-block;"><xsl:value-of select="codeHtmlLienMultimedia"/></div>
 				</xsl:for-each>
 			</xsl:if>
-			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='video']) &gt; 0">
-				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='video' and string-length(codeHtmlLienMultimedia) &gt; 0]">
-					<div style="margin-top: 20px; display: inline-block;"><xsl:value-of select="codeHtmlLienMultimedia"/></div>
-				</xsl:for-each>
-			</xsl:if>
+			<xsl:choose>
+				<xsl:when test="count(liensMultimedia/lienMultimedia[@type='video']) &gt; 0">
+					<xsl:for-each select="liensMultimedia/lienMultimedia[@type='video' and string-length(codeHtmlLienMultimedia) &gt; 0]">
+						<div>
+							<xsl:call-template name="string-replace-all">
+								<xsl:with-param name="text">
+									<xsl:call-template name="string-replace-all">
+										<xsl:with-param name="text" select="codeHtmlLienMultimedia"/>
+										<xsl:with-param name="replace" select="'_dw_entity__gt__'"/>
+										<xsl:with-param name="by"><![CDATA[>]]></xsl:with-param>
+									</xsl:call-template>
+								</xsl:with-param>
+								<xsl:with-param name="replace" select="'_dw_entity__lt__'"/>
+								<xsl:with-param name="by"><![CDATA[<]]></xsl:with-param>
+							</xsl:call-template>
+						</div>
+					</xsl:for-each>
+				</xsl:when>
+				<xsl:otherwise>
+					<p>
+						Aucun avis pour le moment.<br />
+						Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
+					</p>
+				</xsl:otherwise>
+			</xsl:choose>
 		</div>
 		
 		
