@@ -442,7 +442,7 @@
 				<div id="onglet-avis">
 					<xsl:choose>
 						<xsl:when test="count(liensMultimedia/lienMultimedia[@type='image']) &gt; 0">
-							<xsl:for-each select="liensMultimedia/lienMultimedia[@type='image' and string-length(codeHtmlLienMultimedia) &gt; 0]">
+							<xsl:for-each select="liensMultimedia/lienMultimedia[@type='image' and string-length(codeHtmlLienMultimedia) &gt; 0 and position() = 1]">
 								<div>
 									<xsl:call-template name="string-replace-all">
 										<xsl:with-param name="text">
