@@ -17,8 +17,8 @@
 	</div>
 	<div class="icons">
 		{* Pour chacun de ses fils (rubrique ou liste SIT) *}
-		{foreach $enfants as $enfant}
-			<div class="icon">
+		{foreach $enfants as $key=>$enfant}
+			<div class="icon{if eq($key|mod(3),0)} clear{/if}">
 				{node_view_gui content_node=$enfant view='line'}
 			</div>
 		{/foreach}
