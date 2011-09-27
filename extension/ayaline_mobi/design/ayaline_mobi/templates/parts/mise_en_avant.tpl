@@ -1,4 +1,4 @@
-<div class="mise-en-avant">
+{*<div class="mise-en-avant">
 	<a href="#">
 		<div class="push">
 			<div class="arrow"><img alt="arrow" src={'images/arrow1.png'|ezdesign()} /></div>
@@ -8,6 +8,6 @@
 			  <span class="description">Promenades et pêches en mer - cie vendéenne</span>
 			</div>
 		</div>
-	</a>
+	</a>*}
 	{*<div class="clear"></div>*}
-</div>
+{*</div>*}
