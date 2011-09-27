@@ -1681,6 +1681,18 @@ p.lien-bas a.reserver{
 p.lien-bas a:hover.reserver{
 	text-decoration:none;
 }
+p.lien-bas a.dispos{
+	background:#fff !important;
+	color:#ff8b33;
+	border:1px solid #ff8b33;
+	font-weight:bold;
+	padding:2px 8px !important;
+	float:right;
+	margin:0 2px 0 0;
+}
+p.lien-bas a:hover.dispos{
+	text-decoration:none;
+}
 .cp-coeur .lien-bas{
 	text-align:right;
 }
@@ -2081,9 +2093,12 @@ p.lien-bas{
 	float:left;
 	padding:0 21px 0 0 !important;
 }
-.box-right p.lien-bas a.reserver {
+/*.box-right p.lien-bas a.reserver {
 	float:left;
 }
+.box-right p.lien-bas a.dispos {
+	float:left;
+}*/
 .box-right ul.inline{
 	overflow:hidden;
 	height:1%;
