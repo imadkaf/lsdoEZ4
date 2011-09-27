@@ -9,9 +9,9 @@
 		<h2>{$affichageListeSIT.name|wash}</h2>
 	</div>
 	
-	<div class="rech-dispo">
+{*	<div class="rech-dispo">
 		<a href="#">Rechercher les disponibilités</a>
-	</div>
+	</div>*}
 	
 	{sit_liste()}
 </div>
