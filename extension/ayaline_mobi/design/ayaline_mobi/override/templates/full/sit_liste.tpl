@@ -6,7 +6,7 @@
 
 <div class="contenu-liste liste-hotel">
 	<div class="titre-liste">
-		<h2>{$affichageListeSIT.name}</h2>
+		<h2>{$affichageListeSIT.name|wash}</h2>
 	</div>
 	
 	<div class="rech-dispo">

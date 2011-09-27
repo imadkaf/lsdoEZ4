@@ -8,6 +8,6 @@
 </a>
 
 <div class="title">
-	<a href={$node.url_alias|ezurl}>{$affichageListeSIT.name}</a>
+	<a href={$node.url_alias|ezurl}>{$affichageListeSIT.name|wash}</a>
 </div>
 <br />

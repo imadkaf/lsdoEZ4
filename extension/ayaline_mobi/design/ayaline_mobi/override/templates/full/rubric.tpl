@@ -1,6 +1,6 @@
 {if $node.data_map.description.has_content}
 	<div class="titre-basique">
-		<h2>{$node.name}</h2>
+		<h2>{$node.name|wash}</h2>
 	</div>
 	
 	<div class="detail-rubrique">
