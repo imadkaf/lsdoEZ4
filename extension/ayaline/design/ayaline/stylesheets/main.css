@@ -1775,6 +1775,9 @@ ul.ss-titre-bis li.last{
 	padding:0 0 0 5px !important;
 	font-weight:bold;
 }
+ul.ss-titre-bis li.pas-hotel{
+	background:none;
+}
 ul.ss-titre-bis{
 /*	clear: left;*/
 	overflow:hidden;

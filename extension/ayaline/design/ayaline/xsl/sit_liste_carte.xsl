@@ -224,7 +224,7 @@
 				  	}
 				]]>
 			</script>
-			<div id="mapContainerListe" style="width:610px;height:400px;border: 1px solid #E9E3DE;"><![CDATA[ ]]></div>
+			<div id="mapContainerListe" style="width:635px;height:400px;border: 1px solid #E9E3DE;"><![CDATA[ ]]></div>
 			<script type="text/javascript">
 				<![CDATA[
 					initialize();
