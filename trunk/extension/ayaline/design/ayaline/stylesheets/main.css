@@ -2305,6 +2305,27 @@ select#nbre-semaine{
 }
 
 /*** Page de contenu ***/
+h2.titre-normal{
+	font-size: 28px;
+	color: black;
+	float: none;
+}
+h3.titre-normal{
+	font-size: 24px;
+	padding: 0px;
+}
+h4.titre-normal{
+	font-size: 20px;
+	padding: 0px;
+	color: black;
+}
+h5.titre-normal{
+	font-size: 16px;
+}
+h6.titre-normal{
+	font-size: 12px;
+}
+
 .contenu a {
 	text-decoration:underline;
 }
