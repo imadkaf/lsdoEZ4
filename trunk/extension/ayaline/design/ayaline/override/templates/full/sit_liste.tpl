@@ -54,7 +54,7 @@
 	</div>
 	
 	<div class="bloc-right-in-bis">
-		<div class="bloc-type padding-lr">
+		<div class="bloc-type{if eq($affichageListeSIT.data_map.googlemaps.data_int, '4')} padding-lr{/if}">
 			{* Récuperation des variables session *}
 			{if ezhttp('saison', 'session', 'hasVariable')}
 				{def $saisonId = ezhttp('saison', 'session')}
@@ -127,7 +127,11 @@
 				{if eq($node.data_map.categorie.data_text, '1')}
 					{sit_liste('sit_liste_carte_1')}
 				{else}
-					{sit_liste('sit_liste_carte')}
+					{if eq($node.data_map.categorie.data_text, '4')}
+						{sit_liste('sit_liste_carte_4')}
+					{else}
+						{sit_liste('sit_liste_carte')}
+					{/if}
 				{/if}
 			{/if}
 			
