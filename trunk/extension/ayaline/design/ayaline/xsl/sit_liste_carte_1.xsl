@@ -117,7 +117,7 @@
 										position: new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite"/><![CDATA[),
 										map: map,
 										icon: '/extension/ayaline/design/ayaline/images/picto-hotel.png',
-										title:"]]><xsl:value-of select="intitule"/><![CDATA["
+										title:"]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$quot"/><xsl:with-param name="by" select="'\&quot;'"/></xsl:call-template><![CDATA["
 									});
 									
 									marker._infowindow = infowindow;
