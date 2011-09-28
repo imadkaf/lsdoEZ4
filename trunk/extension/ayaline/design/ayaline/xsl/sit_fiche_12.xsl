@@ -194,7 +194,7 @@
 				<script type="text/javascript" xml:space="preserve">
 				<![CDATA[
 					$(function () {
-						document.oswidget = new OsFG("OSRechercheDetail","22357-1624","fr");
+						document.oswidget = new OsFG("OSRechercheDetail","22357-1623","fr");
 						document.oswidget.AliasTerritoire("otsablesolonne");
 						document.oswidget.ListeIdFournisseur("]]><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280003']/valModalite"/><![CDATA[");
 						document.oswidget.Affiche();
@@ -286,7 +286,7 @@
 						
 						<div id="onglet-tarifs">
 							<table cellspacing="0" width="100%">
-								<xsl:for-each select="criteres/critere[@id='851000039' or @id='851000058' or @id='851000059' or @id='851000060' or @id='851000061' or @id='851000062' or @id='851000063' or @id='851000064' or @id='851000065' or @id='851000066' or @id='851000067' or @id='851000068' or @id='851000069' or @id='851000070' or @id='851000076' or @id='851000077' or @id='851000071' or @id='851000072' or @id='851000073' or @id='851000074' or @id='851000075']">
+								<xsl:for-each select="criteres/critere[@id='851000267' or @id='851000270' or @id='851000271' or @id='851000272' or @id='851000273' or @id='851000274']">
 									<xsl:variable name="positionCritere" select="position()"/>
 									<tr>
 										<td>
@@ -318,7 +318,7 @@
 						<div id="onglet-caracteristiques">
 							<xsl:if test="count(criteres/critere[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0]) &gt; 0">
 								<table cellspacing="0" width="100%">
-									<xsl:for-each select="criteres/critere[($modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0) and @id!='851000039' and @id!='851000058' and @id!='851000059' and @id!='851000060' and @id!='851000061' and @id!='851000062' and @id!='851000063' and @id!='851000064' and @id!='851000065' and @id!='851000066' and @id!='851000067' and @id!='851000068' and @id!='851000069' and @id!='851000070' and @id!='851000076' and @id!='851000077' and @id!='851000071' and @id!='851000072' and @id!='851000073' and @id!='851000074' and @id!='851000075']">
+									<xsl:for-each select="criteres/critere[($modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0) and @id!='851000267' and @id!='851000270' and @id!='851000271' and @id!='851000272' and @id!='851000273' and @id!='851000274']">
 										<xsl:if test="count(modalites/modalite) &gt; 0">
 											<xsl:variable name="idCritere" select="@id"/>
 											<tr>

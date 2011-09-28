@@ -188,20 +188,21 @@
 					mapopinfiche();
 				]]>
 			</script>
+			<br /><br />
+			
 			<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280003']/valModalite) &gt; 0">
-			<script src="http://gadget.open-system.fr/osform.min.js" type="text/JavaScript" ><![CDATA[ ]]></script>
-			<script type="text/javascript" xml:space="preserve">
-			<![CDATA[
-				$(function () {
-					document.oswidget = new OsFG("OSRechercheDetail","22357-1621","fr");
-					document.oswidget.AliasTerritoire("otsablesolonne");
-					document.oswidget.ListeIdFournisseur("]]><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280003']/valModalite"/><![CDATA[");
-					document.oswidget.Affiche();
-					
-				});
-			]]>
-			</script>
-			<div id="OSRechercheDetail"><![CDATA[ ]]></div>
+				<script src="http://gadget.open-system.fr/osform.min.js" type="text/JavaScript" ><![CDATA[ ]]></script>
+				<script type="text/javascript" xml:space="preserve">
+				<![CDATA[
+					$(function () {
+						document.oswidget = new OsFG("OSRechercheDetail","22357-1621","fr");
+						document.oswidget.AliasTerritoire("otsablesolonne");
+						document.oswidget.ListeIdFournisseur("]]><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280003']/valModalite"/><![CDATA[");
+						document.oswidget.Affiche();
+					});
+				]]>
+				</script>
+				<div id="OSRechercheDetail"><![CDATA[ ]]></div>
 			</xsl:if>
 			<br />
 			
@@ -407,8 +408,8 @@
 								</tr>
 							</xsl:for-each>
 						</xsl:for-each>
+						<![CDATA[ ]]>
 					</table>
-					<![CDATA[ ]]>
 				</div>
 				
 				<div id="onglet-caracteristiques">
@@ -468,9 +469,9 @@
 				</div>
 			</div>
 		</div>
+		<p class="clear"><![CDATA[ ]]></p>
+		<p class="space"><![CDATA[ ]]></p>
 		
-		<p class="clear"></p>
-		<p class="space"></p>
 		<xsl:if test="string-length($lienPrecedent) &gt; 0">
 			<div style="text-align:right"><a>
 				<xsl:attribute name="href"><xsl:value-of select="$lienPrecedent"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if>#fiche-<xsl:value-of select="@id"/></xsl:attribute>

@@ -19,6 +19,10 @@
 			<translation>au :</translation>
 		</message>
 		<message>
+			<source>AdresseFiche</source>
+			<translation>Adresse</translation>
+		</message>
+		<message>
 			<source>Itineraire</source>
 			<translation>Itinéraire</translation>
 		</message>

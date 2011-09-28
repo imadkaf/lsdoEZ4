@@ -12,11 +12,15 @@
 		<name>sit/termes/override</name>
 		<message>
 			<source>DebutOuv</source>
-			<translation>Ouvert du :</translation>
+			<translation>Open at :</translation>
 		</message>
 		<message>
 			<source>FinOuv</source>
-			<translation>au :</translation>
+			<translation>to :</translation>
+		</message>
+		<message>
+			<source>AdresseFiche</source>
+			<translation>Adresse</translation>
 		</message>
 		<message>
 			<source>Itineraire</source>

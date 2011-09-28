@@ -19,9 +19,6 @@
 			<xsl:if test="string-length(concat(cp, commune)) &gt; 0">
 				<xsl:if test="string-length(cp) &gt; 0"><xsl:value-of select="cp"/>&amp;nbsp;</xsl:if><xsl:value-of select="commune"/><br/>
 			</xsl:if>
-			<xsl:if test="string-length(paysMonde) &gt; 0">
-				<xsl:value-of select="paysMonde"/><br/>
-			</xsl:if>
 			<xsl:if test="string-length(tel1) &gt; 0">
 				<xsl:value-of select="$termeTelephone"/>&amp;nbsp;:&amp;nbsp;<xsl:value-of select="tel1"/><br/>
 			</xsl:if>
