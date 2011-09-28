@@ -38,9 +38,7 @@
 								<span><xsl:value-of select="intitule"/></span>
 							</a>
 						</h3>
-						<div style="margin-bottom:5px;">
-						<xsl:call-template name="periodes-ouverture"/>
-						</div>
+
 						<a>
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 							<img alt="">
@@ -53,7 +51,9 @@
 								</xsl:if>
 							</img>
 						</a>
-						
+						<div style="margin-top:5px;">
+							<xsl:call-template name="periodes-ouverture"/>
+						</div>
 						<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000028']) &gt; 0">
 							<ul class="criteres liste-act">
 								<xsl:for-each select="criteres/critere[@id != '851000011' and @id != '851000028']">
