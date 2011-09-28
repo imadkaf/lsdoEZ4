@@ -41,8 +41,8 @@
 								<strong><xsl:value-of select="intitule"/></strong>
 							</a>
 							
-							<!-- p style="font-size: 11px;">
-								<xsl:if test="adresses/adresse[@type='produit']/ligne1 != ''">
+							<p style="font-size: 11px;">
+								<!-- xsl:if test="adresses/adresse[@type='produit']/ligne1 != ''">
 									<xsl:value-of select="adresses/adresse[@type='produit']/ligne1"/>
 									<xsl:if test="adresses/adresse[@type='produit']/ligne2 != ''">
 										<br /><xsl:value-of select="adresses/adresse[@type='produit']/ligne2"/>
