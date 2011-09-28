@@ -14,7 +14,7 @@
 	<xsl:variable name="nbPagesMax" select="5"/>
 	<xsl:include href="inc/pagination.xsl"/>
 
-	<xsl:include href="inc/periodes_ouverture_mise_en_avant.xsl"/>
+	<xsl:include href="inc/periodes_ouverture_liste_manifestations.xsl"/>
 
 	<xsl:template match="/">
 		
@@ -39,7 +39,7 @@
 							</a>
 						</h3>
 						<ul class="ss-titre-bis">
-							<li class="last" style="padding: 0 !important;"><xsl:value-of select="ville/intituleVille"/></li>
+							<li style="background: none;"><xsl:value-of select="ville/intituleVille"/></li>
 						</ul>
 						<a>
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
