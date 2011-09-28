@@ -4,6 +4,12 @@
 
 	#Phototheque
 
+[file_embed]
+Source=content/view/embed.tpl
+MatchFile=embed/file.tpl
+Subdir=templates
+Match[class_identifier]=file
+
 [line_album_phototheque]
 Source=node/view/line.tpl
 MatchFile=line/album_phototheque.tpl
