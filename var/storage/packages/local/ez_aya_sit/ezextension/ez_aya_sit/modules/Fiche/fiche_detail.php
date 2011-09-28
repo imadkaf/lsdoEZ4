@@ -8,6 +8,8 @@ $tpl = templateInit();
 $contentIni = eZINI::instance('content.ini');
 $sitIni = eZINI::instance('ez_aya_sit.ini');
 
+$cheminImagesDesign = $sitIni->variable('ImagesDesign','Chemin');
+
 $rootNode = $contentIni->variable('NodeSettings','RootNode');
 if (!$rootNode) {
 	$rootNode = "2";
@@ -85,6 +87,7 @@ $cheminRacineSite = $cheminRacineSite == "/" ? "" : $cheminRacineSite;
 
 $xsltParemters = array();
 $xsltParemters['cheminImages'] = eZURLOperator::eZImage($tpl, 'sit/', '');
+$xsltParemters['cheminImagesDesign'] = $cheminImagesDesign ? $cheminImagesDesign : $xsltParemters['cheminImages'];
 $xsltParemters['cheminRacineSite'] = $cheminRacineSite;
 
 $xsltParemters['triEnCours'] = $triEnCours;
