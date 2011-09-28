@@ -12,14 +12,6 @@
 	<xsl:include href="inc/rendu_adresse.xsl"/>
 
 	<xsl:template match="/produit">
-		<xsl:if test="string-length($lienPrecedent) &gt; 0">
-			<div style="text-align:right;"><a>
-				<xsl:attribute name="href"><xsl:value-of select="$lienPrecedent"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if>#fiche-<xsl:value-of select="@id"/></xsl:attribute>
-				&amp;lt;&amp;lt;&amp;nbsp;<xsl:value-of select="$termeRetourListe"/>
-			</a></div>
-		</xsl:if>
-		<br/>
-	
 		<div style="float:left; width: 326px;">
 			<xsl:if test="count(newPhotos/newPhoto) &gt; 0">
 				<div id="galleria" class="galerie-fiche">
@@ -210,6 +202,7 @@
 			</script>
 			<div id="OSRechercheDetail"><![CDATA[ ]]></div>
 			</xsl:if>
+			
 			<!-- div style="float:left;margin-top:20px;">
 				<img alt="" style="float:right;margin-left:20px"><xsl:attribute name="src"><xsl:value-of select="partenaire/logoPartenaire"/></xsl:attribute></img><xsl:value-of select="$termeInformationProposeePar"/>&amp;nbsp;:<br/><strong><xsl:if test="string-length(partenaire/webPartenaire) &gt; 0"><a target="_blank"><xsl:attribute name="href"><xsl:value-of select="partenaire/webPartenaire"/></xsl:attribute><xsl:value-of select="partenaire/intPartenaire"/></a></xsl:if><xsl:if test="string-length(partenaire/webPartenaire) = 0"><xsl:value-of select="partenaire/intPartenaire"/></xsl:if></strong>
 			</div-->
@@ -246,6 +239,7 @@
 				</xsl:if>
 			</p>
 			<p class="clear" style="margin-bottom:5px;"></p>
+			
 			<div style="margin:0px 0px 20px 10px">
 				<xsl:for-each select="adresses/adresse[@type='produit']">
 					<div style="padding:15px;background-color:#EEEEEE;">
@@ -379,6 +373,19 @@
 				</td></tr>
 			</table>
 		</div>
+		
+		<xsl:if test="string-length($lienPrecedent) &gt; 0">
+			<div style="text-align:right;"><a>
+				<xsl:attribute name="href"><xsl:value-of select="$lienPrecedent"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if>#fiche-<xsl:value-of select="@id"/></xsl:attribute>
+				&amp;lt;&amp;lt;&amp;nbsp;<xsl:value-of select="$termeRetourListe"/>
+			</a></div>
+		</xsl:if>
+		
+		<div class="float-d" style="margin-bottom:10px;">
+			<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pubid=xa-4db82bbb1279e354"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+			<!-- deja present dans le menu pied de page <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4db82bbb1279e354"></script> -->
+		</div>
+		
 		<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
 	</xsl:template>
 </xsl:stylesheet>

@@ -12,7 +12,6 @@
 	<xsl:include href="inc/rendu_adresse.xsl"/>
 
 	<xsl:template match="/produit">
-	
 		<div style="float:left; width: 326px;">
 			<xsl:if test="count(newPhotos/newPhoto) &gt; 0">
 				<div id="galleria" class="galerie-fiche">
