@@ -38,7 +38,9 @@
 								<span><xsl:value-of select="intitule"/></span>
 							</a>
 						</h3>
-
+						<ul class="ss-titre-bis">
+							<li class="last" style="padding: 0 !important;"><xsl:value-of select="ville/intituleVille"/></li>
+						</ul>
 						<a>
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 							<img alt="">
