@@ -14,7 +14,7 @@
 	<xsl:variable name="nbPagesMax" select="5"/>
 	<xsl:include href="inc/pagination.xsl"/>
 
-	<xsl:include href="inc/periodes_ouverture.xsl"/>
+	<xsl:include href="inc/periodes_ouverture_mise_en_avant.xsl"/>
 
 	<xsl:template match="/">
 		
@@ -32,13 +32,15 @@
 							<xsl:attribute name="class">first</xsl:attribute>
 						</xsl:if>
 						<a><xsl:attribute name="id">fiche-<xsl:value-of select="@id"/></xsl:attribute><![CDATA[ ]]></a>
-						<h3 class="bloc-liste-h3">
+						<h3 class="bloc-liste-h3" style="margin-bottom:0px !important;">
 							<a>
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 								<span><xsl:value-of select="intitule"/></span>
 							</a>
 						</h3>
-
+						<div style="margin-bottom:5px;">
+						<xsl:call-template name="periodes-ouverture"/>
+						</div>
 						<a>
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 							<img alt="">
