@@ -188,11 +188,11 @@
 					mapopinfiche();
 				]]>
 			</script>
+			<br /><br />
 			
 			<!-- div style="float:left;margin-top:20px;">
 				<img alt="" style="float:right;margin-left:20px"><xsl:attribute name="src"><xsl:value-of select="partenaire/logoPartenaire"/></xsl:attribute></img><xsl:value-of select="$termeInformationProposeePar"/>&amp;nbsp;:<br/><strong><xsl:if test="string-length(partenaire/webPartenaire) &gt; 0"><a target="_blank"><xsl:attribute name="href"><xsl:value-of select="partenaire/webPartenaire"/></xsl:attribute><xsl:value-of select="partenaire/intPartenaire"/></a></xsl:if><xsl:if test="string-length(partenaire/webPartenaire) = 0"><xsl:value-of select="partenaire/intPartenaire"/></xsl:if></strong>
-			</div>
-			<br /-->
+			</div-->
 			
 			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='son']) &gt; 0">
 				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='son' and string-length(codeHtmlLienMultimedia) &gt; 0]">
@@ -333,10 +333,11 @@
 				</td></tr>
 			</table>
 		</div>
-		<p class="clear"></p>
-		<p class="space"></p>
+		<p class="clear"><![CDATA[ ]]></p>
+		<p class="space"><![CDATA[ ]]></p>
+		
 		<xsl:if test="string-length($lienPrecedent) &gt; 0">
-			<div style="text-align:right"><a>
+			<div style="text-align:right;"><a>
 				<xsl:attribute name="href"><xsl:value-of select="$lienPrecedent"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if>#fiche-<xsl:value-of select="@id"/></xsl:attribute>
 				&amp;lt;&amp;lt;&amp;nbsp;<xsl:value-of select="$termeRetourListe"/>
 			</a></div>
@@ -347,7 +348,6 @@
 			<!-- deja present dans le menu pied de page <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4db82bbb1279e354"></script> -->
 		</div>
 		
-		<p class="clear"></p>
 		<div style="clear:both"><span style="display:none">&amp;nbsp;</span></div>
 	</xsl:template>
 </xsl:stylesheet>
