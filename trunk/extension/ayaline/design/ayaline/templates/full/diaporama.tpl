@@ -12,7 +12,7 @@
 
 {if $diaporamas|count}
 	{* Récupération des diapos du diaporama *}
-	{def $diapos1=fetch('content','list',hash('parent_node_id',$diaporamas.0.main_node_id, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
+	{def $diapos1=fetch('content','list',hash('parent_node_id',$diaporamas.0.main_node_id, 'sort_by', $diaporamas.0.sort_array, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
 	
 	{* Si le diaporama n'est pas vide *}
 	{if $diapos1|count}
@@ -36,7 +36,7 @@
 	{/if}
 	{if $diaporamas|count}
 		{* Récupération des diapos du diaporama *}
-		{def $diapos2=fetch('content','list',hash('parent_node_id', $diaporamas.0.main_node_id, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
+		{def $diapos2=fetch('content','list',hash('parent_node_id', $diaporamas.0.main_node_id, 'sort_by', $diaporamas.0.sort_array, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
 		
 		{* Si le diaporama n'est pas vide *}
 		{if $diapos2|count}
@@ -297,7 +297,9 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 		{/foreach}
 		{* si pas d'image par défaut pour la saison, on prend alors l'image par défaut de type 'image_entete_defaut' *}
 		{if eq(0, $img_attribute|count)}
-			{def $defaultImg = fetch( 'content', 'tree', hash( 'parent_node_id', ezini('NodeSettings','MediaRootNode','content.ini'),
+			{def $neudCourant = fetch( 'content', 'node', hash( 'node_id', ezini('NodeSettings','MediaRootNode','content.ini') ) )}
+			{def $defaultImg = fetch( 'content', 'tree', hash( 'parent_node_id', $neudCourant.node_id,
+																'sort_by', $neudCourant.sort_array,
 																'class_filter_type', 'include',
            														'class_filter_array', array('image_entete_defaut') ) )}
            	
