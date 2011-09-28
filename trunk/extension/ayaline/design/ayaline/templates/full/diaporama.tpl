@@ -1,6 +1,8 @@
 {def $url = ""}
 
-
+{if is_set($previousNode)}
+	{set $cNode = $previousNode}
+{/if}
 {*def $diaporamas="" commenté car déclaré dans pagelayout et réutilisé sans parts/diaporama.tpl *}
 
 {def $diapos = ""}
@@ -297,9 +299,7 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 		{/foreach}
 		{* si pas d'image par défaut pour la saison, on prend alors l'image par défaut de type 'image_entete_defaut' *}
 		{if eq(0, $img_attribute|count)}
-			{def $neudCourant = fetch( 'content', 'node', hash( 'node_id', ezini('NodeSettings','MediaRootNode','content.ini') ) )}
-			{def $defaultImg = fetch( 'content', 'tree', hash( 'parent_node_id', $neudCourant.node_id,
-																'sort_by', $neudCourant.sort_array,
+			{def $defaultImg = fetch( 'content', 'tree', hash( 'parent_node_id', ezini('NodeSettings','MediaRootNode','content.ini'),
 																'class_filter_type', 'include',
            														'class_filter_array', array('image_entete_defaut') ) )}
            	
