@@ -130,7 +130,6 @@ $previousNode = null;
 if ($cheminCategorie) {
 	$cheminCategorie = explode("~", $cheminCategorie);
 	$contentRootNode = $contentIni->variable('NodeSettings','ContentRootNode');
-	$contentRootNode = $contentRootNode ? $contentRootNode : $rootNode;
 	foreach ($cheminCategorie as $cheminCategoriePart) {
 		$currentCheminCategorie .= ($currentCheminCategorie ? "/" : "").$cheminCategoriePart;
 		$currentNode = eZFunctionHandler::execute(
@@ -142,7 +141,7 @@ if ($cheminCategorie) {
 		if ($currentNode) {
 			$previousNode = $currentNode;
 			$nodeExist = true;
-			if ($currentNode->attribute('node_id') != $rootNode && $contentRootNode && $contentRootNode != $rootNode) {
+			if ($currentNode->attribute('node_id') != $rootNode && (!$contentRootNode || $contentRootNode != $rootNode)) {
 				$modulePath[] = array('url' => $currentNode->attribute('url_alias'), 'url_alias' => $currentNode->attribute('url_alias'), 'text' => $currentNode->attribute('name'), 'node_id' => $currentNode->attribute('node_id'));
 			}
 		}
