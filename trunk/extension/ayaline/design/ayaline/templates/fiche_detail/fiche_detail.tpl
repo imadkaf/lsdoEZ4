@@ -1,5 +1,5 @@
 {def $nbPubs = 3}
-
+{*$previousNode.name*}
 <div class="bloc-left-bis">
 	<div class="bloc-left-in-bis">
 		{sit_recherche()}
