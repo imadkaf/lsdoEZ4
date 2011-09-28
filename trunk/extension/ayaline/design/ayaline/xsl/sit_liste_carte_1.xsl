@@ -70,7 +70,7 @@
 														<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
 													</img>
 												</xsl:if><![CDATA['+
-											'<span class="float-d">]]><xsl:value-of select="ville/intituleVille"/><![CDATA[</span><br />'+
+											'<span class="float-d">]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="ville/intituleVille"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><![CDATA[</span><br />'+
 											']]><xsl:if test="string-length(commentaires/commentaire1) &gt; 0">
 													<xsl:variable name="commentaire1Nettoye">
 														<xsl:call-template name="string-replace-all">
