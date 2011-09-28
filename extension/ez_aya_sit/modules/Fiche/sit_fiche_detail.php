@@ -129,6 +129,8 @@ $nodeExist = false;
 $previousNode = null;
 if ($cheminCategorie) {
 	$cheminCategorie = explode("~", $cheminCategorie);
+	$contentRootNode = $contentIni->variable('NodeSettings','ContentRootNode');
+	$contentRootNode = $contentRootNode ? $contentRootNode : $rootNode;
 	foreach ($cheminCategorie as $cheminCategoriePart) {
 		$currentCheminCategorie .= ($currentCheminCategorie ? "/" : "").$cheminCategoriePart;
 		$currentNode = eZFunctionHandler::execute(
@@ -137,11 +139,12 @@ if ($cheminCategorie) {
 			array ('node_path' => $currentCheminCategorie)
 		);
 
-		$contentRootNode = $contentIni->variable('NodeSettings','ContentRootNode');
-		if ($currentNode && $currentNode->attribute('node_id') != $rootNode && $contentRootNode && $contentRootNode != $rootNode) {
-			$nodeExist = true;
+		if ($currentNode) {
 			$previousNode = $currentNode;
-			$modulePath[] = array('url' => $currentNode->attribute('url_alias'), 'url_alias' => $currentNode->attribute('url_alias'), 'text' => $currentNode->attribute('name'), 'node_id' => $currentNode->attribute('node_id'));
+			$nodeExist = true;
+			if ($currentNode->attribute('node_id') != $rootNode && $contentRootNode && $contentRootNode != $rootNode) {
+				$modulePath[] = array('url' => $currentNode->attribute('url_alias'), 'url_alias' => $currentNode->attribute('url_alias'), 'text' => $currentNode->attribute('name'), 'node_id' => $currentNode->attribute('node_id'));
+			}
 		}
 	}
 }
@@ -288,7 +291,6 @@ $contenuBloc = utf8_decode(preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $co
 $contenuBloc = "\n".preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc)."\n";
 
 $tpl->setVariable('idFicheEnCours', $idFiche);
-
 $tpl->setVariable('contenuBloc', $contenuBloc);
 $tpl->setVariable('previousNode', $previousNode);
 $tpl->setVariable('view_parameters', $Params['UserParameters']);
