@@ -14,8 +14,7 @@
 
 {if $diaporamas|count}
 	{* Récupération des diapos du diaporama *}
-	{def $diapos1=fetch('content','list',hash('parent_node_id',$diaporamas.0.main_node_id, 'sort_by', $diaporamas.0.sort_array, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
-	
+	{def $diapos1=fetch('content','list',hash('parent_node_id',$diaporamas.0.main_node_id, 'sort_by', $diaporamas.0.main_node.sort_array, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
 	{* Si le diaporama n'est pas vide *}
 	{if $diapos1|count}
 		{set $diapos = $diapos1}
@@ -38,7 +37,7 @@
 	{/if}
 	{if $diaporamas|count}
 		{* Récupération des diapos du diaporama *}
-		{def $diapos2=fetch('content','list',hash('parent_node_id', $diaporamas.0.main_node_id, 'sort_by', $diaporamas.0.sort_array, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
+		{def $diapos2=fetch('content','list',hash('parent_node_id', $diaporamas.0.main_node_id, 'sort_by', $diaporamas.0.main_node.sort_array, 'class_filter_type' , 'include', 'class_filter_array' , array('diapo')))}
 		
 		{* Si le diaporama n'est pas vide *}
 		{if $diapos2|count}
