@@ -206,11 +206,16 @@
 			</xsl:if>
 			<br />
 			
+			<!-- div style="float:left;margin-top:20px;">
+				<img alt="" style="float:right;margin-left:20px"><xsl:attribute name="src"><xsl:value-of select="partenaire/logoPartenaire"/></xsl:attribute></img><xsl:value-of select="$termeInformationProposeePar"/>&amp;nbsp;:<br/><strong><xsl:if test="string-length(partenaire/webPartenaire) &gt; 0"><a target="_blank"><xsl:attribute name="href"><xsl:value-of select="partenaire/webPartenaire"/></xsl:attribute><xsl:value-of select="partenaire/intPartenaire"/></a></xsl:if><xsl:if test="string-length(partenaire/webPartenaire) = 0"><xsl:value-of select="partenaire/intPartenaire"/></xsl:if></strong>
+			</div-->
+			
 			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='son']) &gt; 0">
 				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='son' and string-length(codeHtmlLienMultimedia) &gt; 0]">
 					<div style="margin-top: 20px; display: inline-block;"><xsl:value-of select="codeHtmlLienMultimedia"/></div>
 				</xsl:for-each>
 			</xsl:if>
+			
 			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='video']) &gt; 0">
 				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='video' and string-length(codeHtmlLienMultimedia) &gt; 0]">
 					<div style="margin-top: 20px; display: inline-block;"><xsl:value-of select="codeHtmlLienMultimedia"/></div>
