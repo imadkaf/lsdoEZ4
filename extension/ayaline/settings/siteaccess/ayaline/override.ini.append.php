@@ -844,4 +844,10 @@ Source=content/view/tiny.tpl
 MatchFile=tiny_image.tpl
 Subdir=templates
 Match[class_identifier]=image
+
+[embed_embed_code]
+Source=content/view/embed.tpl
+MatchFile=embed/content/embed_code.tpl
+Subdir=templates
+Match[class_identifier]=embed_code
 */ ?>
