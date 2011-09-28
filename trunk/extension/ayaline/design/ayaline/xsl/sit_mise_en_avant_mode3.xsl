@@ -46,7 +46,7 @@
 								</a>
 								
 								<p style="font-size: 11px;">
-									<xsl:if test="adresses/adresse[@type='produit']/ligne1 != ''">
+									<!-- xsl:if test="adresses/adresse[@type='produit']/ligne1 != ''">
 										<xsl:value-of select="adresses/adresse[@type='produit']/ligne1"/>
 										<xsl:if test="adresses/adresse[@type='produit']/ligne2 != ''">
 											<br /><xsl:value-of select="adresses/adresse[@type='produit']/ligne2"/>
@@ -54,8 +54,8 @@
 												<br /><xsl:value-of select="adresses/adresse[@type='produit']/ligne3"/>
 											</xsl:if>
 										</xsl:if>
-									</xsl:if>
-									- <xsl:value-of select="ville/intituleVille"/>
+									</xsl:if-->
+									<xsl:value-of select="ville/intituleVille"/>
 								</p>
 								
 								<xsl:call-template name="periodes-ouverture"/>
