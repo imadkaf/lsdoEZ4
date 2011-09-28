@@ -467,8 +467,6 @@
 					</xsl:choose>
 				</div>
 			</div>
-
-
 		</div>
 		
 		<p class="clear"></p>
@@ -485,6 +483,6 @@
 			<!-- deja present dans le menu pied de page <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4db82bbb1279e354"></script> -->
 		</div>
 		
-		<p class="clear"></p>
+		<p class="clear"><![CDATA[ ]]></p>
 	</xsl:template>
 </xsl:stylesheet>

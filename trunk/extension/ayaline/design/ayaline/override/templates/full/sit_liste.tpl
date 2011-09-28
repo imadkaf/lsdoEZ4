@@ -54,8 +54,7 @@
 	</div>
 	
 	<div class="bloc-right-in-bis">
-		{*<div class="bloc-type{if eq($affichageListeSIT.data_map.googlemaps.data_int, '4')} padding-lr{/if}">*}
-		<div class="bloc-type padding-lr">
+		<div class="bloc-type{if ne($node.data_map.categorie.data_text, '4')} padding-lr{/if}">
 			{* Récuperation des variables session *}
 			{if ezhttp('saison', 'session', 'hasVariable')}
 				{def $saisonId = ezhttp('saison', 'session')}
@@ -67,11 +66,6 @@
 			{else}
 				{def $topicId = array(ezini('NodeSettings','TopicDefaut','content.ini'))}
 			{/if}
-			
-			{*def $affichageListeSIT = fetch( 'content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id,
-																							'attribute_identifier', 'affichage*liste*sit/liaison_liste' ) )*}
-			{* !! 20110922 !! suppression des affichage*liste*sit, tout est au niveau de la liste SIT directement *}
-			{def $affichageListeSIT = $node}
 			
 			<h2 class="bloc-liste-h2">
 				{def $titreListe = ''}
@@ -106,25 +100,25 @@
 						{/if}
 					{/foreach}
 				{else}
-					{set $titreListe = $affichageListeSIT.name|wash}
+					{set $titreListe = $node.name|wash}
 				{/if}
 				{if ne($titreListe, '')}
 					{$titreListe}
 				{else} {* Cas ou la rubrique n'est pas associee a la saison selectionnee *}
-					{$affichageListeSIT.name|wash}
+					{$node.name|wash}
 				{/if}
 			</h2>
 			<p class="clear"></p>
 			
-			{if ne($affichageListeSIT.data_map.short_description.content, '')}
+			{if ne($node.data_map.short_description.content, '')}
 				<p class="chapeau-bis">
-					{attribute_view_gui attribute=$affichageListeSIT.data_map.short_description}
+					{attribute_view_gui attribute=$node.data_map.short_description}
 				</p>
 			{else}
 				<br />
 			{/if}
 			
-			{if eq($affichageListeSIT.data_map.googlemaps.data_int, '1')}
+			{if eq($node.data_map.googlemaps.data_int, '1')}
 				{if eq($node.data_map.categorie.data_text, '1')}
 					{sit_liste('sit_liste_carte_1')}
 				{else}
