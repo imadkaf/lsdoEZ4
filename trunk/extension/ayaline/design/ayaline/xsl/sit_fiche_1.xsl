@@ -281,18 +281,7 @@
 				</xsl:choose>
 			</p>
 			<p class="lien-bas">
-				<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite) &gt; 0">
-					<a class="reserver">
-					<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite"/></xsl:attribute>
-					R&amp;eacute;server
-					</a>
-				</xsl:if>
-				<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
-					<a class="dispos">
-					<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
-					Dispos
-					</a>
-				</xsl:if>
+				<xsl:call-template name="boutons-reserver-liste"/>				
 			</p>
 			<p class="clear"><![CDATA[ ]]></p>
 			<br />
