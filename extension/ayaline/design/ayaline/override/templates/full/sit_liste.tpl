@@ -119,15 +119,7 @@
 			{/if}
 			
 			{if eq($node.data_map.googlemaps.data_int, '1')}
-				{if eq($node.data_map.categorie.data_text, '1')}
-					{sit_liste('sit_liste_carte_1')}
-				{else}
-					{if eq($node.data_map.categorie.data_text, '4')}
-						{sit_liste('sit_liste_carte_4')}
-					{else}
-						{sit_liste('sit_liste_carte')}
-					{/if}
-				{/if}
+				{sit_liste('sit_liste_carte')}
 			{/if}
 			
 			{sit_liste()}
