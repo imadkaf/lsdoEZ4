@@ -11,6 +11,7 @@
 	<xsl:include href="inc/periodes_ouverture_1.xsl"/>
 	<xsl:include href="inc/display_dispos.xsl"/>
 	<xsl:include href="inc/rendu_adresse.xsl"/>
+	<xsl:include href="inc/bouton_reserver.xsl"/>
 
 	<xsl:template match="/produit">
 		<div style="float:left; width: 326px;">
@@ -236,18 +237,7 @@
 		<div style="float:left; width: 310px;">
 			<h2 class="bloc-detail-h2" style="width: 295px; margin-left:10px;"><xsl:value-of select="intitule"/></h2>
 			<p class="lien-bas" style="margin-right:7px;">
-				<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite) &gt; 0">
-					<a class="reserver">
-					<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite"/></xsl:attribute>
-					R&amp;eacute;server
-					</a>
-				</xsl:if>
-				<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
-					<a class="dispos">
-					<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
-					Dispos
-					</a>
-				</xsl:if>
+				<xsl:call-template name="boutons-reserver-liste"/>
 			</p>
 			<p class="clear" style="margin-bottom:5px;"></p>
 			

@@ -15,6 +15,7 @@
 	<xsl:include href="inc/pagination.xsl"/>
 
 	<xsl:include href="inc/periodes_ouverture.xsl"/>
+	<xsl:include href="inc/bouton_reserver.xsl"/>
 
 	<xsl:template match="/">
 	
