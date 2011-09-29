@@ -35,5 +35,10 @@ Subdir=templates
 Match[class_identifier]=rubric
 
 #Embed
+[image_embed]
+Source=content/view/embed.tpl
+MatchFile=embed/image.tpl
+Subdir=templates
+Match[class_identifier]=image
 
 */ ?>
