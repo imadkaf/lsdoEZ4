@@ -375,25 +375,25 @@ class eZSitOperators {
 
 			$sitModalitesRapides = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesRapides)));
 
-			$http->setSessionVariable(sha1("sit_mr_".$lienCourant), $sitModalitesRapides);
+			$http->setSessionVariable("sit_mr_".sha1($lienCourant), $sitModalitesRapides);
 
 			if ($http->hasPostVariable("sit_cinsee")) {
 				$codesInsee = join("|", $http->postVariable("sit_cinsee"));
 			}
 
-			$http->setSessionVariable(sha1("sit_cinsee_".$lienCourant), $codesInsee);
+			$http->setSessionVariable("sit_cinsee_".sha1($lienCourant), $codesInsee);
 
 			if ($http->hasPostVariable("sit_mc")) {
 				$motsCles = $http->postVariable("sit_mc");
 			}
 
-			$http->setSessionVariable(sha1("sit_mc_".$lienCourant), $motsCles);
+			$http->setSessionVariable("sit_mc_".sha1($lienCourant), $motsCles);
 
 			if ($http->hasPostVariable("ouvert_annee")) {
 				$ouvAnnee = $http->postVariable("ouvert_annee");
 			}
 
-			$http->setSessionVariable(sha1("sit_ouv_annee_".$lienCourant), $ouvAnnee);
+			$http->setSessionVariable("sit_ouv_annee_".sha1($lienCourant), $ouvAnnee);
 			
 			if ($http->hasPostVariable("sit_debut_ouv")) {
 				if (preg_match("/^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_debut_ouv"))) {
@@ -402,10 +402,10 @@ class eZSitOperators {
 			}
 
 			if (!$ouvAnnee) {
-				$http->setSessionVariable(sha1("sit_debut_ouv_".$lienCourant), $debutOuv);
+				$http->setSessionVariable("sit_debut_ouv_".sha1($lienCourant), $debutOuv);
 			} else {
-				if ($http->hasSessionVariable(sha1("sit_debut_ouv_".$lienCourant))) {
-					$debutOuv = $http->sessionVariable(sha1("sit_debut_ouv_".$lienCourant));
+				if ($http->hasSessionVariable("sit_debut_ouv_".sha1($lienCourant))) {
+					$debutOuv = $http->sessionVariable("sit_debut_ouv_".sha1($lienCourant));
 				}
 			}
 
@@ -416,10 +416,10 @@ class eZSitOperators {
 			}
 
 			if (!$ouvAnnee) {
-				$http->setSessionVariable(sha1("sit_fin_ouv_".$lienCourant), $finOuv);
+				$http->setSessionVariable("sit_fin_ouv_".sha1($lienCourant), $finOuv);
 			} else {
-				if ($http->hasSessionVariable(sha1("sit_fin_ouv_".$lienCourant))) {
-					$finOuv = $http->sessionVariable(sha1("sit_fin_ouv_".$lienCourant));
+				if ($http->hasSessionVariable("sit_fin_ouv_".sha1($lienCourant))) {
+					$finOuv = $http->sessionVariable("sit_fin_ouv_".sha1($lienCourant));
 				}
 			}
 
@@ -429,7 +429,7 @@ class eZSitOperators {
 				}
 			}
 
-			$http->setSessionVariable(sha1("sit_debut_dispo_".$lienCourant), $debutDispo);
+			$http->setSessionVariable("sit_debut_dispo_".sha1($lienCourant), $debutDispo);
 
 			if ($http->hasPostVariable("sit_duree_dispo")) {
 				if (preg_match("/^[0-9]+$|^$/", $http->postVariable("sit_duree_dispo")) && $http->postVariable("sit_duree_dispo") > 0) {
@@ -437,31 +437,31 @@ class eZSitOperators {
 				}
 			}
 
-			$http->setSessionVariable(sha1("sit_duree_dispo_".$lienCourant), $dureeDispo);
+			$http->setSessionVariable("sit_duree_dispo_".sha1($lienCourant), $dureeDispo);
 		} else if ($rechercheEnCours == "oui") {
-			if ($http->hasSessionVariable(sha1("sit_mr_".$lienCourant))) {
-				$sitModalitesRapides = $http->sessionVariable(sha1("sit_mr_".$lienCourant));
+			if ($http->hasSessionVariable("sit_mr_".sha1($lienCourant))) {
+				$sitModalitesRapides = $http->sessionVariable("sit_mr_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_cinsee_".$lienCourant))) {
-				$codesInsee = $http->sessionVariable(sha1("sit_cinsee_".$lienCourant));
+			if ($http->hasSessionVariable("sit_cinsee_".sha1($lienCourant))) {
+				$codesInsee = $http->sessionVariable("sit_cinsee_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_mc_".$lienCourant))) {
-				$motsCles = $http->sessionVariable(sha1("sit_mc_".$lienCourant));
+			if ($http->hasSessionVariable("sit_mc_".sha1($lienCourant))) {
+				$motsCles = $http->sessionVariable("sit_mc_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_ouv_annee_".$lienCourant))) {
-				$ouvAnnee = $http->sessionVariable(sha1("sit_ouv_annee_".$lienCourant));
+			if ($http->hasSessionVariable("sit_ouv_annee_".sha1($lienCourant))) {
+				$ouvAnnee = $http->sessionVariable("sit_ouv_annee_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_debut_ouv_".$lienCourant))) {
-				$debutOuv = $http->sessionVariable(sha1("sit_debut_ouv_".$lienCourant));
+			if ($http->hasSessionVariable("sit_debut_ouv_".sha1($lienCourant))) {
+				$debutOuv = $http->sessionVariable("sit_debut_ouv_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_fin_ouv_".$lienCourant))) {
-				$finOuv = $http->sessionVariable(sha1("sit_fin_ouv_".$lienCourant));
+			if ($http->hasSessionVariable("sit_fin_ouv_".sha1($lienCourant))) {
+				$finOuv = $http->sessionVariable("sit_fin_ouv_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_debut_dispo_".$lienCourant))) {
-				$debutDispo = $http->sessionVariable(sha1("sit_debut_dispo_".$lienCourant));
+			if ($http->hasSessionVariable("sit_debut_dispo_".sha1($lienCourant))) {
+				$debutDispo = $http->sessionVariable("sit_debut_dispo_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_duree_dispo_".$lienCourant))) {
-				$dureeDispo = $http->sessionVariable(sha1("sit_duree_dispo_".$lienCourant));
+			if ($http->hasSessionVariable("sit_duree_dispo_".sha1($lienCourant))) {
+				$dureeDispo = $http->sessionVariable("sit_duree_dispo_".sha1($lienCourant));
 			}
 		}
 		//echo '$debutOuv '.$saisonId;
@@ -508,8 +508,8 @@ class eZSitOperators {
 					$debutOuv = date("d/m/Y", $now);
 				}
 			}
-			$http->setSessionVariable(sha1("sit_debut_ouv_".$lienCourant), $debutOuv);
-			$http->setSessionVariable(sha1("sit_fin_ouv_".$lienCourant), $finOuv);
+			$http->setSessionVariable("sit_debut_ouv_".sha1($lienCourant), $debutOuv);
+			$http->setSessionVariable("sit_fin_ouv_".sha1($lienCourant), $finOuv);
 		}
 
 		$sitParamsString = $categorie ? "&idC=".$categorie : "";
@@ -763,25 +763,25 @@ class eZSitOperators {
 
 			$sitModalitesRapides = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesRapides)));
 
-			$http->setSessionVariable(sha1("sit_mr_".$lienCourant), $sitModalitesRapides);
+			$http->setSessionVariable("sit_mr_".sha1($lienCourant), $sitModalitesRapides);
 
 			if ($http->hasPostVariable("sit_cinsee")) {
 				$codesInsee = join("|", $http->postVariable("sit_cinsee"));
 			}
 
-			$http->setSessionVariable(sha1("sit_cinsee_".$lienCourant), $codesInsee);
+			$http->setSessionVariable("sit_cinsee_".sha1($lienCourant), $codesInsee);
 
 			if ($http->hasPostVariable("sit_mc")) {
 				$motsCles = $http->postVariable("sit_mc");
 			}
 
-			$http->setSessionVariable(sha1("sit_mc_".$lienCourant), $motsCles);
+			$http->setSessionVariable("sit_mc_".sha1($lienCourant), $motsCles);
 
 			if ($http->hasPostVariable("ouvert_annee")) {
 				$ouvAnnee = $http->postVariable("ouvert_annee");
 			}
 
-			$http->setSessionVariable(sha1("sit_ouv_annee_".$lienCourant), $ouvAnnee);
+			$http->setSessionVariable("sit_ouv_annee_".sha1($lienCourant), $ouvAnnee);
 			
 			if ($http->hasPostVariable("sit_debut_ouv")) {
 				if (preg_match("/^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_debut_ouv"))) {
@@ -790,10 +790,10 @@ class eZSitOperators {
 			}
 
 			if (!$ouvAnnee) {
-				$http->setSessionVariable(sha1("sit_debut_ouv_".$lienCourant), $debutOuv);
+				$http->setSessionVariable("sit_debut_ouv_".sha1($lienCourant), $debutOuv);
 			} else {
-				if ($http->hasSessionVariable(sha1("sit_debut_ouv_".$lienCourant))) {
-					$debutOuv = $http->sessionVariable(sha1("sit_debut_ouv_".$lienCourant));
+				if ($http->hasSessionVariable("sit_debut_ouv_".sha1($lienCourant))) {
+					$debutOuv = $http->sessionVariable("sit_debut_ouv_".sha1($lienCourant));
 				}
 			}
 
@@ -804,10 +804,10 @@ class eZSitOperators {
 			}
 
 			if (!$ouvAnnee) {
-				$http->setSessionVariable(sha1("sit_fin_ouv_".$lienCourant), $finOuv);
+				$http->setSessionVariable("sit_fin_ouv_".sha1($lienCourant), $finOuv);
 			} else {
-				if ($http->hasSessionVariable(sha1("sit_fin_ouv_".$lienCourant))) {
-					$finOuv = $http->sessionVariable(sha1("sit_fin_ouv_".$lienCourant));
+				if ($http->hasSessionVariable("sit_fin_ouv_".sha1($lienCourant))) {
+					$finOuv = $http->sessionVariable("sit_fin_ouv_".sha1($lienCourant));
 				}
 			}
 
@@ -817,7 +817,7 @@ class eZSitOperators {
 				}
 			}
 
-			$http->setSessionVariable(sha1("sit_debut_dispo_".$lienCourant), $debutDispo);
+			$http->setSessionVariable("sit_debut_dispo_".sha1($lienCourant), $debutDispo);
 
 			if ($http->hasPostVariable("sit_duree_dispo")) {
 				if (preg_match("/^[0-9]+$|^$/", $http->postVariable("sit_duree_dispo")) && $http->postVariable("sit_duree_dispo") > 0) {
@@ -825,31 +825,31 @@ class eZSitOperators {
 				}
 			}
 
-			$http->setSessionVariable(sha1("sit_duree_dispo_".$lienCourant), $dureeDispo);
+			$http->setSessionVariable("sit_duree_dispo_".sha1($lienCourant), $dureeDispo);
 		} else if ($rechercheEnCours == "oui") {
-			if ($http->hasSessionVariable(sha1("sit_mr_".$lienCourant))) {
-				$sitModalitesRapides = $http->sessionVariable(sha1("sit_mr_".$lienCourant));
+			if ($http->hasSessionVariable("sit_mr_".sha1($lienCourant))) {
+				$sitModalitesRapides = $http->sessionVariable("sit_mr_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_cinsee_".$lienCourant))) {
-				$codesInsee = $http->sessionVariable(sha1("sit_cinsee_".$lienCourant));
+			if ($http->hasSessionVariable("sit_cinsee_".sha1($lienCourant))) {
+				$codesInsee = $http->sessionVariable("sit_cinsee_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_mc_".$lienCourant))) {
-				$motsCles = $http->sessionVariable(sha1("sit_mc_".$lienCourant));
+			if ($http->hasSessionVariable("sit_mc_".sha1($lienCourant))) {
+				$motsCles = $http->sessionVariable("sit_mc_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_ouv_annee_".$lienCourant))) {
-				$ouvAnnee = $http->sessionVariable(sha1("sit_ouv_annee_".$lienCourant));
+			if ($http->hasSessionVariable("sit_ouv_annee_".sha1($lienCourant))) {
+				$ouvAnnee = $http->sessionVariable("sit_ouv_annee_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_debut_ouv_".$lienCourant))) {
-				$debutOuv = $http->sessionVariable(sha1("sit_debut_ouv_".$lienCourant));
+			if ($http->hasSessionVariable("sit_debut_ouv_".sha1($lienCourant))) {
+				$debutOuv = $http->sessionVariable("sit_debut_ouv_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_fin_ouv_".$lienCourant))) {
-				$finOuv = $http->sessionVariable(sha1("sit_fin_ouv_".$lienCourant));
+			if ($http->hasSessionVariable("sit_fin_ouv_".sha1($lienCourant))) {
+				$finOuv = $http->sessionVariable("sit_fin_ouv_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_debut_dispo_".$lienCourant))) {
-				$debutDispo = $http->sessionVariable(sha1("sit_debut_dispo_".$lienCourant));
+			if ($http->hasSessionVariable("sit_debut_dispo_".sha1($lienCourant))) {
+				$debutDispo = $http->sessionVariable("sit_debut_dispo_".sha1($lienCourant));
 			}
-			if ($http->hasSessionVariable(sha1("sit_duree_dispo_".$lienCourant))) {
-				$dureeDispo = $http->sessionVariable(sha1("sit_duree_dispo_".$lienCourant));
+			if ($http->hasSessionVariable("sit_duree_dispo_".sha1($lienCourant))) {
+				$dureeDispo = $http->sessionVariable("sit_duree_dispo_".sha1($lienCourant));
 			}
 		}
 		if ($saisonId !== null && ($debutOuv == '' || $ouvAnnee)) {
@@ -895,8 +895,8 @@ class eZSitOperators {
 					$debutOuv = date("d/m/Y", $now);
 				}
 			}
-			$http->setSessionVariable(sha1("sit_debut_ouv_".$lienCourant), $debutOuv);
-			$http->setSessionVariable(sha1("sit_fin_ouv_".$lienCourant), $finOuv);
+			$http->setSessionVariable("sit_debut_ouv_".sha1($lienCourant), $debutOuv);
+			$http->setSessionVariable("sit_fin_ouv_".sha1($lienCourant), $finOuv);
 		}
 
 		if ($sitModalitesRapides) {
@@ -1204,64 +1204,6 @@ class eZSitOperators {
 				$sitParams['sort'] .= ",".(strlen($idCritereTri) > 9 ? "m" : (preg_match("/^\\d+$/", $idCritereTri) ? "c" : "")).$idCritereTri;
 				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
 			}
-		}
-		
-		if ($saisonId !== null) {
-			if ($sitIni->hasVariable('Saisons', 'Printemps') && $saisonId == $sitIni->variable('Saisons','Printemps')) {
-				if ($sitIni->hasVariable('Saisons','DebutPrintemps')) {
-					$debutOuv=$sitIni->variable('Saisons','DebutPrintemps').'/'.date('Y');
-				}
-				if ($sitIni->hasVariable('Saisons','FinPrintemps')) {
-					$finOuv=$sitIni->variable('Saisons','FinPrintemps').'/'.date('Y');
-				}
-			}
-			if ($sitIni->hasVariable('Saisons', 'Ete') && $saisonId == $sitIni->variable('Saisons','Ete')) {
-				if ($sitIni->hasVariable('Saisons','DebutEte')) {
-					$debutOuv=$sitIni->variable('Saisons','DebutEte').'/'.date('Y');
-				}
-				if ($sitIni->hasVariable('Saisons','FinEte')) {
-					$finOuv=$sitIni->variable('Saisons','FinEte').'/'.date('Y');
-				}
-			}
-			if ($sitIni->hasVariable('Saisons', 'Automne') && $saisonId == $sitIni->variable('Saisons','Automne')) {
-				if ($sitIni->hasVariable('Saisons','DebutAutomne')) {
-					$debutOuv=$sitIni->variable('Saisons','DebutAutomne').'/'.date('Y');
-				}
-				if ($sitIni->hasVariable('Saisons','FinAutomne')) {
-					$finOuv=$sitIni->variable('Saisons','FinAutomne').'/'.date('Y');
-				}
-			}
-			if ($sitIni->hasVariable('Saisons', 'Hiver') && $saisonId == $sitIni->variable('Saisons','Hiver')) {
-				if ($sitIni->hasVariable('Saisons','DebutHiver')) {
-					$debutOuv=$sitIni->variable('Saisons','DebutHiver').'/'.date('Y');
-				}
-				if ($sitIni->hasVariable('Saisons','FinHiver')) {
-					$finOuv=$sitIni->variable('Saisons','FinHiver').'/'.(date('Y')+1);
-				}
-			}
-			if ($debutOuv && $finOuv) {
-				$now = time();
-				$dateDebutOuv = explode('/', $debutOuv);
-				$dateDebutOuv = mktime(0, 0, 0, $dateDebutOuv[1], $dateDebutOuv[0], $dateDebutOuv[2]);
-				$dateFinOuv = explode('/', $finOuv);
-				$dateFinOuv = mktime(0, 0, 0, $dateFinOuv[1], $dateFinOuv[0], $dateFinOuv[2]);
-				if ($now >= $dateDebutOuv && $now <= $dateDebutOuv) {
-					$debutOuv = date("d/m/Y", $now);
-				}
-			}
-		}
-
-		if ($debutOuv) {
-			$dateDebutOuv = explode('/', $debutOuv);
-			$sitParams['jdo'] = $dateDebutOuv[0];
-			$sitParams['mdo'] = $dateDebutOuv[1];
-			$sitParams['ado'] = $dateDebutOuv[2];
-		}
-		if ($finOuv) {
-			$dateFinOuv = explode('/', $finOuv);
-			$sitParams['jfo'] = $dateFinOuv[0];
-			$sitParams['mfo'] = $dateFinOuv[1];
-			$sitParams['afo'] = $dateFinOuv[2];
 		}
 
 		$parametresDiffusionSupplementaires = $sitMiseEnAvant['parametres_diffusion_supplementaires']->value()->attribute('matrix');

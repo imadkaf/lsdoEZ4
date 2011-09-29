@@ -1,5 +1,14 @@
 {def $timestamp=currentdate()}
 
+{def $cache_hash = array($module_result.uri)|merge(ezhttp().post, ezhttp().get)}
+{foreach ezhttp().session as $session_key => $session_val}
+	{if or($session_key|begins_with('sit_'), $session_key|eq('saison'), $session_key|eq('saison'), $session_key|eq('saison'), and($session_key|eq('eZUserLoggedInID'), $session_val|ne($anonymous_user_id)))}
+		{set $cache_hash = $cache_hash|append($session_val)}
+	{elseif $session_key|eq('topics')}
+		{set $cache_hash = $cache_hash|append($session_val|implode('_'))}
+	{/if}
+{/foreach}
+
 {def $cNode = array()}
 {if is_set($module_result.node_id)}
 	{set $cNode = fetch(content, node, hash(node_id, $module_result.node_id))}
@@ -29,11 +38,15 @@
 {def $i=0}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+{cache-block keys=$cache_hash}
 {include uri="design:header.tpl"}
+{/cache-block}
 	<body>
 		<div id="global-page">
 			<div id="header">
+{cache-block keys=$cache_hash}
 {include uri='design:full/diaporama.tpl'}
+{cache-block}
 				<div class="header-in">
 					<div class="header-content">
 						<h1>
@@ -53,11 +66,11 @@
 								{if ne($current_user.contentobject_id, $anonymous_user_id)}
 									<li style="margin-right: 10px;"><a href={'user/logout'|ezurl}>Déconnexion</a></li>
 								{/if}
-								
+{cache-block keys=$cache_hash}
 	{foreach $rNode.data_map.header_menu.content.main_node.children as $sMenu}
 		<li>{node_view_gui content_node=$sMenu view='menu'}</li>
 	{/foreach}
-	
+{/cache-block}
 {*Gestion des langues*}
 								<li class="langue">
 									<label for="langue" class="none">{"Langue"|i18n("ayaline/langue")}</label>
@@ -117,23 +130,31 @@
 								
 							</div>
 							<div class="clear"></div>
+{cache-block keys=$cache_hash}
 {if $rNode.data_map.main_menu.has_content}
 	{include uri='design:parts/menu_header.tpl'}
 {/if}
+{/cache-block}
 						</div>	
 						<div class="clear"></div>				
 					</div>
 				</div>
+{cache-block keys=$cache_hash}
 {include uri='design:parts/diaporama.tpl'}
+{/cache-block}
 			</div>
 			<div class="clear"></div>
 			{include uri='design:parts/fil_ariane.tpl'}
 			
 			<div class="content">
+{cache-block keys=$cache_hash}
 {$module_result.content}
+{/cache-block}
+{cache-block keys=$cache_hash}
 {include uri="design:page_footer.tpl"}
+{/cache-block}
 			</div>
 		</div>
 	</body>
 </html>
-{undef $cNode $rNode $attributes $nbSaison $saison $curLang $topicsList $nameRubric $i}
+{undef $cNode $rNode $attributes $nbSaison $saison $curLang $topicsList $nameRubric $i $cache_hash}

@@ -1,5 +1,3 @@
-﻿{set-block scope=root variable=cache_ttl}0{/set-block}
-
 {def $nbPubs = 5}
 
 {* Récupération des sous-contenus (3 niveaux en tout) *}
