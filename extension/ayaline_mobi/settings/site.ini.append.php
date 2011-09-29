@@ -11,9 +11,6 @@ MatchOrder=host
 HostMatchMapItems[]=mobi.lsdo.loc;ayaline_mobi
 ForceVirtualHost=true
 
-[ContentSettings]
-ViewCaching=disabled
-
 [TemplateSettings]
 TemplateCache=disabled
 TemplateCompile=disabled
