@@ -191,6 +191,17 @@
 					</div>
 				</div>
 				<div style="clear:both"><![CDATA[ ]]></div>
+				<div>
+					<label for="ouvert_annee">
+						<input type="checkbox" id="ouvert_annee" name="ouvert_annee" value="1">
+							<xsl:attribute name="onclick">if (this.checked) {$('#sit_debut_ouv').val($('#sit_debut_ouv').attr('defaultValue'));$('#sit_fin_ouv').val($('#sit_fin_ouv').attr('defaultValue'));} else {$('#sit_debut_ouv,#sit_fin_ouv').val('');}</xsl:attribute>
+							<xsl:if test="string-length($ouvAnnee) &gt; 0">
+								<xsl:attribute name="checked" select="checked"/>
+							</xsl:if>
+						</input>
+						<xsl:value-of select="$termeOuvertTouteAnnee"/>
+					</label>
+				</div>
 			</div>
 			<xsl:for-each select="criteres/criteresSpecs/critere">
 				<xsl:variable name="idCritere" select="@id"/>
