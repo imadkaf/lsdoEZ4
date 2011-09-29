@@ -32,7 +32,6 @@ TextTranslation=enabled
 [ContentSettings]
 TranslationList=
 
-
 [MailSettings]
 AdminEmail=jmace@ayaline.com
 EmailSender=

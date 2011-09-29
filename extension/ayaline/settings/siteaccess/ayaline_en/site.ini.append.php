@@ -23,16 +23,8 @@ SiteDesign=ayaline
 AdditionalSiteDesignList[]=ayaline_mobi
 AdditionalSiteDesignList[]=base
 
-#[RegionalSettings]
-#Locale=eng-GB
-#ContentObjectLocale=eng-GB
-#SiteLanguageList[]=eng-GB
-#SiteLanguageList[]=fre-FR
-#TextTranslation=enabled
-
 [ContentSettings]
 TranslationList=
-
 
 [MailSettings]
 AdminEmail=jmace@ayaline.com
