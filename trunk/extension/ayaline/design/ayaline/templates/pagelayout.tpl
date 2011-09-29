@@ -46,7 +46,7 @@
 			<div id="header">
 {cache-block keys=$cache_hash}
 {include uri='design:full/diaporama.tpl'}
-{cache-block}
+{/cache-block}
 				<div class="header-in">
 					<div class="header-content">
 						<h1>
