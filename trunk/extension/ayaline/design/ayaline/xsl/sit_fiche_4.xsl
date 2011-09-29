@@ -2,7 +2,8 @@
 <!DOCTYPE xsl:stylesheet>
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="yes" indent="yes"/>
-
+	
+	<xsl:variable name="quot">"</xsl:variable>
 	<xsl:variable name="espace" select="' '"/>
 	<xsl:variable name="apos">'</xsl:variable>
 
@@ -73,7 +74,7 @@
 					    var marker = new google.maps.Marker({
 						    position: latlng, 
 						    map: map,
-							title:"]]><xsl:value-of select="intitule"/><![CDATA["
+							title:"]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$quot"/><xsl:with-param name="by" select="'\&quot;'"/></xsl:call-template><![CDATA["
 						});
 				  	}
 				]]>
