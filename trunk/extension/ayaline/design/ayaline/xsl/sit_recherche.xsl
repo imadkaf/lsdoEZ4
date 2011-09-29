@@ -200,8 +200,8 @@
 						var valDebutOuv = ']]><xsl:value-of select="$debutOuv"/><![CDATA[';
 						var valFinOuv = ']]><xsl:value-of select="$finOuv"/><![CDATA[';
 					]]></script>
-					<label for="ouvert_annee">
-						<input type="checkbox" id="ouvert_annee" name="ouvert_annee" value="1">
+					<label for="sit_ouvert_annee">
+						<input type="checkbox" id="sit_ouvert_annee" name="sit_ouvert_annee" value="1">
 							<xsl:attribute name="onchange">if (this.checked) {jQuery('#sit_debut_ouv,#sit_fin_ouv').val('');} else {jQuery('#sit_debut_ouv').val(valDebutOuv);jQuery('#sit_fin_ouv').val(valFinOuv);}</xsl:attribute>
 							<xsl:if test="string-length($ouvAnnee) &gt; 0">
 								<xsl:attribute name="checked" select="checked"/>
