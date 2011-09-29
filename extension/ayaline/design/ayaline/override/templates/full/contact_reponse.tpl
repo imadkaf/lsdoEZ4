@@ -58,9 +58,9 @@
 				
 					{set-block scope=global variable=title}{'Form %formname'|i18n('design/standard/content/form',,hash('%formname',$node.name|wash))}{/set-block}
 					
-					<h2>Votre message a bien été transmit.</h2><br />
+					<h2>Votre message a bien été transmis.</h2><br />
 					
-					<p>L'équipe d'administration du site "Les Sables d'Olonne" y apportera une réponse dans les meilleurs délais.</p>
+					<p>L'équipe de l'office de tourisme des Sables d'Olonne vous apportera une réponse dans les meilleurs délais.</p>
 				{/default}
 			</div>
 			<br />
