@@ -11,7 +11,7 @@
 				<li class="first"><strong>Changer de<br />saison &gt;</strong></li>
 				<li>
 					<form method="post" action="/saisons/edit/">
-						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/></xsl:attribute></input>
+						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>
 						<input type="hidden" value="0" name="season_id" />
 						<input class="actif" type="image">
 							<xsl:attribute name="src" alt="Automne"><xsl:value-of select="$cheminImagesDesign"/>saison0<xsl:if test="$saisonId = '0'">-on</xsl:if>.png</xsl:attribute>
@@ -20,7 +20,7 @@
 				</li>
 				<li>
 					<form method="post" action="/saisons/edit/">
-						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/></xsl:attribute></input>
+						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>
 						<input type="hidden" value="1" name="season_id" />
 						<input class="actif" type="image">
 							<xsl:attribute name="src" alt="Hiver"><xsl:value-of select="$cheminImagesDesign"/>saison1<xsl:if test="$saisonId = '1'">-on</xsl:if>.png</xsl:attribute>
@@ -29,7 +29,7 @@
 				</li>
 				<li>
 					<form method="post" action="/saisons/edit/">
-						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/></xsl:attribute></input>
+						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>
 						<input type="hidden" value="2" name="season_id" />
 						<input class="actif" type="image">
 							<xsl:attribute name="src" alt="Printemps"><xsl:value-of select="$cheminImagesDesign"/>saison2<xsl:if test="$saisonId = '2'">-on</xsl:if>.png</xsl:attribute>
@@ -38,7 +38,7 @@
 				</li>
 				<li class="last">
 					<form method="post" action="/saisons/edit/">
-						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/></xsl:attribute></input>
+						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>
 						<input type="hidden" value="3" name="season_id" />
 						<input class="actif" type="image">
 							<xsl:attribute name="src" alt="Eté"><xsl:value-of select="$cheminImagesDesign"/>saison3<xsl:if test="$saisonId = '3'">-on</xsl:if>.png</xsl:attribute>
@@ -178,7 +178,9 @@
 					<div style="padding-right:3px">
 						<label for="sit_debut_ouv" class="choisissez"><strong><xsl:value-of select="$termeDebutOuv"/></strong></label>
 						<input type="text" id="sit_debut_ouv" name="sit_debut_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier">
-							<xsl:attribute name="value"><xsl:value-of select="$debutOuv"/></xsl:attribute>
+							<xsl:if test="string-length($ouvAnnee) = 0">
+								<xsl:attribute name="value"><xsl:value-of select="$debutOuv"/></xsl:attribute>
+							</xsl:if>
 						</input>
 					</div>
 				</div>
@@ -186,15 +188,21 @@
 					<div style="padding-left:3px">
 						<label for="sit_fin_ouv" class="choisissez"><strong><xsl:value-of select="$termeFinOuv"/></strong></label>
 						<input type="text" id="sit_fin_ouv" name="sit_fin_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier">
-							<xsl:attribute name="value"><xsl:value-of select="$finOuv"/></xsl:attribute>
+							<xsl:if test="string-length($ouvAnnee) = 0">
+								<xsl:attribute name="value"><xsl:value-of select="$finOuv"/></xsl:attribute>
+							</xsl:if>
 						</input>
 					</div>
 				</div>
 				<div style="clear:both"><![CDATA[ ]]></div>
 				<div>
+					<script type="text/javascript"><![CDATA[
+						var valDebutOuv = ']]><xsl:value-of select="$debutOuv"/><![CDATA[';
+						var valFinOuv = ']]><xsl:value-of select="$finOuv"/><![CDATA[';
+					]]></script>
 					<label for="ouvert_annee">
 						<input type="checkbox" id="ouvert_annee" name="ouvert_annee" value="1">
-							<xsl:attribute name="onclick">if (this.checked) {$('#sit_debut_ouv').val($('#sit_debut_ouv').attr('defaultValue'));$('#sit_fin_ouv').val($('#sit_fin_ouv').attr('defaultValue'));} else {$('#sit_debut_ouv,#sit_fin_ouv').val('');}</xsl:attribute>
+							<xsl:attribute name="onchange">if (this.checked) {jQuery('#sit_debut_ouv,#sit_fin_ouv').val('');} else {jQuery('#sit_debut_ouv').val(valDebutOuv);jQuery('#sit_fin_ouv').val(valFinOuv);}</xsl:attribute>
 							<xsl:if test="string-length($ouvAnnee) &gt; 0">
 								<xsl:attribute name="checked" select="checked"/>
 							</xsl:if>
