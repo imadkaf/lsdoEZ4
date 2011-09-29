@@ -15,6 +15,7 @@
 	<xsl:include href="inc/pagination.xsl"/>
 
 	<xsl:include href="inc/periodes_ouverture_liste_manifestations.xsl"/>
+	<xsl:include href="inc/bouton_reserver.xsl"/>
 
 	<xsl:template match="/">
 		
@@ -125,18 +126,7 @@
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 								En savoir plus
 							</a>
-							<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite) &gt; 0">
-								<a class="reserver">
-								<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite"/></xsl:attribute>
-								R&amp;eacute;server
-								</a>
-							</xsl:if>
-							<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
-								<a class="dispos">
-								<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
-								Dispos
-								</a>
-							</xsl:if>
+							<xsl:call-template name="boutons-reserver-liste"/>
 						</p>
 					</li>
 					<xsl:if test="position() mod 2 = 0"><![CDATA[</ul><ul class="list">]]></xsl:if>

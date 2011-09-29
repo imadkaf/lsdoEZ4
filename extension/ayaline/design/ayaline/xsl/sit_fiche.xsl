@@ -11,7 +11,8 @@
 	<xsl:include href="inc/periodes_ouverture_1.xsl"/>
 	<xsl:include href="inc/display_dispos.xsl"/>
 	<xsl:include href="inc/rendu_adresse.xsl"/>
-
+	<xsl:include href="inc/bouton_reserver.xsl"/>
+	
 	<xsl:template match="/produit">
 	
 		<div style="float:left; width: 326px;">
