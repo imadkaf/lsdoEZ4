@@ -25,6 +25,7 @@ AdditionalSiteDesignList[]=base
 
 [ContentSettings]
 TranslationList=
+CachedViewModes=
 
 [MailSettings]
 AdminEmail=jmace@ayaline.com

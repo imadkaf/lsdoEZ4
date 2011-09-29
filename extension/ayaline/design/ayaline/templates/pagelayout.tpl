@@ -1,13 +1,28 @@
-{def $timestamp=currentdate()}
-
-{def $cache_hash = array($module_result.uri)|merge(ezhttp().post, ezhttp().get)}
-{foreach ezhttp().session as $session_key => $session_val}
-	{if or($session_key|begins_with('sit_'), $session_key|eq('saison'), $session_key|eq('saison'), $session_key|eq('saison'), and($session_key|eq('eZUserLoggedInID'), $session_val|ne($anonymous_user_id)))}
-		{set $cache_hash = $cache_hash|append($session_val)}
-	{elseif $session_key|eq('topics')}
-		{set $cache_hash = $cache_hash|append($session_val|implode('_'))}
+{set-block scope=root variable=cache_ttl}0{/set-block}
+{def $cache_hash = array($module_result.uri)}
+{foreach ezhttp().get|merge(ezhttp().post) as $req_param_key => $req_param_val}
+	{if $req_param_val|get_type|begins_with('array')}
+		{foreach $req_param_val as $req_param_val_key => $req_param_val_val}
+			{if $req_param_val_val|get_type|begins_with('array')}
+				{set $cache_hash = $cache_hash|append(concat($req_param_key, '[', $req_param_val_key, ']', '=>', $req_param_val_val|implode('_')))}
+			{else}
+				{set $cache_hash = $cache_hash|append(concat($req_param_key, '[', $req_param_val_key, ']', '=>', $req_param_val_val))}
+			{/if}
+		{/foreach}
+	{else}
+		{set $cache_hash = $cache_hash|append(concat($req_param_key, '=>', $req_param_val))}
 	{/if}
 {/foreach}
+
+{foreach ezhttp().session as $session_key => $session_val}
+	{if or($session_key|begins_with('sit_'), $session_key|eq('saison'), $session_key|eq('saison'), $session_key|eq('saison'), $session_key|eq('eZUserLoggedInID'))}
+		{set $cache_hash = $cache_hash|append(concat($session_key, '=>', $session_val))}
+	{elseif $session_key|eq('topics')}
+		{set $cache_hash = $cache_hash|append(concat($session_key, '=>', $session_val|implode('_')))}
+	{/if}
+{/foreach}
+
+{def $timestamp=currentdate()}
 
 {def $cNode = array()}
 {if is_set($module_result.node_id)}
@@ -38,9 +53,7 @@
 {def $i=0}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-{cache-block keys=$cache_hash}
 {include uri="design:header.tpl"}
-{/cache-block}
 	<body>
 		<div id="global-page">
 			<div id="header">
@@ -87,6 +100,7 @@
 									</fieldset>
 								</li>
 {*Gestion des saisons*}
+{cache-block keys=$cache_hash}
 	{foreach $attributes as $attribute}
 		{if eq($attribute.identifier,ezini('ClassAttributeSettings','ClassAttributeSeasonIdentifier','content.ini') )}
 			{set $nbSaison = $attribute.content.options|count}
@@ -102,6 +116,7 @@
 			{/if}
 	    {/if}
 	{/foreach}
+{/cache-block}
 							</ul>
 {/if}
 							<div class="search">

@@ -18,6 +18,10 @@ SiteDesign=ayaline_mobi
 AdditionalSiteDesignList[]=ayaline
 AdditionalSiteDesignList[]=base
 
+[ContentSettings]
+TranslationList=
+CachedViewModes=
+
 [RegionalSettings]
 Locale=fre-FR
 SiteLanguageList[]=fre-FR
