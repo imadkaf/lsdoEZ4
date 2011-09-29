@@ -26,5 +26,9 @@
 			<source>Itineraire</source>
 			<translation>Itinéraire</translation>
 		</message>
+		<message>
+			<source>Categorie</source>
+			<translation>Catégorie</translation>
+		</message>
 	</context>
 </TS>
