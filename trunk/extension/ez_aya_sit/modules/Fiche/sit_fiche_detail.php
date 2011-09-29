@@ -284,9 +284,9 @@ if (file_exists($cheminFichierCacheXml) && file_exists($cheminFichierXsl)) {
 	$contenuBloc = SitUtils::getHtmlResult($cheminFichierCacheXml, $cheminFichierXsl, $xsltParemters);
 }
 
-$contenuBloc = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
-$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
+$contenuBloc = preg_replace("/_dw_entity__#13__\n/si", " ", $contenuBloc);
 $contenuBloc = utf8_decode(preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc));
+$contenuBloc = preg_replace("/&amp;([\\w\\d]+|\\#\\d+);/si", "&$1;", html_entity_decode($contenuBloc));
 $contenuBloc = "\n".preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc)."\n";
 
 $tpl->setVariable('idFicheEnCours', $idFiche);
@@ -297,8 +297,8 @@ $tpl->setVariable('view_parameters', $Params['UserParameters']);
 $Result['content'] = $tpl->fetch("design:fiche_detail/fiche_detail.tpl");
 
 $intituleFiche = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($intituleFiche));
-$intituleFiche = preg_replace("/&/si", "&amp;", $intituleFiche);
 $intituleFiche = utf8_decode(preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $intituleFiche));
+$intituleFiche = html_entity_decode($intituleFiche);
 
 $modulePath[] = array('url' => false, 'url_alias' => false, 'text' => utf8_encode($intituleFiche), 'node_id' => false);
 

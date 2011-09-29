@@ -445,30 +445,29 @@ class eZSitOperators {
 		}
 		if ($http->hasSessionVariable("saison") && $debutOuv=='') {
 			$saisonId=$http->sessionVariable("saison");
-			$ayaIni = eZINI::instance();
-			if ($ayaIni->hasVariable('Saisons', 'Printemps') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Printemps')) {
-				if ($ayaIni->hasVariable('Saisons','DebutPrintemps'))
-					$debutOuv=$ayaIni->variable('Saisons','DebutPrintemps').'/'.date('Y');
-				if ($ayaIni->hasVariable('Saisons','FinPrintemps'))
-					$finOuv=$ayaIni->variable('Saisons','FinPrintemps').'/'.date('Y');
+			if ($sitIni->hasVariable('Saisons', 'Printemps') && $http->sessionVariable("saison") == $sitIni->variable('Saisons','Printemps')) {
+				if ($sitIni->hasVariable('Saisons','DebutPrintemps'))
+					$debutOuv=$sitIni->variable('Saisons','DebutPrintemps').'/'.date('Y');
+				if ($sitIni->hasVariable('Saisons','FinPrintemps'))
+					$finOuv=$sitIni->variable('Saisons','FinPrintemps').'/'.date('Y');
 			}
-			if ($ayaIni->hasVariable('Saisons', 'Ete') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Ete')) {
-				if ($ayaIni->hasVariable('Saisons','DebutEte'))
-					$debutOuv=$ayaIni->variable('Saisons','DebutEte').'/'.date('Y');
-				if ($ayaIni->hasVariable('Saisons','FinEte'))
-					$finOuv=$ayaIni->variable('Saisons','FinEte').'/'.date('Y');
+			if ($sitIni->hasVariable('Saisons', 'Ete') && $http->sessionVariable("saison") == $sitIni->variable('Saisons','Ete')) {
+				if ($sitIni->hasVariable('Saisons','DebutEte'))
+					$debutOuv=$sitIni->variable('Saisons','DebutEte').'/'.date('Y');
+				if ($sitIni->hasVariable('Saisons','FinEte'))
+					$finOuv=$sitIni->variable('Saisons','FinEte').'/'.date('Y');
 			}
-			if ($ayaIni->hasVariable('Saisons', 'Automne') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Automne')) {
-				if ($ayaIni->hasVariable('Saisons','DebutAutomne'))
-					$debutOuv=$ayaIni->variable('Saisons','DebutAutomne').'/'.date('Y');
-				if ($ayaIni->hasVariable('Saisons','FinAutomne'))
-					$finOuv=$ayaIni->variable('Saisons','FinAutomne').'/'.date('Y');
+			if ($sitIni->hasVariable('Saisons', 'Automne') && $http->sessionVariable("saison") == $sitIni->variable('Saisons','Automne')) {
+				if ($sitIni->hasVariable('Saisons','DebutAutomne'))
+					$debutOuv=$sitIni->variable('Saisons','DebutAutomne').'/'.date('Y');
+				if ($sitIni->hasVariable('Saisons','FinAutomne'))
+					$finOuv=$sitIni->variable('Saisons','FinAutomne').'/'.date('Y');
 			}
-			if ($ayaIni->hasVariable('Saisons', 'Hiver') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Hiver')) {
-				if ($ayaIni->hasVariable('Saisons','DebutHiver'))
-					$debutOuv=$ayaIni->variable('Saisons','DebutHiver').'/'.date('Y');
-				if ($ayaIni->hasVariable('Saisons','FinHiver'))
-					$finOuv=$ayaIni->variable('Saisons','FinHiver').'/'.date('Y');
+			if ($sitIni->hasVariable('Saisons', 'Hiver') && $http->sessionVariable("saison") == $sitIni->variable('Saisons','Hiver')) {
+				if ($sitIni->hasVariable('Saisons','DebutHiver'))
+					$debutOuv=$sitIni->variable('Saisons','DebutHiver').'/'.date('Y');
+				if ($sitIni->hasVariable('Saisons','FinHiver'))
+					$finOuv=$sitIni->variable('Saisons','FinHiver').'/'.date('Y');
 			}
 		}
 
@@ -791,30 +790,29 @@ class eZSitOperators {
 		}
 		if ($http->hasSessionVariable("saison") && $debutOuv=='') {
 			$saisonId=$http->sessionVariable("saison");
-			$ayaIni = eZINI::instance();
-			if ($ayaIni->hasVariable('Saisons', 'Printemps') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Printemps')) {
-				if ($ayaIni->hasVariable('Saisons','DebutPrintemps'))
-					$debutOuv=$ayaIni->variable('Saisons','DebutPrintemps').'/'.date('Y');
-				if ($ayaIni->hasVariable('Saisons','FinPrintemps'))
-					$finOuv=$ayaIni->variable('Saisons','FinPrintemps').'/'.date('Y');
+			if ($sitIni->hasVariable('Saisons', 'Printemps') && $http->sessionVariable("saison") == $sitIni->variable('Saisons','Printemps')) {
+				if ($sitIni->hasVariable('Saisons','DebutPrintemps'))
+					$debutOuv=$sitIni->variable('Saisons','DebutPrintemps').'/'.date('Y');
+				if ($sitIni->hasVariable('Saisons','FinPrintemps'))
+					$finOuv=$sitIni->variable('Saisons','FinPrintemps').'/'.date('Y');
 			}
-			if ($ayaIni->hasVariable('Saisons', 'Ete') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Ete')) {
-				if ($ayaIni->hasVariable('Saisons','DebutEte'))
-					$debutOuv=$ayaIni->variable('Saisons','DebutEte').'/'.date('Y');
-				if ($ayaIni->hasVariable('Saisons','FinEte'))
-					$finOuv=$ayaIni->variable('Saisons','FinEte').'/'.date('Y');
+			if ($sitIni->hasVariable('Saisons', 'Ete') && $http->sessionVariable("saison") == $sitIni->variable('Saisons','Ete')) {
+				if ($sitIni->hasVariable('Saisons','DebutEte'))
+					$debutOuv=$sitIni->variable('Saisons','DebutEte').'/'.date('Y');
+				if ($sitIni->hasVariable('Saisons','FinEte'))
+					$finOuv=$sitIni->variable('Saisons','FinEte').'/'.date('Y');
 			}
-			if ($ayaIni->hasVariable('Saisons', 'Automne') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Automne')) {
-				if ($ayaIni->hasVariable('Saisons','DebutAutomne'))
-					$debutOuv=$ayaIni->variable('Saisons','DebutAutomne').'/'.date('Y');
-				if ($ayaIni->hasVariable('Saisons','FinAutomne'))
-					$finOuv=$ayaIni->variable('Saisons','FinAutomne').'/'.date('Y');
+			if ($sitIni->hasVariable('Saisons', 'Automne') && $http->sessionVariable("saison") == $sitIni->variable('Saisons','Automne')) {
+				if ($sitIni->hasVariable('Saisons','DebutAutomne'))
+					$debutOuv=$sitIni->variable('Saisons','DebutAutomne').'/'.date('Y');
+				if ($sitIni->hasVariable('Saisons','FinAutomne'))
+					$finOuv=$sitIni->variable('Saisons','FinAutomne').'/'.date('Y');
 			}
-			if ($ayaIni->hasVariable('Saisons', 'Hiver') && $http->sessionVariable("saison") == $ayaIni->variable('Saisons','Hiver')) {
-				if ($ayaIni->hasVariable('Saisons','DebutHiver'))
-					$debutOuv=$ayaIni->variable('Saisons','DebutHiver').'/'.date('Y');
-				if ($ayaIni->hasVariable('Saisons','FinHiver'))
-					$finOuv=$ayaIni->variable('Saisons','FinHiver').'/'.date('Y');
+			if ($sitIni->hasVariable('Saisons', 'Hiver') && $http->sessionVariable("saison") == $sitIni->variable('Saisons','Hiver')) {
+				if ($sitIni->hasVariable('Saisons','DebutHiver'))
+					$debutOuv=$sitIni->variable('Saisons','DebutHiver').'/'.date('Y');
+				if ($sitIni->hasVariable('Saisons','FinHiver'))
+					$finOuv=$sitIni->variable('Saisons','FinHiver').'/'.date('Y');
 			}
 		}
 
@@ -986,12 +984,10 @@ class eZSitOperators {
 			$contenuBloc = SitUtils::getHtmlResult($cheminFichierCacheXml, $cheminFichierXsl, $xsltParemters);
 		}
 
-		$contenuBloc = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
-		$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
-		$contenuBloc = preg_replace("/_dw_entity__#13__\n/si", "", $contenuBloc);
+		$contenuBloc = preg_replace("/_dw_entity__#13__\n/si", " ", $contenuBloc);
 		$contenuBloc = utf8_decode(preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc));
+		$contenuBloc = preg_replace("/&amp;([\\w\\d]+|\\#\\d+);/si", "&$1;", html_entity_decode($contenuBloc));
 		$contenuBloc = "\n".preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc)."\n";
-
 
 		return $contenuBloc;
 	}
@@ -1226,12 +1222,10 @@ class eZSitOperators {
 			$contenuBloc = SitUtils::getHtmlResult($cheminFichierCacheXml, $cheminFichierXsl, $xsltParemters);
 		}
 
-		$contenuBloc = preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", html_entity_decode($contenuBloc));
-		$contenuBloc = preg_replace("/&/si", "&amp;", $contenuBloc);
-		$contenuBloc = preg_replace("/_dw_entity__#13__\n/si", "", $contenuBloc);
+		$contenuBloc = preg_replace("/_dw_entity__#13__\n/si", " ", $contenuBloc);
 		$contenuBloc = utf8_decode(preg_replace("/_dw_entity__([^_]+)__/si", "&$1;", $contenuBloc));
+		$contenuBloc = preg_replace("/&amp;([\\w\\d]+|\\#\\d+);/si", "&$1;", html_entity_decode($contenuBloc));
 		$contenuBloc = "\n".preg_replace("/(http:\\/\\/[^\\/]+):\\d+/si", "$1", $contenuBloc)."\n";
-
 
 		return $contenuBloc;
 	}
