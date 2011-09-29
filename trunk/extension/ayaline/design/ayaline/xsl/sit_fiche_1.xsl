@@ -254,7 +254,7 @@
 				<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite != ''">
 					<img alt="">
 						<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
-						<xsl:attribute name="title">Cat&amp;eacute;gorie : <xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/></xsl:attribute>
+						<xsl:attribute name="title"><xsl:value-of select="$termeCategorie"/> : <xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/></xsl:attribute>
 					</img>
 				</xsl:when>
 				<xsl:otherwise>
