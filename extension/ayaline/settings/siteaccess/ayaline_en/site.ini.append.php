@@ -8,6 +8,7 @@ LoginPage=embedded
 
 [UserSettings]
 RegistrationEmail=
+LogoutRedirect=/
 
 [SiteAccessSettings]
 RequireUserLogin=false
@@ -31,7 +32,6 @@ AdditionalSiteDesignList[]=base
 
 [ContentSettings]
 TranslationList=
-ViewCaching=enabled
 
 
 [MailSettings]

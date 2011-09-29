@@ -3,7 +3,7 @@
 [SiteSettings]
 SiteName=LSDO
 SiteURL=lsdo.loc
-#LoginPage=embedded
+LoginPage=embedded
 
 
 [UserSettings]
@@ -31,7 +31,6 @@ TextTranslation=enabled
 
 [ContentSettings]
 TranslationList=
-ViewCaching=enabled
 
 
 [MailSettings]
