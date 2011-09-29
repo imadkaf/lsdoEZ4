@@ -16,7 +16,7 @@
 	<xsl:template match="/">
 		<xsl:if test="count(resultats/produit) &gt; 0">
 			<!-- Basique -->
-			<ul>
+			<ul class="miseAvantStandard">
 				<xsl:for-each select="resultats/details/detail">
 					<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(intitule, concat('/-?_.', $quot, $apos, $amp), '        ')), ' ', '-')"/></xsl:variable>
 					<li>

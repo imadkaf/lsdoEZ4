@@ -3112,3 +3112,26 @@ div.image{
 /************************/
 /*** Fin ajout Alexia ***/
 /************************/
+
+/* styles pour remontée standard dans colonne de droite */
+.bloc-right-bis ul.miseAvantStandard {
+	padding: 10px 0 10px 10px;
+	margin-bottom:-20px;
+	background:#fff;
+}
+.bloc-right-bis ul.miseAvantStandard li {
+    height: 1%;
+    overflow: hidden;
+    padding: 0 0 16px;
+}
+.bloc-right-bis ul.miseAvantStandard li img{
+	margin:0 14px 0 0;
+	float:left;
+}
+.bloc-right-bis ul.miseAvantStandard li p{
+	padding:0;
+}
+.bloc-right-bis ul.miseAvantStandard li p img {
+    padding: 0 0 0 5px;
+    float: right;
+}
