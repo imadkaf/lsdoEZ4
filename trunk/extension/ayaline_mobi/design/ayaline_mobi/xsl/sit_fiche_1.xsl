@@ -86,10 +86,16 @@
 				</xsl:if>
 			</p>
 			
-			<a class="disponibilites">
+			<!--a class="disponibilites">
 				<xsl:attribute name="href">#</xsl:attribute>
 				<span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
-			</a>
+			</a-->
+			<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
+				<a class="disponibilites">
+				<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
+				 <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
+				</a>
+			</xsl:if>
 			
 			<xsl:if test="adresses/adresse[@type='produit']/tel1 != ''">
 				<a class="telephone">
@@ -249,9 +255,9 @@
 			
 			<h3><a href="#">Avis</a></h3>
 			<div>
-				<xsl:choose>
+				<!--xsl:choose>
 					<xsl:when test="count(liensMultimedia/lienMultimedia[@type='image']) &gt; 0">
-						<xsl:for-each select="liensMultimedia/lienMultimedia[@type='image' and string-length(codeHtmlLienMultimedia) &gt; 0]">
+						<xsl:for-each select="liensMultimedia/lienMultimedia[@type='image' and string-length(codeHtmlLienMultimedia) &gt; 0 and position() = 3]">
 							<div>
 								<xsl:call-template name="string-replace-all">
 									<xsl:with-param name="text">
@@ -273,7 +279,12 @@
 							Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
 						</p>
 					</xsl:otherwise>
-				</xsl:choose>
+				</xsl:choose-->
+ <p>
+                                                        Aucun avis pour le moment.<br />
+                                                        Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
+                                                </p>
+
 			</div>
 		</div>
 		

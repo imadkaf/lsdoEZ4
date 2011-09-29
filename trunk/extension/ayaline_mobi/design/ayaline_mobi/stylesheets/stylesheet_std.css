@@ -557,3 +557,60 @@ a.ui-link{
 /******************/
 /*** Fin alexia ***/
 /******************/
+p.contenu {
+   margin-bottom:5px;
+}
+/* hack tripadvisor */
+#CDSWIDSSP {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #D9E4C4;
+	background-color: #D1DFB8 !important;
+	width: 300px !important;
+	margin: 10px 0 20px 0 !important;
+}
+
+#CDSWIDSSP .widSSPData {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	padding: 0 !important;
+	
+}
+
+#CDSWIDSSP .widSSPData .widSSPBranding {
+	-moz-border-radius: 3px 3px 0 0;
+	-webkit-border-radius: 3px 3px 0 0;
+	border-radius: 3px 3px 0 0;
+	padding: 7px 7px 2px 7px;
+	border-bottom: 3px solid #D1DFB8 !important;
+	background-color: #ECF1E1;
+}
+
+#CDSWIDSSP.widSSPnarrow .widSSPPower {
+	display: none;
+}
+
+#CDSWIDSSP .widSSPData .widSSPLegal {
+	padding: 0 0 7px 7px;
+}
+
+#CDSWIDSSP .widSSPData .widSSPH18,
+#CDSWIDSSP .widSSPData .widSSPTrvlRtng {
+	padding: 0 0 0 7px;
+}
+
+#CDSWIDSSP.widSSPnarrow .widSSPData .widSSPAll {
+	padding: 3px 0 0 9px !important;
+}
+
+#CDSWIDSSP .widSSPData .widSSPAll a:link, #CDSWIDSSP .widSSPData .widSSPAll a {
+	background: #589442 url(/download/site-principal/image/charte/tripadvisor-arrow.png) no-repeat 4px 4px;
+	padding: 3px 8px 3px 20px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	color: #fff !important;
+	display: inline-block;
+}
