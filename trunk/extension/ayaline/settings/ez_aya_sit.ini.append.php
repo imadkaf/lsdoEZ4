@@ -10,6 +10,7 @@ ListeVilles[]=85298|Vairé
 
 [SitTranslations]
 StaticSitTranslations[]=Itineraire
+StaticSitTranslations[]=Categorie
 
 [ImagesDesign]
 Chemin=/extension/ayaline/design/ayaline/images/
