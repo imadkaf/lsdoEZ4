@@ -13,5 +13,7 @@ Parts[]=ezfindexcontent
 Parts[]=ezfoptimizeindex
 Parts[]=googlesitemaps
 Parts[]=daily
+Parts[]=alimentation_nouveaux_attributs_sit_liste
+Parts[]=reinitialisation_criteres_tri_principaux
 
 */ ?>
