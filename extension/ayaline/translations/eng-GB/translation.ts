@@ -26,6 +26,10 @@
 			<source>Itineraire</source>
 			<translation>Route</translation>
 		</message>
+		<message>
+			<source>Categorie</source>
+			<translation>Category</translation>
+		</message>
 	</context>
 	
 	<context>
