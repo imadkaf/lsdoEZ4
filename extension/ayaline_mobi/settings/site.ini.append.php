@@ -11,15 +11,9 @@ MatchOrder=host
 HostMatchMapItems[]=mobi.lsdo.loc;ayaline_mobi
 ForceVirtualHost=true
 
-[TemplateSettings]
-TemplateCache=disabled
-TemplateCompile=disabled
-DevelopmentMode=enabled
-
 [RegionalSettings]
 ContentObjectLocale=fre-FR
 TranslationExtensions[]=ayaline_mobi
-UrlList[]
 UrlList[fre-FR]=mobi.lsdo.loc
 
 */ ?>
