@@ -38,7 +38,7 @@
 									<xsl:choose>
 										<xsl:when test="criteres/critere[@id='851000033']/modalites/modalite[1 and contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]/logoModalite != ''">
 											<img alt="" class="float-g">
-												<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
+												<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='851000033']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
 												<xsl:attribute name="title"><xsl:value-of select="$termeCategorie"/> : <xsl:value-of select="criteres/critere[@id='851000033']/modalites/modalite[1]/intModalite"/></xsl:attribute>
 											</img>
 										</xsl:when>
