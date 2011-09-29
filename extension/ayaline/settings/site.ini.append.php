@@ -39,9 +39,9 @@ TransportServer=carib.lnet.fr
 TransportPort=25
 TransportUser=
 TransportPassword=
-AdminEmail=gseguin@ayaline.com
-AdminName=Guillaume SEGUIN
-EmailSender=gseguin@ayaline.com
+AdminEmail=jmace@ayaline.com
+AdminName=Julien MACÉ
+EmailSender=jmace@ayaline.com
 
 [RegionalSettings]
 ContentObjectLocale=fre-FR

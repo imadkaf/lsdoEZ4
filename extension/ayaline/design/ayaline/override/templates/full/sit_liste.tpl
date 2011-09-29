@@ -1,7 +1,5 @@
 {def $nbPubs = 5}
 
-{set-block scope=global variable=cache_ttl}0{/set-block}
-
 <div class="bloc-left-bis">
 	<div class="bloc-left-in-bis">
 		{if eq($node.data_map.form_recherche.data_text, 0)}

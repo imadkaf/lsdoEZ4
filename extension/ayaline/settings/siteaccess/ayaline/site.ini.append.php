@@ -31,17 +31,11 @@ TextTranslation=enabled
 
 [ContentSettings]
 TranslationList=
-ViewCaching=disabled
+ViewCaching=enabled
 
 
 [MailSettings]
-AdminEmail=gseguin@ayaline.com
+AdminEmail=jmace@ayaline.com
 EmailSender=
-
- 
-[TemplateSettings]
-TemplateCache=disabled
-TemplateCompile=disabled
-DevelopmentMode=enabled
 
 */ ?>
