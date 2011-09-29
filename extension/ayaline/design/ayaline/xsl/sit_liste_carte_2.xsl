@@ -20,10 +20,10 @@
 					function initialize() {
 						//Les coordonnees du centre des Sables d'Olonne
 						var latlng = new google.maps.LatLng(46.5, -1.7833);
-						
+					
 						//Variable temp
 						var tempoMarker;
-						
+					
 						var myOptions = {
 						  zoom: 13,
 						  center: latlng,
@@ -43,24 +43,24 @@
 								<![CDATA[
 									tempoMarker = new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite"/><![CDATA[);
 									latlng.push(tempoMarker);
-										
+								
 									var contentString = '<div class="moninfobulle">'+
-											'<div class="titre"><h3>]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><![CDATA[</h3>'+
+											'<div class="titre"><h3 class="titre-defaut">]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><![CDATA[</h3>'+
 											']]><xsl:choose>
-													<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1 and contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]/logoModalite != ''">
+													<xsl:when test="criteres/critere[@id='851000033']/modalites/modalite[1 and contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]/logoModalite != ''">
 														<img alt="" class="etoile">
-															<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
+															<xsl:attribute name="src"><xsl:value-of select="criteres/critere[@id='851000033']/modalites/modalite[1]/logoModalite"/></xsl:attribute>
 															<xsl:attribute name="title"><xsl:value-of select="$termeCategorie"/><xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/></xsl:attribute>
 														</img>
 													</xsl:when>
 													<xsl:otherwise>
-														<xsl:if test="criteres/critere[@id='851000005']/modalites/modalite[1 and contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]/intModalite != ''">
-															<xsl:value-of select="criteres/critere[@id='851000005']/modalites/modalite[1]/intModalite"/>
+														<xsl:if test="criteres/critere[@id='851000033']/modalites/modalite[1 and contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]/intModalite != ''">
+															<xsl:value-of select="criteres/critere[@id='851000033']/modalites/modalite[1]/intModalite"/>
 														</xsl:if>
 													</xsl:otherwise>
 												</xsl:choose><![CDATA[</div>'+
 											']]><xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
-													<img class="float-g photo" alt="" style="max-height: 100px">
+													<img class="float-g photo" alt="">
 														<xsl:variable name="photoInfobulle"><xsl:value-of select="newPhotos/newPhoto"/></xsl:variable>
 														<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$photoInfobulle"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="concat('\', $apos)"/></xsl:call-template>&amp;amp;w=120</xsl:attribute>
 													</img>
@@ -116,7 +116,6 @@
 									var marker = new google.maps.Marker({
 										position: new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite"/><![CDATA[),
 										map: map,
-										icon: '/extension/ayaline/design/ayaline/images/picto-hotel.png',
 										title:"]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$quot"/><xsl:with-param name="by" select="'\&quot;'"/></xsl:call-template><![CDATA["
 									});
 									
@@ -230,7 +229,7 @@
 									  center: latLng,
 									  mapTypeId: google.maps.MapTypeId.ROADMAP
 									});
-									
+					
 									// Show directions onload
 									Demo.getDirections();
 								}
@@ -238,14 +237,12 @@
 				  	}
 				]]>
 			</script>
-			<div id="mapContainerListe" style="width:635px;height:400px;margin-bottom:10px;border: 1px solid #E9E3DE;"><![CDATA[ ]]></div>
+			<div id="mapContainerListe" style="width:635px;height:400px;border: 1px solid #E9E3DE;"><![CDATA[ ]]></div>
 			<script type="text/javascript">
 				<![CDATA[
 					initialize();
 				]]>
 			</script>
-			
-			<span class="picto-hotel">H&amp;ocirc;tels</span>
 		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>
