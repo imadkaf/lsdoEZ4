@@ -34,7 +34,7 @@
 										<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=100</xsl:attribute>
 									</xsl:if>
 									<xsl:if test="count(newPhotos/newPhoto) = 0">
-										<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
+										<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
 									</xsl:if>
 								</img>
 							</a>

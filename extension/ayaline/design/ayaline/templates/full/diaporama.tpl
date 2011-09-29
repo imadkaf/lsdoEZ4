@@ -168,7 +168,7 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 							}
 							
 							// Hide the header text
-							$("#headertxt").css({"visibility" : "hidden"});
+							$("#headertxt").animate({opacity: 0}, 500);
 							
 							// Set the new header text
 							$("#firstline").html(photoObject.firstline);
@@ -190,7 +190,7 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 							// and display the header text when animation is complete
 							$("#headerimg" + currentContainer).fadeOut(function() {
 								setTimeout(function() {
-									$("#headertxt").css({"visibility" : "visible"});
+									$("#headertxt").animate({opacity: 1}, 500);
 									animating = false;
 								}, 500);
 							});

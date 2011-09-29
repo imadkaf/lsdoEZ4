@@ -67,7 +67,7 @@
 												</xsl:if>
 												<xsl:if test="count(newPhotos/newPhoto) = 0">
 													<img class="float-g photo" alt="" style="max-height: 100px; width: 120px;">
-														<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
+														<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
 													</img>
 												</xsl:if><![CDATA['+
 											'<span class="float-d">]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="ville/intituleVille"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><![CDATA[</span><br />'+
