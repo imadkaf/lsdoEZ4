@@ -92,7 +92,7 @@
 		{* Styles *}
 		{foreach ezini( 'StylesheetSettings', 'FrontendCSSFileList', 'design.ini' ) as $css_fichier }
 			{if eq("http://",$css_fichier|extract_left(7))}
-				<link rel="stylesheet" type="text/css" href="{$css_fichier}"></script>
+				<link rel="stylesheet" type="text/css" href="{$css_fichier}" />
 			{else}
 				<link rel="stylesheet" type="text/css" href={concat( 'stylesheets/', $css_fichier )|ezdesign} />
 			{/if}
