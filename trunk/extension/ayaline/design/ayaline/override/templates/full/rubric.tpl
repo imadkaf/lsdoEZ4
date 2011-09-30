@@ -191,6 +191,7 @@
 	</div>
 	
 	<script type="text/javascript">
+		equilibre = true;
 		$(window).load(equilibrerHauteursBlocs);
 	</script>
 {/if}

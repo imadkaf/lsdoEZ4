@@ -133,6 +133,7 @@
 				</xsl:for-each>
 			</ul>
 			<script type="text/javascript">
+				equilibre = true;
 				$(window).load(equilibrerHauteursBlocs);
 			</script>
 			

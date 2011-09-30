@@ -143,11 +143,11 @@
 								
 							</div>
 							<div class="clear"></div>
-{cache-block keys=$cache_hash}
+
 {if $rNode.data_map.main_menu.has_content}
 	{include uri='design:parts/menu_header.tpl'}
 {/if}
-{/cache-block}
+
 						</div>	
 						<div class="clear"></div>				
 					</div>
@@ -169,7 +169,13 @@
 		</div>
 		<script type="text/javascript">
 		{literal}
-		$('img').lazyload({effect: "fadeIn"});
+		$('.content img').lazyload({effect: "fadeIn"});
+			console.log(typeof equilibre);
+		if (typeof equilibre != 'undefined') {
+			$('.content img').load(function () {
+				equilibrerHauteursBlocs();
+			});
+		}
 		{/literal}
 		</script>
 	</body>
