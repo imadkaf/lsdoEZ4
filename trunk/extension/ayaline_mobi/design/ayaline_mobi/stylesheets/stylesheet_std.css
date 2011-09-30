@@ -152,6 +152,52 @@ a:visited { color:#000; text-decoration:none; }
 	font-style: normal;
 }
 
+a.ui-link{
+	color: black !important;
+}
+
+.pagenavigator{
+	background: none repeat scroll 0 0 #E5DCD3;
+	border-top: 1px solid #c9bdb2;
+	padding: 10px;
+}
+.pagenavigator a.ui-link{
+	font-weight: normal;
+}
+.pagenavigator a.ui-link:hover{
+	text-decoration: underline;
+}
+.pagenavigator p{
+	text-align: center;	
+}
+.pagenavigator .next{
+	float:right;
+}
+.pagenavigator .previous{
+	float:left;
+}
+.pagenavigator .current{
+	font-weight:bold;
+}
+
+.titre-basique{
+	border-bottom: 1px solid #C9BDB2;
+}
+.titre-basique h2{
+	color: #313E47;
+    font-family: 'OmnesLight';
+    font-size: 27px;
+    margin: 5px 0 5px 15px;
+    padding: 0;
+}
+
+.titre-normal{
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+
+/*** Entete ***/
 .logo img{
 	float: left;
 	position: relative;
@@ -201,10 +247,8 @@ a:visited { color:#000; text-decoration:none; }
 	margin-right: 5px;
 }
 
-a.ui-link{
-	color: black !important;
-}
 
+/*** Page d'accueil ***/
 .icons{
 	padding-top: 25px !important;
 	margin-bottom: 20px;
@@ -214,30 +258,8 @@ a.ui-link{
 	font-weight: normal !important;
 }
 
-.pagenavigator{
-	background: none repeat scroll 0 0 #E5DCD3;
-	border-top: 1px solid #c9bdb2;
-	padding: 10px;
-}
-.pagenavigator a.ui-link{
-	font-weight: normal;
-}
-.pagenavigator a.ui-link:hover{
-	text-decoration: underline;
-}
-.pagenavigator p{
-	text-align: center;	
-}
-.pagenavigator .next{
-	float:right;
-}
-.pagenavigator .previous{
-	float:left;
-}
-.pagenavigator .current{
-	font-weight:bold;
-}
 
+/*** Pied de page ***/
 .recherche{
 	background: none repeat scroll 0 0 #F6EFE9;
 	border-left: 1px solid #C9BDB2;
@@ -268,17 +290,6 @@ a.ui-link{
 	border-left: 1px solid #C9BDB2;
 	border-right: 1px solid #C9BDB2;
 	border-bottom: 1px solid #C9BDB2;
-}
-
-.titre-basique{
-	border-bottom: 1px solid #C9BDB2;
-}
-.titre-basique h2{
-	color: #313E47;
-    font-family: 'OmnesLight';
-    font-size: 27px;
-    margin: 5px 0 5px 15px;
-    padding: 0;
 }
 
 
@@ -558,7 +569,7 @@ a.ui-link{
 /*** Fin alexia ***/
 /******************/
 p.contenu {
-   margin-bottom:5px;
+   margin-bottom: 10px;
 }
 /* hack tripadvisor */
 #CDSWIDSSP {
