@@ -1,4 +1,3 @@
-{set-block scope=root variable=cache_ttl}0{/set-block}
 {def $cache_hash = array($module_result.uri)}
 {foreach ezhttp().get|merge(ezhttp().post) as $req_param_key => $req_param_val}
 	{if $req_param_val|get_type|begins_with('array')}
