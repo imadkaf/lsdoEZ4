@@ -17,7 +17,7 @@
 				<div id="Header">
 					<div class="logo">
 						<a href={$rNode.url_alias|ezurl} class="ui-link">
-							<img alt="" src={'images/logo1.png'|ezdesign()}>
+							<img alt="" src={'images/logo1.png'|ezdesign()} />
 							<h2>{attribute_view_gui attribute = $rNode.data_map.titre_en_tete}</h2>
 							<h3>{attribute_view_gui attribute = $rNode.data_map.sous_titre_en_tete}</h3>
 						</a>
