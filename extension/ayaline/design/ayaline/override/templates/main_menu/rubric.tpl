@@ -7,11 +7,11 @@
 <h2><a href={$node.url_alias|ezurl}>{if is_set($name)}{$name|wash}{else}{$node.name|wash}{/if}</a></h2>
 
 {if $node.data_map.short_description.has_content}
-	<p> 
-		{if eq($node.data_map.short_description.content|count_chars(), $node.data_map.short_description.content|word_cut(14)|count_chars|inc)}
+	<p>
+		{if eq($node.data_map.short_description.content|count_words, $node.data_map.short_description.content|word_cut(11)|count_words)}
 			{attribute_view_gui attribute = $node.data_map.short_description}
 		{else}
-			{$node.data_map.short_description.content|wash|word_cut(14)}...
+			{$node.data_map.short_description.content|wash|word_cut(11)}...
 		{/if}
 	</p>
 {/if}
