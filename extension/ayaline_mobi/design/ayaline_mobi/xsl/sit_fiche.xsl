@@ -126,7 +126,7 @@
 			
 			<h3><a href="#">Carte/Itin&amp;eacute;raires</a></h3>
 			<div id="tab-gmaps">
-				<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAPzlBh0JjFUPqZKi3n0L3LxRNhXKcoHc6ILCDtHOsJEw_kWBWgBR1kXeQdewQ9aUBq3FH6LbXaDfhmw"><![CDATA[ ]]></script>
+				<div id="map-js-container"><![CDATA[ ]]></div>
 				<div id="map-container" style="width:425px;height:300px;"><![CDATA[ ]]></div>
 				<script type="text/javascript">	
 					<![CDATA[
@@ -136,6 +136,7 @@
 						var dirRenderer;
 						
 						function initialize() {
+							document.getElementById('map-js-container').innerHTML = '<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAPzlBh0JjFUPqZKi3n0L3LxRNhXKcoHc6ILCDtHOsJEw_kWBWgBR1kXeQdewQ9aUBq3FH6LbXaDfhmw"></' + 'script>';
 							var latlng = new google.maps.LatLng(46.5, -1.7833);
 							
 							var myOptions = {
@@ -187,33 +188,12 @@
 				</xsl:for-each>
 				<![CDATA[ ]]>
 			</div>
-			
-			<!--<h3><a href="#">Avis</a></h3>
-			<div>
-				<xsl:choose>
-					<xsl:when test="count(liensMultimedia/lienMultimedia[@type='image']) &gt; 0">
-						<xsl:for-each select="liensMultimedia/lienMultimedia[@type='image' and string-length(codeHtmlLienMultimedia) &gt; 0]">
-							<div><xsl:value-of select="codeHtmlLienMultimedia"/></div>
-						</xsl:for-each>
-					</xsl:when>
-					<xsl:otherwise>
-						<p>
-							Aucun avis pour le moment.<br />
-							Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
-						</p>
-					</xsl:otherwise>
-				</xsl:choose>
-				<p>
-					Aucun avis pour le moment.<br />
-					Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
-				</p>
-			</div-->
 		</div>
 		
 		<xsl:if test="string-length($lienPrecedent) &gt; 0">
 			<div class="result-suiv">
 				<a class="retour">
-					<xsl:attribute name="href"><xsl:value-of select="$lienPrecedent"/><xsl:if test="string-length($pageCourante) &gt; 0">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if>#fiche-<xsl:value-of select="@id"/></xsl:attribute>
+					<xsl:attribute name="href"><xsl:value-of select="$lienPrecedent"/><xsl:if test="string-length($pageCourante) &gt; 0">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if></xsl:attribute>
 					&amp;lt;&amp;nbsp;<xsl:value-of select="$termeRetourListe"/>
 				</a>
 			</div>
