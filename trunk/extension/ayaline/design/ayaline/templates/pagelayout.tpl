@@ -170,7 +170,6 @@
 		<script type="text/javascript">
 		{literal}
 		$('.content img').lazyload({effect: "fadeIn"});
-			console.log(typeof equilibre);
 		if (typeof equilibre != 'undefined') {
 			$('.content img').load(function () {
 				equilibrerHauteursBlocs();
