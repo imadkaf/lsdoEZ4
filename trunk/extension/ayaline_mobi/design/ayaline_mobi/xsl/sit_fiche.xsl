@@ -21,7 +21,7 @@
 					<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=285</xsl:attribute>
 				</xsl:if>
 				<xsl:if test="count(newPhotos/newPhoto) = 0">
-					<xsl:attribute name="src"><xsl:value-of select="$cheminImagesDesign"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
+					<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
 					<xsl:attribute name="width">285px</xsl:attribute>
 				</xsl:if>
 			</img>
@@ -188,7 +188,7 @@
 				<![CDATA[ ]]>
 			</div>
 			
-			<h3><a href="#">Avis</a></h3>
+			<!--<h3><a href="#">Avis</a></h3>
 			<div>
 				<xsl:choose>
 					<xsl:when test="count(liensMultimedia/lienMultimedia[@type='image']) &gt; 0">
@@ -203,7 +203,11 @@
 						</p>
 					</xsl:otherwise>
 				</xsl:choose>
-			</div>
+				<p>
+					Aucun avis pour le moment.<br />
+					Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
+				</p>
+			</div-->
 		</div>
 		
 		<xsl:if test="string-length($lienPrecedent) &gt; 0">
