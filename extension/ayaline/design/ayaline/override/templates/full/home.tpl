@@ -52,8 +52,10 @@
 {/foreach}
 <script type="text/javascript">
 	//Blocs de la premiere ligne de gauche + bloc reserver
-	$(window).load({ldelim}one: '.bloc-left-home:first-child', two: '#bloc-ac-res'{rdelim}, fixH);
+	//equilibre2 = true;
+	//$(window).load({ldelim}one: '.bloc-left-home:first-child', two: '#bloc-ac-res'{rdelim}, fixH);
 	//Blocs 2 a 2 de gauche
+	equilibre = true;
 	$(window).load(equilibrerHauteursBlocs);
 </script>
 

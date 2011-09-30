@@ -38,3 +38,11 @@ function fixH(event) {
 		$(event.data.one+", "+event.data.two).css('min-height', Math.max($(event.data.one).height(), $(event.data.two).height())-15-9-15-2);
 	}
 }
+
+function fixH2(one, two) {
+	if ($(one).size() == 1 && $(two).size() == 1) {
+		var maxHeight = Math.max($(one).height(), $(two).height()+15+9+15+2);
+		$(one).css('min-height', maxHeight);
+		$(two).css('min-height', maxHeight-15-9-15-2);
+	}
+}

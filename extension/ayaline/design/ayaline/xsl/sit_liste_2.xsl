@@ -151,6 +151,7 @@
 						<![CDATA[ ]]>
 					</ul>
 					<script type="text/javascript">
+						equilibre = true;
 						$(window).load(equilibrerHauteursBlocs);
 					</script>
 				</xsl:if>
