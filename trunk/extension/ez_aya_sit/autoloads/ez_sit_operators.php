@@ -389,8 +389,8 @@ class eZSitOperators {
 
 			$http->setSessionVariable("sit_mc_".sha1($lienCourant), $motsCles);
 
-			if ($http->hasPostVariable("ouvert_annee")) {
-				$ouvAnnee = $http->postVariable("ouvert_annee");
+			if ($http->hasPostVariable("sit_ouvert_annee")) {
+				$ouvAnnee = $http->postVariable("sit_ouvert_annee");
 			}
 
 			$http->setSessionVariable("sit_ouv_annee_".sha1($lienCourant), $ouvAnnee);
@@ -777,8 +777,8 @@ class eZSitOperators {
 
 			$http->setSessionVariable("sit_mc_".sha1($lienCourant), $motsCles);
 
-			if ($http->hasPostVariable("ouvert_annee")) {
-				$ouvAnnee = $http->postVariable("ouvert_annee");
+			if ($http->hasPostVariable("sit_ouvert_annee")) {
+				$ouvAnnee = $http->postVariable("sit_ouvert_annee");
 			}
 
 			$http->setSessionVariable("sit_ouv_annee_".sha1($lienCourant), $ouvAnnee);

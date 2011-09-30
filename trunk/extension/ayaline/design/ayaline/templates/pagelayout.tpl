@@ -13,9 +13,8 @@
 		{set $cache_hash = $cache_hash|append(concat($req_param_key, '=>', $req_param_val))}
 	{/if}
 {/foreach}
-
 {foreach ezhttp().session as $session_key => $session_val}
-	{if or($session_key|begins_with('sit_'), $session_key|eq('saison'), $session_key|eq('saison'), $session_key|eq('saison'), $session_key|eq('eZUserLoggedInID'))}
+	{if or($session_key|begins_with('sit_'), $session_key|eq('saison'), $session_key|eq('eZUserLoggedInID'))}
 		{set $cache_hash = $cache_hash|append(concat($session_key, '=>', $session_val))}
 	{elseif $session_key|eq('topics')}
 		{set $cache_hash = $cache_hash|append(concat($session_key, '=>', $session_val|implode('_')))}
