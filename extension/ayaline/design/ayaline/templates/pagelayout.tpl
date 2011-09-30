@@ -158,7 +158,6 @@
 			</div>
 			<div class="clear"></div>
 			{include uri='design:parts/fil_ariane.tpl'}
-			
 			<div class="content">
 {cache-block keys=$cache_hash}
 {$module_result.content}
@@ -168,6 +167,11 @@
 {/cache-block}
 			</div>
 		</div>
+		<script type="text/javascript">
+		{literal}
+		$('img').lazyload({effect: "fadeIn"});
+		{/literal}
+		</script>
 	</body>
 </html>
 {undef $cNode $rNode $attributes $nbSaison $saison $curLang $topicsList $nameRubric $i $cache_hash}
