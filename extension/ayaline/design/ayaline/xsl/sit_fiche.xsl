@@ -237,7 +237,10 @@
 		
 		<div style="float:left; width: 310px;">
 			<h2 class="bloc-detail-h2" style="width: 295px; margin-left:10px;"><xsl:value-of select="intitule"/></h2>
-			<p class="clear" style="margin-bottom:20px;"></p>
+			<p class="lien-bas" style="margin-right:7px;">
+				<xsl:call-template name="boutons-reserver-liste"/>
+			</p>
+			<p class="clear" style="margin-bottom:5px;"></p>
 			
 			<div style="margin:0px 0px 20px 10px">
 				<xsl:for-each select="adresses/adresse[@type='produit']">
