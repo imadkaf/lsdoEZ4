@@ -244,7 +244,7 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 	{if $imageEntete|count}
 		{set $img_attribute = $imageEntete.0.data_map.image}
 	{else}
-		{if $cNode|is_set}
+		{if and($cNode|is_set, $cNode|count|gt(0)}
 			{* test sur le noeud : si on est sur l'accueil, on ne récupère pas le noeud parent *}
 			{if and($cNode.node_id|ne(ezini('NodeSettings','RootNode','content.ini')), $cNode.parent|is_set)}
 				{set $pNode = $cNode.parent}
@@ -252,7 +252,7 @@ Test3 : {$diapos.1.data_map.nouvel_onglet.content} : Fin Test3
 				{set $pNode = $cNode}
 			{/if}
 		{/if}
-		{if $pNode|is_set}
+		{if and($pNode|is_set, $pNode|count|gt(0)}
 			{* Tant qu'on n'est pas sur le noeud 2 (accueil) ou 43 (accueil Media) on remonte au noeud parent pour récupérer l'image de l'entete *}
 			{while $continue}	
 				{if and(ne($pNode.node_id, ezini('NodeSettings','RootNode','content.ini')), ne($pNode.node_id, ezini('NodeSettings','MediaRootNode','content.ini')))}
