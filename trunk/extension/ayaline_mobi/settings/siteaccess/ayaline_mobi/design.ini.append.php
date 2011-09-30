@@ -6,8 +6,10 @@ DesignExtensions[]=ayaline_mobi
 [StylesheetSettings]
 FrontendCSSFileList[]
 FrontendCSSFileList[]=stylesheet_std.css
-FrontendCSSFileList[]=http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css
 FrontendCSSFileList[]=jquery-ui-1.8.14.custom.css
+#FrontendCSSFileList[]=http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css
+FrontendCSSFileList[]=jquery.mobile-1.0a4.1.min.css
+#FrontendCSSFileList[]=http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.css
 FrontendCSSFileListAndroid[]
 FrontendCSSFileListAndroid[]=stylesheet_android.css
 FrontendCSSFileListBB[]
@@ -26,7 +28,8 @@ JavaScriptListMobile[]=http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-
 JavaScriptListMobile[]=http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAPzlBh0JjFUPqZKi3n0L3LxRNhXKcoHc6ILCDtHOsJEw_kWBWgBR1kXeQdewQ9aUBq3FH6LbXaDfhmw
 #Complement de la bibliotheque jquery pour la version mobile
 JavaScriptListMobile[]=jquery.mobile-1.0a4.1.min.js
+#JavaScriptListMobile[]=http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.js
 #A quoi sert ce script ?
-JavaScriptListMobile[]=http://code.google.com/apis/gears/gears_init.js
+#JavaScriptListMobile[]=http://code.google.com/apis/gears/gears_init.js
 
 */ ?>
