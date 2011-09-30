@@ -196,6 +196,10 @@ a.ui-link{
 	margin-bottom: 10px;
 }
 
+p.contenu {
+   margin-bottom: 10px;
+}
+
 
 /*** Entete ***/
 .logo img{
@@ -290,6 +294,10 @@ a.ui-link{
 	border-left: 1px solid #C9BDB2;
 	border-right: 1px solid #C9BDB2;
 	border-bottom: 1px solid #C9BDB2;
+}
+
+#Copyrights p.contenu{
+	margin-bottom: 0px;
 }
 
 
@@ -568,9 +576,6 @@ a.ui-link{
 /******************/
 /*** Fin alexia ***/
 /******************/
-p.contenu {
-   margin-bottom: 10px;
-}
 /* hack tripadvisor */
 #CDSWIDSSP {
 	-moz-border-radius: 5px;
