@@ -8,10 +8,10 @@
 
 {if $node.data_map.short_description.has_content}
 	<p>
-		{if eq($node.data_map.short_description.content|count_chars(), $node.data_map.short_description.content|word_cut(14)|count_chars|inc)}
+		{if eq($node.data_map.short_description.content|count_words, $node.data_map.short_description.content|word_cut(11)|count_words)}
 			{attribute_view_gui attribute = $node.data_map.short_description}
 		{else}
-			{$node.data_map.short_description.content|wash|word_cut(14)}...
+			{$node.data_map.short_description.content|wash|word_cut(11)}...
 		{/if}
 	</p>
 {/if}
