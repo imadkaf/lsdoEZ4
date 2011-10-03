@@ -23,8 +23,8 @@
 						
 						<div class="text">
 							<span>suggestion</span>
-							<span class="title"><xsl:value-of select="ville/intituleVille"/></span>
-			  				<span class="description"><xsl:value-of select="intitule"/></span>
+							<span class="title"><xsl:value-of select="intitule"/></span>
+			  				<span class="description"><xsl:value-of select="ville/intituleVille"/></span>
 						</div>
 					</div>
 				</a>
