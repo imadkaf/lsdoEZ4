@@ -2368,7 +2368,7 @@ ul.contenu li{
 /*** Page d'accueil ***/
 /* Bloc Accueil - Blog Flux RSS */
 .bloc-accueil-h2{
-	font-family:'OmnesLight' !important;
+	font-family:'OmnesLight', Arial, sans-serif !important;
 	font-size:32px !important;
 	font-weight:bold;
 }
@@ -2376,7 +2376,7 @@ ul.contenu li{
 	margin-top:10px;
 }
 .bloc-accueil-h3{
-	font-family:'OmnesMedium' !important;
+	font-family:'OmnesMedium', Arial, sans-serif !important;
 	font-size:22px;
 	font-weight:normal;
 	color:#2B80B9;
@@ -2384,6 +2384,7 @@ ul.contenu li{
 }
 .bloc-accueil-h3 .contenu{
 	padding-bottom:0;
+	padding-top: 10px;
 }
 .bloc-type .float-d img {
 	position:relative;
@@ -2394,17 +2395,17 @@ ul.contenu li{
 /*** Page des rubriques ***/
 /* Bloc liste (page decouvrir, visites...) */
 .bloc-liste-h2{
-	font-family:'OmnesLight';
+	font-family:'OmnesLight', Arial, sans-serif;
 	font-size:32px !important;
 	font-weight:bold;
 }
 .bloc-detail-h2{
-	font-family:'OmnesLight';
+	font-family:'OmnesLight', Arial, sans-serif;
 	font-size:25px !important;
 	font-weight:bold;
 }
 .bloc-liste-h3{
-	font-family:'OmnesMedium';
+	font-family:'OmnesMedium', Arial, sans-serif;
 	font-size:22px;
 	font-weight:normal;
 	padding:0 !important;
@@ -2420,7 +2421,7 @@ ul.contenu li{
 	margin-right:20px;
 }
 .menu-gauche-h2{
-	font-family:'OmnesLight';
+	font-family:'OmnesLight', Arial, sans-serif;
 	font-size:18px !important;
 	font-weight:bold;
 }
@@ -2759,13 +2760,13 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 
 /*** Page liste hotels ***/
 .bloc-liste-h2-recherche{
-	font-family:'OmnesLight';
+	font-family:'OmnesLight', Arial, sans-serif;
 	font-size:23px !important;
 	font-weight:bold;
 	padding-bottom:15px;
 }
 .menu-gauche-h2-recherche{
-	font-family:'OmnesLight';
+	font-family:'OmnesLight', Arial, sans-serif;
 	font-size:18px !important;
 	font-weight:bold;
 	padding-bottom:5px;
@@ -2785,7 +2786,7 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 	background:none repeat scroll 0 0 #FAF9F7; padding:5px 0 5px 4px;
 }
 .list-inline-bis .titre-top2{
-	font-family:'OmnesLight';
+	font-family:'OmnesLight', Arial, sans-serif;
 	font-size:32px !important;
 	padding-top:0;
 }
@@ -2959,7 +2960,7 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 
 /*** Bloc Voir aussi ***/
 .bloc-liste-h2-cote{
-	font-family:'OmnesLight';
+	font-family:'OmnesLight', Arial, sans-serif;
 	font-size:27px !important;
 	font-weight:bold;
 }
