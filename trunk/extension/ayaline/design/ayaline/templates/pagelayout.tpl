@@ -161,12 +161,19 @@
 			<div class="clear"></div>
 			{include uri='design:parts/fil_ariane.tpl'}
 			<div class="content">
-{cache-block keys=$cache_hash}
+{def $additional_cache_hash = array()}
+{if and($cNode|is_set, $cNode.object.content_class.identifier|eq('sit_liste'))}
+	{if and($cNode.object.data_map.criteres_tri_principaux.content|is_set, or($cNode.object.data_map.criteres_tri_principaux.content|contains('a2'), $cNode.object.data_map.criteres_tri_principaux.content|contains('d2')))}
+		{set $additional_cache_hash = $additional_cache_hash|append(rand())}
+	{/if}
+{/if}
+{cache-block keys=$cache_hash|merge($additional_cache_hash)}
 {$module_result.content}
 {/cache-block}
 {cache-block keys=$cache_hash}
 {include uri="design:page_footer.tpl"}
 {/cache-block}
+{undef $additional_cache_hash}
 			</div>
 		</div>
 		<script type="text/javascript">
