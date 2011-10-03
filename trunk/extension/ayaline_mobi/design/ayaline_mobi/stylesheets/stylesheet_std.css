@@ -121,17 +121,6 @@ a:visited { color:#000; text-decoration:none; }
 	font-weight:bold;
 }
 
-#Copyrights{
-	background:#313d48;
-	color:#ffffff;
-	padding:18px 0 18px 18px;
-}
-#Copyrights p a{
-	font-weight:bold;
-	color:#ffffff !important;
-	padding:2px 0 0 0;
-	display:block;
-}
 .recherche .search .ui-icon-myapp-email {
 	background-image: url("../images/bt-ok.png") ;
 }
@@ -629,4 +618,44 @@ p.contenu {
 	border-radius: 12px;
 	color: #fff !important;
 	display: inline-block;
+}
+
+/* style pour lien aYaline dans le footer */
+#piedPage {
+	float:left;
+	background:#313d48;
+	width:100%;
+}
+#Copyrights{
+	background:#313d48;
+	color:#ffffff;
+	padding:18px 0 18px 18px;
+	width: 65%;
+	float:left;
+}
+#Copyrights p a{
+	font-weight:bold;
+	color:#ffffff !important;
+	padding:2px 0 0 0;
+	display:block;
+}
+
+.ayaline {
+	float:left;
+	width: 25%;
+	background:#313d48;
+	color:#ffffff;
+	padding:18px 1px 12px 0;
+}
+.ayaline a.lien {
+	color:#fff !important;
+}
+.ayaline a span {
+	display:none;
+}
+.ayaline a img {
+
+}
+.ayaline a:hover {
+	 text-decoration: none;
 }
