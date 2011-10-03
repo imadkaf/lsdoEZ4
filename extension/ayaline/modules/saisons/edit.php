@@ -12,6 +12,17 @@ $http = eZHTTPTool::instance();
 $http->setSessionVariable('saisonCourante', 0);
 if ( is_numeric( $http->postVariable( 'season_id' ) ) ) {
     $season_id = $http->postVariable( 'season_id' );
+    if ($http->hasSessionVariable('saison')){
+    	if ( $season_id == $http->sessionVariable('saison') ) {
+    		$season_id = 0;    	
+    		$http->removeSessionVariable('saison');
+    	}
+    	else {
+    		$http->setSessionVariable('saison', $season_id);
+    	}
+    }
+    else $http->setSessionVariable('saison', $season_id);
+    
     // on indique également si la saison sélectionnée est la saison courante (si on est le 30 aout et que la saison sélectionnée est l'été, alors on passe le booléen à TRUE
     /* $season_id = 0 -> Automne : du 21-09 au 20-12
      * $season_id = 1 -> Hiver : du 21-12 au 20-03
@@ -37,9 +48,10 @@ if ( is_numeric( $http->postVariable( 'season_id' ) ) ) {
 	if($now >= $debutHiver && $now <= $finHiver && $season_id==1) 
 		$http->setSessionVariable('saisonCourante', 1);
 }
-else
+else {
     $season_id = 0;
-$http->setSessionVariable('saison', $season_id);
+	$http->setSessionVariable('saison', $season_id);
+}
 
 // *	- 2 : Redirection vers la page consultée
 
