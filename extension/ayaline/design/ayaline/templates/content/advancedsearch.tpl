@@ -22,7 +22,7 @@
     {set $search=fetch(content,search,
                        hash(text,$search_text,
                             section_id,$search_section_id,
-                            subtree_array,$search_sub_tree,
+                            subtree_array, ezini('Subtree_search','TabSearch','ayaline.ini'),
                             class_id,$search_contentclass_id,
                             class_attribute_id,$search_contentclass_attribute_id,
                             offset,$view_parameters.offset,
