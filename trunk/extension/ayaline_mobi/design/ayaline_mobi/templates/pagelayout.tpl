@@ -40,7 +40,7 @@
 				
 				<!-- Pied de page -->
 				<div id="footer">
-					{include uri="design:footer.tpl"}
+					{include uri="design:footer.tpl" node=$node}
 				</div>
 				
 			</div>
