@@ -6,7 +6,6 @@
 {def $referencement = false()}
 {def $keywords = false()}
 {def $description = false()}
-{def $googleAccountKey = ezini('TagsGA','googleAccountKey','ezurlga.ini')}
 {if is_set($cNode.data_map.referencement)}
 	{set $referencement = $cNode.data_map.referencement}
 	{if $referencement.content[0]|trim|ne('')}
@@ -121,16 +120,5 @@
 	{/if}
 {/foreach}
 		{ezscript_load( array('ezjsc::jqueryio'))}
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', '{$googleAccountKey}']);
-{literal}
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
-{/literal}
-		</script>
 	</head>
-{undef $title $googleAccountKey $referencement $description $keywords}
+{undef $title $referencement $description $keywords}
