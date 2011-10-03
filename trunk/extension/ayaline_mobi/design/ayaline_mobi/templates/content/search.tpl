@@ -4,7 +4,7 @@
     {set $search=fetch(content,search,
                        hash(text,$search_text,
                             section_id,$search_section_id,
-                            subtree_array,$search_subtree_array,
+                            subtree_array, ezini('Subtree_search','TabSearch','ayaline.ini'),
                             sort_by,array('modified',false()),
                             offset,$view_parameters.offset,
                             limit,$page_limit))}
