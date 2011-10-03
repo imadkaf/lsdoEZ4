@@ -3142,3 +3142,19 @@ div.image{
     padding: 0 0 0 5px;
     float: right;
 }
+
+/* style pour lien aYaline dans le footer */
+li.ayaline a {
+	margin: -5px 0 0 0;	
+}
+li.ayaline a span {
+	display:none;
+}
+li.ayaline a img {
+	margin:-10px 0 0 0;
+	position: relative;
+    top: 5px;
+}
+li.ayaline a:hover {
+	 text-decoration: none;
+}
