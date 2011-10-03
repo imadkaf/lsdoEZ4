@@ -95,6 +95,7 @@
 						<li{if eq($keyVar, 0)} class="first"{/if}>{if ne($keyVar, 0)}-{else}&nbsp;{/if}{node_view_gui content_node=$liensHoriz view='menu'}</li>
 		{/if}
 {/foreach}
+						<li class="ayaline">- <a href="http://www.ayaline.com"> Réalisation : <span>aYaline</span><img src={"ayaline.png"|ezimage} alt="" /></a></li>
 					</ul>
 				</div>
 {undef $menuPiedPage $liensColonne1 $liensCol1  $liensColonne2 $liensCol2 $liensColonne3 $liensCol3 $liensColonne4 $liensCol4 $liensColonne5 $liensCol5 $liensHorizontaux $liensHoriz}
