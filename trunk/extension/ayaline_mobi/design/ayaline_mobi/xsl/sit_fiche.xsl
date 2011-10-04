@@ -84,8 +84,7 @@
 			var firstGmapsInit = true;
 			$(function() {
 				$( "#accordion" ).accordion({
-					autoHeight: false,
-					navigation: true
+					autoHeight: false
 				});
 				$("#accordion").bind('accordionchange', function(event, ui) {
 					if (ui.newContent.attr('id') == 'tab-gmaps') {
@@ -187,6 +186,35 @@
 					</a>
 				</xsl:for-each>
 				<![CDATA[ ]]>
+			</div>
+			
+			<h3><a href="#">Avis</a></h3>
+			<div>
+				<xsl:choose>
+					<xsl:when test="count(liensMultimedia/lienMultimedia[@type='image']) &gt; 0">
+						<xsl:for-each select="liensMultimedia/lienMultimedia[@type='image' and string-length(codeHtmlLienMultimedia) &gt; 0 and position() = 3]">
+							<div>
+								<xsl:call-template name="string-replace-all">
+									<xsl:with-param name="text">
+										<xsl:call-template name="string-replace-all">
+											<xsl:with-param name="text" select="codeHtmlLienMultimedia"/>
+											<xsl:with-param name="replace" select="'_dw_entity__gt__'"/>
+											<xsl:with-param name="by"><![CDATA[>]]></xsl:with-param>
+										</xsl:call-template>
+									</xsl:with-param>
+									<xsl:with-param name="replace" select="'_dw_entity__lt__'"/>
+									<xsl:with-param name="by"><![CDATA[<]]></xsl:with-param>
+								</xsl:call-template>
+							</div>
+						</xsl:for-each>
+					</xsl:when>
+					<xsl:otherwise>
+						<p>
+							Aucun avis pour le moment.<br />
+							Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
+						</p>
+					</xsl:otherwise>
+				</xsl:choose>
 			</div>
 		</div>
 		
