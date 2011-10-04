@@ -1435,7 +1435,9 @@ ul.liste .lien-bas{
 	position:absolute;
 	top:27px;
 	width:585px;
-	border:1px solid #E9E3DE;
+	border-left:1px solid #E9E3DE;
+	border-bottom:1px solid #E9E3DE;
+	border-right:1px solid #E9E3DE;
 	left:-146px;
 	z-index:5;
 	display:none;
@@ -1964,7 +1966,9 @@ div.chapeau img{
 .rubrique2 .ss-menu{
 	width:425px;
 	background:#FAF5F2 url('../images/bg-ss-menu-rubrique2.png') 0 0 repeat-x;
-	border:1px solid #E9E3DE;
+	border-left:1px solid #E9E3DE;
+	border-right:1px solid #E9E3DE;
+	border-bottom:1px solid #E9E3DE;
 	display:none;
 	right:0;
 	padding:18px 30px 18px 15px;
