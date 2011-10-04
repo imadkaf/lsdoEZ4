@@ -638,6 +638,10 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 }
 #accordion .ui-widget-content {
 	background: none;
+	padding: 10px 10px 10px 10px;
+}
+#accordion #tab-gmaps.ui-widget-content, #accordion #tripadvisor.ui-widget-content, #accordion #tarifs.ui-widget-content {
+	padding: 10px 0px 10px 0px;
 }
 #accordion .ui-accordion-header .ui-icon {
     left: 300px;

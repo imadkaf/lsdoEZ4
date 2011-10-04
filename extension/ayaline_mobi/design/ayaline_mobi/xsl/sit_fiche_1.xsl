@@ -209,7 +209,7 @@
 			</div>
 			
 			<h3><a href="#">Tarifs</a></h3>
-			<div>
+			<div id="tarifs">
 				<table cellspacing="0" width="100%">
 					<xsl:for-each select="criteres/critere[@id='851000020' or @id='851000021' or @id='851000022' or @id='851000023' or @id='851000024' or @id='851000025' or @id='851000026' or @id='851000027']">
 						<xsl:variable name="positionCritere" select="position()"/>
@@ -255,7 +255,7 @@
 			</div>
 			
 			<h3><a href="#">Avis</a></h3>
-			<div>
+			<div id="tripadvisor">
 				<xsl:choose>
 					<xsl:when test="count(liensMultimedia/lienMultimedia[@type='image']) &gt; 0">
 						<xsl:for-each select="liensMultimedia/lienMultimedia[@type='image' and string-length(codeHtmlLienMultimedia) &gt; 0 and position() = 3]">
