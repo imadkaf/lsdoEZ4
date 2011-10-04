@@ -190,6 +190,7 @@
 			
 			<h3><a href="#">Avis</a></h3>
 			<div id="tripadvisor">
+				<!--
 				<xsl:choose>
 					<xsl:when test="count(liensMultimedia/lienMultimedia[@type='image']) &gt; 0">
 						<xsl:for-each select="liensMultimedia/lienMultimedia[@type='image' and string-length(codeHtmlLienMultimedia) &gt; 0 and position() = 3]">
@@ -215,6 +216,7 @@
 						</p>
 					</xsl:otherwise>
 				</xsl:choose>
+				-->
 			</div>
 		</div>
 		
