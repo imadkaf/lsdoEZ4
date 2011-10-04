@@ -102,6 +102,9 @@
 							firstGmapsInit = false;
 						}
 					}
+					//if (ui.newContent.attr('id') == 'tripadvisor') {
+					//	afficheAvisTripadvisor();
+					//}
 				});
 			});
 			]]>
@@ -177,7 +180,7 @@
 			<h3><a href="#">Photos</a></h3>
 			<div>
 				<xsl:for-each select="newPhotos/newPhoto">
-					<a>
+					<a target="_blank">
 						<xsl:attribute name="rel"><xsl:value-of select="."/></xsl:attribute>
 						<xsl:attribute name="href"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=306&amp;amp;mw=1</xsl:attribute>
 						<img alt="">
@@ -190,33 +193,40 @@
 			
 			<h3><a href="#">Avis</a></h3>
 			<div id="tripadvisor">
-				<!--
-				<xsl:choose>
-					<xsl:when test="count(liensMultimedia/lienMultimedia[@type='image']) &gt; 0">
-						<xsl:for-each select="liensMultimedia/lienMultimedia[@type='image' and string-length(codeHtmlLienMultimedia) &gt; 0 and position() = 3]">
-							<div>
-								<xsl:call-template name="string-replace-all">
-									<xsl:with-param name="text">
-										<xsl:call-template name="string-replace-all">
-											<xsl:with-param name="text" select="codeHtmlLienMultimedia"/>
-											<xsl:with-param name="replace" select="'_dw_entity__gt__'"/>
-											<xsl:with-param name="by"><![CDATA[>]]></xsl:with-param>
-										</xsl:call-template>
-									</xsl:with-param>
-									<xsl:with-param name="replace" select="'_dw_entity__lt__'"/>
-									<xsl:with-param name="by"><![CDATA[<]]></xsl:with-param>
-								</xsl:call-template>
-							</div>
-						</xsl:for-each>
-					</xsl:when>
-					<xsl:otherwise>
-						<p>
-							Aucun avis pour le moment.<br />
-							Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
-						</p>
-					</xsl:otherwise>
-				</xsl:choose>
+				<!-- 
+				<script type="text/javascript">	
+					<![CDATA[
+						function afficheAvisTripadvisor() {
+							document.write("]]><xsl:choose>
+													<xsl:when test="count(liensMultimedia/lienMultimedia[@type='image']) &gt; 0">
+														<xsl:for-each select="liensMultimedia/lienMultimedia[@type='image' and string-length(codeHtmlLienMultimedia) &gt; 0 and position() = 3]">
+															<div>
+																<xsl:call-template name="string-replace-all">
+																	<xsl:with-param name="text">
+																		<xsl:call-template name="string-replace-all">
+																			<xsl:with-param name="text" select="codeHtmlLienMultimedia"/>
+																			<xsl:with-param name="replace" select="'_dw_entity__gt__'"/>
+																			<xsl:with-param name="by"><![CDATA[>]]></xsl:with-param>
+																		</xsl:call-template>
+																	</xsl:with-param>
+																	<xsl:with-param name="replace" select="'_dw_entity__lt__'"/>
+																	<xsl:with-param name="by"><![CDATA[<]]></xsl:with-param>
+																</xsl:call-template>
+															</div>
+														</xsl:for-each>
+													</xsl:when>
+													<xsl:otherwise>
+														<p>
+															Aucun avis pour le moment.<br />
+															Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
+														</p>
+													</xsl:otherwise>
+												</xsl:choose><![CDATA[");
+						}
+					]]>
+				</script>
 				-->
+				<![CDATA[ &amp;nbsp; ]]>
 			</div>
 		</div>
 		
