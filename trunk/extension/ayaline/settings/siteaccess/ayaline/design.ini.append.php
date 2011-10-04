@@ -1,6 +1,7 @@
 <?php /* #?ini charset="utf-8"?
 
 [StylesheetSettings]
+CSSFileList[]
 CSSFileList[]=main.css
 CSSFileList[]=ezfind.css
 CSSFileList[]=ezajax_autocomplete.css
