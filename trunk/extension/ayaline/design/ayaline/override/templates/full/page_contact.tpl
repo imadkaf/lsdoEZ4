@@ -50,7 +50,7 @@
 				</div>
 				
 				<div class="block deux-colonnes float-g">
-					<label class="lsdo-label non-textarea">{$node.data_map.societe.contentclass_attribute_name|wash()}<strong class="required">*</strong> :</label>
+					<label class="lsdo-label non-textarea">{$node.data_map.societe.contentclass_attribute_name|wash()} :</label>
 					{attribute_view_gui attribute = $node.data_map.societe}
 				</div>
 				
@@ -70,7 +70,7 @@
 				</div>
 				
 				<div class="block deux-colonnes float-g">
-					<label class="lsdo-label non-textarea">{$node.data_map.sqli_telephone.contentclass_attribute_name|wash()}<strong class="required">*</strong> :</label>
+					<label class="lsdo-label non-textarea">{$node.data_map.sqli_telephone.contentclass_attribute_name|wash()} :</label>
 					{attribute_view_gui attribute = $node.data_map.sqli_telephone}
 				</div>
 				
