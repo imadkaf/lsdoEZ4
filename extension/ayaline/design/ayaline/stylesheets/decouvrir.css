@@ -7,6 +7,10 @@ ul.contenu li{
 	padding: 0px 0px 5px 10px;
 }
 
+h2.titre-normal a, h3.titre-normal a, h4.titre-normal a, h5.titre-normal a, h6.titre-normal a{
+	color: #E644AC;
+}
+
 /*** Liste hotel ***/
 .list-inline-bis li p.lien-bas a, .list-block-bis li p.lien-bas a{
     background: url("../images/picto1.gif") no-repeat scroll 0 50% transparent;

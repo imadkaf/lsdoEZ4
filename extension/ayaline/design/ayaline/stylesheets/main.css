@@ -2336,6 +2336,10 @@ h6.titre-normal{
 	padding: 5px 0px 5px 0px;
 }
 
+h2.titre-normal a, h3.titre-normal a, h4.titre-normal a, h5.titre-normal a, h6.titre-normal a{
+	text-decoration: underline;
+}
+
 p.contenu{
 	padding-bottom: 17px;
 }
