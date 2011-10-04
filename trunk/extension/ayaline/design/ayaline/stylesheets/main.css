@@ -2340,6 +2340,10 @@ h2.titre-normal a, h3.titre-normal a, h4.titre-normal a, h5.titre-normal a, h6.t
 	text-decoration: underline;
 }
 
+.renderedtable p.contenu{
+	padding-left: 5px;
+}
+
 p.contenu{
 	padding-bottom: 17px;
 }
