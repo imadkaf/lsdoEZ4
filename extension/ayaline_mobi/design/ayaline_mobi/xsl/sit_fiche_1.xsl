@@ -248,7 +248,7 @@
 				<xsl:for-each select="newPhotos/newPhoto">
 					<a target="_blank">
 						<xsl:attribute name="rel"><xsl:value-of select="."/></xsl:attribute>
-						<xsl:attribute name="href"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=306&amp;amp;mw=1</xsl:attribute>
+						<xsl:attribute name="href"><xsl:value-of select="$cheminRacineSite"/><xsl:value-of select="."/></xsl:attribute>
 						<img alt="">
 							<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=60&amp;amp;mw=1</xsl:attribute>
 						</img>
