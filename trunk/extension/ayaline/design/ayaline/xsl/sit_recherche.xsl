@@ -269,10 +269,30 @@
 									<li style="padding:0;">
 										<label>
 											<xsl:attribute name="for">sit_nrtr_<xsl:value-of select="@id"/></xsl:attribute>
-											<xsl:value-of select="."/>
-											<input type="text" style="vertical-align:middle;margin-bottom:2px;font-size:.85em;border:1px solid #999999;width:95%">
-												<xsl:attribute name="name">sit_nrtr[<xsl:value-of select="@id"/>]</xsl:attribute>
+											<xsl:value-of select="."/><br/>
+											<xsl:variable name="valeurCourante"><xsl:if test="@num = '1'"><xsl:value-of select="substring-before(substring-after($modalitesNum, concat('|', @id, '#')), '|')"/></xsl:if><xsl:if test="@num != 1"><xsl:value-of select="substring-before(substring-after($modalitesTexte, concat('|', @id, '#')), '|')"/></xsl:if></xsl:variable>
+											<xsl:if test="@num = '1'">
+												<select style="font-size:110%">
+													<xsl:attribute name="name">sit_nrtr[<xsl:value-of select="@id"/>][ope]</xsl:attribute>
+													<option value="&amp;lt;=">
+														<xsl:if test="substring-after($valeurCourante, '#') = '&lt;='"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
+														&amp;lt;=
+													</option>
+													<option value="=">
+														<xsl:if test="substring-after($valeurCourante, '#') = '='"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
+														=
+													</option>
+													<option value="&amp;gt;=">
+														<xsl:if test="substring-after($valeurCourante, '#') = '&gt;='"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
+														&amp;gt;=
+													</option>
+												</select>
+											</xsl:if>
+											<input type="text">
+												<xsl:attribute name="name">sit_nrtr[<xsl:value-of select="@id"/>][val]</xsl:attribute>
 												<xsl:attribute name="id">sit_nrtr_<xsl:value-of select="@id"/></xsl:attribute>
+												<xsl:attribute name="value"><xsl:value-of select="substring-before($valeurCourante, '#')"/></xsl:attribute>
+												<xsl:attribute name="style">vertical-align:middle;margin-bottom:2px;font-size:1.1em;border:1px solid #999999;vertical-align:0;width:<xsl:if test="@num = '1'">70</xsl:if><xsl:if test="@num != '1'">95</xsl:if>%</xsl:attribute>
 											</input>
 										</label>
 									</li>
