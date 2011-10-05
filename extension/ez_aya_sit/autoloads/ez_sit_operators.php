@@ -355,6 +355,8 @@ class eZSitOperators {
 		$criteresRecherche = $sitListe['criteres_recherche']->value();
 
 		$sitModalitesRapides = array();
+		$sitModalitesTexte = array();
+		$sitModalitesNum = array();
 		$codesInsee = null;
 		$motsCles = null;
 		$debutDispo = null;
@@ -376,6 +378,27 @@ class eZSitOperators {
 			$sitModalitesRapides = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesRapides)));
 
 			$http->setSessionVariable("sit_mr_".sha1($lienCourant), $sitModalitesRapides);
+			
+			$sitModalitesTexteNum = array();
+			if ($http->hasPostVariable("sit_nrtr")) {
+				$sitModalitesTexteNum = $http->postVariable("sit_nrtr");
+			}
+
+			foreach ($sitModalitesTexteNum as $idCritere=>$sitModaliteTexteNum) {
+				if (trim($sitModaliteTexteNum['val']) != "") {
+					if (array_key_exists('ope', $sitModaliteTexteNum)) {
+						$sitModalitesNum[$idCritere] = $idCritere.urlencode(utf8_decode('§')).$sitModaliteTexteNum['val'].urlencode(utf8_decode('§')).urlencode($sitModaliteTexteNum['ope']);
+					} else {
+						$sitModalitesTexte[$idCritere] = $idCritere.urlencode(utf8_decode('§')).$sitModaliteTexteNum['val'];
+					}
+				}
+			}
+
+			$sitModalitesTexte = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesTexte)));
+			$sitModalitesNum = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesNum)));
+
+			$http->setSessionVariable("sit_tr_".sha1($lienCourant), $sitModalitesTexte);
+			$http->setSessionVariable("sit_nr_".sha1($lienCourant), $sitModalitesNum);
 
 			if ($http->hasPostVariable("sit_cinsee")) {
 				$codesInsee = join("|", $http->postVariable("sit_cinsee"));
@@ -442,6 +465,12 @@ class eZSitOperators {
 			if ($http->hasSessionVariable("sit_mr_".sha1($lienCourant))) {
 				$sitModalitesRapides = $http->sessionVariable("sit_mr_".sha1($lienCourant));
 			}
+			if ($http->hasSessionVariable("sit_tr_".sha1($lienCourant))) {
+				$sitModalitesTexte = $http->sessionVariable("sit_tr_".sha1($lienCourant));
+			}
+			if ($http->hasSessionVariable("sit_nr_".sha1($lienCourant))) {
+				$sitModalitesNum = $http->sessionVariable("sit_nr_".sha1($lienCourant));
+			}
 			if ($http->hasSessionVariable("sit_cinsee_".sha1($lienCourant))) {
 				$codesInsee = $http->sessionVariable("sit_cinsee_".sha1($lienCourant));
 			}
@@ -464,7 +493,7 @@ class eZSitOperators {
 				$dureeDispo = $http->sessionVariable("sit_duree_dispo_".sha1($lienCourant));
 			}
 		}
-		//echo '$debutOuv '.$saisonId;
+
 		if ($saisonId !== null && ($debutOuv == '' || $ouvAnnee)) {
 			if ($sitIni->hasVariable('Saisons', 'Printemps') && $saisonId == $sitIni->variable('Saisons','Printemps')) {
 				if ($sitIni->hasVariable('Saisons','DebutPrintemps')) {
@@ -554,6 +583,9 @@ class eZSitOperators {
 		$xsltParemters['criteresRecherche'] = "|".implode("|", $criteresRecherche)."|";
 
 		$xsltParemters['modalitesRapides'] = "|".str_replace(",", "|", $sitModalitesRapides)."|";
+		$xsltParemters['modalitesTexte'] = str_replace(utf8_encode("§"), "#", utf8_encode(utf8_encode("|".urldecode($sitModalitesTexte)."|")));
+		$xsltParemters['modalitesNum'] = str_replace(utf8_encode("§"), "#", utf8_encode(utf8_encode("|".urldecode($sitModalitesNum)."|")));
+		
 		$xsltParemters['codesInsee'] = utf8_encode($codesInsee);
 		$xsltParemters['motsCles'] = utf8_encode($motsCles);
 		$xsltParemters['ouvAnnee'] = utf8_encode($ouvAnnee);
@@ -743,6 +775,8 @@ class eZSitOperators {
 		}
 
 		$sitModalitesRapides = array();
+		$sitModalitesTexte = array();
+		$sitModalitesNum = array();
 		$codesInsee = null;
 		$motsCles = null;
 		$debutDispo = null;
@@ -764,6 +798,28 @@ class eZSitOperators {
 			$sitModalitesRapides = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesRapides)));
 
 			$http->setSessionVariable("sit_mr_".sha1($lienCourant), $sitModalitesRapides);
+			
+			$sitModalitesTexteNum = array();
+			if ($http->hasPostVariable("sit_nrtr")) {
+				$sitModalitesTexteNum = $http->postVariable("sit_nrtr");
+			}
+
+			foreach ($sitModalitesTexteNum as $idCritere=>$sitModaliteTexteNum) {
+				if (trim($sitModaliteTexteNum['val']) != "") {
+					if (array_key_exists('ope', $sitModaliteTexteNum)) {
+						$sitModalitesNum[$idCritere] = $idCritere.urlencode(utf8_decode('§')).$sitModaliteTexteNum['val'].urlencode(utf8_decode('§')).$sitModaliteTexteNum['ope'];
+					} else {
+						echo "toto";
+						$sitModalitesTexte[$idCritere] = $idCritere.urlencode(utf8_decode('§')).$sitModaliteTexteNum['val'];
+					}
+				}
+			}
+
+			$sitModalitesTexte = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesTexte)));
+			$sitModalitesNum = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesNum)));
+
+			$http->setSessionVariable("sit_tr_".sha1($lienCourant), $sitModalitesTexte);
+			$http->setSessionVariable("sit_nr_".sha1($lienCourant), $sitModalitesNum);
 
 			if ($http->hasPostVariable("sit_cinsee")) {
 				$codesInsee = join("|", $http->postVariable("sit_cinsee"));
@@ -829,6 +885,12 @@ class eZSitOperators {
 		} else if ($rechercheEnCours == "oui") {
 			if ($http->hasSessionVariable("sit_mr_".sha1($lienCourant))) {
 				$sitModalitesRapides = $http->sessionVariable("sit_mr_".sha1($lienCourant));
+			}
+			if ($http->hasSessionVariable("sit_tr_".sha1($lienCourant))) {
+				$sitModalitesTexte = $http->sessionVariable("sit_tr_".sha1($lienCourant));
+			}
+			if ($http->hasSessionVariable("sit_nr_".sha1($lienCourant))) {
+				$sitModalitesNum = $http->sessionVariable("sit_nr_".sha1($lienCourant));
 			}
 			if ($http->hasSessionVariable("sit_cinsee_".sha1($lienCourant))) {
 				$codesInsee = $http->sessionVariable("sit_cinsee_".sha1($lienCourant));
@@ -906,6 +968,23 @@ class eZSitOperators {
 				$sitParams['mr2'] = $sitModalitesRapides;
 			}
 		}
+		
+		if ($sitModalitesTexte) {
+			if (array_key_exists('tr', $sitParams)) {
+				$sitParams['tr'] .= "|".$sitModalitesTexte;
+			} else {
+				$sitParams['tr'] = $sitModalitesTexte;
+			}
+		}
+		
+		if ($sitModalitesNum) {
+			if (array_key_exists('nr', $sitParams)) {
+				$sitParams['nr'] .= "|".$sitModalitesNum;
+			} else {
+				$sitParams['nr'] = $sitModalitesNum;
+			}
+		}
+		
 		if ($codesInsee) {
 			$sitParams['cinsee'] = utf8_decode($codesInsee);
 		}
