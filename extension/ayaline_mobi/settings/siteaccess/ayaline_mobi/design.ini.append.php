@@ -31,5 +31,8 @@ JavaScriptListMobile[]=jquery.mobile-1.0a4.1.min.js
 #JavaScriptListMobile[]=http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.js
 #A quoi sert ce script ?
 #JavaScriptListMobile[]=http://code.google.com/apis/gears/gears_init.js
+#Utilise directement dans la fiche
+#JavaScriptListMobile[]=http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js
+JavaScriptListMobile[]=itineraire.js
 
 */ ?>
