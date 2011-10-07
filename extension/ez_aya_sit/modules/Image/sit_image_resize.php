@@ -43,7 +43,7 @@ if (file_exists($cheminFichierCacheImagesResized)) {
 
 $requestHeaders = getallheaders();
 $imageType = "";
-if (/*!file_exists($cheminFichierCacheImagesResized) || */($fs && time() > $fs['mtime'] + $dureeVieCache)) {
+if (!file_exists($cheminFichierCacheImagesResized) || ($fs && time() > $fs['mtime'] + $dureeVieCache)) {
 	$contenuImagesDistant = SitUtils::urlGetContentsCurlCustom($fileName, 120, file_exists($cheminFichierCacheImages) ? filemtime($cheminFichierCacheImages) : 60);
 	if ($contenuImagesDistant) {
 		file_put_contents($cheminFichierCacheImages, $contenuImagesDistant, LOCK_EX);
@@ -87,14 +87,14 @@ if (/*!file_exists($cheminFichierCacheImagesResized) || */($fs && time() > $fs['
 	}*/
 }
 
-/*header("HTTP/1.1 ".($contenuImagesDistant || !array_key_exists('If-Modified-Since', $requestHeaders) || (array_key_exists('Pragma', $requestHeaders) && $requestHeaders['Pragma'] == "no-cache" && array_key_exists('Cache-Control', $requestHeaders) && $requestHeaders['Cache-Control'] == "no-cache") ? "200 OK" : "304 Not Modified"));
+/*header("HTTP/1.1 ".($contenuImagesDistant || !array_key_exists('If-Modified-Since', $requestHeaders) || (array_key_exists('Pragma', $requestHeaders) && $requestHeaders['Pragma'] == "no-cache" && array_key_exists('Cache-Control', $requestHeaders) && $requestHeaders['Cache-Control'] == "no-cache") ? "200 OK" : "304 Not Modified"));*/
 header("Content-type: image".($imageType == IMAGETYPE_JPEG ? "/jpeg" : ($imageType == IMAGETYPE_GIF ? "/gif" : ($imageType == IMAGETYPE_PNG ? "/png" : ""))));
-$dateExpirationCacheGMT = filemtime($cheminFichierCacheImages) + $dureeVieCache - ((int)substr(date('O'), 0, 3) * 3600);
-//header("Expires: ".gmdate("D, d M Y H:i:s", $dateExpirationCacheGMT)." GMT");
+/*$dateExpirationCacheGMT = filemtime($cheminFichierCacheImages) + $dureeVieCache - ((int)substr(date('O'), 0, 3) * 3600);
+header("Expires: ".gmdate("D, d M Y H:i:s", $dateExpirationCacheGMT)." GMT");*/
 $dateDerniereModifCacheGMT = filemtime($cheminFichierCacheImages) - ((int)substr(date('O'), 0, 3) * 3600);
 header("Last-Modified: ".gmdate("D, d M Y H:i:s", $dateDerniereModifCacheGMT)." GMT");
-$fs = stat($cheminFichierCacheImages);
-header("Etag: ".sprintf('"%x-%x-%s"', $fs['ino'], $fs['size'],base_convert(str_pad($fs['mtime'],16,"0"),10,16)));
+/*$fs = stat($cheminFichierCacheImages);
+header("Etag: ".sprintf('"%x-%x-%s"', $fs['ino'], $fs['size'],base_convert(str_pad($fs['mtime'],16,"0"),10,16)));*/
 
 header_remove("X-Powered-By");
 header_remove("Set-Cookie");
