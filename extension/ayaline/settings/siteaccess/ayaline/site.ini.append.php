@@ -2,13 +2,13 @@
 
 [SiteSettings]
 SiteName=LSDO
-SiteURL=lsdo.loc
+SiteURL=lsdo.lnet.fr
 LoginPage=embedded
 
 
 [UserSettings]
 RegistrationEmail=
-LogoutRedirect=/
+
 
 [SiteAccessSettings]
 RequireUserLogin=false
