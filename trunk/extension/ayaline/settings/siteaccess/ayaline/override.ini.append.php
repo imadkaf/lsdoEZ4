@@ -84,6 +84,12 @@ MatchFile=full/page_contact.tpl
 Subdir=templates
 Match[class_identifier]=page_contact
 
+[mail_contact]
+Source=content/collectedinfomail/form.tpl
+MatchFile=full/collectedinfomail.tpl
+Subdir=templates
+Match[class_identifier]=page_contact
+
 [contact_reponse]
 Source=content/collectedinfo/form.tpl
 MatchFile=full/contact_reponse.tpl
