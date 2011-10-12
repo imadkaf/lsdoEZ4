@@ -12,36 +12,12 @@
 	<xsl:include href="inc/display_dispos.xsl"/>
 	<xsl:include href="inc/rendu_adresse.xsl"/>
 	<xsl:include href="inc/bouton_reserver.xsl"/>
+	<xsl:include href="inc/galleria_fiche_detail.xsl"/>
 	
 	<xsl:template match="/produit">
 	
 		<div style="float:left; width: 326px;">
-			<xsl:if test="count(newPhotos/newPhoto) &gt; 0">
-				<div id="galleria" class="galerie-fiche">
-					<xsl:for-each select="newPhotos/newPhoto">
-						<a>
-							<xsl:attribute name="rel"><xsl:value-of select="."/></xsl:attribute>
-							<xsl:attribute name="href"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=306&amp;amp;mw=1</xsl:attribute>
-							<img alt="">
-								<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=60&amp;amp;mw=1</xsl:attribute>
-							</img>
-						</a>
-					</xsl:for-each>
-				</div>
-				<script type="text/javascript">
-					<![CDATA[
-						// Load the classic theme
-						Galleria.loadTheme("/extension/ayaline_gallery/design/standard/javascript/galleria/themes/classic/galleria.classic.min.js");
-
-						// Initialize Galleria
-						$('#galleria').galleria({
-							autoplay: 5000,
-							lightbox: true
-						});
-					]]>
-				</script>
-				<div class="clear"><![CDATA[ ]]></div><br />
-			</xsl:if>
+			<xsl:call-template name="galerie-fiche-detail"/>
 			
 			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAOZJQqoDBwAknMtPNKR-dvRSi2OoyjRwg8X5jAJmNj4togrBv2xSClpdvpd4FJNt4C5i-i6aTtWzs-g"><![CDATA[ ]]></script>
 			
