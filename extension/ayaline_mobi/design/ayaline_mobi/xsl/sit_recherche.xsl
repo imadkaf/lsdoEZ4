@@ -3,57 +3,19 @@
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="yes" indent="yes"/>
 	
-	<xsl:include href="inc/display_villes.xsl"/>
+
 
 	<xsl:template match="/">
 		<div class="bloc-type">
-			<ul class="list-thm">
-				<li class="first"><strong>Changer de<br />saison &gt;</strong></li>
-				<li>
-					<form method="post" action="/saisons/edit/">
-						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>
-						<input type="hidden" value="0" name="season_id" />
-						<input class="actif" type="image">
-							<xsl:attribute name="src" alt="Automne"><xsl:value-of select="$cheminImagesDesign"/>saison0<xsl:if test="$saisonId = '0'">-on</xsl:if>.png</xsl:attribute>
-						</input>
-					</form>
-				</li>
-				<li>
-					<form method="post" action="/saisons/edit/">
-						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>
-						<input type="hidden" value="1" name="season_id" />
-						<input class="actif" type="image">
-							<xsl:attribute name="src" alt="Hiver"><xsl:value-of select="$cheminImagesDesign"/>saison1<xsl:if test="$saisonId = '1'">-on</xsl:if>.png</xsl:attribute>
-						</input>
-					</form>
-				</li>
-				<li>
-					<form method="post" action="/saisons/edit/">
-						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>
-						<input type="hidden" value="2" name="season_id" />
-						<input class="actif" type="image">
-							<xsl:attribute name="src" alt="Printemps"><xsl:value-of select="$cheminImagesDesign"/>saison2<xsl:if test="$saisonId = '2'">-on</xsl:if>.png</xsl:attribute>
-						</input>
-					</form>
-				</li>
-				<li class="last">
-					<form method="post" action="/saisons/edit/">
-						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>
-						<input type="hidden" value="3" name="season_id" />
-						<input class="actif" type="image">
-							<xsl:attribute name="src" alt="Eté"><xsl:value-of select="$cheminImagesDesign"/>saison3<xsl:if test="$saisonId = '3'">-on</xsl:if>.png</xsl:attribute>
-						</input>
-					</form>
-				</li>
-			</ul>
-			<h2 class="bloc-liste-h2-recherche">Affiner votre recherche :</h2>
+			
+			<h2 class="bloc-liste-h2-recherche">Recherche :</h2>
 			<p class="clear"></p>
 			<form method="post" class="form-search-left">
 			<xsl:attribute name="action"><xsl:value-of select="$lienCourant"/>/(recherche)/oui<xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute>
 			<xsl:if test="string-length($criteresTri) &gt; 0 and $criteresTri != '||'">
 				<div style="margin-bottom:10px;">
 					<span class="choisissez"><strong><xsl:value-of select="$termeTrierPar"/></strong></span>
-					<xsl:if test="contains($criteresTri, '|1|')">
+					<!--xsl:if test="contains($criteresTri, '|1|')">
 						<div class="liste-modalites">
 							<div><xsl:value-of select="$termeCommune"/>&amp;nbsp;<a>
 								<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if>/(tri)/com~asc<xsl:if test="string-length($pageCourante) &gt; 0 and $pageCourante &gt; 1">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if></xsl:attribute>
@@ -80,7 +42,7 @@
 								</img>
 							</a></xsl:if></div>
 						</div>
-					</xsl:if>
+					</xsl:if-->
 					<xsl:for-each select="criteres/criteresSpecs/critere">
 						<xsl:variable name="idCritere" select="@id"/>
 						<xsl:variable name="typeCritere" select="@type"/>
@@ -147,7 +109,7 @@
 					</xsl:for-each>
 				</div>
 			</xsl:if>
-			<div style="text-align:right;margin-bottom:5px"><a style="display:block;">
+			<!--div style="text-align:right;margin-bottom:5px"><a style="display:block;">
 				<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute>
 				<xsl:value-of select="$termeReinitialiserRecherche"/>
 			</a></div>
@@ -162,7 +124,7 @@
 				<input type="text" id="sit_mc" name="sit_mc" style="border:1px solid #999999;width:99%">
 					<xsl:attribute name="value"><xsl:value-of select="$motsCles"/></xsl:attribute>
 				</input>
-			</div>
+			</div-->
 			<div style="margin-bottom:10px">
 				<div style="float:left; width:50%">
 					<div style="padding-right:3px">
@@ -201,7 +163,7 @@
 					</label>
 				</div>
 			</div>
-			<xsl:for-each select="criteres/criteresSpecs/critere">
+			<!--xsl:for-each select="criteres/criteresSpecs/critere">
 				<xsl:variable name="idCritere" select="@id"/>
 				<xsl:variable name="typeCritere" select="@type"/>
 				<xsl:variable name="intituleCritere" select="intCritere"/>
@@ -293,7 +255,7 @@
 						</xsl:choose>
 					</div>
 				</xsl:if>
-			</xsl:for-each>
+			</xsl:for-each-->
 			<div style="text-align:right;margin-bottom:5px"><a style="display:block;">
 				<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute>
 				<xsl:value-of select="$termeReinitialiserRecherche"/>
