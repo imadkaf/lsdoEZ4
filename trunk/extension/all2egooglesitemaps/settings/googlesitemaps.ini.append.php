@@ -34,6 +34,7 @@ ClassFilterArray[]=topic
 ClassFilterArray[]=folder
 ClassFilterArray[]=brochure
 ClassFilterArray[]=faq
+ClassFilterArray[]=sit_mise_en_avant
 
 
 [NodeSettings]
