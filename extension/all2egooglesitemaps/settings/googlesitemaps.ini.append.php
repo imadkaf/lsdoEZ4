@@ -29,6 +29,7 @@ ClassFilterArray[]=diaporama
 ClassFilterArray[]=gallery_category_photo
 ClassFilterArray[]=gallery_category_video
 ClassFilterArray[]=gallery_gallery_photo
+ClassFilterArray[]=accueil_mobile
 ClassFilterArray[]=webcams
 ClassFilterArray[]=itineraire
 ClassFilterArray[]=footer_menu
