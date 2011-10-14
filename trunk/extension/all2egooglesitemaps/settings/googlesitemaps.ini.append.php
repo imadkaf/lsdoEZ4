@@ -20,6 +20,21 @@ ClassFilterArray[]
 #ClassFilterArray[]=image
 #ClassFilterArray[]=forum
 #ClassFilterArray[]=...
+ClassFilterArray[]=ba_flux_rss_blog
+ClassFilterArray[]=embed_code
+ClassFilterArray[]=dossier_phototheque
+ClassFilterArray[]=image_entete
+ClassFilterArray[]=image_entete_defaut
+ClassFilterArray[]=itineraire
+ClassFilterArray[]=footer_menu
+ClassFilterArray[]=main_menu
+ClassFilterArray[]=season
+ClassFilterArray[]=sub_menu
+ClassFilterArray[]=topic
+ClassFilterArray[]=folder
+ClassFilterArray[]=brochure
+ClassFilterArray[]=faq
+
 
 [NodeSettings]
 #set false to include only main node of content object in sitemap
