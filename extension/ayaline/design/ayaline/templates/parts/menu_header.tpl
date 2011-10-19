@@ -7,7 +7,7 @@
 		<li class="rubrique{$key}"> {* en principe rubrique0 => Découvrir, rubrique1 => Séjourner, rubrique2 => A la une *}
 			{*<a class="element" href={$sMenu.data_map.content.content.main_node.url_alias|ezurl}><span></span></a>*}
 			{* suppression du lien sur la rubrique de niveau 1 car lien inutile puisque menu déroulant *}
-			<a class="element" href={$sMenu.data_map.content.content.main_node.url_alias|ezurl}><span>{*$sMenu.data_map.content.content.name|wash*}</span></a> {* TO DO : mettre le titre de la rubrique plutôt qu'un span vide pour le menu principal !!! *}
+			<a class="element" href="#"><span>{*$sMenu.data_map.content.content.name|wash*}</span></a> {* TO DO : mettre le titre de la rubrique plutôt qu'un span vide pour le menu principal !!! *}
 	{*
 		Gestion des sous-menu du menu général
 	*}
