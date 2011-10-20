@@ -1,6 +1,7 @@
-{def $mises_en_avant = fetch( 'content','list',hash( 'parent_node_id', $node.node_id,
-											'class_filter_type',  'include',
-	              							'class_filter_array', array('sit_mise_en_avant') ))}
+{def $mises_en_avant = fetch( 'content','list',hash(
+	'parent_node_id', $node.node_id,
+	'attribute_filter', array(array('sit_mise_en_avant/mode_affichage', '!=', '6'))
+))}
 
 {def $noeudCourant = ''}
 
@@ -12,3 +13,5 @@
 		<p style="margin-bottom: 15px;"></p>
 	{/foreach}
 {/if}
+
+{undef $noeudCourant}
