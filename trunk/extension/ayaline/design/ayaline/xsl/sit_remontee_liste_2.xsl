@@ -11,9 +11,6 @@
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:include href="inc/enhanced_substring.xsl"/>
 
-	<xsl:variable name="nbPagesMax" select="5"/>
-	<xsl:include href="inc/pagination.xsl"/>
-
 	<xsl:include href="inc/periodes_ouverture.xsl"/>
 	<xsl:include href="inc/bouton_reserver.xsl"/>
 
@@ -23,7 +20,7 @@
 				<xsl:for-each select="resultats/details/detail">
 					<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitListeUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(intitule, concat('/-?_.', $quot, $apos, $amp), '        ')), ' ', '-')"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if><xsl:if test="string-length($pageCourante) &gt; 0 and $pageCourante &gt; 1">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if></xsl:variable>
 					<li>
-						<xsl:if test="position() = 1">
+						<xsl:if test="(position() mod 2) = 1">
 							<xsl:attribute name="class">first</xsl:attribute>
 						</xsl:if>
 						<a><xsl:attribute name="id">fiche-<xsl:value-of select="@id"/></xsl:attribute><![CDATA[ ]]></a>
