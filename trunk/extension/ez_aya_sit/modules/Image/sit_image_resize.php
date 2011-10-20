@@ -102,7 +102,7 @@ header_remove("Served-by");
 header_remove("Transfer-Encoding");
 header_remove("Content-Language");
 header_remove("Pragma");
-header_remove("Cache-Control");*/
+header_remove("Cache-Control");
 
 if ($cheminFichierCacheImagesResized) {
 	echo file_get_contents($cheminFichierCacheImagesResized);
