@@ -355,8 +355,8 @@ class eZSitOperators {
 		$criteresRecherche = $sitListe['criteres_recherche']->value();
 
 		$sitModalitesRapides = array();
-		$sitModalitesTexte = array();
-		$sitModalitesNum = array();
+		$sitModalitesTexte = "";
+		$sitModalitesNum = "";
 		$codesInsee = null;
 		$motsCles = null;
 		$debutDispo = null;
@@ -775,8 +775,8 @@ class eZSitOperators {
 		}
 
 		$sitModalitesRapides = array();
-		$sitModalitesTexte = array();
-		$sitModalitesNum = array();
+		$sitModalitesTexte = "";
+		$sitModalitesNum = "";
 		$codesInsee = null;
 		$motsCles = null;
 		$debutDispo = null;
@@ -1349,6 +1349,24 @@ class eZSitOperators {
 		$xsltParemters['sitMiseEnAvantUrlAlias'] = str_replace("/", "~", $sitMiseEnAvantUrlAlias);
 		eZURI::transformURI($sitMiseEnAvantUrlAlias);
 		$xsltParemters['sitListeUrlAlias'] = $sitMiseEnAvantUrlAlias;
+
+		$pageCourante = "1";
+		if (array_key_exists('page', $viewParameters) && $viewParameters['page']) {
+			$pageCourante = $viewParameters['page'];
+		}
+		$xsltParemters['pageCourante'] = $pageCourante;
+
+		$triEnCours = "";
+		if (array_key_exists('tri', $viewParameters) && $viewParameters['tri']) {
+			$triEnCours = $viewParameters['tri'];
+		}
+		$xsltParemters['triEnCours'] = $triEnCours;
+
+		$rechercheEnCours = "non";
+		if (array_key_exists('recherche', $viewParameters) && $viewParameters['recherche']) {
+			$rechercheEnCours = $viewParameters['recherche'];
+		}
+		$xsltParemters['rechercheEnCours'] = $rechercheEnCours;
 
 		$xsltParemters['criteresAffiches'] = "|".implode("|", $criteresAffiches)."|";
 
