@@ -11,9 +11,6 @@
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:include href="inc/enhanced_substring.xsl"/>
 
-	<xsl:variable name="nbPagesMax" select="5"/>
-	<xsl:include href="inc/pagination.xsl"/>
-
 	<xsl:include href="inc/periodes_ouverture.xsl"/>
 	<xsl:include href="inc/bouton_reserver.xsl"/>
 
