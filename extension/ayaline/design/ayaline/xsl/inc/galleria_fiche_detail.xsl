@@ -15,10 +15,11 @@
 					</a>
 				</xsl:for-each>
 			</div>
+			<script type="text/javascript" src="/extension/ayaline_gallery/design/standard/javascript/galleria/themes/classic/galleria.classic.min.js"><![CDATA[&nbsp;]]></script>
 			<script type="text/javascript">
 				<![CDATA[
 					// Load the classic theme
-					Galleria.loadTheme("/extension/ayaline_gallery/design/standard/javascript/galleria/themes/classic/galleria.classic.min.js");
+					//Galleria.loadTheme("/extension/ayaline_gallery/design/standard/javascript/galleria/themes/classic/galleria.classic.min.js");
 
 					// Initialize Galleria
 					$('#galleria').galleria({
