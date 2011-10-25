@@ -120,5 +120,13 @@
 	{/if}
 {/foreach}
 		{ezscript_load( array('ezjsc::jqueryio'))}
+		{literal}
+		<script>
+             SA.redirection_mobile ({
+                mobile_url : {/literal}"{ezini('SiteSettings','SiteURL','site.ini','extension/ayaline_mobi/settings/siteaccess/ayaline_mobi')}",{literal}
+                mobile_prefix : "http"
+            });
+        </script>
+		{/literal}
 	</head>
 {undef $title $referencement $description $keywords}
