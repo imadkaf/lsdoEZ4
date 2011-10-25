@@ -25,5 +25,6 @@ JavaScriptList[]=bxslider/jquery.bxSlider.min.js
 JavaScriptList[]=jquery.lightbox-0.5.pack.js
 JavaScriptList[]=http://gadget.open-system.fr/osform.min.js
 JavaScriptList[]=jquery.lazyload.min.js
+JavaScriptList[]=redirection_mobile.min.js
 
 */ ?>
