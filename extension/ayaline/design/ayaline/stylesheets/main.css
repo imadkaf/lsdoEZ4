@@ -738,8 +738,7 @@ button.button {
 	padding:3px 0 3px 21px;
 	display:block;
 }
-.bg-a, .bg-b,
-.bg-c{
+.bg-a, .bg-b {
 	background:url('../images/illustration10.png') 100% 0 no-repeat;
 	padding:13px 0 31px 18px;
 }
@@ -787,7 +786,7 @@ button.button {
 	padding:13px 0 0 18px;
 }
 .bg-c{
-	background:url('../images/illustration11.png') 97% 60% no-repeat;
+	/*background:url('../images/illustration11.png') 97% 60% no-repeat;*/
 	padding:13px 0 15px 18px;
 }
 .bg-c .lien-bas{
