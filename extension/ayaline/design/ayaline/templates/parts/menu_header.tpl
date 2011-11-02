@@ -58,7 +58,7 @@
 									{else}
 										<span>Vous devez placer un contenu de type {ezini('ClassSettings','ClassEmbedCodeIdentifier','content.ini')} à cet emplacement.</span>
 									{/if}
-									{include uri='design:parts/maree.tpl'}
+									{*include uri='design:parts/maree.tpl'*}
 									
 						</div>
 					</li>
