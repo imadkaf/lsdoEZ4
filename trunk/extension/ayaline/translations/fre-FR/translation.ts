@@ -30,5 +30,9 @@
 			<source>Categorie</source>
 			<translation>Catégorie</translation>
 		</message>
+		<message>
+			<source>AffinerRecherche</source>
+			<translation>Valider la recherche</translation>
+		</message>
 	</context>
 </TS>
