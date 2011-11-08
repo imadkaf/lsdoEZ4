@@ -4,16 +4,16 @@
 
 	<xsl:template name="periodes-ouverture">
 		<div style="float:left;margin-top:5px">
-			<xsl:if test="ouvertureAnnee/@value = '1'">
+			<xsl:if test="../../ouvertureAnnee/@value = '1'">
 				<div>
 					<xsl:attribute name="style">color:black;background:url('<xsl:value-of select="$cheminImages"/>picto_calendrier.png') no-repeat 0 50%;padding:3px 3px 3px 23px;margin-bottom:5px</xsl:attribute>
 					<strong><xsl:value-of select="$termeOuvertTouteAnnee"/></strong>
 				</div>
 			</xsl:if>
-			<xsl:if test="count(periodesOuvertures/periodeOuverture) &gt; 0">
+			<xsl:if test="count(.) &gt; 0">
 				<div style="padding:3px 3px 3px 0;margin-bottom:5px">
 					<div>
-						<xsl:for-each select="periodesOuvertures/periodeOuverture">
+						<xsl:for-each select=".">
 							<div>
 								<xsl:attribute name="style">background:url('<xsl:value-of select="$cheminImages"/>picto_calendrier.png') no-repeat 0 50%;padding:2px 0 2px 23px</xsl:attribute>
 								<xsl:if test="periodeOuvertureDebut = periodeOuvertureFin">
