@@ -12,8 +12,7 @@
 			</xsl:if>
 			<xsl:if test="count(periodesOuvertures/periodeOuverture) &gt; 0">
 				<div style="padding:3px 3px 3px 0;margin-bottom:5px">
-					<div style="color:black;border-bottom:1px solid black"><strong><xsl:value-of select="$termePeriodesOuverture"/></strong></div>
-					<div style="border-left:2px solid black;padding-left:3px">
+					<div>
 						<xsl:for-each select="periodesOuvertures/periodeOuverture">
 							<div>
 								<xsl:attribute name="style">background:url('<xsl:value-of select="$cheminImages"/>picto_calendrier.png') no-repeat 0 50%;padding:2px 0 2px 23px</xsl:attribute>
