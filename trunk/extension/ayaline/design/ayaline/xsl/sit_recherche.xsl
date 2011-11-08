@@ -157,6 +157,13 @@
 				</button>
 			</div>
 
+			<div style="margin-bottom:10px">
+				<label for="sit_mc" class="choisissez"><strong><xsl:value-of select="$termeMotsCles"/></strong></label>
+				<input type="text" id="sit_mc" name="sit_mc" style="border:1px solid #999999;width:99%">
+					<xsl:attribute name="value"><xsl:value-of select="$motsCles"/></xsl:attribute>
+				</input>
+			</div>
+			
 			<xsl:if test="string-length($villes) &gt; 0">
 				<div style="margin-bottom:10px">
 					<label for="sit_cinsee" class="choisissez"><strong><xsl:value-of select="$termeCommune"/></strong></label>
@@ -167,12 +174,7 @@
 					</select>
 				</div>
 			</xsl:if>
-			<div style="margin-bottom:10px">
-				<label for="sit_mc" class="choisissez"><strong><xsl:value-of select="$termeMotsCles"/></strong></label>
-				<input type="text" id="sit_mc" name="sit_mc" style="border:1px solid #999999;width:99%">
-					<xsl:attribute name="value"><xsl:value-of select="$motsCles"/></xsl:attribute>
-				</input>
-			</div>
+			
 			<div style="margin-bottom:10px">
 				<div style="float:left; width:50%">
 					<div style="padding-right:3px">
