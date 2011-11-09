@@ -3000,7 +3000,11 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 
 
-/*** Bloc Accueil SIT - Diaporama ***/
+/*** Bloc Accueil SIT ***/
+.bloc-accueil-h2 .contenu{
+    padding-bottom: 5px;
+}
+/* Diaporama */
 .bxslider{
 	width:338px;
 	margin:0 0 20px 10px;
