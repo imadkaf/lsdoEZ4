@@ -2,6 +2,7 @@
 {if $lang|eq('')}{set $lang=$attribute.language_code|extract_left(2)}{/if}
 <script type="text/javascript">
 var RecaptchaTheme='{ezini('Display','Theme','recaptcha.ini')}';
+console.log(RecaptchaTheme);
 var RecaptchaLang='{$lang}';
 {literal}
 var RecaptchaOptions = {
