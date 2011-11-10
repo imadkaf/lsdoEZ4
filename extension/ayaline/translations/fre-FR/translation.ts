@@ -35,4 +35,11 @@
 			<translation>Valider la recherche</translation>
 		</message>
 	</context>
+	<context>
+	    <name>extension/recaptcha</name>
+	    <message>
+	        <source>The reCAPTCHA wasn't entered correctly. Please try again.</source>
+	        <translation>Le code de sécurité est incorrect.</translation>
+	    </message>
+	</context>
 </TS>

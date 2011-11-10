@@ -2582,6 +2582,8 @@ div.survey-view .required{
 }
 .survey-view .button-effacer{
 	margin-right:10px;
+	float:left;
+	margin-left: 4px;
 }
 
 
@@ -3172,4 +3174,36 @@ li.ayaline a img {
 }
 li.ayaline a:hover {
 	 text-decoration: none;
+}
+/**
+ * Recaptcha 
+ */
+#captcha .recaptchatable {
+    border: medium none !important;
+}
+#captcha .recaptcha_image_cell {
+	background-color: transparent;
+    width: 261px !important;
+}
+#captcha #recaptcha_image {
+    border: 1px solid #C8C7C1 !important;
+    float: left !important;
+    width: 261px !important;
+}
+#captcha #recaptcha_image img {
+    width: 261px !important;
+}
+#captcha #recaptcha_logo, #captcha #recaptcha_tagline, #captcha #recaptcha_switch_audio, #captcha #recaptcha_reload_btn, #captcha #recaptcha_whatsthis_btn {
+    display: none;
+}
+#captcha input {
+    border: 1px solid #C8C7C1 !important;
+    float: left !important;
+    width: 261px !important;
+}
+/**
+ * Survey
+ */
+.survey-view .button-envoyer {
+	margin-left: 93px;
 }
