@@ -3201,9 +3201,3 @@ li.ayaline a:hover {
     float: left !important;
     width: 261px !important;
 }
-/**
- * Survey
- */
-.survey-view .button-envoyer {
-	margin-left: 93px;
-}
