@@ -92,15 +92,15 @@
 					<label>{$node.data_map.bons_plans_sejours.contentclass_attribute_name|wash()}</label>
 				</div>
 
-				{*<div class="block">
+				<div class="block">
 					<br />
-					<h2>Code de sécurité (CAPTCHA)<strong class="required">*</strong></h2>
+					<h2>Code de sécurité<strong class="required">*</strong>:</h2>
 				</div>
-				<div class="block recaptcha-droite">
+				<div id="captcha" class="block recaptcha-droite">
 					<p class="text-captcha">Saisir le code ci-dessous. Si vous ne pouvez lire toutes les lettres ou chiffres, <a href="javascript:Recaptcha.reload ();">Cliquez ici</a>.</p>
 					<br />
 					{attribute_view_gui attribute = $node.data_map.recapture}
-				</div>*}
+				</div>
 				
 				<div class="block button">
 					<input name="TopLevelNode" value="{$node.node_id}" type="hidden" />

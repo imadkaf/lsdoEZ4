@@ -7,7 +7,7 @@
 		<ul>
 			{foreach $survey_validation.errors as $key => $error}
 			  <li>
-			  	<span class="label-erreur"><b>{$error.question.text}</b></span>{if ne($error.question.text, '')} : {/if}{$error.message}
+			  	<span class="label-erreur"><b>{$error.question.text}&nbsp;</b></span>{if ne($error.question.text, '')}: {else}&nbsp;&nbsp;{/if}{$error.message}
 			  </li>
 			{/foreach}
 			{foreach $survey_validation.warnings as $key => $warning}

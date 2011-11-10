@@ -37,7 +37,7 @@ PrivateKey=6LcZr8cSAAAAAGfEatx4eomSEtDsc2rvFogGfbsm
 #
 # If you choose a value that is not supported the captcha will default to the
 # red theme
-Theme=white
+Theme=clean
 
 # The templates currently attempt to work out the language to present the
 # capture in based on the language_code attribute. This is currently not

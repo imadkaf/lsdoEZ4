@@ -63,9 +63,8 @@
 				<div class="block">
 					<div class="label-form">
 						<br />
-						<h2>Code de sécurité (CAPTCHA)<strong class="required">*</strong></h2>
+						<label class="lsdo-label non-textarea">Code de sécurité<strong class="required">*</strong>:</label>
 					</div>
-					<br />
 					<div class="input-form lsdo-recaptcha">
 						<p class="text-captcha">Saisir le code ci-dessous. Si vous ne pouvez lire toutes les lettres ou chiffres, <a href="javascript:Recaptcha.reload ();">Cliquez ici</a>.</p>
 						<br />
@@ -85,8 +84,7 @@
 			
 			<div class="validate block button">
 				<input class="button-effacer" type="image" src={"effacer.png"|ezimage} name="reset" value="Effacer" onclick="this.form.reset(); return false;" />
-				{*<input class="button button-envoyer" type="image" src={"envoyer.png"|ezimage} name="{$prefixAttribute}_ezsurvey_store_button_{$attribute.id}" value="{'Submit'|i18n( 'survey' )}" />*}
-				<input class="button" type="submit" name="{$prefixAttribute}_ezsurvey_store_button_{$attribute.id}" value="{'Submit'|i18n( 'survey' )}" />
+				<input class="button button-envoyer" type="image" src={"envoyer.png"|ezimage} name="{$prefixAttribute}_ezsurvey_store_button_{$attribute.id}" value="{'Submit'|i18n( 'survey' )}" onclick="this.form.submit(); return false;"/>
 			</div>
 			
 			{if $module_param_value|ne('content/edit')}
