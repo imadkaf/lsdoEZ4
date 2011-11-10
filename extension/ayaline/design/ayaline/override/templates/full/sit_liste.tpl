@@ -33,7 +33,7 @@
 											'parent_node_id', $node.parent.node_id,
 											'sort_by', $node.sort_array,
 											'class_filter_type',  'exclude',
-											'class_filter_array', array('sit_mise_en_avant')))}
+											'class_filter_array', array('sit_mise_en_avant', 'sit_fiche')))}
 			
 			{if $listeRubriques|count}
 				<ul class="menu-left">
