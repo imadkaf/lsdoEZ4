@@ -147,10 +147,7 @@
 					</xsl:for-each>
 				</div>
 			</xsl:if>
-			<div style="text-align:right;margin-bottom:5px"><a style="display:block;">
-				<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute>
-				<xsl:value-of select="$termeReinitialiserRecherche"/>
-			</a></div>
+			
 			<div style="text-align:right;margin-bottom:15px">
 				<button type="submit" name="search_sit" class="button">
 					<span><xsl:value-of select="$termeAffinerRecherche"/></span>
@@ -163,17 +160,6 @@
 					<xsl:attribute name="value"><xsl:value-of select="$motsCles"/></xsl:attribute>
 				</input>
 			</div>
-			
-			<xsl:if test="string-length($villes) &gt; 0">
-				<div style="margin-bottom:10px">
-					<label for="sit_cinsee" class="choisissez"><strong><xsl:value-of select="$termeCommune"/></strong></label>
-					<select id="sit_cinsee" name="sit_cinsee[]" style="width:100%" multiple="multiple">
-						<xsl:call-template name="display-villes">
-							<xsl:with-param name="villesChaine" select="$villes"/>
-						</xsl:call-template>
-					</select>
-				</div>
-			</xsl:if>
 			
 			<div style="margin-bottom:10px">
 				<div style="float:left; width:50%">
@@ -213,6 +199,7 @@
 					</label>
 				</div>
 			</div>
+			
 			<xsl:for-each select="criteres/criteresSpecs/critere">
 				<xsl:variable name="idCritere" select="@id"/>
 				<xsl:variable name="typeCritere" select="@type"/>
@@ -306,6 +293,18 @@
 					</div>
 				</xsl:if>
 			</xsl:for-each>
+			
+			<xsl:if test="string-length($villes) &gt; 0">
+				<div style="margin-bottom:10px">
+					<label for="sit_cinsee" class="choisissez"><strong><xsl:value-of select="$termeCommune"/></strong></label>
+					<select id="sit_cinsee" name="sit_cinsee[]" style="width:100%" multiple="multiple">
+						<xsl:call-template name="display-villes">
+							<xsl:with-param name="villesChaine" select="$villes"/>
+						</xsl:call-template>
+					</select>
+				</div>
+			</xsl:if>
+			
 			<div style="text-align:right;margin-bottom:5px"><a style="display:block;">
 				<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute>
 				<xsl:value-of select="$termeReinitialiserRecherche"/>
