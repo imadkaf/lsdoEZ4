@@ -59,8 +59,6 @@
 			{/let}
 
 			{*/reCaptcha/*}
-			{$node.data_map.captcha_active.content}
-			{$node.data_map.captcha_active|attribute(show,2)}
 			{if eq($node.data_map.captcha_active.content, 1)}
 				<div class="block">
 					<div class="label-form">
