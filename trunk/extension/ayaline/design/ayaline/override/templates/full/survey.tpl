@@ -36,7 +36,7 @@
 						    {foreach $node.object.contentobject_attributes as $attribute}
 						        {if $name_pattern_array|contains($attribute.contentclass_attribute_identifier)|not()}
 						        	{*Filtre sur les champs du formulaire à ne pas afficher via la méthode 'attribute_view_gui'*}
-						        	{if and(ne($attribute.contentclass_attribute_identifier, captcha_active), ne($attribute.contentclass_attribute_identifier, captcha), ne($attribute.contentclass_attribute_identifier, mail_content), ne($attribute.contentclass_attribute_identifier, mail_subject))}
+						        	{if and(ne($attribute.contentclass_attribute_identifier, captcha_active), ne($attribute.contentclass_attribute_identifier, recaptcha), ne($attribute.contentclass_attribute_identifier, mail_content), ne($attribute.contentclass_attribute_identifier, mail_subject))}
 							            <div class="attribute-{$attribute.contentclass_attribute_identifier}">
 							                {attribute_view_gui attribute=$attribute}
 							            </div>
