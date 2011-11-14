@@ -46,3 +46,13 @@ function fixH2(one, two) {
 		$(two).css('min-height', maxHeight-15-9-15-2);
 	}
 }
+
+
+$(document).ready(function(){
+	$('li.rubrique2').first().mouseover(function(){
+		$('li.rubrique2:first .ss-menu:first').css('display','block');
+	});
+	$('li.rubrique2').first().mouseout(function(){
+		$('li.rubrique2:first .ss-menu:first').css('display','none');
+	});
+});
