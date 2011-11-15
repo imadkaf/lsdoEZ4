@@ -3,7 +3,7 @@
 
 [SiteSettings]
 SiteName=BE LSDO
-SiteURL=admin.lsdo.loc
+SiteURL=dev.admin.lsdo.lnet.fr
 DefaultPage=content/dashboard
 LoginPage=custom
 
@@ -18,10 +18,10 @@ RelatedSiteAccessList[]=ayaline_admin
 ShowHiddenNodes=true
 
 [DesignSettings]
-SiteDesign=admin2
+SiteDesign=ayaline_admin
+AdditionalSiteDesignList[]=admin2
 AdditionalSiteDesignList[]=admin
 AdditionalSiteDesignList[]=ayaline
-AdditionalSiteDesignList[]=ayaline_admin
 AdditionalSiteDesignList[]=ayaline_mobi
 
 
