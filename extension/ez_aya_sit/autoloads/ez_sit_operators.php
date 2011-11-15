@@ -953,7 +953,7 @@ class eZSitOperators {
 				$dateDebutOuv = mktime(0, 0, 0, $dateDebutOuv[1], $dateDebutOuv[0], $dateDebutOuv[2]);
 				$dateFinOuv = explode('/', $finOuv);
 				$dateFinOuv = mktime(0, 0, 0, $dateFinOuv[1], $dateFinOuv[0], $dateFinOuv[2]);
-				if ($now >= $dateDebutOuv && $now <= $dateDebutOuv) {
+				if ($now >= $dateDebutOuv && $now <= $dateFinOuv) {
 					$debutOuv = date("d/m/Y", $now);
 				}
 			}
@@ -1243,6 +1243,68 @@ class eZSitOperators {
 				} else {
 					$sitParams['idp'] = $unPaysEpci;
 				}
+			}
+		}
+
+		if ($sitMiseEnAvant['filtrer_sur_saison']->value()) {
+			$debutOuv = null;
+			$finOuv = null;
+			if ($saisonId !== null) {
+				if ($sitIni->hasVariable('Saisons', 'Printemps') && $saisonId == $sitIni->variable('Saisons','Printemps')) {
+					if ($sitIni->hasVariable('Saisons','DebutPrintemps')) {
+						$debutOuv=$sitIni->variable('Saisons','DebutPrintemps').'/'.date('Y');
+					}
+					if ($sitIni->hasVariable('Saisons','FinPrintemps')) {
+						$finOuv=$sitIni->variable('Saisons','FinPrintemps').'/'.date('Y');
+					}
+				}
+				if ($sitIni->hasVariable('Saisons', 'Ete') && $saisonId == $sitIni->variable('Saisons','Ete')) {
+					if ($sitIni->hasVariable('Saisons','DebutEte')) {
+						$debutOuv=$sitIni->variable('Saisons','DebutEte').'/'.date('Y');
+					}
+					if ($sitIni->hasVariable('Saisons','FinEte')) {
+						$finOuv=$sitIni->variable('Saisons','FinEte').'/'.date('Y');
+					}
+				}
+				if ($sitIni->hasVariable('Saisons', 'Automne') && $saisonId == $sitIni->variable('Saisons','Automne')) {
+					if ($sitIni->hasVariable('Saisons','DebutAutomne')) {
+						$debutOuv=$sitIni->variable('Saisons','DebutAutomne').'/'.date('Y');
+					}
+					if ($sitIni->hasVariable('Saisons','FinAutomne')) {
+						$finOuv=$sitIni->variable('Saisons','FinAutomne').'/'.date('Y');
+					}
+				}
+				if ($sitIni->hasVariable('Saisons', 'Hiver') && $saisonId == $sitIni->variable('Saisons','Hiver')) {
+					if ($sitIni->hasVariable('Saisons','DebutHiver')) {
+						$debutOuv=$sitIni->variable('Saisons','DebutHiver').'/'.date('Y');
+					}
+					if ($sitIni->hasVariable('Saisons','FinHiver')) {
+						$finOuv=$sitIni->variable('Saisons','FinHiver').'/'.(date('Y')+1);
+					}
+				}
+				if ($debutOuv && $finOuv) {
+					$now = time();
+					$dateDebutOuv = explode('/', $debutOuv);
+					$dateDebutOuv = mktime(0, 0, 0, $dateDebutOuv[1], $dateDebutOuv[0], $dateDebutOuv[2]);
+					$dateFinOuv = explode('/', $finOuv);
+					$dateFinOuv = mktime(0, 0, 0, $dateFinOuv[1], $dateFinOuv[0], $dateFinOuv[2]);
+					if ($now >= $dateDebutOuv && $now <= $dateFinOuv) {
+						$debutOuv = date("d/m/Y", $now);
+					}
+				}
+			}
+
+			if ($debutOuv) {
+				$dateDebutOuv = explode('/', $debutOuv);
+				$sitParams['jdo'] = $dateDebutOuv[0];
+				$sitParams['mdo'] = $dateDebutOuv[1];
+				$sitParams['ado'] = $dateDebutOuv[2];
+			}
+			if ($finOuv) {
+				$dateFinOuv = explode('/', $finOuv);
+				$sitParams['jfo'] = $dateFinOuv[0];
+				$sitParams['mfo'] = $dateFinOuv[1];
+				$sitParams['afo'] = $dateFinOuv[2];
 			}
 		}
 
