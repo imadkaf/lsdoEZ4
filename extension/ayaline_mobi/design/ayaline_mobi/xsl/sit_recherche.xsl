@@ -8,7 +8,7 @@
 	<xsl:template match="/">
 		<div class="bloc-type">
 			
-			<h2 class="bloc-liste-h2-recherche">Recherche :</h2>
+			<span class="bloc-liste-h2-recherche">Recherche par date :</span>
 			<p class="clear"></p>
 			<form method="post" class="form-search-left">
 			<xsl:attribute name="action"><xsl:value-of select="$lienCourant"/>/(recherche)/oui<xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute>
@@ -129,7 +129,7 @@
 				<div style="float:left; width:50%">
 					<div style="padding-right:3px">
 						<label for="sit_debut_ouv" class="choisissez"><strong><xsl:value-of select="$termeDebutOuv"/></strong></label>
-						<input type="text" id="sit_debut_ouv" name="sit_debut_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier">
+						<input type="text" id="sit_debut_ouv" name="sit_debut_ouv" style="border:1px solid #999999;width:85px" class="champ-texte-calendrier">
 							<xsl:if test="string-length($ouvAnnee) = 0">
 								<xsl:attribute name="value"><xsl:value-of select="$debutOuv"/></xsl:attribute>
 							</xsl:if>
@@ -139,7 +139,7 @@
 				<div style="float:left; width:50%">
 					<div style="padding-left:3px">
 						<label for="sit_fin_ouv" class="choisissez"><strong><xsl:value-of select="$termeFinOuv"/></strong></label>
-						<input type="text" id="sit_fin_ouv" name="sit_fin_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier">
+						<input type="text" id="sit_fin_ouv" name="sit_fin_ouv" style="border:1px solid #999999;width:85px" class="champ-texte-calendrier">
 							<xsl:if test="string-length($ouvAnnee) = 0">
 								<xsl:attribute name="value"><xsl:value-of select="$finOuv"/></xsl:attribute>
 							</xsl:if>
@@ -147,7 +147,7 @@
 					</div>
 				</div>
 				<div style="clear:both"><![CDATA[ ]]></div>
-				<div>
+				<!--div>
 					<script type="text/javascript"><![CDATA[
 						var valDebutOuv = ']]><xsl:value-of select="$debutOuv"/><![CDATA[';
 						var valFinOuv = ']]><xsl:value-of select="$finOuv"/><![CDATA[';
@@ -161,7 +161,7 @@
 						</input>
 						<xsl:value-of select="$termeOuvertTouteAnnee"/>
 					</label>
-				</div>
+				</div-->
 			</div>
 			<!--xsl:for-each select="criteres/criteresSpecs/critere">
 				<xsl:variable name="idCritere" select="@id"/>

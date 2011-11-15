@@ -14,6 +14,8 @@
 	<xsl:variable name="nbPagesMax" select="5"/>
 	<xsl:include href="inc/pagination.xsl"/>
 
+	<xsl:include href="inc/periodes_ouverture.xsl"/>
+
 	<xsl:template match="/">
 		<xsl:if test="count(resultats/produit) &gt; 0">
 			<ul class="liste-hotel-contenu">
@@ -56,6 +58,7 @@
 						<p class="sous-titre">
 							<span><xsl:value-of select="ville/intituleVille"/></span> |
 							<b><xsl:value-of select="criteres/critere[@id='851000001']/modalites/modalite[1]/intModalite"/></b>
+							<xsl:call-template name="periodes-ouverture"/>
 						</p>
 						
 						<p class="prix">

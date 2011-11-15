@@ -328,12 +328,13 @@ p.contenu {
 .float-droite-picto{
 	background: url("../images/fleche-bleu.png") no-repeat scroll 0px 0px transparent;
 	float: right;
-	position: relative;
+	position: absolute;
 	right: 20px;
-	bottom: 18px;
+	top:35px;
+	/*bottom: 18px;*/
 }
 .float-droite-picto.pito-liste-hotel{
-	bottom: 25px !important;
+	/*bottom: 25px !important;*/
 }
 .float-droite{
 	float: right;
@@ -350,6 +351,7 @@ p.contenu {
 	border-top: 1px solid #c9bdb2;
 	padding: 10px 0px 10px 10px;
 	margin:0;
+	position:relative;
 }
 .liste-hotel-contenu li:first-child{
 	border-top: none;

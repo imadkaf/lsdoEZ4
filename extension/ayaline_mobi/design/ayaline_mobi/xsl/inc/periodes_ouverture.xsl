@@ -3,31 +3,33 @@
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 	<xsl:template name="periodes-ouverture">
-		<div style="float:left;margin-top:5px">
-			<xsl:if test="../../ouvertureAnnee/@value = '1'">
-				<div>
-					<xsl:attribute name="style">color:black;background:url('<xsl:value-of select="$cheminImages"/>picto_calendrier.png') no-repeat 0 50%;padding:3px 3px 3px 23px;margin-bottom:5px</xsl:attribute>
-					<strong><xsl:value-of select="$termeOuvertTouteAnnee"/></strong>
-				</div>
-			</xsl:if>
-			<xsl:if test="count(.) &gt; 0">
-				<div style="padding:3px 3px 3px 0;margin-bottom:5px">
+		<xsl:if test="ouvertureAnnee/@value = '1' or count(periodesOuvertures/periodeOuverture) &gt; 0">
+			<div style="margin-left:150px">
+				<xsl:if test="ouvertureAnnee/@value = '1'">
 					<div>
-						<xsl:for-each select=".">
-							<div>
-								<xsl:attribute name="style">background:url('<xsl:value-of select="$cheminImages"/>picto_calendrier.png') no-repeat 0 50%;padding:2px 0 2px 23px</xsl:attribute>
-								<xsl:if test="periodeOuvertureDebut = periodeOuvertureFin">
-									<xsl:value-of select="$termeLe"/><xsl:value-of select="$espace"/><strong style="color:black"><xsl:value-of select="substring(periodeOuvertureDebut, 9, 2)"/>/<xsl:value-of select="substring(periodeOuvertureDebut, 6, 2)"/>/<xsl:value-of select="substring(periodeOuvertureDebut, 1, 4)"/></strong>
-								</xsl:if>
-								<xsl:if test="periodeOuvertureDebut != periodeOuvertureFin">
-									<xsl:if test="string-length(periodeOuvertureDebut) &gt; 0"><xsl:value-of select="$termeDu"/><xsl:value-of select="$espace"/><strong style="color:black"><xsl:value-of select="substring(periodeOuvertureDebut, 9, 2)"/>/<xsl:value-of select="substring(periodeOuvertureDebut, 6, 2)"/>/<xsl:value-of select="substring(periodeOuvertureDebut, 1, 4)"/></strong></xsl:if><xsl:if test="string-length(periodeOuvertureFin) &gt; 0"><xsl:value-of select="$espace"/><xsl:value-of select="$termeAu"/><xsl:value-of select="$espace"/><strong style="color:black"><xsl:value-of select="substring(periodeOuvertureFin, 9, 2)"/>/<xsl:value-of select="substring(periodeOuvertureFin, 6, 2)"/>/<xsl:value-of select="substring(periodeOuvertureFin, 1, 4)"/></strong></xsl:if>
-								</xsl:if>
-							</div>
-						</xsl:for-each>
+						<xsl:attribute name="style">color:black;background:url('<xsl:value-of select="$cheminImages"/>picto_calendrier.png') no-repeat 0 50%;padding:3px 3px 3px 23px;margin-bottom:5px</xsl:attribute>
+						<strong><xsl:value-of select="$termeOuvertTouteAnnee"/></strong>
 					</div>
-				</div>
-			</xsl:if>
-		</div>
+				</xsl:if>
+				<xsl:if test="count(periodesOuvertures/periodeOuverture) &gt; 0">
+					<div style="padding:3px;margin-bottom:5px">
+						<div>
+							<xsl:for-each select="periodesOuvertures/periodeOuverture[position() = 1]">
+								<div>
+									<xsl:attribute name="style">background:url('<xsl:value-of select="$cheminImages"/>picto_calendrier.png') no-repeat 0 50%;padding:2px 0 2px 23px</xsl:attribute>
+									<xsl:if test="periodeOuvertureDebut = periodeOuvertureFin">
+										<xsl:value-of select="$termeLe"/><xsl:value-of select="$espace"/><strong style="color:black"><xsl:value-of select="substring(periodeOuvertureDebut, 9, 2)"/>/<xsl:value-of select="substring(periodeOuvertureDebut, 6, 2)"/>/<xsl:value-of select="substring(periodeOuvertureDebut, 1, 4)"/></strong>
+									</xsl:if>
+									<xsl:if test="periodeOuvertureDebut != periodeOuvertureFin">
+										<xsl:if test="string-length(periodeOuvertureDebut) &gt; 0"><xsl:value-of select="$termeDu"/><xsl:value-of select="$espace"/><strong style="color:black"><xsl:value-of select="substring(periodeOuvertureDebut, 9, 2)"/>/<xsl:value-of select="substring(periodeOuvertureDebut, 6, 2)"/>/<xsl:value-of select="substring(periodeOuvertureDebut, 1, 4)"/></strong></xsl:if><xsl:if test="string-length(periodeOuvertureFin) &gt; 0"><xsl:value-of select="$espace"/><xsl:value-of select="$termeAu"/><xsl:value-of select="$espace"/><strong style="color:black"><xsl:value-of select="substring(periodeOuvertureFin, 9, 2)"/>/<xsl:value-of select="substring(periodeOuvertureFin, 6, 2)"/>/<xsl:value-of select="substring(periodeOuvertureFin, 1, 4)"/></strong></xsl:if>
+									</xsl:if>
+								</div>
+							</xsl:for-each>
+						</div>
+					</div>
+				</xsl:if>
+			</div>
+		</xsl:if>
 	</xsl:template>
 
 </xsl:stylesheet>
