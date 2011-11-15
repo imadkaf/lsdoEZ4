@@ -16,7 +16,7 @@
 	{if ezini_hasvariable('CollectedInfoMail','Receivercontact','site.ini')}
 		{set-block scope=root variable=email_receiver}{ezini('CollectedInfoMail','Receivercontact','site.ini')}{/set-block}
 	{/if}
-{elseif }
+{else}
 	{if ezini_hasvariable('CollectedInfoMail','Receiverquestion','site.ini')}
 		{set-block scope=root variable=email_receiver}{ezini('CollectedInfoMail','Receiverquestion','site.ini')}{/set-block}
 	{/if}
@@ -32,7 +32,18 @@
 	
 	<p>{"The following information was collected"|i18n("design/standard/content/edit")}:<br/>
 	{section name=Attribute loop=$collection.attributes}
-		- <b>{$Attribute:item.contentclass_attribute_name|wash} : </b>{attribute_result_gui view=info attribute=$Attribute:item}<br/>
+{let attribute_value2 = ""}
+{set-block scope=root variable=attribute_value}
+{attribute_result_gui view=info attribute=$Attribute:item}
+{/set-block}
+{set attribute_value2 = $attribute_value}
+{if $Attribute:item.contentclass_attribute.identifier|eq('sqli_codepostal')}
+{if $attribute_value|lt(10000)}
+{set attribute_value2 = concat('0', $attribute_value|trim())}
+{/if}
+{/if}
+		- <b>{$Attribute:item.contentclass_attribute_name|wash} : </b>{$:attribute_value2}<br/>
+{/let}
 	{/section}
 	</p>
 	
