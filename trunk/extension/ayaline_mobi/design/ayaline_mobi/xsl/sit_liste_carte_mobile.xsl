@@ -98,7 +98,7 @@
 				</xsl:for-each>
 			</script>
 			<div class="map-js-container"><![CDATA[ ]]></div>
-			<div class="mapContainerListe" style="width:485px;height:300px;border-bottom: 1px solid #C9BDB2;"><![CDATA[ ]]></div>
+			<div class="mapContainerListe" style="width:100%;height:300px;border-bottom: 1px solid #C9BDB2;"><![CDATA[ ]]></div>
 			<script type="text/javascript">
 				<![CDATA[
 					$(document).ready( function () {
