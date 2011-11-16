@@ -34,5 +34,6 @@ JavaScriptListMobile[]=jquery.mobile-1.0a4.1.min.js
 #Utilise directement dans la fiche
 #JavaScriptListMobile[]=http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js
 JavaScriptListMobile[]=itineraire.js
+JavaScriptListMobile[]=listecarte.js
 
 */ ?>
