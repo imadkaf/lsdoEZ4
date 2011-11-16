@@ -4,7 +4,7 @@
 
 	<xsl:template name="periodes-ouverture">
 		<xsl:if test="ouvertureAnnee/@value = '1' or count(periodesOuvertures/periodeOuverture) &gt; 0">
-			<div style="margin-left:150px">
+			<div>
 				<xsl:if test="ouvertureAnnee/@value = '1'">
 					<div>
 						<xsl:attribute name="style">color:black;background:url('<xsl:value-of select="$cheminImages"/>picto_calendrier.png') no-repeat 0 50%;padding:3px 3px 3px 23px;margin-bottom:5px</xsl:attribute>
