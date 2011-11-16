@@ -389,6 +389,27 @@ p.contenu {
 	text-decoration: underline;
 }
 
+.moninfobulle h3{
+	margin: 0px 0px 5px 0px;
+}
+.moninfobulle .float-g{
+	float: left;
+	margin-right: 5px;
+}
+.moninfobulle span.float-d{
+    color: #BABABA;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    text-align: right;
+    width: 155px;
+}
+.moninfobulle p.lien{
+    text-align: right;
+    margin-top: 5px;
+}
 
 /*** Page fiche hotel ***/
 .contenu-fiche {
