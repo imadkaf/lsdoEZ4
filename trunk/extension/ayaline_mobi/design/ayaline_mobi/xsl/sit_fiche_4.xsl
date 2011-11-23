@@ -11,7 +11,7 @@
 
 	<xsl:template match="/produit">
 		<div class="titre-fiche">
-			<h2><xsl:value-of select="intitule"/></h2>
+			<h2><xsl:if test="$langue = 'en'"><xsl:value-of select="intituleGb"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="intitule"/></xsl:if></h2>
 			<p class="clear"><![CDATA[ ]]></p>
 		</div>
 		

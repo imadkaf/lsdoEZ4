@@ -15,6 +15,7 @@
 	<xsl:include href="inc/galleria_fiche_detail.xsl"/>
 
 	<xsl:template match="/produit">
+		<xsl:variable name="intitule"><xsl:if test="$langue = 'en'"><xsl:value-of select="intituleGb"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="intitule"/></xsl:if></xsl:variable>
 		<div class="box-left">
 			<xsl:call-template name="galerie-fiche-detail"/>
 			
@@ -51,7 +52,7 @@
 						    position: latlng, 
 						    map: map,
 						    icon: '/extension/ayaline/design/ayaline/images/picto-hotel.png',
-							title:"]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$quot"/><xsl:with-param name="by" select="'\&quot;'"/></xsl:call-template><![CDATA["
+							title:"]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intitule"/><xsl:with-param name="replace" select="$quot"/><xsl:with-param name="by" select="'\&quot;'"/></xsl:call-template><![CDATA["
 						});
 				  	}
 				]]>
@@ -158,7 +159,7 @@
 				]]>
 			</script>
 			<a class="fiche-popin" target="_blank" style="margin-left: 120px;">
-				<xsl:attribute name="href">/layout/set/vide/Itineraire-Rubrique?nom=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template></xsl:attribute>
+				<xsl:attribute name="href">/layout/set/vide/Itineraire-Rubrique?nom=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template></xsl:attribute>
 				<b>&amp;gt;&amp;gt; <xsl:value-of select="$termeItineraire"/></b>
 			</a>
 			<script type="text/javascript">
@@ -226,7 +227,7 @@
 		</div>
 		
 		<div class="box-right">
-			<h2 class="bloc-detail-h2"><xsl:value-of select="intitule"/></h2>
+			<h2 class="bloc-detail-h2"><xsl:value-of select="$intitule"/></h2>
 			<xsl:choose>
 				<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite != ''">
 					<img alt="">

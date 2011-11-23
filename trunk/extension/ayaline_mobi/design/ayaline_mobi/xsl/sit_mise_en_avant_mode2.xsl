@@ -15,7 +15,8 @@
 		<xsl:if test="count(resultats/produit) &gt; 0">
 			<!-- Basique -->
 			<xsl:for-each select="resultats/details/detail">
-				<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(intitule, concat('/-?_.', $quot, $apos, $amp), '        ')), ' ', '-')"/></xsl:variable>
+				<xsl:variable name="intitule"><xsl:if test="$langue = 'en'"><xsl:value-of select="intituleGb"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="intitule"/></xsl:if></xsl:variable>
+				<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate($intitule, concat('/-?_.', $quot, $apos, $amp), '        ')), ' ', '-')"/></xsl:variable>
 				<a>
 					<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 					<div class="push">
@@ -23,7 +24,7 @@
 						
 						<div class="text">
 							<span>suggestion</span>
-							<span class="title"><xsl:value-of select="intitule"/></span>
+							<span class="title"><xsl:value-of select="$intitule"/></span>
 			  				<span class="description"><xsl:value-of select="ville/intituleVille"/></span>
 						</div>
 					</div>
