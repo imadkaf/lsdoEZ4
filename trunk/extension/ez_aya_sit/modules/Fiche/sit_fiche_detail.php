@@ -8,6 +8,13 @@ $tpl = templateInit();
 $contentIni = eZINI::instance('content.ini');
 $sitIni = eZINI::instance('ez_aya_sit.ini');
 
+$siteIni = eZINI::instance('site.ini');
+
+$langue = $siteIni->variable('RegionalSettings','Locale');
+if ($langue) {
+	$langue = substr($langue, 0, 2);
+}
+
 $rootNode = $contentIni->variable('NodeSettings','RootNode');
 if (!$rootNode) {
 	$rootNode = "2";
@@ -74,6 +81,7 @@ if (array_key_exists('UserParameters', $Params) && array_key_exists('page', $Par
 }
 
 $sitParamsString = $idFiche ? "&idP=".$idFiche : "";
+$sitParamsString .= $langue ? "&lang=".$langue : "";
 
 $sitParamsStringCrypte = sha1("Produit__".substr($sitParamsString, 1));
 
@@ -109,6 +117,8 @@ $xsltParemters['cheminRacineSite'] = $cheminRacineSite;
 $xsltParemters['triEnCours'] = $triEnCours;
 $xsltParemters['rechercheEnCours'] = $rechercheEnCours;
 $xsltParemters['pageCourante'] = $pageCourante;
+
+$xsltParemters['langue'] = $langue;
 
 $cheminRacineSite = "/";
 eZURI::transformURI($cheminRacineSite, false, 'full');
