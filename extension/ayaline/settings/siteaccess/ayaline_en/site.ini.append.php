@@ -2,7 +2,7 @@
 
 [SiteSettings]
 SiteName=LSDO
-SiteURL=en.lsdo.loc
+SiteURL=dev.en.lsdo.lnet.fr
 LoginPage=embedded
 
 
@@ -22,6 +22,11 @@ ShowHiddenNodes=false
 SiteDesign=ayaline
 AdditionalSiteDesignList[]=ayaline_mobi
 AdditionalSiteDesignList[]=base
+
+[RegionalSettings]
+Locale=eng-GB
+SiteLanguageList[]=eng-GB
+TextTranslation=enabled
 
 [ContentSettings]
 TranslationList=
