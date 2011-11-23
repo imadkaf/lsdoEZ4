@@ -15,6 +15,7 @@
 	<xsl:include href="inc/galleria_fiche_detail.xsl"/>
 	
 	<xsl:template match="/produit">
+		<xsl:variable name="intitule"><xsl:if test="$langue = 'en'"><xsl:value-of select="intituleGb"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="intitule"/></xsl:if></xsl:variable>
 		<div style="float:left; width: 326px;">
 			<xsl:call-template name="galerie-fiche-detail"/>
 			
@@ -50,7 +51,7 @@
 					    var marker = new google.maps.Marker({
 						    position: latlng, 
 						    map: map,
-							title:"]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$quot"/><xsl:with-param name="by" select="'\&quot;'"/></xsl:call-template><![CDATA["
+							title:"]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intitule"/><xsl:with-param name="replace" select="$quot"/><xsl:with-param name="by" select="'\&quot;'"/></xsl:call-template><![CDATA["
 						});
 				  	}
 				]]>
@@ -157,7 +158,7 @@
 				]]>
 			</script>
 			<a class="fiche-popin" target="_blank" style="margin-left: 120px;">
-				<xsl:attribute name="href">/layout/set/vide/Itineraire-Rubrique?nom=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template></xsl:attribute>
+				<xsl:attribute name="href">/layout/set/vide/Itineraire-Rubrique?nom=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template></xsl:attribute>
 				<b>&amp;gt;&amp;gt; Itin&amp;eacute;raire</b>
 			</a>
 			<script type="text/javascript">
@@ -227,7 +228,7 @@
 		
 		
 		<div style="float:left; width: 310px;">
-			<h2 class="bloc-detail-h2" style="width: 295px; margin-left:10px;"><xsl:value-of select="intitule"/></h2>
+			<h2 class="bloc-detail-h2" style="width: 295px; margin-left:10px;"><xsl:value-of select="$intitule"/></h2>
 			<p class="lien-bas" style="margin-right:7px;">
 				<xsl:call-template name="boutons-reserver-liste"/>
 			</p>

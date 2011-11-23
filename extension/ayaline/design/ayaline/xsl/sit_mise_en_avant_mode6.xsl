@@ -18,7 +18,7 @@
 			<!-- Remontee a la une -->
 			<div class="remontee-alaune">
 				<xsl:for-each select="resultats/details/detail[position() = 1]">
-					<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate(intitule, concat('/-?_.', $quot, $apos, $amp), '        ')), ' ', '-')"/></xsl:variable>
+					<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate($intitule, concat('/-?_.', $quot, $apos, $amp), '        ')), ' ', '-')"/></xsl:variable>
 					<a style="overflow:hidden;"><xsl:attribute name="id">fiche-<xsl:value-of select="@id"/></xsl:attribute><![CDATA[ ]]></a>
 					
 					<a style="display: block; margin: 0px 0px 10px 0px;">
@@ -36,7 +36,7 @@
 					<h3 style="padding: 0px 0 0px;">
 						<a>
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-							<strong><xsl:value-of select="intitule"/></strong>
+							<strong><xsl:value-of select="$intitule"/></strong>
 						</a>
 					</h3>
 					

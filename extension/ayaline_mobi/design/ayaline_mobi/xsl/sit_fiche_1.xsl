@@ -11,7 +11,7 @@
 
 	<xsl:template match="/produit">
 		<div class="titre-fiche">
-			<h2><xsl:value-of select="intitule"/></h2>
+			<h2><xsl:if test="$langue = 'en'"><xsl:value-of select="intituleGb"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="intitule"/></xsl:if></h2>
 			<xsl:choose>
 				<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite != ''">
 					<img alt="">
