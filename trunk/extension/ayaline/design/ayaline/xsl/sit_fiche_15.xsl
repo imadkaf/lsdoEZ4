@@ -246,10 +246,11 @@
 						</ul>
 						
 						<div id="onglet-description">
-							<xsl:if test="string-length(commentaires/commentaire1) &gt; 0">
+							<xsl:variable name="commentaire"><xsl:if test="$langue = 'en'"><xsl:value-of select="commentaires/commentaire2"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="commentaires/commentaire1"/></xsl:if></xsl:variable>
+							<xsl:if test="string-length($commentaire) &gt; 0">
 								<p class="padding-bottom: 14px">
 									<xsl:call-template name="string-replace-all">
-									<xsl:with-param name="text" select="commentaires/commentaire1"/>
+									<xsl:with-param name="text" select="$commentaire"/>
 									<xsl:with-param name="replace" select="'\n'"/>
 									<xsl:with-param name="by" select="'&lt;br/&gt;'"/>
 									</xsl:call-template>

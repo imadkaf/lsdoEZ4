@@ -42,22 +42,22 @@
 							<strong><xsl:value-of select="intitule"/></strong>
 						</a>
 					</h3>
-					
-					<xsl:if test="string-length(commentaires/commentaire1) &gt; 0">
-						<xsl:variable name="commentaire1Nettoye">
+					<xsl:variable name="commentaire"><xsl:if test="$langue = 'en'"><xsl:value-of select="commentaires/commentaire2"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="commentaires/commentaire1"/></xsl:if></xsl:variable>
+					<xsl:if test="string-length($commentaire) &gt; 0">
+						<xsl:variable name="commentaireNettoye">
 							<xsl:call-template name="string-replace-all">
-								<xsl:with-param name="text" select="commentaires/commentaire1"/>
+								<xsl:with-param name="text" select="$commentaire"/>
 								<xsl:with-param name="replace" select="'\n'"/>
 								<xsl:with-param name="by" select="' '"/>
 							</xsl:call-template>
 						</xsl:variable>
-						<xsl:variable name="commentaire1NettoyeCoupe">
-							<xsl:if test="string-length($commentaire1Nettoye) &lt;= 100">
-								<xsl:value-of select="$commentaire1Nettoye"/>
+						<xsl:variable name="commentaireNettoyeCoupe">
+							<xsl:if test="string-length($commentaireNettoye) &lt;= 100">
+								<xsl:value-of select="$commentaireNettoye"/>
 							</xsl:if>
-							<xsl:if test="string-length($commentaire1Nettoye) &gt; 100">
+							<xsl:if test="string-length($commentaireNettoye) &gt; 100">
 								<xsl:call-template name="enhanced-substring">
-									<xsl:with-param name="text" select="$commentaire1Nettoye"/>
+									<xsl:with-param name="text" select="$commentaireNettoye"/>
 									<xsl:with-param name="currentSize" select="0"/>
 									<xsl:with-param name="totalSize" select="100"/>
 									<xsl:with-param name="delimiter" select="' '"/>
@@ -65,7 +65,7 @@
 							</xsl:if>
 						</xsl:variable>
 						<p>
-							<xsl:value-of select="$commentaire1NettoyeCoupe"/><xsl:if test="string-length($commentaire1Nettoye) &gt; 100">&amp;hellip;</xsl:if>
+							<xsl:value-of select="$commentaireNettoyeCoupe"/><xsl:if test="string-length($commentaireNettoye) &gt; 100">&amp;hellip;</xsl:if>
 						</p>
 					</xsl:if>
 					

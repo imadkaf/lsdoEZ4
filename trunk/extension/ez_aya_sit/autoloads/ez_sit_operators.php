@@ -282,6 +282,13 @@ class eZSitOperators {
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
 		
 		$cheminImagesDesign = $sitIni->variable('ImagesDesign','Chemin');
+
+		$siteIni = eZINI::instance('site.ini');
+
+		$langue = $siteIni->variable('RegionalSettings','Locale');
+		if ($langue) {
+			$langue = substr($langue, 0, 2);
+		}
 		
 		$saisonId = null;
 		if ($http->hasSessionVariable('saison')) {
@@ -542,6 +549,7 @@ class eZSitOperators {
 		}
 
 		$sitParamsString = $categorie ? "&idC=".$categorie : "";
+		$sitParamsString .= $langue ? "&lang=".$langue : "";
 
 		$sitParamsStringCrypte = sha1("Criteres__".substr($sitParamsString, 1));
 
@@ -633,7 +641,14 @@ class eZSitOperators {
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
 		
 		$cheminImagesDesign = $sitIni->variable('ImagesDesign','Chemin');
-		
+
+		$siteIni = eZINI::instance('site.ini');
+
+		$langue = $siteIni->variable('RegionalSettings','Locale');
+		if ($langue) {
+			$langue = substr($langue, 0, 2);
+		}
+
 		$saisonId = null;
 		if ($http->hasSessionVariable('saison')) {
 			$saisonId=$http->sessionVariable('saison');
@@ -706,6 +721,9 @@ class eZSitOperators {
 		$sitParams['dwcom'] = "11111";
 		$sitParams['dwlien'] = "1";
 		$sitParams['dwref'] = "1";
+		if ($langue) {
+			$sitParams['lang'] = $langue;
+		}
 
 		$entites = $sitListe['entites']->value();
 		foreach ($entites as $entite) {
@@ -1124,6 +1142,8 @@ class eZSitOperators {
 		$xsltParemters['caracteresKo'] = utf8_encode("ŠŒŽŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝß");
 		$xsltParemters['caracteresOk'] = utf8_encode("šœžÿ¥µàáâãäåæçèéêëìíîïðñòóôõöøùúûüýß");
 
+		$xsltParemters['langue'] = $langue;
+
 		foreach ($traductionsStatiques as $traductionStatique) {
 			if (ezpI18n::tr("sit/termes/override", $traductionStatique) != $traductionStatique) {
 				$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes/override", $traductionStatique));
@@ -1160,9 +1180,16 @@ class eZSitOperators {
 		$http = eZHTTPTool::instance();
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
-		
+
 		$cheminImagesDesign = $sitIni->variable('ImagesDesign','Chemin');
-		
+
+		$siteIni = eZINI::instance('site.ini');
+
+		$langue = $siteIni->variable('RegionalSettings','Locale');
+		if ($langue) {
+			$langue = substr($langue, 0, 2);
+		}
+
 		$saisonId = null;
 		if ($http->hasSessionVariable('saison')) {
 			$saisonId=$http->sessionVariable('saison');
@@ -1223,6 +1250,9 @@ class eZSitOperators {
 		$sitParams['dwcom'] = "11111";
 		$sitParams['dwlien'] = "1";
 		$sitParams['dwref'] = "1";
+		if ($langue) {
+			$sitParams['lang'] = $langue;
+		}
 
 		$entites = $sitMiseEnAvant['entites']->value();
 		foreach ($entites as $entite) {
@@ -1434,6 +1464,8 @@ class eZSitOperators {
 
 		$xsltParemters['caracteresKo'] = utf8_encode("ŠŒŽŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝß");
 		$xsltParemters['caracteresOk'] = utf8_encode("šœžÿ¥µàáâãäåæçèéêëìíîïðñòóôõöøùúûüýß");
+
+		$xsltParemters['langue'] = $langue;
 
 		foreach ($traductionsStatiques as $traductionStatique) {
 			if (ezpI18n::tr("sit/termes/override", $traductionStatique) != $traductionStatique) {
