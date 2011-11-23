@@ -2,7 +2,7 @@
 
 [SiteSettings]
 SiteName=LSDO
-SiteURL=lsdo.lnet.fr
+SiteURL=dev.lsdo.lnet.fr
 LoginPage=embedded
 
 
@@ -34,7 +34,7 @@ TranslationList=
 CachedViewModes=
 
 [MailSettings]
-AdminEmail=jmace@ayaline.com
+AdminEmail=yimzourh@ayaline.com
 EmailSender=
 
 */ ?>
