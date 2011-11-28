@@ -12,9 +12,6 @@ RegistrationEmail=
 
 [SiteAccessSettings]
 RequireUserLogin=true
-RelatedSiteAccessList[]=ayaline
-RelatedSiteAccessList[]=ayaline_mobi
-RelatedSiteAccessList[]=ayaline_admin
 ShowHiddenNodes=true
 
 [DesignSettings]
