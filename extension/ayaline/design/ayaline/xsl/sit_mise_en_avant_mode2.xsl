@@ -10,7 +10,6 @@
 
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:include href="inc/enhanced_substring.xsl"/>
-
 	<xsl:include href="inc/periodes_ouverture_mise_en_avant.xsl"/>
 
 	<xsl:template match="/">
@@ -40,15 +39,6 @@
 							</a>
 							
 							<p style="font-size: 11px;">
-								<!-- xsl:if test="adresses/adresse[@type='produit']/ligne1 != ''">
-									<xsl:value-of select="adresses/adresse[@type='produit']/ligne1"/>
-									<xsl:if test="adresses/adresse[@type='produit']/ligne2 != ''">
-										<br /><xsl:value-of select="adresses/adresse[@type='produit']/ligne2"/>
-										<xsl:if test="adresses/adresse[@type='produit']/ligne3 != ''">
-											<br /><xsl:value-of select="adresses/adresse[@type='produit']/ligne3"/>
-										</xsl:if>
-									</xsl:if>
-								</xsl:if-->
 								<xsl:value-of select="ville/intituleVille"/>
 							</p>
 							
@@ -97,7 +87,7 @@
 			<p class="lien-bas">
 				<a class="type3">
 					<xsl:attribute name="href"><xsl:value-of select="$sitListeUrlAlias" /></xsl:attribute>
-					En savoir plus
+					<xsl:value-of select="$termeEnSavoirPlus"/>
 				</a>
 			</p>
 		</xsl:if>

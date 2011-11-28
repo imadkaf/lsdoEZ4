@@ -122,18 +122,18 @@
 						<p class="lien-bas">
 							<a>
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-								En savoir plus
+								<xsl:value-of select="$termeEnSavoirPlus"/>
 							</a>
 							<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite) &gt; 0">
 								<a class="reserver">
 								<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite"/></xsl:attribute>
-								R&amp;eacute;server
+								<xsl:value-of select="$termReserver"/>
 								</a>
 							</xsl:if>
 							<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
 								<a class="dispos">
 								<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
-								Dispos
+									<xsl:value-of select="$termDispo"/>
 								</a>
 							</xsl:if>
 						</p>

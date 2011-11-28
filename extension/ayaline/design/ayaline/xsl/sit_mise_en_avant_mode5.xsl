@@ -17,7 +17,7 @@
 		<xsl:if test="count(resultats/produit) &gt; 0">
 			<!-- Les plus consultes -->
 			<div class="bloc-type">
-				<h2 class="bloc-liste-h2-cote">Les plus consult&amp;eacute;s</h2>
+				<h2 class="bloc-liste-h2-cote"><xsl:value-of select="$termeLesPlusConsultes"/></h2>
 				<p class="clear"><![CDATA[ ]]></p>
 		
 				<ul class="list-right liste-voir-aussi">

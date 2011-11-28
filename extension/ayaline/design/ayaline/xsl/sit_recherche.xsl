@@ -46,7 +46,7 @@
 					</form>
 				</li>
 			</ul>
-			<h2 class="bloc-liste-h2-recherche">Affiner votre recherche :</h2>
+			<h2 class="bloc-liste-h2-recherche"><xsl:value-of select="$termeAffinerVotreRecherche"/> :</h2>
 			<p class="clear"></p>
 			<form method="post" class="form-search-left">
 			<xsl:attribute name="action"><xsl:value-of select="$lienCourant"/>/(recherche)/oui<xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute>

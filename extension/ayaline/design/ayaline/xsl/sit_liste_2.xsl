@@ -7,16 +7,14 @@
 	<xsl:variable name="apos">'</xsl:variable>
 	<xsl:variable name="amp">&amp;</xsl:variable>
 	<xsl:variable name="espace" select="' '"/>
+	<xsl:variable name="nbPagesMax" select="5"/>
 
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:include href="inc/enhanced_substring.xsl"/>
-
-	<xsl:variable name="nbPagesMax" select="5"/>
 	<xsl:include href="inc/pagination.xsl"/>
-
 	<xsl:include href="inc/periodes_ouverture.xsl"/>
 	<xsl:include href="inc/bouton_reserver.xsl"/>
-
+	
 	<xsl:template match="/">
 	
 		<div class="liste-act-border">
@@ -133,18 +131,18 @@
 							<p class="lien-bas align-l">
 								<a>
 									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-									En savoir plus
+									<xsl:value-of select="$termeEnSavoirPlus"/>
 								</a>
 								<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite) &gt; 0">
 									<a class="reserver">
-									<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite"/></xsl:attribute>
-									R&amp;eacute;server
+										<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite"/></xsl:attribute>
+										<xsl:value-of select="$termeReserver"/>
 									</a>
 								</xsl:if>
 								<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
 									<a class="dispos">
 									<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
-									Dispos
+										<xsl:value-of select="$termeDispos"/>
 									</a>
 								</xsl:if>
 							</p>

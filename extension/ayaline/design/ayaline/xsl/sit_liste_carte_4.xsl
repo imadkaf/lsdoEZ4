@@ -91,7 +91,7 @@
 												</a>
 												<a class="float-d">
 													<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-													<![CDATA[<b>>> En savoir plus / R&eacute;server</b>]]>
+													<![CDATA[<b>>> <xsl:value-of select="$termeEnsavoirplusReserver"/></b>]]>
 												</a>
 											<![CDATA[</p>'+
 										'</div>';
