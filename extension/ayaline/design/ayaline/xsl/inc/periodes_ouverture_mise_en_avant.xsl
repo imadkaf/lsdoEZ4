@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xsl:stylesheet>
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
 	<xsl:template name="periodes-ouverture">
 		<xsl:if test="ouvertureAnnee/@value = '1'">
 			<div>
@@ -27,5 +26,4 @@
 			</div>
 		</xsl:if>
 	</xsl:template>
-
 </xsl:stylesheet>

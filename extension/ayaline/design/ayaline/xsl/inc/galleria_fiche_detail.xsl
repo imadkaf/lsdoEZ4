@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xsl:stylesheet>
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
 	<xsl:template name="galerie-fiche-detail">
 		<xsl:if test="count(newPhotos/newPhoto) &gt; 0">
 			<div id="galleria" class="galerie-fiche">
@@ -18,7 +17,7 @@
 			<script type="text/javascript" src="/extension/ayaline_gallery/design/standard/javascript/galleria/themes/classic/galleria.classic.min.js"><![CDATA[&nbsp;]]></script>
 			<script type="text/javascript">
 				<![CDATA[
-					// Load the classic theme
+					//Load the classic theme
 					//Galleria.loadTheme("/extension/ayaline_gallery/design/standard/javascript/galleria/themes/classic/galleria.classic.min.js");
 
 					// Initialize Galleria
@@ -32,5 +31,4 @@
 			<div class="clear"><![CDATA[&nbsp;]]></div><br />
 		</xsl:if>
 	</xsl:template>
-
 </xsl:stylesheet>

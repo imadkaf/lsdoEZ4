@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xsl:stylesheet>
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	
 	<xsl:template name="display-villes">
 		<xsl:param name="villesChaine"/>
 		<xsl:variable name="ville"><xsl:if test="contains($villesChaine, '#')"><xsl:value-of select="substring-before($villesChaine, '#')" /></xsl:if><xsl:if test="not(contains($villesChaine, '#'))"><xsl:value-of select="$villesChaine" /></xsl:if></xsl:variable>
@@ -21,5 +20,4 @@
 			<xsl:otherwise></xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-	
 </xsl:stylesheet>
