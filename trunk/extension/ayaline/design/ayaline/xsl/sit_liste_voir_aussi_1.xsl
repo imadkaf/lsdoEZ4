@@ -16,7 +16,7 @@
 	<xsl:template match="/">
 		<xsl:if test="count(resultats/produit) &gt; 0">
 			<div class="bloc-type">
-				<h2 class="bloc-liste-h2-cote">Voir aussi</h2>
+				<h2 class="bloc-liste-h2-cote"><xsl:value-of select="$termeVoirAussi"/></h2>
 				<p class="clear"><![CDATA[ ]]></p>
 				
 				<ul class="list-right liste-voir-aussi">		
@@ -66,7 +66,7 @@
 				</ul>
 
 				<p class="lien-bas">
-					<a class="type0"><xsl:attribute name="href"><xsl:value-of select="$sitListeLien" /></xsl:attribute>Toutes les fiches de m&amp;ecirc;me cat&amp;eacute;gorie</a>
+					<a class="type0"><xsl:attribute name="href"><xsl:value-of select="$sitListeLien" /></xsl:attribute><xsl:value-of select="$termeToutesFichesMemeCategorie"/></a>
 				</p>
 			</div>
 		</xsl:if>

@@ -10,14 +10,13 @@
 
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:include href="inc/enhanced_substring.xsl"/>
-
 	<xsl:include href="inc/periodes_ouverture_mise_en_avant.xsl"/>
 
 	<xsl:template match="/">
 		<xsl:if test="count(resultats/produit) &gt; 0">
 			<!-- Coup de coeur -->
 			<div class="bloc-type">
-				<h2 class="bloc-liste-h2-cote" style="color:#E645AD;">Coup de coeur</h2>
+				<h2 class="bloc-liste-h2-cote" style="color:#E645AD;"><xsl:value-of select="$termeCoupDeCoeur"/></h2>
 				<p class="clear"><![CDATA[ ]]></p>
 				
 				<xsl:for-each select="resultats/details/detail[position() = 1]">
@@ -109,7 +108,7 @@
 					<p class="lien-bas">
 						<a class="type1">
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-							En savoir plus
+							<xsl:value-of select="$termeEnSavoirPlus"/>
 						</a>
 					</p>
 				</xsl:for-each>

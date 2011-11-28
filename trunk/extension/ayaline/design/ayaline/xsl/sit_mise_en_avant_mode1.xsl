@@ -123,7 +123,7 @@
 			<p class="lien-bas">
 				<a class="type1">
 					<xsl:attribute name="href"><xsl:value-of select="$sitListeUrlAlias" /></xsl:attribute>
-					En savoir plus
+					<xsl:value-of select="$termeEnSavoirPlus"/>
 				</a>
 			</p>
 		</xsl:if>

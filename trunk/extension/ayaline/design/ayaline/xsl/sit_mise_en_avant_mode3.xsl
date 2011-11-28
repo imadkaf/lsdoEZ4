@@ -10,7 +10,6 @@
 
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:include href="inc/enhanced_substring.xsl"/>
-
 	<xsl:include href="inc/periodes_ouverture_liste_manifestations.xsl"/>
 
 	<xsl:template match="/">

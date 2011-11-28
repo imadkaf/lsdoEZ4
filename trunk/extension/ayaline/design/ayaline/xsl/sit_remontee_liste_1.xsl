@@ -10,7 +10,6 @@
 
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:include href="inc/enhanced_substring.xsl"/>
-
 	<xsl:include href="inc/periodes_ouverture.xsl"/>
 	<xsl:include href="inc/bouton_reserver.xsl"/>
 
@@ -48,11 +47,11 @@
 						<p class="ss-titre">
 							<xsl:choose>
 								<xsl:when test="criteres/critere[@id='851000023']/modalites/modalite[@id='8510000230002']/valModalite">
-									<span class="picto">A partir de <span><xsl:value-of select="criteres/critere[@id='851000023']/modalites/modalite[@id='8510000230002']/valModalite"/> &amp;euro;</span></span>
+									<span class="picto"><xsl:value-of select="$termeAPartirDe"/> <span><xsl:value-of select="criteres/critere[@id='851000023']/modalites/modalite[@id='8510000230002']/valModalite"/> &amp;euro;</span></span>
 								</xsl:when>
 								<xsl:otherwise>
 									<xsl:if test="criteres/critere[@id='851000020']/modalites/modalite[@id='8510000200002']/valModalite">
-										<span class="picto">A partir de <span><xsl:value-of select="criteres/critere[@id='851000020']/modalites/modalite[@id='8510000200002']/valModalite"/> &amp;euro;</span></span>
+										<span class="picto"><xsl:value-of select="$termeAPartirDe"/> <span><xsl:value-of select="criteres/critere[@id='851000020']/modalites/modalite[@id='8510000200002']/valModalite"/> &amp;euro;</span></span>
 									</xsl:if>
 								</xsl:otherwise>
 							</xsl:choose>
@@ -135,7 +134,7 @@
 						<p class="lien-bas">
 							<a>
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-								En savoir plus
+								<xsl:value-of select="$termeEnSavoirPlus"/>
 							</a>
 							<xsl:call-template name="boutons-reserver-liste"/>
 							

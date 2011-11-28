@@ -17,7 +17,7 @@
 		<xsl:if test="count(resultats/produit) &gt; 0">
 			<!-- Defaut -->
 			<div class="bloc-type">
-				<h2 class="bloc-liste-h2-cote">A consulter</h2>
+				<h2 class="bloc-liste-h2-cote"><xsl:value-of select="$termeAConsulter"/></h2>
 				<p class="clear"></p>
 				
 				<ul class="list-agenda">
@@ -101,7 +101,7 @@
 				<p class="lien-bas">
 					<a class="type0">
 						<xsl:attribute name="href"><xsl:value-of select="$sitListeUrlAlias" /></xsl:attribute>
-						Dans la m&amp;ecirc;me cat&amp;eacute;gorie
+						<xsl:value-of select="$termeDansLaMemeCategorie"/>
 					</a>
 				</p>
 			</div>

@@ -2,11 +2,11 @@
 <!DOCTYPE xsl:stylesheet>
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="yes" indent="yes"/>
-
+	
 	<xsl:variable name="quot">"</xsl:variable>
 	<xsl:variable name="espace" select="' '"/>
 	<xsl:variable name="apos">'</xsl:variable>
-
+	
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:include href="inc/periodes_ouverture_1.xsl"/>
 	<xsl:include href="inc/display_dispos.xsl"/>
@@ -185,10 +185,6 @@
 			</xsl:if>
 			<br />
 			
-			<!-- div style="float:left;margin-top:20px;">
-				<img alt="" style="float:right;margin-left:20px"><xsl:attribute name="src"><xsl:value-of select="partenaire/logoPartenaire"/></xsl:attribute></img><xsl:value-of select="$termeInformationProposeePar"/>&amp;nbsp;:<br/><strong><xsl:if test="string-length(partenaire/webPartenaire) &gt; 0"><a target="_blank"><xsl:attribute name="href"><xsl:value-of select="partenaire/webPartenaire"/></xsl:attribute><xsl:value-of select="partenaire/intPartenaire"/></a></xsl:if><xsl:if test="string-length(partenaire/webPartenaire) = 0"><xsl:value-of select="partenaire/intPartenaire"/></xsl:if></strong>
-			</div-->
-			
 			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='son']) &gt; 0">
 				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='son' and string-length(codeHtmlLienMultimedia) &gt; 0]">
 					<div style="margin-top: 20px; display: inline-block;">
@@ -249,11 +245,11 @@
 			<p class="ss-titre">
 				<xsl:choose>
 					<xsl:when test="criteres/critere[@id='851000023']/modalites/modalite[@id='8510000230002']/valModalite">
-						<span class="picto">A partir de <span><xsl:value-of select="criteres/critere[@id='851000023']/modalites/modalite[@id='8510000230002']/valModalite"/> &amp;euro;</span></span>
+						<span class="picto"><xsl:value-of select="$termeAPartirDe"/> <span><xsl:value-of select="criteres/critere[@id='851000023']/modalites/modalite[@id='8510000230002']/valModalite"/> &amp;euro;</span></span>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:if test="criteres/critere[@id='851000020']/modalites/modalite[@id='8510000200002']/valModalite">
-							<span class="picto">A partir de <span><xsl:value-of select="criteres/critere[@id='851000020']/modalites/modalite[@id='8510000200002']/valModalite"/> &amp;euro;</span></span>
+							<span class="picto"><xsl:value-of select="$termeAPartirDe"/> <span><xsl:value-of select="criteres/critere[@id='851000020']/modalites/modalite[@id='8510000200002']/valModalite"/> &amp;euro;</span></span>
 						</xsl:if>
 					</xsl:otherwise>
 				</xsl:choose>
@@ -272,7 +268,7 @@
 								<xsl:when test="logoModalite != ''">
 									<img alt="" style="float: none;">
 										<xsl:attribute name="src"><xsl:value-of select="logoModalite"/></xsl:attribute>
-										<xsl:attribute name="title">Cha&amp;icirc;nes d'h&amp;ocirc;tel : <xsl:value-of select="intModalite"/></xsl:attribute>
+										<xsl:attribute name="title"><xsl:value-of select="$termeChainesDHotels"/> : <xsl:value-of select="intModalite"/></xsl:attribute>
 									</img>
 								</xsl:when>
 								<xsl:otherwise>
@@ -290,7 +286,7 @@
 									<xsl:when test="logoModalite != ''">
 										<img alt="">
 											<xsl:attribute name="src"><xsl:value-of select="logoModalite"/></xsl:attribute>
-											<xsl:attribute name="title">Cha&amp;icirc;nes d'h&amp;ocirc;tel : <xsl:value-of select="intModalite"/></xsl:attribute>
+											<xsl:attribute name="title"><xsl:value-of select="$termeChainesDHotels"/> : <xsl:value-of select="intModalite"/></xsl:attribute>
 										</img>
 								</xsl:when>
 								<xsl:otherwise>
@@ -330,15 +326,15 @@
 				</xsl:if>
 			</xsl:if>
 			<xsl:if test="adresses/adresse[@type='produit']/fax != ''">
-				<div>Fax : <xsl:value-of select="adresses/adresse[@type='produit']/fax"/></div>
+				<div><xsl:value-of select="$termeFax"/> : <xsl:value-of select="adresses/adresse[@type='produit']/fax"/></div>
 			</xsl:if>
 			<xsl:if test="adresses/adresse[@type='produit']/email != ''">
-				<div>Email : <a><xsl:attribute name="href">mailto:<xsl:value-of select="adresses/adresse[@type='produit']/email"/></xsl:attribute>
-								<xsl:value-of select="adresses/adresse[@type='produit']/email"/></a>
+				<div><xsl:value-of select="$termeEmail"/> : <a><xsl:attribute name="href">mailto:<xsl:value-of select="adresses/adresse[@type='produit']/email"/></xsl:attribute>
+					<xsl:value-of select="adresses/adresse[@type='produit']/email"/></a>
 				</div>
 			</xsl:if>
 			<xsl:if test="adresses/adresse[@type='produit']/web != ''">
-				<div>Site web : <a><xsl:attribute name="href"><xsl:value-of select="adresses/adresse[@type='produit']/web"/></xsl:attribute>
+				<div><xsl:value-of select="$termeSiteWeb"/> : <a><xsl:attribute name="href"><xsl:value-of select="adresses/adresse[@type='produit']/web"/></xsl:attribute>
 									<xsl:value-of select="adresses/adresse[@type='produit']/web"/></a>
 				</div>
 			</xsl:if>
@@ -357,10 +353,10 @@
 			
 			<div id="tabs">
 				<ul>
-					<li><a href="#onglet-description"><span>Descriptif</span></a></li>
+					<li><a href="#onglet-description"><span><xsl:value-of select="$termeDescriptif"/></span></a></li>
 					<li><a href="#onglet-tarifs"><span>Tarifs</span></a></li>
-					<li><a href="#onglet-caracteristiques"><span>Caract&amp;eacute;ristiques</span></a></li>
-					<li style="background-color: #7AD6E1 !important;"><a href="#onglet-avis"><span>Avis</span></a></li>
+					<li><a href="#onglet-caracteristiques"><span><xsl:value-of select="$termeCaracteristiques"/></span></a></li>
+					<li style="background-color: #7AD6E1 !important;"><a href="#onglet-avis"><span><xsl:value-of select="$termeAvis"/></span></a></li>
 				</ul>
 				
 				<div id="onglet-description">
@@ -459,8 +455,8 @@
 						</xsl:when>
 						<xsl:otherwise>
 							<p>
-								Aucun avis pour le moment.<br />
-								Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
+								<xsl:value-of select="$termeAucunAvisPourLeMoment"/>.<br />
+								<xsl:value-of select="$termeSoyezLePremier"/> : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html"><xsl:value-of select="$termeVotreAvis"/></a>
 							</p>
 						</xsl:otherwise>
 					</xsl:choose>

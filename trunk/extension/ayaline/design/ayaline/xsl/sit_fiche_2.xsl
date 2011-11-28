@@ -159,7 +159,7 @@
 			</script>
 			<a class="fiche-popin" target="_blank" style="margin-left: 120px;">
 				<xsl:attribute name="href">/layout/set/vide/Itineraire-Rubrique?nom=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template></xsl:attribute>
-				<b>&amp;gt;&amp;gt; Itin&amp;eacute;raire</b>
+				<b>&amp;gt;&amp;gt; <xsl:value-of select="$termeItineraire"/></b>
 			</a>
 			<script type="text/javascript">
 				<![CDATA[
@@ -183,10 +183,6 @@
 				<div id="OSRechercheDetail"><![CDATA[ ]]></div>
 			</xsl:if>
 			<br />
-			
-			<!-- div style="float:left;margin-top:20px;">
-				<img alt="" style="float:right;margin-left:20px"><xsl:attribute name="src"><xsl:value-of select="partenaire/logoPartenaire"/></xsl:attribute></img><xsl:value-of select="$termeInformationProposeePar"/>&amp;nbsp;:<br/><strong><xsl:if test="string-length(partenaire/webPartenaire) &gt; 0"><a target="_blank"><xsl:attribute name="href"><xsl:value-of select="partenaire/webPartenaire"/></xsl:attribute><xsl:value-of select="partenaire/intPartenaire"/></a></xsl:if><xsl:if test="string-length(partenaire/webPartenaire) = 0"><xsl:value-of select="partenaire/intPartenaire"/></xsl:if></strong>
-			</div-->
 			
 			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='son']) &gt; 0">
 				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='son' and string-length(codeHtmlLienMultimedia) &gt; 0]">
@@ -256,10 +252,10 @@
 					</script>
 					<div id="tabs">
 						<ul>
-							<li><a href="#onglet-description"><span>Descriptif</span></a></li>
+							<li><a href="#onglet-description"><span><xsl:value-of select="$termeDescriptif"/></span></a></li>
 							<li><a href="#onglet-tarifs"><span>Tarifs</span></a></li>
-							<li><a href="#onglet-caracteristiques"><span>Caract&amp;eacute;ristiques</span></a></li>
-							<li style="background-color: #7AD6E1 !important;"><a href="#onglet-avis"><span>Avis</span></a></li>
+							<li><a href="#onglet-caracteristiques"><span><xsl:value-of select="$termeCaracteristiques"/></span></a></li>
+							<li style="background-color: #7AD6E1 !important;"><a href="#onglet-avis"><span><xsl:value-of select="$termeAvis"/></span></a></li>
 						</ul>
 						
 						<div id="onglet-description">
@@ -357,8 +353,8 @@
 								</xsl:when>
 								<xsl:otherwise>
 									<p>
-										Aucun avis pour le moment.<br />
-										Soyez le premier : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html">Votre avis</a>
+										<xsl:value-of select="$termeAucunAvisPourLeMoment"/>.<br />
+										<xsl:value-of select="$termeSoyezLePremier"/> : <a target="_blank" href="http://www.tripadvisor.fr/Tourism-g196666-Les_Sables_d_Olonne_Vendee_Pays_de_la_Loire-Vacations.html"><xsl:value-of select="$termeVotreAvis"/></a>
 									</p>
 								</xsl:otherwise>
 							</xsl:choose>
