@@ -36,7 +36,7 @@
 					<h3 style="padding: 0px 0 0px;">
 						<a>
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-							<strong><xsl:value-of select="$intitule"/></strong>
+							<strong><xsl:value-of select="$intitule"/><![CDATA[ ]]></strong>
 						</a>
 					</h3>
 					
@@ -65,6 +65,7 @@
 						</xsl:variable>
 						<p>
 							<xsl:value-of select="$commentaireNettoyeCoupe"/><xsl:if test="string-length($commentaireNettoye) &gt; 200">&amp;hellip;</xsl:if>
+							<![CDATA[ ]]>
 						</p>
 					</xsl:if>
 					

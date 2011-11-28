@@ -45,7 +45,7 @@
 								<h3>
 									<a>
 										<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-										<span class="float-g nom"><xsl:value-of select="$intitule"/></span>
+										<span class="float-g nom"><xsl:value-of select="$intitule"/><![CDATA[ ]]></span>
 									</a>
 									<xsl:choose>
 	 									<xsl:when test="criteres/critere[@id='851000033']/modalites/modalite[1 and contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]/logoModalite != ''">
@@ -125,6 +125,7 @@
 								</xsl:variable>
 								<p class="text">
 									<xsl:value-of select="$commentaireNettoyeCoupe"/><xsl:if test="string-length($commentaireNettoye) &gt; 100">&amp;hellip;</xsl:if>
+									<![CDATA[ ]]>
 								</p>
 							</xsl:if>
 							

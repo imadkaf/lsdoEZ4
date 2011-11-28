@@ -208,7 +208,7 @@
 		
 		
 		<div style="float:left; width: 310px;">
-			<h2 class="bloc-detail-h2" style="width: 295px; margin-left:10px;"><xsl:value-of select="$intitule"/></h2>
+			<h2 class="bloc-detail-h2" style="width: 295px; margin-left:10px;"><xsl:value-of select="$intitule"/><![CDATA[ ]]></h2>
 			<p class="lien-bas" style="margin-right:7px;">
 				<xsl:call-template name="boutons-reserver-liste"/>
 			</p>
@@ -250,6 +250,7 @@
 									<xsl:with-param name="replace" select="'\n'"/>
 									<xsl:with-param name="by" select="'&lt;br/&gt;'"/>
 									</xsl:call-template>
+									<![CDATA[ ]]>
 								</p>
 							</xsl:if>
 							

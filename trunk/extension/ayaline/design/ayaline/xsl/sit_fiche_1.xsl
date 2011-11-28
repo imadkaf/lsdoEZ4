@@ -223,7 +223,7 @@
 		</div>
 		
 		<div class="box-right">
-			<h2 class="bloc-detail-h2"><xsl:value-of select="$intitule"/></h2>
+			<h2 class="bloc-detail-h2"><xsl:value-of select="$intitule"/><![CDATA[ ]]></h2>
 			<xsl:choose>
 				<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1]/logoModalite != ''">
 					<img alt="">
@@ -364,10 +364,11 @@
 					<xsl:if test="string-length($commentaire) &gt; 0">
 						<p class="padding-bottom: 14px">
 							<xsl:call-template name="string-replace-all">
-							<xsl:with-param name="text" select="$commentaire"/>
-							<xsl:with-param name="replace" select="'\n'"/>
-							<xsl:with-param name="by" select="'&lt;br/&gt;'"/>
+								<xsl:with-param name="text" select="$commentaire"/>
+								<xsl:with-param name="replace" select="'\n'"/>
+								<xsl:with-param name="by" select="'&lt;br/&gt;'"/>
 							</xsl:call-template>
+							<![CDATA[ ]]>
 						</p>
 					</xsl:if>
 					

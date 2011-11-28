@@ -196,7 +196,7 @@
 		
 		
 		<div style="float:left; width: 310px;">
-			<h2 class="bloc-detail-h2" style="width: 295px; margin-left:10px;"><xsl:value-of select="$intitule"/></h2>
+			<h2 class="bloc-detail-h2" style="width: 295px; margin-left:10px;"><xsl:value-of select="$intitule"/><![CDATA[ ]]></h2>
 			<div style="clear: both; margin-left:10px;"><xsl:call-template name="periodes-ouverture"/></div>
 			<![CDATA[ ]]>
 			<p class="clear" style="margin-bottom:20px;"></p>
@@ -237,6 +237,7 @@
 									<xsl:with-param name="replace" select="'\n'"/>
 									<xsl:with-param name="by" select="'&lt;br/&gt;'"/>
 									</xsl:call-template>
+									<![CDATA[ ]]>
 								</p>
 							</xsl:if>
 						</div>

@@ -38,7 +38,7 @@
 							</a>
 							
 							<div style="margin-left: 115px">
-								<h3><a><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="$intitule"/></a></h3>
+								<h3><a><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="$intitule"/><![CDATA[ ]]></a></h3>
 								
 								<p style="font-size: 11px; margin-bottom: 10px;">
 									<xsl:if test="adresses/adresse[@type='produit']/ligne1 != ''">

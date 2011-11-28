@@ -39,7 +39,7 @@
 								</a>
 								
 								<div style="margin-left: 100px;">
-									<h3><a><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="$intitule"/></a></h3>
+									<h3><a><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="$intitule"/><![CDATA[ ]]></a></h3>
 									<xsl:if test="criteres/critere[@id='851000005']">
 										<p class="bloc-stars">
 											<xsl:choose>
