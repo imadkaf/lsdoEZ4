@@ -5,29 +5,22 @@ SiteName=LSDO
 SiteURL=dev.lsdo.lnet.fr
 LoginPage=embedded
 
-
 [UserSettings]
 RegistrationEmail=
 
-
 [SiteAccessSettings]
 RequireUserLogin=false
-RelatedSiteAccessList[]=ayaline
-RelatedSiteAccessList[]=ayaline_admin
 ShowHiddenNodes=false
-
 
 [DesignSettings]
 SiteDesign=ayaline
-AdditionalSiteDesignList[]=ayaline
 AdditionalSiteDesignList[]=base
-
 
 [RegionalSettings]
 Locale=fre-FR
+ContentObjectLocale=fre-FR
 SiteLanguageList[]=fre-FR
 TextTranslation=enabled
-
 
 [ContentSettings]
 TranslationList=
