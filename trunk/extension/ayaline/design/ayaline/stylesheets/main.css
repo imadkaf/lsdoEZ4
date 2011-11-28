@@ -348,39 +348,39 @@ li.last form{
 	float:left;
 }
 .header-in-right div.menu li.rubrique0 a span{
-	background:url('../images/decouvrir.png') 0 0 no-repeat;
+	/*background:url('../images/decouvrir.png') 0 0 no-repeat;*/
 	width:110px;
 	height:19px;
 	display:block;
 }
 .header-in-right div.menu li.rubrique0:hover a span{
-	background:url('../images/decouvrir-over.png') 0 0 no-repeat;
+	/*background:url('../images/decouvrir-over.png') 0 0 no-repeat;*/
 }
 .header-in-right div.menu li.rubrique1 a{
 	border-left:5px solid #02bdff;
 	float:left;
 }
 .header-in-right div.menu li.rubrique1 a span{
-	background:url('../images/sejourner.png') 0 0 no-repeat;
+	/*background:url('../images/sejourner.png') 0 0 no-repeat;*/
 	width:113px;
 	height:19px;
 	display:block;
 }
 .header-in-right div.menu li.rubrique1:hover a span{
-	background:url('../images/sejourner-over.png') 0 0 no-repeat;
+	/*background:url('../images/sejourner-over.png') 0 0 no-repeat;*/
 }
 .header-in-right div.menu li.rubrique2 a{
 	border-left:5px solid #bcc601;
 	float:left;
 }
 .header-in-right div.menu li.rubrique2 a span{
-	background:url('../images/a-la-une.png') 0 0 no-repeat;
+	/*background:url('../images/a-la-une.png') 0 0 no-repeat;*/
 	width:85px;
 	height:19px;
 	display:block;
 }
 .header-in-right div.menu li.rubrique2:hover a span{
-	background:url('../images/a-la-une-over.png') 0 0 no-repeat;
+	/*background:url('../images/a-la-une-over.png') 0 0 no-repeat;*/
 }
 .header-in-right div.menu li.rubrique2 a{
 	padding:0 15px 10px 15px;
@@ -2290,9 +2290,28 @@ select#nbre-semaine{
 	color:#000000;
 }
 
+
+#langue.conteneurSelect{
+    z-index: 2000;
+}
+
 .header-in-right .list-top .first{
 	text-transform:capitalize;
 	margin-right:10px;
+}
+
+.header-in-right div.menu li a span{
+	font-family: 'OmnesMedium', Arial, sans-serif !important;
+	color: white;
+}
+.header-in-right div.menu li:hover.rubrique0 a span{
+	color: #E644AC;
+}
+.header-in-right div.menu li:hover.rubrique1 a span{
+	color: #02BDFF;
+}
+.header-in-right div.menu li:hover.rubrique2 a span{
+	color: #BCC601;
 }
 
 .lien-bas a.type0{
@@ -2310,9 +2329,6 @@ select#nbre-semaine{
 	text-decoration: underline;
 }
 
-#langue.conteneurSelect{
-    z-index: 2000;
-}
 
 /*** Page de contenu ***/
 h2.titre-normal{
