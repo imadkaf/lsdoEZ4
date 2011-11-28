@@ -2,9 +2,8 @@
 
 [SiteSettings]
 SiteName=LSDO
-SiteURL=dev.en.lsdo.lnet.fr
+SiteURL=en.lsdo.loc
 LoginPage=embedded
-
 
 [UserSettings]
 RegistrationEmail=
@@ -12,10 +11,6 @@ LogoutRedirect=/
 
 [SiteAccessSettings]
 RequireUserLogin=false
-RelatedSiteAccessList[]=ayaline
-RelatedSiteAccessList[]=ayaline_en
-RelatedSiteAccessList[]=ayaline_mobi
-RelatedSiteAccessList[]=ayaline_admin
 ShowHiddenNodes=false
 
 [DesignSettings]
@@ -24,9 +19,14 @@ AdditionalSiteDesignList[]=ayaline_mobi
 AdditionalSiteDesignList[]=base
 
 [RegionalSettings]
-Locale=eng-GB
-SiteLanguageList[]=eng-GB
+Locale=eng-US
+ContentObjectLocale=eng-US
+ShowUntranslatedObjects=enabled
+SiteLanguageList[]=eng-US
 TextTranslation=enabled
+LocaleCodeAndDirection[]
+LocaleCodeAndDirection[code]=en-US
+LocaleCodeAndDirection[dir]=ltr
 
 [ContentSettings]
 TranslationList=

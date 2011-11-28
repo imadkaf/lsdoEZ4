@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xsl:stylesheet>
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
 	<xsl:template name="pagination">
 		<xsl:param name="numPage"/>
 		<xsl:param name="nbPagesAffiches"/>
@@ -61,5 +60,4 @@
 			<p class="padding-l"><xsl:if test="$nbResultatsTotal = 0"><xsl:value-of select="$termeAucun"/></xsl:if><xsl:if test="$nbResultatsTotal &gt; 0"><strong><xsl:value-of select="$nbResultatsTotal"/></strong>&amp;nbsp;<xsl:value-of select="$termeResultatsTrouves"/></xsl:if></p>
 		</div>
 	</xsl:template>
-
 </xsl:stylesheet>

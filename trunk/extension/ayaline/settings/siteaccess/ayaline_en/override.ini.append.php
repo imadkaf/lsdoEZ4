@@ -1,8 +1,14 @@
 <?php /* #?ini charset="utf-8"?
 
 	#ayaline
-	
+
 	#Phototheque
+
+[file_embed]
+Source=content/view/embed.tpl
+MatchFile=embed/file.tpl
+Subdir=templates
+Match[class_identifier]=file
 
 [line_album_phototheque]
 Source=node/view/line.tpl
@@ -33,7 +39,7 @@ Source=node/view/full.tpl
 MatchFile=full/phototheque.tpl
 Subdir=templates
 Match[class_identifier]=phototheque
-	
+
 [full_espace_presse]
 Source=node/view/full.tpl
 MatchFile=full/espace_presse.tpl
@@ -41,7 +47,7 @@ Subdir=templates
 Match[class_identifier]=espace_presse
 
 	#Fin Phototheque
-	
+
 [embed_content_sit_mise_en_avant]
 Source=content/view/embed.tpl
 MatchFile=embed/content/sit_mise_en_avant.tpl
@@ -75,6 +81,12 @@ Match[class_identifier]=sit_liste
 [full_contact]
 Source=node/view/full.tpl
 MatchFile=full/page_contact.tpl
+Subdir=templates
+Match[class_identifier]=page_contact
+
+[mail_contact]
+Source=content/collectedinfomail/form.tpl
+MatchFile=full/collectedinfomail.tpl
 Subdir=templates
 Match[class_identifier]=page_contact
 
@@ -838,4 +850,10 @@ Source=content/view/tiny.tpl
 MatchFile=tiny_image.tpl
 Subdir=templates
 Match[class_identifier]=image
+
+[embed_embed_code]
+Source=content/view/embed.tpl
+MatchFile=embed/content/embed_code.tpl
+Subdir=templates
+Match[class_identifier]=embed_code
 */ ?>

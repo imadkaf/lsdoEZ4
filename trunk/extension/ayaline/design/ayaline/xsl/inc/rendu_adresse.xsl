@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xsl:stylesheet>
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
 	<xsl:template name="rendu-adresse">
 		<p style="padding: 0px 0px 5px 0px;">
 			<xsl:if test="string-length(concat(civilite, prenom, nom)) &gt; 0">
@@ -41,5 +40,4 @@
 			</xsl:if>
 		</p>
 	</xsl:template>
-
 </xsl:stylesheet>

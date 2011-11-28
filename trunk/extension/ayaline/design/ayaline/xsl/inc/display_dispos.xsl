@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xsl:stylesheet>
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
 	<xsl:template name="display-dispos">
 		<xsl:param name="disposChaine"/>
 		<xsl:param name="index"/>
@@ -22,5 +21,4 @@
 			<xsl:otherwise></xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-
 </xsl:stylesheet>

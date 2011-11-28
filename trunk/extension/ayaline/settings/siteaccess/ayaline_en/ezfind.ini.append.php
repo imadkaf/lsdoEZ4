@@ -13,5 +13,19 @@ ClassIdentifierList[]=topic
 ClassIdentifierList[]=lien_externe
 ClassIdentifierList[]=image
 ClassIdentifierList[]=diaporama
+ClassIdentifierList[]=diapo
+ClassIdentifierList[]=affichage_liste_sit
+ClassIdentifierList[]=user
+ClassIdentifierList[]=user_group
+ClassIdentifierList[]=common_ini_settings
+ClassIdentifierList[]=template_look
+ClassIdentifierList[]=image_entete
+ClassIdentifierList[]=image_entete_defaut
+ClassIdentifierList[]=itineraire
+ClassIdentifierList[]=sit_mise_en_avant
+ClassIdentifierList[]=sit_fiche
+ClassIdentifierList[]=common_ini_settings
+ClassIdentifierList[]=template_look
+ClassIdentifierList[]=accueil_mobile
 
 */ ?>
