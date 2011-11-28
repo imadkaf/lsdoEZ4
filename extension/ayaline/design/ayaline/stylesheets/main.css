@@ -2310,6 +2310,10 @@ select#nbre-semaine{
 	text-decoration: underline;
 }
 
+#langue.conteneurSelect{
+    z-index: 2000;
+}
+
 /*** Page de contenu ***/
 h2.titre-normal{
 	font-size: 28px;
