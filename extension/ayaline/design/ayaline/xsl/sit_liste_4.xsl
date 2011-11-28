@@ -35,7 +35,7 @@
 						<h3 class="bloc-liste-h3" style="margin-bottom:0px !important;">
 							<a>
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-								<span><xsl:value-of select="$intitule"/></span>
+								<span><xsl:value-of select="$intitule"/><![CDATA[ ]]></span>
 							</a>
 						</h3>
 						<ul class="ss-titre-bis">

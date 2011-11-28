@@ -25,7 +25,7 @@
 						</xsl:if>
 						<a><xsl:attribute name="id">fiche-<xsl:value-of select="@id"/></xsl:attribute><![CDATA[ ]]></a>
 						<h3 class="titre-top2">
-							<a class="top2"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="$intitule"/></a>
+							<a class="top2"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="$intitule"/><![CDATA[ ]]></a>
 						</h3>
 						<ul class="ss-titre-bis">
 							<li class="pas-hotel"><xsl:value-of select="ville/intituleVille"/></li>
@@ -102,6 +102,7 @@
 							</xsl:variable>
 							<p class="text" style="padding-top:5px;">
 								<xsl:value-of select="$commentaireNettoyeCoupe"/><xsl:if test="string-length($commentaireNettoye) &gt; 200">&amp;hellip;</xsl:if>
+								<![CDATA[ ]]>
 							</p>
 						</xsl:if>
 						

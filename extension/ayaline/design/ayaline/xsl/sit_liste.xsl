@@ -47,7 +47,7 @@
 								<h3>
 									<a>
 										<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-										<span class="float-g nom"><xsl:value-of select="$intitule"/></span>
+										<span class="float-g nom"><xsl:value-of select="$intitule"/><![CDATA[ ]]></span>
 									</a>
 								</h3>
 								<ul class="ss-titre-bis">
@@ -114,6 +114,7 @@
 								</xsl:variable>
 								<p class="text">
 									<xsl:value-of select="$commentaireNettoyeCoupe"/><xsl:if test="string-length($commentaireNettoye) &gt; 100">&amp;hellip;</xsl:if>
+									<![CDATA[ ]]>
 								</p>
 							</xsl:if>
 							

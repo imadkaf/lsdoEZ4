@@ -25,7 +25,7 @@
 						</xsl:if>
 						<a><xsl:attribute name="id">fiche-<xsl:value-of select="@id"/></xsl:attribute><![CDATA[ ]]></a>
 						<h3 class="titre-top2">
-							<a class="top2"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="$intitule"/></a>
+							<a class="top2"><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="$intitule"/><![CDATA[ ]]></a>
 							<xsl:choose>
 								<xsl:when test="criteres/critere[@id='851000005']/modalites/modalite[1 and contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]/logoModalite != ''">
 									<img alt="" class="float-g">
@@ -128,6 +128,7 @@
 							</xsl:variable>
 							<p class="text" style="padding-top:5px;">
 								<xsl:value-of select="$commentaireNettoyeCoupe"/><xsl:if test="string-length($commentaireNettoye) &gt; 200">&amp;hellip;</xsl:if>
+								<![CDATA[ ]]>
 							</p>
 						</xsl:if>
 						

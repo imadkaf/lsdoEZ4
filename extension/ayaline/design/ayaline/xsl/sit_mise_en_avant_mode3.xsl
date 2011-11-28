@@ -39,7 +39,7 @@
 							<div style="margin-left:110px">
 								<a>
 									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-									<strong><xsl:value-of select="$intitule"/></strong>
+									<strong><xsl:value-of select="$intitule"/><![CDATA[ ]]></strong>
 								</a>
 								
 								<p style="font-size: 11px;">

@@ -50,7 +50,7 @@
 							<h3 style="padding: 10px 0px 10px 0px;">
 								<a>
 									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-									<strong><xsl:value-of select="$intitule"/></strong>
+									<strong><xsl:value-of select="$intitule"/><![CDATA[ ]]></strong>
 								</a>
 							</h3>
 							<xsl:variable name="commentaire"><xsl:if test="$langue = 'en'"><xsl:value-of select="commentaires/commentaire2"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="commentaires/commentaire1"/></xsl:if></xsl:variable>
@@ -77,6 +77,7 @@
 								</xsl:variable>
 								<p>
 									<xsl:value-of select="$commentaireNettoyeCoupe"/><xsl:if test="string-length($commentaireNettoye) &gt; 300">&amp;hellip;</xsl:if>
+									<![CDATA[ ]]>
 								</p>
 							</xsl:if>
 
