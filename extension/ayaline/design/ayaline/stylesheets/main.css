@@ -2290,7 +2290,6 @@ select#nbre-semaine{
 	color:#000000;
 }
 
-
 #langue.conteneurSelect{
     z-index: 2000;
 }
@@ -2312,6 +2311,10 @@ select#nbre-semaine{
 }
 .header-in-right div.menu li:hover.rubrique2 a span{
 	color: #BCC601;
+}
+
+.align-center{
+	text-align: center;
 }
 
 .lien-bas a.type0{
@@ -3151,6 +3154,12 @@ div.image{
     height: 29px;
     display: block;
     padding: 0px;
+}
+
+
+/*** Mise en avant Diaporama embarque ***/
+.bxslider.embarque{
+	width: 593px;
 }
 
 /************************/
