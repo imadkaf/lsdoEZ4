@@ -100,7 +100,7 @@
 				<p class="lien-bas">
 					<a class="type0">
 						<xsl:attribute name="href"><xsl:value-of select="$sitListeUrlAlias" /></xsl:attribute>
-						Toutes les dates
+						<xsl:value-of select="$termeToutesLesDates"/>
 					</a>
 				</p>
 			</div>
