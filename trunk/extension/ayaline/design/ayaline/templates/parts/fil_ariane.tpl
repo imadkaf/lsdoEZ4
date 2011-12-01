@@ -1,9 +1,9 @@
 {def $titreTheme=''}
 {if $module_result.uri|eq('/user/login')}
-		<p class="fil-ariane"><a href="/">Les Sables d'Olonne</a> > <strong>Connexion</strong></p>
+		<p class="fil-ariane"><a href="/">Les Sables d'Olonne</a> > <strong>{"Connection"|i18n("ayaline")}</strong></p>
 {/if}
 {if $module_result.uri|eq('/content/search')}
-		<p class="fil-ariane"><a href="/">Les Sables d'Olonne</a> > <strong>Recherche</strong></p>
+		<p class="fil-ariane"><a href="/">Les Sables d'Olonne</a> > <strong>{"Search"|i18n("ayaline")}</strong></p>
 {/if}
 {def $affListeSIT=''}
 {if $cNode|is_set()} {* cas particulier pour les fiches "SIT" (qui ne sont pas des noeuds pour avoir un fil d'ariane *}

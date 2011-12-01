@@ -17,7 +17,7 @@
 				{if $listeHebergement|count}
 					<ul class="menu-left">
 						<li class="actif">
-							<span>Autres hébergements</span>
+							<span>{"Others housings"|i18n("ayaline")}</span>
 							<ul class="s-menu">
 							{foreach $listeHebergement as $hbgt}
 								<li><a href={$hbgt.url_alias|ezurl}>{$hbgt.name}</a></li>

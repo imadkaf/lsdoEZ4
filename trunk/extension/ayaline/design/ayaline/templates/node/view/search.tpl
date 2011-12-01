@@ -6,12 +6,12 @@
 *}
 
 <div class="bloc-pertinence-global">
-	<span>Pertinence :</span> 
+	<span>{"Relevance"|i18n("ayaline")} :</span> 
 	<div class="bloc-pertinence">
 		<div style="width: {$node.score_percent|wash}%;">&nbsp;</div>
 	</div>
 	{$node.score_percent|wash}%
-	<div class="modification">Dernière modification : <span class="date">{$node.object.modified|l10n( date )}</span></div>
+	<div class="modification">{"Last change"|i18n("ayaline")} : <span class="date">{$node.object.modified|l10n( date )}</span></div>
 	<div class="clear"></div>
 </div>
 <a href="{$node.global_url_alias}"><h3>{$node.name|wash}</h3></a>

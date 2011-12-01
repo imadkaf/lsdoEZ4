@@ -47,7 +47,7 @@
 						<li><a name="{$faq.object.id}"></a>{node_view_gui content_node=$faq view='line'}<br /></li>
 					{/foreach}
 					</ul>		
-					<a class="anchor_ref_top" href="#top_page">Retour en haut de page</a><br /><br />
+					<a class="anchor_ref_top" href="#top_page">{"Back to the top"|i18n("ayaline")}</a><br /><br />
 					
 				{* Si l'affichage se fait via les réponses cachées *}
 				{elseif eq($view,1)}
@@ -58,7 +58,7 @@
 					</ul>
 				{/if}
 			{else}
-				<p>Aucune questions n’est disponible pour le moment.</p>
+				<p>{"No question is available"|i18n("ayaline")}.</p>
 			{/if}
 	
 		</div>

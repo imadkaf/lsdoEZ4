@@ -3,6 +3,6 @@
 	<input type="text" id="gallery_keyword" name="SearchText" />
 	
 	<button type="submit">
-		<span>Rechercher</span>
+		<span>{"Search"|i18n("ayaline")}</span>
 	</button>
 </form>

@@ -39,7 +39,7 @@
 						
 						<a href={$enfants.data_map.image.content.original.url|ezurl} class="galeriephototheque">{attribute_view_gui attribute=$enfants.data_map.image image_class='phototheque'}</a>
 						
-						<div class="phototheque image"><a href={concat("content/download/", $enfants.contentobject_id, "/", $enfants.data_map.image.id, "/version/", $enfants.data_map.image.version, "/file/", $enfants.data_map.image.content.original_filename|urlencode)|ezurl}>> Télécharger</a></div>
+						<div class="phototheque image"><a href={concat("content/download/", $enfants.contentobject_id, "/", $enfants.data_map.image.id, "/version/", $enfants.data_map.image.version, "/file/", $enfants.data_map.image.content.original_filename|urlencode)|ezurl}>> {"Download"|i18n("ayaline")}</a></div>
 						
 					</li>
 					{if and($node.children|count|gt($compteurlistephototheque), $style|eq('last'))}

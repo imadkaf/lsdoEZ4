@@ -77,7 +77,7 @@
 							<ul class="list-top">
 								<li class="first">{$timestamp|datetime(custom, '%l %d %F %Y')}</li>
 								{if ne($current_user.contentobject_id, $anonymous_user_id)}
-									<li style="margin-right: 10px;"><a href={'user/logout'|ezurl}>Déconnexion</a></li>
+									<li style="margin-right: 10px;"><a href={'user/logout'|ezurl}>{"Logout"|i18n("ayaline")}</a></li>
 								{/if}
 {cache-block keys=$cache_hash}
 	{foreach $rNode.data_map.header_menu.content.main_node.children as $sMenu}
@@ -121,7 +121,7 @@
 {/if}
 							<div class="search">
 								<form action={"/content/search/"|ezurl} method="get">
-									<label for="Search" class="none">Votre recherche</label>
+									<label for="Search" class="none">{"Your search"|i18n("ayaline")}</label>
 									<div id="ezautocomplete2">
 										<input type="text" name="SearchText" onblur="if(this.value=='')this.value='Votre recherche'" onfocus="if(this.value=='Votre recherche')this.value=''" value="Votre recherche" id="Search" />
 										<button type="submit"><span class="none">OK</span></button>

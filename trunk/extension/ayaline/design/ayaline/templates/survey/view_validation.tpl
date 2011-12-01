@@ -1,7 +1,7 @@
 {section show=and( is_set( $survey_validation ), or( $survey_validation.error, $survey_validation.warning ))}
 <div class="block">
 	<div class="message-warning">
-		<h2>Veuillez remplir les champs suivants :</h2><br />
+		<h2>{"Please fill the following fields"|i18n("ayaline")} :</h2><br />
 		{*<h3>{"Erreur"|i18n( 'survey' )}</h3>*}
 		
 		<ul>

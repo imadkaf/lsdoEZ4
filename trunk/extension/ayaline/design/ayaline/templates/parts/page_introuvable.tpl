@@ -1,15 +1,15 @@
 <div class="bloc-left-bis">
 	<div class="bloc-type padding-35px-32px">
-		<h2 class="bloc-liste-h2">Page introuvable</h2>
+		<h2 class="bloc-liste-h2">{"Page cannot be found"|i18n("ayaline")}</h2>
 		<p class="clear" style="margin-bottom: 20px;"></p>
 		
 		<p>
-			La page que vous avez demandée n'existe pas ou est momentanément indisponible.<br/>
-			Veuillez nous excuser de la gêne occasionnée.
+			{"The page which you asked do not exist or is temporarily inalienable"|i18n("ayaline")}.<br/>
+			{"Sorry to cause embarrassments"|i18n("ayaline")}.
 		</p>
 		<br />
 		
-		<p>Nous vous proposons de <a href={''|ezurl()}>retourner à l'accueil du site</a></p>
+		<p>{"We propose to you"|i18n("ayaline")} <a href={''|ezurl()}>{"to return to home"|i18n("ayaline")}</a></p>
 		
 	</div>
 </div>

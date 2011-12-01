@@ -27,5 +27,5 @@
 </p>
 
 <p class="lien-bas">
-	<a href={$node.url_alias|ezurl}>En savoir plus</a>
+	<a href={$node.url_alias|ezurl}>{"Learn more"|i18n("ayaline")}</a>
 </p>

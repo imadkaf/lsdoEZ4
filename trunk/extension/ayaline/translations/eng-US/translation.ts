@@ -326,4 +326,176 @@
 	        <translation>Previous page</translation>
 	    </message>
 	</context>
+	
+	<context>
+	    <name>ayaline</name>
+	    <message>
+	        <source>The informations are not available</source>
+	        <translation>The informations are not available</translation>
+	    </message>
+	    <message>
+	        <source>Learn more</source>
+	        <translation>Learn more</translation>
+	    </message>
+	    <message>
+	        <source>Download</source>
+	        <translation>Download</translation>
+	    </message>
+	    <message>
+	        <source>No photograph is available</source>
+	        <translation>No photograph is available</translation>
+	    </message>
+	    <message>
+	        <source>No video is available</source>
+	        <translation>No video is available</translation>
+	    </message>
+	    <message>
+	        <source>Close</source>
+	        <translation>Close</translation>
+	    </message>
+	    <message>
+	        <source>No booklet is available</source>
+	        <translation>No booklet is available</translation>
+	    </message>
+	    <message>
+	        <source>Hello</source>
+	        <translation>Hello</translation>
+	    </message>
+	    <message>
+	        <source>This email was sent automatically since the web site of tourist office of Sables d'Olonne</source>
+	        <translation>This email was sent automatically since the web site of tourist office of Sables d'Olonne</translation>
+	    </message>
+	    <message>
+	        <source>Your message was sent</source>
+	        <translation>Your message was sent</translation>
+	    </message>
+	    <message>
+	        <source>The team of the tourist office of Sables d'Olonne will bring to you an answer as soon as possible</source>
+	        <translation>The team of the tourist office of Sables d'Olonne will bring to you an answer as soon as possible</translation>
+	    </message>
+	    <message>
+	        <source>Home</source>
+	        <translation>Home</translation>
+	    </message>
+	    <message>
+	        <source>We thank you for your comprehension and let us invite you to continue your consultation of the site while clicking here</source>
+	        <translation>We thank you for your comprehension and let us invite you to continue your consultation of the site while clicking here</translation>
+	    </message>
+	    <message>
+	        <source>Back to the top</source>
+	        <translation>Back to the top</translation>
+	    </message>
+	    <message>
+	        <source>No question is available</source>
+	        <translation>No question is available</translation>
+	    </message>
+	    <message>
+	        <source>Please fill the following fields</source>
+	        <translation>Please fill the following fields</translation>
+	    </message>
+	    <message>
+	        <source>Your message</source>
+	        <translation>Your message</translation>
+	    </message>
+	    <message>
+	        <source>Your informations</source>
+	        <translation>Your informations</translation>
+	    </message>
+	    <message>
+	        <source>Your services</source>
+	        <translation>Your services</translation>
+	    </message>
+	    <message>
+	        <source>Security code</source>
+	        <translation>Security code</translation>
+	    </message>
+	    <message>
+	        <source>Tape the code below. If you cannot read all the letters or numbers</source>
+	        <translation>Tape the code below. If you cannot read all the letters or numbers</translation>
+	    </message>
+	    <message>
+	        <source>Clic here</source>
+	        <translation>Clic here</translation>
+	    </message>
+	    <message>
+	        <source>Reset</source>
+	        <translation>Reset</translation>
+	    </message>
+	    <message>
+	        <source>Send</source>
+	        <translation>Send</translation>
+	    </message>
+	    <message>
+	        <source>Required field</source>
+	        <translation>Required field</translation>
+	    </message>
+	    <message>
+	        <source>Others housings</source>
+	        <translation>Others housings</translation>
+	    </message>
+	    <message>
+	        <source>This page is not associated with the selected topic</source>
+	        <translation>This page is not associated with the selected topic</translation>
+	    </message>
+	    <message>
+	        <source>Linked documents</source>
+	        <translation>Linked documents</translation>
+	    </message>
+	    <message>
+	        <source>Search</source>
+	        <translation>Rechercher</translation>
+	    </message>
+	    <message>
+	        <source>Relevance</source>
+	        <translation>Relevance</translation>
+	    </message>
+	    <message>
+	        <source>Last change</source>
+	        <translation>Last change</translation>
+	    </message>
+	    <message>
+	        <source>Connection</source>
+	        <translation>Connection</translation>
+	    </message>
+	    <message>
+	        <source>Page cannot be found</source>
+	        <translation>Page cannot be found</translation>
+	    </message>
+	    <message>
+	        <source>The page which you asked do not exist or is temporarily inalienable</source>
+	        <translation>The page which you asked do not exist or is temporarily inalienable</translation>
+	    </message>
+	    <message>
+	        <source>Sorry to cause embarrassments</source>
+	        <translation>Sorry to cause embarrassments</translation>
+	    </message>
+	    <message>
+	        <source>We propose to you</source>
+	        <translation>We propose to you</translation>
+	    </message>
+	    <message>
+	        <source>to return to home</source>
+	        <translation>to return to home</translation>
+	    </message>
+	    <message>
+	        <source>Access to press zone</source>
+	        <translation>Access to press zone</translation>
+	    </message>
+	    <message>
+	        <source>To access the zone press, it is necessary to you authenticate. For that, inform the fields below with the accesses which were provided to you</source>
+	        <translation>To access the zone press, it is necessary to you authenticate. For that, inform the fields below with the accesses which were provided to you</translation>
+	    </message>
+	    <message>
+	        <source>If you do not have an access you can have it by fill the contact form</source>
+	        <translation>If you do not have an access you can have it by fill the contact form</translation>
+	    </message>
+	    <message>
+	        <source>Logout</source>
+	        <translation>Logout</translation>
+	    </message>
+	    <message>
+	        <source>Your search</source>
+	        <translation>Your search</translation>
+	    </message>
+	</context>
 </TS>
