@@ -2,12 +2,12 @@
 	<div class="bloc-type padding-35px-32px">
 		<form method="post" action={"/user/login/"|ezurl} class="user-login">
 			<div class="maincontentheader">
-				<h2>Accès à l'espace presse</h2>
+				<h2>{"Access to press zone"|i18n("ayaline")}</h2>
 			</div>
 			<br />
 			<div class="maincontentheader">
-				Pour accéder à l'espace presse, il est nécessaire de s'authentifier. Pour cela, renseigner les champs ci-dessous avec les accès qui vous ont été fournis.
-				Si vous ne disposez pas d'accès vous pouvez en faire la demande au niveau du formulaire de contact. 
+				{"To access the zone press, it is necessary to you authenticate. For that, inform the fields below with the accesses which were provided to you"|i18n("ayaline")}.
+				{"If you do not have an access you can have it by fill the contact form"|i18n("ayaline")}. 
 			</div>
 			<br /> 
 			{if $User:warning.bad_login}

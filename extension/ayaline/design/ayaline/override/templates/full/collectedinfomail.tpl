@@ -28,7 +28,7 @@
 	</head>
 	<body bgcolor="#ffffff" text="#000000">
 	
-	<p>Bonjour,</p>
+	<p>{"Hello"|i18n("ayaline")},</p>
 	
 	<p>{"The following information was collected"|i18n("design/standard/content/edit")}:<br/>
 	{section name=Attribute loop=$collection.attributes}
@@ -48,7 +48,7 @@
 	</p>
 	
 	<p>--<br/>	
-	Ce courriel a été envoyé automatiquement depuis le site internet de l'Office de Tourisme des Sables d'Olonne</p>
+	{"This email was sent automatically since the web site of tourist office of Sables d'Olonne"|i18n("ayaline")}</p>
 	
 	</body>
 </html>

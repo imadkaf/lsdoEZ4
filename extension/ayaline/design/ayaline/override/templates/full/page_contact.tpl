@@ -13,7 +13,7 @@
 				{if and($validation, $validation.processed, $validation.attributes|count|gt(0))}
 					<div class="bloc-error">
 						<div class="block">
-							<h2>Veuillez remplir les champs suivants :</h2>
+							<h2>{"Please fill the following fields"|i18n("ayaline")} :</h2>
 						</div><br />
 						<ul>
 							{foreach $validation.attributes as $item}
@@ -24,7 +24,7 @@
 				{/if}
 
 				<div class="block">
-					<h2>Votre message</h2>
+					<h2>{"Your message"|i18n("ayaline")}</h2>
 				</div>
 				<div class="block">
 					<label class="lsdo-label">{$node.data_map.votre_message.contentclass_attribute_name|wash()} :</label>
@@ -33,7 +33,7 @@
 				
 				<div class="block">
 					<br />
-					<h2>Vos informations</h2>
+					<h2>{"Your informations"|i18n("ayaline")}</h2>
 				</div>
 				<div class="block civilite">					
 					{attribute_view_gui attribute = $node.data_map.sqli_civilite}
@@ -81,7 +81,7 @@
 				
 				<div class="block">
 					<br />
-					<h2>Vos services</h2>
+					<h2>{"Your services"|i18n("ayaline")}</h2>
 				</div>
 				<div class="block checkbox-column">
 					{attribute_view_gui attribute = $node.data_map.animations_actualites}
@@ -94,10 +94,10 @@
 
 				<div class="block">
 					<br />
-					<h2>Code de sécurité<strong class="required">*</strong>:</h2>
+					<h2>{"Security code"|i18n("ayaline")}<strong class="required">*</strong>:</h2>
 				</div>
 				<div id="captcha" class="block recaptcha-droite">
-					<p class="text-captcha">Saisir le code ci-dessous. Si vous ne pouvez lire toutes les lettres ou chiffres, <a href="javascript:Recaptcha.reload ();">Cliquez ici</a>.</p>
+					<p class="text-captcha">{"Tape the code below. If you cannot read all the letters or numbers"|i18n("ayaline")}, <a href="javascript:Recaptcha.reload ();">{"Clic here"|i18n("ayaline")}</a>.</p>
 					<br />
 					{attribute_view_gui attribute = $node.data_map.recapture}
 				</div>
@@ -106,11 +106,11 @@
 					<input name="TopLevelNode" value="{$node.node_id}" type="hidden" />
 					<input name="ContentNodeID" value="{$node.node_id}" type="hidden" />
 					<input name="ContentObjectID" value="{$node.object.id}" type="hidden" />
-					<input class="button-effacer" type="image" src={"effacer.png"|ezimage} name="reset" value="Effacer" onclick="this.form.reset(); return false;" />
-					<input class="button-envoyer" type="image" src={"envoyer.png"|ezimage} name="ActionCollectInformation" value="Envoyer" />
+					<input class="button-effacer" type="image" src={"effacer.png"|ezimage} name="reset" value="{'Reset'|i18n('ayaline')}" onclick="this.form.reset(); return false;" />
+					<input class="button-envoyer" type="image" src={"envoyer.png"|ezimage} name="ActionCollectInformation" value="{'Send'|i18n('ayaline')}" />
 				</div>
 
-				<strong class="required">* </strong>Champs obligatoires.
+				<strong class="required">* </strong>{"Required field"|i18n("ayaline")}.
 
 				<div class="block border-haut">
 					{attribute_view_gui attribute = $node.data_map.informations}

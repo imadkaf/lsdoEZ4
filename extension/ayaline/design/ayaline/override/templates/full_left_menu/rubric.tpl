@@ -170,7 +170,7 @@
 					}
 				{/if}
 			{else}
-				<p>Cette page n'est pas associée au thème sélectionné.</p>
+				<p>{"This page is not associated with the selected topic"|i18n("ayaline")}.</p>
 			{/if}
 		</div>
 	</div>

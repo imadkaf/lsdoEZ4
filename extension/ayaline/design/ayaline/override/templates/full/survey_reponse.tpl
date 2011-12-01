@@ -10,17 +10,17 @@
 				
 					{set-block scope=global variable=title}{'Form %formname'|i18n('design/standard/content/form',,hash('%formname',$node.name|wash))}{/set-block}
 					
-					<h2>Votre message a bien été transmit.</h2><br />
+					<h2>{"Your message was sent"|i18n("ayaline")}.</h2><br />
 					
-					<p>L'équipe d'administration du site "Les Sables d'Olonne" y apportera une réponse dans les meilleurs délais.</p>
+					<p>{"The team of the tourist office of Sables d'Olonne will bring to you an answer as soon as possible"|i18n("ayaline")}.</p>
 				{/default}
 			</div>
 			<br />
 			
-			<p>Nous vous remercions pour votre compréhension et vous invitons à poursuivre votre consultation du site en cliquant ci-après :</p><br />
+			<p>{"We thank you for your comprehension and let us invite you to continue your consultation of the site while clicking here"|i18n("ayaline")} :</p><br />
 			
 			<div class="retour-home">
-				<a href={ezurl()}>Accueil</a>
+				<a href={ezurl()}>{"Home"|i18n("ayaline")}</a>
 			</div>
 			
 			{if $error}

@@ -38,7 +38,7 @@
 				{/foreach}
 				</ul>
 			{else}
-				<p class="brochure_no_elements">Aucune brochure n’est disponible pour le moment.</p>
+				<p class="brochure_no_elements">{"No booklet is available"|i18n("ayaline")}Aucune brochure n’est disponible pour le moment.</p>
 			{/if}	
 		
 			{* Affichage de la pagination *}

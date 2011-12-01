@@ -63,10 +63,10 @@
 				<div class="block">
 					<div class="label-form">
 						<br />
-						<label class="lsdo-label non-textarea">Code de sécurité<strong class="required">*</strong>:</label>
+						<label class="lsdo-label non-textarea">{"Security code"|i18n("ayaline")}<strong class="required">*</strong>:</label>
 					</div>
 					<div class="input-form lsdo-recaptcha">
-						<p class="text-captcha">Saisir le code ci-dessous. Si vous ne pouvez lire toutes les lettres ou chiffres, <a href="javascript:Recaptcha.reload ();">Cliquez ici</a>.</p>
+						<p class="text-captcha">{"Tape the code below. If you cannot read all the letters or numbers"|i18n("ayaline")}, <a href="javascript:Recaptcha.reload ();">{"Clic here"|i18n("ayaline")}</a>.</p>
 						<br />
 						<div id="captcha" class="f-left">
 							{*set $class='text-champs' set $class='text-champs textearea600' def $class='skin_select'*}
@@ -83,7 +83,7 @@
 			<input id="form_name" type="hidden" name="form_name" value="{$node.name}" />
 			
 			<div class="validate block button">
-				<input class="button-effacer" type="image" src={"effacer.png"|ezimage} name="reset" value="Effacer" onclick="this.form.reset(); return false;" />
+				<input class="button-effacer" type="image" src={"effacer.png"|ezimage} name="reset" value="{'Reset'|i18n('ayaline')}" onclick="this.form.reset(); return false;" />
 				<input class="button button-envoyer" type="image" src={"envoyer.png"|ezimage} name="{$prefixAttribute}_ezsurvey_store_button_{$attribute.id}" value="{'Submit'|i18n( 'survey' )}" onclick="this.form.submit(); return false;"/>
 			</div>
 			
@@ -91,7 +91,7 @@
 			
 				<div class="clear"></div>
 				<p class="text-spec">
-					<strong class="required">*</strong> Champs obligatoires
+					<strong class="required">*</strong> {"Required field"|i18n("ayaline")}
 				</p>
 				{*"Questions marked with %mark% are required."|i18n('survey', '', hash( '%mark%', '<strong class="required">*</strong>' ) )*}
 				</form>

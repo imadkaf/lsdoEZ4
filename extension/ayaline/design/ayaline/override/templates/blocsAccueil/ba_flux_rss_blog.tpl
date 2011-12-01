@@ -33,12 +33,12 @@
 		{/foreach}
 	</ul>
 {else}
-	<br />Les informations ne sont pas accessibles pour le moment.<br /><br /><br />
+	<br />{"The informations are not available"|i18n("ayaline")}.<br /><br /><br />
 {/if}
 
 {undef $feed}
 {/cache-block}
 
 <p class="lien-bas">
-	<a class="type4" href="{attribute_view_gui attribute = $node.data_map.adresse_blog}">En savoir plus</a>
+	<a class="type4" href="{attribute_view_gui attribute = $node.data_map.adresse_blog}">{"Learn more"|i18n("ayaline")}</a>
 </p>

@@ -54,7 +54,7 @@
 			{/foreach}
 			</ul>
 		{else}
-			<div class="message">Aucune video n'est disponible pour le moment.</div>
+			<div class="message">{"No video is available"|i18n("ayaline")}.</div>
 		{/if}
         	
 	</div>

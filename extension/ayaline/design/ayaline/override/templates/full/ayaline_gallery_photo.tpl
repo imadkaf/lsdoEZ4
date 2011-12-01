@@ -129,7 +129,7 @@
 				</ul>
 				<p class="clear"></p>
 			{else}
-				<div class="message">Aucune photo n'est disponible pour le moment.</div>
+				<div class="message">{"No photograph is available"|i18n("ayaline")}.</div>
 			{/if}
 	        
 		</div>

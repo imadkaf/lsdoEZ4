@@ -8,4 +8,4 @@
 	<a href={$node.url_alias|ezurl} class="no-vignette"><img src={"interrogation.png"|ezimage} alt="" /></a>
 {/if}
 
-<div class="phototheque image">{$node.children|count} documents liés</div>
+<div class="phototheque image">{$node.children|count} {"Linked documents"|i18n("ayaline")}</div>

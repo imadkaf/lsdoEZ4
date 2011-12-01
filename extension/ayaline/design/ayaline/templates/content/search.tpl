@@ -35,7 +35,7 @@
 		    <br /><br />
 		    
 		    {if $searchSpellCheck.SearchExtras.spellcheck_collation|ne('')}
-				<p class="bloc-similaire">Recherche similaire : <a href={concat('/content/search?SearchText=',$searchSpellCheck.SearchExtras.spellcheck_collation)|ezurl}>{$searchSpellCheck.SearchExtras.spellcheck_collation}</a></p>
+				<p class="bloc-similaire">{"Similar search"|i18n("ayaline")} : <a href={concat('/content/search?SearchText=',$searchSpellCheck.SearchExtras.spellcheck_collation)|ezurl}>{$searchSpellCheck.SearchExtras.spellcheck_collation}</a></p>
 			{/if}
 			
 			{if $stop_word_array}

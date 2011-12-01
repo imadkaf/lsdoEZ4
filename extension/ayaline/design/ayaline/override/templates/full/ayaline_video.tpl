@@ -1,6 +1,6 @@
 <div class="popin-container">
 	<div class="popin-top">
-		<p><a href="#" class="popin-close" title="Fermer la popin"><span>Fermer</span></a><p>
+		<p><a href="#" class="popin-close" title="Fermer la popin"><span>{"Close"|i18n("ayaline")}</span></a><p>
 	</div>
 	<hr />
 	<div class="popin-content">
