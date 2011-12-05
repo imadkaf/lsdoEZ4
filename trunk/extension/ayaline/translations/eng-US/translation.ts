@@ -131,7 +131,7 @@
 			<translation>Key words</translation>
 		</message>
 		<message>
-			<source>APartirde</source>
+			<source>APartirDe</source>
 			<translation>Start to</translation>
 		</message>
 		<message>
