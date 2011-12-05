@@ -443,7 +443,7 @@
 	    </message>
 	    <message>
 	        <source>Search</source>
-	        <translation>Rechercher</translation>
+	        <translation>Search</translation>
 	    </message>
 	    <message>
 	        <source>Relevance</source>
