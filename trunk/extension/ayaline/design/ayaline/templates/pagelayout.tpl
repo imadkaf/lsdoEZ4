@@ -123,7 +123,7 @@
 								<form action={"/content/search/"|ezurl} method="get">
 									<label for="Search" class="none">{"Your search"|i18n("ayaline")}</label>
 									<div id="ezautocomplete2">
-										<input type="text" name="SearchText" onblur="if(this.value=='')this.value='Votre recherche'" onfocus="if(this.value=='Votre recherche')this.value=''" value="Votre recherche" id="Search" />
+										<input type="text" name="SearchText" onblur="if(this.value=='')this.value='{"Your search"|i18n("ayaline")}'" onfocus="if(this.value=='{"Your search"|i18n("ayaline")}')this.value=''" value="{"Your search"|i18n("ayaline")}" id="Search" />
 										<button type="submit"><span class="none">OK</span></button>
 										<div id="ezautocompletecontainer2"></div>
 									</div>
