@@ -1,12 +1,10 @@
 {def $titreTheme=''}
 {if $module_result.uri|eq('/user/login')}
 		<p class="fil-ariane"><a href="/">Les Sables d'Olonne</a> > <strong>{"Connection"|i18n("ayaline")}</strong></p>
-{/if}
-{if $module_result.uri|eq('/content/search')}
+{elseif $module_result.uri|eq('/content/search')}
 		<p class="fil-ariane"><a href="/">Les Sables d'Olonne</a> > <strong>{"Search"|i18n("ayaline")}</strong></p>
-{/if}
 {def $affListeSIT=''}
-{if $cNode|is_set()} {* cas particulier pour les fiches "SIT" (qui ne sont pas des noeuds pour avoir un fil d'ariane *}
+{elseif $cNode|is_set()} {* cas particulier pour les fiches "SIT" (qui ne sont pas des noeuds pour avoir un fil d'ariane *}
 	{if ne($cNode.node_id, ezini('NodeSettings', 'RootNode', 'content.ini'))}
 		<p class="fil-ariane">
 		{foreach $module_result.path as $Path}
