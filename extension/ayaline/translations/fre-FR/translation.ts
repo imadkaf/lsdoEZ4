@@ -143,7 +143,7 @@
 			<translation>Toute les fiches de la même catégorie</translation>
 		</message>
 		<message>
-			<source>APartirde</source>
+			<source>APartirDe</source>
 			<translation>A partir de</translation>
 		</message>
 		<message>
