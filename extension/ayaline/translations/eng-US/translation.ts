@@ -132,7 +132,7 @@
 		</message>
 		<message>
 			<source>APartirDe</source>
-			<translation>Start to</translation>
+			<translation>Start to </translation>
 		</message>
 		<message>
 			<source>NombreNuitees</source>

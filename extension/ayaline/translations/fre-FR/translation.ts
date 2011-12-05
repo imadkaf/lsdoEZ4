@@ -144,7 +144,7 @@
 		</message>
 		<message>
 			<source>APartirDe</source>
-			<translation>A partir de</translation>
+			<translation>A partir de </translation>
 		</message>
 		<message>
 			<source>VotreAvis</source>
