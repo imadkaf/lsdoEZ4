@@ -87,10 +87,10 @@
 											{if ne($rub.data_map[concat('title_topic_', $topicId.0)].value, '')}
 												{set $titreListe = $rub.data_map[concat('title_topic_', $topicId.0)].value}
 											{else}
-												{set $titreListe = $rub.name}
+												{set $titreListe = $rub.object.name}
 											{/if}
 										{else}
-											{set $titreListe = $rub.name}
+											{set $titreListe = $rub.object.name}
 										{/if}
 									{/if}
 								{/if}
