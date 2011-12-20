@@ -2012,7 +2012,8 @@ div.chapeau img{
 	float:none;
 	padding:0 0 2px 0;
 	border:none;
-	width:auto;
+/*	width:auto;*/
+	width:120px;
 }
 .rubrique2 .ss-menu ul li ul.list-in li.last{
 	padding:17px 0 0 0;
