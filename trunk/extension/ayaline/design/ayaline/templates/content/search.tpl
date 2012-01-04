@@ -5,6 +5,8 @@
                        hash(text,$search_text,
                             section_id,$search_section_id,
                             subtree_array, ezini('Subtree_search','TabSearch','ayaline.ini'),
+                            limitation, array(),
+		                    ignore_visibility, false,
                             sort_by,array('modified',false()),
                             offset,$view_parameters.offset,
                             limit,$page_limit))}
@@ -14,7 +16,7 @@
     {set $stop_word_array=$search['StopWordArray']}
     {set $search_data=$search}
 {/if}
-
+dsfdsf{$search_section_id}
 {def $searchSpellCheck = fetch( ezfind, search, 
 								hash( query, $search_text|wash, 
 								spell_check, array( true(), 'default' )
