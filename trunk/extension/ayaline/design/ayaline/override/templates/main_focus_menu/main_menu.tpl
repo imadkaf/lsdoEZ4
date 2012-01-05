@@ -7,5 +7,6 @@
 {foreach $node.children as $sMenu}
 	<li><a href={$sMenu.data_map.content.content.main_node.url_alias|ezurl}>{$sMenu.name|wash}</a></li>
 {/foreach}
+	<li><a href={'2012_HorairesMarees-web.pdf'|ezimage} target="_blank">Horaires des marées</a></li>
 </ul>
 <div class="clear"></div>
