@@ -16,7 +16,7 @@
     {set $stop_word_array=$search['StopWordArray']}
     {set $search_data=$search}
 {/if}
-dsfdsf{$search_section_id}
+
 {def $searchSpellCheck = fetch( ezfind, search, 
 								hash( query, $search_text|wash, 
 								spell_check, array( true(), 'default' )
