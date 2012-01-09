@@ -25,4 +25,5 @@ ActiveExtensions[]=wordCut
 ActiveExtensions[]=arraysortoperator
 ActiveExtensions[]=all2egooglesitemaps
 ActiveExtensions[]=nl_cronjobs
+ActiveExtensions[]=ez_aya_sitsearch
 */ ?>
