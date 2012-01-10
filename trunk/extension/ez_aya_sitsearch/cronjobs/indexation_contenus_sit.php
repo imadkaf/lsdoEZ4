@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //require_once('extension/ez_aya_sitsearch/classes/sit_utils.class.php');
 
 if(!$isQuiet){
@@ -26,10 +26,10 @@ $nodeObjects = eZFunctionHandler::execute(
 
 $http = eZHTTPTool::instance();
 
-$sitIni = eZINI::instance('ez_aya_sitsearch.ini');
+$sitIni = eZINI::instance('ez_aya_sit.ini');
 $cpt = 0;
 foreach ($nodeObjects as $nodeObject) {
-	if ($cpt == 10) break;
+	//if ($cpt == 10) break;
 	$lienCourant = $nodeObject->attribute('url_alias');
 	
 	eZURI::transformURI($lienCourant);
@@ -85,7 +85,7 @@ foreach ($nodeObjects as $nodeObject) {
 	$details = $xml->xpath('//resultats/details/detail');
 	
 	foreach($details as $detail){
-		if ($cpt == 10) break;
+		//if ($cpt == 10) break;
 		$cpt++;
 		//var_dump($detail);
 		$id_detail = (string) $detail->attributes()->id;
@@ -102,13 +102,10 @@ foreach ($nodeObjects as $nodeObject) {
 		$note_elt = $doc->createElement('doc');
 		$root_elt->appendChild($note_elt);
 		
-		$carac = array(" "); 
-		$intitule = utf8_encode(str_replace($carac,'-', trim($detail->intitule)));
-		$intitule = preg_replace("/ & /si",' &amp; ', $intitule);
+		$intitule = utf8_encode(preg_replace("/-+/si", "-", preg_replace("/[^\wŠŒŽšœžŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ]/si",'-', trim($detail->intitule, "-"))));
 		
-		$caracs = array("/");
 		$lien = substr($lienCourant, 1);
-		$alias = str_replace($caracs,'~', $lien);
+		$alias = str_replace('/','~', $lien);
 		
 		$url = 'Fiche/Detail/'.$detail->attributes()->id.'/'.$alias.'/'.$intitule;
 		//var_dump($url);
@@ -177,7 +174,7 @@ foreach ($nodeObjects as $nodeObject) {
 		$note_elt->appendChild($meta_name_t_field);
 		
 		
-		$date_maj = str_replace($carac,'T', $detail->dateMAJ).'Z';
+		$date_maj = str_replace(" ",'T', $detail->dateMAJ).'Z';
 		$meta_modified_field = $doc->createElement('field',$date_maj);
 		$meta_modified_field->setAttribute('name', 'meta_modified_dt');
 		$note_elt->appendChild($meta_modified_field);
