@@ -27,9 +27,9 @@ $nodeObjects = eZFunctionHandler::execute(
 $http = eZHTTPTool::instance();
 
 $sitIni = eZINI::instance('ez_aya_sit.ini');
-$cpt = 0;
+//$cpt = 0;
 foreach ($nodeObjects as $nodeObject) {
-	if ($cpt == 10) break;
+	//if ($cpt == 10) break;
 	$lienCourant = $nodeObject->attribute('url_alias');
 	
 	eZURI::transformURI($lienCourant);
@@ -85,8 +85,8 @@ foreach ($nodeObjects as $nodeObject) {
 	$details = $xml->xpath('//resultats/details/detail');
 	
 	foreach($details as $detail){
-		if ($cpt == 10) break;
-		$cpt++;
+		//if ($cpt == 10) break;
+		//$cpt++;
 		//var_dump($detail);
 		$id_detail = (string) $detail->attributes()->id;
 		
