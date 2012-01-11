@@ -29,7 +29,7 @@ $http = eZHTTPTool::instance();
 $sitIni = eZINI::instance('ez_aya_sit.ini');
 $cpt = 0;
 foreach ($nodeObjects as $nodeObject) {
-	//if ($cpt == 10) break;
+	if ($cpt == 10) break;
 	$lienCourant = $nodeObject->attribute('url_alias');
 	
 	eZURI::transformURI($lienCourant);
@@ -85,7 +85,7 @@ foreach ($nodeObjects as $nodeObject) {
 	$details = $xml->xpath('//resultats/details/detail');
 	
 	foreach($details as $detail){
-		//if ($cpt == 10) break;
+		if ($cpt == 10) break;
 		$cpt++;
 		//var_dump($detail);
 		$id_detail = (string) $detail->attributes()->id;
@@ -143,18 +143,18 @@ foreach ($nodeObjects as $nodeObject) {
 		$note_elt->appendChild($meta_section_id_si);				
 		
 		$intitule_field_s = $doc->createElement('field', $detail->intitule);
-		$intitule_field_s->setAttribute('name', 'attr_name_s');
+		$intitule_field_s->setAttribute('name', 'attr_title_s');
 		$note_elt->appendChild($intitule_field_s);
 		
 		$intitule_field_t = $doc->createElement('field', $detail->intitule);
-		$intitule_field_t->setAttribute('name', 'attr_name_t');
+		$intitule_field_t->setAttribute('name', 'attr_title_t');
 		$note_elt->appendChild($intitule_field_t);
 		
 		$commentaire1 = preg_replace("/&euro;/si",'€', utf8_encode((string) $detail->commentaires->commentaire1));
 		$commentaire1 = preg_replace("/\\\\n|\r/si",'', $commentaire1);
 		$commentaire1 = preg_replace("/ & /si",' &amp; ', $commentaire1);
 		$cmt1_field = $doc->createElement('field', trim($commentaire1));
-		$cmt1_field->setAttribute('name', 'attr_content_s');
+		$cmt1_field->setAttribute('name', 'attr_description_t');
 		$note_elt->appendChild($cmt1_field);
 		
 		$available_language_field = $doc->createElement('field', 'fre-FR');
