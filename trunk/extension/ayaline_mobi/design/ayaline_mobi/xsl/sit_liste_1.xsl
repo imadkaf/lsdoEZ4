@@ -56,11 +56,11 @@
 							</xsl:choose>
 						</h3>
 						
-						<p class="sous-titre">
+						<div class="sous-titre">
 							<span><xsl:value-of select="ville/intituleVille"/></span> |
 							<b><xsl:value-of select="criteres/critere[@id='851000001']/modalites/modalite[1]/intModalite"/></b>
 							<xsl:call-template name="periodes-ouverture"/>
-						</p>
+						</div>
 						
 						<p class="prix">
 							<xsl:choose>

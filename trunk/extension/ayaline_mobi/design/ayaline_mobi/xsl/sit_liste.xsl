@@ -43,10 +43,10 @@
 							</a>
 						</h3>
 						
-						<p class="sous-titre">
+						<div class="sous-titre">
 							<span><xsl:value-of select="ville/intituleVille"/></span>
 							<xsl:call-template name="periodes-ouverture"/>
-						</p>
+						</div>
 						
 						<a class="float-droite-picto">
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
