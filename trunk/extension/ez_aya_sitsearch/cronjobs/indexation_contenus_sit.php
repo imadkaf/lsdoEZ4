@@ -78,9 +78,10 @@ foreach ($nodeObjects as $nodeObject) {
 	$sitParamsEncodedString .= $categorie ? "&idc=".$categorie : "";
 	$url_fiche_xml = $rootSitUrl."Recherche".$sitParamsEncodedString;
 	
-	//$contenuXmlDistant = SitUtils::urlGetContentsCurl($rootSitUrl."Recherche".$sitParamsEncodedString, 120);
+	//$contenuXmlDistant = SitUtils::urlGetContentsCurl($url_fiche_xml, 120);
+	
 	$xml = new SimpleXMLElement($url_fiche_xml, null, true);
-
+    
 	$produits = $xml->xpath('//resultats/produit');	
 	$details = $xml->xpath('//resultats/details/detail');
 	
@@ -103,7 +104,8 @@ foreach ($nodeObjects as $nodeObject) {
 		$root_elt->appendChild($note_elt);
 		
 		$intitule = utf8_encode(preg_replace("/-+/si", "-", preg_replace("/[^\wŠŒŽšœžŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ]/si",'-', trim($detail->intitule, "-"))));
-		
+		$intitule = preg_replace("/Ã´/si",'ô', $intitule);
+		$intitule = preg_replace("/Ã©/si",'é', $intitule);
 		$lien = substr($lienCourant, 1);
 		$alias = str_replace('/','~', $lien);
 		
@@ -150,9 +152,17 @@ foreach ($nodeObjects as $nodeObject) {
 		$intitule_field_t->setAttribute('name', 'attr_title_t');
 		$note_elt->appendChild($intitule_field_t);
 		
-		$commentaire1 = preg_replace("/&euro;/si",'€', utf8_encode((string) $detail->commentaires->commentaire1));
+		$commentaire1 = preg_replace("/&euro;/si",'€', utf8_encode((string)$detail->commentaires->commentaire1));
 		$commentaire1 = preg_replace("/\\\\n|\r/si",'', $commentaire1);
 		$commentaire1 = preg_replace("/ & /si",' &amp; ', $commentaire1);
+		//remplacements des caractéres Ã©, Ã¨, Ã», Ã¢, Ã´, Ã  
+		$commentaire1 = preg_replace("/Ã©/si",'é', $commentaire1);	
+		$commentaire1 = preg_replace("/Ã¨/si",'è', $commentaire1);
+		$commentaire1 = preg_replace("/Ã»/si",'û', $commentaire1);
+		$commentaire1 = preg_replace("/Ã¢/si",'â', $commentaire1);
+		$commentaire1 = preg_replace("/Ã´/si",'ô', $commentaire1);
+		$commentaire1 = preg_replace("/ Ã  /si",' à  ', trim($commentaire1));
+		$commentaire1 = preg_replace("/Ã/si",'à', trim($commentaire1));
 		$cmt1_field = $doc->createElement('field', trim($commentaire1));
 		$cmt1_field->setAttribute('name', 'attr_description_t');
 		$note_elt->appendChild($cmt1_field);
