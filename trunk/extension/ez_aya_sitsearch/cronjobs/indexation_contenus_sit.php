@@ -78,9 +78,12 @@ foreach ($nodeObjects as $nodeObject) {
 	$sitParamsEncodedString .= $categorie ? "&idc=".$categorie : "";
 	$url_fiche_xml = $rootSitUrl."Recherche".$sitParamsEncodedString;
 	
-	//$contenuXmlDistant = SitUtils::urlGetContentsCurl($url_fiche_xml, 120);
 	
-	$xml = new SimpleXMLElement($url_fiche_xml, null, true);
+	$response = file_get_contents($url_fiche_xml);
+	//var_dump(mb_detect_encoding($response));
+	$response = iconv( "ISO-8859-1", "UTF-8//TRANSLIT", $response );
+    $xml = simplexml_load_string($response, null);
+
     
 	$produits = $xml->xpath('//resultats/produit');	
 	$details = $xml->xpath('//resultats/details/detail');
@@ -103,22 +106,15 @@ foreach ($nodeObjects as $nodeObject) {
 		$note_elt = $doc->createElement('doc');
 		$root_elt->appendChild($note_elt);
 		
-		$intitule = utf8_encode(preg_replace("/-+/si", "-", preg_replace("/[^\wŠŒŽšœžŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ]/si",'-', trim($detail->intitule, "-"))));
-		$intitule = preg_replace("/Ã´/si",'ô', $intitule);
-		$intitule = preg_replace("/Ã©/si",'é', $intitule);
+		$clean = iconv('UTF-8', 'ASCII//IGNORE//TRANSLIT', utf8_decode(trim($detail->intitule)));	    
+		$clean = preg_replace('/[\s]+/', '-', $clean);
+	    $clean = preg_replace("/[^a-zA-Z0-9\/_|+-]/", '', $clean);
+		$intitule = preg_replace("/-+/si", "-", $clean);
+
 		$lien = substr($lienCourant, 1);
 		$alias = str_replace('/','~', $lien);
 		
-		$url = 'Fiche/Detail/'.$detail->attributes()->id.'/'.$alias.'/'.$intitule;
-		//var_dump($url);
-		
-		/*$meta_installation_id_ms = $doc->createElement('field', eZSolr::installationID());
-		$meta_installation_id_ms->setAttribute('name', 'meta_installation_id_ms');
-		$note_elt->appendChild($meta_installation_id_ms);*/ 
-		
-		/*$meta_main_node_id_si= $doc->createElement('field', '99999');
-		$meta_main_node_id_si->setAttribute('name', 'meta_main_node_id_si');
-		$note_elt->appendChild($meta_main_node_id_si);*/
+		$url = 'Fiche/Detail/'.$detail->attributes()->id.'/'.$alias.'/'.$intitule;		
 		
 		$meta_installation_url_ms= $doc->createElement('field', '/');
 		$meta_installation_url_ms->setAttribute('name', 'meta_installation_url_ms');
@@ -144,28 +140,38 @@ foreach ($nodeObjects as $nodeObject) {
 		$meta_section_id_si->setAttribute('name', 'meta_section_id_si');
 		$note_elt->appendChild($meta_section_id_si);				
 		
-		$intitule_field_s = $doc->createElement('field', $detail->intitule);
+		$intitule_field_s = $doc->createElement('field');
 		$intitule_field_s->setAttribute('name', 'attr_title_s');
+		$text_intitule_field_s = $doc->createTextNode(utf8_decode(trim($detail->intitule)));
+		$intitule_field_s->appendChild($text_intitule_field_s);
 		$note_elt->appendChild($intitule_field_s);
 		
-		$intitule_field_t = $doc->createElement('field', $detail->intitule);
+		$intitule_field_t = $doc->createElement('field');
 		$intitule_field_t->setAttribute('name', 'attr_title_t');
+		$text_intitule_field_t = $doc->createTextNode(utf8_decode(trim($detail->intitule)));
+		$intitule_field_t->appendChild($text_intitule_field_t);
 		$note_elt->appendChild($intitule_field_t);
 		
-		$commentaire1 = preg_replace("/&euro;/si",'€', utf8_encode((string)$detail->commentaires->commentaire1));
+		$commentaire1 = preg_replace("/&euro;/si",'€', utf8_decode(trim($detail->commentaires->commentaire1)));
 		$commentaire1 = preg_replace("/\\\\n|\r/si",'', $commentaire1);
-		$commentaire1 = preg_replace("/ & /si",' &amp; ', $commentaire1);
-		//remplacements des caractéres Ã©, Ã¨, Ã», Ã¢, Ã´, Ã  
-		$commentaire1 = preg_replace("/Ã©/si",'é', $commentaire1);	
-		$commentaire1 = preg_replace("/Ã¨/si",'è', $commentaire1);
-		$commentaire1 = preg_replace("/Ã»/si",'û', $commentaire1);
-		$commentaire1 = preg_replace("/Ã¢/si",'â', $commentaire1);
-		$commentaire1 = preg_replace("/Ã´/si",'ô', $commentaire1);
-		$commentaire1 = preg_replace("/ Ã  /si",' à  ', trim($commentaire1));
-		$commentaire1 = preg_replace("/Ã/si",'à', trim($commentaire1));
-		$cmt1_field = $doc->createElement('field', trim($commentaire1));
-		$cmt1_field->setAttribute('name', 'attr_description_t');
+		$commentaire1 = str_replace("\x92","'",$commentaire1);
+		$commentaire1 = str_replace("\x9c","oe",$commentaire1);
+		$commentaire1 = str_replace("\x97","?",$commentaire1);
+		$commentaire1 = str_replace("\xC3\x80","&Agrave;",$commentaire1);
+		$commentaire1 = str_replace("\x80","€",$commentaire1);
+		$commentaire1 = str_replace("\x96","-",$commentaire1);
+		$commentaire1 = str_replace("\x85","...",$commentaire1);
+		$commentaire1 = str_replace("\x95"," - ",$commentaire1);
+		$commentaire1 = str_replace("<b>","",$commentaire1);
+		$commentaire1 = str_replace("</b>","",$commentaire1);
+		$commentaire1 = str_replace("&","",$commentaire1);
+		$commentaire1 = str_replace(0xE2,"",$commentaire1);
+				
+		$cmt1_field = $doc->createElement('field');
 		$note_elt->appendChild($cmt1_field);
+		$cmt1_field->setAttribute('name', 'attr_description_t');
+		$text_cmt1 = $doc->createTextNode($commentaire1);
+		$cmt1_field->appendChild($text_cmt1);
 		
 		$available_language_field = $doc->createElement('field', 'fre-FR');
 		$available_language_field->setAttribute('name', 'meta_available_language_codes_ms');
@@ -175,15 +181,19 @@ foreach ($nodeObjects as $nodeObject) {
 		$language_field->setAttribute('name', 'meta_language_code_ms');
 		$note_elt->appendChild($language_field);
 		
-		$main_url_alias_field = $doc->createElement('field', $url);
-		$main_url_alias_field->setAttribute('name', 'meta_main_url_alias_ms');
+		
+		$main_url_alias_field = $doc->createElement('field');
 		$note_elt->appendChild($main_url_alias_field);
+		$main_url_alias_field->setAttribute('name', 'meta_main_url_alias_ms');
+		$text_main_url_alias_field = $doc->createTextNode($url);
+		$main_url_alias_field->appendChild($text_main_url_alias_field );
 		
-		$meta_name_t_field = $doc->createElement('field', $detail->intitule);
+		$meta_name_t_field = $doc->createElement('field');
 		$meta_name_t_field->setAttribute('name', 'meta_name_t');
+		$text_meta_name_t_field = $doc->createTextNode(utf8_decode(trim($detail->intitule)));
+		$meta_name_t_field->appendChild($text_meta_name_t_field);
 		$note_elt->appendChild($meta_name_t_field);
-		
-		
+				
 		$date_maj = str_replace(" ",'T', $detail->dateMAJ).'Z';
 		$meta_modified_field = $doc->createElement('field',$date_maj);
 		$meta_modified_field->setAttribute('name', 'meta_modified_dt');
@@ -193,8 +203,10 @@ foreach ($nodeObjects as $nodeObject) {
 		$meta_published_field->setAttribute('name', 'meta_published_dt');
 		$note_elt->appendChild($meta_published_field);
 		
-		$meta_sort_name_ms = $doc->createElement('field', $detail->intitule);
+		$meta_sort_name_ms = $doc->createElement('field');
 		$meta_sort_name_ms->setAttribute('name', 'meta_sort_name_ms');
+		$text_meta_sort_name_ms = $doc->createTextNode(utf8_decode(trim($detail->intitule)));
+		$meta_sort_name_ms->appendChild($text_meta_sort_name_ms);
 		$note_elt->appendChild($meta_sort_name_ms);
 		
 		$meta_url_alias_ms = $doc->createElement('field', $url);
