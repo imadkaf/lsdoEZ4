@@ -12,7 +12,7 @@
 		<name>sit/termes/override</name>
 		<message>
 			<source>DebutOuv</source>
-			<translation>Ouvert du :</translation>
+			<translation>Du :</translation>
 		</message>
 		<message>
 			<source>FinOuv</source>
