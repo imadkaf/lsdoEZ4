@@ -3231,3 +3231,6 @@ li.ayaline a:hover {
     float: left !important;
     width: 261px !important;
 }
+.form-search-left div select {
+	font-size:1em;
+}
