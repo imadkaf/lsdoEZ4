@@ -76,7 +76,7 @@ if (!file_exists($cheminFichierCacheImagesResized) || ($fs && time() > $fs['mtim
 		}
 	
 		if ( $imageType == IMAGETYPE_JPEG ) {
-			imagejpeg($image, $cheminFichierCacheImagesResized, 100);
+			imagejpeg($image, $cheminFichierCacheImagesResized, 90);
 		} elseif ( $imageType == IMAGETYPE_GIF ) {
 			imagegif($image, $cheminFichierCacheImagesResized);
 		} elseif ( $imageType == IMAGETYPE_PNG ) {
