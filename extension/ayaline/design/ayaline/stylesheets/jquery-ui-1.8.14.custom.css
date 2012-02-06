@@ -591,7 +591,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
     border-right: 1px solid #EDE6E0 !important;
 }
 #tabs .ui-state-default a{
-	padding: 5px !important;
+	padding: 4px !important;
 	color: black !important;
 }
 #tabs .ui-state-default a:hover{
