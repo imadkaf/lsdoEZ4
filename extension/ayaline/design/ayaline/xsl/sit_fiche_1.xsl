@@ -22,6 +22,7 @@
 			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAOZJQqoDBwAknMtPNKR-dvRSi2OoyjRwg8X5jAJmNj4togrBv2xSClpdvpd4FJNt4C5i-i6aTtWzs-g"><![CDATA[ ]]></script>
 			
 			<script type="text/javascript">
+				<![CDATA[categorie="]]><xsl:value-of select="categorie/intCategorie"/><![CDATA[";]]>
 				<![CDATA[
 					function initialize() {
 						]]>
@@ -334,7 +335,7 @@
 				</div>
 			</xsl:if>
 			<xsl:if test="adresses/adresse[@type='produit']/web != ''">
-				<div><xsl:value-of select="$termeSiteWeb"/> : <a><xsl:attribute name="href"><xsl:value-of select="adresses/adresse[@type='produit']/web"/></xsl:attribute>
+				<div><xsl:value-of select="$termeSiteWeb"/> : <a><xsl:attribute name="href"><xsl:value-of select="adresses/adresse[@type='produit']/web"/></xsl:attribute><xsl:attribute name="onclick">_gaq.push(['_trackEvent', 'Lien', <![CDATA[categorie]]>, '<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by"><![CDATA[-]]></xsl:with-param></xsl:call-template>']);</xsl:attribute>
 									<xsl:value-of select="adresses/adresse[@type='produit']/web"/></a>
 				</div>
 			</xsl:if>
