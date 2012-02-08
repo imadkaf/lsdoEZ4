@@ -3,8 +3,12 @@
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="yes" indent="yes"/>
 	
+	<xsl:variable name="quot">"</xsl:variable>
+	<xsl:variable name="espace" select="' '"/>
+	<xsl:variable name="apos">'</xsl:variable>
+	
 	<xsl:include href="inc/display_villes.xsl"/>
-
+	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:template match="/">
 		<div class="bloc-type">
 			<ul class="list-thm">
@@ -149,7 +153,7 @@
 			</xsl:if>
 			
 			<div style="text-align:right;margin-bottom:15px">
-				<button type="submit" name="search_sit" class="button">
+				<button type="submit" name="search_sit" class="button" onclick="_gaq.push(['_trackEvent', 'Recherche-Avancee','validee']);">
 					<span><xsl:value-of select="$termeAffinerRecherche"/></span>
 				</button>
 			</div>
@@ -158,6 +162,7 @@
 				<label for="sit_mc" class="choisissez"><strong><xsl:value-of select="$termeMotsCles"/></strong></label>
 				<input type="text" id="sit_mc" name="sit_mc" style="border:1px solid #999999;width:99%">
 					<xsl:attribute name="value"><xsl:value-of select="$motsCles"/></xsl:attribute>
+					<xsl:attribute name="onchange">_gaq.push(['_trackEvent', 'Recherche-Avancee', 'Mots cles', 'mot-cles']);</xsl:attribute>
 				</input>
 			</div>
 			
@@ -168,6 +173,7 @@
 						<input type="text" id="sit_debut_ouv" name="sit_debut_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier">
 							<xsl:if test="string-length($ouvAnnee) = 0">
 								<xsl:attribute name="value"><xsl:value-of select="$debutOuv"/></xsl:attribute>
+								<xsl:attribute name="onchange">_gaq.push(['_trackEvent', 'Recherche-Avancee', 'Date ouverture', 'date debut']);</xsl:attribute>
 							</xsl:if>
 						</input>
 					</div>
@@ -178,6 +184,7 @@
 						<input type="text" id="sit_fin_ouv" name="sit_fin_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier">
 							<xsl:if test="string-length($ouvAnnee) = 0">
 								<xsl:attribute name="value"><xsl:value-of select="$finOuv"/></xsl:attribute>
+								<xsl:attribute name="onchange">_gaq.push(['_trackEvent', 'Recherche-Avancee', 'Date ouverture', 'date fin']);</xsl:attribute>
 							</xsl:if>
 						</input>
 					</div>
@@ -190,7 +197,8 @@
 					]]></script>
 					<label for="sit_ouvert_annee">
 						<input type="checkbox" id="sit_ouvert_annee" name="sit_ouvert_annee" value="1">
-							<xsl:attribute name="onchange">if (this.checked) {jQuery('#sit_debut_ouv,#sit_fin_ouv').val('');} else {jQuery('#sit_debut_ouv').val(valDebutOuv);jQuery('#sit_fin_ouv').val(valFinOuv);}</xsl:attribute>
+							<xsl:attribute name="onchange">if (this.checked) {jQuery('#sit_debut_ouv,#sit_fin_ouv').val('');} else {jQuery('#sit_debut_ouv').val(valDebutOuv);jQuery('#sit_fin_ouv').val(valFinOuv);}; _gaq.push(['_trackEvent', 'Recherche-Avancee', 'Date ouverture', 'toute lannee']);</xsl:attribute>
+
 							<xsl:if test="string-length($ouvAnnee) &gt; 0">
 								<xsl:attribute name="checked" select="checked"/>
 							</xsl:if>
@@ -199,6 +207,16 @@
 					</label>
 				</div>
 			</div>
+			<xsl:if test="string-length($villes) &gt; 0">
+				<div style="margin-bottom:10px">
+					<label for="sit_cinsee" class="choisissez"><strong><xsl:value-of select="$termeCommune"/></strong></label>
+					<select id="sit_cinsee" name="sit_cinsee[]" style="width:100%" multiple="multiple">
+						<xsl:call-template name="display-villes">
+							<xsl:with-param name="villesChaine" select="$villes"/>
+						</xsl:call-template>
+					</select>
+				</div>
+			</xsl:if>
 			
 			<xsl:for-each select="criteres/criteresSpecs/critere">
 				<xsl:variable name="idCritere" select="@id"/>
@@ -227,6 +245,7 @@
 												<xsl:attribute name="selected">selected</xsl:attribute>
 											</xsl:if>
 											<xsl:attribute name="value"><xsl:value-of select="@id"/></xsl:attribute>
+											<xsl:attribute name="onchange">_gaq.push(['_trackEvent', 'Recherche-Avancee', '<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intituleCritere"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by"><![CDATA[-]]></xsl:with-param></xsl:call-template>', '<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="."/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by"><![CDATA[-]]></xsl:with-param></xsl:call-template>']);</xsl:attribute>
 											<xsl:value-of select="."/>
 										</option>
 									</xsl:for-each>
@@ -240,6 +259,7 @@
 											<xsl:attribute name="for">sit_mr_<xsl:value-of select="@id"/></xsl:attribute>
 											<input type="checkbox" style="vertical-align:0;margin:0 2px 0 0;margin:-4px 0 -4px -4px\9">
 												<xsl:attribute name="name">sit_mr[<xsl:value-of select="$idCritere"/>][]</xsl:attribute>
+												<xsl:attribute name="onchange">_gaq.push(['_trackEvent', 'Recherche-Avancee', '<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intituleCritere"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by"><![CDATA[-]]></xsl:with-param></xsl:call-template>', '<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="."/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by"><![CDATA[-]]></xsl:with-param></xsl:call-template>']);</xsl:attribute>
 												<xsl:if test="contains($modalitesRapides, concat('|', @id, '|'))">
 													<xsl:attribute name="checked">checked</xsl:attribute>
 												</xsl:if>
@@ -265,14 +285,17 @@
 													<xsl:attribute name="name">sit_nrtr[<xsl:value-of select="@id"/>][ope]</xsl:attribute>
 													<option value="&amp;lt;=">
 														<xsl:if test="substring-after($valeurCourante, '#') = '&lt;='"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
+														<xsl:attribute name="onchange">_gaq.push(['_trackEvent', 'Recherche-Avancee', '<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intituleCritere"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by"><![CDATA[-]]></xsl:with-param></xsl:call-template>', '<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="."/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by"><![CDATA[-]]></xsl:with-param></xsl:call-template>']);</xsl:attribute>
 														&amp;lt;=
 													</option>
 													<option value="=">
 														<xsl:if test="substring-after($valeurCourante, '#') = '='"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
+														<xsl:attribute name="onchange">_gaq.push(['_trackEvent', 'Recherche-Avancee', '<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intituleCritere"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by"><![CDATA[-]]></xsl:with-param></xsl:call-template>', '<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="."/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by"><![CDATA[-]]></xsl:with-param></xsl:call-template>']);</xsl:attribute>
 														=
 													</option>
 													<option value="&amp;gt;=">
 														<xsl:if test="substring-after($valeurCourante, '#') = '&gt;='"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
+														<xsl:attribute name="onchange">_gaq.push(['_trackEvent', 'Recherche-Avancee', '<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intituleCritere"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by"><![CDATA[-]]></xsl:with-param></xsl:call-template>', '<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="."/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by"><![CDATA[-]]></xsl:with-param></xsl:call-template>']);</xsl:attribute>
 														&amp;gt;=
 													</option>
 												</select>
@@ -294,23 +317,12 @@
 				</xsl:if>
 			</xsl:for-each>
 			
-			<xsl:if test="string-length($villes) &gt; 0">
-				<div style="margin-bottom:10px">
-					<label for="sit_cinsee" class="choisissez"><strong><xsl:value-of select="$termeCommune"/></strong></label>
-					<select id="sit_cinsee" name="sit_cinsee[]" style="width:100%" multiple="multiple">
-						<xsl:call-template name="display-villes">
-							<xsl:with-param name="villesChaine" select="$villes"/>
-						</xsl:call-template>
-					</select>
-				</div>
-			</xsl:if>
-			
 			<div style="text-align:right;margin-bottom:5px"><a style="display:block;">
 				<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute>
 				<xsl:value-of select="$termeReinitialiserRecherche"/>
 			</a></div>
 			<div style="text-align:right">
-				<button type="submit" name="search_sit" class="button">
+				<button type="submit" name="search_sit" class="button" onclick="_gaq.push(['_trackEvent', 'Recherche-Avancee','validee']);">
 					<span><xsl:value-of select="$termeAffinerRecherche"/></span>
 				</button>
 			</div>

@@ -31,17 +31,19 @@
 					<li>
 						<xsl:attribute name="style"><xsl:if test="position() &lt; count(../detail[position() &gt;= ((($pageCourante - 1)*$nbItemsParPage) + 1) and position() &lt;= ($pageCourante * $nbItemsParPage)])"></xsl:if></xsl:attribute>
 						<a><xsl:attribute name="id">fiche-<xsl:value-of select="@id"/></xsl:attribute><![CDATA[ ]]></a>
-						<a>
+						<xsl:if test="count(newPhotos/newPhoto) != 0">
+						!<a>
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 							<img alt="">
 								<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
 									<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=184</xsl:attribute>
 								</xsl:if>
-								<xsl:if test="count(newPhotos/newPhoto) = 0">
+								<!--xsl:if test="count(newPhotos/newPhoto) = 0">
 									<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
-								</xsl:if>
+								</xsl:if-->
 							</img>
 						</a>
+						</xsl:if>
 						<div style="margin-left:194px; float:none;">
 							<div class="titre-container">
 								<h3>
