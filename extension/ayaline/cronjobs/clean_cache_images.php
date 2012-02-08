@@ -11,7 +11,7 @@ require_once( 'kernel/common/ezincludefunctions.php' );
 
 ob_start();
 exec(' cd var/ez_aya_sit/cache/images/', $output);
-exec('find -name "*" -atime +7 -exec rm -rf {} \;', $output);
+exec('find -name "*" -mtime +7 -exec rm -rf {} \;', $output);
 $content_grabbed=ob_get_contents();
 ob_end_clean();
 
