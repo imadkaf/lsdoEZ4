@@ -1,5 +1,11 @@
 {def $nbPubs = 5}
-
+{* utile pour le tracking Google Analytics *}
+{foreach $node.data_map.categorie.class_content.options as $option}
+	{if eq($option.id,$node.data_map.categorie.data_text)}
+		<script type="text/javascript">categorie="{$option.name}";</script>
+	{/if}
+{/foreach}
+			
 <div class="bloc-left-bis">
 	<div class="bloc-left-in-bis">
 		{if eq($node.data_map.form_recherche.data_text, 0)}
@@ -125,8 +131,10 @@
 				'limit', 1,
 				'attribute_filter', array(array('sit_mise_en_avant/mode_affichage', '=', '6'))
 			))}
-			{if $mise_en_avant}
-				{sit_mise_en_avant($mise_en_avant.0, $mise_en_avant.0.data_map.mode_affichage.value, 'sit_remontee_liste')}
+			{if eq($view_parameters.recherche,'')}
+				{if $mise_en_avant}
+					{sit_mise_en_avant($mise_en_avant.0, $mise_en_avant.0.data_map.mode_affichage.value, 'sit_remontee_liste')}
+				{/if}
 			{/if}
 			{undef $mise_en_avant}
 			{sit_liste()}
