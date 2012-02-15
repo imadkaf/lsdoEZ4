@@ -71,7 +71,8 @@
 			{/case}
 		{/switch}
 {/foreach}
-
+		<meta name="google-site-verification" content="{ezini( 'GoogleSiteVerification', 'Code', 'ayaline.ini' )}" />
+		
 {* Styles *}
 {foreach ezini( 'StylesheetSettings', 'CSSFileList', 'design.ini' ) as $css_fichier }
 		<link rel="stylesheet" type="text/css" href={concat( 'stylesheets/', $css_fichier )|ezdesign} media="all" />

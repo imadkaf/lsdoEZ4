@@ -12,7 +12,9 @@
 {if eq($maCollection.data_map.sqli_civilite.data_int, 2)}
 	{set $civilite = "Mademoiselle"}
 {/if}
-
+<script type="text/javascript">
+_gaq.push(['_trackEvent', 'Contact',{concat("'",$maCollection.data_map.ville.content,"'")}]);
+</script>
 <script type="text/javascript">
 	$.post(
 		"{ezini('WebForm', 'UrlWebForm', 'ayaline.ini')}",
