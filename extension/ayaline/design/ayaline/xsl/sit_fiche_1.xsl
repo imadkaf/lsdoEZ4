@@ -175,7 +175,14 @@
 				<script type="text/javascript" xml:space="preserve">
 				<![CDATA[
 					$(function () {
-						document.oswidget = new OsFG("OSRechercheDetail","22357-1621","fr");
+						]]>
+						<xsl:if test="$langue = 'en'">
+							<![CDATA[document.oswidget = new OsFG("OSRechercheDetail","22357-1621","uk");]]>
+						</xsl:if>
+						<xsl:if test="$langue != 'en'">
+							<![CDATA[document.oswidget = new OsFG("OSRechercheDetail","22357-1621","fr");]]>
+						</xsl:if>
+						<![CDATA[
 						document.oswidget.AliasTerritoire("otsablesolonne");
 						document.oswidget.ListeIdFournisseur("]]><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280003']/valModalite"/><![CDATA[");
 						document.oswidget.Affiche();
