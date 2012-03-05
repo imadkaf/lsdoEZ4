@@ -100,7 +100,7 @@
 									</fieldset>
 								</li>
 								
-								<div id="google_translate_element" style="float:left; margin:0px 15px 0px 0px;"></div>
+								<div id="google_translate_element" style="float:left; margin:0px 15px 0px 0px; width: 196px;"></div>
 								<script>
 								{literal}
 									function googleTranslateElementInit() {
