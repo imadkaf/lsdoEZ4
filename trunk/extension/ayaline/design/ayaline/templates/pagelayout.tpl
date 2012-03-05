@@ -89,16 +89,30 @@
 									<label for="langue" class="none">{"Langue"|i18n("ayaline/langue")}</label>
 									<fieldset class="conteneurSelect" id="langue">
 										<div class="inputsSelect">
-											<p onclick="showHideSelect('listeSelect1')" class="selects"><span class="Flag_{$curLang|extract_left( 2 )}"></span></p>
+											<!-- <p onclick="showHideSelect('listeSelect1')" class="selects"><span class="Flag_{$curLang|extract_left( 2 )}"></span></p>-->
 											<ul id="listeSelect1">
 	{foreach ezini( 'RegionalSettings', 'UrlList' ) as $language => $url}
-												<li><a onclick="validAndHide('DE', this, 'countryCode', 'p')" href="http://{$url}"><span class="Flag_{$language|extract_left( 2 )}"></span></a></li>
+												<li><a href="http://{$url}"><span class="Flag_{$language|extract_left( 2 )}"></span></a></li>
 	{/foreach}
 											</ul>
 										</div>
 										<input type="hidden" name="countryCode" />
 									</fieldset>
 								</li>
+								
+								<div id="google_translate_element" style="float:left; margin:0px 15px 0px 0px;"></div>
+								<script>
+								{literal}
+									function googleTranslateElementInit() {
+									  new google.translate.TranslateElement({
+									    pageLanguage: 'fr',
+									    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+									  }, 'google_translate_element');
+									}
+								{/literal}
+								</script>
+								<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 {*Gestion des saisons*}
 {cache-block keys=$cache_hash}
 	{foreach $attributes as $attribute}
