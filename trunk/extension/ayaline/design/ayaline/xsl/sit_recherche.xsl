@@ -12,7 +12,7 @@
 	<xsl:template match="/">
 		<div class="bloc-type">
 			<ul class="list-thm">
-				<li class="first"><strong>Changer de<br />saison &gt;</strong></li>
+				<li class="first"><strong><xsl:value-of select="$termeChangerDeSaison"/></strong></li>
 				<li>
 					<form method="post" action="/saisons/edit/">
 						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>

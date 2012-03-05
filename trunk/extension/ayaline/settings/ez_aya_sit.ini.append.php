@@ -39,11 +39,12 @@ StaticSitTranslations[]=VoirAussi
 StaticSitTranslations[]=ToutesFichesMemeCategorie
 StaticSitTranslations[]=APartirDe
 StaticSitTranslations[]=VotreAvis
+StaticSitTranslations[]=ChangerDeSaison
 
 [ImagesDesign]
 Chemin=/extension/ayaline/design/ayaline/images/
 
 [GlobalSitParametersOverride]
-RootSitUrl=http://dev.lsdo-sit.lnet.fr/servlets/Web?tache=Traitement
+RootSitUrl=http://www.lsdo-sit.lnet.fr/servlets/Web?tache=Traitement
 
 */ ?>

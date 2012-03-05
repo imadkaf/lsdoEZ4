@@ -72,7 +72,7 @@
 		</message>
 		<message>
 			<source>CoupDeCoeur</source>
-			<translation>Fall in love</translation>
+			<translation>Favorite</translation>
 		</message>
 		<message>
 			<source>LesPlusConsultes</source>
@@ -310,6 +310,10 @@
 			<source>VotreAvis</source>
 			<translation>Your opinion</translation>
 		</message>
+		<message>
+			<source>ChangerDeSaison</source>
+			<translation>Change<![CDATA[<br />]]> season &gt;</translation>
+		</message>
 	</context>
 	
 	<context>
@@ -496,6 +500,22 @@
 	    <message>
 	        <source>Your search</source>
 	        <translation>Your search</translation>
+	    </message>
+	    <message>
+	        <source>Automne</source>
+	        <translation>Autumn</translation>
+	    </message>
+	    <message>
+	        <source>Hiver</source>
+	        <translation>Winter</translation>
+	    </message>
+	    <message>
+	        <source>Printemps</source>
+	        <translation>Spring</translation>
+	    </message>
+	    <message>
+	        <source>Été</source>
+	        <translation>Summer</translation>
 	    </message>
 	</context>
 </TS>

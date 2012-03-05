@@ -150,6 +150,10 @@
 			<source>VotreAvis</source>
 			<translation>Votre avis</translation>
 		</message>
+		<message>
+			<source>ChangerDeSaison</source>
+			<translation>Changer de<![CDATA[<br />]]> saison &gt;</translation>
+		</message>
 	</context>
 	<context>
 	    <name>extension/recaptcha</name>
@@ -360,6 +364,22 @@
 	    <message>
 	        <source>Your search</source>
 	        <translation>Votre recherche</translation>
+	    </message>
+	    <message>
+	        <source>Automne</source>
+	        <translation>Automne</translation>
+	    </message>
+	    <message>
+	        <source>Hiver</source>
+	        <translation>Hiver</translation>
+	    </message>
+	    <message>
+	        <source>Printemps</source>
+	        <translation>Printemps</translation>
+	    </message>
+	    <message>
+	        <source>Été</source>
+	        <translation>Été</translation>
 	    </message>
 	</context>
 </TS>
