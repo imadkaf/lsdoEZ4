@@ -197,7 +197,7 @@ body {
 .header-in-right{
 	float:right;
 	padding:5px 0 0 0;
-	width:523px;
+	width:600px;
 }
 .header-in-right ul.list-top,
 .header-in-right div.menu{
@@ -226,7 +226,7 @@ body {
 	margin:0 16px 0 7px;
 }
 .header-in-right ul li.langue{
-	margin:0 23px;
+	margin:0 15px;
 }
 .header-in-right ul li select{
 	width:43px;
@@ -315,7 +315,7 @@ li.last form{
 }
 .header-in-right div.menu{
 	position:relative;
-	top:32px;
+	top:31px;
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 	.header-in-right div.menu{
@@ -936,9 +936,9 @@ ul li.partager a{
 	top:3px;
 }
 .conteneurSelect .inputsSelect{
-	background:#ffffff url("../images/select.gif") 95% 50% no-repeat;
+	/*background:#ffffff url("../images/select.gif") 95% 50% no-repeat;*/
 	position:relative;
-	border:1px solid #999;
+	/*border:1px solid #999;*/
 	text-align:center;
 	float:left;
 }
@@ -952,17 +952,17 @@ ul li.partager a{
 	color:#8a8a8a;
 }
 .inputsSelect ul{
-	position:absolute;
+	/*position:absolute;*/
 	text-align:left;
-	border:1px solid #999;
+	/*border:1px solid #999;*/
 	padding:1px;
-	display:none;
-	background:#ffffff;
+	/*display:none;*/
+	/*background:#ffffff;*/
 	z-index:200;
 	list-style:none;
 	margin:0;
-	left:-1px;
-	width:42px;
+	/*left:-1px;*/
+	/*width:42px;*/
 }
 .inputsSelect ul li span.Flag_en,
 .inputsSelect p span.Flag_en{
@@ -994,8 +994,12 @@ ul li.partager a{
 	text-decoration:none;
 }
 ul#listeSelect1 li{
-	float:none;
+	/*float:none;*/
 	display:inline;
+	margin-left: 5px;
+}
+ul#listeSelect1 li:first-child{
+	margin-left: 0px;
 }
 .l-spacing{
 	letter-spacing:-1px;
@@ -2297,7 +2301,8 @@ select#nbre-semaine{
 
 .header-in-right .list-top .first{
 	text-transform:capitalize;
-	margin-right:10px;
+	margin-right:0px;
+	padding-top: 5px;
 }
 
 .header-in-right div.menu li a span{
