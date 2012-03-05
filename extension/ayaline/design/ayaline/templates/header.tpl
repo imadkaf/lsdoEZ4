@@ -101,6 +101,11 @@
 {if eq($chemin, ezini('Chemins', 'ALaUne', 'ayaline.ini'))}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/alaune.css'|ezdesign} media="all" />
 {/if}
+{def $languetest = ezini( 'RegionalSettings', 'SiteLanguageList' )}
+{set $languetest = $languetest.0}
+{if eq('eng-US', $languetest)}
+		<link rel="stylesheet" type="text/css" href={'stylesheets/main-en.css'|ezdesign} media="all" />
+{/if}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/print.css'|ezdesign} media="print" />
 		
 {*** Javascript ***}

@@ -1,13 +1,25 @@
+{def $langue = ezini( 'RegionalSettings', 'SiteLanguageList' )}
+{set $langue = $langue.0}
 <div class="bloc-type" id="bloc-ac-res">
 	{* Deja appele <script src="http://gadget.open-system.fr/jquery.min.js" type="text/JavaScript" ></script> *}
 	{*<script src="http://gadget.open-system.fr/osform.min.js" type="text/JavaScript" ></script>*}
 	{literal}
 	<script type="text/javascript" xml:space="preserve">
 		$(function () {
-			document.oswidget = new OsFG("OSRecherche","22357-1608","fr");
+			{/literal}
+				{if eq('fre-FR', $langue)}
+			{literal}
+					document.oswidget = new OsFG("OSRecherche","22357-1608","fr");
+			{/literal}
+				{/if}
+				{if eq('eng-US', $langue)}
+			{literal}
+					document.oswidget = new OsFG("OSRecherche","22357-1608","uk");
+			{/literal}
+				{/if}
+			{literal}
 			document.oswidget.SetOptionAffichage({"Navigation":"accordeon","CouleurFond":"#ffffff"});
 			document.oswidget.Affiche();
-			
 		});
 	</script>
 	{/literal}
@@ -20,5 +32,4 @@
 		{"I search"|i18n("ayaline")}
 	</h3>
 	<div id="OSRecherche"></div>
-
 </div>
