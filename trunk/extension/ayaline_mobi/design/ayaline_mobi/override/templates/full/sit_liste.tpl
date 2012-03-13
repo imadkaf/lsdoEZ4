@@ -11,5 +11,7 @@
 		{sit_liste('sit_liste_carte_mobile')}
 	{/if}
 	
+	{sit_recherche()}
+	
 	{sit_liste()}
 </div>
