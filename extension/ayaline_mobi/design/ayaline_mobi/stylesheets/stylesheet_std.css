@@ -411,6 +411,40 @@ p.contenu {
     margin-top: 5px;
 }
 
+/*** Recherche par date ***/
+.recherche-date{
+	border-bottom: 1px solid #C9BDB2;
+}
+
+.recherche-date .bloc-liste-h2-recherche{
+	padding: 15px 0px 15px 15px;
+	font-weight: bold;
+	display: block;
+	font-size: 15px;
+}
+
+.recherche-date label strong{
+	font-size: 12px;
+	padding: 0px 0px 0px 15px;
+	position: relative;
+	top: 5px;
+}
+
+.recherche-date a.ui-link {
+	font-weight: normal;
+}
+.recherche-date a.ui-link:hover {
+	text-decoration: underline;
+}
+
+.recherche-date .reinitialiser{
+	margin: 5px 0px 15px 15px;
+}
+
+.recherche-date .bouton-date{
+	width: 50%;
+}
+
 /*** Page fiche hotel ***/
 .contenu-fiche {
     background: none repeat scroll 0 0 #F6F2EF;
