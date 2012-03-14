@@ -430,8 +430,6 @@ p.contenu {
 .recherche-date label strong{
 	font-size: 12px;
 	padding: 0px 0px 0px 0px;
-	position: relative;
-	bottom: 2px;
 }
 
 .recherche-date a.ui-link {
