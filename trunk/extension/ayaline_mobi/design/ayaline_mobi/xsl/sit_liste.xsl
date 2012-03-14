@@ -59,7 +59,7 @@
 			</ul>
 			
 			<div class="result-suiv">
-				<xsl:call-template name="toute-pagination"/>
+				<xsl:call-template name="toute-pagination"/><![CDATA[ ]]>
 			</div>
 		</xsl:if>
 	</xsl:template>
