@@ -11,7 +11,7 @@
 				<xsl:attribute name="action"><xsl:value-of select="$lienCourant"/>/(recherche)/oui<xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute>
 				
 				<div class="saisie-date">
-					<div style="float:left; width: 33%;">
+					<div style="float:left; width: 40%;">
 						<div style="padding-right:3px">
 							<label for="sit_debut_ouv" class="choisissez" style="width: 25%;"><strong><xsl:value-of select="$termeDebutOuv"/></strong></label>
 							<input type="text" name="sit_debut_ouv" style="border:1px solid #999999; width: 75%;" class="champ-texte-calendrier sit_debut_ouv">
@@ -21,7 +21,7 @@
 							</input>
 						</div>
 					</div>
-					<div style="float:left; width: 33%;">
+					<div style="float:left; width: 40%;">
 						<div style="padding-left:3px">
 							<label for="sit_fin_ouv" class="choisissez" style="width: 25%;"><strong><xsl:value-of select="$termeFinOuv"/></strong></label>
 							<input type="text" name="sit_fin_ouv" style="border:1px solid #999999; width: 75%;" class="champ-texte-calendrier sit_fin_ouv">
@@ -31,7 +31,7 @@
 							</input>
 						</div>
 					</div>
-					<div class="bouton-date" style="float:left; width: 33%; position: relative; top: 8px;">
+					<div class="bouton-date" style="float:left; width: 20%; position: relative; top: 10px;">
 						<button type="submit" name="search_sit" class="button">
 							<span>Ok</span>
 						</button>
