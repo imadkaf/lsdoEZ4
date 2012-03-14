@@ -416,6 +416,10 @@ p.contenu {
 	border-bottom: 1px solid #C9BDB2;
 }
 
+.recherche-date .saisie-date{
+	margin-left: 15px;
+}
+
 .recherche-date .bloc-liste-h2-recherche{
 	padding: 15px 0px 15px 15px;
 	font-weight: bold;
@@ -425,7 +429,7 @@ p.contenu {
 
 .recherche-date label strong{
 	font-size: 12px;
-	padding: 0px 0px 0px 15px;
+	padding: 0px 0px 0px 0px;
 }
 
 .recherche-date a.ui-link {
