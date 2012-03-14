@@ -33,21 +33,12 @@
 					</div>
 					<p class="clear"><![CDATA[ ]]></p>
 				</div>
-				<br />
-				
-				<div class="reinitialiser">
-					<a style="display:block;">
-						<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute>
-						<xsl:value-of select="$termeReinitialiserRecherche"/>
-					</a>
-				</div>
 				
 				<div class="bouton-date">
 					<button type="submit" name="search_sit" class="button">
 						<span><xsl:value-of select="$termeAffinerRecherche"/></span>
 					</button>
 				</div>
-				<br />
 			</form>
 		</div>
 		

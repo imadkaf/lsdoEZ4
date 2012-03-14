@@ -421,7 +421,7 @@ p.contenu {
 }
 
 .recherche-date .bloc-liste-h2-recherche{
-	padding: 15px 0px 15px 15px;
+	padding: 10px 0px 5px 15px;
 	font-weight: bold;
 	display: block;
 	font-size: 15px;
@@ -430,6 +430,8 @@ p.contenu {
 .recherche-date label strong{
 	font-size: 12px;
 	padding: 0px 0px 0px 0px;
+	position: relative;
+	bottom: 2px;
 }
 
 .recherche-date a.ui-link {
@@ -444,7 +446,7 @@ p.contenu {
 }
 
 .recherche-date .bouton-date{
-	/*width: 50%;*/
+	margin-bottom: 5px;
 }
 
 /*** Page fiche hotel ***/
