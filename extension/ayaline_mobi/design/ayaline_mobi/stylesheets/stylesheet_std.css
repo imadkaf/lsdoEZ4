@@ -426,8 +426,6 @@ p.contenu {
 .recherche-date label strong{
 	font-size: 12px;
 	padding: 0px 0px 0px 15px;
-	position: relative;
-	top: 5px;
 }
 
 .recherche-date a.ui-link {
