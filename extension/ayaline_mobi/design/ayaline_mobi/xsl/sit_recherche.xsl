@@ -14,7 +14,7 @@
 					<div style="float:left; width: 50%;">
 						<div style="padding-right:3px">
 							<label for="sit_debut_ouv" class="choisissez" style="width: 25%;"><strong><xsl:value-of select="$termeDebutOuv"/></strong></label>
-							<input type="text" name="sit_debut_ouv" style="border:1px solid #999999; width: 75%;" class="champ-texte-calendrier sit_debut_ouv">
+							<input type="text" name="sit_debut_ouv" style="border:1px solid #999999; width: 75%; font-size: 11px;" class="champ-texte-calendrier sit_debut_ouv">
 								<xsl:if test="string-length($ouvAnnee) = 0">
 									<xsl:attribute name="value"><xsl:value-of select="$debutOuv"/></xsl:attribute>
 								</xsl:if>
@@ -24,7 +24,7 @@
 					<div style="float:left; width: 50%;">
 						<div style="padding-left:3px">
 							<label for="sit_fin_ouv" class="choisissez" style="width: 25%;"><strong><xsl:value-of select="$termeFinOuv"/></strong></label>
-							<input type="text" name="sit_fin_ouv" style="border:1px solid #999999; width: 75%;" class="champ-texte-calendrier sit_fin_ouv">
+							<input type="text" name="sit_fin_ouv" style="border:1px solid #999999; width: 75%; font-size: 11px;" class="champ-texte-calendrier sit_fin_ouv">
 								<xsl:if test="string-length($ouvAnnee) = 0">
 									<xsl:attribute name="value"><xsl:value-of select="$finOuv"/></xsl:attribute>
 								</xsl:if>
