@@ -10,6 +10,7 @@ FrontendCSSFileList[]=jquery-ui-1.8.14.custom.css
 #FrontendCSSFileList[]=http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css
 FrontendCSSFileList[]=jquery.mobile-1.0a4.1.min.css
 #FrontendCSSFileList[]=http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.css
+FrontendCSSFileList[]=jquery.ui.datepicker.mobile.css
 FrontendCSSFileListAndroid[]
 FrontendCSSFileListAndroid[]=stylesheet_android.css
 FrontendCSSFileListBB[]
@@ -35,5 +36,8 @@ JavaScriptListMobile[]=jquery.mobile-1.0a4.1.min.js
 #JavaScriptListMobile[]=http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js
 JavaScriptListMobile[]=itineraire.js
 JavaScriptListMobile[]=listecarte.js
+JavaScriptListMobile[]=jQuery.ui.datepicker.js
+JavaScriptListMobile[]=jquery.ui.datepicker-fr.js
+JavaScriptListMobile[]=jquery.ui.datepicker.mobile.js
 
 */ ?>
