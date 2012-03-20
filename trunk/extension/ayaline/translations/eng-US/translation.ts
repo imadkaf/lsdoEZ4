@@ -517,5 +517,9 @@
 	        <source>Été</source>
 	        <translation>Summer</translation>
 	    </message>
+		<message>
+	        <source>Tide Tables</source>
+	        <translation>Tide Tables</translation>
+	    </message>
 	</context>
 </TS>

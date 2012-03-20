@@ -381,5 +381,9 @@
 	        <source>Été</source>
 	        <translation>Été</translation>
 	    </message>
+		<message>
+	        <source>Tide Tables</source>
+	        <translation>Horaires des marées</translation>
+	    </message>
 	</context>
 </TS>
