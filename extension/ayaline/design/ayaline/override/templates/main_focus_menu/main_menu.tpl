@@ -7,6 +7,6 @@
 {foreach $node.children as $sMenu}
 	<li><a href={$sMenu.data_map.content.content.main_node.url_alias|ezurl}>{$sMenu.name|wash}</a></li>
 {/foreach}
-	<li><a href={'2012_HorairesMarees-web.pdf'|ezimage} target="_blank">Horaires des marées</a></li>
+	<li><a href="http://www.lessablesdolonne-tourisme.com/extension/ayaline/design/ayaline/images/2012_HorairesMarees-web.pdf?utm_source=site-internet&utm_medium=lien-interne&utm_campaign=horaires-marees" target="_blank">{"Tide Tables"|i18n("ayaline")}</a></li>{* attention lien avec tracking GA *}
 </ul>
 <div class="clear"></div>
