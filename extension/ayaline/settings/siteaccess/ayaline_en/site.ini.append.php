@@ -2,7 +2,7 @@
 
 [SiteSettings]
 SiteName=LSDO
-SiteURL=en.lsdo.loc
+SiteURL=uk.ot-lessablesdolonne.lnet.fr
 LoginPage=embedded
 
 [UserSettings]
@@ -13,27 +13,27 @@ LogoutRedirect=/
 RequireUserLogin=false
 ShowHiddenNodes=false
 
-[DesignSettings]
+[DesignSettings]	
 SiteDesign=ayaline
 AdditionalSiteDesignList[]=ayaline_mobi
 AdditionalSiteDesignList[]=base
 
 [RegionalSettings]
-Locale=eng-US
-ContentObjectLocale=eng-US
+Locale=eng-GB
+ContentObjectLocale=eng-GB
 ShowUntranslatedObjects=enabled
-SiteLanguageList[]=eng-US
+SiteLanguageList[]=eng-GB
 TextTranslation=enabled
 LocaleCodeAndDirection[]
-LocaleCodeAndDirection[code]=en-US
+LocaleCodeAndDirection[code]=en-GB
 LocaleCodeAndDirection[dir]=ltr
 
 [ContentSettings]
 TranslationList=
 CachedViewModes=
 
-[MailSettings]
-AdminEmail=jmace@ayaline.com
-EmailSender=
+#[MailSettings]
+#AdminEmail=jmace@ayaline.com
+#EmailSender=
 
 */ ?>
