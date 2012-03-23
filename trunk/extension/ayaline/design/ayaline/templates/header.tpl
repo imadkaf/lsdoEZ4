@@ -92,6 +92,8 @@
 		{set $chemin = $chemin.path_string}
 	{/if}
 {/if}
+{def $languetest = ezini( 'RegionalSettings', 'SiteLanguageList' )}
+{set $languetest = $languetest.0}
 {if eq($chemin, ezini('Chemins', 'Decouvrir', 'ayaline.ini'))}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/decouvrir.css'|ezdesign} media="all" />
 {/if}
@@ -101,10 +103,17 @@
 {if eq($chemin, ezini('Chemins', 'ALaUne', 'ayaline.ini'))}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/alaune.css'|ezdesign} media="all" />
 {/if}
-{def $languetest = ezini( 'RegionalSettings', 'SiteLanguageList' )}
-{set $languetest = $languetest.0}
 {if eq('eng-US', $languetest)}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/main-en.css'|ezdesign} media="all" />
+{/if}
+{if and(eq($chemin, ezini('Chemins', 'Decouvrir', 'ayaline.ini')), eq('eng-US', $languetest))}
+	<link rel="stylesheet" type="text/css" href={'stylesheets/alaune-en.css'|ezdesign} media="all" />
+{/if}
+{if and(eq($chemin, ezini('Chemins', 'Sejourner', 'ayaline.ini')), eq('eng-US', $languetest))}
+	<link rel="stylesheet" type="text/css" href={'stylesheets/sejourner-en.css'|ezdesign} media="all" />
+{/if}
+{if and(eq($chemin, ezini('Chemins', 'ALaUne', 'ayaline.ini')), eq('eng-US', $languetest))}
+	<link rel="stylesheet" type="text/css" href={'stylesheets/decouvrir-en.css'|ezdesign} media="all" />
 {/if}
 		<link rel="stylesheet" type="text/css" href={'stylesheets/print.css'|ezdesign} media="print" />
 		

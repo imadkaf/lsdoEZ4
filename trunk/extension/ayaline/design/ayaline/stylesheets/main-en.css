@@ -10,3 +10,7 @@
 .footer ul.niv-1 li.third {
     padding: 0 15px 0 24px;
 }
+
+.lien-plus-infos{
+	background:url("../images/+dinfos-noir-en.png") no-repeat !important;
+}
