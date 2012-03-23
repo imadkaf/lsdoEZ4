@@ -37,12 +37,18 @@
 										{if ne($topicId.0, ezini('NodeSettings','TopicDefaut','content.ini'))}
 											{* Si l'attribut title_topic du theme en cours n'est pas vide *}
 											{if ne($rub.data_map[concat('title_topic_', $topicId.0)].value, '')}
-												{set $titre = $rub.data_map[concat('title_topic_', $topicId.0)].value}
+												{set-block variable='titre'}
+													{attribute_view_gui attribute = $rub.data_map.concat('title_topic_', $topicId.0)}
+												{/set-block}
 											{else}
-												{set $titre = $rub.name}
+												{set-block variable='titre'}
+													{attribute_view_gui attribute = $rub.data_map.season_title}
+												{/set-block}
 											{/if}
 										{else}
-											{set $titre = $rub.name}
+											{set-block variable='titre'}
+												{attribute_view_gui attribute = $rub.data_map.season_title}
+											{/set-block}
 										{/if}
 									{/if}
 								{/if}
@@ -50,12 +56,14 @@
 						{/if}
 					{/foreach}
 				{else}
-					{set $titre = $node.name}
+					{set-block variable='titre'}
+						{attribute_view_gui attribute = $node.data_map.title}
+					{/set-block}
 				{/if}
 				{if ne($titre, '')}
 					{$titre}
 				{else} {* Cas ou la rubrique n'est pas associee a la saison selectionnee *}
-					{$node.name}
+					{attribute_view_gui attribute = $node.data_map.title}
 				{/if}
 			</h2>
 			<p class="clear"></p>
