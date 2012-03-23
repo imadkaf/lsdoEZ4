@@ -109,7 +109,7 @@
 						<p class="lien-bas">
 							<a>
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-								En savoir plus
+								<xsl:value-of select="$termeEnSavoirPlus"/>
 							</a>
 							<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280002']/valModalite) &gt; 0">
 								<a class="reserver">
