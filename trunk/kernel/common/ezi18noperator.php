@@ -134,8 +134,9 @@ class eZi18nOperator
         if ( $ini->variable( 'RegionalSettings', 'TextTranslation' ) != 'disabled' )
         {
             $language = eZLocale::instance()->localeFullCode();
-            if ( $language != "eng-GB" ) // eng-GB does not need translation
-            {
+			/* Modif AYALINE 20120323 pour forcer la traduction eng-GB */
+            //if ( $language != "eng-GB" ) // eng-GB does not need translation
+            //{
                 $file = 'translation.ts';
                 $ini = eZINI::instance();
                 $useCache = $ini->variable( 'RegionalSettings', 'TranslationCache' ) != 'disabled';
@@ -147,7 +148,7 @@ class eZi18nOperator
                 {
                     $value = $newValue;
                 }
-            }
+            //}
         }
 
         $values[] = array( eZTemplateNodeTool::createStringElement( $value ) );
