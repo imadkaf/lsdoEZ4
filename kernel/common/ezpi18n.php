@@ -111,11 +111,12 @@ class ezpI18n
     protected static function translateText( $context, $source, $comment = null, $arguments = null )
     {
         $localeCode = eZLocale::instance()->localeFullCode();
-        if ( $localeCode == 'eng-GB' )
+		/* Modif AYALINE 20120323 pour forcer la traduction eng-GB */
+        /*if ( $localeCode == 'eng-GB' )
         {
             // we don't have ts-file for 'eng-GB'.
             return self::insertArguments( $source, $arguments );
-        }
+        }*/
 
         $ini = eZINI::instance();
         $useCache = $ini->variable( 'RegionalSettings', 'TranslationCache' ) != 'disabled';
