@@ -34,7 +34,7 @@ HostMatchMapItems[]=admin.lsdo.loc;ayaline_admin
 ForceVirtualHost=true
 PublicSites[]
 PublicSites[ayaline]=fre-FR|ltr|Français|lsdo.loc|fr|puce_langue_fr.png
-PublicSites[ayaline_en]=eng-US|ltr|English|en.lsdo.loc|en|puce_langue_eng.png
+PublicSites[ayaline_en]=eng-GB|ltr|English|en.lsdo.loc|en|puce_langue_eng.png
 
 [DesignSettings]
 DesignLocationCache=enabled
@@ -54,7 +54,7 @@ EmailSender=jmace@ayaline.com
 TranslationExtensions[]=ayaline
 UrlList[]
 UrlList[fre-FR]=lsdo.loc
-UrlList[eng-US]=en.lsdo.loc
+UrlList[eng-GB]=en.lsdo.loc
 
 [FileSettings]
 VarDir=var/ayaline
