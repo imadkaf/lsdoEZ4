@@ -12,7 +12,7 @@
 					document.oswidget = new OsFG("OSRecherche","22357-1608","fr");
 			{/literal}
 				{/if}
-				{if eq('eng-US', $langue)}
+				{if eq('eng-GB', $langue)}
 			{literal}
 					document.oswidget = new OsFG("OSRecherche","22357-1608","uk");
 			{/literal}
