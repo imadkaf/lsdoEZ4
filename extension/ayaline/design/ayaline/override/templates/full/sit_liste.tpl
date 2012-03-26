@@ -122,8 +122,18 @@
 				<br />
 			{/if}
 			
+			{def $param_url = ''}
+			{foreach $view_parameters as $param => $valParam}
+				{if $valParam}
+					{set $param_url = concat($param_url, '/(', $param, ')/', $valParam)}
+				{/if}
+			{/foreach}
 			{if eq($node.data_map.googlemaps.data_int, '1')}
-				{sit_liste('sit_liste_carte')}
+				{if is_set($view_parameters.goutte)}
+					{sit_liste('sit_liste_carte')}
+				{else}
+					<a class="liste-goutte" href={concat($node.url_alias, $param_url, '/(goutte)/1')|ezurl}>Afficher la carte</a>
+				{/if}
 			{/if}
 
 			{def $mise_en_avant = fetch( 'content','list',hash(
