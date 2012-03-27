@@ -2899,17 +2899,20 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 }
 
 a.liste-goutte{
-	background: url("../images/picto-google-map.gif") no-repeat;
+	/*background: url("../images/picto-google-map.gif") no-repeat;
 	width: 40px;
 	height: 39px;
 	font-size: 0px;
-	color: white;
+	color: white;*/
 	display: block;
+}
+a.liste-goutte img{
 	float: left;
 	margin-right: 10px;
 }
-h3.liste-goutte{
-	margin: 10px 0px 0px 0px;
+a.liste-goutte h3{
+	position: relative;
+	top: 8px;
 }
 
 
