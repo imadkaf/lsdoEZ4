@@ -2898,13 +2898,18 @@ div#ezautocomplete2 .yui-ac-content li.yui-ac-highlight {
 	padding:0;
 }
 
-.liste-goutte{
+a.liste-goutte{
 	background: url("../images/picto-google-map.gif") no-repeat;
 	width: 40px;
 	height: 39px;
 	font-size: 0px;
 	color: white;
 	display: block;
+	float: left;
+	margin-right: 10px;
+}
+h3.liste-goutte{
+	margin: 10px 0px 0px 0px;
 }
 
 
