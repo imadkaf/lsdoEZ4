@@ -132,7 +132,11 @@
 				{if is_set($view_parameters.goutte)}
 					{sit_liste('sit_liste_carte')}
 				{else}
-					<a class="liste-goutte" href={concat($node.url_alias, $param_url, '/(goutte)/1')|ezurl}>Afficher la carte</a><h3 class="liste-goutte">&lt; Visualiser sur la carte</h3>
+					<a class="liste-goutte" href={concat($node.url_alias, $param_url, '/(goutte)/1')|ezurl}>
+						<img alt="Visualiser sur la carte" src={"picto-google-map.gif"|ezimage}>
+						<h3>Visualiser sur la carte</h3>
+						<div class="clear"></div>
+					</a>
 					<div class="clear"></div>
 				{/if}
 			{/if}
