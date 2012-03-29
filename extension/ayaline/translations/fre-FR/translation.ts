@@ -154,6 +154,10 @@
 			<source>ChangerDeSaison</source>
 			<translation>Changer de<![CDATA[<br />]]> saison &gt;</translation>
 		</message>
+		<message>
+			<source>Indifferent</source>
+			<translation>Indifférent</translation>
+		</message>
 	</context>
 	<context>
 	    <name>extension/recaptcha</name>

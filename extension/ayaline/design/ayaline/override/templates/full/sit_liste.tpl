@@ -13,7 +13,7 @@
 		{/if}
 		
 		{if eq($node.parent.node_id, ezini('Noeuds','Sejourner','ayaline.ini'))}
-			<div>
+			<div class="memecategorie-choisissez">
 				{def $listeHebergement = fetch('content','list', hash( 
 												'parent_node_id', $node.parent.node_id,
 												'sort_by', $node.sort_array,
@@ -22,8 +22,10 @@
 				
 				{if $listeHebergement|count}
 					<ul class="menu-left">
+						{*<li>*}
 						<li class="actif">
 							<span>{"Others housings"|i18n("ayaline")}</span>
+							{*<ul class="s-menu none">*}
 							<ul class="s-menu">
 							{foreach $listeHebergement as $hbgt}
 								<li><a href={$hbgt.url_alias|ezurl}>{$hbgt.name}</a></li>
@@ -43,8 +45,10 @@
 			
 			{if $listeRubriques|count}
 				<ul class="menu-left">
+					{*<li>*}
 					<li class="actif">
 						<span>{$node.parent.name}</span>
+						{*<ul class="s-menu none">*}
 						<ul class="s-menu">
 						{foreach $listeRubriques as $rub}
 							<li><a href={$rub.url_alias|ezurl}>{$rub.name}</a></li>
