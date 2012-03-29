@@ -40,6 +40,7 @@ StaticSitTranslations[]=ToutesFichesMemeCategorie
 StaticSitTranslations[]=APartirDe
 StaticSitTranslations[]=VotreAvis
 StaticSitTranslations[]=ChangerDeSaison
+StaticSitTranslations[]=Indifferent
 
 [ImagesDesign]
 Chemin=/extension/ayaline/design/ayaline/images/

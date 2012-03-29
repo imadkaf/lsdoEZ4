@@ -3185,6 +3185,21 @@ div.image{
 	width: 593px;
 }
 
+
+/*** Mise en avant - Remonte de type diaporama ***/
+.bxslider.remonte_liste{
+	width: 593px;
+}
+.bxslider.remonte_liste .pager{
+	text-align: center;
+}
+.bxslider.remonte_liste .pager img{
+	width: auto;
+	max-width: 593px;
+	float: none;
+	max-height: 250px;
+}
+
 /************************/
 /*** Fin ajout Alexia ***/
 /************************/

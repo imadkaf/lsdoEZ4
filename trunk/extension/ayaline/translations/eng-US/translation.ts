@@ -314,6 +314,10 @@
 			<source>ChangerDeSaison</source>
 			<translation>Change<![CDATA[<br />]]> season &gt;</translation>
 		</message>
+		<message>
+			<source>Indifferent</source>
+			<translation>Indifferent</translation>
+		</message>
 	</context>
 	
 	<context>

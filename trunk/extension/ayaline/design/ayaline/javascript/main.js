@@ -47,7 +47,6 @@ function fixH2(one, two) {
 	}
 }
 
-
 $(document).ready(function(){
 	$('li.rubrique2').first().mouseover(function(){
 		$('li.rubrique2:first .ss-menu:first').css('display','block');
@@ -56,3 +55,34 @@ $(document).ready(function(){
 		$('li.rubrique2:first .ss-menu:first').css('display','none');
 	});
 });
+
+/* Criteres de recherche dans les listes SIT */
+/*
+$(document).ready(function(){
+    $('.form-search-left .contour-choisissez .choisissez').click(function() {
+		if(!$(this).hasClass('actif')){
+			$(this).addClass('actif');
+			$parentDiv = $(this).parent('.contour-choisissez');
+			$parentDiv.children(".menu-choisissez").removeClass('none');
+			$(this).css('background-image', 'url(../images/picto-on.png)');
+		}
+		else{
+			$(this).removeClass('actif');
+			$parentDiv = $(this).parent('.contour-choisissez');
+			$parentDiv.children(".menu-choisissez").addClass('none');
+			$(this).css('background-image', 'url(../images/fleche-r.png)');
+		}
+    });
+    
+    $('.memecategorie-choisissez li span').click(function() {
+		if(!$(this).parent().hasClass('actif')){
+			$(this).parent().addClass('actif');
+			$(this).parent().children('ul.s-menu').removeClass('none');
+		}
+		else{
+			$(this).parent().removeClass('actif');
+			$(this).parent().children('ul.s-menu').addClass('none');
+		}
+    });
+});
+*/
