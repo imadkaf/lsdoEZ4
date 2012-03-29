@@ -152,6 +152,7 @@
 			))}
 			{if eq($view_parameters.recherche,'')}
 				{if $mise_en_avant}
+					<br /><br />
 					{sit_mise_en_avant($mise_en_avant.0, $mise_en_avant.0.data_map.mode_affichage.value, 'sit_remontee_liste')}
 				{/if}
 			{/if}
