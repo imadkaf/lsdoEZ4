@@ -2285,6 +2285,10 @@ select#nbre-semaine{
 	margin:2px 0 0 0;
 }
 
+/*** Fiche normale ***/
+.ss-titre.apartirde{
+	margin: 0px 0px 5px 15px;
+}
 
 /*********************/
 /*** Ajouts Alexia ***/
