@@ -251,16 +251,10 @@
 			</ul>
 			
 			<p class="ss-titre">
-				<xsl:choose>
-					<xsl:when test="criteres/critere[@id='851000023']/modalites/modalite[@id='8510000230002']/valModalite">
-						<span class="picto"><xsl:value-of select="$termeAPartirDe"/> <span><xsl:value-of select="criteres/critere[@id='851000023']/modalites/modalite[@id='8510000230002']/valModalite"/> &amp;euro;</span></span>
-					</xsl:when>
-					<xsl:otherwise>
-						<xsl:if test="criteres/critere[@id='851000020']/modalites/modalite[@id='8510000200002']/valModalite">
-							<span class="picto"><xsl:value-of select="$termeAPartirDe"/> <span><xsl:value-of select="criteres/critere[@id='851000020']/modalites/modalite[@id='8510000200002']/valModalite"/> &amp;euro;</span></span>
-						</xsl:if>
-					</xsl:otherwise>
-				</xsl:choose>
+				<xsl:if test="criteres/critere[@id='851000327']/modalites/modalite[@id='8510003270001']/valModalite">
+					<span class="picto"><xsl:value-of select="$termeAPartirDe"/> <span><xsl:value-of select="criteres/critere[@id='851000327']/modalites/modalite[@id='8510003270001']/valModalite"/> &amp;euro;</span></span>
+				</xsl:if>
+				<![CDATA[ ]]>
 			</p>
 			<p class="lien-bas">
 				<xsl:call-template name="boutons-reserver-liste"/>				
@@ -419,7 +413,7 @@
 					<xsl:if test="count(criteres/critere[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0]) &gt; 0">
 						<table cellspacing="0" width="100%">
 							<!-- Les criteres suivants sont retires pour ne pas etre repetes - etoile 851000005, type : 851000001, prix1 851000020, prix2 851000021, prix3 851000022, prix4 851000023, prix5 851000024, prix6 851000025, prix7 851000026, prix8 851000027, chaine 851000010, label 851000007 -->
-							<xsl:for-each select="criteres/critere[($modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0) and (@id != '851000005') and (@id != '851000001') and (@id != '851000020') and (@id != '851000021') and (@id != '851000022') and (@id != '851000023') and (@id != '851000024') and (@id != '851000025') and (@id != '851000026') and (@id != '851000027') and (@id != '851000010') and (@id != '851000007')]">
+							<xsl:for-each select="criteres/critere[($modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0) and (@id != '851000005') and (@id != '851000001') and (@id != '851000020') and (@id != '851000021') and (@id != '851000022') and (@id != '851000023') and (@id != '851000024') and (@id != '851000025') and (@id != '851000026') and (@id != '851000027') and (@id != '851000010') and (@id != '851000007') and (@id != '851000327')]">
 								<xsl:if test="count(modalites/modalite) &gt; 0">
 									<xsl:variable name="idCritere" select="@id"/>
 									<tr>

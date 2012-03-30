@@ -31,6 +31,13 @@
 							<li class="pas-hotel"><xsl:value-of select="ville/intituleVille"/></li>
 						</ul>
 						
+						<p class="ss-titre">
+							<xsl:if test="criteres/critere[@id='851000327']/modalites/modalite[@id='8510003270001']/valModalite">
+								<span class="picto"><xsl:value-of select="$termeAPartirDe"/> <span><xsl:value-of select="criteres/critere[@id='851000327']/modalites/modalite[@id='8510003270001']/valModalite"/> &amp;euro;</span></span>
+							</xsl:if>
+							<![CDATA[ ]]>
+						</p>
+						
 						<a>
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 							<img alt="">
@@ -43,9 +50,9 @@
 							</img>
 						</a>
 						
-						<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000028' and @id != '851000308']) &gt; 0">
+						<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000028' and @id != '851000308' and @id != '851000327']) &gt; 0">
 							<ul class="criteres liste-hotel">
-								<xsl:for-each select="criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000028' and @id != '851000308']">
+								<xsl:for-each select="criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000028' and @id != '851000308' and @id != '851000327']">
 									<xsl:variable name="idCritere" select="@id"/>
 									<xsl:variable name="intituleCritere" select="intCritere"/>
 									<xsl:if test="count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', $idCritere, '|'))]) &gt; 0">
