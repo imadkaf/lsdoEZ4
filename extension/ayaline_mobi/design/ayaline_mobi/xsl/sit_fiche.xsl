@@ -78,7 +78,7 @@
 		</div>
 		
 		<!-- Appel des definitions des 'ui' de la bibliotheque jquery -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"><![CDATA[ ]]></script>
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"><![CDATA[ ]]></script> -->
 		<script type="text/javascript">
 			<![CDATA[
 			var firstGmapsInit = true;
