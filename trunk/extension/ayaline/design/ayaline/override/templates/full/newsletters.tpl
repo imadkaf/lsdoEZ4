@@ -22,14 +22,6 @@
 						</ul>
 					</div>
 				{/if}
-
-				<div class="block">
-					<h2>{"Your message"|i18n("ayaline")}</h2>
-				</div>
-				<div class="block">
-					<label class="lsdo-label">{$node.data_map.votre_message.contentclass_attribute_name|wash()} :</label>
-					{attribute_view_gui attribute = $node.data_map.votre_message}
-				</div>
 				
 				<div class="block">
 					<br />

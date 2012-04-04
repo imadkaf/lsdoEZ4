@@ -389,5 +389,21 @@
 	        <source>Tide Tables</source>
 	        <translation>Horaires des marées</translation>
 	    </message>
+	    <message>
+	        <source>Aide Navigation</source>
+	        <translation>Aide Navigation</translation>
+	    </message>
+	    <message>
+	        <source>Your newsletters inscription was sent</source>
+	        <translation>Votre inscription aux newsletters a été envoyé</translation>
+	    </message>
+	    <message>
+	        <source>We thank you for your interrest and let us invite you to continue your consultation of the site while clicking here</source>
+	        <translation>Nous vous remercions pour votre intérêt et nous vous invitons à poursuivre votre consultation sur notre site en cliquant ici</translation>
+	    </message>
+	    <message>
+	        <source>Now you will receive the newsletters form the team of the tourist office of Sables d'Olonne</source>
+	        <translation>Maintenant vous recevrez les newsletters de l'équipe de l'office de tourisme des Sables d'Olonne</translation>
+	    </message>
 	</context>
 </TS>

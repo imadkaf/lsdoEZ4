@@ -2,6 +2,18 @@
 
 	#ayaline
 
+[newsletters_reponse]
+Source=content/collectedinfo/form.tpl
+MatchFile=full/newsletters_reponse.tpl
+Subdir=templates
+Match[class_identifier]=newsletters
+
+[full_newsletters]
+Source=node/view/full.tpl
+MatchFile=full/newsletters.tpl
+Subdir=templates
+Match[class_identifier]=newsletters
+
 	#Phototheque
 
 [file_embed]

@@ -38,6 +38,7 @@ ClassesMenuInterne[]=page_contact
 ClassesMenuInterne[]=phototheque
 ClassesMenuInterne[]=rubric
 ClassesMenuInterne[]=sit_liste
+ClassesMenuInterne[]=newsletters
 
 [ClassAttributeSettings]
 ClassAttributeSeasonIdentifier=title

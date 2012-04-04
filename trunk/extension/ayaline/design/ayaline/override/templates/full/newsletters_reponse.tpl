@@ -23,7 +23,7 @@
         {ldelim}name : 'group', value : "2"{rdelim},
         {ldelim}name : 'sqli_intitule', value : "[Formulaire de contact Web]"{rdelim},
         {ldelim}name : 'sqli_modecontact', value : "Web"{rdelim},
-        {ldelim}name : 'sqli_etatdemande', value : "A traiter"{rdelim},
+        {ldelim}name : 'sqli_etatdemande', value : "Terminée"{rdelim},
         {ldelim}name : 'sqli_raisonsocial', value : "{$maCollection.data_map.societe.content}"{rdelim},
         {ldelim}name : 'sqli_prenom', value : "{$maCollection.data_map.sqli_prenom.content}"{rdelim},
         {ldelim}name : 'sqli_nom', value : "{$maCollection.data_map.sqli_nom.content}"{rdelim},
@@ -36,7 +36,7 @@
         {ldelim}name : 'sqli_codepostal', value : "{$maCollection.data_map.sqli_codepostal.content}"{rdelim},
         {ldelim}name : 'sqli_commune', value : "{$maCollection.data_map.ville.content}"{rdelim},
         {ldelim}name : 'sqli_pays', value : "France"{rdelim},
-        {ldelim}name : 'sqli_objetdem', value : "{$maCollection.data_map.votre_message.content}"{rdelim},
+        {ldelim}name : 'sqli_objetdem', value : "Demande d'inscription aux newsletters"{rdelim},
         {ldelim}name : 'sqli_civilite', value : "{$civilite}"{rdelim},
         {ldelim}name : 'sqli_modereponse', value : "Email"{rdelim},
         {ldelim}name : 'sqli_urlsiteweb', value : ""{rdelim},
@@ -60,7 +60,7 @@
 
 <div class="content-view-full">
 	<h2 class="bloc-liste-h2">{$node.name|wash()}</h2>
-
+	
 	<div class="survey-view">
 		<div class="block page-contact">
 			<div class="message">
@@ -69,14 +69,14 @@
 				
 					{set-block scope=global variable=title}{'Form %formname'|i18n('design/standard/content/form',,hash('%formname',$node.name|wash))}{/set-block}
 					
-					<h2>{"Your message was sent"|i18n("ayaline")}.</h2><br />
+					<h2>{"Your newsletters inscription was sent"|i18n("ayaline")}.</h2><br />
 					
-					<p>{"The team of the tourist office of Sables d'Olonne will bring to you an answer as soon as possible"|i18n("ayaline")}.</p>
+					<p>{"Now you will receive the newsletters form the team of the tourist office of Sables d'Olonne"|i18n("ayaline")}.</p>
 				{/default}
 			</div>
 			<br />
 			
-			<p>{"We thank you for your comprehension and let us invite you to continue your consultation of the site while clicking here"|i18n("ayaline")} :</p><br />
+			<p>{"We thank you for your interrest and let us invite you to continue your consultation of the site while clicking here"|i18n("ayaline")} :</p><br />
 			
 			<div class="retour-home">
 				<a href={ezurl()}>{"Home"|i18n("ayaline")}</a>

@@ -27,5 +27,6 @@ ShowClasses[]=espace_presse
 ShowClasses[]=phototheque
 ShowClasses[]=dossier_phototheque
 ShowClasses[]=album_phototheque
+ShowClasses[]=newsletters
 
 */ ?>
