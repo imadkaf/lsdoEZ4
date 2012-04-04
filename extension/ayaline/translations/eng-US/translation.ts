@@ -525,5 +525,21 @@
 	        <source>Tide Tables</source>
 	        <translation>Tide Tables</translation>
 	    </message>
+	    <message>
+	        <source>Aide Navigation</source>
+	        <translation>Navigation Helper</translation>
+	    </message>
+	    <message>
+	        <source>Your newsletters inscription was sent</source>
+	        <translation>Your newsletters inscription was sent</translation>
+	    </message>
+	    <message>
+	        <source>We thank you for your interrest and let us invite you to continue your consultation of the site while clicking here</source>
+	        <translation>We thank you for your interrest and let us invite you to continue your consultation of the site while clicking here</translation>
+	    </message>
+	    <message>
+	        <source>Now you will receive the newsletters form the team of the tourist office of Sables d'Olonne</source>
+	        <translation>Now you will receive the newsletters form the team of the tourist office of Sables d'Olonne</translation>
+	    </message>
 	</context>
 </TS>
