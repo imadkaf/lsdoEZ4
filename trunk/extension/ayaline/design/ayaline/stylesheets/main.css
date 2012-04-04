@@ -155,6 +155,7 @@ body {
 	height:500px;
 	position:absolute;
 	width:100%;
+	min-width: 1260px;
 }
 .header-in{
 	background:url("../images/headerbg.png") 50% 0 repeat;
@@ -163,6 +164,7 @@ body {
 	top: 28px;
 	left: 0;
 	width: 100%;
+	min-width: 1260px;
 }
 .header-content{
 	margin:0 auto;
@@ -3203,6 +3205,23 @@ div.image{
 	float: none;
 	max-height: 350px;
 }
+
+/*** Menu de recherche dans les pages SIT ***/
+.new-image-fleche{
+	background:url("../images/fleche-r.png") no-repeat scroll 98% 50% #303A43 !important;
+}
+
+
+/*** Popup aide navigation ***/
+.icone-aide-saison{
+	margin: 0px 0px 0px 10px;
+	position: relative;
+    top: 3px;
+}
+.icone-aide-saison img{
+	cursor: pointer;
+}
+.ui-effects-transfer { border: 2px solid black; }
 
 /************************/
 /*** Fin ajout Alexia ***/
