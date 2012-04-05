@@ -7,6 +7,7 @@
 	<xsl:variable name="espace" select="' '"/>
 	<xsl:variable name="apos">'</xsl:variable>
 
+	<xsl:include href="inc/critere_moda_apartirde.xsl"/>
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:include href="inc/periodes_ouverture_1.xsl"/>
 	<xsl:include href="inc/display_dispos.xsl"/>
@@ -226,8 +227,8 @@
 			</div>
 			
 			<p class="ss-titre apartirde">
-				<xsl:if test="criteres/critere[@id='851000327']/modalites/modalite[@id='8510003270001']/valModalite">
-					<span class="picto"><xsl:value-of select="$termeAPartirDe"/> <span><xsl:value-of select="criteres/critere[@id='851000327']/modalites/modalite[@id='8510003270001']/valModalite"/> &amp;euro;</span></span>
+				<xsl:if test="criteres/critere[@id=$critere-apartirde]/modalites/modalite[@id=$modalite-apartirde]/valModalite">
+					<span class="picto"><xsl:value-of select="$termeAPartirDe"/> <span><xsl:value-of select="criteres/critere[@id=$critere-apartirde]/modalites/modalite[@id=$modalite-apartirde]/valModalite"/> &amp;euro;</span></span>
 				</xsl:if>
 				<![CDATA[ ]]>
 			</p>
@@ -269,7 +270,7 @@
 						<div id="onglet-caracteristiques">
 							<xsl:if test="count(criteres/critere[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0]) &gt; 0">
 								<table cellspacing="0" width="100%">
-									<xsl:for-each select="criteres/critere[($modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0) and (@id != '851000327')]">
+									<xsl:for-each select="criteres/critere[($modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|')))) or count(modalites/modalite[$modeAffichageCriteres = 'afficher_tout' or ($modeAffichageCriteres = 'afficher' and contains($criteresAffiches, concat('|', @id, '|'))) or ($modeAffichageCriteres = 'pas_afficher' and not(contains($criteresNonAffiches, concat('|', @id, '|'))) and not(contains($criteresNonAffiches, concat('|', ../../@id, '|'))))]) &gt; 0) and (@id != $critere-apartirde)]">
 										<xsl:if test="count(modalites/modalite) &gt; 0">
 											<xsl:variable name="idCritere" select="@id"/>
 											<tr>
