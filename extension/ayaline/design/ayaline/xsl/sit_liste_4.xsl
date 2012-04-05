@@ -9,6 +9,7 @@
 	<xsl:variable name="espace" select="' '"/>
 	<xsl:variable name="nbPagesMax" select="5"/>
 
+	<xsl:include href="inc/critere_moda_apartirde.xsl"/>
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:include href="inc/enhanced_substring.xsl"/>
 	<xsl:include href="inc/pagination.xsl"/>
@@ -43,8 +44,8 @@
 						</ul>
 						
 						<p class="ss-titre">
-							<xsl:if test="criteres/critere[@id='851000327']/modalites/modalite[@id='8510003270001']/valModalite">
-								<span class="picto"><xsl:value-of select="$termeAPartirDe"/> <span><xsl:value-of select="criteres/critere[@id='851000327']/modalites/modalite[@id='8510003270001']/valModalite"/> &amp;euro;</span></span>
+							<xsl:if test="criteres/critere[@id=$critere-apartirde]/modalites/modalite[@id=$modalite-apartirde]/valModalite">
+								<span class="picto"><xsl:value-of select="$termeAPartirDe"/> <span><xsl:value-of select="criteres/critere[@id=$critere-apartirde]/modalites/modalite[@id=$modalite-apartirde]/valModalite"/> &amp;euro;</span></span>
 							</xsl:if>
 							<![CDATA[ ]]>
 						</p>
@@ -64,9 +65,9 @@
 						<div style="margin-top:5px;">
 							<xsl:call-template name="periodes-ouverture"/>
 						</div>
-						<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000028' and @id != '851000327']) &gt; 0">
+						<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0 and @id != '851000011' and @id != '851000028' and @id != $critere-apartirde]) &gt; 0">
 							<ul class="criteres liste-act">
-								<xsl:for-each select="criteres/critere[@id != '851000011' and @id != '851000028' and @id != '851000327']">
+								<xsl:for-each select="criteres/critere[@id != '851000011' and @id != '851000028' and @id != $critere-apartirde]">
 									<xsl:variable name="idCritere" select="@id"/>
 									<xsl:variable name="intituleCritere" select="intCritere"/>
 									<xsl:if test="count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', $idCritere, '|'))]) &gt; 0">
