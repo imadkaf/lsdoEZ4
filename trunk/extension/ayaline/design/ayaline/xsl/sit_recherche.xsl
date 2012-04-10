@@ -58,8 +58,8 @@
 				<div style="margin-bottom:10px;" class="contour-choisissez">
 					<span class="choisissez"><strong><xsl:value-of select="$termeTrierPar"/></strong></span>
 					<xsl:if test="contains($criteresTri, '|1|')">
-						<!-- <div class="liste-modalites menu-choisissez none"> -->
-						<div class="liste-modalites menu-choisissez">
+						<div class="liste-modalites menu-choisissez none">
+						<!-- <div class="liste-modalites menu-choisissez"> -->
 							<div><xsl:value-of select="$termeCommune"/>&amp;nbsp;<a>
 								<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if>/(tri)/com~asc<xsl:if test="string-length($pageCourante) &gt; 0 and $pageCourante &gt; 1">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if></xsl:attribute>
 								<xsl:attribute name="title"><xsl:value-of select="$termeTriCroissant"/></xsl:attribute>
@@ -91,8 +91,8 @@
 						<xsl:variable name="typeCritere" select="@type"/>
 						<xsl:variable name="intituleCritere" select="intCritere"/>
 						<xsl:if test="contains($criteresTri, concat('|', $idCritere, '|')) or count(modalites/modalite[contains($criteresTri, concat('|', @id, '|'))]) &gt; 0">
-							<!-- <div class="liste-modalites menu-choisissez none"> -->
-							<div class="liste-modalites menu-choisissez">
+							<div class="liste-modalites menu-choisissez none">
+							<!-- <div class="liste-modalites menu-choisissez"> -->
 								<xsl:if test="contains($criteresTri, concat('|', $idCritere, '|')) and count(modalites/modalite[contains($criteresTri, concat('|', @id, '|'))]) = 0">
 									<div><xsl:value-of select="$intituleCritere"/>&amp;nbsp;<a>
 										<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if>/(tri)/c<xsl:value-of select="$idCritere"/>~asc<xsl:if test="string-length($pageCourante) &gt; 0 and $pageCourante &gt; 1">/(page)/<xsl:value-of select="$pageCourante"/></xsl:if></xsl:attribute>
@@ -162,8 +162,8 @@
 
 			<div style="margin-bottom:10px" class="contour-choisissez">
 				<label for="sit_mc" class="choisissez"><strong><xsl:value-of select="$termeMotsCles"/></strong></label>
-				<!-- <input type="text" id="sit_mc" name="sit_mc" style="border:1px solid #999999;width:99%" class="menu-choisissez none"> -->
-				<input type="text" id="sit_mc" name="sit_mc" style="border:1px solid #999999;width:99%" class="menu-choisissez">
+				<input type="text" id="sit_mc" name="sit_mc" style="border:1px solid #999999;width:99%" class="menu-choisissez none">
+				<!-- <input type="text" id="sit_mc" name="sit_mc" style="border:1px solid #999999;width:99%" class="menu-choisissez"> -->
 					<xsl:attribute name="value"><xsl:value-of select="$motsCles"/></xsl:attribute>
 					<xsl:attribute name="onchange">_gaq.push(['_trackEvent', 'Recherche-Avancee', 'Mots cles', 'mot-cles']);</xsl:attribute>
 				</input>
@@ -173,8 +173,8 @@
 				<div style="float:left; width:50%">
 					<div style="padding-right:3px" class="contour-choisissez">
 						<label for="sit_debut_ouv" class="choisissez"><strong><xsl:value-of select="$termeDebutOuv"/></strong></label>
-						<!-- <input type="text" id="sit_debut_ouv" name="sit_debut_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier menu-choisissez none"> -->
-						<input type="text" id="sit_debut_ouv" name="sit_debut_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier menu-choisissez">
+						<input type="text" id="sit_debut_ouv" name="sit_debut_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier menu-choisissez none">
+						<!-- <input type="text" id="sit_debut_ouv" name="sit_debut_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier menu-choisissez"> -->
 							<xsl:if test="string-length($ouvAnnee) = 0">
 								<xsl:attribute name="value"><xsl:value-of select="$debutOuv"/></xsl:attribute>
 								<xsl:attribute name="onchange">_gaq.push(['_trackEvent', 'Recherche-Avancee', 'Date ouverture', 'date debut']);</xsl:attribute>
@@ -185,8 +185,8 @@
 				<div style="float:left; width:50%">
 					<div style="padding-left:3px" class="contour-choisissez">
 						<label for="sit_fin_ouv" class="choisissez"><strong><xsl:value-of select="$termeFinOuv"/></strong></label>
-						<!-- <input type="text" id="sit_fin_ouv" name="sit_fin_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier menu-choisissez none"> -->
-						<input type="text" id="sit_fin_ouv" name="sit_fin_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier menu-choisissez">
+						<input type="text" id="sit_fin_ouv" name="sit_fin_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier menu-choisissez none">
+						<!-- <input type="text" id="sit_fin_ouv" name="sit_fin_ouv" style="border:1px solid #999999;width:75px" class="champ-texte-calendrier menu-choisissez"> -->
 							<xsl:if test="string-length($ouvAnnee) = 0">
 								<xsl:attribute name="value"><xsl:value-of select="$finOuv"/></xsl:attribute>
 								<xsl:attribute name="onchange">_gaq.push(['_trackEvent', 'Recherche-Avancee', 'Date ouverture', 'date fin']);</xsl:attribute>
@@ -215,8 +215,8 @@
 			<xsl:if test="string-length($villes) &gt; 0">
 				<div style="margin-bottom:10px" class="contour-choisissez">
 					<label for="sit_cinsee" class="choisissez"><strong><xsl:value-of select="$termeCommune"/></strong></label>
-					<!-- <select id="sit_cinsee" name="sit_cinsee[]" style="width:100%" multiple="multiple" class="menu-choisissez none"> -->
-					<select id="sit_cinsee" name="sit_cinsee[]" style="width:100%" multiple="multiple" class="menu-choisissez">
+					<select id="sit_cinsee" name="sit_cinsee[]" style="width:100%" multiple="multiple" class="menu-choisissez none">
+					<!-- <select id="sit_cinsee" name="sit_cinsee[]" style="width:100%" multiple="multiple" class="menu-choisissez"> -->
 						<xsl:call-template name="display-villes">
 							<xsl:with-param name="villesChaine" select="$villes"/>
 						</xsl:call-template>
@@ -239,8 +239,8 @@
 						</label>
 						<xsl:choose>
 							<xsl:when test="$typeCritere = 2 or (($typeCritere = 1 or $typeCritere = 3) and count(modalites/modalite[contains($criteresRecherche, concat('|', @id, '|')) or contains($criteresRecherche, concat('|', $idCritere, '|'))]) = 2)">
-								<!-- <select style="width:100%" class="menu-choisissez none"> -->
-								<select style="width:100%" class="menu-choisissez">
+								<select style="width:100%" class="menu-choisissez none">
+								<!-- <select style="width:100%" class="menu-choisissez"> -->
 									<xsl:attribute name="name">sit_mr[<xsl:value-of select="$idCritere"/>][]</xsl:attribute>
 									<xsl:attribute name="id">sit_mr_<xsl:value-of select="$idCritere"/></xsl:attribute>
 									<option value="">
@@ -259,8 +259,8 @@
 								</select>
 							</xsl:when>
 							<xsl:when test="($typeCritere = 1 or $typeCritere = 3) and count(modalites/modalite[contains($criteresRecherche, concat('|', @id, '|')) or contains($criteresRecherche, concat('|', $idCritere, '|'))]) != 2">
-								<!-- <ul class="liste-modalites menu-choisissez none"> -->
-								<ul class="liste-modalites menu-choisissez">
+								<ul class="liste-modalites menu-choisissez none">
+								<!-- <ul class="liste-modalites menu-choisissez"> -->
 								<xsl:for-each select="modalites/modalite[contains($criteresRecherche, concat('|', @id, '|')) or contains($criteresRecherche, concat('|', $idCritere, '|'))]">
 									<li style="padding:0;">
 										<label style="display:block">
@@ -281,8 +281,8 @@
 								</ul>
 							</xsl:when>
 							<xsl:when test="$typeCritere = 4">
-								<!-- <ul class="liste-modalites menu-choisissez none"> -->
-								<ul class="liste-modalites menu-choisissez">
+								<ul class="liste-modalites menu-choisissez none">
+								<!-- <ul class="liste-modalites menu-choisissez"> -->
 								<xsl:for-each select="modalites/modalite[contains($criteresRecherche, concat('|', @id, '|')) or contains($criteresRecherche, concat('|', $idCritere, '|'))]">
 									<li style="padding:0;">
 										<label>

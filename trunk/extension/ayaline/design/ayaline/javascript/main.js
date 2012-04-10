@@ -54,35 +54,52 @@ $(document).ready(function(){
 	$('li.rubrique2').first().mouseout(function(){
 		$('li.rubrique2:first .ss-menu:first').css('display','none');
 	});
-});
 
-/* Criteres de recherche dans les listes SIT */
-/*
-$(document).ready(function(){
-    $('.form-search-left .contour-choisissez .choisissez').click(function() {
-		if(!$(this).hasClass('actif')){
+	
+	
+	/* Criteres de recherche dans les listes SIT */
+    $('.form-search-left .contour-choisissez .choisissez').click(function(event) {
+    	$parentDiv = $(this).parent('.contour-choisissez');
+    	if(!$(this).hasClass('actif')){
 			$(this).addClass('actif');
-			$parentDiv = $(this).parent('.contour-choisissez');
-			$parentDiv.children(".menu-choisissez").removeClass('none');
-			$(this).css('background-image', 'url(../images/picto-on.png)');
+			$(".menu-choisissez", $parentDiv).removeClass('none');
+			$(this).addClass('new-image-fleche');
 		}
 		else{
 			$(this).removeClass('actif');
-			$parentDiv = $(this).parent('.contour-choisissez');
-			$parentDiv.children(".menu-choisissez").addClass('none');
-			$(this).css('background-image', 'url(../images/fleche-r.png)');
+			$(".menu-choisissez", $parentDiv).addClass('none');
+			$(this).removeClass('new-image-fleche');
+		}
+    });
+    $('.memecategorie-choisissez > li > span').click(function(event) {
+    	$parentLi = $(this).parent();
+		if(!$parentLi.hasClass('actif')){
+			$parentLi.addClass('actif');
+			$('ul.s-menu', $parentLi).removeClass('none');
+		}
+		else{
+			$parentLi.removeClass('actif');
+			$('ul.s-menu', $parentLi).addClass('none');
 		}
     });
     
-    $('.memecategorie-choisissez li span').click(function() {
-		if(!$(this).parent().hasClass('actif')){
-			$(this).parent().addClass('actif');
-			$(this).parent().children('ul.s-menu').removeClass('none');
-		}
-		else{
-			$(this).parent().removeClass('actif');
-			$(this).parent().children('ul.s-menu').addClass('none');
-		}
+    
+    
+    /* Ouverture popup d'aide des saisons */
+    $('.icone-aide-saison > img').click(function() {
+    	popupAide();
     });
 });
-*/
+
+/* Popup d'aide des saisons */
+function popupAide(){
+	$(document).ready(function(){
+		$( "#dialog" ).dialog({
+			position : [500,500],
+			hide: { effect: 'transfer', to: '.icone-aide-saison', duration: 500 }//,
+			/*close: function() {
+				$( "#dialog" ).hide();
+			}*/
+		});
+	});
+}
