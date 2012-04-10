@@ -186,6 +186,11 @@
 	{/if}
 {/if}
 {cache-block keys=$cache_hash|merge($additional_cache_hash)}
+{* Popup d'aide des saisons *}
+<div id="dialog" title="{'Aide navigation'|i18n('ayaline')}" class="none">
+	{attribute_view_gui attribute = $rNode.data_map.aide_saison}
+</div>
+{* Fin popup *}
 {$module_result.content}
 {/cache-block}
 {cache-block keys=$cache_hash}
