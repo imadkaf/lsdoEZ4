@@ -8,11 +8,6 @@
 	popupAide();
 </script>
 
-<div id="dialog" title="{'Aide navigation'|i18n('ayaline')}">
-	<p>{attribute_view_gui attribute = $node.data_map.aide_saison}</p>
-</div>
-
-
 {foreach $blocsContenus as $blocs}
 	{set $blocsCont = fetch('content', 'node', hash('node_id', $blocs.node_id))}
 	
