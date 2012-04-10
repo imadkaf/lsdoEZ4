@@ -22,11 +22,11 @@
 				
 				{if $listeHebergement|count}
 					<ul class="menu-left">
-						{*<li>*}
-						<li class="actif">
+						<li>
+						{*<li class="actif">*}
 							<span>{"Others housings"|i18n("ayaline")}</span>
-							{*<ul class="s-menu none">*}
-							<ul class="s-menu">
+							<ul class="s-menu none">
+							{*<ul class="s-menu">*}
 							{foreach $listeHebergement as $hbgt}
 								<li><a href={$hbgt.url_alias|ezurl}>{$hbgt.name}</a></li>
 							{/foreach}
@@ -45,11 +45,11 @@
 			
 			{if $listeRubriques|count}
 				<ul class="menu-left">
-					{*<li>*}
-					<li class="actif">
+					<li>
+					{*<li class="actif">*}
 						<span>{$node.parent.name}</span>
-						{*<ul class="s-menu none">*}
-						<ul class="s-menu">
+						<ul class="s-menu none">
+						{*<ul class="s-menu">*}
 						{foreach $listeRubriques as $rub}
 							<li><a href={$rub.url_alias|ezurl}>{$rub.name}</a></li>
 						{/foreach}

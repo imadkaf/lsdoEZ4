@@ -131,6 +131,10 @@
 	    {/if}
 	{/foreach}
 {/cache-block}
+
+								<li class="icone-aide-saison">
+									<img alt="{'Aide navigation'|i18n('ayaline')}" src={"aide-navigation.png"|ezimage}>
+								</li>
 							</ul>
 {/if}
 							<div class="search">
