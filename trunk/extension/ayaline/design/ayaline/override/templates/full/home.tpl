@@ -5,7 +5,9 @@
 
 {* Popup d'aide des saisons *}
 <script type="text/javascript">
-	popupAide();
+	$(document).ready(function(){ldelim}
+		popupAide();
+	{rdelim});
 </script>
 
 {foreach $blocsContenus as $blocs}
