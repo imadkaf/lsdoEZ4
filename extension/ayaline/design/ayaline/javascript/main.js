@@ -1,16 +1,3 @@
-/****POPIN****/
-$(function() {
-	$(".link-popin").popin ({
-		width:621,
-		height:450,
-		opacity:.6,
-		className:'searchPopin',
-		onComplete: function(){
-			$(".popin-content-bloc").css('height', "414px");
-		}
-	});
-});
-
 function equilibrerHauteursBlocs() {
 	$('.liste > li').each(function (indexOfArray, elementOfArray) {
 		$(elementOfArray).css('min-height', $(elementOfArray).parent().height()-34-15-2);
@@ -47,7 +34,33 @@ function fixH2(one, two) {
 	}
 }
 
-$(document).ready(function(){
+/* Popup d'aide des saisons */
+function popupAide(){	
+	$( "#dialog" ).removeClass('none');
+	$( "#dialog" ).dialog({
+		position : [500,500],
+		hide: { effect: 'transfer', to: '.icone-aide-saison', duration: 500 },
+		close: function() {
+			$( ".ui-dialog" ).hide();
+			$( "#dialog" ).addClass('none');
+		}
+	});
+}
+
+
+
+/****POPIN****/
+$(function() {
+	$(".link-popin").popin ({
+		width:621,
+		height:450,
+		opacity:.6,
+		className:'searchPopin',
+		onComplete: function(){
+			$(".popin-content-bloc").css('height', "414px");
+		}
+	});
+
 	$('li.rubrique2').first().mouseover(function(){
 		$('li.rubrique2:first .ss-menu:first').css('display','block');
 	});
@@ -71,7 +84,7 @@ $(document).ready(function(){
 			$(this).removeClass('new-image-fleche');
 		}
     });
-    $('.memecategorie-choisissez > li > span').click(function(event) {
+    $('.memecategorie-choisissez li span').click(function(event) {
     	$parentLi = $(this).parent();
 		if(!$parentLi.hasClass('actif')){
 			$parentLi.addClass('actif');
@@ -90,16 +103,3 @@ $(document).ready(function(){
     	popupAide();
     });
 });
-
-/* Popup d'aide des saisons */
-function popupAide(){
-	$(document).ready(function(){
-		$( "#dialog" ).dialog({
-			position : [500,500],
-			hide: { effect: 'transfer', to: '.icone-aide-saison', duration: 500 }//,
-			/*close: function() {
-				$( "#dialog" ).hide();
-			}*/
-		});
-	});
-}
