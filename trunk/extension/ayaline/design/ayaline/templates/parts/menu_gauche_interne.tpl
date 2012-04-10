@@ -146,7 +146,7 @@
 
 
 
-<div class="bloc-type">
+<div class="bloc-type menu-gauche-normal">
 	<h2 class="menu-gauche-h2">
 		{def $titreMenu = ''}
 		{* Si le grand-parent du noeud en cour est Decouvrir ou Sejourner *}

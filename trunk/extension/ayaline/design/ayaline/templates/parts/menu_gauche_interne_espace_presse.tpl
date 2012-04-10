@@ -10,7 +10,7 @@
 
 {def $children1 = ''}
 
-<div class="bloc-type">
+<div class="bloc-type menu-gauche-normal">
 	<h2 class="menu-gauche-h2">
 		{attribute_view_gui attribute = $node.data_map.title}
 	</h2>
