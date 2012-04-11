@@ -4,11 +4,6 @@
 {def $compteur2 = 1}
 
 {* Popup d'aide des saisons *}
-<script type="text/javascript">
-	$(document).ready(function(){ldelim}
-		popupAide();
-	{rdelim});
-</script>
 
 {foreach $blocsContenus as $blocs}
 	{set $blocsCont = fetch('content', 'node', hash('node_id', $blocs.node_id))}
@@ -63,7 +58,10 @@
 	//$(window).load({ldelim}one: '.bloc-left-home:first-child', two: '#bloc-ac-res'{rdelim}, fixH);
 	//Blocs 2 a 2 de gauche
 	equilibre = true;
-	$(window).load(equilibrerHauteursBlocs);
+	$(window).load(function () {ldelim}
+		equilibrerHauteursBlocs
+		popupAide();
+	{rdelim});
 </script>
 
 		</div>

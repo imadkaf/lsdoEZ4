@@ -39,6 +39,7 @@ function popupAide(){
 	$( "#dialog" ).removeClass('none');
 	$( "#dialog" ).dialog({
 		position : [500,500],
+		modal: true,
 		hide: { effect: 'transfer', to: '.icone-aide-saison', duration: 500 },
 		close: function() {
 			$( ".ui-dialog" ).hide();
