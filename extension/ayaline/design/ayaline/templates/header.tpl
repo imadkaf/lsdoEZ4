@@ -117,8 +117,8 @@
 {/if}
 
 <script type="text/javascript">
-	if (navigator.userAgent.indexOf('iPhone') != -1) {ldelim}
-		{foreach ezini( 'StylesheetSettings', 'FrontendCSSFileListiPhone', 'design.ini' ) as $css_fichier }
+	if (navigator.userAgent.indexOf('iPad') != -1) {ldelim}
+		{foreach ezini( 'StylesheetSettings', 'FrontendCSSFileListiPad', 'design.ini' ) as $css_fichier }
 			document.write('<link rel="stylesheet" href={concat( 'stylesheets/', $css_fichier )|ezdesign} type="text/css" />');
 		{/foreach}
 	{rdelim}

@@ -12,8 +12,8 @@ CSSFileList[]=jquery.lightbox-0.5.css
 CSSFileList[]=opensystem/mini.css
 CSSFileList[]=opensystem/std.css
 #CSSFileList[]=opensystem/maxi.css
-FrontendCSSFileListiPhone[]
-FrontendCSSFileListiPhone[]=stylesheet_iphone.css
+FrontendCSSFileListiPad[]
+FrontendCSSFileListiPad[]=stylesheet_ipad.css
 
 
 [JavaScriptSettings]
