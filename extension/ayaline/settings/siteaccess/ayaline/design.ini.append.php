@@ -12,10 +12,13 @@ CSSFileList[]=jquery.lightbox-0.5.css
 CSSFileList[]=opensystem/mini.css
 CSSFileList[]=opensystem/std.css
 #CSSFileList[]=opensystem/maxi.css
+FrontendCSSFileListiPhone[]
+FrontendCSSFileListiPhone[]=stylesheet_iphone.css
 
 
 [JavaScriptSettings]
 RequiredJavaScriptList[]=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
+JavaScriptList[]
 JavaScriptList[]=script.js
 JavaScriptList[]=menu_gauche_interne.js
 JavaScriptList[]=jquery.popin.pack.js
