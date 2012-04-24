@@ -3205,6 +3205,12 @@ div.image{
 	float: none;
 	max-height: 350px;
 }
+.bxslider.remonte_liste .pager span{
+	font-size: 16px;
+}
+.bxslider.remonte_liste .bx-window{
+	height: 450px;
+}
 
 /*** Menu de recherche dans les pages SIT ***/
 .new-image-fleche{

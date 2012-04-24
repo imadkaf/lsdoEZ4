@@ -81,7 +81,7 @@
 									<![CDATA[ ]]>
 								</p>
 							</xsl:if-->
-							<xsl:value-of select="ville/intituleVille"/>
+							<span><xsl:value-of select="ville/intituleVille"/></span>
 
 							<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0]) &gt; 0">
 								<ul>

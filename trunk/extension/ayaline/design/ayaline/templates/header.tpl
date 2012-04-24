@@ -115,8 +115,17 @@
 {if and(eq($chemin, ezini('Chemins', 'ALaUne', 'ayaline.ini')), eq('eng-GB', $languetest))}
 	<link rel="stylesheet" type="text/css" href={'stylesheets/alaune-en.css'|ezdesign} media="all" />
 {/if}
+
+<script type="text/javascript">
+	if (navigator.userAgent.indexOf('iPhone') != -1) {ldelim}
+		{foreach ezini( 'StylesheetSettings', 'FrontendCSSFileListiPhone', 'design.ini' ) as $css_fichier }
+			document.write('<link rel="stylesheet" href={concat( 'stylesheets/', $css_fichier )|ezdesign} type="text/css" />');
+		{/foreach}
+	{rdelim}
+</script>
+
 		<link rel="stylesheet" type="text/css" href={'stylesheets/print.css'|ezdesign} media="print" />
-		
+
 {*** Javascript ***}
 {* Pour appeller jquery en premier ! *}
 {foreach ezini( 'JavaScriptSettings', 'RequiredJavaScriptList', 'design.ini' ) as $js_fichier }
