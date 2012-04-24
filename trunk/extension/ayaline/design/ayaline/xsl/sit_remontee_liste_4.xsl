@@ -11,7 +11,7 @@
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:include href="inc/enhanced_substring.xsl"/>
 
-	<xsl:include href="inc/periodes_ouverture_mise_en_avant.xsl"/>
+	<xsl:include href="inc/periodes_ouverture_mise_en_avant_manifestations.xsl"/>
 
 	<xsl:template match="/">
 		<xsl:if test="count(resultats/produit) &gt; 0">
@@ -38,7 +38,7 @@
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 								<img alt="">
 									<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
-										<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=500</xsl:attribute>
+										<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=593</xsl:attribute>
 									</xsl:if>
 									<xsl:if test="count(newPhotos/newPhoto) = 0">
 										<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
@@ -47,13 +47,14 @@
 							</a>
 							<p class="clear"><![CDATA[ ]]></p>
 							
-							<h3 style="padding: 10px 0px 10px 0px;">
+							<xsl:call-template name="periodes-ouverture"/>
+							<h3 style="font-size: 20px; padding: 10px 0px 10px 0px;">
 								<a>
 									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 									<strong><xsl:value-of select="$intitule"/><![CDATA[ ]]></strong>
 								</a>
 							</h3>
-							<xsl:variable name="commentaire"><xsl:if test="$langue = 'en'"><xsl:value-of select="commentaires/commentaire2"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="commentaires/commentaire1"/></xsl:if></xsl:variable>
+							<!--xsl:variable name="commentaire"><xsl:if test="$langue = 'en'"><xsl:value-of select="commentaires/commentaire2"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="commentaires/commentaire1"/></xsl:if></xsl:variable>
 							<xsl:if test="string-length($commentaire) &gt; 0">
 								<xsl:variable name="commentaireNettoye">
 									<xsl:call-template name="string-replace-all">
@@ -79,7 +80,8 @@
 									<xsl:value-of select="$commentaireNettoyeCoupe"/><xsl:if test="string-length($commentaireNettoye) &gt; 300">&amp;hellip;</xsl:if>
 									<![CDATA[ ]]>
 								</p>
-							</xsl:if>
+							</xsl:if-->
+							<xsl:value-of select="ville/intituleVille"/>
 
 							<xsl:if test="count(criteres/critere[count(modalites/modalite[contains($criteresAffiches, concat('|', @id, '|')) or contains($criteresAffiches, concat('|', ../../@id, '|'))]) &gt; 0]) &gt; 0">
 								<ul>
