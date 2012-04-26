@@ -304,7 +304,7 @@
 		</message>
 		<message>
 			<source>ToutesFichesMemeCategorie</source>
-			<translation>All the cards of the came category</translation>
+			<translation>All the cards of the same category</translation>
 		</message>
 		<message>
 			<source>VotreAvis</source>
