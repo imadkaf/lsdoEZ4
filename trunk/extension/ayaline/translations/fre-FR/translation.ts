@@ -405,5 +405,9 @@
 	        <source>Now you will receive the newsletters form the team of the tourist office of Sables d'Olonne</source>
 	        <translation>Maintenant vous recevrez les newsletters de l'équipe de l'office de tourisme des Sables d'Olonne</translation>
 	    </message>
+		<message>
+	        <source>Made by</source>
+	        <translation>Réalisation</translation>
+	    </message>
 	</context>
 </TS>

@@ -304,7 +304,7 @@
 		</message>
 		<message>
 			<source>ToutesFichesMemeCategorie</source>
-			<translation>All the cards of the came category</translation>
+			<translation>All the cards of the same category</translation>
 		</message>
 		<message>
 			<source>VotreAvis</source>
@@ -540,6 +540,10 @@
 	    <message>
 	        <source>Now you will receive the newsletters form the team of the tourist office of Sables d'Olonne</source>
 	        <translation>Now you will receive the newsletters form the team of the tourist office of Sables d'Olonne</translation>
+	    </message>
+		<message>
+	        <source>Made by</source>
+	        <translation>Made by</translation>
 	    </message>
 	</context>
 </TS>
