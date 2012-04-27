@@ -132,19 +132,6 @@
 					{set $param_url = concat($param_url, '/(', $param, ')/', $valParam)}
 				{/if}
 			{/foreach}
-			{if eq($node.data_map.googlemaps.data_int, '1')}
-				{if is_set($view_parameters.goutte)}
-					{sit_liste('sit_liste_carte')}
-				{else}
-					<a class="liste-goutte" href={concat($node.url_alias, $param_url, '/(goutte)/1')|ezurl}>
-						<img alt="Visualiser sur la carte" src={"picto-google-map.gif"|ezimage}>
-						<h3>Visualiser sur la carte</h3>
-						<div class="clear"></div>
-					</a>
-					<div class="clear"></div>
-				{/if}
-			{/if}
-
 			{def $mise_en_avant = fetch( 'content','list',hash(
 				'parent_node_id', $node.node_id,
 				'limit', 1,
@@ -157,6 +144,25 @@
 				{/if}
 			{/if}
 			{undef $mise_en_avant}
+			{if eq($node.data_map.googlemaps.data_int, '1')}
+				{if is_set($view_parameters.goutte)}
+					{sit_liste('sit_liste_carte')}
+				{else}
+					<div class="visualiserCarte">
+						<div>
+						<a class="liste-goutte" href={concat($node.url_alias, $param_url, '/(goutte)/1')|ezurl}>
+							<h3 style="float:left;">Visualiser sur la carte</h3>
+							<img alt="Visualiser sur la carte" src={"pictoGmaps.png"|ezimage} height="20px" style="margin:8px 0 0 8px">
+							<div class="clear"></div>
+						</a>
+						</div>
+					</div>
+					<div class="clear"></div>
+				{/if}
+			{/if}
+
+			
+			
 			{sit_liste()}
 		</div>
 	</div>
