@@ -24,7 +24,7 @@
 		</message>
 		<message>
 			<source>Itineraire</source>
-			<translation>Route</translation>
+			<translation>Road</translation>
 		</message>
 		<message>
 			<source>Categorie</source>
