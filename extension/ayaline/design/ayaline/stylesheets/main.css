@@ -3061,7 +3061,7 @@ a.liste-goutte h3{
 /* Diaporama */
 .bxslider{
 	width:338px;
-	margin:0 0 20px 10px;
+	margin:0 0 0px 10px;
 }
 
 
@@ -3203,7 +3203,7 @@ div.image{
 	width: auto;
 	max-width: 593px;
 	float: none;
-	max-height: 350px;
+	max-height: 370px;
 }
 .bxslider.remonte_liste .pager span{
 	font-size: 16px;
@@ -3300,3 +3300,12 @@ li.ayaline a:hover {
 .form-search-left div select {
 	font-size:1em;
 }
+.visualiserCarte {
+	position: relative;
+}
+.visualiserCarte > div {
+	position: absolute;
+	top: 40px;
+	right: 10px; 
+	width:160px;
+ }
