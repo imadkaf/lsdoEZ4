@@ -134,7 +134,7 @@
 {/cache-block}
 
 								<li class="icone-aide-saison">
-									<img alt="{'Aide navigation'|i18n('ayaline')}" src={"aide-navigation.png"|ezimage}>
+									<img alt="{'Navigation Helper'|i18n('ayaline')}" src={"aide-navigation.png"|ezimage}>
 								</li>
 							</ul>
 {/if}
@@ -188,7 +188,7 @@
 {/if}
 {cache-block keys=$cache_hash|merge($additional_cache_hash)}
 {* Popup d'aide des saisons *}
-<div id="dialog" title="{'Aide navigation'|i18n('ayaline')}" class="none">
+<div id="dialog" title="{'Navigation Helper'|i18n('ayaline')}" class="none">
 	{attribute_view_gui attribute = $rNode.data_map.aide_saison}
 </div>
 {* Fin popup *}
