@@ -522,6 +522,22 @@
 	        <translation>Summer</translation>
 	    </message>
 		<message>
+	        <source>Automne picto</source>
+	        <translation>Selection of offers for the period from September 22 to December 20</translation>
+	    </message>
+	    <message>
+	        <source>Hiver picto</source>
+	        <translation>Selection of offers for the period from December 21 to March 20</translation>
+	    </message>
+	    <message>
+	        <source>Printemps picto</source>
+	        <translation>Selection of offers for the period from March 21 to June 20</translation>
+	    </message>
+	    <message>
+	        <source>Été picto</source>
+	        <translation>Selection of offers for the period from June 21 to September 21</translation>
+	    </message>
+		<message>
 	        <source>Tide Tables</source>
 	        <translation>Tide Tables</translation>
 	    </message>

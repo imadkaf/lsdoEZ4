@@ -386,12 +386,28 @@
 	        <translation>Été</translation>
 	    </message>
 		<message>
+	        <source>Automne picto</source>
+	        <translation>Automne : sélection des offres sur la période du 22 septembre au 20 décembre</translation>
+	    </message>
+	    <message>
+	        <source>Hiver picto</source>
+	        <translation>Hiver : sélection des offres sur la période du 21 décembre au 20 mars</translation>
+	    </message>
+	    <message>
+	        <source>Printemps picto</source>
+	        <translation>Printemps : sélection des offres sur la période du 21 mars au 20 juin</translation>
+	    </message>
+	    <message>
+	        <source>Été picto</source>
+	        <translation>Été : sélection des offres sur la période du 21 juin au 21 septembre</translation>
+	    </message>
+		<message>
 	        <source>Tide Tables</source>
 	        <translation>Horaires des marées</translation>
 	    </message>
 	    <message>
 	        <source>Aide Navigation</source>
-	        <translation>Aide Navigation</translation>
+	        <translation>Aide à la navigation</translation>
 	    </message>
 	    <message>
 	        <source>Your newsletters inscription was sent</source>
