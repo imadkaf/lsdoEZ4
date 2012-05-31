@@ -254,7 +254,7 @@ li.last form{
 	width:24px !important;
 	height:23px !important;
 }
-.img0 input.actif{
+.img0 input.actif, .img0 input:hover {
 	background:url('../images/img0-on.png') 0 0 no-repeat !important;
 }
 .img1 input{
@@ -262,7 +262,7 @@ li.last form{
 	width:18px !important;
 	height:23px !important;
 }
-.img1 input.actif{
+.img1 input.actif, .img1 input:hover{
 	background:url('../images/img1-on.png') 0 0 no-repeat !important;
 }
 .img2 input{
@@ -270,7 +270,7 @@ li.last form{
 	width:22px !important;
 	height:23px !important;
 }
-.img2 input.actif{
+.img2 input.actif, .img2 input:hover{
 	background:url('../images/img2-on.png') 0 0 no-repeat !important;
 }
 .img3 input{
@@ -278,7 +278,7 @@ li.last form{
 	width:17px !important;
 	height:23px !important;
 }
-.img3 input.actif{
+.img3 input.actif, .img3 input:hover{
 	background:url('../images/img3-on.png') 0 0 no-repeat !important;
 }
 .header-in-right input{
