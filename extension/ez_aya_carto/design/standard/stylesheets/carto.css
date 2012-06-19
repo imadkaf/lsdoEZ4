@@ -1,0 +1,555 @@
+@font-face {
+    font-family: 'Aldo_SemiBold';
+    src: url('fonts/aldo/aldo_semi-bold0.12-webfont-webfont.eot');
+    src: url('fonts/aldo/aldo_semi-bold0.12-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/aldo/aldo_semi-bold0.12-webfont-webfont.woff') format('woff'), 
+         url('fonts/aldo/aldo_semi-bold0.12-webfont-webfont.ttf') format('truetype'), 
+         url('fonts/aldo/aldo_semi-bold0.12-webfont-webfont.svg#WebfontRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OmnesLight';
+    src: url('fonts/omnes_light/omnes_light-webfont.eot');
+    src: url('fonts/omnes_light/omnes_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/omnes_light/omnes_light-webfont.woff') format('woff'),
+         url('fonts/omnes_light/omnes_light-webfont.ttf') format('truetype'),
+         url('fonts/omnes_light/omnes_light-webfont.svg#OmnesLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    font-family: 'OmnesLight';
+}
+.clear-both{
+    display: block;
+    clear: both;
+}
+.cache{
+    display: none!important;
+}
+.display-block{
+    display: block;
+}
+.display-table{
+    display: table
+}
+.display-table-cell{
+    display: table-cell;
+}
+.small-font{
+    font-size: 70%;
+}
+.medium-font{
+    font-size: 85%;
+}
+.no-border{
+    border: 0 none;
+}
+a{
+    text-decoration: none;
+}
+ul,li{
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#global-carto{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#overlay-loading{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/bg_menu_black.png');
+    z-index: -1;
+}
+#overlay-loading img{
+    position: absolute;
+    top: 35%;
+    left: 35%;
+}
+#google-map{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+}
+#menu-top{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0;
+    /*background-color: #666565;*/
+    z-index: 1;
+    color: #000;
+}
+#menu-droite{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    /*background-color: #666565;*/
+    z-index: 1;
+}
+#menu-bottom{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+    /*background-color: #666565;*/
+    z-index: 1;
+    color: #000;
+}
+.section-menu{
+    background: url('../images/bg_menu_black.png');
+    color: white!important;
+}
+.section-menu:hover, .section-menu.active{
+    color: #08BFFF!important;
+    position: relative;
+    text-shadow: 0px 0px 6px #08BFFF;
+    behavior:url(/extension/ez_aya_carto/design/standard/stylesheets/pie.htc);
+}
+#detail-produit{
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    display: none;
+    width: 220px;
+    padding:5px 10px;
+    border: 2px solid #e1e1e0;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    behavior:url(/extension/ez_aya_carto/design/standard/stylesheets/pie.htc);
+    background: white;
+}
+
+#detail-produit .control{
+    display: block;
+    border-bottom: 1px solid #e1e1e0;
+    padding-bottom: 5px;
+    cursor: move;
+}
+#detail-produit .control .puce-categorie{
+    font-size: 90%;
+    font-weight: bold;
+}
+#detail-produit .control .puce-categorie img{
+    display: block;
+    float: left;
+    margin-right: 5px;
+}
+#detail-produit .control .puce-close{
+    display: block;
+    float: right;
+    width: 20px;
+    height: 20px;
+    background: url('../images/puce_close.png') no-repeat 50% 50%;
+}
+#detail-produit .content{
+    overflow: auto;
+    height: 260px;
+    display: block;
+    
+}
+#detail-produit .content .adresse{
+    font-size: 70%;
+    color: #585855;
+    font-weight: normal;
+}
+#detail-produit .content .intitule{
+    font-size: 90%;
+    color: #363636;
+    font-weight: normal;
+}
+#detail-produit .content .web-mail{
+    font-size: 70%;
+    
+    font-weight: normal;
+}
+#detail-produit .content .web-mail a{
+    color: #585855;
+}
+
+#detail-produit .content .tel-fax{
+    font-size: 70%;
+    color: #585855;
+    font-weight: normal;
+}
+#detail-produit .new-photos .new-photo{
+    display: block;
+    float: left;
+    width: 50px;
+    height: 40px;
+    margin: 1px;
+    
+}
+#detail-produit .centre-valise .centre-carte{
+    display: block;
+    float: left;
+    background: url('../images/icon_centrerCarte.png') no-repeat 50% 100%;
+    width: 100px;
+    height: 60px;
+}
+#detail-produit .centre-valise .ajout-valise{
+    display: block;
+    float: right;
+    background: url('../images/icon_ajouterValise.png') no-repeat 50% 100%;
+    width: 100px;
+    height: 60px;
+}
+#detail-produit .centre-valise .retirer-valise{
+    display: block;
+    float: right;
+    background: url('../images/icon_retirerValise.png') no-repeat 50% 100%;
+    width: 100px;
+    height: 60px;
+}
+
+#valise-container{
+    display: none;
+    position: absolute;
+    bottom: 30px;
+    width: 250px;
+    background: white;
+    border: 2px solid #e1e1e0;
+    border-bottom: 0 none;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;
+    behavior:url(/extension/ez_aya_carto/design/standard/stylesheets/pie.htc);
+}
+#ma-valise{
+    position: absolute;
+    bottom: 0;
+}
+#valise-titre{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 228px;
+    text-align: left;
+    color: #000;
+    padding-left: 25px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+#valise-elements{
+    display: block;
+    max-height: 400px;
+    overflow-y: auto;
+}
+#valise-elements .element-valise{
+    color: #585855;
+    display: block;
+    position: relative;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e1e1e0;
+    
+}
+#valise-elements .element-valise .valise-adresse{
+    color: #585855;
+    font-size: 70%;
+    margin: 3px 0;
+}
+#valise-elements .element-valise .valise-elt-image{
+    display: block;
+    position: relative;
+    float: left;
+    width: 40px;
+    max-height: 40px;
+    margin-right: 5px;
+    padding: 2px;
+    border: 1px solid #e1e1e0;
+}
+#valise-elements .element-valise .valise-elt-titre{
+    font-size: 80%;
+    color: #343434;
+    display: block;
+    padding-bottom: 2px;
+}
+#valise-elements .element-valise .remove-valise{
+    display: block;
+    float: right;
+    width: 10px;
+    height: 9px;
+    margin-top: 3px;
+    cursor: pointer;
+    background: url('../images/icon_XrevmoveValise.png') no-repeat 0 0;
+}
+#valise-controls{
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+#valise-export-gpx{
+    font-size: 70%;
+    color: #585855;
+    padding: 5px 10px 50px 10px;
+    display: table-cell;
+    background: url('../images/icon_exporterValise.png') no-repeat 50% 100%;
+    width: 33%;
+    text-decoration: none;
+}
+#valise-affiche-pictos{
+    font-size: 70%;
+    color: #585855;
+    padding: 5px 10px 50px 10px;
+    display: table-cell;
+    background: url('../images/icon_afficherValise.png') no-repeat 50% 100%;
+    width: 33%;
+    text-decoration: none;
+}
+#valise-tracer-itineraire{
+    font-size: 70%;
+    color: #585855;
+    padding: 5px 10px 50px 10px;
+    display: table-cell;
+    background: url('../images/icon_itineraireValise.png') no-repeat 50% 100%;
+    width: 34%;
+    text-decoration: none;
+}
+
+#menu-droite>ul>li{
+    margin-top: 100px;
+    position: relative;
+}
+#menu-droite>ul>li+li{
+    margin-top: 0px;
+}
+#menu-droite>ul>li>a, #menu-droite>ul>li>.sous-menu>ul>li>a,#menu-droite>ul>li>.sous-menu>ul>li>.sous-menu>ul>li>a{
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+#menu-droite>ul>li>.sous-menu{
+    position: absolute;
+    right: 30px;
+    top: 0;
+}
+#menu-droite>ul>li>.sous-menu>ul>li>.sous-menu{
+    position: absolute;
+    right: 100%;
+    top: 0;
+}
+#menu-droite>ul>li>.sous-menu>ul>li>a{
+    display: block;
+    margin: 2px 0;
+    display: block;
+    padding-left: 55px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+#menu-droite>ul>li>.sous-menu>ul>li .titre-sous-menu{
+    display: block;
+    padding-bottom: 7px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid white;
+}
+#menu-droite>ul>li>.sous-menu>ul>li .titre-sous-menu img{
+    display: block;
+    margin-right: 8px;
+    float: left;
+}
+#menu-droite>ul>li>.sous-menu>ul>li .titre-sous-menu .text{
+    display: block;
+    padding-top: 7px;
+}
+#menu-droite>ul>li>.sous-menu>ul>li>a.active{
+    color: #ffa405;
+    text-shadow: 0px 0px 6px #ffa405;
+    behavior:url(/extension/ez_aya_carto/design/standard/stylesheets/pie.htc);
+    
+}
+#menu-droite .sous-menu{
+    background: url('../images/bg_menu.png');
+    min-width: 200px;
+    display: none;
+    margin-right: 1px;
+    color: #000;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 0 5px #3b3a3a;
+    -moz-box-shadow: 0 0 5px #3b3a3a;
+    -webkit-box-shadow: 0 0 5px #3b3a3a;
+    behavior:url(/extension/ez_aya_carto/design/standard/stylesheets/pie.htc);
+}
+#menu-droite .sous-menu>ul{
+    display: block;
+    
+}
+#menu-droite .sous-menu a{
+    color: #000;
+    display: block;
+}
+#menu-droite .sous-menu label{
+    color: #000;
+    white-space: nowrap;
+}
+#menu-droite .sous-menu label{
+    color: #000;
+    white-space: nowrap;
+    cursor: pointer;
+}
+#menu-droite .sous-menu label:hover,#menu-droite .sous-menu label.active{
+    color: #ffa405;
+}
+#afficher-titre{
+    display: block;
+    width: 6px;
+    padding: 12px;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    margin: 1px auto;
+    text-align: center;
+}
+#outils-titre{
+    display: block;
+    width: 6px;
+    padding: 12px;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    margin: 1px auto;
+    text-align: center;
+}
+.marker-geocode-infos span{
+    display: block;
+    font-family: arial;
+    font-size: 70%;
+    font-weight: normal;
+    color: #827f7f;
+    text-align: left;
+}
+.marker-geocode-infos .geocode-titre{
+    display: block;
+    padding-bottom: 10px;
+    font-family: arial;
+    font-size: 90%;
+    font-weight: bold;
+    color: #4e4c4c;
+    text-align: center;
+}
+
+#directions-details{
+    position: absolute;
+    top: 50px;
+    left: 320px;
+    display: none;
+    width: 250px;
+    padding:5px 10px;
+    border: 2px solid #e1e1e0;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    behavior:url(/extension/ez_aya_carto/design/standard/stylesheets/pie.htc);
+    background: white;
+    z-index: 2;
+}
+#directions-details .control{
+    display: block;
+    border-bottom: 1px solid #e1e1e0;
+    padding-bottom: 5px;
+    cursor: move;
+}
+#directions-details .control .puce-close{
+    display: block;
+    float: right;
+    width: 20px;
+    height: 20px;
+    background: url('../images/puce_close.png') no-repeat 50% 50%;
+}
+#directions-details .directions-details-titre{
+    font-size: 90%;
+    font-weight: bold;
+}
+#directions-details .directions-details-content{
+    font-size: 70%;
+    font-weight: normal;
+    height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden; 
+}
+#directions-details .directions-details-content .route-segment-allsteps{
+    display: none;
+    padding: 3px 8px;
+    margin-top: 7px;
+    border-top: 1px solid #d5d3d3;
+}
+#directions-details .directions-details-content .route-segment-step{
+    padding: 4px 2px;
+    display: block;    
+    border-bottom: 1px solid #d5d3d3; 
+}
+#directions-details .directions-details-content .route-segment-step.no-border{
+    border: 0 none;
+}
+#directions-details .directions-details-content .route-segment-step p{
+    padding: 0;
+    margin: 0;
+}
+#directions-details .directions-details-content .route-segment{
+    display: block;
+    margin: 7px 0;
+    padding: 4px 0 4px 0;
+    border: 1px solid #d5d3d3;
+    border-right: 0 none;
+    position: relative;
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 10px;
+    behavior:url(/extension/ez_aya_carto/design/standard/stylesheets/pie.htc);   
+}
+#directions-details .directions-details-content .route-segment-content{
+    display: block;
+    padding: 5px 3px 0 5px;  
+}
+#directions-details .directions-details-content .show-route-instractions{
+    display: block;
+    padding: 5px 3px 0 5px;
+    float: right;
+    color: #0094db;
+    font-style: italic;
+}
+#creer-trajet-form .display-table{
+    padding-top: 7px;
+}
+#creer-trajet-form .display-table a{
+    display: block;
+    padding: 4px 2px 30px 2px;
+    text-decoration: none;
+}
+#outils-recherche-form{
+    display: block;
+    margin-bottom: 7px;
+}
+#outils-geocode{
+    background: url('/extension/ez_aya_carto/design/standard/images/menu/icon_recherche_perimetre.png') no-repeat 0 50%;
+}
+#outils-creer-trajet{
+    background: url('/extension/ez_aya_carto/design/standard/images/menu/icon_trajet_personnalise.png') no-repeat 0 50%;
+}
+#outils-recherche{
+    background: url('/extension/ez_aya_carto/design/standard/images/menu/icon_recherche_globale.png') no-repeat 0 50%;
+}
