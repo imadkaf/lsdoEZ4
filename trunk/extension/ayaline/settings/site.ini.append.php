@@ -2,11 +2,11 @@
 
 [DatabaseSettings]
 DatabaseImplementation=ezmysqli
-Server=192.168.3.221
+Server=127.0.0.1
 Port=
-User=admin
-Password=ayaline!!
-Database=lsdo_integ
+User=root
+Password=
+Database=lsdo_dev
 Charset=
 Socket=disabled
 
@@ -30,6 +30,7 @@ RelatedSiteAccessList[]=ayaline_en
 MatchOrder=host
 HostMatchMapItems[]=lsdo.loc;ayaline
 HostMatchMapItems[]=en.lsdo.loc;ayaline_en
+HostMatchMapItems[]=cartographie.lsdo.loc;ayaline_carto
 HostMatchMapItems[]=admin.lsdo.loc;ayaline_admin
 ForceVirtualHost=true
 PublicSites[]
