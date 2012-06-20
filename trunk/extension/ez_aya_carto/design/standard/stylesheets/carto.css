@@ -364,9 +364,9 @@ ul,li{
 }
 #menu-droite>ul>li>.sous-menu>ul>li .titre-sous-menu{
     display: block;
-    padding-bottom: 7px;
-    margin-bottom: 7px;
-    border-bottom: 1px solid white;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid grey;
 }
 #menu-droite>ul>li>.sous-menu>ul>li .titre-sous-menu img{
     display: block;
@@ -412,6 +412,20 @@ ul,li{
     color: #000;
     white-space: nowrap;
     cursor: pointer;
+    display: block;
+    padding-right: 20px;
+    
+}
+#menu-droite .sous-menu label .categ-name{
+    cursor: pointer;
+    display: block;
+    padding-bottom: 3px;
+}
+
+#menu-droite .sous-menu label img{
+    display: block;
+    float: left;
+    margin-right: 3px;
 }
 #menu-droite .sous-menu label:hover,#menu-droite .sous-menu label.active{
     color: #ffa405;
