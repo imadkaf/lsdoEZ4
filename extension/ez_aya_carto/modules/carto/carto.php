@@ -109,7 +109,11 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                                             }
                                                             ?>
                                                             <img src="<?php echo $cheminPuceCateg; ?>" />
-                                                            <input class="checkbox-categorie" id="categ_<?php echo $SectionChild; ?>" type="checkbox" name="categ_<?php echo $SectionChild; ?>" /><?php echo $SectionChildTitle; ?>
+                                                            <span class="categ-name">
+                                                                <input class="checkbox-categorie" id="categ_<?php echo $SectionChild; ?>" type="checkbox" name="categ_<?php echo $SectionChild; ?>" />
+                                                                <?php echo $SectionChildTitle; ?>  
+                                                            </span>
+                                                            <div class="clear-both"></div>
                                                         </label>
                                                     </li>
                                                     <?php
@@ -138,7 +142,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                         </div>
                                         <form id="geocode-form">
                                             <input type="text" id="geocode-address"/>
-                                            <input type="submit" value="Rechercher" id="geocode-address-submit"/>
+                                            <input type="submit" value="ok" id="geocode-address-submit"/>
                                         </form>
                                         <a href="#" id="delete-markers-geocode" class="medium-font">Effacer les marqueurs</a>
                                     </div>
@@ -152,8 +156,8 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                             <div class="clear-both"></div>
                                         </div>
                                         <form id="creer-trajet-form">
-                                            <div><input class="creer-trajet-mode" id="creer-trajet-mode-drive" type="radio" name="travel_mode" value="0" checked="checked" /><label for="creer-trajet-mode-drive">En voiture</label></div>
-                                            <div><input class="creer-trajet-mode" id="creer-trajet-mode-walk" type="radio" name="travel_mode" value="1"/><label for="creer-trajet-mode-walk">A pied</label></div>
+                                            <div><label for="creer-trajet-mode-drive"><input class="creer-trajet-mode" id="creer-trajet-mode-drive" type="radio" name="travel_mode" value="0" checked="checked" /> En voiture</label></div>
+                                            <div><label for="creer-trajet-mode-walk"><input class="creer-trajet-mode" id="creer-trajet-mode-walk" type="radio" name="travel_mode" value="1"/> A pied</label></div>
                                             <div class="display-table medium-font">
                                                 <div class="display-table-cell"><a href="#" id="creer-trajet-reset">Effacer le trajet</a></div>
                                                 <div class="display-table-cell"><a href="#" id="creer-trajet-laststep">Annuler la dernière étape</a></div>
