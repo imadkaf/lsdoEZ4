@@ -2,6 +2,7 @@
 $ezAyaCartoIni = eZINI::instance('ez_aya_carto.ini');
 $SITCategoriesTitle = $ezAyaCartoIni->variable('SITCategoriesSettings', 'SITCategoriesTitle');
 $MapCenter = $ezAyaCartoIni->variable('MapSettings', 'MapCenter');
+$MapZoom = $ezAyaCartoIni->variable('MapSettings', 'Zoom');
 $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
 ?>
 <!DOCTYPE html>
@@ -217,7 +218,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
         </div>
         <script type="text/javascript">
             var myOptions = {
-                zoom: 8,
+                zoom: <?php echo $MapZoom;?>,
                 center: new google.maps.LatLng(<?php echo $MapCenter['lat']; ?>, <?php echo $MapCenter['lng']; ?>),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             }
