@@ -2,6 +2,7 @@
 $ezAyaCartoIni = eZINI::instance('ez_aya_carto.ini');
 $SITCategoriesTitle = $ezAyaCartoIni->variable('SITCategoriesSettings', 'SITCategoriesTitle');
 $MapCenter = $ezAyaCartoIni->variable('MapSettings', 'MapCenter');
+$DureeInactivite = $ezAyaCartoIni->variable('GlobalCartoSitParameters', 'DureeInactivite');
 $MapZoom = $ezAyaCartoIni->variable('MapSettings', 'Zoom');
 $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
 ?>
@@ -13,6 +14,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
         <link rel="stylesheet" type="text/css" href="/extension/ez_aya_carto/design/standard/stylesheets/carto.css">
         <script src="/extension/ez_aya_carto/design/standard/javascript/jquery.min.js"></script>
         <script src="/extension/ez_aya_carto/design/standard/javascript/jquery-ui.min.js"></script>
+        <script src="/extension/ez_aya_carto/design/standard/javascript/jquery.idle-timer.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <script>
             var cartoMarkers = new Array();
@@ -34,6 +36,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
         <script src="/extension/ez_aya_carto/design/standard/javascript/utils.js"></script>
         <script src="/extension/ez_aya_carto/design/standard/javascript/generaldispaly.js"></script>
         <script src="/extension/ez_aya_carto/design/standard/javascript/main.js"></script>
+        <script src="/extension/ez_aya_carto/design/standard/javascript/ez_aya_carto_utils.js"></script>
 
     </head>
     <body>
@@ -130,7 +133,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                         </div>
                     </li>
                     <li class="niv-1">
-                        <a id="outils-titre" href="#" class="cache has-sub-menu section-menu">Outils</a>
+                        <a id="outils-titre" href="#" class=" has-sub-menu section-menu">Outils</a>
                         <div class="sous-menu">
                             <ul class="menu-container">
                                 <li class="niv-2">
@@ -143,9 +146,9 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                         </div>
                                         <form id="geocode-form">
                                             <input type="text" id="geocode-address"/>
-                                            <input type="submit" value="ok" id="geocode-address-submit"/>
+                                            <input class="submit-puce-loupe" type="submit" id="geocode-address-submit" value="" title="rechercher"/>
                                         </form>
-                                        <a href="#" id="delete-markers-geocode" class="medium-font">Effacer les marqueurs</a>
+                                        <a href="#" id="delete-markers-geocode" class="medium-font" title="Effacer les marqueurs"></a>
                                     </div>
                                 </li>
                                 <li class="niv-2">
@@ -157,12 +160,12 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                             <div class="clear-both"></div>
                                         </div>
                                         <form id="creer-trajet-form">
-                                            <div><label for="creer-trajet-mode-drive"><input class="creer-trajet-mode" id="creer-trajet-mode-drive" type="radio" name="travel_mode" value="0" checked="checked" /> En voiture</label></div>
-                                            <div><label for="creer-trajet-mode-walk"><input class="creer-trajet-mode" id="creer-trajet-mode-walk" type="radio" name="travel_mode" value="1"/> A pied</label></div>
+                                            <div><label for="creer-trajet-mode-drive"><img src="/extension/ez_aya_carto/design/standard/images/menu/icone_envoiture.png" class="puce-20"/><input class="creer-trajet-mode" id="creer-trajet-mode-drive" type="radio" name="travel_mode" value="0" checked="checked" /> En voiture</label></div>
+                                            <div><label for="creer-trajet-mode-walk"><img src="/extension/ez_aya_carto/design/standard/images/menu/icone_apied.png" class="puce-20"/><input class="creer-trajet-mode" id="creer-trajet-mode-walk" type="radio" name="travel_mode" value="1"/> A pied</label></div>
                                             <div class="display-table medium-font">
-                                                <div class="display-table-cell"><a href="#" id="creer-trajet-reset">Effacer le trajet</a></div>
-                                                <div class="display-table-cell"><a href="#" id="creer-trajet-laststep">Annuler la dernière étape</a></div>
-                                                <div class="display-table-cell"><a href="#" id="creer-trajet-afficher-details">Afficher les détails</a></div>   
+                                                <div class="display-table-cell"><a href="#" id="creer-trajet-reset" title="Effacer le trajet"></a></div>
+                                                <div class="display-table-cell"><a href="#" id="creer-trajet-laststep" title="Annuler la dernière étape"></a></div>
+                                                <div class="display-table-cell"><a href="#" id="creer-trajet-afficher-details" title="Afficher les détails"></a></div>   
                                             </div>
 
                                         </form>
@@ -178,12 +181,12 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                         </div>
                                         <form id="outils-recherche-form">
                                             <input type="text" id="outils-recherche-text" />
-                                            <input type="submit" value="ok" />
+                                            <input class="submit-puce-loupe" type="submit"  value="" title="rechercher"/>
                                         </form>
                                         <div class="display-table medium-font">
-                                            <div class="display-table-cell"><a href="#" id="outils-recherche-reset">Réinitialiser la recheche</a></div>
-                                            <div class="display-table-cell"><a href="#" id="outils-recherche-lastsearch">Dernière recherche</a></div>
-                                            <div class="display-table-cell"><a href="#" id="outils-recherche-showAll">Réafficher tout</a></div>   
+                                            <div class="display-table-cell"><a href="#" id="outils-recherche-reset" title="Réinitialiser la recheche"></a></div>
+                                            <div class="display-table-cell"><a href="#" id="outils-recherche-lastsearch" title="Dernière recherche"></a></div>
+                                            <div class="display-table-cell"><a href="#" id="outils-recherche-showAll" title="Réafficher tout"></a></div>   
                                         </div>
                                     </div>
                                 </li>
@@ -197,15 +200,15 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                     <a id="valise-titre" href="#" class="section-menu">ma valise</a>
                     <div id="valise-container">
                         <div id="valise-elements"></div>
-                        <div id="valise-controls">
-                            <a id="valise-export-gpx" href="#">
+                        <div id="valise-controls" class="display-table">
+                            <a id="valise-export-gpx" href="#" class="display-table-cell">
                                 <span>Exporter au format GPS</span>
                             </a>
-                            <a id="valise-tracer-itineraire" href="#">
+                            <a id="valise-tracer-itineraire" class="display-table-cell" href="#">
                                 <span class="first">Tracer l'itinéraie</span>
                                 <span class="second cache">Cacher l'itinéraie</span>
                             </a>
-                            <a id="valise-affiche-pictos" href="#">
+                            <a id="valise-affiche-pictos" class="display-table-cell" href="#">
                                 <span class="first">Afficher sur la carte</span>
                                 <span class="second cache">Cacher sur la carte</span>
                             </a>
@@ -223,7 +226,21 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             }
             var map_container = new google.maps.Map(document.getElementById("google-map"), myOptions);
-                
+            /* idleTimer :  */
+            (function($){
+               var stimeout = <?php echo $DureeInactivite * 1000;?>;
+
+               $(document).bind("idle.idleTimer", function(){
+                    reinitialiser();
+               });
+
+               $(document).bind("active.idleTimer", function(){
+                    
+               });
+
+               $(document).idleTimer(stimeout);
+
+           })(jQuery);
         </script>
         <div id="script-container"></div>
     </body>
