@@ -133,7 +133,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                         </div>
                     </li>
                     <li class="niv-1">
-                        <a id="outils-titre" href="#" class=" has-sub-menu section-menu">Outils</a>
+                        <a id="outils-titre" href="#" class="cache has-sub-menu section-menu">Outils</a>
                         <div class="sous-menu">
                             <ul class="menu-container">
                                 <li class="niv-2">
@@ -201,9 +201,9 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                     <div id="valise-container">
                         <div id="valise-elements"></div>
                         <div id="valise-controls" class="display-table">
-                            <a id="valise-export-gpx" href="#" class="display-table-cell">
+                            <!--a id="valise-export-gpx" href="#" class="display-table-cell">
                                 <span>Exporter au format GPS</span>
-                            </a>
+                            </a-->
                             <a id="valise-tracer-itineraire" class="display-table-cell" href="#">
                                 <span class="first">Tracer l'itinéraie</span>
                                 <span class="second cache">Cacher l'itinéraie</span>
