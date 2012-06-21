@@ -21,6 +21,9 @@
 body{
     font-family: 'OmnesLight';
 }
+.puce-20{
+    width: 20px;
+}
 .clear-both{
     display: block;
     clear: both;
@@ -319,7 +322,7 @@ ul,li{
     padding: 5px 10px 50px 10px;
     display: table-cell;
     background: url('../images/icon_afficherValise.png') no-repeat 50% 100%;
-    width: 33%;
+/*    width: 33%;*/
     text-decoration: none;
 }
 #valise-tracer-itineraire{
@@ -328,7 +331,7 @@ ul,li{
     padding: 5px 10px 50px 10px;
     display: table-cell;
     background: url('../images/icon_itineraireValise.png') no-repeat 50% 100%;
-    width: 34%;
+/*    width: 34%;*/
     text-decoration: none;
 }
 
@@ -549,9 +552,12 @@ ul,li{
 #creer-trajet-form .display-table{
     padding-top: 7px;
 }
+#creer-trajet-form label{
+    margin-bottom: 3px;
+}
 #creer-trajet-form .display-table a{
     display: block;
-    padding: 4px 2px 30px 2px;
+    padding: 4px 2px 0px 2px;
     text-decoration: none;
 }
 #outils-recherche-form{
@@ -559,11 +565,54 @@ ul,li{
     margin-bottom: 7px;
 }
 #outils-geocode{
-    background: url('/extension/ez_aya_carto/design/standard/images/menu/icon_recherche_perimetre.png') no-repeat 0 50%;
+    background: url('../images/menu/icon_recherche_perimetre.png') no-repeat 0 50%;
 }
 #outils-creer-trajet{
-    background: url('/extension/ez_aya_carto/design/standard/images/menu/icon_trajet_personnalise.png') no-repeat 0 50%;
+    background: url('../images/menu/icon_trajet_personnalise.png') no-repeat 0 50%;
 }
 #outils-recherche{
-    background: url('/extension/ez_aya_carto/design/standard/images/menu/icon_recherche_globale.png') no-repeat 0 50%;
+    background: url('../images/menu/icon_recherche_globale.png') no-repeat 0 50%;
+}
+#creer-trajet-reset{
+    height: 40px;
+    background: url('../images/menu/icone_effacer.png') no-repeat 50% 100%;
+}
+#creer-trajet-laststep{
+    height: 40px;
+    background: url('../images/menu/icone_annuler.png') no-repeat 50% 100%;
+}
+#creer-trajet-afficher-details{
+    height: 40px;
+    background: url('../images/menu/icone_details.png') no-repeat 50% 100%;
+}
+#outils-recherche-reset{
+    height: 40px;
+    background: url('../images/menu/icone_reinitialiser.png') no-repeat 50% 100%;
+}
+#outils-recherche-lastsearch{
+    height: 40px;
+    background: url('../images/menu/icone_precedent.png') no-repeat 50% 100%;
+}
+#outils-recherche-showAll{
+    height: 40px;
+    background: url('../images/menu/icone_refresh.png') no-repeat 50% 100%;
+}
+#delete-markers-geocode{
+    height: 40px;
+    background: url('../images/menu/icone_effacer.png') no-repeat 50% 100%;
+}
+.submit-puce-loupe{
+    width: 20px;
+    height: 20px;
+    margin-bottom: 2px;
+    background: url('../images/menu/icone_loupe.png') no-repeat 50% 50%;
+    border: 0 none;
+}
+.submit-puce-loupe:hover{
+    margin-bottom: 0px;
+    border: 1px solid #999999;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    behavior:url(/extension/ez_aya_carto/design/standard/stylesheets/pie.htc);
 }

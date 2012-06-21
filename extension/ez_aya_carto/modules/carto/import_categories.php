@@ -13,7 +13,6 @@ $idCritGeoloc = $critereGeolocalisation['idCrit'];
 $idModaliteLat = $critereGeolocalisation['idModaliteLat'];
 $idModaliteLng = $critereGeolocalisation['idModaliteLng'];
 
-
 function setFichierXMLCache($contenuXML, $cheminRepCahce, $nomFichier, $dureeCache) {
     try {
         $cheminRepCahce = $_SERVER['DOCUMENT_ROOT'] . "/" . $cheminRepCahce;
@@ -53,7 +52,7 @@ function fichierXMLCacheExpire($cheminRepCahce, $nomFichier, $dureeCache) {
 if (isset($_GET["idc"])) {
     $categ_id = explode("_", $_GET["idc"]);
     $categ_id = $categ_id[1];
-    $categTitle=$SITCategoriesTitle[$categ_id];
+    $categTitle = $SITCategoriesTitle[$categ_id];
     $xmlResultat = false;
 
     if (fichierXMLCacheExpire($urlCache, "cachexmlcateg" . $categ_id, $dureeCache)) {
@@ -65,57 +64,61 @@ if (isset($_GET["idc"])) {
     }
     if ($xmlResultat) {
 
-        
+
         echo "<script>var markersProduitsCateg$categ_id=new Array();</script>";
         foreach ($xmlResultat->details->detail as $detail) {
-            $varJS = "";
-            $idProduit = (string) $detail[@id];
+            /* tester si les valeur Latitude et Longitude sont correctes */
+            $testGeoLat = $detail->xpath("./criteres/critere[@id=$idCritGeoloc]/modalites/modalite[@id=$idModaliteLat]/valModalite");
+            $testGeoLng = $detail->xpath("./criteres/critere[@id=$idCritGeoloc]/modalites/modalite[@id=$idModaliteLng]/valModalite");
+            if (count($testGeoLat) > 0 && count($testGeoLng) > 0 && is_numeric((string) $testGeoLat[0]) && is_numeric((string) $testGeoLng[0])) {
+                $varJS = "";
+                $idProduit = (string) $detail[@id];
 
-            $intitule = $detail->intitule;
-            $intitule = (string) $intitule[0];
-            $intitule = implode("\\'", explode("'", $intitule));
-            $geoLat = $detail->xpath("./criteres/critere[@id=$idCritGeoloc]/modalites/modalite[@id=$idModaliteLat]/valModalite");
-            $geoLat = (string) $geoLat[0];
-            $geoLng = $detail->xpath("./criteres/critere[@id=$idCritGeoloc]/modalites/modalite[@id=$idModaliteLng]/valModalite");
-            $geoLng = (string) $geoLng[0];
-            $detailVille = $detail->xpath("./ville/intituleVille");
-            $detailVille = (string) $detailVille[0];
-            $detailVille=implode("\\'", explode("'", $detailVille));
-            $detailAdr1 = $detail->xpath("./adresses/adresse/ligne1");
-            $detailAdr1 = (string) $detailAdr1[0];
-            $detailAdr1 = implode("\\'", explode("'", $detailAdr1));
-            $detailAdr2 = $detail->xpath("./adresses/adresse/ligne2");
-            $detailAdr2 = (string) $detailAdr2[0];
-            $detailAdr2 = implode("\\'", explode("'", $detailAdr2));
-            $detailAdr3 = $detail->xpath("./adresses/adresse/ligne3");
-            $detailAdr3 = (string) $detailAdr3[0];
-            $detailAdr3 = implode("\\'", explode("'", $detailAdr3));
-            $detailCP = $detail->xpath("./adresses/adresse/cp");
-            $detailCP = (string) $detailCP[0];
-            $detailTel = $detail->xpath("./adresses/adresse/tel1");
-            $detailTel = (string) $detailTel[0];
-            $detailFax = $detail->xpath("./adresses/adresse/fax");
-            $detailFax = (string) $detailFax[0];
-            $detailEmail = $detail->xpath("./adresses/adresse/email");
-            $detailEmail = (string) $detailEmail[0];
-            $detailEmail = implode("\\'", explode("'", $detailEmail));
-            $detailWeb = $detail->xpath("./adresses/adresse/web");
-            $detailWeb = (string) $detailWeb[0];
-            $detailWeb = implode("\\'", explode("'", $detailWeb));
-            
-            $detailNewPhotos = array();
-            foreach ($detail->xpath("./newPhotos/newPhoto") as $newPhoto){
-                $tempStr=(string)$newPhoto;
-                $tempStr=implode("\'",explode("'",$tempStr));
-                $detailNewPhotos[]= $tempStr;
-            }
-            $cheminPuceCateg = "/extension/ez_aya_carto/design/standard/images/pictos/map/categ_undefined.png";
-            if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/extension/ez_aya_carto/design/standard/images/pictos/map/categ_" . $categ_id . ".png")) {
-                $cheminPuceCateg = "/extension/ez_aya_carto/design/standard/images/pictos/map/categ_" . $categ_id . ".png";
-            }
-            $varJS.="
+                $intitule = $detail->intitule;
+                $intitule = (string) $intitule[0];
+                $intitule = implode("\\'", explode("'", $intitule));
+                $geoLat = $detail->xpath("./criteres/critere[@id=$idCritGeoloc]/modalites/modalite[@id=$idModaliteLat]/valModalite");
+                $geoLat = (string) $geoLat[0];
+                $geoLng = $detail->xpath("./criteres/critere[@id=$idCritGeoloc]/modalites/modalite[@id=$idModaliteLng]/valModalite");
+                $geoLng = (string) $geoLng[0];
+                $detailVille = $detail->xpath("./ville/intituleVille");
+                $detailVille = (string) $detailVille[0];
+                $detailVille = implode("\\'", explode("'", $detailVille));
+                $detailAdr1 = $detail->xpath("./adresses/adresse/ligne1");
+                $detailAdr1 = (string) $detailAdr1[0];
+                $detailAdr1 = implode("\\'", explode("'", $detailAdr1));
+                $detailAdr2 = $detail->xpath("./adresses/adresse/ligne2");
+                $detailAdr2 = (string) $detailAdr2[0];
+                $detailAdr2 = implode("\\'", explode("'", $detailAdr2));
+                $detailAdr3 = $detail->xpath("./adresses/adresse/ligne3");
+                $detailAdr3 = (string) $detailAdr3[0];
+                $detailAdr3 = implode("\\'", explode("'", $detailAdr3));
+                $detailCP = $detail->xpath("./adresses/adresse/cp");
+                $detailCP = (string) $detailCP[0];
+                $detailTel = $detail->xpath("./adresses/adresse/tel1");
+                $detailTel = (string) $detailTel[0];
+                $detailFax = $detail->xpath("./adresses/adresse/fax");
+                $detailFax = (string) $detailFax[0];
+                $detailEmail = $detail->xpath("./adresses/adresse/email");
+                $detailEmail = (string) $detailEmail[0];
+                $detailEmail = implode("\\'", explode("'", $detailEmail));
+                $detailWeb = $detail->xpath("./adresses/adresse/web");
+                $detailWeb = (string) $detailWeb[0];
+                $detailWeb = implode("\\'", explode("'", $detailWeb));
+
+                $detailNewPhotos = array();
+                foreach ($detail->xpath("./newPhotos/newPhoto") as $newPhoto) {
+                    $tempStr = (string) $newPhoto;
+                    $tempStr = implode("\'", explode("'", $tempStr));
+                    $detailNewPhotos[] = $tempStr;
+                }
+                $cheminPuceCateg = "/extension/ez_aya_carto/design/standard/images/pictos/map/categ_undefined.png";
+                if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/extension/ez_aya_carto/design/standard/images/pictos/map/categ_" . $categ_id . ".png")) {
+                    $cheminPuceCateg = "/extension/ez_aya_carto/design/standard/images/pictos/map/categ_" . $categ_id . ".png";
+                }
+                $varJS.="
                       
-                      markersProduitsCateg".$categ_id."['prod_$idProduit'] = new google.maps.Marker({
+                      markersProduitsCateg" . $categ_id . "['prod_$idProduit'] = new google.maps.Marker({
                       position: new google.maps.LatLng($geoLat,$geoLng),
                       map: map_container,
                       title:'" . $intitule . "',
@@ -131,35 +134,35 @@ if (isset($_GET["idc"])) {
                                                           )
                       });
                       ";
-            
-            $blocDetail = "<p class=\"intitule\">$intitule</p>";
-            $blocDetail .= "<p class=\"adresse\">$detailAdr1 $detailAdr2 $detailAdr3<br/>$detailCP $detailVille</p>";
-            $blocDetail .= "<p class=\"tel-fax\">Téléphone : $detailTel<br/>Fax : $detailFax</p>";
-            $blocDetail .= "<p class=\"web-mail\"><a target=\"_blank\" href=\"$detailWeb\">Site Internet</a><br/><a href=\"mailto:$detailEmail\">Contacter par mail</a></p>";
-            $blocDetail .="<div class=\"new-photos\">";
-            foreach ($detailNewPhotos as $key=>$newPhoto){
-                if($key < 8){
-                $blocDetail .="<img src=\"$newPhoto\" class=\"new-photo\" />";
-                if((((int)$key + 1)%4)==0 && $key!=0){
-                    $blocDetail .="<div class=\"clear-both\"></div>";
+
+                $blocDetail = "<p class=\"intitule\">$intitule</p>";
+                $blocDetail .= "<p class=\"adresse\">$detailAdr1 $detailAdr2 $detailAdr3<br/>$detailCP $detailVille</p>";
+                $blocDetail .= "<p class=\"tel-fax\">Téléphone : $detailTel<br/>Fax : $detailFax</p>";
+                $blocDetail .= "<p class=\"web-mail\"><a target=\"_blank\" href=\"$detailWeb\">Site Internet</a><br/><a>Contacter par mail: $detailEmail</a></p>";
+                $blocDetail .="<div class=\"new-photos\">";
+                foreach ($detailNewPhotos as $key => $newPhoto) {
+                    if ($key < 8) {
+                        $blocDetail .="<img src=\"$newPhoto\" class=\"new-photo\" />";
+                        if ((((int) $key + 1) % 4) == 0 && $key != 0) {
+                            $blocDetail .="<div class=\"clear-both\"></div>";
+                        }
+                    }
                 }
+                $blocDetail .="<div class=\"clear-both\"></div>";
+                $blocDetail .="</div>";
+
+                $blocValise = "<div class=\"element-valise\">";
+                $blocValise .="<a onClick=\"removeFromValise(\'$idProduit\');return false;\" href=\"#\" title=\"Retirer de ma valise\" id=\"removeValise-$idProduit\" class=\"remove-valise\"></a>";
+                $blocValise .="<strong class=\"valise-elt-titre\">$intitule</strong>";
+                $blocValiseImg = "";
+                if (isset($detailNewPhotos[0])) {
+                    $blocValiseImg = "<img class=\"valise-elt-image\" src=\"$detailNewPhotos[0]\"/>";
                 }
-            }
-            $blocDetail .="<div class=\"clear-both\"></div>";
-            $blocDetail .="</div>";
-            
-            $blocValise ="<div class=\"element-valise\">";
-            $blocValise .="<a onClick=\"removeFromValise(\'$idProduit\');return false;\" href=\"#\" title=\"Retirer de ma valise\" id=\"removeValise-$idProduit\" class=\"remove-valise\"></a>";
-            $blocValise .="<strong class=\"valise-elt-titre\">$intitule</strong>";
-            $blocValiseImg="";
-            if(isset($detailNewPhotos[0])){
-                $blocValiseImg ="<img class=\"valise-elt-image\" src=\"$detailNewPhotos[0]\"/>";
-            }
-            $blocValise .="<p class=\"valise-adresse\">$blocValiseImg $detailAdr1 $detailAdr2 $detailAdr3<br/>$detailCP $detailVille</p>";
-            $blocValise .="<div class=\"clear-both\"></div></div>";
-            $varJS.="
-                    google.maps.event.addListener(markersProduitsCateg".$categ_id."['prod_$idProduit'], 'click', function() {
-                        detailMarker={'idProd':'$idProduit','marker':markersProduitsCateg".$categ_id."['prod_$idProduit'],'blocValise':'$blocValise'};
+                $blocValise .="<p class=\"valise-adresse\">$blocValiseImg $detailAdr1 $detailAdr2 $detailAdr3<br/>$detailCP $detailVille</p>";
+                $blocValise .="<div class=\"clear-both\"></div></div>";
+                $varJS.="
+                    google.maps.event.addListener(markersProduitsCateg" . $categ_id . "['prod_$idProduit'], 'click', function() {
+                        detailMarker={'idProd':'$idProduit','marker':markersProduitsCateg" . $categ_id . "['prod_$idProduit'],'blocValise':'$blocValise'};
                         $('#detail-produit').fadeOut('fast',function(){
                             $('#detail-produit .content').html('$blocDetail');
                             $('#detail-produit .control .puce-categorie').html('Détalis : $categTitle');
@@ -175,8 +178,9 @@ if (isset($_GET["idc"])) {
                         });
                     });
                     ";
-            $varJS.="cartoMarkers['categ_$categ_id']=markersProduitsCateg".$categ_id.";";
-            echo "<script>" . $varJS . "</script>";
+                $varJS.="cartoMarkers['categ_$categ_id']=markersProduitsCateg" . $categ_id . ";";
+                echo "<script>" . $varJS . "</script>";
+            }
         }
     }
 }
