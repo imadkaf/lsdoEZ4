@@ -53,6 +53,7 @@ if (isset($_GET["idc"])) {
     $categ_id = explode("_", $_GET["idc"]);
     $categ_id = $categ_id[1];
     $categTitle = $SITCategoriesTitle[$categ_id];
+    $categTitle = implode("\\'", explode("'", $categTitle));
     $xmlResultat = false;
 
     if (fichierXMLCacheExpire($urlCache, "cachexmlcateg" . $categ_id, $dureeCache)) {

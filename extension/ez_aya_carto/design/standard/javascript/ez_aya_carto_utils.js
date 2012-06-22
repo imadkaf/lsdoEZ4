@@ -56,4 +56,5 @@ function reinitialiser(){
     directionsDisplayTrajet = new google.maps.DirectionsRenderer();
     directionsServiceTrajet = new google.maps.DirectionsService();
     geocoder = new google.maps.Geocoder();
+    map_container = new google.maps.Map(document.getElementById("google-map"), myOptions);
 }
