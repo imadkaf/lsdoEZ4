@@ -166,7 +166,7 @@ if (isset($_GET["idc"])) {
                         detailMarker={'idProd':'$idProduit','marker':markersProduitsCateg" . $categ_id . "['prod_$idProduit'],'blocValise':'$blocValise'};
                         $('#detail-produit').fadeOut('fast',function(){
                             $('#detail-produit .content').html('$blocDetail');
-                            $('#detail-produit .control .puce-categorie').html('Détalis : $categTitle');
+                            $('#detail-produit .control .puce-categorie').html('Détails : $categTitle');
                             $('#detail-produit').fadeIn('slow');
                             
                             if(valiseHasElement(detailMarker['idProd'])){
