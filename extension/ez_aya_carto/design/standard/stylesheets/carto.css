@@ -140,7 +140,7 @@ ul,li{
     top: 50px;
     left: 20px;
     display: none;
-    width: 220px;
+    width: 240px;
     padding:5px 10px;
     border: 2px solid #e1e1e0;
     -webkit-border-radius:10px;
@@ -175,6 +175,7 @@ ul,li{
 #detail-produit .content{
     max-height: 300px;
     overflow-y: auto;
+    overflow-x: hidden; 
     display: block;
     
 }
