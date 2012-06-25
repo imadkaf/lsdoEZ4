@@ -124,14 +124,14 @@ if (isset($_GET["idc"])) {
                       map: map_container,
                       title:'" . $intitule . "',
                       icon: new google.maps.MarkerImage('" . $cheminPuceCateg . "',
-                                                          new google.maps.Size(19, 33),
+                                                          new google.maps.Size(21, 30),
                                                           new google.maps.Point(0,0),
-                                                          new google.maps.Point(0, 33)
+                                                          new google.maps.Point(11, 30)
                                                           ),
                       shadow: new google.maps.MarkerImage('/extension/ez_aya_carto/design/standard/images/pictos/map/marker_shadow.png',
-                                                          new google.maps.Size(44, 33),
+                                                          new google.maps.Size(30, 21),
                                                           new google.maps.Point(0,0),
-                                                          new google.maps.Point(0, 33)
+                                                          new google.maps.Point(0, 21)
                                                           )
                       });
                       ";
