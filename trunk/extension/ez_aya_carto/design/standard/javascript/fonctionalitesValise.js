@@ -70,7 +70,7 @@ function showRouteValise() {
     directionsPanel.html("");
     
                 
-    if (valiseRoute.length >1){
+    if (valiseRoute.length > 1){
         
         var waypointsValise=new Array();
         var originValise=valiseRoute[0];
@@ -125,6 +125,8 @@ function showRouteValise() {
                 alert("Google directions response : "+status);
             }
         });
+    }else{
+        hideRouteValise();
     }
 }
 function showItineraireValise(){
