@@ -37,6 +37,7 @@ function reinitialiser(){
     
     /* Réinitialiser tous les champs de saisi */
     $("input[type='text']").val('');
+    
     /* Réinitialiser l'affichage de début */
     $("#menu-droite .sous-menu").fadeOut();
     $("#valise-container").fadeOut();

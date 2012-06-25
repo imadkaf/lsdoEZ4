@@ -2,8 +2,10 @@
 $ezAyaCartoIni = eZINI::instance('ez_aya_carto.ini');
 $SITCategoriesTitle = $ezAyaCartoIni->variable('SITCategoriesSettings', 'SITCategoriesTitle');
 $MapCenter = $ezAyaCartoIni->variable('MapSettings', 'MapCenter');
-$DureeInactivite = $ezAyaCartoIni->variable('GlobalCartoSitParameters', 'DureeInactivite');
 $MapZoom = $ezAyaCartoIni->variable('MapSettings', 'Zoom');
+$MapType = $ezAyaCartoIni->variable('MapSettings', 'MapType');
+$MapSVProximite = $ezAyaCartoIni->variable('MapSettings', 'MapSVProximite');
+$DureeInactivite = $ezAyaCartoIni->variable('GlobalCartoSitParameters', 'DureeInactivite');
 $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
 ?>
 <!DOCTYPE html>
@@ -17,6 +19,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
         <script src="/extension/ez_aya_carto/design/standard/javascript/jquery.idle-timer.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <script>
+            var streetViewMarker;
             var cartoMarkers = new Array();
             var searchCartoMarkers = new Array();
             var geoCodeMarkers = new Array();
@@ -30,6 +33,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
             var directionsDisplayTrajet = new google.maps.DirectionsRenderer();
             var directionsServiceTrajet = new google.maps.DirectionsService();
             var geocoder = new google.maps.Geocoder();
+            var svProximite = <?php echo $MapSVProximite;?>;
         </script>
         <script src="/extension/ez_aya_carto/design/standard/javascript/outils.js"></script>
         <script src="/extension/ez_aya_carto/design/standard/javascript/fonctionalitesValise.js"></script>
@@ -37,6 +41,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
         <script src="/extension/ez_aya_carto/design/standard/javascript/generaldispaly.js"></script>
         <script src="/extension/ez_aya_carto/design/standard/javascript/main.js"></script>
         <script src="/extension/ez_aya_carto/design/standard/javascript/ez_aya_carto_utils.js"></script>
+        <script src="/extension/ez_aya_carto/design/standard/javascript/sreetview.js"></script>
 
     </head>
     <body>
@@ -223,7 +228,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
             var myOptions = {
                 zoom: <?php echo $MapZoom;?>,
                 center: new google.maps.LatLng(<?php echo $MapCenter['lat']; ?>, <?php echo $MapCenter['lng']; ?>),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+                mapTypeId: <?php echo "google.maps.MapTypeId.$MapType"; ?>
             }
             var map_container = new google.maps.Map(document.getElementById("google-map"), myOptions);
             /* idleTimer :  */
@@ -241,6 +246,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                $(document).idleTimer(stimeout);
 
            })(jQuery);
+           
         </script>
         <div id="script-container"></div>
     </body>
