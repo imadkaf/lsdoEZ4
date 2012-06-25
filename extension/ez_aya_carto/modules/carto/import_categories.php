@@ -148,7 +148,7 @@ if (isset($_GET["idc"])) {
                 $blocDetail .="<div class=\"new-photos\">";
                 foreach ($detailNewPhotos as $key => $newPhoto) {
                     if ($key < 8) {
-                        $blocDetail .="<img src=\"$newPhoto\" class=\"new-photo\" />";
+                        $blocDetail .="<img src=\"/Image/Resize?img=$newPhoto&w=50\" class=\"new-photo\" />";
                         if ((((int) $key + 1) % 4) == 0 && $key != 0) {
                             $blocDetail .="<div class=\"clear-both\"></div>";
                         }
@@ -162,7 +162,7 @@ if (isset($_GET["idc"])) {
                 $blocValise .="<strong class=\"valise-elt-titre\">$intitule</strong>";
                 $blocValiseImg = "";
                 if (isset($detailNewPhotos[0])) {
-                    $blocValiseImg = "<img class=\"valise-elt-image\" src=\"$detailNewPhotos[0]\"/>";
+                    $blocValiseImg = "<img class=\"valise-elt-image\" src=\"/Image/Resize?img=$detailNewPhotos[0]&w=50\"/>";
                 }
                 $blocValise .="<p class=\"valise-adresse\">$blocValiseImg $detailAdr1 $detailAdr2 $detailAdr3<br/>$detailCP $detailVille</p>";
                 $blocValise .="<div class=\"clear-both\"></div></div>";
