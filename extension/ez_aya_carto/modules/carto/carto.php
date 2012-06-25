@@ -19,7 +19,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
         <script src="/extension/ez_aya_carto/design/standard/javascript/jquery.idle-timer.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <script>
-            var streetViewMarker;
+            var streetViewMarker=false;
             var cartoMarkers = new Array();
             var searchCartoMarkers = new Array();
             var geoCodeMarkers = new Array();
