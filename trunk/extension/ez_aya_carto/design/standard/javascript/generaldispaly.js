@@ -108,10 +108,15 @@ $(function(){
     });
     $("#valise-tracer-itineraire").click(function(){
         if($(this).find(".second").hasClass("cache")){
-            showRouteValise();
-            showItineraireValise();
-            $(this).find(".first").addClass("cache");
-            $(this).find(".second").removeClass("cache");
+            if (valiseRoute.length > 1){
+                showRouteValise();
+                showItineraireValise();
+                $(this).find(".first").addClass("cache");
+                $(this).find(".second").removeClass("cache");
+                
+            }else{
+                hideRouteValise();
+            }
         }else{
             hideRouteValise();
             $(this).find(".second").addClass("cache");
