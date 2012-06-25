@@ -625,6 +625,13 @@ ul,li{
     display: block;
     float: right;
     width: 60px;
-    height: 100px;
+    height: 70px;
     background: url('../images/menu/icone_sreet_view.png') no-repeat 50% 50%;
+}
+.detail-close-street-view{
+    display: block;
+    float: right;
+    width: 60px;
+    height: 70px;
+    background: url('../images/menu/icone_sreet_view_close.png') no-repeat 50% 50%;
 }

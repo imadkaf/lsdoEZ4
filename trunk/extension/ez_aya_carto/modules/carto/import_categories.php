@@ -139,6 +139,7 @@ if (isset($_GET["idc"])) {
                 $geoAddr = implode("\\'", explode("'", $geoAddr));
                 $geoAddr = implode("\\'", explode("'", $geoAddr));
                 $blocDetail = "<a href=\"#\" class=\"detail-street-view\" onClick=\"setSreetViewAt(\'$geoLat\',\'$geoLng\',\'$geoAddr\');return false;\" title=\"street view\"></a>";
+                $blocDetail .= "<a href=\"#\" class=\"detail-close-street-view cache\" onClick=\"hideStreetView();return false;\" title=\"Fermer street view\"></a>";
                 
                 $blocDetail .= "<p class=\"intitule\">$intitule</p>";
                 $blocDetail .= "<p class=\"adresse\">$detailAdr1 $detailAdr2 $detailAdr3<br/>$detailCP $detailVille</p>";
