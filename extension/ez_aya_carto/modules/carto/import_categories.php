@@ -144,7 +144,7 @@ if (isset($_GET["idc"])) {
                 $blocDetail .= "<p class=\"intitule\">$intitule</p>";
                 $blocDetail .= "<p class=\"adresse\">$detailAdr1 $detailAdr2 $detailAdr3<br/>$detailCP $detailVille</p>";
                 $blocDetail .= "<p class=\"tel-fax\">Téléphone : $detailTel<br/>Fax : $detailFax</p>";
-                $blocDetail .= "<p class=\"web-mail\"><a target=\"_blank\" href=\"$detailWeb\">Site Internet</a><br/><a>Contacter par mail: $detailEmail</a></p>";
+                $blocDetail .= "<p class=\"web-mail\"><a>Site Internet : $detailWeb</a><br/><a>Contacter par mail: $detailEmail</a></p>";
                 $blocDetail .="<div class=\"new-photos\">";
                 foreach ($detailNewPhotos as $key => $newPhoto) {
                     if ($key < 8) {
