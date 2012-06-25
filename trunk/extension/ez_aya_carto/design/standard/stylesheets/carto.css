@@ -173,8 +173,8 @@ ul,li{
     background: url('../images/puce_close.png') no-repeat 50% 50%;
 }
 #detail-produit .content{
-    overflow: auto;
-    height: 290px;
+    overflow-y: auto;
+    max-height: 300px;
     display: block;
     
 }
