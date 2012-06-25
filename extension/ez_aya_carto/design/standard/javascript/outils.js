@@ -135,8 +135,6 @@ $(function(){
             if (status == google.maps.GeocoderStatus.OK) {
                 map_container.setCenter(results[0].geometry.location);
             
-                console.log(results[0]);
-            
                 var contentInfoWindow="<div class=\"marker-geocode-infos\">";
                 contentInfoWindow+="<strong class=\"geocode-titre\">"+results[0].formatted_address+"</strong>";
                 contentInfoWindow+="<span class=\"display-block\">Département : "+results[0].address_components[1].long_name+"</span>";

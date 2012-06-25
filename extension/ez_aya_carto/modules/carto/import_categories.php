@@ -135,8 +135,12 @@ if (isset($_GET["idc"])) {
                                                           )
                       });
                       ";
-
-                $blocDetail = "<p class=\"intitule\">$intitule</p>";
+                $geoAddr = $detailAdr1 . $detailAdr2 . $detailAdr3 . $detailCP . $detailVille;
+                $geoAddr = implode("\\'", explode("'", $geoAddr));
+                $geoAddr = implode("\\'", explode("'", $geoAddr));
+                $blocDetail = "<a href=\"#\" class=\"detail-street-view\" onClick=\"setSreetViewAt(\'$geoLat\',\'$geoLng\',\'$geoAddr\');return false;\" title=\"street view\"></a>";
+                
+                $blocDetail .= "<p class=\"intitule\">$intitule</p>";
                 $blocDetail .= "<p class=\"adresse\">$detailAdr1 $detailAdr2 $detailAdr3<br/>$detailCP $detailVille</p>";
                 $blocDetail .= "<p class=\"tel-fax\">Téléphone : $detailTel<br/>Fax : $detailFax</p>";
                 $blocDetail .= "<p class=\"web-mail\"><a target=\"_blank\" href=\"$detailWeb\">Site Internet</a><br/><a>Contacter par mail: $detailEmail</a></p>";

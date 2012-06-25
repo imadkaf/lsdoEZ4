@@ -103,7 +103,7 @@ ul,li{
 }
 #menu-droite{
     position: absolute;
-    top: 0;
+    top: 100px;
     right: 0;
     bottom: 0;
     width: 30px;
@@ -123,6 +123,11 @@ ul,li{
 .section-menu{
     background: url('../images/bg_menu_black.png');
     color: white!important;
+    position: relative;
+    box-shadow: 0 0 5px #3b3a3a;
+    -moz-box-shadow: 0 0 5px #3b3a3a;
+    -webkit-box-shadow: 0 0 5px #3b3a3a;
+    behavior:url(/extension/ez_aya_carto/design/standard/stylesheets/pie.htc);
 }
 .section-menu:hover, .section-menu.active{
     color: #08BFFF!important;
@@ -336,7 +341,7 @@ ul,li{
 }
 
 #menu-droite>ul>li{
-    margin-top: 100px;
+    margin-top: 0px;
     position: relative;
 }
 #menu-droite>ul>li+li{
@@ -615,4 +620,11 @@ ul,li{
     -webkit-border-radius: 3px;
     border-radius: 3px;
     behavior:url(/extension/ez_aya_carto/design/standard/stylesheets/pie.htc);
+}
+.detail-street-view{
+    display: block;
+    float: right;
+    width: 60px;
+    height: 100px;
+    background: url('../images/menu/icone_sreet_view.png') no-repeat 50% 50%;
 }
