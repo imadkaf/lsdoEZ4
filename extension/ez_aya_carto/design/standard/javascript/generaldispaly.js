@@ -140,7 +140,7 @@ $(function(){
             $('#detail-produit .retirer-valise').removeClass('cache');   
             $('#detail-produit .ajout-valise').addClass('cache');   
         }else{
-            $('#detail-produit .ajout-valise').removeClass('cache');   
+            $('#detail-produit .ajout-valise').removeClass('cache');
             $('#detail-produit .retirer-valise').addClass('cache');
         }
         return false;
@@ -152,5 +152,16 @@ $(function(){
     $( "#directions-details" ).draggable({
         handle: ".control"
     });
-    
+    $(".detail-street-view").live('click',function(){
+        if(streetViewMarker != false && streetViewMarker.getVisible()==true){
+            $(this).addClass("cache");
+            $(".detail-close-street-view").removeClass("cache");
+        }
+    });
+    $(".detail-close-street-view").live('click',function(){
+        if(streetViewMarker == false || (streetViewMarker != false && streetViewMarker.getVisible()==false)){
+            $(this).addClass("cache");
+            $(".detail-street-view").removeClass("cache");
+        }
+    });
 });

@@ -36,6 +36,10 @@ function setSreetViewAt(lat,lng,address){
                 });
                 panorama.setVisible(true);
             });
+            if(panorama != false && panorama.getVisible()==true){
+                $(".detail-street-view").addClass("cache");
+                $(".detail-close-street-view").removeClass("cache");
+            }
         } else {
             
             
@@ -51,6 +55,10 @@ function setSreetViewAt(lat,lng,address){
                         pitch:0
                     });
                 panorama.setVisible(true);
+                if(panorama != false && panorama.getVisible()==true){
+                    $(".detail-street-view").addClass("cache");
+                    $(".detail-close-street-view").removeClass("cache");
+                }
 
                 } else {
                     alert("Street View data not found for this location.");
@@ -59,5 +67,11 @@ function setSreetViewAt(lat,lng,address){
             
         }
     });
-    
+}
+
+function hideStreetView(){
+    var panorama = map_container.getStreetView();
+    panorama.setVisible(false);
+        $(".detail-close-street-view").addClass("cache");
+        $(".detail-street-view").removeClass("cache");
 }
