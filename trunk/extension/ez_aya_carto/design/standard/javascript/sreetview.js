@@ -5,7 +5,9 @@ function setSreetViewAt(lat,lng,address){
 
     sv.getPanoramaByLocation(latlngPosition, svProximite, function(data, status) {
         if (status == google.maps.StreetViewStatus.OK) {
-                
+                if(streetViewMarker!=false){
+                    streetViewMarker.setMap(null);
+                }
                 streetViewMarker = new google.maps.Marker({
                 position: data.location.latLng,
                 map: map_container,
@@ -22,7 +24,7 @@ function setSreetViewAt(lat,lng,address){
             });
             panorama.setVisible(true);
       
-            google.maps.event.addListener(marker, 'click', function() {
+            google.maps.event.addListener(streetViewMarker, 'click', function() {
       
                 var markerPanoID = data.location.pano;
                 // Set the Pano to use the passed panoID
