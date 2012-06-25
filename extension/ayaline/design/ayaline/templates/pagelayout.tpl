@@ -113,6 +113,17 @@
 								{/literal}
 								</script>
 								<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+								
+								<script>
+									{literal}
+									$(document).mousemove( function () {
+										if($(".goog-te-menu-value").length) {
+											$(".goog-te-menu-value span:eq(1)").text('');
+											$(document).off('mousemove');
+										}
+									});        
+									{/literal}
+								</script>
 
 {*Gestion des saisons*}
 {cache-block keys=$cache_hash}
