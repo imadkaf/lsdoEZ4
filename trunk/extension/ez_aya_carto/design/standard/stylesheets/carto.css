@@ -644,3 +644,9 @@ ul,li{
     border-top: 1px solid grey;
     background: url('../images/menu/icon_balai.png') no-repeat 0 50%;
 }
+.reinitialiser-ma-recherche{
+    display: block;
+    margin-top: 15px;
+    padding: 9px 0 9px 20px;
+    background: url('../images/menu/icon_rafraichi.png') no-repeat 0 50%;
+}
