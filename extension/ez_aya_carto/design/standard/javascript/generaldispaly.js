@@ -65,15 +65,18 @@ $(function(){
                 });
                 /* Adapter la carte */
                 var latlngbounds = new google.maps.LatLngBounds( );
+                var readaptMap=false;
                 for ( var i in cartoMarkers ){
                     for ( var j in cartoMarkers[i] ){
                         if(cartoMarkers[i][j].getMap() != null){
                             latlngbounds.extend( cartoMarkers[i][j].getPosition());
-                        }
-                      
+                            readaptMap=true;
+                        } 
                     }
                 }
-                map_container.fitBounds(latlngbounds);
+                if(readaptMap){
+                    map_container.fitBounds(latlngbounds);
+                }
             });
             eCategInput.parents("label").addClass("active");
         }else{
@@ -83,6 +86,21 @@ $(function(){
                 cartoMarkersCateg[i].setMap(null);
             }
             eCategInput.parents("label").removeClass("active");
+            /* Adapter la carte */
+            var latlngbounds = new google.maps.LatLngBounds( );
+            var readaptMap=false;
+            for ( var k in cartoMarkers ){
+                for ( var j in cartoMarkers[k] ){
+                    if(cartoMarkers[k][j].getMap() != null){
+                        latlngbounds.extend( cartoMarkers[k][j].getPosition());
+                        readaptMap=true;
+                    }
+                }
+            }
+            if(readaptMap){
+                map_container.fitBounds(latlngbounds);
+            }
+            
         }
         
     });
