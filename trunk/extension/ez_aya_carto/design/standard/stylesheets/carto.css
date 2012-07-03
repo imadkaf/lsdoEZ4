@@ -112,7 +112,7 @@ ul,li{
 }
 #menu-bottom{
     position: absolute;
-    left: 270px;
+    left: 0;
     right: 0;
     bottom: 0;
     height: 30px;
@@ -249,6 +249,7 @@ ul,li{
 #ma-valise{
     position: absolute;
     bottom: 0;
+    right: 250px;
 }
 #valise-titre{
     display: block;
@@ -636,4 +637,10 @@ ul,li{
     width: 60px;
     height: 70px;
     background: url('../images/menu/icone_sreet_view_close.png') no-repeat 50% 50%;
+}
+.effacer-marqueurs-fiches{
+    display: block;
+    padding: 9px 0 9px 20px;
+    border-top: 1px solid grey;
+    background: url('../images/menu/icon_balai.png') no-repeat 0 50%;
 }

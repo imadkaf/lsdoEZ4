@@ -129,6 +129,12 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                                 }
                                                 ?>
                                             </ul>
+                                            <?php if(count($SITSectionChildren) != 0){
+                                            ?>
+                                            <a href="#" class="effacer-marqueurs-fiches medium-font">Effacer tous les marqueurs</a>
+                                            <?php
+                                            }?>
+                                            
                                         </div>
                                     </li>
                                     <?php
