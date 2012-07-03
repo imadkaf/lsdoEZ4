@@ -131,7 +131,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                             </ul>
                                             <?php if(count($SITSectionChildren) != 0){
                                             ?>
-                                            <a href="#" class="effacer-marqueurs-fiches medium-font">Effacer tous les marqueurs</a>
+                                            <a href="#" class="effacer-marqueurs-fiches medium-font">Effacer les marqueurs</a>
                                             <?php
                                             }?>
                                             
@@ -141,6 +141,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                 }
                                 ?>
                             </ul>
+                            <a href="#" class="reinitialiser-ma-recherche medium-font">Réinitialiser ma recherche</a>
                         </div>
                     </li>
                     <li class="niv-1">
