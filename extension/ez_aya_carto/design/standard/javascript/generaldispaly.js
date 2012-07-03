@@ -169,4 +169,14 @@ $(function(){
             $(".detail-street-view").removeClass("cache");
         }
     });
+    $(".effacer-marqueurs-fiches").click(function(){
+        var checkbox_categorie = $(this).parent().find(".checkbox-categorie");
+        checkbox_categorie.each(function(){
+            if($(this).is(":checked")){
+                $(this).click();
+            }
+        });
+        
+        return false;
+    });
 });
