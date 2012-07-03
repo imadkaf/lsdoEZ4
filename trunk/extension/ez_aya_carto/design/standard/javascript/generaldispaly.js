@@ -67,7 +67,10 @@ $(function(){
                 var latlngbounds = new google.maps.LatLngBounds( );
                 for ( var i in cartoMarkers ){
                     for ( var j in cartoMarkers[i] ){
-                      latlngbounds.extend( cartoMarkers[i][j].getPosition());
+                        if(cartoMarkers[i][j].getMap() != null){
+                            latlngbounds.extend( cartoMarkers[i][j].getPosition());
+                        }
+                      
                     }
                 }
                 map_container.fitBounds(latlngbounds);
