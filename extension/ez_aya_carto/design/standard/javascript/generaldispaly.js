@@ -63,6 +63,14 @@ $(function(){
                     "z-index":"-1",
                     "display":"none"
                 });
+                /* Adapter la carte */
+                var latlngbounds = new google.maps.LatLngBounds( );
+                for ( var i in cartoMarkers ){
+                    for ( var j in cartoMarkers[i] ){
+                      latlngbounds.extend( cartoMarkers[i][j].getPosition());
+                    }
+                }
+                map_container.fitBounds(latlngbounds);
             });
             eCategInput.parents("label").addClass("active");
         }else{
