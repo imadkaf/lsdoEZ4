@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cartographie LSDO</title>
+    <title>Cartographie du canton des Sables d'Olonne</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style>
         {literal}
