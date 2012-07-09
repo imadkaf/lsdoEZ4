@@ -278,14 +278,14 @@ if (isset($_GET["idc"])) {
                             $('#detail-produit .content').html('$blocDetail');
                             $('#detail-produit .control .puce-categorie').html('Détails : $categTitle');
                             $('#detail-produit').fadeIn('slow');
-                            
-                            if(valiseHasElement(detailMarker['idProd'])){
+                            $('#detail-produit .tracer-itineraire-ot').attr('title','Tracer l\'itinéraire depuis l\'office de tourisme à ' + '" . $intitule . "');
+                            /*if(valiseHasElement(detailMarker['idProd'])){
                                $('#detail-produit .retirer-valise').removeClass('cache');   
                                $('#detail-produit .ajout-valise').addClass('cache');   
                             }else{
                                 $('#detail-produit .ajout-valise').removeClass('cache');   
                                 $('#detail-produit .retirer-valise').addClass('cache');
-                            }
+                            }*/
                         });
                     });
                     ";

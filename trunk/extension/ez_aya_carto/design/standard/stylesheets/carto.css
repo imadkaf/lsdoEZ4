@@ -232,6 +232,14 @@ ul,li{
     width: 100px;
     height: 60px;
 }
+#detail-produit .tracer-itineraire-ot{
+    display: block;
+    float: right;
+    background: url('../images/icon_itineraire_OT.png') no-repeat 50% 100%;
+    width: 100px;
+    height: 60px;
+}
+
 
 #valise-container{
     display: none;
@@ -670,4 +678,13 @@ ul,li{
 }
 .ui-widget{
     font-size: 0.7em;
+}
+.container-affichage-date .affichage-date-options{
+    display: block;
+    margin: 3px 0;
+}
+.container-affichage-date .affichage-date-titre{
+    display: block;
+    margin: 3px 0;
+    padding: 2px 5px 2px 20px;
 }

@@ -211,7 +211,18 @@ $(function(){
         
         return false;
     });
-    
+    $("#detail-produit .tracer-itineraire-ot").click(function(){
+        
+        if(directionsDisplayOTFiche.getMap() == null || markerOTFicheID == null || markerOTFicheID != detailMarker['idProd']){
+            tracerTragetOTFiche(detailMarker['marker']);
+            showTragetOTFiche();
+            markerOT.setMap(map_container);
+        }else{
+            hideTragetOTFiche();
+            markerOT.setMap(null);
+        }
+        return false;
+    });
     /* Menu>Afficher>Les dates */
     $(".checkbox-date-rv-j").change(function(){
         var eDateRV_J=$(this);
@@ -362,5 +373,69 @@ function adaptZoomPosition(){
     if(readaptMap){
         map_container.fitBounds(latlngbounds);
     }
+}
+function tracerTragetOTFiche(markerFiche) {
+    
+    var directionsPanel = $("#directions-details .directions-details-content");
+    directionsPanel.html("");
+    
+    var waypointsValise=new Array();
+    var originMarker = markerOT;
+    var destinationMarker = markerFiche;
+    
+    var request = {
+        origin: originMarker.getPosition(),
+        destination: destinationMarker.getPosition(),
+        waypoints: waypointsValise,
+        optimizeWaypoints: true,
+        travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+    directionsServiceOTFiche.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplayOTFiche.setDirections(response);
+            var route = response.routes[0];
+            for (var i = 0; i < route.legs.length; i++) {
+                var routeSegment = i+1;
+                directionsPanel.append("<div class=\"route-segment\" ></div>");
+                directionsPanel.find(".route-segment:last").append(
+                    "<div class=\"route-segment-content\">"+
+                    "<b>Route Segment: " + routeSegment + "</b><br />"+
+                    route.legs[i].start_address + " to "+
+                    route.legs[i].end_address + "<br />"+
+                    "distance : "+route.legs[i].distance.text + "<br />"+
+                    "Durée : "+route.legs[i].duration.text + "<br />"+
+                    "<a id=\"show-route-instractions-"+i+"\" href=\"#\" class=\"show-route-instractions\" onClick=\"showItineraireInstractions("+i+")\">Afficher les instructions</a>"+
+                    "<div class=\"clear-both\"></div>"+
+                    "</div>"
+                    );
+                directionsPanel.find(".route-segment:last").append("<div class=\"route-segment-allsteps\"><ul></ul></div>");
+                var allStepsPan=directionsPanel.find(".route-segment:last .route-segment-allsteps ul");
+                for(var j=0;j<route.legs[i].steps.length;j++){
+                    var step=route.legs[i].steps[j];
+                    allStepsPan.append("<li class=\"route-segment-step\">"+step.instructions+
+                        "<p><span><strong><i>Distance : </i></strong>"+step.distance.text+"&nbsp;&nbsp;</span>"+
+                        "<span><strong><i>Durée : </i></strong>"+step.duration.text+"</span></p>"+
+                        "</li>");
+                }
+                allStepsPan.find("li:last").addClass("no-border");
+            }
+
+        } else {
+            alert("Google directions response : "+status);
+        }
+    });
+}
+
+function showTragetOTFiche(){
+    directionsDisplayOTFiche.setMap(map_container);
+    $("#directions-details").fadeOut('fast',function(){
+        $("#directions-details").fadeIn('slow');
+    });
+    markerOTFicheID = detailMarker['idProd'];
+}
+function hideTragetOTFiche(){
+    directionsDisplayOTFiche.setMap(null);
+    $("#directions-details").fadeOut('fast');
+    markerOTFicheID = null;
 }
     
