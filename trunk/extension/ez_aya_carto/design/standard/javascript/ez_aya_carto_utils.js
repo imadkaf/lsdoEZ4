@@ -42,6 +42,9 @@ function reinitialiser(){
     $("#menu-droite .sous-menu").fadeOut();
     $("#valise-container").fadeOut();
     $("#afficher-titre").next(".sous-menu").fadeIn();
+    /* Réinitialiser l'itinéraire depuis l'office de tourisme*/
+    hideTragetOTFiche();
+    markerOT.setMap(null);
     
     /* Réinitialiser toutes les variables */
     cartoMarkers = new Array();
