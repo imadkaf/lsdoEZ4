@@ -281,13 +281,15 @@ $(function(){
         
     });
     $(".affichage-date-form").submit(function(){
-        var eDateRV_DA = $(this);
+        var eDateRV_DA_Form = $(this);
         var categID = $(this).find(".affichage-date-categ-id");
         var dateDu = $(this).find(".checkbox-date-rv-d");
         var dateAu = $(this).find(".checkbox-date-rv-a");
         if( dateDu.val() == '' || dateAu.val() == ''){
             alert("Veuillez remplir les deux champs Du, Au");
         }else{
+            eDateRV_DA_Form.parents(".container-affichage-date").find("affichage-date-rv-j:checked").click();
+            eDateRV_DA_Form.parents(".container-affichage-date").find("affichage-date-rv-s:checked").click();
             var categIndex="categ_"+categID.val();
             var cartoMarkersCateg = cartoMarkers[categIndex];
             for(var i in cartoMarkersCateg){
