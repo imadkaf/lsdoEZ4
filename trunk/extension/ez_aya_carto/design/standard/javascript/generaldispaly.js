@@ -312,6 +312,25 @@ $(function(){
         }
         return false;
     });
+    $(".container-affichage-date").each(function(){
+        var eInput_Du = $(this).find(".checkbox-date-rv-d");
+        var eInput_Au = $(this).find(".checkbox-date-rv-a");
+        var dates = $( "#" +eInput_Du.attr('id')+ ", #" +eInput_Au.attr('id')).datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                dateFormat: "yy-mm-dd",
+                numberOfMonths: 1,
+                onSelect: function( selectedDate ) {
+                        var option = this.id == eInput_Du.attr('id') ? "minDate" : "maxDate",
+                                instance = $( this ).data( "datepicker" ),
+                                date = $.datepicker.parseDate(
+                                        instance.settings.dateFormat ||
+                                        $.datepicker._defaults.dateFormat,
+                                        selectedDate, instance.settings );
+                        dates.not( this ).datepicker( "option", option, date );
+                }
+        }).datepicker( $.datepicker.regional[ "fr" ] );
+    });
     
 });
 /* Adapter la hauteur des sous menu */

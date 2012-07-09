@@ -14,8 +14,10 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
         <title>Cartographie google map v3</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="/extension/ez_aya_carto/design/standard/stylesheets/carto.css">
+        <link rel="stylesheet" type="text/css" href="/extension/ez_aya_carto/design/standard/stylesheets/jqueryui/jquery-ui.min.css">
         <script src="/extension/ez_aya_carto/design/standard/javascript/jquery.min.js"></script>
         <script src="/extension/ez_aya_carto/design/standard/javascript/jquery-ui.min.js"></script>
+        <script src="/extension/ez_aya_carto/design/standard/javascript/jquery.ui.datepicker-fr.min.js"></script>
         <script src="/extension/ez_aya_carto/design/standard/javascript/jquery.idle-timer.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <script>
