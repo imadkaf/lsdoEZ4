@@ -288,8 +288,8 @@ $(function(){
         if( dateDu.val() == '' || dateAu.val() == ''){
             alert("Veuillez remplir les deux champs Du, Au");
         }else{
-            eDateRV_DA_Form.parents(".container-affichage-date").find("affichage-date-rv-j:checked").click();
-            eDateRV_DA_Form.parents(".container-affichage-date").find("affichage-date-rv-s:checked").click();
+            eDateRV_DA_Form.parents(".container-affichage-date").find(".checkbox-date-rv-s:checked").click();
+            eDateRV_DA_Form.parents(".container-affichage-date").find(".checkbox-date-rv-j:checked").click();
             var categIndex="categ_"+categID.val();
             var cartoMarkersCateg = cartoMarkers[categIndex];
             for(var i in cartoMarkersCateg){
