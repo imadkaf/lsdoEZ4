@@ -280,12 +280,12 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                       position: new google.maps.LatLng(<?php echo $CoordsOT['lat']; ?>, <?php echo $CoordsOT['lng']; ?>),
                       map: map_container,
                       title:'Animations au Septième Continent',
-                      icon: new google.maps.MarkerImage('/extension/ez_aya_carto/design/standard/images/pictos/map/categ_undefined.png',
+                      icon: new google.maps.MarkerImage('/extension/ez_aya_carto/design/standard/images/pictos/map/picto_ot.png',
                                                           new google.maps.Size(19, 33),
                                                           new google.maps.Point(0,0),
                                                           new google.maps.Point(0, 33)
                                                           ),
-                      shadow: new google.maps.MarkerImage('/extension/ez_aya_carto/design/standard/images/pictos/map/old_marker_shadow.png',
+                      shadow: new google.maps.MarkerImage('/extension/ez_aya_carto/design/standard/images/pictos/map/picto_ot_shadow.png',
                                                           new google.maps.Size(44, 33),
                                                           new google.maps.Point(0,0),
                                                           new google.maps.Point(0, 33)
