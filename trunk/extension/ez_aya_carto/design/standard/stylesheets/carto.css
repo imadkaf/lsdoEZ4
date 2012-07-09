@@ -407,7 +407,7 @@ ul,li{
 }
 #menu-droite .sous-menu{
     background: url('../images/bg_menu.png');
-    min-width: 180px;
+    min-width: 195px;
     display: none;
     margin-right: 1px;
     color: #000;
@@ -683,8 +683,22 @@ ul,li{
     display: block;
     margin: 3px 0;
 }
-.container-affichage-date .affichage-date-titre{
+.container-affichage-date .affichage-date-name{
     display: block;
     margin: 3px 0;
-    padding: 2px 5px 2px 20px;
+    white-space: nowrap;
+}
+.container-affichage-date .affichage-date-name .affichage-date-name-text{
+    display: block;
+    padding: 2px 1px;
+    float: left;
+    font-size: 120%;
+}
+.container-affichage-date .affichage-date-name img{
+    display: block;
+    float: left;
+}
+.container-affichage-date .affichage-date-rollover{
+    display: none;
+    overflow: hidden;
 }
