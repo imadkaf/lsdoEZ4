@@ -127,7 +127,7 @@ if (isset($_GET["idc"])) {
     $categTitle = $SITCategoriesTitle[$categ_id];
     $categTitle = implode("\\'", explode("'", $categTitle));
     $xmlResultat = false;
-    echo $urlRootSit . "Recherche" . "&idc=" . $categ_id . $urlParams;
+    
     if (fichierXMLCacheExpire($urlCache, "cachexmlcateg" . $categ_id, $dureeCache)) {
         $contenuXML = simplexml_load_file($urlRootSit . "Recherche" . "&idc=" . $categ_id . $urlParams);
         setFichierXMLCache($contenuXML->asXML(), $urlCache, "cachexmlcateg" . $categ_id, $dureeCache);
