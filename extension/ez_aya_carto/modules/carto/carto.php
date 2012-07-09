@@ -5,6 +5,7 @@ $MapCenter = $ezAyaCartoIni->variable('MapSettings', 'MapCenter');
 $MapZoom = $ezAyaCartoIni->variable('MapSettings', 'Zoom');
 $MapType = $ezAyaCartoIni->variable('MapSettings', 'MapType');
 $MapSVProximite = $ezAyaCartoIni->variable('MapSettings', 'MapSVProximite');
+$CoordsOT = $ezAyaCartoIni->variable('OTSettings', 'Coords');
 $DureeInactivite = $ezAyaCartoIni->variable('GlobalCartoSitParameters', 'DureeInactivite');
 $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
 ?>
@@ -21,6 +22,8 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
         <script src="/extension/ez_aya_carto/design/standard/javascript/jquery.idle-timer.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <script>
+            var markerOT = null;
+            var markerOTFicheID = null;
             var streetViewMarker=false;
             var cartoMarkers = new Array();
             var searchCartoMarkers = new Array();
@@ -34,6 +37,8 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
             var directionsService = new google.maps.DirectionsService();
             var directionsDisplayTrajet = new google.maps.DirectionsRenderer();
             var directionsServiceTrajet = new google.maps.DirectionsService();
+            var directionsDisplayOTFiche = new google.maps.DirectionsRenderer();
+            var directionsServiceOTFiche = new google.maps.DirectionsService();
             var geocoder = new google.maps.Geocoder();
             var svProximite = <?php echo $MapSVProximite;?>;
         </script>
@@ -68,8 +73,9 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                 </div>
                 <div class="centre-valise">
                     <a href="#" class="centre-carte"></a>
-                    <a href="#" class="ajout-valise"></a>
+                    <a href="#" class="ajout-valise cache"></a>
                     <a href="#" class="retirer-valise cache"></a>
+                    <a href="#" class="tracer-itineraire-ot" title="Tracer l'itineraire vers l'OT"></a>
                     <div class="clear-both"></div>
                 </div>
             </div>
@@ -149,7 +155,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                                         $SectionChildTitle = $SITCategoriesTitle[$SectionChild];
                                                 ?>
                                                     <div class="container-affichage-date">
-                                                        <a href="#" class="affichage-date-titre"><?php echo $SectionChildTitle;?></a>
+                                                        <span class="affichage-date-titre"><?php echo $SectionChildTitle;?></span>
                                                         <div class="affichage-date-options">
                                                             <label class="affichage-date-rv-j" for="<?php echo "item-$SectionChild-rv-j"?>"><input class="checkbox-date-rv-j" id="<?php echo "item-$SectionChild-rv-j";?>" type="checkbox" value="<?php echo $SectionChild;?>" />Les Rendez-Vous du jour</label>
                                                             <label class="affichage-date-rv-s" for="<?php echo "item-$SectionChild-rv-s"?>"><input class="checkbox-date-rv-s"  id="<?php echo "item-$SectionChild-rv-s";?>" type="checkbox" value="<?php echo $SectionChild;?>" />Les Rendez-Vous de la semaine</label>
@@ -238,7 +244,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                     </li>
                 </ul>
             </div>
-            <div id="menu-bottom">
+            <div id="menu-bottom" class="cache">
                 <div id="ma-valise">
                     <a id="valise-titre" href="#" class="section-menu">ma valise</a>
                     <div id="valise-container">
@@ -269,6 +275,23 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                 mapTypeId: <?php echo "google.maps.MapTypeId.$MapType"; ?>
             }
             var map_container = new google.maps.Map(document.getElementById("google-map"), myOptions);
+            
+            markerOT = new google.maps.Marker({
+                      position: new google.maps.LatLng(<?php echo $CoordsOT['lat']; ?>, <?php echo $CoordsOT['lng']; ?>),
+                      map: map_container,
+                      title:'Animations au Septième Continent',
+                      icon: new google.maps.MarkerImage('/extension/ez_aya_carto/design/standard/images/pictos/map/categ_undefined.png',
+                                                          new google.maps.Size(19, 33),
+                                                          new google.maps.Point(0,0),
+                                                          new google.maps.Point(0, 33)
+                                                          ),
+                      shadow: new google.maps.MarkerImage('/extension/ez_aya_carto/design/standard/images/pictos/map/old_marker_shadow.png',
+                                                          new google.maps.Size(44, 33),
+                                                          new google.maps.Point(0,0),
+                                                          new google.maps.Point(0, 33)
+                                                          )
+                      });
+             markerOT.setMap(null);
             /* idleTimer :  */
             (function($){
                var stimeout = <?php echo $DureeInactivite * 1000;?>;
