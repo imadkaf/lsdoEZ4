@@ -440,7 +440,7 @@ ul,li{
     float: left;
     margin-right: 3px;
 }
-#menu-droite .sous-menu label:hover,#menu-droite .sous-menu label.active{
+#menu-droite .sous-menu label:hover,#menu-droite .sous-menu label.active,#menu-droite .sous-menu label[checked="checked"]{
     color: #ffa405;
 }
 #afficher-titre{
@@ -651,4 +651,20 @@ ul,li{
     margin-top: 15px;
     padding: 0 0 2px 20px;
     background: url('../images/menu/icon_rafraichi.png') no-repeat 0 0%;
+}
+.container-affichage-date{
+    font-size: 80%;
+    border: 1px solid grey;
+    margin: 2px 0;
+    padding: 3px;
+    position: relative;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    behavior:url(/extension/ez_aya_carto/design/standard/stylesheets/pie.htc);  
+}
+.container-affichage-date .rv-puce-calendrier{
+    display: block;
+    padding-right: 20px;
+    background: url('../images/menu/icon_calendrier.png') no-repeat 100% 50%;
 }
