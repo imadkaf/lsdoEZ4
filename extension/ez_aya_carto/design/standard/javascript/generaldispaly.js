@@ -202,7 +202,7 @@ $(function(){
         return false;
     });
     $(".reinitialiser-ma-recherche").click(function(){
-        var checkbox_categorie = $(this).parent().find(".checkbox-categorie");
+        var checkbox_categorie = $(this).parent().find(".checkbox-categorie, .checkbox-date-rv-j, .checkbox-date-rv-s");
         checkbox_categorie.each(function(){
             if($(this).is(":checked")){
                 $(this).click();
