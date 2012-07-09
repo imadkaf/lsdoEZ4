@@ -98,7 +98,7 @@ function dateOuvDA($datesOuvertures, $dateDU, $dateAU){
     $dateDUArr=explode("-",$dateDU);
     $dateAUArr=explode("-",$dateAU);
     $dateDUStamp = mktime(0,0,0,$dateDUArr[1],$dateDUArr[2],$dateDUArr[0]);
-    $dateAUStamp = mktime(0,0,0,$moisC,$dateAUArr[1],$dateAUArr[2],$dateAUArr[0]);
+    $dateAUStamp = mktime(0,0,0,$dateAUArr[1],$dateAUArr[2],$dateAUArr[0]);
     
     $result=false;
     foreach($datesOuvertures as $dateOuvert){
@@ -167,7 +167,7 @@ if (isset($_GET["idc"])) {
             }elseif($typeAffichage == 2 && isset($_GET["filt"]) && $_GET["filt"] == 's'){
                 
                 $dateOuvertureIsOk = dateOuvS($datesOuvertures);
-            }elseif($typeAffichage == 2 && isset($_GET["filt"]) && $_GET["filt"] == 'da' && isset($_GET["du"]) && $_GET["du"] == '' && isset($_GET["au"]) && $_GET["au"] == ''){
+            }elseif($typeAffichage == 2 && isset($_GET["filt"]) && $_GET["filt"] == 'da' && isset($_GET["du"]) && $_GET["du"] != '' && isset($_GET["au"]) && $_GET["au"] != ''){
                 $dateDU = $_GET["du"];
                 $dateAU = $_GET["au"];
                 $dateOuvertureIsOk = dateOuvDA($datesOuvertures, $dateDU, $dateAU);
