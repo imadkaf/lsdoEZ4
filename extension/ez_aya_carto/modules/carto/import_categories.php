@@ -48,8 +48,80 @@ function fichierXMLCacheExpire($cheminRepCahce, $nomFichier, $dureeCache) {
         return true; //cache expiré
     }
 }
+/* fonction pour tester sur les dates d'ouvertures*/
+function dateOuvJ($datesOuvertures){
+    $dateDuJour=date("Y-m-d", time());
+    $result=false;
+    foreach($datesOuvertures as $dateOuvert){
+        $dateOuvertDeb=explode("-",$dateOuvert['dateDebut']);
+        $dateOuvertFin=explode("-",$dateOuvert['dateFin']);
+        
+        $dateOuvertDebTStamp=mktime(0,0,0,$dateOuvertDeb[1],$dateOuvertDeb[2],$dateOuvertDeb[0]);
+        $dateOuvertFinTStamp=mktime(0,0,0,$dateOuvertFin[1],$dateOuvertFin[2],$dateOuvertFin[0]);
+        
+        if(time() >= $dateOuvertDebTStamp && time() <= $dateOuvertFinTStamp ){
+            $result=true;
+            break;
+        }
+    }
+    
+    return $result;
+}
+function dateOuvS($datesOuvertures){
+    $anneeC = (int)date("Y", time());
+    $moisC = (int)date("m", time());
+    $jourC = (int)date("d", time());
+    $numJrSem = (int)date("w", time());
+    $dateDebSemaineStamp = mktime(0,0,0,$moisC,($jourC - $numJrSem + 1),$anneeC);
+    $dateFinSemaineStamp = mktime(0,0,0,$moisC,($jourC - $numJrSem + 8),$anneeC);
+    
+    $dateDebSemaine = date("Y-m-d", $dateDebSemaineStamp);
+    $dateFinSemaine = date("Y-m-d", $dateFinSemaineStamp);
+    
+    $result=false;
+    foreach($datesOuvertures as $dateOuvert){
+        $dateOuvertDeb=explode("-",$dateOuvert['dateDebut']);
+        $dateOuvertFin=explode("-",$dateOuvert['dateFin']);
+        
+        $dateOuvertDebTStamp=mktime(0,0,0,$dateOuvertDeb[1],$dateOuvertDeb[2],$dateOuvertDeb[0]);
+        $dateOuvertFinTStamp=mktime(0,0,0,$dateOuvertFin[1],$dateOuvertFin[2],$dateOuvertFin[0]);
+        
+        if( !($dateDebSemaineStamp > $dateOuvertFinTStamp or $dateFinSemaineStamp < $dateOuvertDebTStamp ) ){
+            $result=true;
+            break;
+        }
+    }
+    
+    return $result;
+}
+function dateOuvDA($datesOuvertures, $dateDU, $dateAU){
+    $dateDUArr=explode("-",$dateDU);
+    $dateAUArr=explode("-",$dateAU);
+    $dateDUStamp = mktime(0,0,0,$dateDUArr[1],$dateDUArr[2],$dateDUArr[0]);
+    $dateAUStamp = mktime(0,0,0,$moisC,$dateAUArr[1],$dateAUArr[2],$dateAUArr[0]);
+    
+    $result=false;
+    foreach($datesOuvertures as $dateOuvert){
+        $dateOuvertDeb=explode("-",$dateOuvert['dateDebut']);
+        $dateOuvertFin=explode("-",$dateOuvert['dateFin']);
+        
+        $dateOuvertDebTStamp=mktime(0,0,0,$dateOuvertDeb[1],$dateOuvertDeb[2],$dateOuvertDeb[0]);
+        $dateOuvertFinTStamp=mktime(0,0,0,$dateOuvertFin[1],$dateOuvertFin[2],$dateOuvertFin[0]);
+        
+        if( !($dateDUStamp > $dateOuvertFinTStamp or $dateAUStamp < $dateOuvertDebTStamp ) ){
+            $result=true;
+            break;
+        }
+    }
+    
+    return $result;
+}
 
 if (isset($_GET["idc"])) {
+    $typeAffichage=1;
+    if (isset($_GET["ta"]) && $_GET["ta"] == '2'){
+        $typeAffichage=2;
+    }
     $categ_id = explode("_", $_GET["idc"]);
     $categ_id = $categ_id[1];
     $categTitle = $SITCategoriesTitle[$categ_id];
@@ -71,10 +143,40 @@ if (isset($_GET["idc"])) {
             /* tester si les valeur Latitude et Longitude sont correctes */
             $testGeoLat = $detail->xpath("./criteres/critere[@id=$idCritGeoloc]/modalites/modalite[@id=$idModaliteLat]/valModalite");
             $testGeoLng = $detail->xpath("./criteres/critere[@id=$idCritGeoloc]/modalites/modalite[@id=$idModaliteLng]/valModalite");
-            if (count($testGeoLat) > 0 && count($testGeoLng) > 0 && is_numeric((string) $testGeoLat[0]) && is_numeric((string) $testGeoLng[0])) {
+            /* if ta = 2*/
+            $datesOuvertures = array();
+            $dateOuvertureIsOk=false;
+            /* Deb : Construction du tableau $datesOuvertures  */
+            $periodesOuvertures = $detail->xpath("./periodesOuvertures/periodeOuverture");
+            if(count($periodesOuvertures) > 0){
+                foreach($periodesOuvertures as $periodeOuverture){
+                    $periodeOuvertureDebut = $periodeOuverture[0]->xpath("periodeOuvertureDebut");
+                    $periodeOuvertureDebut = $periodeOuvertureDebut[0];
+                    $periodeOuvertureFin = $periodeOuverture[0]->xpath("periodeOuvertureFin");
+                    $periodeOuvertureFin = $periodeOuvertureFin[0];
+                    $datesOuvertures[] = array("dateDebut"=>(string)$periodeOuvertureDebut[0],"dateFin"=>(string)$periodeOuvertureFin[0]);
+                }
+            }
+            
+            /* Fin : Construction du tableau $datesOuvertures  */
+            
+            
+            if($typeAffichage == 2 && isset($_GET["filt"]) && $_GET["filt"] == 'j'){
+
+                $dateOuvertureIsOk = dateOuvJ($datesOuvertures);
+            }elseif($typeAffichage == 2 && isset($_GET["filt"]) && $_GET["filt"] == 's'){
+                
+                $dateOuvertureIsOk = dateOuvS($datesOuvertures);
+            }elseif($typeAffichage == 2 && isset($_GET["filt"]) && $_GET["filt"] == 'da' && isset($_GET["du"]) && $_GET["du"] == '' && isset($_GET["au"]) && $_GET["au"] == ''){
+                $dateDU = $_GET["du"];
+                $dateAU = $_GET["au"];
+                $dateOuvertureIsOk = dateOuvDA($datesOuvertures, $dateDU, $dateAU);
+            }
+            if ( ( count($testGeoLat) > 0 && count($testGeoLng) > 0 && is_numeric((string) $testGeoLat[0]) && is_numeric((string) $testGeoLng[0]) ) && ($typeAffichage == 1 || ($typeAffichage == 2 and $dateOuvertureIsOk)) ) {
+                
                 $varJS = "";
                 $idProduit = (string) $detail[@id];
-
+                
                 $intitule = $detail->intitule;
                 $intitule = (string) $intitule[0];
                 $intitule = implode("\\'", explode("'", $intitule));
@@ -106,6 +208,8 @@ if (isset($_GET["idc"])) {
                 $detailWeb = $detail->xpath("./adresses/adresse/web");
                 $detailWeb = (string) $detailWeb[0];
                 $detailWeb = implode("\\'", explode("'", $detailWeb));
+                
+                
 
                 $detailNewPhotos = array();
                 foreach ($detail->xpath("./newPhotos/newPhoto") as $newPhoto) {

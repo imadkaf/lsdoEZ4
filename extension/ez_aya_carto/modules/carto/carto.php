@@ -82,6 +82,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                 foreach ($SITSections as $SITSection) {
                                     $SITSectionTitre = $ezAyaCartoIni->variable($SITSection, 'Titre');
                                     $SITSectionIcone = $ezAyaCartoIni->variable($SITSection, 'Icone');
+                                    $SITSectionTypeAffichage = $ezAyaCartoIni->variable($SITSection, 'TypeAffichage');
                                     $SITSectionChildren = $ezAyaCartoIni->variable($SITSection, 'SectionChildren');
                                     ?>
                                     <li class="niv-2">
@@ -104,36 +105,64 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                                 <span class="text"><?php echo $SITSectionTitre; ?></span>
                                                 <div class="clear-both"></div>
                                             </div>
-                                            <ul>
-                                                <?php
-                                                foreach ($SITSectionChildren as $keySectionChild => $SectionChild) {
-                                                    $SectionChildTitle = $SITCategoriesTitle[$SectionChild];
-                                                    ?>
-                                                    <li>
-                                                        <label for="categ_<?php echo $SectionChild; ?>">
-                                                            <?php
-                                                            $cheminPuceCateg = "/extension/ez_aya_carto/design/standard/images/pictos/menu/categ_undefined.png";
-                                                            if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/extension/ez_aya_carto/design/standard/images/pictos/menu/categ_" . $SectionChild . ".png")) {
-                                                                $cheminPuceCateg = "/extension/ez_aya_carto/design/standard/images/pictos/menu/categ_" . $SectionChild . ".png";
-                                                            }
-                                                            ?>
-                                                            <img src="<?php echo $cheminPuceCateg; ?>" />
-                                                            <span class="categ-name">
-                                                                <input class="checkbox-categorie" id="categ_<?php echo $SectionChild; ?>" type="checkbox" name="categ_<?php echo $SectionChild; ?>" />
-                                                                <?php echo $SectionChildTitle; ?>  
-                                                            </span>
-                                                            <div class="clear-both"></div>
-                                                        </label>
-                                                    </li>
+                                            
+                                            <?php if($SITSectionTypeAffichage == "1" || $SITSectionTypeAffichage == false){?>
+                                            
+                                                <ul>
                                                     <?php
-                                                }
+                                                    foreach ($SITSectionChildren as $keySectionChild => $SectionChild) {
+                                                        $SectionChildTitle = $SITCategoriesTitle[$SectionChild];
+                                                        ?>
+                                                        <li>
+                                                            <label for="categ_<?php echo $SectionChild; ?>">
+                                                                <?php
+                                                                $cheminPuceCateg = "/extension/ez_aya_carto/design/standard/images/pictos/menu/categ_undefined.png";
+                                                                if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/extension/ez_aya_carto/design/standard/images/pictos/menu/categ_" . $SectionChild . ".png")) {
+                                                                    $cheminPuceCateg = "/extension/ez_aya_carto/design/standard/images/pictos/menu/categ_" . $SectionChild . ".png";
+                                                                }
+                                                                ?>
+                                                                <img src="<?php echo $cheminPuceCateg; ?>" />
+                                                                <span class="categ-name">
+                                                                    <input class="checkbox-categorie" id="categ_<?php echo $SectionChild; ?>" type="checkbox" name="categ_<?php echo $SectionChild; ?>" />
+                                                                    <?php echo $SectionChildTitle; ?>  
+                                                                </span>
+                                                                <div class="clear-both"></div>
+                                                            </label>
+                                                        </li>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </ul>
+                                                <?php if(count($SITSectionChildren) != 0){
                                                 ?>
-                                            </ul>
-                                            <?php if(count($SITSectionChildren) != 0){
-                                            ?>
-                                            <a href="#" class="effacer-marqueurs-fiches medium-font">Effacer les marqueurs</a>
-                                            <?php
-                                            }?>
+                                                    <a href="#" class="effacer-marqueurs-fiches medium-font">Effacer les marqueurs</a>
+                                                <?php
+                                                }?>
+                                                
+                                            <?php }?>
+                                            <?php if($SITSectionTypeAffichage == "2"){?>
+                                                
+                                                <?php if(count($SITSectionChildren) >= 1){?>
+                                                <?php foreach ($SITSectionChildren as $keySectionChild => $SectionChild) {
+                                                        $SectionChildTitle = $SITCategoriesTitle[$SectionChild];
+                                                ?>
+                                                    <div class="container-affichage-date">
+                                                        <a href="#" class="affichage-date-titre"><?php echo $SectionChildTitle;?></a>
+                                                        <div class="affichage-date-options">
+                                                            <label class="affichage-date-rv-j" for="<?php echo "item-$SectionChild-rv-j"?>"><input class="checkbox-date-rv-j" id="<?php echo "item-$SectionChild-rv-j";?>" type="checkbox" value="<?php echo $SectionChild;?>" />Les Rendez-Vous du jour</label>
+                                                            <label class="affichage-date-rv-s" for="<?php echo "item-$SectionChild-rv-s"?>"><input class="checkbox-date-rv-s"  id="<?php echo "item-$SectionChild-rv-s";?>" type="checkbox" value="<?php echo $SectionChild;?>" />Les Rendez-Vous de la semaine</label>
+                                                        </div>
+                                                        <form class="affichage-date-form">
+                                                            <label class="rv-puce-calendrier affichage-date-rv-d" for="<?php echo "item-$SectionChild-rv-d"?>">Du :<input class="checkbox-date-rv-d" id="<?php echo "item-$SectionChild-rv-d"?>" type="text" /></label>
+                                                            <label class="rv-puce-calendrier affichage-date-rv-a" for="<?php echo "item-$SectionChild-rv-a"?>">Au :<input class="checkbox-date-rv-a" id="<?php echo "item-$SectionChild-rv-a"?>" type="text" /></label>
+                                                            <input id="<?php echo "affichage-date-categ-id-$SectionChild";?>" class="affichage-date-categ-id" type="hidden" value="<?php echo $SectionChild;?>"/>
+                                                            <input id="<?php echo "affichage-date-btn-submit-$SectionChild";?>" class="affichage-date-btn-submit" type="submit"/>
+                                                        </form>
+                                                    </div>
+                                                <?php }?>
+                                                    
+                                                <?php }?>
+                                            <?php }?>
                                             
                                         </div>
                                     </li>
