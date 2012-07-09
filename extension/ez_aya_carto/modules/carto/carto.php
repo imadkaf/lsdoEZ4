@@ -155,17 +155,29 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                                         $SectionChildTitle = $SITCategoriesTitle[$SectionChild];
                                                 ?>
                                                     <div class="container-affichage-date">
-                                                        <span class="affichage-date-titre"><?php echo $SectionChildTitle;?></span>
-                                                        <div class="affichage-date-options">
-                                                            <label class="affichage-date-rv-j" for="<?php echo "item-$SectionChild-rv-j"?>"><input class="checkbox-date-rv-j" id="<?php echo "item-$SectionChild-rv-j";?>" type="checkbox" value="<?php echo $SectionChild;?>" />Les Rendez-Vous du jour</label>
-                                                            <label class="affichage-date-rv-s" for="<?php echo "item-$SectionChild-rv-s"?>"><input class="checkbox-date-rv-s"  id="<?php echo "item-$SectionChild-rv-s";?>" type="checkbox" value="<?php echo $SectionChild;?>" />Les Rendez-Vous de la semaine</label>
+                                                        <a href="#" class="affichage-date-name">
+                                                        <?php
+                                                            $cheminPuceCateg = "/extension/ez_aya_carto/design/standard/images/pictos/menu/categ_undefined.png";
+                                                            if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/extension/ez_aya_carto/design/standard/images/pictos/menu/categ_" . $SectionChild . ".png")) {
+                                                                $cheminPuceCateg = "/extension/ez_aya_carto/design/standard/images/pictos/menu/categ_" . $SectionChild . ".png";
+                                                            }
+                                                            ?>
+                                                            <img src="<?php echo $cheminPuceCateg; ?>" />
+                                                            <span class="affichage-date-name-text"><?php echo $SectionChildTitle;?></span>
+                                                            <span class="clear-both"></span>
+                                                        </a>
+                                                        <div class="affichage-date-rollover">
+                                                            <div class="affichage-date-options">
+                                                                <label class="affichage-date-rv-j" for="<?php echo "item-$SectionChild-rv-j"?>"><input class="checkbox-date-rv-j" id="<?php echo "item-$SectionChild-rv-j";?>" type="checkbox" value="<?php echo $SectionChild;?>" />Les Rendez-Vous du jour</label>
+                                                                <label class="affichage-date-rv-s" for="<?php echo "item-$SectionChild-rv-s"?>"><input class="checkbox-date-rv-s"  id="<?php echo "item-$SectionChild-rv-s";?>" type="checkbox" value="<?php echo $SectionChild;?>" />Les Rendez-Vous de la semaine</label>
+                                                            </div>
+                                                            <form class="affichage-date-form">
+                                                                <label class="rv-puce-calendrier affichage-date-rv-d" for="<?php echo "item-$SectionChild-rv-d"?>">Du :<input class="checkbox-date-rv-d" id="<?php echo "item-$SectionChild-rv-d"?>" type="text" /></label>
+                                                                <label class="rv-puce-calendrier affichage-date-rv-a" for="<?php echo "item-$SectionChild-rv-a"?>">Au :<input class="checkbox-date-rv-a" id="<?php echo "item-$SectionChild-rv-a"?>" type="text" /></label>
+                                                                <input id="<?php echo "affichage-date-categ-id-$SectionChild";?>" class="affichage-date-categ-id" type="hidden" value="<?php echo $SectionChild;?>"/>
+                                                                <input id="<?php echo "affichage-date-btn-submit-$SectionChild";?>" class="affichage-date-btn-submit" type="submit"/>
+                                                            </form>
                                                         </div>
-                                                        <form class="affichage-date-form">
-                                                            <label class="rv-puce-calendrier affichage-date-rv-d" for="<?php echo "item-$SectionChild-rv-d"?>">Du :<input class="checkbox-date-rv-d" id="<?php echo "item-$SectionChild-rv-d"?>" type="text" /></label>
-                                                            <label class="rv-puce-calendrier affichage-date-rv-a" for="<?php echo "item-$SectionChild-rv-a"?>">Au :<input class="checkbox-date-rv-a" id="<?php echo "item-$SectionChild-rv-a"?>" type="text" /></label>
-                                                            <input id="<?php echo "affichage-date-categ-id-$SectionChild";?>" class="affichage-date-categ-id" type="hidden" value="<?php echo $SectionChild;?>"/>
-                                                            <input id="<?php echo "affichage-date-btn-submit-$SectionChild";?>" class="affichage-date-btn-submit" type="submit"/>
-                                                        </form>
                                                     </div>
                                                 <?php }?>
                                                     

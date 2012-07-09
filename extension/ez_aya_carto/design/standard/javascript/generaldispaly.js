@@ -223,6 +223,18 @@ $(function(){
         }
         return false;
     });
+    $(".container-affichage-date .affichage-date-rollover:first").slideDown('fast');
+    $(".container-affichage-date .affichage-date-name").click(function(){
+        
+        if($(".container-affichage-date").length > 1){
+            $(".container-affichage-date .affichage-date-rollover:visible").slideUp('fast');
+            var eBlocRollOver = $(this).parent().find(".affichage-date-rollover");
+            if(!eBlocRollOver.is(":visible")){
+                eBlocRollOver.slideDown('fast');
+            }
+        }
+        return false;
+    });
     /* Menu>Afficher>Les dates */
     $(".checkbox-date-rv-j").change(function(){
         var eDateRV_J=$(this);
