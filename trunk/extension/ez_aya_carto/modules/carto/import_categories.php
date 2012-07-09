@@ -127,7 +127,7 @@ if (isset($_GET["idc"])) {
     $categTitle = $SITCategoriesTitle[$categ_id];
     $categTitle = implode("\\'", explode("'", $categTitle));
     $xmlResultat = false;
-
+    echo $urlRootSit . "Recherche" . "&idc=" . $categ_id . $urlParams;
     if (fichierXMLCacheExpire($urlCache, "cachexmlcateg" . $categ_id, $dureeCache)) {
         $contenuXML = simplexml_load_file($urlRootSit . "Recherche" . "&idc=" . $categ_id . $urlParams);
         setFichierXMLCache($contenuXML->asXML(), $urlCache, "cachexmlcateg" . $categ_id, $dureeCache);
@@ -171,6 +171,7 @@ if (isset($_GET["idc"])) {
                 $dateDU = $_GET["du"];
                 $dateAU = $_GET["au"];
                 $dateOuvertureIsOk = dateOuvDA($datesOuvertures, $dateDU, $dateAU);
+
             }
             if ( ( count($testGeoLat) > 0 && count($testGeoLng) > 0 && is_numeric((string) $testGeoLat[0]) && is_numeric((string) $testGeoLng[0]) ) && ($typeAffichage == 1 || ($typeAffichage == 2 and $dateOuvertureIsOk)) ) {
                 
