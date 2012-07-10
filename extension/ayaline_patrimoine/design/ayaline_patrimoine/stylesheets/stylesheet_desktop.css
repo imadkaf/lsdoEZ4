@@ -1,0 +1,15 @@
+#container {
+	margin:auto;
+    width:320px;
+}
+#Header .logo{
+	text-align:center;
+	padding:15px 0 10px 0px;
+}
+.icons{
+	padding:0 30px 0 30px;
+}
+
+table{
+	width: 100%;
+}
