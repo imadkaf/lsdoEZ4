@@ -1,0 +1,37 @@
+.border-bottom-header{border-bottom: 4px solid #98e2cc !important;}
+.border-left-vert-5px{border-left: 4px solid #cbf0e5;}
+.arriere-plan-item-menu{background: #98e2cc;}
+.homme{background: #045b7a url('../images/homme-blanc.png') no-repeat center;border: 3px solid #136f87;}
+.homme-bleu-ciel{background: #31cdf7 url('../images/homme-blanc.png') no-repeat center;border: 3px solid #90dff4;}
+.homme-rose{background: #ed1e79 url('../images/homme-blanc.png') no-repeat center;border: 3px solid #f73994;}
+.homme-vert{background: #98e2cc url('../images/homme-blanc.png') no-repeat center;border: 3px solid #cbf0e5;}
+.google-maps-actif{display: none;background: #fff url('../images/pictos-google-map.png') no-repeat center;}
+.google-maps-desactif{background: #fff url('../images/pictos-google-map.png') no-repeat center;border: 3px solid #70777F;}
+.fleche{border: 3px solid #cbf0e5;background: #cbf0e5 url('../images/bloc-arrondi-milieu-fleche.png') no-repeat center;}
+.plus-image{background:#fff url('../images/pictos-plus-image-plus.png') no-repeat center;border:3px solid #70777f;}
+.lien-plus-info{background:#fff url('../images/pictos-plus-info-plus.png') no-repeat center;border:3px solid #70777f;}
+.lien-plus-info-ouvert{background:#fff url('../images/plus-info-ouvert.png') no-repeat center;border:3px solid #70777f;}
+.quizz{background:#98e2cc url('../images/quizz.png') no-repeat center;border:3px solid #70777f;}
+.retour{background:#fff url('../images/fleche-gris.png') no-repeat center;border: 3px solid #70777f;}
+.supp-itiniraire{background:#fff url('../images/supp-itiniraire.png') no-repeat center;border: 3px solid #70777f;}
+.plus-image-pictos{background:#fff url('../images/plus-image.png') no-repeat center;border:3px solid #70777f;}
+.plus-info-pictos{background:#fff url('../images/pictos-plus-info-plus.png') no-repeat center;border:3px solid #70777f;}
+.quizz-pictos{background:#98e2cc url('../images/quizz.png') no-repeat center;border:3px solid #70777f;}
+.google-map-actif-circuit{background: #98e2cc url(../images/bulle-milieu-blanc.png) no-repeat center;}
+.google-map-ferme-circuit{background: #98e2cc url(../images/bulle-vide-map.png) no-repeat center;border: 3px solid #70777f;}
+.itiniraire-circuit{background: #98e2cc url(../images/itiniraire-circuit.png) no-repeat center;}
+.plus-image-ouvert{background:#98e2cc url('../images/plus-image-ouvert.png') no-repeat center;border:3px solid #70777f}
+.pieds-page .media-diaporama li a.diapo-prec{background:#98e2cc url('../images/diapo-prec.png') no-repeat center; border: 3px solid #cbf0e5;}
+.pieds-page .media-diaporama li a.diapo-suiv{background:#98e2cc url('../images/diapo-suiv.png') no-repeat center; border: 3px solid #cbf0e5;}
+.pieds-page .media-diaporama li a.diapo-play{background:#98e2cc url('../images/diapo-play.png') no-repeat center; border: 3px solid #cbf0e5;}
+.pieds-page .media-diaporama li a.diapo-pause{background:#98e2cc url('../images/diapo-pause.png') no-repeat center; border: 3px solid #cbf0e5;}
+.pieds-page .media-diaporama li a.diapo-ferme{background: url('../images/diapo-fermer.png') no-repeat center;border: 3px solid #70777f;}
+#togglePause{background-color: #98E2CC;}
+.ok{background: #28bfbc url('../images/ok.png') no-repeat center;border: 3px solid #28bfbc;}
+.question-reponse .reponses li .reponse1{margin: auto;cursor: pointer;background:#1abbb7 url('../images/reponse1.png') no-repeat center;border: 3px solid #1abbb7;}
+.question-reponse .reponses li .reponse1-selectionne {display: none;margin: auto;cursor: pointer;background:#1abbb7 url('../images/un.png') no-repeat center;border: 3px solid #1abbb7;}
+.question-reponse .reponses li .reponse2{margin: auto;cursor: pointer;background:#1abbb7 url('../images/reponse2.png') no-repeat center;border: 3px solid #1abbb7;}
+.question-reponse .reponses li .reponse2-selectionne{display: none;margin: auto;cursor: pointer;background:#1abbb7 url('../images/deux.png') no-repeat center;border: 3px solid #1abbb7;}
+.resultat-reponse1{background:#1abbb7 url('../images/un.png') no-repeat center;}
+.resultat-reponse2{background:#1abbb7 url('../images/un.png') no-repeat center;}
+
