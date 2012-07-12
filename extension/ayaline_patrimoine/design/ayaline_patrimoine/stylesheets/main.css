@@ -89,7 +89,7 @@ a.logo-site{margin-right: 4px;}
 
 .accroche{background: #fff;padding: 9px 17px;}
 .accroche h1{margin-bottom: 3px;}
-.accroche h1 p{text-shadow: 0 0 1px   #aaa;font-family: 'OmnesMedium';font-weight: 200;font-size: 90%;line-height: 1em;}
+.accroche h1 p,.accroche h2{text-shadow: 0 0 1px   #aaa;font-family: 'OmnesMedium';font-weight: 200;font-size: 2em;line-height: 1em;margin-bottom: 3px;}/*modifié par melbajjati*/
 
 .TopNavBar .menu{
 	float:left;
