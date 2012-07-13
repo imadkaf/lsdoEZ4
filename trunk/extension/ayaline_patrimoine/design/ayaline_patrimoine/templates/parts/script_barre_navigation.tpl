@@ -83,6 +83,8 @@ function calcRoute(origin,destination,points,couleuritineraire) {
 //initialize('map_canvas', 8 ,-25.274398, 133.775136,"Sydney, NSW","Broken Hill, NSW",[{location: "Bourke, NSW"}, {location: "Broken Hill, NSW"}], [{location: "Bourke, NSW"}, {location: "Broken Hill, NSW"}, {location: "Sydney, NSW"}]);
 $(".afficher-map").click(function() {
    var hauteur = $("body").height() - $(".bloc-carte-google").height() - $(".pieds-page").height();
+	$(".google-map-ferme-circuit").css("display","none");
+	$(".google-map-actif-circuit").css("display","block");
     $(".google-maps-desactif").css("display","none");
     $(".google-maps-actif").css("display","block");   
     $("#Header").css("display","none");
@@ -94,12 +96,15 @@ $(".afficher-map").click(function() {
     $(".bloc-carte-google .masquer-bloc").css("display","block");
     $(".pieds-page ul").css("max-width","180px")
     $(".supp-itiniraire").css("display","block");
+    $(".itiniraire-circuit").css("display","block");
     $("#map_canvas").css("height", hauteur+"px");
     initialize('map_canvas', 8 , 47.26804770458176, -0.032958984375,"Nante, France","La roche sur Yon, France",  [{location: "Nantes, France"}, {location: "Angers, France"},{location: "La Roche-sur-Yon, France"},{location: "Le Mans, France"}] ,[['Angers', 47.436448065837205, -0.591888427734375, 3],['Manly Beach', 47.79655164755933, -0.33233642578125, 2],['le Mans', 48.007180450057604, 0.19994258880615234, 1]],[['Nante', 47.60616304386874, 0.17578125, 4],['La roche sur Yon', 46.60605412713272, -1.4996337890625, 5]],'#98e2cc');
     return false;
 });
 
     $(".masquer-map").click(function() {
+    $(".google-map-actif-circuit").css("display","none");
+    $(".google-map-ferme-circuit").css("display","block");
     $(".google-maps-actif").css("display","none");
     $(".google-maps-desactif").css("display","block");
     $("#Header").css("display","block");
@@ -111,6 +116,7 @@ $(".afficher-map").click(function() {
     $(".bloc-carte-google .masquer-bloc").css("display","none");
     $(".pieds-page ul").css("max-width","120px")
     $(".supp-itiniraire").css("display","none");
+    $(".itiniraire-circuit").css("display","none");
     $("#map_canvas").css("height", "0");    
     return false;
 });
@@ -120,6 +126,11 @@ directionsDisplay.setMap(null);
 return false;
 
 });
+
+$(".itiniraire-circuit").click(function() {
+	directionsDisplay.setMap(null);
+	return false;
+	});
 
 var list_length=$(".pieds-page ul li").length;
   
