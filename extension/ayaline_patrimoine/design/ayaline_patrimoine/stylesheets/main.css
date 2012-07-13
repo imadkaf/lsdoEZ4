@@ -89,7 +89,9 @@ a.logo-site{margin-right: 4px;}
 
 .accroche{background: #fff;padding: 9px 17px;}
 .accroche h1{margin-bottom: 3px;}
-.accroche h1 p,.accroche h2{text-shadow: 0 0 1px   #aaa;font-family: 'OmnesMedium';font-weight: 200;font-size: 2em;line-height: 1em;margin-bottom: 3px;}/*modifié par melbajjati*/
+.accroche h1 p,.accroche h2{text-shadow: 0 0 1px   #aaa;font-family: 'OmnesMedium';font-weight: 200;font-size: 2em;line-height: 0.9em;margin-bottom: 3px;}/*modifié par melbajjati*/
+.titre_circuit p{font-size: 90% !important;}
+.accroche p {line-height: 1em;text-align: justify;}
 
 .TopNavBar .menu{
 	float:left;
@@ -156,8 +158,12 @@ a.logo-site{margin-right: 4px;}
 .liste-circuits-simple article{position: relative;margin-left: 20px;height: 100px;border-bottom: 1px solid #d1ccc8;}
 .liste-circuits-simple .titre-article{display: table;height: 100px;top:0;position: absolute;padding-left: 10px;width:121px;font-size: 120%;font-weight: bold;}
 .liste-circuits-simple .titre-article a{display: table-cell;vertical-align: middle}
-.liste-circuits-simple .lien-arrondi{position: absolute;top:0;bottom: 0;margin: auto;right:15px;}
+.liste-circuits-simple .lien-arrondi-circuits-simple{position: absolute;top:0;bottom: 0;margin: auto;right:5px;width: 50px;height: 50px;}
+
 .lien-arrondi{width: 49px;height: 49px;border-radius: 26px;display: block;-moz-border-radius :26px;-webkit-border-radius: 26px;behavior: url('css/pie.htc');position:relative;}
+
+/*.picto-circuit > img{border-radius: 27px;display: block;-moz-border-radius :27px;-webkit-border-radius: 27px;behavior: url('css/pie.htc');position:relative;}
+*/
 .ok{cursor: pointer;width: 54px;height: 54px;}
 
 .liste-circuits-mise-en-avant{background: #313d49;}
@@ -165,7 +171,7 @@ a.logo-site{margin-right: 4px;}
 .liste-circuits-mise-en-avant .bloc-titre{background: url(../images/point-bleu.png);position: absolute;top: 20px;}
 .liste-circuits-mise-en-avant .titre-article-mis-en-avant{padding-left: 10px;width:121px;font-size: 120%;font-weight: bold;}
 .liste-circuits-mise-en-avant .bloc-titre{background: url('../images/point-bleu.png');display: block;position: absolute;left: 0;right: 0;top: 108px;color: #fff;}
-.liste-circuits-mise-en-avant .lien-arrondi{right: 10px;position: absolute;top:0;bottom: 0;margin: auto;}
+.liste-circuits-mise-en-avant .lien-arrondi-circuits-mise-en-avant{right: 5px;position: absolute;top:0;bottom: 0;margin: auto;width: 50px;height: 50px;}
 .liste-circuits-mise-en-avant .article-titre{float: left;width: 220px;padding: 9px 0 9px 30px;}
 .liste-circuits-mise-en-avant .article-titre .titre{color:#fff;font-family: 'OmnesSemibold';display: block;font-size: 147%;width: 138px;line-height: 1em;}
 .liste-circuits-mise-en-avant .article-titre .introduction{color:#fff;font-size: 90%;}
@@ -173,7 +179,7 @@ a.logo-site{margin-right: 4px;}
 .bloc-carte-google .lien-arrondi{top:0;bottom: 0;margin: auto;right:4px;position: absolute;}
 
 
-.liste-circuits-mise-en-avant{}
+
 /**** fin liste circuits ****/
 /* BOUTONS LARGE */
 .btnAffiner {
@@ -309,6 +315,7 @@ font-weight: bold !important;}
 .pieds-page{z-index: 58598;border-top: 1px solid #70777f;padding: 4px 0;min-height: 60px;background: #313d49 !important;position: fixed;bottom: 0;width: 320px;}
 .pieds-page ul{margin: auto;}
 .pieds-page ul li{float: left;margin-right: 5px;}
+.lien-arrondi-br-nv{width: 58px;height: 58px;border-radius: 37px;display: block;-moz-border-radius :37px;-webkit-border-radius: 37px;behavior: url('css/pie.htc');position:relative;}
 .retour{display: block;background:#fff url('../images/fleche-gris.png') no-repeat center;border: 3px solid #70777f;width: 49px;height: 49px;border-radius: 26px;-moz-border-radius :26px;-webkit-border-radius: 26px;behavior: url('css/pie.htc');position: relative;}
 .supp-itiniraire{display: none;background:#fff url('../images/supp-itiniraire.png') no-repeat center;border: 3px solid #70777f;width: 49px;height: 49px;border-radius: 26px;-moz-border-radius :26px;-webkit-border-radius: 26px;behavior: url('css/pie.htc');position: relative;}
 .pictos-google-maps-actif{float: right;display: block;width: 49px;height: 49px; border-radius: 28px;-moz-border-radius :28px;-webkit-border-radius: 28px;behavior: url('css/pie.htc');position:relative;border: 3px solid #70777f;background: #fff url('../images/pictos-google-map.png') no-repeat center;}
@@ -319,13 +326,13 @@ font-weight: bold !important;}
 #breadcrumbs div.dernier>a{font-weight: bold;}
 #breadcrumbs a:hover{text-decoration: underline;}
 
-.liste-interets .vignette-simple article{position: relative;background: #98e2cc;padding: 0 20px 0 5px;border-top: 1px solid #d1ccc8;border-bottom: 1px solid #d1ccc8;}
-.liste-interets .vignette-simple article>div{background: #fff;}
-.liste-interets .vignette-simple article>div>a.article-image{display: block;float: left;height: 70px;}
-.liste-interets .vignette-simple article>div>p{padding-left: 9px;width: 109px;float: left;padding-top: 10px;height: 60px;display: table;}
-.liste-interets .vignette-simple article>div>p>a{color: black;font-weight: bold;font-size: 104%;display: table-cell;vertical-align: middle;}
-.liste-interets .vignette-simple article>div>p>a:hover{text-decoration: none;}
-.liste-interets .fleche{top:0;bottom: 0;margin: auto;right: 10px;position: absolute;width: 44px;height: 44px;}
+.liste-interets article.vignette-simple{position: relative;background: #98e2cc;padding: 0 20px 0 5px;border-top: 1px solid #d1ccc8;border-bottom: 1px solid #d1ccc8;}
+.liste-interets article.vignette-simple>div{background: #fff;}
+.liste-interets article.vignette-simple>div>a.article-image{display: block;float: left;height: 70px;}
+.liste-interets article.vignette-simple>div>p{padding-left: 9px;width: 109px;float: left;padding-top: 10px;height: 60px;display: table;}
+.liste-interets article.vignette-simple>div>p>a{color: black;font-weight: bold;font-size: 104%;display: table-cell;vertical-align: middle;}
+.liste-interets article.vignette-simple>div>p>a:hover{text-decoration: none;}
+.liste-interets .fleche{top:0;bottom: 0;margin: auto;right: 5px;position: absolute;width: 44px;height: 44px;}
 .google-maps-actif-circuit{display: none;}
 .itiniraire-circuit{display: none;}
 .masquer-bloc-info{display: none;}
