@@ -8,5 +8,10 @@ ShowClasses[]=smp_circuit
 ShowClasses[]=smp_point_interet
 ShowClasses[]=smp_contenu_libre
 ShowClasses[]=smp_point_interet
+ShowClasses[]=smp_video_interne
+ShowClasses[]=smp_circuit_externe
+ShowClasses[]=smp_audio
+ShowClasses[]=smp_diaporama
+ShowClasses[]=smp_image
 
 */ ?>
