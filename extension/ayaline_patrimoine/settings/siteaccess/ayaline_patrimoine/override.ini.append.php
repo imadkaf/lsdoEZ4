@@ -32,4 +32,22 @@ MatchFile=full/detail_point_interet.tpl
 Subdir=templates
 Match[class_identifier]=smp_point_interet
 
+[line_video_interne]
+Source=node/view/line.tpl
+MatchFile=line/video_interne.tpl
+Subdir=templates
+Match[class_identifier]=smp_video_interne
+
+[line_video_externe]
+Source=node/view/line.tpl
+MatchFile=line/video_externe.tpl
+Subdir=templates
+Match[class_identifier]=smp_circuit_externe
+
+[line_detial_point_interet_diaporama]
+Source=node/view/line.tpl
+MatchFile=line/detial_point_interet_diaporama.tpl
+Subdir=templates
+Match[class_identifier]=smp_diaporama
+
 */ ?>

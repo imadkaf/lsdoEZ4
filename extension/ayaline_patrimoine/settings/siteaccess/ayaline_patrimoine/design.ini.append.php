@@ -17,5 +17,6 @@ JavaScriptListPatrimoine[]
 JavaScriptListPatrimoine[]=jquery.mobile.min.js
 JavaScriptListPatrimoine[]=script.js
 JavaScriptListPatrimoine[]=head.min.js
+JavaScriptListPatrimoine[]=jquery.jplayer.min.js
 
 */ ?>
