@@ -97,6 +97,11 @@ $(".afficher-map").click(function() {
     $(".pieds-page ul").css("max-width","180px")
     $(".supp-itiniraire").css("display","block");
     $(".itiniraire-circuit").css("display","block");
+    $(".pieds-page ul li a.plus-image").css("display","none");
+    $(".pieds-page ul li a.plus-info-pictos").css("display","none");
+    $(".pieds-page ul li a.quizz-pictos").css("display","none");
+    $(".pieds-page ul li a.lien-plus-info-ouvert").css("display","none");
+    $(".pieds-page ul li a.plus-image-ouvert").css("display","none");
     $("#map_canvas").css("height", hauteur+"px");
     initialize('map_canvas', 8 , 47.26804770458176, -0.032958984375,"Nante, France","La roche sur Yon, France",  [{location: "Nantes, France"}, {location: "Angers, France"},{location: "La Roche-sur-Yon, France"},{location: "Le Mans, France"}] ,[['Angers', 47.436448065837205, -0.591888427734375, 3],['Manly Beach', 47.79655164755933, -0.33233642578125, 2],['le Mans', 48.007180450057604, 0.19994258880615234, 1]],[['Nante', 47.60616304386874, 0.17578125, 4],['La roche sur Yon', 46.60605412713272, -1.4996337890625, 5]],'#98e2cc');
     return false;
@@ -114,6 +119,10 @@ $(".afficher-map").click(function() {
     $(".copyright").css("display","block");
     $(".bloc-carte-google .afficher-bloc").css("display","block");
     $(".bloc-carte-google .masquer-bloc").css("display","none");
+    $(".pieds-page ul.normal").css("display","block");
+    $(".pieds-page ul li a.plus-image").css("display","block");
+    $(".pieds-page ul li a.plus-info-pictos").css("display","block");
+    $(".pieds-page ul li a.quizz-pictos").css("display","block");
     $(".pieds-page ul").css("max-width","120px")
     $(".supp-itiniraire").css("display","none");
     $(".itiniraire-circuit").css("display","none");
