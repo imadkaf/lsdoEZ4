@@ -22,7 +22,7 @@
 		{attribute_view_gui attribute=$node.data_map.description}
 	</div>
 	<div class="liste-interets">
-	{if gt($$listePointsInterets|count,0)}
+	{if gt($listePointsInterets|count,0)}
 		{foreach $listePointsInterets as $PointInteret}
 			{if $listePointsInteretsMisEnAvant|contains($PointInteret.node_id)}
 				{node_view_gui content_node=$PointInteret view='line' simple=false()} 
