@@ -26,4 +26,6 @@ ActiveExtensions[]=arraysortoperator
 ActiveExtensions[]=all2egooglesitemaps
 ActiveExtensions[]=nl_cronjobs
 ActiveExtensions[]=ez_aya_sitsearch
+ActiveExtensions[]=ayaline_patrimoine
+ActiveExtensions[]=ezgmaplocation
 */ ?>
