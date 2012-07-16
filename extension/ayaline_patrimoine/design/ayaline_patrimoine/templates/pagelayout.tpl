@@ -41,6 +41,6 @@
 </div>
 </body>
 {include uri="design:parts/script_barre_navigation.tpl"}
-<script>head.js({ldelim}jplayer:"{'javascript/jquery.jplayer.min.js'|ezdesign('no')}"{rdelim},{ldelim}jplayer:"{'javascript/jquery.diaporama.js'|ezdesign('no')}"{rdelim},{ldelim}utils:"{'javascript/utils.min.js'|ezdesign('no')}"{rdelim});</script>
+<script>head.js({ldelim}jplayer:"{'javascript/jquery.diaporama.js'|ezdesign('no')}"{rdelim},{ldelim}utils:"{'javascript/utils.min.js'|ezdesign('no')}"{rdelim});</script>
 </html>
 {undef $cNode $rNode $nodeConfigGeneral}
