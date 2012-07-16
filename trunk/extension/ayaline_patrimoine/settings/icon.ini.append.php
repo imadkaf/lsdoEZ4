@@ -13,5 +13,10 @@ ClassMap[smp_liste_circuits]=lsdo_patrimoine/smp_liste_circuits.png
 ClassMap[smp_circuit]=lsdo_patrimoine/smp_circuit.png
 ClassMap[smp_contenu_libre]=lsdo_patrimoine/smp_contenu_libre.png
 ClassMap[smp_point_interet]=lsdo_patrimoine/smp_point_interet.png
+ClassMap[smp_video_interne]=lsdo_patrimoine/smp_video_interne.png
+ClassMap[smp_circuit_externe]=lsdo_patrimoine/smp_circuit_externe.png
+ClassMap[smp_audio]=lsdo_patrimoine/smp_audio.png
+ClassMap[smp_diaporama]=lsdo_patrimoine/smp_diaporama.png
+ClassMap[smp_image]=lsdo_patrimoine/smp_image.png
 
 */ ?>
