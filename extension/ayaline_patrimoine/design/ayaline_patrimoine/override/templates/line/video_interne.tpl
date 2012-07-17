@@ -33,8 +33,7 @@
 		</div>
 	</div>
 </div>
-<div class="titre-video">{attribute_view_gui
-	attribute=$node.data_map.titre_video}</div>
+<div class="titre-video">{attribute_view_gui attribute=$node.data_map.titre_video}</div>
 <script type="text/javascript">  
 {literal}$("#jquery_jplayer_1").jPlayer({
 ready: function(){
