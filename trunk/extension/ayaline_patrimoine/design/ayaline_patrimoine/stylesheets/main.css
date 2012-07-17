@@ -346,6 +346,43 @@ font-weight: bold !important;}
 .titre-parcours{font-size: 98%;font-weight: normal;}
 .fiche-interet h2{background: #fff;font-family: 'OmnesMedium';color: black;padding: 5px 18px;font-weight: 100;}
 .fiche-interet .video{border-top: 4px solid #000;border-bottom: 4px solid #000;position: relative;}
+.fiche-interet .video div.jp-audio ul.jp-controls {width: 320px;padding:20px 7px 0 7px;}
+.fiche-interet .video div.jp-audio div.jp-type-single div.jp-progress {
+	left:90px;
+	width:140px;
+}
+.fiche-interet .video div.jp-audio {
+width: 318px;
+}
+.fiche-interet .video div.jp-audio div.jp-type-single a.jp-mute,
+.fiche-interet .video div.jp-audio div.jp-type-single a.jp-unmute {
+	margin-left: 150px;	
+}
+.fiche-interet .video div.jp-audio a.jp-volume-max {
+margin-left: 44px;
+}
+.fiche-interet .video div.jp-audio div.jp-volume-bar {
+top: 37px;
+left: 250px;
+}
+.fiche-interet .video div.jp-volume-bar {
+position: absolute;
+overflow: hidden;
+background: url("../images/jplayer.blue.monday.jpg") 0 -250px repeat-x;
+width: 44px;
+height: 5px;
+cursor: pointer;
+}
+.fiche-interet .video div.jp-audio div.jp-type-single div.jp-time-holder {
+left: 90px;
+width: 142px;
+}
+.fiche-interet .video div.jp-current-time, .fiche-interet .video div.jp-duration {
+width: 58px;
+font-size: .64em;
+font-style: oblique;
+}
+
 .titre-video{left:0;right:0;font-size: 120%;background: url(../images/point-bleu.png);display: block;position: absolute;top:0;z-index: 2345;color: #fff;max-width: 100%;padding: 9px 17px;}
 .bloc-plus-image a.plus-image{top: 0;bottom: 0;display: block;position: absolute;margin: auto;right:4px;}
 .plus-image-ouvert{display: none}
