@@ -50,4 +50,10 @@ MatchFile=line/detial_point_interet_diaporama.tpl
 Subdir=templates
 Match[class_identifier]=smp_diaporama
 
+[line_detial_point_interet_audio]
+Source=node/view/line.tpl
+MatchFile=line/detial_point_interet_audio.tpl
+Subdir=templates
+Match[class_identifier]=smp_audio
+
 */ ?>
