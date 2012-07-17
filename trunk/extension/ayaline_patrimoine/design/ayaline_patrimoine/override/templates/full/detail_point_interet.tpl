@@ -25,8 +25,8 @@
 	{if and(gt($elemnts|count,1),$etat)}
      <div class="bloc-plus-image">
      	<div class="info accroche-plus-image">
-                <p class="afficher-bloc-image"><a class="affichage-bloc voir-image" href="#"><span class="bold">{attribute_view_gui attribute=$node.data_map.titre_onglet_plus_medias}</span> Découvrez les  différents visages du remblai à travers les époques...</a></p>
-                <p class="masquer-bloc-image"><a class="affichage-bloc masquer-image" href="#"><span class="bold">{attribute_view_gui attribute=$node.data_map.titre_onglet_plus_medias}</span> <span class="affichage-bloc puce-gris">Masquer</span></a></p>
+                <p class="afficher-bloc-image"><a class="affichage-bloc voir-image" href="#"><span class="bold">{attribute_view_gui attribute=$node.data_map.titre_onglet_plus_medias}</span>{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_plus_medias_ferme}</a></p>
+                <p class="masquer-bloc-image"><a class="affichage-bloc masquer-image" href="#"><span class="bold">{attribute_view_gui attribute=$node.data_map.titre_onglet_plus_medias}</span> <span class="affichage-bloc puce-gris">{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_plus_medias_ouvert}</span></a></p>
                 <a href="#" class="lien-arrondi plus-image voir-image"></a>
                 <a href="#" class="lien-arrondi plus-image-ouvert masquer-image"></a>    
             </div>
@@ -37,12 +37,12 @@
 					{if eq($elt.class_identifier,'smp_diaporama')}
 						<div class="media">
                             <div class="diaporama">
-                            <a href="#" class="image"><img src={"images/min.jpg"|ezdesign} /></a>
+                            <a href="#" class="image"><img src={"images/min.jpg"|ezdesign}/></a>
                             <a href="#" class="droite"></a>
                             <a href="#" class="gauche"></a>
                         </div>
                         <div class="contenu-media">
-                        <h3><a href="#">Cartes postales</a></h3>
+                        <h3><a href="#">{attribute_view_gui attribute=$elt.data_map.titre_diaporama}</a></h3>
                         <span class="puce-gris">Diaporama</span>
                     </div>
                     <div class="clear-tout"></div>
@@ -51,7 +51,7 @@
 					<div class="media">
                             <a class="play-audio" href="#"></a>
                         <div class="contenu-media">
-                        <h3><a href="#">Interview de Pierre Dupont, ancien pêcheur</a></h3>
+                        <h3><a href="#">{attribute_view_gui attribute=$elt.data_map.titre_audio}</a></h3>
                         <span class="puce-gris">Reportage audio - durée 30s</span>
                     </div>
                     <div class="clear-tout"></div>
@@ -63,7 +63,7 @@
                             <a class="play-video" href="#"></a>
                         </div>
                         <div class="contenu-media">
-                        <h3><a href="#">La mode des bains de mer</a></h3>
+                        <h3><a href="#">{attribute_view_gui attribute=$elt.data_map.titre_video}</a></h3>
                         <span class="puce-gris">Video - durée 30s</span>
                     </div>
                     <div class="clear-tout"></div>
@@ -75,7 +75,7 @@
                             <a class="play-video" href="#"></a>
                         </div>
                         <div class="contenu-media">
-                        <h3><a href="#">La mode des bains de mer</a></h3>
+                        <h3><a href="#">{attribute_view_gui attribute=$elt.data_map.titre_video}</a></h3>
                         <span class="puce-gris">Video - durée 30s</span>
                     </div>
                     <div class="clear-tout"></div>
@@ -87,6 +87,19 @@
             <div class="clear-tout"></div>
      </div>
      {/if}
+     {if $node.data_map.plus_informations.has_content}
+     <div class="plus-info">
+                <div class="accroche-plus-info">
+                <p class="afficher-bloc-info"><a href="#" class="affichage-bloc voir-info"><span class="bold">{attribute_view_gui attribute=$node.data_map.titre_onglet_plus_infos}</span>{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_plus_infos_ferme}</a></p>
+                <p class="masquer-bloc-info"><a href="#" class="affichage-bloc masquer-info"><span class="bold">{attribute_view_gui attribute=$node.data_map.titre_onglet_plus_infos}</span><span class="affichage-bloc puce-gris">{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_plus_infos_ouvert}</span></a></p>                
+                <a href="#" class="lien-arrondi lien-plus-info voir-info"></a>
+                <a href="#" class="lien-arrondi lien-plus-info-ouvert masquer-info"></a>
+                </div>
+                <div class="plus-info-detail">
+                	{attribute_view_gui attribute=$node.data_map.plus_informations}
+                </div>
+      </div>
+            {/if}
 </div>
 <div class="bloc-carte-google">
 	<p style="padding-left: 16px; padding-top: 16px;" class="afficher-bloc">
