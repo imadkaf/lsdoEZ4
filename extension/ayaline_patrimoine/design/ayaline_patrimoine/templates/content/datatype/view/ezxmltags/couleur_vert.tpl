@@ -1,0 +1,1 @@
+<span {if is_set($vert)}style="color: {$vert} !important;"{/if}>{$content}</span>
