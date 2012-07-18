@@ -131,20 +131,14 @@
                     
                 {literal}
                 
-                {/literal}
-                    
-                {literal}
                     var carte;
                     var destinationPtInteret;
                     var maPosition = false;
+                    var pointArrivee = false;
                     var directionsDisplay;
                     var directionsService = new google.maps.DirectionsService();
                     var ListMarkersPtInterets = new Array();
-                    
-                    
-                {/literal}
-                    
-                {literal}
+                
                     function initializeMap(){
                         
                         var myLatLng = new google.maps.LatLng(46.497398,-1.797536);
@@ -186,6 +180,14 @@
                         }else{
                           alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
                         }
+                        pointArrivee = new google.maps.Marker({
+                              position: new google.maps.LatLng(carte.getCenter()),
+                              map: carte,
+                              title: "Point d'arrivée",
+                              icon: '/extension/ayaline_patrimoine/design/ayaline_patrimoine/images/picto-arrivee.png'
+                        });
+                        pointArrivee.setMap(null);//ne pas afficher le picto du point d'arrivée
+                            
                     }
                     function afficheTraceCircuits(parcoursCoords,couleurTracer){
                             var parcoursTrace = new google.maps.Polyline({
@@ -235,6 +237,9 @@
                                     directionsDisplay.setDirections(response);
                                     directionsDisplay.setMap(carte);
                                     maPosition.setMap(carte);
+                                    pointArrivee.setPosition(destinationPtInteret.getPosition());
+                                    pointArrivee.setTitle("Point d'arrivée : "+destinationPtInteret.getTitle());
+                                    pointArrivee.setMap(carte);
                                     $(".supp-itiniraire").removeClass("cache").show().css("display","block");
                                 } else {
                                     alert("Google directions response : "+status);
@@ -253,6 +258,7 @@
                     function cacherItineraireMaposition(){
                         directionsDisplay.setMap(null);
                         maPosition.setMap(null);
+                        pointArrivee.setMap(null);
                     }
                 {/literal}
         </script>    

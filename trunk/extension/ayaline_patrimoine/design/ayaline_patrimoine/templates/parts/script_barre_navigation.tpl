@@ -3,8 +3,8 @@
 $(function(){
     $(".afficher-map").click(function() {
         var hauteur = $("body").height() - $(".bloc-carte-google").height() - $(".pieds-page").height();
-        $(".google-maps-desactif").css("display","none");
-        $(".google-maps-actif").css("display","block");   
+        $(".google-maps-desactif, .google-map-ferme-circuit ").css("display","none");
+        $(".google-maps-actif, .google-map-actif-circuit").css("display","block");   
         $("#Header").css("display","none");
         $("#Main .contenu").css("display","none");
         $("#breadcrumbs").css("display","none");
@@ -19,8 +19,8 @@ $(function(){
     });
 
     $(".masquer-map").click(function() {
-        $(".google-maps-actif").css("display","none");
-        $(".google-maps-desactif").css("display","block");
+        $(".google-maps-actif, .google-map-actif-circuit").css("display","none");
+        $(".google-maps-desactif, .google-map-ferme-circuit").css("display","block");
         $("#Header").css("display","block");
         $("#Main .contenu").css("display","block");
         $("#breadcrumbs").css("display","block");
@@ -37,10 +37,11 @@ $(function(){
     $(".supp-itiniraire").click(function(){
         cacherItineraireMaposition();
         $(this).addClass("cache").hide();
-            return false;
+        return false;
     });
     $(".itiniraire-circuit").click(function() {
-        directionsDisplay.setMap(null);
+        cacherItineraireMaposition();
+        $(this).addClass("cache").hide();
         return false;
     });
 });
