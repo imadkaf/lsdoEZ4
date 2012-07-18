@@ -5,7 +5,7 @@
                     <li><a href={$cNode.parent.url_alias|ezurl} class="lien-arrondi retour"></a></li>
                     <li><a href="#" class="lien-arrondi google-maps-actif masquer-map"></a></li>
                     <li><a href="#" class="lien-arrondi google-maps-desactif afficher-map"></a></li>
-                    <li><a href="#" class="lien-arrondi supp-itiniraire"></a></li>
+                    <li><a href="#" class="lien-arrondi supp-itiniraire cache"></a></li>
                 {elseif eq($cNode.class_identifier,'smp_circuit')}
                 	<li><a href={$cNode.parent.url_alias|ezurl} class="retour"></a></li>
                     <li><a href="#" class="lien-arrondi google-map-actif-circuit masquer-map"></a></li>
