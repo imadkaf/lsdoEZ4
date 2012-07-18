@@ -813,3 +813,33 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 /******************/
 /*** Fin alexia ***/
 /******************/
+
+/**************** Début mZammouri ******************/
+.info-window-gmap{
+    display: block;
+    padding: 5px;
+    width: 250px;
+    position: relative;
+}
+.info-window-gmap .visuel{
+    display: block;
+    width: 100px;
+    float: left;
+    margin-right: 8px;
+}
+.info-window-gmap .visuel img{
+    width: 100px;
+}
+.info-window-gmap .titre{
+    display: block;
+    font-weight: bold;
+}
+.info-window-gmap .tracer-itineraire{
+    display: block;
+    font-weight: normal;
+    color: gray;
+    position: absolute;
+    bottom: 5px;
+    left: 113px;
+}
+/**************** Fin mZammouri ******************/
