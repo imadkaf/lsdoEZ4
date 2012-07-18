@@ -1,0 +1,1 @@
+<span {if is_set($gris)}style="color: {$gris}"{/if}>{$content}</span>
