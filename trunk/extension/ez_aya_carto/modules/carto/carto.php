@@ -100,7 +100,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                             $eltStyleCss .= "background: url('/extension/ez_aya_carto/design/standard/images/menu/$SITSectionIcone') no-repeat 0 50%;";
                                         }
                                         ?>
-                                        <a href="#" class="has-sub-menu niv-2" style="<?php echo $eltStyleCss; ?>">
+                                        <a href="#" class="has-sub-menu niv-2 <?php if($SITSectionTypeAffichage == 2){echo "type-2";}?>" style="<?php echo $eltStyleCss; ?>">
                                             <?php echo $SITSectionTitre; ?>
                                         </a>
                                         <div class="sous-menu">
@@ -143,7 +143,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                                 </ul>
                                                 <?php if(count($SITSectionChildren) != 0){
                                                 ?>
-                                                    <a href="#" class="effacer-marqueurs-fiches medium-font">Effacer les marqueurs</a>
+                                                    <a href="#" class="effacer-marqueurs-fiches medium-font">Effacer ma recherche</a>
                                                 <?php
                                                 }?>
                                                 
@@ -209,7 +209,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                             <input type="text" id="geocode-address"/>
                                             <input class="submit-puce-loupe" type="submit" id="geocode-address-submit" value="" title="rechercher"/>
                                         </form>
-                                        <a href="#" id="delete-markers-geocode" class="medium-font" title="Effacer les marqueurs"></a>
+                                        <a href="#" id="delete-markers-geocode" class="medium-font" title="Effacer ma recherche"></a>
                                     </div>
                                 </li>
                                 <li class="niv-2">
