@@ -56,4 +56,28 @@ MatchFile=line/detial_point_interet_audio.tpl
 Subdir=templates
 Match[class_identifier]=smp_audio
 
+[full_page_contenu_libre]
+Source=node/view/full.tpl
+MatchFile=full/page_contenu_libre.tpl
+Subdir=templates
+Match[class_identifier]=smp_contenu_libre
+
+[full_accueil]
+Source=node/view/full.tpl
+MatchFile=full/accueil.tpl
+Subdir=templates
+Match[class_identifier]=smp_accueil
+
+[image_embed]
+Source=content/view/embed.tpl
+MatchFile=embed/image.tpl
+Subdir=templates
+Match[class_identifier]=image
+
+[embed_file]
+Source=content/view/embed.tpl
+MatchFile=embed/file.tpl
+Subdir=templates
+Match[class_identifier]=file
+
 */ ?>
