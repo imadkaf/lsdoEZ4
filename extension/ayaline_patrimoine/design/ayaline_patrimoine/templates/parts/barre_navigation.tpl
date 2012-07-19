@@ -33,9 +33,10 @@
                     {if $cNode.data_map.plus_informations.has_content}
 	                    <li><a href="#" class="lien-arrondi plus-info-pictos lien-plus-info voir-info"></a></li>
 	                    <li><a href="#" class="lien-arrondi lien-plus-info-ouvert masquer-info"></a></li>
-                    {/if}
-                    
+                    {/if}                    
                     <li><a href="#" class="lien-arrondi quizz-pictos"></a></li>
+                {elseif eq($cNode.class_identifier,'smp_contenu_libre')}
+                		<li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour"></a></li>
                 {/if}
                     <span class="clear-tout"></span>
                 </ul>
