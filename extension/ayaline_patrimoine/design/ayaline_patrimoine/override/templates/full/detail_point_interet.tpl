@@ -1,5 +1,3 @@
-{*$node.data_map.media_principal.content|attribute(show)*}
-
 <div class="contenu">
 	<div class="accroche border-bottom">
         <h1 class="titre-parcours">
