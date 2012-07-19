@@ -1,54 +1,34 @@
-{def $title = ezini('SiteSettings','SiteName')}
-{foreach $module_result.path as $key => $item}
-	{if $key|gt(0)}{set $title = $item.text|append(' | ', $title)}{/if}
-{/foreach}
+{* Récupération des informations pour les balises META *}
 {def $referencement = false()}
+{def $title = false()}
 {def $keywords = false()}
 {def $description = false()}
-{*def $cNode = fetch('content','node', hash('node_id',$module_result.node_id))*}
 {if is_set($cNode.data_map.referencement)}
-	{set $referencement = $cNode.data_map.referencement}
-	{if $referencement.content[0]|trim|ne('')}
-		{set $title = $referencement.content[0]|trim}
-	{/if}
-	{if $referencement.content[1]|trim|ne('')}
-		{set $keywords = $referencement.content[1]|trim}
-	{/if}
-	{if $referencement.content[2]|trim|ne('')}
-		{set $description = $referencement.content[2]|trim}
-	{/if}
+    {set $referencement = $cNode.data_map.referencement}
+{if $referencement.content[0]|trim|ne('')}{set $title = $referencement.content[0]|trim}{/if}
+{if $referencement.content[1]|trim|ne('')}{set $keywords = $referencement.content[1]|trim}{/if}
+{if $referencement.content[2]|trim|ne('')}{set $description = $referencement.content[2]|trim}{/if}
 {/if}
 	<head>
-		<!-- PAGE TITLE -->
-		<title>{$title}</title>
+		{* Titre de la page *}
+		{if $title|trim|ne('')}
+		    <title>{$title|wash()} | Site mobile découverte du patrimoine des Sables d'Olonne</title>
+		{else}
+		    {if is_set($cNode.node_id)}
+		        {set $title = $cNode.name|wash()}
+		        <title> {if $title|ne(false())}{$title|wash} | Site mobile découverte du patrimoine des Sables d'Olonne{/if}</title>
+		    {else}
+		        <title>{ezini('SiteSettings', 'SiteName' ,'site.ini')} | Site mobile découverte du patrimoine des Sables d'Olonne</title>
+		    {/if}
+		{/if}
+		
+		
 		<!-- METAS -->
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 	    <meta name="viewport" content="width=device-width, user-scalable=no" />
-{foreach ezini('SiteSettings','MetaDataArray') as $metaName => $value}
-		{switch match=$metaName}
-			{case match='description'}
-				{if $description}
-		<meta name="{$metaName}" content="{$description|wash()}" />
-				{else}
-		<meta name="{$metaName}" content="{$value}" />
-				{/if}
-			{/case}
-			{case match='keywords'}
-				{if $keywords}
-		<meta name="{$metaName}" content="{$keywords|wash()}" />
-				{else}
-		<meta name="{$metaName}" content="{$value}" />
-				{/if}
-			{/case}
-			{case match='author'}
-			{/case}
-			{case match='copyright'}
-			{/case}
-			{case}
-		<meta name="{$metaName}" content="{$value}" />
-			{/case}
-		{/switch}
-{/foreach}
+		{* Balises META *}
+		<meta name="description" content="{$description|wash}" />
+		<meta name="keywords" content="{$keywords|wash}" />
 
 <link type="image/x-icon" href={'favicon.ico'|ezimage()} rel="icon" />
 <!-- STYLESHEET -->
@@ -68,4 +48,4 @@
 		<script type="text/javascript" src={concat( 'javascript/', $js_fichier )|ezdesign}></script>
 {/foreach}
 	</head>
-{undef $title $cNode $referencement $description $keywords}
+{undef $title $referencement $description $keywords}
