@@ -6,7 +6,7 @@
 	                    {def $lien = false()}
 		                    {foreach $nodeConfigGeneral.data_map.liens_pied_page.value.relation_list as $lien}
 								{set $lien = fetch(content, node, hash(node_id, $lien.node_id))}	
-		                    	<a href={$lien.url_alias|ezurl}>{attribute_view_gui attribute=$lien.data_map.titre}</a>		                    	
+		                    	<a href={$lien.url_alias|ezurl} rel='external'>{attribute_view_gui attribute=$lien.data_map.titre}</a>		                    	
 							{/foreach}
 							{undef $lien}
 	                    </p>
