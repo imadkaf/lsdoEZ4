@@ -170,17 +170,14 @@
             ))}
             {concat("var listePointsInterets = new Array();")}
             {if $listePtInterets|count|gt(0)}
-
                 {foreach $listePtInterets as $ptInteret}
-
                     {def $isPtMA =false()}
                     {foreach $listePtInteretsMA as $ptIntMA}
                         {if $ptIntMA.node_id|eq($ptInteret.node_id)}
-                            {set $isPtMA =true()}    
+                            {set $isPtMA =true()}
                             {break}
                         {/if}
                     {/foreach}
-
                     {if $isPtMA|not}
                         {concat("var pointInteretInfos = new Array();")}
                         {concat("pointInteretInfos['name'] = '",$ptInteret.name|trim|wash|explode("'")|implode("\\'"),"';")}
@@ -198,9 +195,7 @@
                         {concat("listePointsInterets[listePointsInterets.length] = pointInteretInfos;")}
                     {/if}
                     {undef $isPtMA}
-
                 {/foreach}
-
             {/if}
 
             {concat("var circuitInfos = new Array();")}
@@ -221,7 +216,6 @@
                 {/foreach}
                 {undef $traceArrayCoord}
             {/if}
-
             {concat("circuitInfos['traceCoords'] = traceCoords;")}
             {concat("circuitInfos['couleurTrace'] = '",$circuit.data_map.code_couleur_trace_gmap.data_text|trim|wash,"';")}
             {concat("circuitInfos['listePointsInterets'] = listePointsInterets;")}
@@ -231,8 +225,7 @@
         {/foreach}
         {/if}
         {undef $listeDesCircuits $nodeListeParcours}  
-         
-        console.log(listeCircuits);
+        
         {literal}
             var carte;
             var carteCentre;
@@ -259,7 +252,6 @@
                     polylineOptions: {strokeColor:'#0167C8'}
                 })
 
-                
                 for(var i in listeCircuits){
                     
                     if(listeCircuits[i]['circuit-courant']){
@@ -279,7 +271,6 @@
                         }
                     }
                 }
-
 
                 // adapter le zoom et la position du centre de la carte gmap
                 var latlngbounds = new google.maps.LatLngBounds( );
