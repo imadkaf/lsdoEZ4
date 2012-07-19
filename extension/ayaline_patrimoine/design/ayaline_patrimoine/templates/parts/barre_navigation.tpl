@@ -36,7 +36,9 @@
                     {/if}                    
                     <li><a href="#" class="lien-arrondi quizz-pictos"></a></li>
                 {elseif eq($cNode.class_identifier,'smp_contenu_libre')}
-                		<li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour"></a></li>
+                		<li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
+                {else}
+                <li><a href="/" class="lien-arrondi retour" rel='external'></a></li>
                 {/if}
                     <span class="clear-tout"></span>
                 </ul>
