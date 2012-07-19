@@ -843,7 +843,11 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 }
 /**************** Fin mZammouri ******************/
 
-/**************** Début melbajjati : OnlineEditor ******************/
+/************************/
+/*** Début melbajjati ***/
+/************************/
+
+/*** OnlineEditor ***/
 .arrier-plan-marron > div.onlineeditor{background-color: #fff;margin-bottom: 20px;}
 .arrier-plan-marron > div.onlineeditor p{padding:0 33px;padding-bottom: 10px;}
 .page-standard .onlineeditor h2{color: #7b5e51;padding-left: 12px;font-size: 140%;padding-bottom: 10px;}
@@ -862,4 +866,79 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 .onlineeditor div.object-left img {margin: 0 5px 0 5px;}
 .onlineeditor .object-right {float:right;padding: 0 12px 10px;}
 .onlineeditor .object-center {text-align:center}
-/**************** Fin melbajjati : OnlineEditor ******************/
+/*** Fin OnlineEditor ***/
+
+/*** Page de resultats ***/
+.titre-basique h2{
+	border-bottom: 1px solid #D1CCC8;
+    font-family: 'OmnesMedium';
+    font-size: 190%;
+    font-weight: 200;
+    line-height: 1em;
+    padding: 6px 103px 6px 22px;
+    text-shadow: 0 0 1px #AAAAAA;
+}
+.page-resultats-mobile .bloc-similaire{
+	margin: 10px 15px 10px 15px;
+}
+.page-resultats-mobile .bloc-similaire a{
+	font-size: 16px;
+}
+.page-resultats-mobile .bloc-similaire a:hover{
+	text-decoration: underline;
+}
+
+.page-resultats-mobile .feedback{
+	margin: 10px 15px 10px 15px;
+}
+.page-resultats-mobile .warning{
+	margin: 10px 15px 10px 15px;
+}
+.page-resultats-mobile .list-result-search{
+	margin: 10px 15px 10px 15px;
+	padding: 0px;
+}
+.page-resultats-mobile .list-result-search li{
+	list-style:none;
+	padding-top: 10px;
+	margin-bottom: 10px;
+	border-top: 1px solid #D1CCC8;
+}
+.page-resultats-mobile .bloc-pertinence-global{
+	margin-bottom: 5px;
+}
+.page-resultats-mobile .bloc-pertinence-global span{
+    float: left;
+}
+.page-resultats-mobile .bloc-pertinence-global .modification {
+    float: left;
+}
+.page-resultats-mobile .bloc-pertinence-global span.date {
+    float: none;
+    text-transform: capitalize;
+}
+.page-resultats-mobile .bloc-pertinence{
+    background: url("../images/bg_pertinence.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 9px;
+    margin: 4px 4px 0;
+    position: relative;
+    width: 64px;
+}
+.page-resultats-mobile .bloc-pertinence div {
+    background: url("../images/bg_pertinence-on.png") no-repeat scroll 0 0 transparent;
+}
+.page-resultats-mobile .list-result-search li h3 {
+    font-size: 1.5em;
+    padding: 0;
+    margin: 0px;
+    color: #7B5E51;
+}
+.page-resultats-mobile .conseils{
+	margin: 10px 15px 10px 15px;
+}
+/*** Fin Page de resultats ***/
+
+/************************/
+/*** Fin melbajjati ***/
+/************************/
