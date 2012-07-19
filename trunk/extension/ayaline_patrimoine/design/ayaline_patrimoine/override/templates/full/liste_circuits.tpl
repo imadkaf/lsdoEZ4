@@ -128,7 +128,7 @@
                         {undef $listePtInterets $listePtInteretsMA $rListPtInteretsMA}
                     {/foreach}
                 {/if}
-                    
+                    console.log(listeCircuits);
                 {literal}
                 
                     var carte;

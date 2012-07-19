@@ -113,11 +113,27 @@
 	<div class="clear-tout"></div>
 </div>
 <div id="map_canvas" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;"></div>
+
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <script>
-    {concat("var listeCircuits = new Array();")}
-        {def $circuit = $node.parent}
-
+        {def $nodeListeParcours=false()}
+        {def $nodeCircuitCourant=false()}
+        {foreach $node.path as $itmPath}
+            {if $itmPath.class_identifier|eq('smp_liste_circuits')}
+                {set $nodeListeParcours=$itmPath}
+            {/if}
+            {if $itmPath.class_identifier|eq('smp_circuit')}
+                {set $nodeCircuitCourant=$itmPath}
+            {/if}
+        {/foreach}
+        {def $listeDesCircuits = fetch('content','list',hash(   'parent_node_id',$nodeListeParcours.node_id,
+                                                                'class_filter_type','include',
+                                                                'class_filter_array',array('smp_circuit')
+        ))}
+        {concat("var listeCircuits = new Array();")}
+        {*def $circuit = $node.parent.parent*}
+        {if $listeDesCircuits|count|gt(0)}
+        {foreach $listeDesCircuits as $keyCircuit=>$circuit}
             {* Liste Points d'intérêts Mise en avant *}
             {def $rListPtInteretsMA = $circuit.data_map.liste_poiunts_interets_mis_avant.content.relation_list}
             {def $listePtInteretsMA = array()}
@@ -130,7 +146,13 @@
                     {concat("var pointInteretMAInfos = new Array();")}
                     {concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|trim|wash|explode("'")|implode("\\'"),"';")}
                     {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
-                    {concat("pointInteretMAInfos['picto'] = '",$circuit.data_map.pictogramme_point_interet_mis_avant_carte_gmap.content.original.url|ezroot('no'),"';")}
+                    {if $node.node_id|eq($ptInteret.node_id)}
+                        {concat("pointInteretMAInfos['point-courant'] = true;")}
+                        {concat("pointInteretMAInfos['picto'] = '","images/picto-pt-intetret-courant.png"|ezdesign('no'),"';")}
+                    {else}
+                        {concat("pointInteretMAInfos['point-courant'] = false;")}
+                        {concat("pointInteretMAInfos['picto'] = '",$circuit.data_map.pictogramme_point_interet_mis_avant_carte_gmap.content.original.url|ezroot('no'),"';")}
+                    {/if}
                     {concat("pointInteretMAInfos['lat'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.latitude,"';")}
                     {concat("pointInteretMAInfos['lng'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.longitude,"';")}
                     {concat("listePointsInteretsMA[listePointsInteretsMA.length] = pointInteretMAInfos;")}
@@ -141,7 +163,11 @@
             {/if}
 
             {* Liste Points d'intérêts normaux *}
-            {def $listePtInterets = fetch('content','tree',hash('parent_node_id',$circuit.node_id,'class_filter_type','include','class_filter_array',array('smp_point_interet')))}
+            {def $listePtInterets = fetch('content','tree',hash('parent_node_id',$circuit.node_id,
+                                                                'class_filter_type','include',
+                                                                'class_filter_array',array('smp_point_interet'),
+                                                                'main_node_only', true()
+            ))}
             {concat("var listePointsInterets = new Array();")}
             {if $listePtInterets|count|gt(0)}
 
@@ -159,7 +185,14 @@
                         {concat("var pointInteretInfos = new Array();")}
                         {concat("pointInteretInfos['name'] = '",$ptInteret.name|trim|wash|explode("'")|implode("\\'"),"';")}
                         {concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
-                        {concat("pointInteretInfos['picto'] = '",$circuit.data_map.pictogramme_point_interet_normal_carte_gmap.content.original.url|ezroot('no'),"';")}
+                        {if $node.node_id|eq($ptInteret.node_id)}
+                            {concat("pointInteretInfos['point-courant'] = true;")}
+                            {concat("pointInteretInfos['picto'] = '","images/picto-pt-intetret-courant.png"|ezdesign('no'),"';")}
+                        {else}
+                            {concat("pointInteretInfos['point-courant'] = false;")}
+                            {concat("pointInteretInfos['picto'] = '",$circuit.data_map.pictogramme_point_interet_normal_carte_gmap.content.original.url|ezroot('no'),"';")}
+                        {/if}
+                        
                         {concat("pointInteretInfos['lat'] = '",$ptInteret.data_map.coord_geolocalisation.content.latitude,"';")}
                         {concat("pointInteretInfos['lng'] = '",$ptInteret.data_map.coord_geolocalisation.content.longitude,"';")}
                         {concat("listePointsInterets[listePointsInterets.length] = pointInteretInfos;")}
@@ -171,6 +204,11 @@
             {/if}
 
             {concat("var circuitInfos = new Array();")}
+            {if $nodeCircuitCourant.node_id|eq($circuit.node_id)}
+                {concat("circuitInfos['circuit-courant'] = true;")}
+            {else}
+                {concat("circuitInfos['circuit-courant'] = false;")}
+            {/if}
             {concat("circuitInfos['name'] = '",$circuit.name|trim|wash|explode("'")|implode("\\'"),"';")}
             {concat("circuitInfos['visuel'] = '",$circuit.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
             {if $circuit.data_map.code_trace_gmap.has_content}
@@ -190,10 +228,14 @@
             {concat("circuitInfos['listePointsInteretsMA'] = listePointsInteretsMA;")}
             {concat("listeCircuits[listeCircuits.length] = circuitInfos;")}
             {undef $listePtInterets $listePtInteretsMA $rListPtInteretsMA}
-        {undef $circuit}
+        {/foreach}
+        {/if}
+        {undef $listeDesCircuits $nodeListeParcours}  
+         
         console.log(listeCircuits);
         {literal}
             var carte;
+            var carteCentre;
             var destinationPtInteret;
             var maPosition = false;
             var pointArrivee = false;
@@ -219,12 +261,22 @@
 
                 
                 for(var i in listeCircuits){
-                    afficheTraceCircuits(listeCircuits[i]['traceCoords'],'#'+listeCircuits[i]['couleurTrace']);
+                    
+                    if(listeCircuits[i]['circuit-courant']){
+                        afficheTraceCircuits(listeCircuits[i]['traceCoords'],'#'+listeCircuits[i]['couleurTrace']);
+                    }
+                    
                     for(var j in listeCircuits[i]['listePointsInterets']){
                         afficherPointInteret(listeCircuits[i]['listePointsInterets'][j]);
+                        if(listeCircuits[i]['listePointsInterets'][j]['point-courant']){
+                            carteCentre = new google.maps.LatLng(listeCircuits[i]['listePointsInterets'][j]['lat'],listeCircuits[i]['listePointsInterets'][j]['lng']);
+                        }
                     }
                     for(var k in listeCircuits[i]['listePointsInteretsMA']){
                         afficherPointInteret(listeCircuits[i]['listePointsInteretsMA'][k]);
+                        if(listeCircuits[i]['listePointsInteretsMA'][k]['point-courant']){
+                            carteCentre = new google.maps.LatLng(listeCircuits[i]['listePointsInteretsMA'][k]['lat'],listeCircuits[i]['listePointsInteretsMA'][k]['lng']);
+                        }
                     }
                 }
 
@@ -249,7 +301,8 @@
                       icon: '/extension/ayaline_patrimoine/design/ayaline_patrimoine/images/picto-arrivee.png'
                 });
                 pointArrivee.setMap(null);//ne pas afficher le picto du point d'arrivée
-                
+                //map set center
+                carte.setCenter(carteCentre);
             }
             function afficheTraceCircuits(parcoursCoords,couleurTracer){
                     var parcoursTrace = new google.maps.Polyline({
@@ -268,6 +321,12 @@
                       title: ptInteret['name'],
                       icon: ptInteret['picto']
                     });
+                    
+                    if(ptInteret['point-courant']){
+                        ListMarkersPtInterets[iMrk].setZIndex(10);
+                    }else{
+                        ListMarkersPtInterets[iMrk].setZIndex(1);
+                    }
                     var infoWinContentStr ='<div class="info-window-gmap">';
                     infoWinContentStr +='<div class="visuel">'+'<img src="'+ptInteret['visuel']+'">'+'</div>';
                     infoWinContentStr +='<div class="titre">'+ptInteret['name']+'</div>';
@@ -319,7 +378,7 @@
             }
             function cacherItineraireMaposition(){
                 directionsDisplay.setMap(null);
-                maPosition.setMap(null);
+                //maPosition.setMap(null);
                 pointArrivee.setMap(null);
             }
         {/literal}
