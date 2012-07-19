@@ -822,24 +822,31 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
     width: 100px;
     float: left;
     margin-right: 8px;
+    padding-left: 5px;
 }
 .info-window-gmap .visuel img{
     width: 100px;
 }
 .info-window-gmap .titre{
     display: block;
+    width: 135px;
+    float: right;
+    font-family: arial;
     font-weight: bold;
+    font-size: 130%;
+    padding-bottom: 40px;
 }
 .info-window-gmap .tracer-itineraire{
     display: block;
     font-weight: normal;
-    color: #70777f;
+    color: #000;
     position: absolute;
     bottom: 5px;
-    left: 108px;
+    left: 113px;
     padding-left: 18px;
-    padding-top: 14px;
+    padding-top: 18px;
     background: url('../images/puce-pieton.png') no-repeat 0 100%;
+    text-decoration: underline;
 }
 /**************** Fin mZammouri ******************/
 

@@ -114,8 +114,7 @@
 </div>
 <div id="map_canvas" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;"></div>
 
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-<script>
+{set-block variable="scriptInitGmap"}
         {def $nodeListeParcours=false()}
         {def $nodeCircuitCourant=false()}
         {foreach $node.path as $itmPath}
@@ -211,7 +210,7 @@
                 {def $traceArrayCoord = $circuit.data_map.code_trace_gmap.data_text|trim|wash|explode("\n")}
                 {foreach $traceArrayCoord as $traceCoord}
                     {if $traceCoord|explode(",")|count|gt(1)}
-                        {concat("traceCoords[traceCoords.length] = new google.maps.LatLng(",$traceCoord|explode(",")[0],",",$traceCoord|explode(",")[1]|trim|wash,") ;")}
+                        {concat("traceCoords[traceCoords.length] = new google.maps.LatLng(",$traceCoord|explode(",")[1],",",$traceCoord|explode(",")[0]|trim|wash,") ;")}
                     {/if}
                 {/foreach}
                 {undef $traceArrayCoord}
@@ -226,17 +225,23 @@
         {/if}
         {undef $listeDesCircuits $nodeListeParcours}  
         
-        {literal}
-            var carte;
-            var carteCentre;
-            var destinationPtInteret;
-            var maPosition = false;
-            var pointArrivee = false;
-            var directionsDisplay;
-            var directionsService = new google.maps.DirectionsService();
-            var ListMarkersPtInterets = new Array();
-
-            function initializeMap(){
+        {/set-block}
+                <script>
+                {literal}
+                
+                    var carte;
+                    var destinationPtInteret;
+                    var maPosition = false;
+                    var pointArrivee = false;
+                    var directionsDisplay;
+                    var directionsService;
+                    var ListMarkersPtInterets = new Array();
+                
+                    function initializeMap(){
+                     {/literal}
+                         {$scriptInitGmap}
+                     {literal}
+                         directionsService = new google.maps.DirectionsService();
 
                 var myLatLng = new google.maps.LatLng(46.497398,-1.797536);
                 var myOptions = {
@@ -372,6 +377,15 @@
                 //maPosition.setMap(null);
                 pointArrivee.setMap(null);
             }
+            function loadScript() {
+                        if(document.getElementById('gmap-script-js') == null){
+                            var script = document.createElement('script');
+                            script.id = 'gmap-script-js';
+                            script.type = 'text/javascript';
+                            script.src = 'https://maps.googleapis.com/maps/api/js?sensor=false&' + 'callback=initializeMap';
+                            document.body.appendChild(script);
+                        }
+                    }
         {/literal}
     
  </script>
