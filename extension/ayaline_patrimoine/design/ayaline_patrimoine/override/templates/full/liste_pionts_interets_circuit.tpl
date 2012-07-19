@@ -52,7 +52,6 @@
  <script>
     {concat("var listeCircuits = new Array();")}
         {def $circuit = $node}
-
             {* Liste Points d'intérêts Mise en avant *}
             {def $rListPtInteretsMA = $circuit.data_map.liste_poiunts_interets_mis_avant.content.relation_list}
             {def $listePtInteretsMA = array()}
@@ -72,14 +71,12 @@
                     {undef $nodePtInteretMA}
                 {/foreach}
 
-
             {/if}
 
             {* Liste Points d'intérêts normaux *}
             {def $listePtInterets = fetch('content','tree',hash('parent_node_id',$circuit.node_id,'class_filter_type','include','class_filter_array',array('smp_point_interet')))}
             {concat("var listePointsInterets = new Array();")}
             {if $listePtInterets|count|gt(0)}
-
                 {foreach $listePtInterets as $ptInteret}
 
                     {def $isPtMA =false()}
@@ -102,9 +99,7 @@
                     {undef $isPtMA}
 
                 {/foreach}
-
             {/if}
-
             {concat("var circuitInfos = new Array();")}
             {concat("circuitInfos['name'] = '",$circuit.name|trim|wash|explode("'")|implode("\\'"),"';")}
             {concat("circuitInfos['visuel'] = '",$circuit.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
