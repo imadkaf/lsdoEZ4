@@ -14,7 +14,7 @@ $(function(){
         $(".bloc-carte-google .masquer-bloc").css("display","block");
         $(".pieds-page ul").css("max-width","180px");
         $("#map_canvas").css("height", hauteur+"px");
-        initializeMap();
+        loadScript();
         return false;
     });
 

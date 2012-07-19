@@ -45,11 +45,8 @@
 		<div class="clear-tout"></div>
 	</div>
 	<div id="map_canvas" style="width: 100%; z-index: 5555;"></div>
-        <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-        {*$listeCircuits[0].data_map.liste_poiunts_interets_mis_avant.content.relation_list|attribute(show)*}
-        {*$listeCircuits[0].data_map.pictogramme_point_interet_mis_avant_carte_gmap.content.original.url*}
-        <script>
-            
+        
+            {set-block variable="scriptInitGmap"}
                 {concat("var listeCircuits = new Array();")}
                 {if $listeCircuits|count|gt(0)}
                     {foreach $listeCircuits as $keyCircuit=>$circuit}
@@ -65,7 +62,7 @@
                                 
                                 {concat("var pointInteretMAInfos = new Array();")}
                                 {concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|trim|wash|explode("'")|implode("\\'"),"';")}
-                                {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
+                                {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
                                 {concat("pointInteretMAInfos['picto'] = '",$circuit.data_map.pictogramme_point_interet_mis_avant_carte_gmap.content.original.url|ezroot('no'),"';")}
                                 {concat("pointInteretMAInfos['lat'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.latitude,"';")}
                                 {concat("pointInteretMAInfos['lng'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.longitude,"';")}
@@ -98,7 +95,7 @@
                                 {if $isPtMA|not}
                                     {concat("var pointInteretInfos = new Array();")}
                                     {concat("pointInteretInfos['name'] = '",$ptInteret.name|trim|wash|explode("'")|implode("\\'"),"';")}
-                                    {concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
+                                    {concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
                                     {concat("pointInteretInfos['picto'] = '",$circuit.data_map.pictogramme_point_interet_normal_carte_gmap.content.original.url|ezroot('no'),"';")}
                                     {concat("pointInteretInfos['lat'] = '",$ptInteret.data_map.coord_geolocalisation.content.latitude,"';")}
                                     {concat("pointInteretInfos['lng'] = '",$ptInteret.data_map.coord_geolocalisation.content.longitude,"';")}
@@ -112,13 +109,13 @@
                         
                         {concat("var circuitInfos = new Array();")}
                         {concat("circuitInfos['name'] = '",$circuit.name|trim|wash|explode("'")|implode("\\'"),"';")}
-                        {concat("circuitInfos['visuel'] = '",$circuit.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
+                        {concat("circuitInfos['visuel'] = '",$circuit.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
                         {if $circuit.data_map.code_trace_gmap.has_content}
                             {concat("var traceCoords = new Array();")}
                             {def $traceArrayCoord = $circuit.data_map.code_trace_gmap.data_text|trim|wash|explode("\n")}
                             {foreach $traceArrayCoord as $traceCoord}
                                 {if $traceCoord|explode(",")|count|gt(1)}
-                                    {concat("traceCoords[traceCoords.length] = new google.maps.LatLng(",$traceCoord|explode(",")[0],",",$traceCoord|explode(",")[1]|trim|wash,") ;")}
+                                    {concat("traceCoords[traceCoords.length] = new google.maps.LatLng(",$traceCoord|explode(",")[1],",",$traceCoord|explode(",")[0]|trim|wash,") ;")}
                                 {/if}
                             {/foreach}
                             {undef $traceArrayCoord}
@@ -132,7 +129,8 @@
                         {undef $listePtInterets $listePtInteretsMA $rListPtInteretsMA}
                     {/foreach}
                 {/if}
-                    console.log(listeCircuits);
+                {/set-block}
+                <script>
                 {literal}
                 
                     var carte;
@@ -140,12 +138,16 @@
                     var maPosition = false;
                     var pointArrivee = false;
                     var directionsDisplay;
-                    var directionsService = new google.maps.DirectionsService();
+                    var directionsService;
                     var ListMarkersPtInterets = new Array();
                 
                     function initializeMap(){
+                     {/literal}
+                         {$scriptInitGmap}
+                     {literal}
+                         directionsService = new google.maps.DirectionsService();
                         
-                        var myLatLng = new google.maps.LatLng(46.497398,-1.797536);
+                        var myLatLng = new google.maps.LatLng(46.49177448218621,-1.775665283203125 );
                         var myOptions = {
                           zoom: 16,
                           center: myLatLng,
@@ -159,19 +161,20 @@
                             polylineOptions: {strokeColor:'#0167C8'}
                         })
                             
-                        // afficheTraceManuel(parcoursRemblaiCoordonnees,'#00F00F');
+                        
                         for(var i in listeCircuits){
-                            afficheTraceCircuits(listeCircuits[i]['traceCoords'],'#'+listeCircuits[i]['couleurTrace']);
+                            var couleurCircuit = '#'+listeCircuits[i]['couleurTrace'];
+                            afficheTraceCircuits(listeCircuits[i]['traceCoords'],couleurCircuit);
                             for(var j in listeCircuits[i]['listePointsInterets']){
-                                afficherPointInteret(listeCircuits[i]['listePointsInterets'][j]);
+                                afficherPointInteret(listeCircuits[i]['listePointsInterets'][j],couleurCircuit);
                             }
                             for(var k in listeCircuits[i]['listePointsInteretsMA']){
-                                afficherPointInteret(listeCircuits[i]['listePointsInteretsMA'][k]);
+                                afficherPointInteret(listeCircuits[i]['listePointsInteretsMA'][k],couleurCircuit);
                             }
                         }
                         
-                            
                         // adapter le zoom et la position du centre de la carte gmap
+                        /*
                         var latlngbounds = new google.maps.LatLngBounds( );
                         for( var i in listeCircuits){
                             for( var j in listeCircuits[i]['traceCoords']){
@@ -179,6 +182,7 @@
                             }
                         }
                         carte.fitBounds(latlngbounds);
+                            */
                         if (navigator.geolocation){
                           var watchId = navigator.geolocation.watchPosition(successCallbackMaPosition,null,{enableHighAccuracy:false});  
                         }else{
@@ -191,7 +195,8 @@
                               icon: '/extension/ayaline_patrimoine/design/ayaline_patrimoine/images/picto-arrivee.png'
                         });
                         pointArrivee.setMap(null);//ne pas afficher le picto du point d'arrivée
-                            
+                        //map set center
+                        carte.setCenter(new google.maps.LatLng(46.49177448218621,-1.775665283203125 ));
                     }
                     function afficheTraceCircuits(parcoursCoords,couleurTracer){
                             var parcoursTrace = new google.maps.Polyline({
@@ -202,7 +207,7 @@
                             });
                             parcoursTrace.setMap(carte);
                     }
-                    function afficherPointInteret(ptInteret){
+                    function afficherPointInteret(ptInteret,couleurTrace){
                             var iMrk = ListMarkersPtInterets.length;
                             ListMarkersPtInterets[iMrk] = new google.maps.Marker({
                               position: new google.maps.LatLng(ptInteret['lat'],ptInteret['lng']),
@@ -211,7 +216,7 @@
                               icon: ptInteret['picto']
                             });
                             var infoWinContentStr ='<div class="info-window-gmap">';
-                            infoWinContentStr +='<div class="visuel">'+'<img src="'+ptInteret['visuel']+'">'+'</div>';
+                            infoWinContentStr +='<div class="visuel" style="background-color: '+couleurTrace+'">'+'<img src="'+ptInteret['visuel']+'">'+'</div>';
                             infoWinContentStr +='<div class="titre">'+ptInteret['name']+'</div>';
                             infoWinContentStr +='<a href="Javascript:tracerItineraireMaposition(ListMarkersPtInterets['+iMrk+']);" class="tracer-itineraire">itinéraire</a>';
                             infoWinContentStr +='<div class="clear-tout"></div>';
@@ -264,6 +269,15 @@
                         //maPosition.setMap(null);
                         pointArrivee.setMap(null);
                     }
+                    function loadScript() {
+                        if(document.getElementById('gmap-script-js') == null){
+                            var script = document.createElement('script');
+                            script.id = 'gmap-script-js';
+                            script.type = 'text/javascript';
+                            script.src = 'https://maps.googleapis.com/maps/api/js?sensor=false&' + 'callback=initializeMap';
+                            document.body.appendChild(script);
+                        }
+                    }
                 {/literal}
         </script>    
 
@@ -273,3 +287,4 @@
 			{attribute_view_gui attribute=$node.data_map.texte_libre}
 		</div>
 	{/if}
+        
