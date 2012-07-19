@@ -77,7 +77,11 @@
                         {/if}
                             
                         {* Liste Points d'intérêts normaux *}
-                        {def $listePtInterets = fetch('content','tree',hash('parent_node_id',$circuit.node_id,'class_filter_type','include','class_filter_array',array('smp_point_interet')))}
+                        {def $listePtInterets = fetch('content','tree',hash('parent_node_id',$circuit.node_id,
+                                                                'class_filter_type','include',
+                                                                'class_filter_array',array('smp_point_interet'),
+                                                                'main_node_only', true()
+                        ))}
                         {concat("var listePointsInterets = new Array();")}
                         {if $listePtInterets|count|gt(0)}
                             
@@ -257,7 +261,7 @@
                     }
                     function cacherItineraireMaposition(){
                         directionsDisplay.setMap(null);
-                        maPosition.setMap(null);
+                        //maPosition.setMap(null);
                         pointArrivee.setMap(null);
                     }
                 {/literal}
