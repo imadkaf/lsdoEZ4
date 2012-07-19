@@ -813,7 +813,7 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 /**************** Début mZammouri ******************/
 .info-window-gmap{
     display: block;
-    padding: 5px;
+    padding: 0px;
     width: 250px;
     position: relative;
 }
@@ -833,10 +833,13 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 .info-window-gmap .tracer-itineraire{
     display: block;
     font-weight: normal;
-    color: gray;
+    color: #70777f;
     position: absolute;
     bottom: 5px;
-    left: 113px;
+    left: 108px;
+    padding-left: 18px;
+    padding-top: 14px;
+    background: url('../images/puce-pieton.png') no-repeat 0 100%;
 }
 /**************** Fin mZammouri ******************/
 
