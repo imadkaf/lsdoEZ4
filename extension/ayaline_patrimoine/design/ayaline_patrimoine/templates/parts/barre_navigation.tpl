@@ -2,17 +2,17 @@
 <div class="pieds-page">
                 <ul {if and(eq($cNode.class_identifier,'smp_point_interet'),eq($cNode.data_map.media_principal.content.class_identifier,'smp_diaporama'))}class="normal"{/if}>
                 {if eq($cNode.class_identifier,'smp_liste_circuits')}
-                    <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour"></a></li>
+                    <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
                     <li><a href="#" class="lien-arrondi google-maps-actif masquer-map"></a></li>
                     <li><a href="#" class="lien-arrondi google-maps-desactif afficher-map"></a></li>
                     <li><a href="#" class="lien-arrondi supp-itiniraire cache"></a></li>
                 {elseif eq($cNode.class_identifier,'smp_circuit')}
-                    <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="retour"></a></li>
+                    <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="retour" rel='external'></a></li>
                     <li><a href="#" class="lien-arrondi google-map-actif-circuit masquer-map"></a></li>
                     <li><a href="#" class="lien-arrondi google-map-ferme-circuit afficher-map"></a></li>
                     <li><a href="#" class="lien-arrondi itiniraire-circuit cache"></a></li>
                 {elseif eq($cNode.class_identifier,'smp_point_interet')}
-                    <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour"></a></li>
+                    <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
                     <li><a href="#" class="lien-arrondi-br-nv google-map-actif-circuit masquer-map"></a></li>
                     <li><a href="#" class="lien-arrondi google-map-ferme-circuit afficher-map"></a></li>                  
                     <li><a href="#" class="lien-arrondi-br-nv itiniraire-circuit cache"></a></li>

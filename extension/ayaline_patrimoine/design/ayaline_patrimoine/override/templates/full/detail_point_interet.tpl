@@ -1,11 +1,11 @@
 <div class="contenu">
 	<div class="accroche border-bottom">
         <h1 class="titre-parcours">
-             Parcours <a href="#"><b>{attribute_view_gui attribute=$node.parent.data_map.titre_circuit}</b></a>
+             Parcours <a href={$node.parent.url_alias|ezurl} rel='external'><b>{striptags($node.parent.data_map.titre_circuit.value)}</b></a>
         </h1>
      </div>
      <div class="fiche-interet">
-     	<h2>{attribute_view_gui attribute=$node.data_map.titre_point_interet}</h2>
+     	<h2>{$node.data_map.titre_point_interet.value}</h2>
      	<div class="video">
      	{def $media_principal = false()}
      	{set $media_principal=fetch( 'content', 'node', hash( 'node_id', $node.data_map.media_principal.content.main_node_id))}
