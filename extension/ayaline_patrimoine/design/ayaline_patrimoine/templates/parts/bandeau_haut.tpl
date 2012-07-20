@@ -31,6 +31,8 @@
 						{striptags($onglet.data_map.titre_point_interet.value)}
 					{elseif eq($onglet.class_identifier,'smp_contenu_libre')}
 						{striptags($onglet.data_map.titre.value)}
+					{elseif eq($onglet.class_identifier,'smp_accueil')}
+						{striptags($onglet.data_map.titre.value)}
 					{/if}
 				</a>			
 			{/foreach}
