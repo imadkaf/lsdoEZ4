@@ -16,4 +16,7 @@ ContentObjectLocale=fre-FR
 TranslationExtensions[]=ayaline_patrimoine
 UrlList[fre-FR]=patrimoine.lsdo.loc
 
+[TemplateSettings]
+ExtensionAutoloadPath[]=ayaline_patrimoine
+
 */ ?>
