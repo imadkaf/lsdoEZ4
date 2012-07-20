@@ -1,6 +1,7 @@
 {if $simple}
  <article>
-		<a href={$node.url_alias|ezurl} class="image-article" rel='external'>{attribute_view_gui attribute=$node.data_map.visuel_normal}</a>
+		<a href={$node.url_alias|ezurl} class="image-article" rel='external'>
+		{attribute_view_gui attribute=$node.data_map.visuel_normal image_class="circuitNormal"}</a>
 		<div class="titre-article">
 			<a href={$node.url_alias|ezurl} rel='external'>{attribute_view_gui attribute=$node.data_map.titre_circuit}</a>
 		</div>
@@ -10,7 +11,8 @@
 </article>		
 {else}
 			<article>
-				<a href={$node.url_alias|ezurl} class="image-article" rel='external'>{attribute_view_gui attribute=$node.data_map.visuel_grand_format}</a>
+				<a href={$node.url_alias|ezurl} class="image-article" rel='external'>
+				{attribute_view_gui attribute=$node.data_map.visuel_grand_format image_class="circuitMisEnAvant"}</a>
 				<div class="bloc-titre">
 					<a class="article-titre" href={$node.url_alias|ezurl} rel='external'> 
 						<span class="titre">{attribute_view_gui attribute=$node.data_map.titre_circuit}</span> 
