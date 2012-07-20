@@ -26,7 +26,7 @@ Filter[]=geometry/scalewidth=260
 Filter[]=geometry/scalewidth=121
 
 [pointInteretImageEnAvant]
-Filter[]=geometry/scalewidth=121
+Filter[]=geometry/scalewidth=320
 
 [imageInfowinGmap]
 Filters[]=geometry/scalewidthdownonly=100
