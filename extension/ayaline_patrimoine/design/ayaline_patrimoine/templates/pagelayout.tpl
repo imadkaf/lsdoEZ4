@@ -2,6 +2,7 @@
 {if is_set($module_result.node_id)}
     {set $cNode = fetch(content, node, hash(node_id, $module_result.node_id))}
 {/if}
+
 {def $rooNodeSitePatrimoine=fetch('content','list',hash('parent_node_id',ezini('NodeSettings','RootNode','content.ini'),
                                                 'class_filter_type','include',
                                                 'class_filter_array',array('smp_accueil')
