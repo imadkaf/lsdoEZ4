@@ -1,14 +1,39 @@
-<nav id="breadcrumbs"> <span>Vous êtes sur : </span>
-<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-	<a href="/" itemprop="url" rel='external'><span itemprop="title">Accueil</span>
-	</a>&nbsp;> {foreach $module_result.path as $Path offset 2}
-	<div itemprop="child" itemscope
-		itemtype="http://data-vocabulary.org/Breadcrumb">
-		{if or($Path.url_alias, $Path.url)} <a itemprop="url"
-			href="{$Path.url_alias|ezurl}" rel='external'><span itemprop="title">{striptags($Path.text)}</span>
-		</a>&nbsp;> {else} <strong>{striptags($Path.text)}</strong> {/if} {/foreach}
-		{foreach $module_result.path as $Path offset 2}
-	</div>
-	{/foreach}
-</div>
+<nav id="breadcrumbs"> 
+
+{if $module_result.uri|eq('/user/login')}
+		<span>Vous êtes sur : </span><a href="/" rel='external'>Accueil</a> > <strong>Connexion</strong>
+{/if}
+
+{if $module_result.uri|eq('/content/search')}
+		<span>Vous êtes sur : </span><a href="/" rel='external'>Accueil</a> > <strong>Recherche</strong>
+{/if}
+
+{def $titreChemin = ''}
+{def $node = ''}
+
+{def $path = $module_result.path}
+{if is_set($pagedata.path_array)}
+	{set $path = $pagedata.path_array}
+{/if}
+
+{if $cNode|is_set()}
+	<span>Vous êtes sur : </span><a href="/" rel='external'>Accueil</a>&nbsp;> {foreach $path as $pathNode offset 2}
+			{set $node = fetch( 'content', 'node', hash( 'node_id', $pathNode.node_id ) )}
+			{set $titreChemin = ''}
+				{* Si le noeud est celui de l'accueil du site mobile *}
+				{if eq($pathNode.node_id, ezini('NodeSettings','RootNodePatrimoine','content.ini'))}
+					{set $titreChemin = 'Accueil'}
+				{else}
+					{set $titreChemin = $pathNode.text}
+				{/if}
+			{if or($pathNode.url_alias, $pathNode.url)}
+					<a class="ui-link" href={$pathNode.url_alias|ezurl} rel='external'>{striptags($titreChemin)}</a> >
+			{else}
+					<strong>{striptags($titreChemin)}</strong>
+			{/if}
+		{/foreach}
+{/if}
 </nav>
+
+
+
