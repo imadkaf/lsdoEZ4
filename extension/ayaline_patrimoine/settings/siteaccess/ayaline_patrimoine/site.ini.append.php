@@ -16,6 +16,7 @@ RegistrationEmail=
 
 [SiteAccessSettings]
 RequireUserLogin=false
+PathPrefix=Accueil
 
 [DesignSettings]	
 SiteDesign=ayaline_patrimoine
