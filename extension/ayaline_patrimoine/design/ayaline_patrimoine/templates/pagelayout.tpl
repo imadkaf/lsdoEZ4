@@ -38,6 +38,22 @@
 			{include uri="design:parts/barre_navigation.tpl"}
 		{/if}		
 	</div>
+	{def $googleAccountKey = ezini('TagsGA','googleAccountKey','ezurlga.ini.append')}
+						<script type="text/javascript">
+							var _gaq = _gaq || [];
+							_gaq.push(['_setAccount', '{$googleAccountKey}']);
+							_gaq.push(['_setDomainName', 'none']);
+						    _gaq.push(['_setAllowLinker', true]);
+							_gaq.push(['_trackPageview']);
+				{literal}
+							(function() {
+								var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+								ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+								var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+							})();
+				{/literal}
+						</script>
+	{undef $googleAccountKey}
 </div>
 </body>
 {include uri="design:parts/script_barre_navigation.tpl"}
