@@ -15,7 +15,7 @@
 		    <title>{$title|wash()} | Site mobile découverte du patrimoine des Sables d'Olonne</title>
 		{else}
 		    {if is_set($cNode.node_id)}
-		        {set $title = $cNode.name|wash()}
+		        {set $title = striptags($cNode.name)}
 		        <title> {if $title|ne(false())}{$title|wash} | Site mobile découverte du patrimoine des Sables d'Olonne{/if}</title>
 		    {else}
 		        <title>{ezini('SiteSettings', 'SiteName' ,'site.ini')} | Site mobile découverte du patrimoine des Sables d'Olonne</title>

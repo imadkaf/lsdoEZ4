@@ -7,5 +7,5 @@
 	<div class="modification">Dernière modification : <span class="date">{$node.object.modified|l10n( 'shortdate' )}</span></div>
 	<div class="clear"></div>
 </div>
-<a href="{$node.global_url_alias}"><h3>{$node.name|wash}</h3></a>
-<p>{$node.highlight}</p>
+<a href="{$node.global_url_alias}" rel='external'><h3>{striptags($node.name|wash)}</h3></a>
+<p>{striptags($node.highlight)}</p>
