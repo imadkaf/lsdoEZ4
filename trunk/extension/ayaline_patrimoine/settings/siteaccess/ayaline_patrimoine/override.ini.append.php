@@ -56,6 +56,12 @@ MatchFile=line/detial_point_interet_audio.tpl
 Subdir=templates
 Match[class_identifier]=smp_audio
 
+[line_detial_point_interet_image]
+Source=node/view/line.tpl
+MatchFile=line/detial_point_interet_image.tpl
+Subdir=templates
+Match[class_identifier]=smp_image
+
 [full_page_contenu_libre]
 Source=node/view/full.tpl
 MatchFile=full/page_contenu_libre.tpl
