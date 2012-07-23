@@ -7,7 +7,7 @@ class eZPatrimoineUtils{
 	function eZPatrimoineUtils(){
 
 		$this->Operators = array (
-			'striptags'
+			'striptags','getcookie'
 		);
 
 	}
@@ -29,7 +29,8 @@ class eZPatrimoineUtils{
 		return array(			    
 			    'striptags'=>array('needle'=>array('type'=>'string',
 									 'required'=>true,
-									 'default'=>""))
+									 'default'=>"")),
+				'getcookie'=>array()
 			);
 
 	}
@@ -47,6 +48,11 @@ class eZPatrimoineUtils{
 			}
 
 			    break;
+			    
+			    case 'getcookie': {
+				$operatorValue = $this->getcookie();
+			}
+			    break;
 
 
 		 }
@@ -57,6 +63,15 @@ class eZPatrimoineUtils{
 
 	function striptags($needle) {
 			return strip_tags($needle);
+	}
+	
+	function getcookie() {
+		//var_dump($_COOKIE['popin']);
+		if(!isset($_COOKIE['popin'])){
+			return true;
+		}elseif(isset($_COOKIE['popin'])){
+			return false;
+		}
 	}
 
 }
