@@ -11,20 +11,20 @@
 		</div>
 		{if gt($listeCircuits|count,0)}
 			{def $elt_circuit = false()}
-			
-			{foreach $listeCircuits as $circuit}			
+
+			{foreach $listeCircuits as $circuit}
 				{if $circuit.data_map.mise_avant_liste_circuits.value|eq(1)}
-				<section class="liste-circuits-mise-en-avant">				
+				<section class="liste-circuits-mise-en-avant">
 					{node_view_gui content_node=$circuit view='line' simple=false()}
 				</section>
-				{/if}					
+				{/if}
 			{/foreach}
-			
+
 			<section class="liste-circuits-simple">
 			{foreach $listeCircuits as $circuit}
 				{if $circuit.data_map.mise_avant_liste_circuits.value|eq(0)}
 					{node_view_gui content_node=$circuit view='line' simple=true()}
-				{/if}	
+				{/if}
 			{/foreach}
 			</section>
 			{undef $elt_circuit}
@@ -33,11 +33,11 @@
 	<div class="bloc-carte-google">
 		<p style="padding-left: 10px; padding-top: 11px;"
 			class="afficher-bloc">
-			<a href="#" class="affichage-bloc bold afficher-map">{attribute_view_gui attribute=$node.data_map.titre_onglet_carte}</a> 
+			<a href="#" class="affichage-bloc bold afficher-map">{attribute_view_gui attribute=$node.data_map.titre_onglet_carte}</a>
 			<a href="#" class="affichage-bloc afficher-map">{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_ferme}</a>
 		</p>
 		<p style="padding-left: 10px; padding-top: 11px;" class="masquer-bloc">
-			<a href="#" class="affichage-bloc bold masquer-map">{attribute_view_gui attribute=$node.data_map.titre_onglet_carte}</a> 
+			<a href="#" class="affichage-bloc bold masquer-map">{attribute_view_gui attribute=$node.data_map.titre_onglet_carte}</a>
 			<a href="#" class="affichage-bloc masquer-map puce-gris">{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_ouvert}</a>
 		</p>
 		<a href="#" class="lien-arrondi google-maps-actif masquer-map"></a> <a
@@ -45,12 +45,12 @@
 		<div class="clear-tout"></div>
 	</div>
 	<div id="map_canvas" style="width: 100%; z-index: 5555;"></div>
-        
+
             {set-block variable="scriptInitGmap"}
                 {concat("var listeCircuits = new Array();")}
                 {if $listeCircuits|count|gt(0)}
                     {foreach $listeCircuits as $keyCircuit=>$circuit}
-                        
+
                         {* Liste Points d'intérêts Mise en avant *}
                         {def $rListPtInteretsMA = $circuit.data_map.liste_poiunts_interets_mis_avant.content.relation_list}
                         {def $listePtInteretsMA = array()}
@@ -59,7 +59,7 @@
                             {foreach $rListPtInteretsMA as $ptInteretMA}
                                 {def $nodePtInteretMA = fetch('content','node',hash('node_id',$ptInteretMA.node_id))}
                                 {set $listePtInteretsMA = $listePtInteretsMA|append($nodePtInteretMA)}
-                                
+
                                 {concat("var pointInteretMAInfos = new Array();")}
                                 {concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|trim|wash|explode("'")|implode("\\'"),"';")}
                                 {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
@@ -69,10 +69,10 @@
                                 {concat("listePointsInteretsMA[listePointsInteretsMA.length] = pointInteretMAInfos;")}
                                 {undef $nodePtInteretMA}
                             {/foreach}
-                                
-                                
+
+
                         {/if}
-                            
+
                         {* Liste Points d'intérêts normaux *}
                         {def $listePtInterets = fetch('content','tree',hash('parent_node_id',$circuit.node_id,
                                                                 'class_filter_type','include',
@@ -81,17 +81,17 @@
                         ))}
                         {concat("var listePointsInterets = new Array();")}
                         {if $listePtInterets|count|gt(0)}
-                            
+
                             {foreach $listePtInterets as $ptInteret}
-                                
+
                                 {def $isPtMA =false()}
                                 {foreach $listePtInteretsMA as $ptIntMA}
                                     {if $ptIntMA.node_id|eq($ptInteret.node_id)}
-                                        {set $isPtMA =true()}    
+                                        {set $isPtMA =true()}
                                         {break}
                                     {/if}
                                 {/foreach}
-                                
+
                                 {if $isPtMA|not}
                                     {concat("var pointInteretInfos = new Array();")}
                                     {concat("pointInteretInfos['name'] = '",$ptInteret.name|trim|wash|explode("'")|implode("\\'"),"';")}
@@ -102,11 +102,11 @@
                                     {concat("listePointsInterets[listePointsInterets.length] = pointInteretInfos;")}
                                 {/if}
                                 {undef $isPtMA}
-                                    
+
                             {/foreach}
-                            
+
                         {/if}
-                        
+
                         {concat("var circuitInfos = new Array();")}
                         {concat("circuitInfos['name'] = '",$circuit.name|trim|wash|explode("'")|implode("\\'"),"';")}
                         {concat("circuitInfos['visuel'] = '",$circuit.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
@@ -120,7 +120,7 @@
                             {/foreach}
                             {undef $traceArrayCoord}
                         {/if}
-                        
+
                         {concat("circuitInfos['traceCoords'] = traceCoords;")}
                         {concat("circuitInfos['couleurTrace'] = '",$circuit.data_map.code_couleur_trace_gmap.data_text|trim|wash,"';")}
                         {concat("circuitInfos['listePointsInterets'] = listePointsInterets;")}
@@ -132,7 +132,7 @@
                 {/set-block}
                 <script>
                 {literal}
-                
+
                     var carte;
                     var destinationPtInteret;
                     var maPosition = false;
@@ -140,13 +140,13 @@
                     var directionsDisplay;
                     var directionsService;
                     var ListMarkersPtInterets = new Array();
-                
+
                     function initializeMap(){
                      {/literal}
                          {$scriptInitGmap}
                      {literal}
                          directionsService = new google.maps.DirectionsService();
-                        
+
                         var myLatLng = new google.maps.LatLng(46.49177448218621,-1.775665283203125 );
                         var myOptions = {
                           zoom: 16,
@@ -160,8 +160,8 @@
                             suppressMarkers: true,
                             polylineOptions: {strokeColor:'#0167C8'}
                         })
-                            
-                        
+
+
                         for(var i in listeCircuits){
                             var couleurCircuit = '#'+listeCircuits[i]['couleurTrace'];
                             afficheTraceCircuits(listeCircuits[i]['traceCoords'],couleurCircuit);
@@ -172,7 +172,7 @@
                                 afficherPointInteret(listeCircuits[i]['listePointsInteretsMA'][k],couleurCircuit);
                             }
                         }
-                        
+
                         // adapter le zoom et la position du centre de la carte gmap
                         /*
                         var latlngbounds = new google.maps.LatLngBounds( );
@@ -184,7 +184,7 @@
                         carte.fitBounds(latlngbounds);
                             */
                         if (navigator.geolocation){
-                          var watchId = navigator.geolocation.watchPosition(successCallbackMaPosition,null,{enableHighAccuracy:false});  
+                          var watchId = navigator.geolocation.watchPosition(successCallbackMaPosition,null,{enableHighAccuracy:false});
                         }else{
                           alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
                         }
@@ -203,7 +203,7 @@
                                     path: parcoursCoords,//chemin du tracé
                                     strokeColor: couleurTracer,//couleur du tracé
                                     strokeOpacity: 0.6,//opacité du tracé
-                                    strokeWeight: 3//grosseur du tracé
+                                    strokeWeight: 5//grosseur du tracé
                             });
                             parcoursTrace.setMap(carte);
                     }
@@ -229,7 +229,7 @@
                                 for(var i in ListMarkersPtInterets){
                                     ListMarkersPtInterets[i]._infowindow.close();
                                 }
-                                
+
                                 infowindow.open(carte,ListMarkersPtInterets[iMrk]);
                             });
                     }
@@ -279,12 +279,12 @@
                         }
                     }
                 {/literal}
-        </script>    
+        </script>
 
-	
+
 	{if $node.data_map.texte_libre.has_content}
 		<div class="bloc-carte-google" style="padding-left: 10px; padding-top: 11px;padding-bottom: 11px;">
 			{attribute_view_gui attribute=$node.data_map.texte_libre}
 		</div>
 	{/if}
-        
+
