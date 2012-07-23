@@ -292,7 +292,17 @@ if (isset($_GET["idc"])) {
                         });
                     });
                     ";
-                $varJS.="cartoMarkers['categ_$categ_id']=markersProduitsCateg" . $categ_id . ";";
+                
+                $valOD = "origin";
+                if(isset($_GET["od"])){
+                    $valOD = $_GET["od"];
+                }
+                $varJS.="
+                        if(rechercheItinFichMarkers['$valOD']){
+                            rechercheItinFichMarkers['$valOD'].setMap(null);
+                        }   
+                        rechercheItinFichMarkers['$valOD'] = markersProduitsCateg" . $categ_id . "['prod_$idProduit'];
+                ";
                 echo "<script>" . $varJS . "</script>";
             }
         }

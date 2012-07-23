@@ -350,10 +350,14 @@ ul,li{
     text-decoration: none;
 }
 
-#menu-droite>ul>li{
+#menu-droite>ul{
     margin-top: 0px;
     position: absolute;
     bottom: 40px;
+}
+#menu-droite>ul>li{
+    margin-top: 0px;
+    position: relative;
 }
 #menu-droite>ul>li+li{
     margin-top: 0px;
@@ -374,7 +378,7 @@ ul,li{
     bottom: 0;
 }
 #menu-droite>ul>li>.sous-menu>ul>li>.sous-menu>ul{
-	margin-right:8px;
+    margin-right:8px;
 }
 #menu-droite>ul>li>.sous-menu>ul>li>a{
     display: block;
@@ -407,7 +411,7 @@ ul,li{
 }
 #menu-droite .sous-menu{
     background: url('../images/bg_menu.png');
-    min-width: 195px;
+    min-width: 205px;
     display: none;
     margin-right: 1px;
     color: #000;
@@ -452,6 +456,15 @@ ul,li{
     color: #ffa405;
 }
 #afficher-titre{
+    display: block;
+    width: 6px;
+    padding: 12px;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    margin: 1px auto;
+    text-align: center;
+}
+#recherche-titre{
     display: block;
     width: 6px;
     padding: 12px;
@@ -660,6 +673,12 @@ ul,li{
     padding: 0 0 2px 20px;
     background: url('../images/menu/icon_rafraichi.png') no-repeat 0 0%;
 }
+#effacer-srch-itin-mrkrs{
+    display: block;
+    margin-top: 15px;
+    padding: 0 0 2px 20px;
+    background: url('../images/menu/icon_balai.png') no-repeat 0 0%;
+}
 .container-affichage-date{
     font-size: 80%;
     border: 1px solid grey;
@@ -701,4 +720,37 @@ ul,li{
 .container-affichage-date .affichage-date-rollover{
     display: none;
     overflow: hidden;
+}
+.input-auto-com{
+    display: block;
+    position: relative;
+}
+.input-auto-com input{
+    display: block;
+    position: relative;
+    width: 190px;
+    
+}
+.bloc-auto-complete{
+    background-color: white;
+    position: absolute;
+    bottom: 100%;
+    overflow: auto;
+    margin-left: 2px;
+    display: none;
+    font-size: 70%;
+    max-height: 300px;
+}
+.bloc-auto-complete ul li a{
+    display: block;
+    padding: 1px 5px;
+}
+.bloc-auto-complete ul li:hover{
+    background-color: #e1e1e0;
+}
+#srch-fiche-itn-titre{
+    background: url('../images/menu/icon_srch_itn_fiche.png') no-repeat 0 50%;
+}
+#srch-ot-itn-titre{
+    background: url('../images/menu/icon_srch_itn_otfiche.png') no-repeat 0 50%;
 }

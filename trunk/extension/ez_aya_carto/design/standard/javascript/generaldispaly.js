@@ -4,21 +4,21 @@ $(function(){
         $(this).addClass("active");
     });
     $("#menu-droite>ul>li>.sous-menu>ul>li>a").hover(
-        function(){
-            var eThis=$(this);
-            eThis.animate({
-                "paddingLeft":"65px",
-                "color":"#ffa405"
-            });
-        },function(){
-            var eThis=$(this);
-            if(!eThis.hasClass("active")){
-                eThis.animate({
-                    "paddingLeft":"55px",
-                    "color":"#000"
-                });
-            }
+    function(){
+        var eThis=$(this);
+        eThis.animate({
+            "paddingLeft":"55px",
+            "color":"#ffa405"
         });
+    },function(){
+        var eThis=$(this);
+        if(!eThis.hasClass("active")){
+            eThis.animate({
+                "paddingLeft":"45px",
+                "color":"#000"
+            });
+        }
+    });
     $("#menu-droite>ul>li>.sous-menu>ul>li>a").click(function(){
         if(!$(this).hasClass("active")){
             $("#menu-droite>ul>li>.sous-menu>ul>li>a").removeClass("active");
@@ -26,13 +26,13 @@ $(function(){
             $("#menu-droite>ul>li>.sous-menu>ul>li>a").each(function(){
                 if(!$(this).hasClass("active"))
                     $(this).animate({
-                        "paddingLeft":"55px",
+                        "paddingLeft":"45px",
                         "color":"#000"
                     });
             });
         }else{
             $(this).animate({
-                "paddingLeft":"55px",
+                "paddingLeft":"45px",
                 "color":"#000"
             });
             $(this).removeClass("active");
@@ -339,23 +339,138 @@ $(function(){
         var eInput_Du = $(this).find(".checkbox-date-rv-d");
         var eInput_Au = $(this).find(".checkbox-date-rv-a");
         var dates = $( "#" +eInput_Du.attr('id')+ ", #" +eInput_Au.attr('id')).datepicker({
-                defaultDate: "+1w",
-                changeMonth: true,
-                dateFormat: "yy-mm-dd",
-                numberOfMonths: 1,
-                onSelect: function( selectedDate ) {
-                        var option = this.id == eInput_Du.attr('id') ? "minDate" : "maxDate",
-                                instance = $( this ).data( "datepicker" ),
-                                date = $.datepicker.parseDate(
-                                        instance.settings.dateFormat ||
-                                        $.datepicker._defaults.dateFormat,
-                                        selectedDate, instance.settings );
-                        dates.not( this ).datepicker( "option", option, date );
-                }
+            defaultDate: "+1w",
+            changeMonth: true,
+            dateFormat: "yy-mm-dd",
+            numberOfMonths: 1,
+            onSelect: function( selectedDate ) {
+                var option = this.id == eInput_Du.attr('id') ? "minDate" : "maxDate",
+                instance = $( this ).data( "datepicker" ),
+                date = $.datepicker.parseDate(
+                instance.settings.dateFormat ||
+                    $.datepicker._defaults.dateFormat,
+                selectedDate, instance.settings );
+                dates.not( this ).datepicker( "option", option, date );
+            }
         }).datepicker( $.datepicker.regional[ "fr" ] );
     });
+    /****************************** Recherche Fiche sit & tracer itinaire fiche => OT ******************************/
+    $(".srch-fiche-itn-input").keyup(function(){
+        var eThis = $(this);
+        var valMotCle = $(this).val();
+        valMotCle = valMotCle.replace(new RegExp(" ", "g"),"%20");
+        var valOD='origin';
+        if(eThis.is(".origin")){
+            valOD = 'origin';
+        }else{
+            valOD = 'destination';
+        }
+        eThis.parents(".input-auto-com").find(".bloc-auto-complete").css({"width":eThis.css("width")});
+        if(valMotCle.length >= 2){
+            eThis.parents(".input-auto-com").find(".bloc-auto-complete").fadeIn(500);
+            eThis.parents(".input-auto-com").find(".bloc-auto-complete").load("/layout/set/carto/carto/aucomplete_recherche?mc="+valMotCle+"&od="+valOD,function(){
+                
+            });
+        }else{
+            eThis.parents(".input-auto-com").find(".bloc-auto-complete").fadeOut(500);
+        }
+    });
+    $(".srch-fiche-itn-input").blur(function(){
+        if(!$(this).parents(".input-auto-com").find(".bloc-auto-complete").is(":hover")){
+            $(this).parents(".input-auto-com").find(".bloc-auto-complete").fadeOut(500);
+        }
+    });
+    $(".srch-fiche-itn-input").focus(function(){
+        $(".bloc-auto-complete").fadeOut(100,function(){$(".bloc-auto-complete").html("");});
+        $(this).parents(".input-auto-com").find(".bloc-auto-complete").fadeIn(100);
+        if($(this).attr("id") == "srch-fiche-itn-ot-input"){
+            rechercheItinFichMarkers['origin'] = markerOT;
+        }
+    });
+    
+   
+//    $(".input-auto-com .bloc-auto-complete ul li a").click(function(){
+//        
+//        return false;
+//    });
     
 });
+/* rechercher produit sit */
+function rechercheItinFiche(categID,prodID,orgDest,idacFiche){
+    
+    var inputSrch = $("#"+idacFiche).parents(".input-auto-com").find(".srch-fiche-itn-input");
+    inputSrch.val($("#"+idacFiche).html());
+    for(var i in cartoMarkers){
+        for(var j in cartoMarkers[i]){
+            cartoMarkers[i][j].setMap(null);
+        }
+    }
+    $(".reinitialiser-ma-recherche").click();
+    
+    $("#overlay-loading").css({
+        "z-index":"9999",
+        "display":"block"
+    });
+    $("#script-container").append("<div class='script-container'></div>");
+    $("#script-container").find(".script-container:last").load("/layout/set/carto/carto/rechercher_produit?idc=categ_"+categID+"&idp="+prodID+"&od="+orgDest,function(){
+        $("#overlay-loading").css({
+            "z-index":"-1",
+            "display":"none"
+        });
+        /* Adapter la carte  zoom + position*/
+        var latlngbounds = new google.maps.LatLngBounds( );
+        var readaptMap=false;
+        for ( var k in rechercheItinFichMarkers ){
+            if(rechercheItinFichMarkers[k].getMap() != null){
+                latlngbounds.extend( rechercheItinFichMarkers[k].getPosition());
+                readaptMap = true;
+            }
+        }
+        if(readaptMap){
+            map_container.fitBounds(latlngbounds);
+        }
+        
+        if(rechercheItinFichMarkers['origin'] != null && rechercheItinFichMarkers['destination'] != null){
+           
+            var waypointsValise=new Array();
+            var request = {
+                origin: rechercheItinFichMarkers['origin'].getPosition(),
+                destination: rechercheItinFichMarkers['destination'].getPosition(),
+                waypoints: waypointsValise,
+                optimizeWaypoints: true,
+                travelMode: google.maps.DirectionsTravelMode.DRIVING
+            };
+            directionsServiceItinFich.route(request, function(response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplayItinFich.setDirections(response);
+                    directionsDisplayItinFich.setMap(map_container);
+                    
+                    rechercheItinFichMarkers['origin'].setMap(map_container);
+                    rechercheItinFichMarkers['destination'].setMap(map_container);
+                } else {
+                    alert("Google directions response : "+status);
+                }
+            });
+        }
+    });
+
+    $("#srch-ot-itn-titre").blur(function(){
+        if(rechercheItinFichMarkers['origin'] != null)
+        rechercheItinFichMarkers['origin'].setMap(null);
+    });
+    $("#effacer-srch-itin-mrkrs").click(function(){
+        rechercheItinFichMarkers['origin'].setMap(null);
+        rechercheItinFichMarkers['destination'].setMap(null);
+        rechercheItinFichMarkers['origin'] = null;
+        rechercheItinFichMarkers['destination'] = null;
+        directionsDisplayItinFich.setMap(null);
+        $(".srch-fiche-itn-input").val("");
+        $(".input-auto-com .bloc-auto-complete").hide();
+        return false;
+    });
+    
+}
+
 /* Adapter la hauteur des sous menu */
 function adaptHeightSousMenu(){
         
@@ -410,7 +525,7 @@ function tracerTragetOTFiche(markerFiche) {
                 var routeSegment = i+1;
                 directionsPanel.append("<div class=\"route-segment\" ></div>");
                 directionsPanel.find(".route-segment:last").append(
-                    "<div class=\"route-segment-content\">"+
+                "<div class=\"route-segment-content\">"+
                     "<b>Route Segment: " + routeSegment + "</b><br />"+
                     route.legs[i].start_address + " to "+
                     route.legs[i].end_address + "<br />"+
@@ -419,7 +534,7 @@ function tracerTragetOTFiche(markerFiche) {
                     "<a id=\"show-route-instractions-"+i+"\" href=\"#\" class=\"show-route-instractions\" onClick=\"showItineraireInstractions("+i+")\">Afficher les instructions</a>"+
                     "<div class=\"clear-both\"></div>"+
                     "</div>"
-                    );
+            );
                 directionsPanel.find(".route-segment:last").append("<div class=\"route-segment-allsteps\"><ul></ul></div>");
                 var allStepsPan=directionsPanel.find(".route-segment:last .route-segment-allsteps ul");
                 for(var j=0;j<route.legs[i].steps.length;j++){
