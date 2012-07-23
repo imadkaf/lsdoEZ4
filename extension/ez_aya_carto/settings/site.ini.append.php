@@ -6,6 +6,8 @@
 [RoleSettings]
 PolicyOmitList[]=carto/map
 PolicyOmitList[]=carto/import_categories
+PolicyOmitList[]=carto/aucomplete_recherche
+PolicyOmitList[]=carto/rechercher_produit
 PolicyOmitList[]=cartographie/map
 
 */ ?>

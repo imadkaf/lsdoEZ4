@@ -23,6 +23,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <script>
             var markerOT = null;
+            var rechercheItinFichMarkers = new Array();
             var markerOTFicheID = null;
             var streetViewMarker=false;
             var cartoMarkers = new Array();
@@ -37,8 +38,12 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
             var directionsService = new google.maps.DirectionsService();
             var directionsDisplayTrajet = new google.maps.DirectionsRenderer();
             var directionsServiceTrajet = new google.maps.DirectionsService();
-            var directionsDisplayOTFiche = new google.maps.DirectionsRenderer();
+            var directionsDisplayOTFiche = new google.maps.DirectionsRenderer({suppressMarkers : true});
             var directionsServiceOTFiche = new google.maps.DirectionsService();
+            var directionsDisplayItinFich = new google.maps.DirectionsRenderer({suppressMarkers : true});
+            var directionsServiceItinFich = new google.maps.DirectionsService();
+            
+
             var geocoder = new google.maps.Geocoder();
             var svProximite = <?php echo $MapSVProximite;?>;
         </script>
@@ -194,7 +199,52 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                         </div>
                     </li>
                     <li class="niv-1">
-                        <a id="outils-titre" href="#" class="cache has-sub-menu section-menu">Outils</a>
+                        <a id="recherche-titre" href="#" class="has-sub-menu section-menu">Rechercher</a>
+                        <div class="sous-menu">
+                            <ul class="menu-container">
+                                <li class="niv-2">
+                                    <a id="srch-ot-itn-titre" href="#" class="has-sub-menu" >Itinéraire OT</a>
+                                    <div class="sous-menu">
+                                        <div class="titre-sous-menu">
+                                            <img src="/extension/ez_aya_carto/design/standard/images/menu/icon_srch_itn_otfiche.png"/>
+                                            <span class="text">Itinéraire OT</span>
+                                            <div class="clear-both"></div>
+                                        </div>
+                                        <form class="recherche-itin-fiche">
+                                        <div class="input-auto-com">
+                                            <label for="srch-fiche-itn-ot-input" class="medium-font">Arrivée: </label><input type="text" id="srch-fiche-itn-ot-input" class="srch-fiche-itn-input destination"/>
+                                            <div class="bloc-auto-complete"></div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </li>
+                                <li class="niv-2">
+                                    <a id="srch-fiche-itn-titre" href="#" class="has-sub-menu" >Itinéraire fiche</a>
+                                    <div class="sous-menu">
+                                        <div class="titre-sous-menu">
+                                            <img src="/extension/ez_aya_carto/design/standard/images/menu/icon_srch_itn_fiche.png"/>
+                                            <span class="text">Itinéraire fiche</span>
+                                            <div class="clear-both"></div>
+                                        </div>
+                                        <form class="recherche-itin-fiche">
+                                            <div class="input-auto-com">
+                                                <div class="bloc-auto-complete"></div>
+                                                <label for="srch-fiche-itn-1-input" class="medium-font">Départ: </label><input type="text" id="srch-fiche-itn-1-input" class="srch-fiche-itn-input origin"/>
+                                            </div>
+                                            <div class="input-auto-com">
+                                                <div class="bloc-auto-complete"></div>
+                                                <label for="srch-fiche-itn-2-input" class="medium-font">Arrivée: </label><input type="text" id="srch-fiche-itn-2-input" class="srch-fiche-itn-input destination"/>
+                                            </div>
+                                            
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="#" id="effacer-srch-itin-mrkrs" class="medium-font">Effacer ma recherche</a>
+                        </div>
+                    </li>
+                    <li class="niv-1">
+                        <a id="outils-titre-cache" href="#" class="cache has-sub-menu section-menu">Outils</a>
                         <div class="sous-menu">
                             <ul class="menu-container">
                                 <li class="niv-2">
@@ -304,6 +354,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                                           )
                       });
              markerOT.setMap(null);
+             rechercheItinFichMarkers['origin'] = markerOT;
             /* idleTimer :  */
             (function($){
                var stimeout = <?php echo $DureeInactivite * 1000;?>;
@@ -319,6 +370,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                $(document).idleTimer(stimeout);
 
            })(jQuery);
+           
            
         </script>
         <div id="script-container"></div>
