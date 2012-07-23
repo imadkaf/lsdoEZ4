@@ -13,5 +13,6 @@ ShowClasses[]=smp_circuit_externe
 ShowClasses[]=smp_audio
 ShowClasses[]=smp_diaporama
 ShowClasses[]=smp_image
+ShowClasses[]=smp_raccourci
 
 */ ?>
