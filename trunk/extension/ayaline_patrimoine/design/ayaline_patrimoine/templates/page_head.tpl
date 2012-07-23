@@ -47,5 +47,12 @@
 {foreach ezini( 'JavaScriptSettings', 'JavaScriptListPatrimoine', 'design.ini' )|unique as $js_fichier }
 		<script type="text/javascript" src={concat( 'javascript/', $js_fichier )|ezdesign}></script>
 {/foreach}
+
+
+{if eq($cNode.class_identifier,'smp_accueil')}
+	{if getcookie()}
+	<script type="text/javascript" src={'javascript/ajouter_ecran_accueil.js'|ezdesign}></script>
+	{/if}
+{/if}
 	</head>
 {undef $title $referencement $description $keywords}
