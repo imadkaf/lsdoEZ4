@@ -25,7 +25,7 @@
 	{if gt($listePointsInterets|count,0)}
 		{foreach $listePointsInterets as $PointInteret}
 			{if $listePointsInteretsMisEnAvant|contains($PointInteret.node_id)}
-				{node_view_gui content_node=$PointInteret view='line' simple=false()} 
+				{node_view_gui content_node=$PointInteret view='line' simple=false()}
 			{else}
 				{node_view_gui content_node=$PointInteret view='line' simple=true()}
 			{/if}
@@ -42,13 +42,13 @@
                     <a href="#" class="affichage-bloc bold masquer-map">{attribute_view_gui attribute=$node.data_map.titre_onglet_carte}</a>
                     <a href="#" class="affichage-bloc masquer-map puce-gris">{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_ouvert}</a>
                 </p>
-              
+
                 <a href="#" class="lien-arrondi google-map-actif-circuit masquer-map"></a>
                 <a href="#" class="lien-arrondi google-map-ferme-circuit afficher-map"></a>
                 <div class="clear-tout"></div>
  </div>
  <div id="map_canvas" style="width:100%;z-index: 5555;border-top:1px solid #D1CCC8;"></div>
- 
+
  {set-block variable="scriptInitGmap"}
     {concat("var listeCircuits = new Array();")}
         {def $circuit = $node}
@@ -82,7 +82,7 @@
                     {def $isPtMA =false()}
                     {foreach $listePtInteretsMA as $ptIntMA}
                         {if $ptIntMA.node_id|eq($ptInteret.node_id)}
-                            {set $isPtMA =true()}    
+                            {set $isPtMA =true()}
                             {break}
                         {/if}
                     {/foreach}
@@ -124,7 +124,7 @@
         {/set-block}
                 <script>
                 {literal}
-                
+
                     var carte;
                     var destinationPtInteret;
                     var maPosition = false;
@@ -132,7 +132,7 @@
                     var directionsDisplay;
                     var directionsService;
                     var ListMarkersPtInterets = new Array();
-                
+
                     function initializeMap(){
                      {/literal}
                          {$scriptInitGmap}
@@ -153,7 +153,7 @@
                     polylineOptions: {strokeColor:'#0167C8'}
                 })
 
-                
+
                 for(var i in listeCircuits){
                     afficheTraceCircuits(listeCircuits[i]['traceCoords'],'#'+listeCircuits[i]['couleurTrace']);
                     for(var j in listeCircuits[i]['listePointsInterets']){
@@ -176,7 +176,7 @@
                 carte.fitBounds(latlngbounds);
                     */
                 if (navigator.geolocation){
-                  var watchId = navigator.geolocation.watchPosition(successCallbackMaPosition,null,{enableHighAccuracy:false});  
+                  var watchId = navigator.geolocation.watchPosition(successCallbackMaPosition,null,{enableHighAccuracy:false});
                 }else{
                   alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
                 }
@@ -194,7 +194,7 @@
                             path: parcoursCoords,//chemin du tracé
                             strokeColor: couleurTracer,//couleur du tracé
                             strokeOpacity: 0.6,//opacité du tracé
-                            strokeWeight: 3//grosseur du tracé
+                            strokeWeight: 5//grosseur du tracé
                     });
                     parcoursTrace.setMap(carte);
             }
@@ -270,6 +270,6 @@
                         }
                     }
         {/literal}
-    
+
  </script>
 {undef $listePointsInteretsMisEnAvant $listePointsInterets}

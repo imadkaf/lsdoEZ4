@@ -9,7 +9,7 @@
      	<div class="video">
      	{def $media_principal = false()}
      	{set $media_principal=fetch( 'content', 'node', hash( 'node_id', $node.data_map.media_principal.content.main_node_id))}
-     	{node_view_gui content_node=$media_principal view='line'}      
+     	{node_view_gui content_node=$media_principal view='line'}
      	</div>
      </div>
      {def $elemnts = false()}
@@ -26,7 +26,7 @@
                 <p class="afficher-bloc-image"><a class="affichage-bloc voir-image" href="#"><span class="bold">{attribute_view_gui attribute=$node.data_map.titre_onglet_plus_medias}</span>{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_plus_medias_ferme}</a></p>
                 <p class="masquer-bloc-image"><a class="affichage-bloc masquer-image" href="#"><span class="bold">{attribute_view_gui attribute=$node.data_map.titre_onglet_plus_medias}</span> <span class="affichage-bloc puce-gris">{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_plus_medias_ouvert}</span></a></p>
                 <a href="#" class="lien-arrondi plus-image voir-image"></a>
-                <a href="#" class="lien-arrondi plus-image-ouvert masquer-image"></a>    
+                <a href="#" class="lien-arrondi plus-image-ouvert masquer-image"></a>
             </div>
          <div class="clear-tout"></div>
          <div class="liste-medias">
@@ -89,7 +89,7 @@
      <div class="plus-info">
                 <div class="accroche-plus-info">
                 <p class="afficher-bloc-info"><a href="#" class="affichage-bloc voir-info"><span class="bold">{attribute_view_gui attribute=$node.data_map.titre_onglet_plus_infos}</span>{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_plus_infos_ferme}</a></p>
-                <p class="masquer-bloc-info"><a href="#" class="affichage-bloc masquer-info"><span class="bold">{attribute_view_gui attribute=$node.data_map.titre_onglet_plus_infos}</span><span class="affichage-bloc puce-gris">{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_plus_infos_ouvert}</span></a></p>                
+                <p class="masquer-bloc-info"><a href="#" class="affichage-bloc masquer-info"><span class="bold">{attribute_view_gui attribute=$node.data_map.titre_onglet_plus_infos}</span><span class="affichage-bloc puce-gris">{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_plus_infos_ouvert}</span></a></p>
                 <a href="#" class="lien-arrondi lien-plus-info voir-info"></a>
                 <a href="#" class="lien-arrondi lien-plus-info-ouvert masquer-info"></a>
                 </div>
@@ -101,7 +101,7 @@
 </div>
 <div class="bloc-carte-google">
 	<p style="padding-left: 16px; padding-top: 16px;" class="afficher-bloc">
-		<a href="#" class="affichage-bloc bold afficher-map">{attribute_view_gui attribute=$node.data_map.titre_onglet_carte}</a> 
+		<a href="#" class="affichage-bloc bold afficher-map">{attribute_view_gui attribute=$node.data_map.titre_onglet_carte}</a>
 		<a href="#" class="affichage-bloc afficher-map">{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_carte_ferme}</a>
 	</p>
 	<p style="padding-left: 16px; padding-top: 16px;" class="masquer-bloc">
@@ -188,7 +188,7 @@
                             {concat("pointInteretInfos['point-courant'] = false;")}
                             {concat("pointInteretInfos['picto'] = '",$circuit.data_map.pictogramme_point_interet_normal_carte_gmap.content.original.url|ezroot('no'),"';")}
                         {/if}
-                        
+
                         {concat("pointInteretInfos['lat'] = '",$ptInteret.data_map.coord_geolocalisation.content.latitude,"';")}
                         {concat("pointInteretInfos['lng'] = '",$ptInteret.data_map.coord_geolocalisation.content.longitude,"';")}
                         {concat("listePointsInterets[listePointsInterets.length] = pointInteretInfos;")}
@@ -223,12 +223,12 @@
             {undef $listePtInterets $listePtInteretsMA $rListPtInteretsMA}
         {/foreach}
         {/if}
-        {undef $listeDesCircuits $nodeListeParcours}  
-        
+        {undef $listeDesCircuits $nodeListeParcours}
+
         {/set-block}
                 <script>
                 {literal}
-                
+
                     var carte;
                     var destinationPtInteret;
                     var maPosition = false;
@@ -236,7 +236,7 @@
                     var directionsDisplay;
                     var directionsService;
                     var ListMarkersPtInterets = new Array();
-                
+
                     function initializeMap(){
                      {/literal}
                          {$scriptInitGmap}
@@ -258,11 +258,11 @@
                 })
 
                 for(var i in listeCircuits){
-                    
+
                     if(listeCircuits[i]['circuit-courant']){
                         afficheTraceCircuits(listeCircuits[i]['traceCoords'],'#'+listeCircuits[i]['couleurTrace']);
                     }
-                    
+
                     for(var j in listeCircuits[i]['listePointsInterets']){
                         afficherPointInteret(listeCircuits[i]['listePointsInterets'][j]);
                         if(listeCircuits[i]['listePointsInterets'][j]['point-courant']){
@@ -286,7 +286,7 @@
                 }
                 carte.fitBounds(latlngbounds);
                 if (navigator.geolocation){
-                  var watchId = navigator.geolocation.watchPosition(successCallbackMaPosition,null,{enableHighAccuracy:false});  
+                  var watchId = navigator.geolocation.watchPosition(successCallbackMaPosition,null,{enableHighAccuracy:false});
                 }else{
                   alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
                 }
@@ -305,7 +305,7 @@
                             path: parcoursCoords,//chemin du tracé
                             strokeColor: couleurTracer,//couleur du tracé
                             strokeOpacity: 0.6,//opacité du tracé
-                            strokeWeight: 3//grosseur du tracé
+                            strokeWeight: 5//grosseur du tracé
                     });
                     parcoursTrace.setMap(carte);
             }
@@ -317,7 +317,7 @@
                       title: ptInteret['name'],
                       icon: ptInteret['picto']
                     });
-                    
+
                     if(ptInteret['point-courant']){
                         ListMarkersPtInterets[iMrk].setZIndex(10);
                     }else{
@@ -387,6 +387,6 @@
                         }
                     }
         {/literal}
-    
+
  </script>
 {undef $elemnts $etat $media_principal}
