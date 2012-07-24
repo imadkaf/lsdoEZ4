@@ -11,7 +11,8 @@
 		<a href={$node.url_alias|ezurl} class="lien-arrondi-circuits-simple picto-circuit" rel='external'>
 			{attribute_view_gui attribute=$node.data_map.pictogramme_circuit_affiche_liste_circuits image_class='pictoCircuit'}
 		</a> 
-</article>		
+</article>	
+<span class="border_entre_circuits"></span>	
 {else}
 			<article>
 				<a href={$node.url_alias|ezurl} class="image-article" rel='external'>
@@ -27,5 +28,6 @@
 					<div class="clear-tout"></div>
 				</div>
 			</article>
+			
 		
 {/if}	 

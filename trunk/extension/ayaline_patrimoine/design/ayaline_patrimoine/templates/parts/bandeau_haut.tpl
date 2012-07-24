@@ -7,14 +7,14 @@
 <div id="Header" {if eq($actif,false())}style="border-bottom: 5px solid #7b5e51;"{/if} {if and(eq($actif,true()),ge($module_result.path|count,4))}style="border-bottom: 5px solid #98E2CC;"{/if}>
 
 	<div id="bandeau-site">
-		<h1>
+		
 			<a href="/" class="logo-site" rel='external'>{attribute_view_gui attribute=$nodeConfigGeneral.data_map.logo_site}</a> 
 			<a href="/" class="accroche-site" rel='external'>
 			<span>{attribute_view_gui attribute=$nodeConfigGeneral.data_map.titre_site}</span>
-			<span class="aligne-centre">{attribute_view_gui attribute=$nodeConfigGeneral.data_map.sous_titre_site}</span> 
+			<span class="marge_left">{attribute_view_gui attribute=$nodeConfigGeneral.data_map.sous_titre_site}</span> 
 			</a> 
 			<span class="clear-tout"></span>
-		</h1>
+		
 	</div>
 	<div class="TopNavBar">
 		<div class="menu">

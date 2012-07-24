@@ -1,3 +1,4 @@
 #page{width: 100%;}
-.pieds-page{width: 100%;left: 0;right: 0;}
+.pieds-page{width: 100%;left: 0;right: 0;margin-left: 0px !important;}
 .min-width-480px .ui-input-search {width: 100%;}
+#Main{border: none!important;}
