@@ -20,7 +20,7 @@
 <html lang="fr">
 {include uri="design:page_head.tpl"}
 <body>
-<div data-role="page">
+<div data-role="page" style="outline: none;">
 	<!-- MAIN CONTAINER BEGINNING -->
 	<div id="container">
 		{include uri="design:parts/bandeau_haut.tpl"}

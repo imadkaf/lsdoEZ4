@@ -13,3 +13,5 @@
 table{
 	width: 100%;
 }
+#container{min-height: 100%;background: #313d49;}
+#Main{border-bottom: none;}

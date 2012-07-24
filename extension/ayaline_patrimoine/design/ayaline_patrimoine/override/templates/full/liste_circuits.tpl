@@ -31,12 +31,12 @@
 		{/if}
 </div>
 	<div class="bloc-carte-google">
-		<p style="padding-left: 10px; padding-top: 11px;"
+		<p style="padding-left: 16px; padding-top: 16px;"
 			class="afficher-bloc">
 			<a href="#" class="affichage-bloc bold afficher-map">{attribute_view_gui attribute=$node.data_map.titre_onglet_carte}</a>
 			<a href="#" class="affichage-bloc afficher-map">{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_ferme}</a>
 		</p>
-		<p style="padding-left: 10px; padding-top: 11px;" class="masquer-bloc">
+		<p style="padding-left: 16px; padding-top: 16px;" class="masquer-bloc">
 			<a href="#" class="affichage-bloc bold masquer-map">{attribute_view_gui attribute=$node.data_map.titre_onglet_carte}</a>
 			<a href="#" class="affichage-bloc masquer-map puce-gris">{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_ouvert}</a>
 		</p>
@@ -283,7 +283,7 @@
 
 
 	{if $node.data_map.texte_libre.has_content}
-		<div class="bloc-carte-google" style="padding-left: 10px; padding-top: 11px;padding-bottom: 11px;">
+		<div class="bloc-carte-google" style="padding-left: 10px; padding-top: 11px;padding-bottom: 11px;padding-right: 10px;">
 			{attribute_view_gui attribute=$node.data_map.texte_libre}
 		</div>
 	{/if}
