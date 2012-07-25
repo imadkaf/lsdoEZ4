@@ -31,13 +31,14 @@
 				{include uri="design:parts/fil_ariane.tpl"}
 			{/if}
 			{include uri="design:parts/formulaire_recherche.tpl"}
+			{include uri="design:parts/liste_suggestion.tpl"}
 			{include uri="design:parts/copyright.tpl"}
 			<div class="clear"></div>
-		</div>		
+		</div>
 		{if ne($module_result.node_id,$rNode.node_id)}
 		<div class="sep-70px"></div>
 			{include uri="design:parts/barre_navigation.tpl"}
-		{/if}		
+		{/if}
 	</div>
 	{def $googleAccountKey = ezini('TagsGA','googleAccountKey','ezurlga.ini.append')}
 						<script type="text/javascript">
