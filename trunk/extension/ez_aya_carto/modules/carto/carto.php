@@ -204,7 +204,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                             <ul class="menu-container">
                                 <li class="niv-2">
 									<div style="padding:5px">Itinéraire à pied ou en auto</div>
-                                    <a id="srch-ot-itn-titre" href="#" class="has-sub-menu" >Localiser un site</a>
+                                    <a id="srch-ot-itn-titre" href="#" class="has-sub-menu" >Localiser par un nom</a>
                                     <div class="sous-menu">
                                         <div class="titre-sous-menu">
                                             <img src="/extension/ez_aya_carto/design/standard/images/menu/icon_srch_itn_otfiche.png"/>
