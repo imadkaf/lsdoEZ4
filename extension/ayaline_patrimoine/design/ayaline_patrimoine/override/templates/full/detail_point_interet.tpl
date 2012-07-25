@@ -30,7 +30,7 @@
             </div>
          <div class="clear-tout"></div>
          <div class="liste-medias">
-         {foreach $elemnts as $elt}
+         {foreach $elemnts as $key=>$elt}
 				{if ne($elt.node_id,$node.data_map.media_principal.content.main_node_id)}
 					{if eq($elt.class_identifier,'smp_diaporama')}
 						<div class="media">
@@ -40,16 +40,40 @@
                             <a href="#" class="gauche"></a>
                         </div>
                         <div class="contenu-media">
-                        <h3><a href="#">{attribute_view_gui attribute=$elt.data_map.titre_diaporama}</a></h3>
+                        <h3><a href="#" class="afficher_daipo" rel="external">
+                        {attribute_view_gui attribute=$elt.data_map.titre_diaporama}</a>
+                        </h3>
                         <span class="puce-gris">Diaporama</span>
-                    </div>
+                    	</div>
                     <div class="clear-tout"></div>
                  </div>
+                 {def $listeImages=fetch('content','list',hash('parent_node_id',$elt.node_id,
+                                                'class_filter_type','include',
+                                                'class_filter_array',array('smp_image')
+ 					))}
+
+                 <div class="diapo_lien" style="display: none;">
+                 	<ul id="Gallery_lien" style="position: relative">
+					{foreach $listeImages as $key=>$image}
+						 {if eq($key,0)}
+						 	<li><a href="/{$image.data_map.fichier_image.content.original.full_path}" rel="external" >
+		                            {attribute_view_gui attribute=$image.data_map.fichier_image image_class='original'}
+		                        </a>
+		                    </li>
+						 {else}
+						<li class="display-none"><a href="/{$image.data_map.fichier_image.content.original.full_path}" rel="external">
+						{attribute_view_gui attribute=$image.data_map.fichier_image image_class='original'}</a>
+						</li>
+						{/if}
+					{/foreach}
+					</ul>
+                 </div>
+                 
 					{elseif eq($elt.class_identifier,'smp_audio')}
 					<div class="media">
                             <a class="play-audio" href="#"></a>
                         <div class="contenu-media">
-                        <h3><a href="#">{attribute_view_gui attribute=$elt.data_map.titre_audio}</a></h3>
+                        <h3><a href="#" class="afficher-media" name="{concat('smp_audio',$key)}">{attribute_view_gui attribute=$elt.data_map.titre_audio}</a></h3>
                         <span class="puce-gris">Reportage audio - durée 30s</span>
                     </div>
                     <div class="clear-tout"></div>
@@ -61,7 +85,7 @@
                             <a class="play-video" href="#"></a>
                         </div>
                         <div class="contenu-media">
-                        <h3><a href="#">{attribute_view_gui attribute=$elt.data_map.titre_video}</a></h3>
+                        <h3><a href="#" class="afficher-media" name="{concat('smp_circuit_externe',$key)}">{attribute_view_gui attribute=$elt.data_map.titre_video}</a></h3>
                         <span class="puce-gris">Video - durée 30s</span>
                     </div>
                     <div class="clear-tout"></div>
@@ -73,14 +97,15 @@
                             <a class="play-video" href="#"></a>
                         </div>
                         <div class="contenu-media">
-                        <h3><a href="#">{attribute_view_gui attribute=$elt.data_map.titre_video}</a></h3>
+                        <h3><a href="#" class="afficher-media" name="{concat('smp_video_interne',$key)}">{attribute_view_gui attribute=$elt.data_map.titre_video}</a></h3>
                         <span class="puce-gris">Video - durée 30s</span>
                     </div>
                     <div class="clear-tout"></div>
-                 </div>
+                 	</div>
 					{/if}
 				{/if}
 		 {/foreach}
+		 
          </div>
             <div class="clear-tout"></div>
      </div>
@@ -99,6 +124,41 @@
       </div>
             {/if}
 </div>
+{if and(gt($elemnts|count,1),$etat)}
+{foreach $elemnts as $key=>$elt}
+{if ne($elt.node_id,$node.data_map.media_principal.content.main_node_id)}
+{if eq($elt.class_identifier,'smp_video_interne')}
+<div id="{concat('smp_video_interne',$key)}" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">
+{node_view_gui content_node=$elt view='line'}
+</div>
+{elseif eq($elt.class_identifier,'smp_circuit_externe')}
+<div id="{concat('smp_circuit_externe',$key)}" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">
+{node_view_gui content_node=$elt view='line'}
+</div>
+{elseif eq($elt.class_identifier,'smp_audio')}
+<div id="{concat('smp_audio',$key)}" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">
+<div class="fiche-interet">
+<div class="video">
+{node_view_gui content_node=$elt view='line'}
+</div>
+</div>
+</div>
+{/if}
+
+{/if}
+{/foreach}
+<!-- <div id="media_video_externe" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">video externe</div>
+<div id="media_audio" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">audio</div> -->
+{/if}
+
+
+
+
+
+
+
+
+
 <div class="bloc-carte-google">
 	<p style="padding-left: 16px; padding-top: 16px;" class="afficher-bloc">
 		<a href="#" class="affichage-bloc bold afficher-map">{attribute_view_gui attribute=$node.data_map.titre_onglet_carte}</a>
@@ -113,6 +173,7 @@
 	<div class="clear-tout"></div>
 </div>
 <div id="map_canvas" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;"></div>
+
 
 {set-block variable="scriptInitGmap"}
         {def $nodeListeParcours=false()}

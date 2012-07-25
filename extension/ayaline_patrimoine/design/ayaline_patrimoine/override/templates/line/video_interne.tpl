@@ -1,6 +1,6 @@
 <div id="jp_container_1" class="jp-video jp-video-360p">
 	<div class="jp-type-single">
-		<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+		<div id="{concat($node.class_identifier,$node.node_id)}" class="jp-jplayer video_interne"></div>
 		<div class="jp-gui">
 			<div class="jp-video-play">
 				<a href="javascript:;" class="jp-video-play-icon" tabindex="1">play</a>
@@ -35,7 +35,12 @@
 </div>
 <div class="titre-video">{attribute_view_gui attribute=$node.data_map.titre_video}</div>
 <script type="text/javascript">  
-{literal}$("#jquery_jplayer_1").jPlayer({
+{literal}
+var id_div =  {/literal}"{concat($node.class_identifier,$node.node_id)}"{literal};
+//var id_div = $(".video_interne").attr("id");
+var div = '#'+id_div;
+
+$(div).jPlayer({
 ready: function(){
 			$(this).jPlayer("setMedia", {{/literal}
 			{if $node.data_map.fichier_video.content.mime_type_part|eq('ogg')}
@@ -46,8 +51,8 @@ ready: function(){
 				"poster": {$node.data_map.visuel.content.original.full_path|ezurl}
 				{literal}
 			});
-		},
-		swfPath: "js",
+		},{/literal}
+		swfPath: {"javascript"|ezdesign},{literal}
 		supplied: "ogv, m4v",
 		size: {
 			width: "320px",
