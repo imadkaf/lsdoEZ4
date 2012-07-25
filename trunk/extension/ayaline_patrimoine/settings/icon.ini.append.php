@@ -18,5 +18,6 @@ ClassMap[smp_circuit_externe]=lsdo_patrimoine/smp_circuit_externe.png
 ClassMap[smp_audio]=lsdo_patrimoine/smp_audio.png
 ClassMap[smp_diaporama]=lsdo_patrimoine/smp_diaporama.png
 ClassMap[smp_image]=lsdo_patrimoine/smp_image.png
+ClassMap[smp_mise_avant_brute]=lsdo_patrimoine/calendar-empty.png
 
 */ ?>
