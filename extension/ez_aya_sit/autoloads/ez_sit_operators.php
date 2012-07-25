@@ -280,7 +280,7 @@ class eZSitOperators {
 		$http = eZHTTPTool::instance();
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
-		
+
 		$cheminImagesDesign = $sitIni->variable('ImagesDesign','Chemin');
 
 		$siteIni = eZINI::instance('site.ini');
@@ -289,12 +289,12 @@ class eZSitOperators {
 		if ($langue) {
 			$langue = substr($langue, 0, 2);
 		}
-		
+
 		$saisonId = null;
 		if ($http->hasSessionVariable('saison')) {
 			$saisonId = $http->sessionVariable('saison');
 		}
-		
+
 		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'RootSitUrl')) {
 			$rootSitUrl = $sitIni->variable('GlobalSitParametersOverride','RootSitUrl');
 		} else {
@@ -316,7 +316,7 @@ class eZSitOperators {
 		} else {
 			$cheminXsl = $_SERVER['DOCUMENT_ROOT']."/".$sitIni->variable('GlobalSitParameters','XslPath');
 		}
-		
+
 		$traductionsStatiques = $sitIni->variable('SitTranslations', 'StaticSitTranslations');
 		$traductionsStatiquesComplementaires = array();
 		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'StaticSitTranslations')) {
@@ -327,7 +327,7 @@ class eZSitOperators {
 				$traductionsStatiques[] = $traductionStatiqueComplementaire;
 			}
 		}
-		
+
 		$villes = $sitIni->variable('GlobalSitParameters','ListeVilles');
 		if (!$villes) {
 			$villes = array();
@@ -385,7 +385,7 @@ class eZSitOperators {
 			$sitModalitesRapides = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesRapides)));
 
 			$http->setSessionVariable("sit_mr_".sha1($lienCourant), $sitModalitesRapides);
-			
+
 			$sitModalitesTexteNum = array();
 			if ($http->hasPostVariable("sit_nrtr")) {
 				$sitModalitesTexteNum = $http->postVariable("sit_nrtr");
@@ -394,9 +394,9 @@ class eZSitOperators {
 			foreach ($sitModalitesTexteNum as $idCritere=>$sitModaliteTexteNum) {
 				if (trim($sitModaliteTexteNum['val']) != "") {
 					if (array_key_exists('ope', $sitModaliteTexteNum)) {
-						$sitModalitesNum[$idCritere] = $idCritere.urlencode(utf8_decode('§')).$sitModaliteTexteNum['val'].urlencode(utf8_decode('§')).urlencode($sitModaliteTexteNum['ope']);
+						$sitModalitesNum[$idCritere] = $idCritere.urlencode(utf8_decode('Â§')).$sitModaliteTexteNum['val'].urlencode(utf8_decode('Â§')).urlencode($sitModaliteTexteNum['ope']);
 					} else {
-						$sitModalitesTexte[$idCritere] = $idCritere.urlencode(utf8_decode('§')).$sitModaliteTexteNum['val'];
+						$sitModalitesTexte[$idCritere] = $idCritere.urlencode(utf8_decode('Â§')).$sitModaliteTexteNum['val'];
 					}
 				}
 			}
@@ -424,7 +424,7 @@ class eZSitOperators {
 			}
 
 			$http->setSessionVariable("sit_ouv_annee_".sha1($lienCourant), $ouvAnnee);
-			
+
 			if ($http->hasPostVariable("sit_debut_ouv")) {
 				if (preg_match("/^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_debut_ouv"))) {
 					$debutOuv = $http->postVariable("sit_debut_ouv");
@@ -582,7 +582,7 @@ class eZSitOperators {
 		$xsltParemters['cheminRacineSite'] = $cheminRacineSite;
 
 		$xsltParemters['pageCourante'] = $pageCourante;
-		
+
 		$xsltParemters['villes'] = utf8_encode($villes);
 
 		$xsltParemters['triEnCours'] = $triEnCours;
@@ -591,9 +591,9 @@ class eZSitOperators {
 		$xsltParemters['criteresRecherche'] = "|".implode("|", $criteresRecherche)."|";
 
 		$xsltParemters['modalitesRapides'] = "|".str_replace(",", "|", $sitModalitesRapides)."|";
-		$xsltParemters['modalitesTexte'] = str_replace(utf8_encode("§"), "#", utf8_encode(utf8_encode("|".urldecode($sitModalitesTexte)."|")));
-		$xsltParemters['modalitesNum'] = str_replace(utf8_encode("§"), "#", utf8_encode(utf8_encode("|".urldecode($sitModalitesNum)."|")));
-		
+		$xsltParemters['modalitesTexte'] = str_replace(utf8_encode("Â§"), "#", utf8_encode(utf8_encode("|".urldecode($sitModalitesTexte)."|")));
+		$xsltParemters['modalitesNum'] = str_replace(utf8_encode("Â§"), "#", utf8_encode(utf8_encode("|".urldecode($sitModalitesNum)."|")));
+
 		$xsltParemters['codesInsee'] = utf8_encode($codesInsee);
 		$xsltParemters['motsCles'] = utf8_encode($motsCles);
 		$xsltParemters['ouvAnnee'] = utf8_encode($ouvAnnee);
@@ -601,7 +601,7 @@ class eZSitOperators {
 		$xsltParemters['finOuv'] = utf8_encode($finOuv);
 		$xsltParemters['debutDispo'] = utf8_encode($debutDispo);
 		$xsltParemters['dureeDispo'] = utf8_encode($dureeDispo);
-		
+
 		foreach ($traductionsStatiques as $traductionStatique) {
 			if (ezpI18n::tr("sit/termes/override", $traductionStatique) != $traductionStatique) {
 				$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes/override", $traductionStatique));
@@ -639,7 +639,7 @@ class eZSitOperators {
 		$http = eZHTTPTool::instance();
 
 		$sitIni = eZINI::instance('ez_aya_sit.ini');
-		
+
 		$cheminImagesDesign = $sitIni->variable('ImagesDesign','Chemin');
 
 		$siteIni = eZINI::instance('site.ini');
@@ -653,7 +653,7 @@ class eZSitOperators {
 		if ($http->hasSessionVariable('saison')) {
 			$saisonId=$http->sessionVariable('saison');
 		}
-		
+
 		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'RootSitUrl')) {
 			$rootSitUrl = $sitIni->variable('GlobalSitParametersOverride','RootSitUrl');
 		} else {
@@ -761,13 +761,13 @@ class eZSitOperators {
 		}
 
 		$criteresTriPrincipaux = $sitListe['criteres_tri_principaux']->value();
-		
+
 		$sitParams['sort'] = "pho";
 		$sitParams['order'] = "desc";
 		foreach ($criteresTriPrincipaux as $critereTri) {
 			$idCritereTri = substr($critereTri, 1);
 			$sensCritereTri = substr($critereTri, 0, 1);
-			
+
 			if ($idCritereTri == '1') {
 				$sitParams['sort'] .= ",com";
 				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
@@ -816,7 +816,7 @@ class eZSitOperators {
 			$sitModalitesRapides = preg_replace("/(^\\||\\|$)/", "", preg_replace("/\\|+/", "|", implode("|", $sitModalitesRapides)));
 
 			$http->setSessionVariable("sit_mr_".sha1($lienCourant), $sitModalitesRapides);
-			
+
 			$sitModalitesTexteNum = array();
 			if ($http->hasPostVariable("sit_nrtr")) {
 				$sitModalitesTexteNum = $http->postVariable("sit_nrtr");
@@ -825,10 +825,10 @@ class eZSitOperators {
 			foreach ($sitModalitesTexteNum as $idCritere=>$sitModaliteTexteNum) {
 				if (trim($sitModaliteTexteNum['val']) != "") {
 					if (array_key_exists('ope', $sitModaliteTexteNum)) {
-						$sitModalitesNum[$idCritere] = $idCritere.urlencode(utf8_decode('§')).$sitModaliteTexteNum['val'].urlencode(utf8_decode('§')).$sitModaliteTexteNum['ope'];
+						$sitModalitesNum[$idCritere] = $idCritere.urlencode(utf8_decode('Â§')).$sitModaliteTexteNum['val'].urlencode(utf8_decode('Â§')).$sitModaliteTexteNum['ope'];
 					} else {
 						echo "toto";
-						$sitModalitesTexte[$idCritere] = $idCritere.urlencode(utf8_decode('§')).$sitModaliteTexteNum['val'];
+						$sitModalitesTexte[$idCritere] = $idCritere.urlencode(utf8_decode('Â§')).$sitModaliteTexteNum['val'];
 					}
 				}
 			}
@@ -856,7 +856,7 @@ class eZSitOperators {
 			}
 
 			$http->setSessionVariable("sit_ouv_annee_".sha1($lienCourant), $ouvAnnee);
-			
+
 			if ($http->hasPostVariable("sit_debut_ouv")) {
 				if (preg_match("/^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$|^$/", $http->postVariable("sit_debut_ouv"))) {
 					$debutOuv = $http->postVariable("sit_debut_ouv");
@@ -986,7 +986,7 @@ class eZSitOperators {
 				$sitParams['mr2'] = $sitModalitesRapides;
 			}
 		}
-		
+
 		if ($sitModalitesTexte) {
 			if (array_key_exists('tr', $sitParams)) {
 				$sitParams['tr'] .= "|".$sitModalitesTexte;
@@ -994,7 +994,7 @@ class eZSitOperators {
 				$sitParams['tr'] = $sitModalitesTexte;
 			}
 		}
-		
+
 		if ($sitModalitesNum) {
 			if (array_key_exists('nr', $sitParams)) {
 				$sitParams['nr'] .= "|".$sitModalitesNum;
@@ -1002,7 +1002,7 @@ class eZSitOperators {
 				$sitParams['nr'] = $sitModalitesNum;
 			}
 		}
-		
+
 		if ($codesInsee) {
 			$sitParams['cinsee'] = utf8_decode($codesInsee);
 		}
@@ -1119,7 +1119,7 @@ class eZSitOperators {
 			$nbResultatsTotal = trim(SitUtils::getHtmlResult($cheminFichierCacheXmlNbProduits, $cheminFichierXsl));
 			$xsltParemters['nbPages'] = ceil($nbItemsParPage > 0 ? $nbResultatsTotal/$nbItemsParPage : 1);
 		}
-		
+
 		$xsltParemters['saisonId'] = $saisonId;
 		$xsltParemters['cheminImages'] = $cheminImages;
 		$xsltParemters['cheminImagesDesign'] = $cheminImagesDesign ? $cheminImagesDesign : $cheminImages;
@@ -1128,7 +1128,7 @@ class eZSitOperators {
 		$xsltParemters['sitListeUrlAlias'] = str_replace("/", "~", $sitListeUrlAlias);
 		eZURI::transformURI($sitListeUrlAlias);
 		$xsltParemters['sitListeLien'] = $sitListeUrlAlias;
-		
+
 		$xsltParemters['idFicheEnCours'] = $idFicheEnCours;
 
 		$xsltParemters['nbItemsParPage'] = $nbItemsParPage;
@@ -1139,8 +1139,8 @@ class eZSitOperators {
 		$xsltParemters['rechercheEnCours'] = $rechercheEnCours;
 		$xsltParemters['criteresAffiches'] = "|".implode("|", $criteresAffiches)."|";
 
-		$xsltParemters['caracteresKo'] = utf8_encode("ŠŒŽŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝß");
-		$xsltParemters['caracteresOk'] = utf8_encode("šœžÿ¥µàáâãäåæçèéêëìíîïðñòóôõöøùúûüýß");
+		$xsltParemters['caracteresKo'] = utf8_encode("Å Å’Å½Å¸Â¥ÂµÃ€Ã�Ã‚ÃƒÃ„Ã…Ã†Ã‡ÃˆÃ‰ÃŠÃ‹ÃŒÃ�ÃŽÃ�Ã�Ã‘Ã’Ã“Ã”Ã•Ã–Ã˜Ã™ÃšÃ›ÃœÃ�ÃŸ");
+		$xsltParemters['caracteresOk'] = utf8_encode("Å¡Å“Å¾Ã¿Â¥ÂµÃ Ã¡Ã¢Ã£Ã¤Ã¥Ã¦Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã°Ã±Ã²Ã³Ã´ÃµÃ¶Ã¸Ã¹ÃºÃ»Ã¼Ã½ÃŸ");
 
 		$xsltParemters['langue'] = $langue;
 
@@ -1234,7 +1234,7 @@ class eZSitOperators {
 
 		$modeAffichage = $sitMiseEnAvant['mode_affichage']->value();
 		$modeAffichage = $modeAffichage[0];
-		
+
 		$categorie = $sitMiseEnAvant['categorie']->value();
 		$categorie = $categorie[0];
 
@@ -1358,7 +1358,7 @@ class eZSitOperators {
 		foreach ($criteresTriPrincipaux as $critereTri) {
 			$idCritereTri = substr($critereTri, 1);
 			$sensCritereTri = substr($critereTri, 0, 1);
-			
+
 			if ($idCritereTri == '1') {
 				$sitParams['sort'] .= ",com";
 				$sitParams['order'] .= ",".($sensCritereTri == 'd' ? "desc" : "asc");
@@ -1399,6 +1399,14 @@ class eZSitOperators {
 		$sitParams['nbr'] = $nbItems;
 		$sitParams['ofs'] = '0';
 
+		// Ajout pour récupérer une fiche depuis son ID
+		$compSitUrl = "Recherche";
+		$idProduit = $sitMiseEnAvant['id_produit']->value();
+		if(!is_nan($idProduit) && $idProduit != "" && $idProduit != 0){
+			$sitParams['idP'] = $idProduit;
+			$compSitUrl = "Produit";
+		}
+
 		$sitParamsString = "";
 		$sitParamsEncodedString = "";
 		foreach ($sitParams as $sitParamName=>$sitParamValue) {
@@ -1423,14 +1431,14 @@ class eZSitOperators {
 		}
 		$contenuXmlDistant = "";
 		if ($cacheExpire) {
-			$contenuXmlDistant = SitUtils::urlGetContentsCurl($rootSitUrl."Recherche".$sitParamsEncodedString, 120);
+			$contenuXmlDistant = SitUtils::urlGetContentsCurl($rootSitUrl.$compSitUrl.$sitParamsEncodedString, 120);
 			if ($contenuXmlDistant) {
 				$contenuXmlCache = utf8_encode(preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", $contenuXmlDistant));
 				file_put_contents($cheminFichierCacheXml, $contenuXmlCache, LOCK_EX);
 			}
 		}
 
-		eZLog::write($rootSitUrl."Recherche".$sitParamsString, "ez_aya_sit.log");
+		eZLog::write($rootSitUrl.$compSitUrl.$sitParamsString, "ez_aya_sit.log");
 
 		$xsltParemters = array();
 
@@ -1462,8 +1470,8 @@ class eZSitOperators {
 
 		$xsltParemters['criteresAffiches'] = "|".implode("|", $criteresAffiches)."|";
 
-		$xsltParemters['caracteresKo'] = utf8_encode("ŠŒŽŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝß");
-		$xsltParemters['caracteresOk'] = utf8_encode("šœžÿ¥µàáâãäåæçèéêëìíîïðñòóôõöøùúûüýß");
+		$xsltParemters['caracteresKo'] = utf8_encode("Å Å’Å½Å¸Â¥ÂµÃ€Ã�Ã‚ÃƒÃ„Ã…Ã†Ã‡ÃˆÃ‰ÃŠÃ‹ÃŒÃ�ÃŽÃ�Ã�Ã‘Ã’Ã“Ã”Ã•Ã–Ã˜Ã™ÃšÃ›ÃœÃ�ÃŸ");
+		$xsltParemters['caracteresOk'] = utf8_encode("Å¡Å“Å¾Ã¿Â¥ÂµÃ Ã¡Ã¢Ã£Ã¤Ã¥Ã¦Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã°Ã±Ã²Ã³Ã´ÃµÃ¶Ã¸Ã¹ÃºÃ»Ã¼Ã½ÃŸ");
 
 		$xsltParemters['langue'] = $langue;
 
@@ -1473,6 +1481,12 @@ class eZSitOperators {
 			} else {
 				$xsltParemters['terme'.$traductionStatique] = utf8_encode(ezpI18n::tr("sit/termes", $traductionStatique));
 			}
+		}
+
+		// On ajoute la possibilité d'ouvrir des urls vers des sites externes
+		if ($sitIni->hasVariable('SiteExterne','Url_site')) {
+			$urlexterne=$sitIni->variable('SiteExterne','Url_site');
+			$xsltParemters['UrlExterne'] = $urlexterne;
 		}
 
 		$cheminFichierXsl = "";
