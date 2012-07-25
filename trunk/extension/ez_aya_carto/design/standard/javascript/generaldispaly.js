@@ -387,7 +387,20 @@ $(function(){
             rechercheItinFichMarkers['origin'] = markerOT;
         }
     });
-    
+    $("#srch-ot-itn-titre").blur(function(){
+        if(rechercheItinFichMarkers['origin'] != null)
+        rechercheItinFichMarkers['origin'].setMap(null);
+    });
+    $("#effacer-srch-itin-mrkrs").click(function(){
+        rechercheItinFichMarkers['origin'].setMap(null);
+        rechercheItinFichMarkers['destination'].setMap(null);
+        rechercheItinFichMarkers['origin'] = null;
+        rechercheItinFichMarkers['destination'] = null;
+        directionsDisplayItinFich.setMap(null);
+        $(".srch-fiche-itn-input").val("");
+        $(".input-auto-com .bloc-auto-complete").hide();
+        return false;
+    });
    
 //    $(".input-auto-com .bloc-auto-complete ul li a").click(function(){
 //        
@@ -453,23 +466,10 @@ function rechercheItinFiche(categID,prodID,orgDest,idacFiche){
             });
         }
     });
-
-    $("#srch-ot-itn-titre").blur(function(){
-        if(rechercheItinFichMarkers['origin'] != null)
-        rechercheItinFichMarkers['origin'].setMap(null);
-    });
-    $("#effacer-srch-itin-mrkrs").click(function(){
-        rechercheItinFichMarkers['origin'].setMap(null);
-        rechercheItinFichMarkers['destination'].setMap(null);
-        rechercheItinFichMarkers['origin'] = null;
-        rechercheItinFichMarkers['destination'] = null;
-        directionsDisplayItinFich.setMap(null);
-        $(".srch-fiche-itn-input").val("");
-        $(".input-auto-com .bloc-auto-complete").hide();
-        return false;
-    });
-    
+    $(".bloc-auto-complete").fadeOut(200);
 }
+
+
 
 /* Adapter la hauteur des sous menu */
 function adaptHeightSousMenu(){

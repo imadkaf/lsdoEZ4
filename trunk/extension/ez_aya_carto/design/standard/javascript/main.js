@@ -5,5 +5,6 @@ $(function(){
             $(this).parent().find(".container-affichage-date .affichage-date-rv-j").click();
         }
     });
+    $("#recherche-titre").parent().find(".sous-menu:first").fadeIn();
 });
 

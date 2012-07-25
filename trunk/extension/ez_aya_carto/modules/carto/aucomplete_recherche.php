@@ -31,7 +31,7 @@ if (isset($_GET['mc']) && $_GET['mc'] != '') {
                         $intitule = $detail->intitule;
                         $intitule = (string) $intitule[0];
                         $intitule_js = implode("\\'", explode("'", $intitule));
-                        if (preg_match("/$motCle/i", $intitule)) {
+                        if (preg_match("/^$motCle/i", $intitule)) {
                             $valOD = "origin";
                             if(isset($_GET["od"])){
                                 $valOD = $_GET["od"];
