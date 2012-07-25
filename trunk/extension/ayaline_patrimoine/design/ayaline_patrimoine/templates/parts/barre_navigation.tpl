@@ -14,6 +14,7 @@
                 {elseif eq($cNode.class_identifier,'smp_point_interet')}
                     <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour-spec" rel='external'></a></li>
                     <li><a href="#" class="lien-arrondi-br-nv google-map-actif-circuit masquer-map"></a></li>
+                    <li><a href="#" class="lien-arrondi-br-nv masquer-media ferme-media" style="display: none;"></a></li>
                     <li><a href="#" class="lien-arrondi google-map-ferme-circuit afficher-map"></a></li>                  
                     <li><a href="#" class="lien-arrondi-br-nv itiniraire-circuit cache"></a></li>
                     

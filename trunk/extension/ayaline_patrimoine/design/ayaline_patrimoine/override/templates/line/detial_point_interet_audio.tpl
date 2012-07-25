@@ -1,6 +1,6 @@
 <div id="jp_container_1" class="jp-audio">
 	<div class="jp-type-single">
-	<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+	<div id="{concat($node.class_identifier,$node.node_id)}" class="jp-jplayer"></div>
 		<div class="jp-gui jp-interface">
 			<ul class="jp-controls">
 				<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
@@ -48,7 +48,10 @@
 </div>
 <script type="text/javascript">  
 {literal}
-$("#jquery_jplayer_1").jPlayer({
+var id_div =  {/literal}"{concat($node.class_identifier,$node.node_id)}"{literal};
+
+var div = '#'+id_div;
+$(div).jPlayer({
 	ready: function () {
 		$(this).jPlayer("setMedia", {{/literal}
 			mp3:{concat('content/download/',$node.data_map.fichier.contentobject_id,'/',$node.data_map.fichier.id,'/file/',$node.data_map.fichier.content.original_filename)|ezurl}
