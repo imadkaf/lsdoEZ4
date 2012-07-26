@@ -36,16 +36,22 @@ function fixH2(one, two) {
 
 /* Popup d'aide des saisons */
 function popupAide(){	
-	$( "#dialog" ).removeClass('none');
-	$( "#dialog" ).dialog({
-		position : [500,500],
-		modal: true,
+	$( "#dialogPopupSaison" ).removeClass('none');
+	$( "#dialogPopupSaison" ).addClass('popup-accueil');
+	$( "#dialogPopupSaison" ).dialog({
+		position : ['right','bottom'],
+		modal: false,
+		width: 400,
+		resizable: false,
+		maxheight:200,
+		title: "INFORMATION",
 		hide: { effect: 'transfer', to: '.icone-aide-saison', duration: 500 },
 		close: function() {
 			$( ".ui-dialog" ).hide();
-			$( "#dialog" ).addClass('none');
+			$( "#dialogPopupSaison" ).addClass('none');
 		}
 	});
+	setTimeout(function(){$( "#dialogPopupSaison" ).dialog("close")},10000);
 }
 
 
