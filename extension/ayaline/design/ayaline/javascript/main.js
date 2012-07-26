@@ -78,7 +78,7 @@ $(function() {
 	
 	
 	/* Criteres de recherche dans les listes SIT */
-    $('.form-search-left .contour-choisissez .choisissez').click(function(event) {
+    /*$('.form-search-left .contour-choisissez .choisissez').click(function(event) {
     	$parentDiv = $(this).parent('.contour-choisissez');
     	if(!$(this).hasClass('actif')){
 			$(this).addClass('actif');
@@ -101,7 +101,7 @@ $(function() {
 			$parentLi.removeClass('actif');
 			$('ul.s-menu', $parentLi).addClass('none');
 		}
-    });
+    });*/
     
     
     
