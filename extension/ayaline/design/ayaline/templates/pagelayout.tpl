@@ -113,7 +113,7 @@
 								{/literal}
 								</script>
 								<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-								
+						
 								<script>
 									{literal}
 									$(document).mousemove( function () {
@@ -144,8 +144,8 @@
 	{/foreach}
 {/cache-block}
 
-								<li class="icone-aide-saison">
-									<img alt="{'Navigation Helper'|i18n('ayaline')}" src={"aide-navigation.png"|ezimage}>
+								<li class="icone-aide-saison">&nbsp;
+									{*<img alt="{'Navigation Helper'|i18n('ayaline')}" src={"aide-navigation.png"|ezimage}>*}
 								</li>
 							</ul>
 {/if}
@@ -217,9 +217,7 @@
 		{literal}
 		/*$('.content img').lazyload({effect: "fadeIn"});*/
 		if (typeof equilibre != 'undefined') {
-			$('.content img').load(function () {
-				equilibrerHauteursBlocs();
-			});
+			$(window).load(equilibrerHauteursBlocs);
 		}
 		{/literal}
 		</script>
@@ -239,6 +237,22 @@
 {/literal}
 		</script>
 {undef $googleAccountKey}
+{* tracking spécifique à la prod sur des contenus précis : http://www.lessablesdolonne-tourisme.com/Sejourner/Idees-de-week-end/Vacances-de-Paques/ + les 4 sous pages *}
+{if array(2452,2454, 2455,2456,2457)|contains($cNode.node_id)}
+{literal}
+<!-- Ad Tracking Solutions visites conversion -->
+<script type="text/javascript">
+(function() {
+    document.write('<img src="' + ('https:' == document.location.protocol ? 'https://' : 'http://') + '10360.adtracking-solutions.com/valid?action=visites&rand=' + Math.round(Math.random()*100000000) + '" style="border-style:none;" width="1" height="1" alt="" />');
+})();
+</script>
+<noscript>
+<img src="http://10360.adtracking-solutions.com/valid?action=visites" style="border-style:none;" width="1" height="1" alt="" />
+</noscript>
+<!-- end visites conversion -->
+{/literal}
+	<img src="http://nodes.one-ddn.com/scripts/tracking_clic.php?params=4753|11&track={$cNode.url_alias} " border="0">
+{/if}
 	</body>
 </html>
 {undef $cNode $rNode $attributes $nbSaison $saison $curLang $topicsList $nameRubric $i $cache_hash}
