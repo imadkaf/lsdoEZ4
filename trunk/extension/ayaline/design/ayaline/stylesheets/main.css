@@ -2914,11 +2914,11 @@ a.liste-goutte{
 }
 a.liste-goutte img{
 	float: left;
-	margin-right: 10px;
+	margin: 10px 7px 0 0;
 }
 a.liste-goutte h3{
 	position: relative;
-	top: 8px;
+	top: 9px;
 }
 
 
@@ -3163,7 +3163,7 @@ div.image{
 #OSRecherche .accordion-contenu{
 	background-color: #FF8B33;
 	color: white;
-	padding-left: 20px;
+	padding-left: 12px;
 }
 #OSRecherche .OsCritP {
     border-bottom: none;
@@ -3309,3 +3309,41 @@ li.ayaline a:hover {
 	right: 10px; 
 	width:160px;
  }
+ #dialogPopupSaison.popup-accueil {
+	background: rgb(50, 61, 73);
+	background: rgba(50, 61, 73, 0.95);
+	color: white;
+ }
+ #dialogPopupSaison.popup-accueil h2, #dialogPopupSaison.popup-accueil h2 a {
+	color: white;
+	font-size:130%;
+}
+#dialogPopupSaison.popup-accueil h3 {
+	color: #AFC04D;
+	font-size:120%;
+}
+#dialogPopupSaison.popup-accueil p.contenu {
+	padding-bottom:0;
+}
+#dialogPopupSaison.popup-accueil .object-left {
+	float:left;
+	padding-right: 10px;
+}
+#dialogPopupSaison.popup-titre {
+	text-transform:uppercase;
+}
+body>div.ui-corner-all {
+	border: none;
+	background:none;
+}
+body>div.ui-dialog>div.ui-corner-all {
+	border:none;
+	background: rgb(40, 51, 63);
+	background: rgba(40, 51, 63, 0.95);
+    border: medium none;
+    color: white;
+}
+body>div.ui-dialog>div.ui-corner-all {
+	border-radius:0;
+	padding: 9px 0 9px 15px;
+}

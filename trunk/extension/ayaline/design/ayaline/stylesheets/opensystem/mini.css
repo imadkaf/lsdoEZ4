@@ -229,3 +229,21 @@ div.OsListeLienCol .OsLienDivImg  img{ 	width:201px; }
 /* quand pas d'image */
 .OsLienImgBlank{
 border:solid 3px #f1930a; height:120px; visibility:hidden;}
+
+/* 20120726 */
+#OsContBarre0 #OsCrit_duree_3300 .OsCritP, #OsContBarre0 #OsCrit_nbpersAd_3300 .OsCritP, #OsContBarre0 #OsCrit_nbpersEnf_3300 .OsCritP {
+	float:left;
+	line-height:3px;
+	margin: 10px 0;
+}
+#OsContBarre0 #OsCrit_duree_3300 .OsCritP {
+	width:20%;
+}
+#OsContBarre0 #OsCrit_nbpersAd_3300 .OsCritP, #OsContBarre0 #OsCrit_nbpersEnf_3300 .OsCritP {
+	width:43%;
+}
+#OsContBarre0 #OsCrit_duree_3300 #OsCritCont_duree, #OsContBarre0 #OsCrit_nbpersAd_3300 #OsCritCont_Adnbpers, #OsContBarre0 #OsCrit_nbpersEnf_3300 #OsCritCont_Enfnbpers{
+	float:left;
+	width:55%;
+	margin: 4px 0;
+}

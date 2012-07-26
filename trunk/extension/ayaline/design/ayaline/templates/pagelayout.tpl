@@ -89,7 +89,7 @@
 									<label for="langue" class="none">{"Langue"|i18n("ayaline/langue")}</label>
 									<fieldset class="conteneurSelect" id="langue">
 										<div class="inputsSelect">
-											<!-- <p onclick="showHideSelect('listeSelect1')" class="selects"><span class="Flag_{$curLang|extract_left( 2 )}"></span></p>-->
+											{* <p onclick="showHideSelect('listeSelect1')" class="selects"><span class="Flag_{$curLang|extract_left( 2 )}"></span></p>*}
 											<ul id="listeSelect1">
 	{foreach ezini( 'RegionalSettings', 'UrlList' ) as $language => $url}
 												<li><a href="http://{$url}"><span class="Flag_{$language|extract_left( 2 )}"></span></a></li>
@@ -199,9 +199,11 @@
 {/if}
 {cache-block keys=$cache_hash|merge($additional_cache_hash)}
 {* Popup d'aide des saisons *}
-<div id="dialog" title="{'Navigation Helper'|i18n('ayaline')}" class="none">
+{if $rNode.data_map.aide_saison.has_content}
+<div id="dialogPopupSaison" title="{'Navigation Helper'|i18n('ayaline')}" class="none">
 	{attribute_view_gui attribute = $rNode.data_map.aide_saison}
 </div>
+{/if}
 {* Fin popup *}
 {$module_result.content}
 {/cache-block}
