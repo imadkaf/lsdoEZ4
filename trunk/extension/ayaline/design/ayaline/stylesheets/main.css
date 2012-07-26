@@ -3061,7 +3061,7 @@ a.liste-goutte h3{
 /* Diaporama */
 .bxslider{
 	width:338px;
-	margin:0 0 0px 10px;
+	margin:0 0 20px 10px;
 }
 
 
@@ -3300,14 +3300,20 @@ li.ayaline a:hover {
 .form-search-left div select {
 	font-size:1em;
 }
+.list-inline-bis li#mise-en-avant-agenda {
+	width:266px !important;
+}
 .visualiserCarte {
 	position: relative;
 }
 .visualiserCarte > div {
 	position: absolute;
-	top: 40px;
+	top: 20px;
 	right: 10px; 
 	width:160px;
+ }
+ .visualiserCarte > div.top40 {
+	top: 40px;
  }
  #dialogPopupSaison.popup-accueil {
 	background: rgb(50, 61, 73);
