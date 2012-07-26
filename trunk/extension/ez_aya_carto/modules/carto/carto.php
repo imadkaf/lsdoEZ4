@@ -208,7 +208,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                     <div class="sous-menu">
                                         <div class="titre-sous-menu">
                                             <img src="/extension/ez_aya_carto/design/standard/images/menu/icon_srch_itn_otfiche.png"/>
-                                            <span class="text">Itinéraire OT</span>
+                                            <span class="text">Localiser par un nom</span>
                                             <div class="clear-both"></div>
                                         </div>
                                         <form class="recherche-itin-fiche">
@@ -224,7 +224,7 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                                     <div class="sous-menu">
                                         <div class="titre-sous-menu">
                                             <img src="/extension/ez_aya_carto/design/standard/images/menu/icon_srch_itn_fiche.png"/>
-                                            <span class="text">Itinéraire fiche</span>
+                                            <span class="text">Etablir un itinéraire</span>
                                             <div class="clear-both"></div>
                                         </div>
                                         <form class="recherche-itin-fiche">
