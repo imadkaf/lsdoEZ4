@@ -3338,6 +3338,10 @@ li.ayaline a:hover {
 #dialogPopupSaison.popup-titre {
 	text-transform:uppercase;
 }
+#dialogPopupSaison p.contenu a {
+	color: white;
+	font-weight:bold;
+}
 body>div.ui-corner-all {
 	border: none;
 	background:none;
