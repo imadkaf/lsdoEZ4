@@ -3,12 +3,35 @@ $(function(){
         $(".section-menu").removeClass("active")
         $(this).addClass("active");
     });
-    $("#menu-droite>ul>li>.sous-menu>ul>li>a").hover(
+	// Ou dormir
+    $("#menu-droite>ul>li>.sous-menu>ul>li#item-0>a").hover(
+	function(){
+        var eThis=$(this);
+        eThis.animate({"color":"#0cb4e3"});
+    });
+	// A voir A faire
+	$("#menu-droite>ul>li>.sous-menu>ul>li#item-1>a").hover(
+	function(){
+        var eThis=$(this);
+        eThis.animate({"color":"#ff67cb"});
+    });
+	// Se distraire
+	$("#menu-droite>ul>li>.sous-menu>ul>li#item-2>a").hover(
+	function(){
+        var eThis=$(this);
+        eThis.animate({"color":"#acbe15"});
+    });
+	// parking, urgence
+	$("#menu-droite>ul>li>.sous-menu>ul>li#item-3>a").hover(
+	function(){
+        var eThis=$(this);
+        eThis.animate({"color":"#ff7f00"});
+    });
+	$("#menu-droite>ul>li>.sous-menu>ul>li>a").hover(
     function(){
         var eThis=$(this);
         eThis.animate({
-            "paddingLeft":"55px",
-            "color":"#ffa405"
+            "paddingLeft":"55px"
         });
     },function(){
         var eThis=$(this);
@@ -19,6 +42,7 @@ $(function(){
             });
         }
     });
+	
     $("#menu-droite>ul>li>.sous-menu>ul>li>a").click(function(){
         if(!$(this).hasClass("active")){
             $("#menu-droite>ul>li>.sous-menu>ul>li>a").removeClass("active");
