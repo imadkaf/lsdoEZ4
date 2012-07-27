@@ -92,13 +92,13 @@ $SITSections = $ezAyaCartoIni->variable('MenuSettings', 'SITSections');
                         <div class="sous-menu">
                             <ul class="menu-container">
                                 <?php
-                                foreach ($SITSections as $SITSection) {
+                                foreach ($SITSections as $key=>$SITSection) {
                                     $SITSectionTitre = $ezAyaCartoIni->variable($SITSection, 'Titre');
                                     $SITSectionIcone = $ezAyaCartoIni->variable($SITSection, 'Icone');
                                     $SITSectionTypeAffichage = $ezAyaCartoIni->variable($SITSection, 'TypeAffichage');
                                     $SITSectionChildren = $ezAyaCartoIni->variable($SITSection, 'SectionChildren');
                                     ?>
-                                    <li class="niv-2">
+                                    <li class="niv-2" id="item-<?php echo $key?>">
                                         <?php
                                         $eltStyleCss = "";
                                         if ($SITSectionIcone != false && file_exists($_SERVER['DOCUMENT_ROOT'] . "/extension/ez_aya_carto/design/standard/images/menu/" . $SITSectionIcone)) {

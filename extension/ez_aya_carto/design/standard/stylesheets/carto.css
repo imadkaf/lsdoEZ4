@@ -452,8 +452,17 @@ ul,li{
     float: left;
     margin-right: 3px;
 }
-#menu-droite .sous-menu label:hover,#menu-droite .sous-menu label.active,#menu-droite .sous-menu label[checked="checked"]{
-    color: #ffa405;
+#menu-droite .sous-menu #item-0 label:hover,#menu-droite .sous-menu #item-0 label.active,#menu-droite .sous-menu #item-0 label[checked="checked"]{
+    color: #0cb4e3;
+}
+#menu-droite .sous-menu #item-1 label:hover,#menu-droite .sous-menu #item-1 label.active,#menu-droite .sous-menu #item-1label[checked="checked"]{
+    color: #ff67cb;
+}
+#menu-droite .sous-menu #item-2 label:hover,#menu-droite .sous-menu #item-2 label.active,#menu-droite .sous-menu #item-2 label[checked="checked"]{
+    color: #acbe15;
+}
+#menu-droite .sous-menu #item-3 label:hover,#menu-droite .sous-menu #item-3 label.active,#menu-droite .sous-menu #item-3 label[checked="checked"]{
+    color: #ff7f00;
 }
 #afficher-titre{
     display: block;
