@@ -20,7 +20,6 @@ AvailableCustomTags[]=border_left_10px
 AvailableCustomTags[]=border_left_vert_5px
 AvailableCustomTags[]=reference-fiche-detail
 AvailableCustomTags[]=texte_decale
-AvailableCustomTags[]=image_large
 IsInline[couleur_marron]=true
 IsInline[couleur_gris]=true
 IsInline[couleur_vert]=true
@@ -36,5 +35,12 @@ CustomAttributesDefaults[gris]=#7B5E51
 [couleur_vert]
 CustomAttributes[]=vert
 CustomAttributesDefaults[vert]=#1ABBB7
+
+[embed]
+AvailableClasses[]=Image_large
+
+[embed-type_images]
+AvailableClasses[]
+AvailableClasses[]=Image_large
 
 */ ?>
