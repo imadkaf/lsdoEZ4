@@ -1,0 +1,14 @@
+.border-bottom-header{border-bottom: 4px solid #31cdf7 !important;}
+.arriere-plan-item-menu{background: #31cdf7;}
+.liste-interets .vignette-simple article{background: #31cdf7;}
+.liste-interets article .fleche{background-color: #31cdf7;border: 3px solid #90dff4;}
+.plus-info.fiche-bleu-ciel .reference-fiche-detail .titre-reference{color: #31cdf7;}
+.plus-info.fiche-bleu-ciel .reference-fiche-detail .puce-css{border-left-color: #31cdf7;}
+.bloc-carte-google.fiche-bleu-ciel .google-map-ferme-circuit{background-color: #31cdf7;}
+.bloc-plus-image.fiche-bleu-ciel .plus-image-ouvert{background-color: #90dff4;}
+.plus-info.fiche-bleu-ciel .border-left-vert-5px{border-left-color: #ddf5fc;}
+.homme-bleu-ciel{background: #31cdf7 url('../images/homme-blanc.png') no-repeat center;border: 3px solid #90dff4;}
+
+.plus-image-ouvert-pieds-page{background-color: #90dff4 !important;}
+.lien-plus-info-ouvert-pieds-page{background-color: #90dff4 !important;}
+.quizz{background: url('../images/quizz-bleu-ciel.png') no-repeat center;}
