@@ -25,9 +25,9 @@
 	{if gt($listePointsInterets|count,0)}
 		{foreach $listePointsInterets as $PointInteret}
 			{if $listePointsInteretsMisEnAvant|contains($PointInteret.node_id)}
-				{node_view_gui content_node=$PointInteret view='line' simple=false()}
+				{node_view_gui content_node=$PointInteret view='line' simple=false() declinaison=$node.data_map.declinaison_circuit.content.current}
 			{else}
-				{node_view_gui content_node=$PointInteret view='line' simple=true()}
+				{node_view_gui content_node=$PointInteret view='line' simple=true() declinaison=$node.data_map.declinaison_circuit.content.current}
 			{/if}
 		{/foreach}
     {/if}
@@ -64,7 +64,7 @@
                     {concat("var pointInteretMAInfos = new Array();")}
                     {concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|trim|wash|explode("'")|implode("\\'"),"';")}
                     {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
-                    {concat("pointInteretMAInfos['picto'] = '",$circuit.data_map.pictogramme_point_interet_mis_avant_carte_gmap.content.original.url|ezroot('no'),"';")}
+                    {concat("pointInteretMAInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_mis_avant_carte_gmap.content.original.url|ezroot('no'),"';")}
                     {concat("pointInteretMAInfos['lat'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.latitude,"';")}
                     {concat("pointInteretMAInfos['lng'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.longitude,"';")}
                     {concat("listePointsInteretsMA[listePointsInteretsMA.length] = pointInteretMAInfos;")}
@@ -91,7 +91,7 @@
                         {concat("var pointInteretInfos = new Array();")}
                         {concat("pointInteretInfos['name'] = '",$ptInteret.name|trim|wash|explode("'")|implode("\\'"),"';")}
                         {concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
-                        {concat("pointInteretInfos['picto'] = '",$circuit.data_map.pictogramme_point_interet_normal_carte_gmap.content.original.url|ezroot('no'),"';")}
+                        {concat("pointInteretInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_normal_carte_gmap.content.original.url|ezroot('no'),"';")}
                         {concat("pointInteretInfos['lat'] = '",$ptInteret.data_map.coord_geolocalisation.content.latitude,"';")}
                         {concat("pointInteretInfos['lng'] = '",$ptInteret.data_map.coord_geolocalisation.content.longitude,"';")}
                         {concat("listePointsInterets[listePointsInterets.length] = pointInteretInfos;")}
@@ -115,7 +115,7 @@
             {/if}
 
             {concat("circuitInfos['traceCoords'] = traceCoords;")}
-            {concat("circuitInfos['couleurTrace'] = '",$circuit.data_map.code_couleur_trace_gmap.data_text|trim|wash,"';")}
+            {concat("circuitInfos['couleurTrace'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.code_html_couleur.value|trim|wash,"';")}
             {concat("circuitInfos['listePointsInterets'] = listePointsInterets;")}
             {concat("circuitInfos['listePointsInteretsMA'] = listePointsInteretsMA;")}
             {concat("listeCircuits[listeCircuits.length] = circuitInfos;")}
@@ -155,7 +155,7 @@
 
 
                 for(var i in listeCircuits){
-                    afficheTraceCircuits(listeCircuits[i]['traceCoords'],'#'+listeCircuits[i]['couleurTrace']);
+                    afficheTraceCircuits(listeCircuits[i]['traceCoords'],listeCircuits[i]['couleurTrace']);
                     for(var j in listeCircuits[i]['listePointsInterets']){
                         afficherPointInteret(listeCircuits[i]['listePointsInterets'][j]);
                     }

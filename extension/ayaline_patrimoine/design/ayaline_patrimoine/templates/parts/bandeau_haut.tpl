@@ -4,17 +4,17 @@
 		{set $actif = true()}
 	{/if}
 {/foreach}
-<div id="Header" {if eq($actif,false())}style="border-bottom: 5px solid #7b5e51;"{/if} {if and(eq($actif,true()),ge($module_result.path|count,4))}style="border-bottom: 5px solid #98E2CC;"{/if}>
+<div id="Header" {if eq($actif,false())}style="border-bottom: 5px solid #7b5e51;"{/if} {if and(eq($actif,true()),ge($module_result.path|count,4))}class="border-bottom-header"{/if}>
 
 	<div id="bandeau-site">
-		
-			<a href="/" class="logo-site" rel='external'>{attribute_view_gui attribute=$nodeConfigGeneral.data_map.logo_site}</a> 
+
+			<a href="/" class="logo-site" rel='external'>{attribute_view_gui attribute=$nodeConfigGeneral.data_map.logo_site}</a>
 			<a href="/" class="accroche-site" rel='external'>
 			<span>{attribute_view_gui attribute=$nodeConfigGeneral.data_map.titre_site}</span>
-			<span class="marge_left">{attribute_view_gui attribute=$nodeConfigGeneral.data_map.sous_titre_site}</span> 
-			</a> 
+			<span class="marge_left">{attribute_view_gui attribute=$nodeConfigGeneral.data_map.sous_titre_site}</span>
+			</a>
 			<span class="clear-tout"></span>
-		
+
 	</div>
 	<div class="TopNavBar">
 		<div class="menu">
@@ -27,7 +27,7 @@
 				{striptags($onglet.data_map.titre.value)}
 				</a>
 				{else}
-				<a href={$onglet.url_alias|ezurl} class="ui-link item1" {if eq($actif,false())}style="background: #7b5e51"{/if} {if and(eq($actif,true()),ge($module_result.path|count,4))}style="background: #98E2CC;"{/if} rel='external'>				
+				<a href={$onglet.url_alias|ezurl} class="ui-link item1{if and(eq($actif,true()),ge($module_result.path|count,4))} arriere-plan-item-menu{/if}" rel='external'>
 					{if eq($onglet.class_identifier,'smp_liste_circuits')}
 						{striptags($onglet.data_map.titre_page.value)}
 					{elseif eq($onglet.class_identifier,'smp_circuit')}
@@ -40,7 +40,7 @@
 						{striptags($onglet.data_map.titre.value)}
 					{/if}
 				</a>
-				{/if}			
+				{/if}
 			{/foreach}
 			{undef $onglet}
 		{/if}

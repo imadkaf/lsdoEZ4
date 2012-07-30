@@ -23,4 +23,5 @@
 			</ul>
 </div>
 </div>
+<div class="titre-video">{$node.name|wash('xhtml')}</div>
 {undef $listeImages}
