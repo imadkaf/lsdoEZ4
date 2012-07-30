@@ -12,15 +12,19 @@
      	{node_view_gui content_node=$media_principal view='line'}
      	</div>
      </div>
-     {def $elemnts = false()}
-					{set $elemnts=fetch('content','list',hash('parent_node_id',$node.node_id))}
-					{def $etat = false()}
-					{foreach $elemnts as $elt}
-						{if ne($elt.node_id,$node.data_map.media_principal.content.main_node_id)}
-							{set $etat = true()}
-						{/if}
-					{/foreach}
-	{if and(gt($elemnts|count,1),$etat)}
+	{def $elemnts = false()}
+	{def $listClassMedia = ezini('List_class_media', 'Class' ,'ayaline_patrimoine.ini')}
+	{set $elemnts=fetch('content','list',hash('parent_node_id',$node.node_id,
+											'class_filter_type','include',
+											'class_filter_array', $listClassMedia))}
+
+	{def $etat = 0}
+	{foreach $elemnts as $elt}
+		{if ne($elt.node_id,$node.data_map.media_principal.content.main_node_id)}
+			{set $etat = inc($etat)}
+		{/if}
+	{/foreach}
+	{if $etat|gt(0)}
      <div class="bloc-plus-image">
      	<div class="info accroche-plus-image">
                 <p class="afficher-bloc-image"><a class="affichage-bloc voir-image" href="#"><span class="bold">{attribute_view_gui attribute=$node.data_map.titre_onglet_plus_medias}</span>{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_plus_medias_ferme}</a></p>
