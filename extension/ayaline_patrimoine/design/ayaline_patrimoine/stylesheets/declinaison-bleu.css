@@ -10,3 +10,13 @@
 .plus-image-ouvert-pieds-page{background-color: #C4DBE1;}
 .lien-plus-info-ouvert-pieds-page{background-color: #C4DBE1 !important;}
 .quizz{background: url('../images/quizz-bleu.png') no-repeat center;}
+
+.plus-info-ouvert, .plus-info-ouvert .accroche-plus-info, .bloc-plus-image-ouvert, .bloc-plus-image-ouvert .accroche-plus-image, .border-left-5px{
+	background-color: #D7E9EE;
+}
+.onlineeditor h2, .onlineeditor h3{
+	color: #136f87;
+}
+.onlineeditor h4 {
+    background: url("../images/puce-rose.png") no-repeat scroll 0 13px transparent;
+}

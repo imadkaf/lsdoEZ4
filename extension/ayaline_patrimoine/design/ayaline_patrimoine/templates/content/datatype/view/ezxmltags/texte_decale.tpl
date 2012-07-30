@@ -1,3 +1,5 @@
 <div class="border-left-5px">
-	{$content}
+	<div class="background-white">
+		{$content}
+	</div>
 </div>

@@ -58,8 +58,9 @@
 {if $module_result.content_info.class_identifier|eq(ezini('Class_declinaison', 'Class_circuit' ,'ayaline_patrimoine.ini'))}
 	{def $circuitNode = fetch(content, node, hash(node_id, $module_result.node_id))}
 	<link rel="stylesheet" type="text/css" href={concat('stylesheets/', $circuitNode.data_map.declinaison_circuit.content.current.data_map.fichier_css.value)|ezdesign} media="all" />
-{elseif }
-
+{elseif $module_result.content_info.class_identifier|eq(ezini('Class_declinaison', 'Class_PI' ,'ayaline_patrimoine.ini'))}
+	{def $circuitNode = fetch(content, node, hash(node_id, $module_result.content_info.parent_node_id))}
+	<link rel="stylesheet" type="text/css" href={concat('stylesheets/', $circuitNode.data_map.declinaison_circuit.content.current.data_map.fichier_css.value)|ezdesign} media="all" />
 {/if}
 	</head>
 {undef $title $referencement $description $keywords}

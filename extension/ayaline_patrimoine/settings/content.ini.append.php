@@ -5,11 +5,6 @@ AllowEmpty=true
 AvailableClasses[]=introduction-page-standard
 AvailableClasses[]=texte-gris
 
-[header]
-AvailableClasses[]=titre_puce_marron
-AvailableClasses[]=titre_puce_vert
-AvailableClasses[]=titre-reference
-
 [CustomTagSettings]
 AvailableCustomTags[]
 AvailableCustomTags[]=couleur_marron
