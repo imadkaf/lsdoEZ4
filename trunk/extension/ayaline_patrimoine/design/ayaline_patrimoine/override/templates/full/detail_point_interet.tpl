@@ -78,7 +78,7 @@
                             <a class="play-audio" href="#"></a>
                         <div class="contenu-media">
                         <h3><a href="#" class="afficher-media" name="{concat('smp_audio',$key)}">{attribute_view_gui attribute=$elt.data_map.titre_audio}</a></h3>
-                        <span class="puce-gris">Reportage audio - durée 30s</span>
+                        <span class="puce-gris">Reportage audio - durée {attribute_view_gui attribute=$elt.data_map.duree}</span>
                     </div>
                     <div class="clear-tout"></div>
                  </div>
@@ -90,7 +90,7 @@
                         </div>
                         <div class="contenu-media">
                         <h3><a href="#" class="afficher-media" name="{concat('smp_circuit_externe',$key)}">{attribute_view_gui attribute=$elt.data_map.titre_video}</a></h3>
-                        <span class="puce-gris">Video - durée 30s</span>
+                        <span class="puce-gris">Video - durée {attribute_view_gui attribute=$elt.data_map.duree}</span>
                     </div>
                     <div class="clear-tout"></div>
                  </div>
@@ -102,7 +102,7 @@
                         </div>
                         <div class="contenu-media">
                         <h3><a href="#" class="afficher-media" name="{concat('smp_video_interne',$key)}">{attribute_view_gui attribute=$elt.data_map.titre_video}</a></h3>
-                        <span class="puce-gris">Video - durée 30s</span>
+                        <span class="puce-gris">Video - durée {attribute_view_gui attribute=$elt.data_map.duree}</span>
                     </div>
                     <div class="clear-tout"></div>
                  	</div>
