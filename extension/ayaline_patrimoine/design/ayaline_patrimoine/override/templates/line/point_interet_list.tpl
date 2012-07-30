@@ -10,7 +10,7 @@
                         </a>
                         </p>
 						<a href={$node.url_alias|ezurl} class="image-lien ui-link" rel='external'>
-                        	{attribute_view_gui attribute=$declinaison.data_map.picto_fleche}
+                        	{attribute_view_gui attribute=$declinaison.data_map.picto_fleche image_class="original"}
                         </a>
                         <div class="clear-tout"></div>
                         </div>
@@ -29,7 +29,7 @@
                         </a>
                         </div>
                         <a href={$node.url_alias|ezurl} class="image-lien ui-link" rel='external'>
-                        	{attribute_view_gui attribute=$declinaison.data_map.picto_fleche}
+                        	{attribute_view_gui attribute=$declinaison.data_map.picto_fleche image_class="original"}
                         </a>
                     </article>
                     <span class="border_entre_circuits"></span>

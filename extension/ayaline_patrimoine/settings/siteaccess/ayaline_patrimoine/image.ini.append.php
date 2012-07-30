@@ -9,7 +9,7 @@ AliasList[]=pointInteretNormal
 AliasList[]=pointInteretImageEnAvant
 AliasList[]=imageInfowinGmap
 AliasList[]=imageSuggestion
-
+AliasList[]=imageLargeLibre
 
 [pictoCircuit]
 Filters[]=geometry/scaledownonly=50;50
@@ -34,5 +34,8 @@ Filters[]=geometry/scalewidthdownonly=100
 
 [imageSuggestion]
 Filters[]=geometry/scalewidthdownonly=58
+
+[imageLargeLibre]
+Filters[]=geometry/scalewidth=321
 
 */ ?>
