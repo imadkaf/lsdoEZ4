@@ -7,6 +7,7 @@
 
 <div class="contenu">
 		<div class="accroche">
+			<h1><p>{$node.data_map.title_accroche.value}</p></h1>
 			{attribute_view_gui attribute=$node.data_map.accroche}
 		</div>
 		{if gt($listeCircuits|count,0)}
