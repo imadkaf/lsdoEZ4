@@ -4,7 +4,7 @@
 .liste-interets article .fleche{background-color: #136f87;border: 3px solid #d3dfe3;}
 .plus-info .reference-fiche-detail .titre-reference{color: #136f87;}
 .plus-info .reference-fiche-detail .puce-css{border-left-color: #136f87;}
-.bloc-carte-google .google-map-ferme-circuit{background-color: #136f87;}
+.bloc-carte-google .google-map-ferme-circuit, .info-window-gmap .visuel{background-color: #136f87;}
 .bloc-plus-image .plus-image-ouvert{background-color: #9bc8d4;}
 .plus-info .border-left-vert-5px{border-left-color: #d7e9ee;}
 .plus-image-ouvert-pieds-page{background-color: #C4DBE1;}
