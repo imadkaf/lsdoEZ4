@@ -841,7 +841,7 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 
 .agenda{background: #70777f;padding: 14px 40px 19px 14px;position: relative;}
 .zone-cliquable{background: url('../images/transparent.png') 0 0 repeat-y;display: block;height: 100%;left: 0;position: absolute;top: 0;width: 100%;}
-.agenda h3{color: #fff;font-family: OmnesSemibold;text-transform: uppercase;margin-bottom: 10px;}
+.agenda .onlineeditor h3{color: #fff;font-family: OmnesSemibold;text-transform: uppercase;margin-bottom: 10px;padding:0;font-size: 1.17em;}
 .agenda img{float: left;}
 .agenda .contenu-agenda{margin-left: 75px;color: #fff;}
 .agenda .contenu-agenda .date{font-size: 98%;}
@@ -850,7 +850,7 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 .agenda .contenu-agenda .plus-info-agenda{font-size:85% ;display: block;color: #fff;background: url(../images/puce-blanc.png) no-repeat 0 center; padding-left: 15px;}
 
 .suggestions{padding: 14px 40px 19px 14px;position: relative;}
-.suggestions h3{color: #70777f;font-family: OmnesSemibold;text-transform: uppercase;margin-bottom: 10px;}
+.suggestions .onlineeditor h3{color: #70777f;font-family: OmnesSemibold;text-transform: uppercase;margin-bottom: 10px;padding:0;font-size: 1.17em;}
 .suggestions img{float: left;}
 .suggestions .contenu-suggestions{margin-left: 75px;}
 .suggestions .contenu-suggestions .date{font-size: 98%;}

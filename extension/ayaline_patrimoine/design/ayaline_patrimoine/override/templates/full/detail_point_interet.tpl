@@ -199,6 +199,11 @@
                                                                 'class_filter_type','include',
                                                                 'class_filter_array',array('smp_circuit')
         ))}
+        {def $ListObjectIdPICircuitCourant = array()}
+        {foreach $nodeCircuitCourant.children as $child}
+        	{set $ListObjectIdPICircuitCourant = $ListObjectIdPICircuitCourant|append($child.contentobject_id)}
+        {/foreach}
+
         {concat("var listeCircuits = new Array();")}
         {*def $circuit = $node.parent.parent*}
         {if $listeDesCircuits|count|gt(0)}
@@ -209,33 +214,40 @@
             {concat("var listePointsInteretsMA = new Array();")}
             {if $rListPtInteretsMA|count|gt(0)}
                 {foreach $rListPtInteretsMA as $ptInteretMA}
-                    {def $nodePtInteretMA = fetch('content','node',hash('node_id',$ptInteretMA.node_id))}
-                    {set $listePtInteretsMA = $listePtInteretsMA|append($nodePtInteretMA)}
+                	{def $showPI = true()}
+                	{if $nodeCircuitCourant.node_id|ne($circuit.node_id)}
+						{if $ListObjectIdPICircuitCourant|contains($ptInteretMA.contentobject_id)}
+							{set $showPI = false()}
+						{/if}
+                	{/if}
+                	{if $showPI|eq(true())}
+	                    {def $nodePtInteretMA = fetch('content','node',hash('node_id',$ptInteretMA.node_id))}
+	                    {set $listePtInteretsMA = $listePtInteretsMA|append($nodePtInteretMA)}
 
-                    {concat("var pointInteretMAInfos = new Array();")}
-                    {concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|trim|wash|explode("'")|implode("\\'"),"';")}
-                    {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
-                    {if $node.node_id|eq($ptInteret.node_id)}
-                        {concat("pointInteretMAInfos['point-courant'] = true;")}
-                        {concat("pointInteretMAInfos['picto'] = '","images/picto-pt-intetret-courant.png"|ezdesign('no'),"';")}
-                    {else}
-                        {concat("pointInteretMAInfos['point-courant'] = false;")}
-                        {concat("pointInteretMAInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_mis_avant_carte_gmap.content.original.url|ezroot('no'),"';")}
-                    {/if}
-                    {concat("pointInteretMAInfos['lat'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.latitude,"';")}
-                    {concat("pointInteretMAInfos['lng'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.longitude,"';")}
-                    {concat("listePointsInteretsMA[listePointsInteretsMA.length] = pointInteretMAInfos;")}
-                    {undef $nodePtInteretMA}
+	                    {concat("var pointInteretMAInfos = new Array();")}
+	                    {concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|trim|wash|explode("'")|implode("\\'"),"';")}
+	                    {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
+       					{concat("pointInteretMAInfos['bg-color'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.code_html_couleur.value|trim|wash,"';")}
+	                    {if $node.node_id|eq($ptInteret.node_id)}
+	                        {concat("pointInteretMAInfos['point-courant'] = true;")}
+	                        {concat("pointInteretMAInfos['picto'] = '","images/picto-pt-intetret-courant.png"|ezdesign('no'),"';")}
+	                    {else}
+	                        {concat("pointInteretMAInfos['point-courant'] = false;")}
+	                        {concat("pointInteretMAInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_mis_avant_carte_gmap.content.original.url|ezroot('no'),"';")}
+	                    {/if}
+	                    {concat("pointInteretMAInfos['lat'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.latitude,"';")}
+	                    {concat("pointInteretMAInfos['lng'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.longitude,"';")}
+	                    {concat("listePointsInteretsMA[listePointsInteretsMA.length] = pointInteretMAInfos;")}
+	                    {undef $nodePtInteretMA}
+	            	{/if}
+	            	{undef $showPI}
                 {/foreach}
-
-
             {/if}
 
             {* Liste Points d'intérêts normaux *}
             {def $listePtInterets = fetch('content','tree',hash('parent_node_id',$circuit.node_id,
                                                                 'class_filter_type','include',
-                                                                'class_filter_array',array('smp_point_interet'),
-                                                                'main_node_only', true()
+                                                                'class_filter_array',array('smp_point_interet')
             ))}
             {concat("var listePointsInterets = new Array();")}
             {if $listePtInterets|count|gt(0)}
@@ -248,20 +260,30 @@
                         {/if}
                     {/foreach}
                     {if $isPtMA|not}
-                        {concat("var pointInteretInfos = new Array();")}
-                        {concat("pointInteretInfos['name'] = '",$ptInteret.name|trim|wash|explode("'")|implode("\\'"),"';")}
-                        {concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
-                        {if $node.node_id|eq($ptInteret.node_id)}
-                            {concat("pointInteretInfos['point-courant'] = true;")}
-                            {concat("pointInteretInfos['picto'] = '","images/picto-pt-intetret-courant.png"|ezdesign('no'),"';")}
-                        {else}
-                            {concat("pointInteretInfos['point-courant'] = false;")}
-                            {concat("pointInteretInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_normal_carte_gmap.content.original.url|ezroot('no'),"';")}
-                        {/if}
+                    	{def $showPI = true()}
+	                	{if $nodeCircuitCourant.node_id|ne($circuit.node_id)}
+							{if $ListObjectIdPICircuitCourant|contains($ptInteret.contentobject_id)}
+								{set $showPI = false()}
+							{/if}
+	                	{/if}
+	                	{if $showPI|eq(true())}
+	                        {concat("var pointInteretInfos = new Array();")}
+	                        {concat("pointInteretInfos['name'] = '",$ptInteret.name|trim|wash|explode("'")|implode("\\'"),"';")}
+	                        {concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
+           					{concat("pointInteretInfos['bg-color'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.code_html_couleur.value|trim|wash,"';")}
+	                        {if $node.node_id|eq($ptInteret.node_id)}
+	                            {concat("pointInteretInfos['point-courant'] = true;")}
+	                            {concat("pointInteretInfos['picto'] = '","images/picto-pt-intetret-courant.png"|ezdesign('no'),"';")}
+	                        {else}
+	                            {concat("pointInteretInfos['point-courant'] = false;")}
+	                            {concat("pointInteretInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_normal_carte_gmap.content.original.url|ezroot('no'),"';")}
+	                        {/if}
 
-                        {concat("pointInteretInfos['lat'] = '",$ptInteret.data_map.coord_geolocalisation.content.latitude,"';")}
-                        {concat("pointInteretInfos['lng'] = '",$ptInteret.data_map.coord_geolocalisation.content.longitude,"';")}
-                        {concat("listePointsInterets[listePointsInterets.length] = pointInteretInfos;")}
+	                        {concat("pointInteretInfos['lat'] = '",$ptInteret.data_map.coord_geolocalisation.content.latitude,"';")}
+	                        {concat("pointInteretInfos['lng'] = '",$ptInteret.data_map.coord_geolocalisation.content.longitude,"';")}
+	                        {concat("listePointsInterets[listePointsInterets.length] = pointInteretInfos;")}
+	                	{/if}
+	                	{undef $showPI}
                     {/if}
                     {undef $isPtMA}
                 {/foreach}
@@ -313,7 +335,7 @@
                      {literal}
                          directionsService = new google.maps.DirectionsService();
 
-                var myLatLng = new google.maps.LatLng(46.497398,-1.797536);
+                var myLatLng = new google.maps.LatLng({/literal}{$node.data_map.coord_geolocalisation.content.latitude},{$node.data_map.coord_geolocalisation.content.longitude}{literal});
                 var myOptions = {
                   zoom: 16,
                   center: myLatLng,
@@ -329,9 +351,9 @@
 
                 for(var i in listeCircuits){
 
-                    if(listeCircuits[i]['circuit-courant']){
+                    //if(listeCircuits[i]['circuit-courant']){
                         afficheTraceCircuits(listeCircuits[i]['traceCoords'],listeCircuits[i]['couleurTrace']);
-                    }
+                    //}
 
                     for(var j in listeCircuits[i]['listePointsInterets']){
                         afficherPointInteret(listeCircuits[i]['listePointsInterets'][j]);
@@ -348,13 +370,13 @@
                 }
 
                 // adapter le zoom et la position du centre de la carte gmap
-                var latlngbounds = new google.maps.LatLngBounds( );
+                /*var latlngbounds = new google.maps.LatLngBounds( );
                 for( var i in listeCircuits){
                     for( var j in listeCircuits[i]['traceCoords']){
                         latlngbounds.extend( listeCircuits[i]['traceCoords'][j] );
                     }
                 }
-                carte.fitBounds(latlngbounds);
+                carte.fitBounds(latlngbounds);*/
                 if (navigator.geolocation){
                   var watchId = navigator.geolocation.watchPosition(successCallbackMaPosition,null,{enableHighAccuracy:false});
                 }else{
@@ -368,7 +390,7 @@
                 });
                 pointArrivee.setMap(null);//ne pas afficher le picto du point d'arrivée
                 //map set center
-                carte.setCenter(carteCentre);
+                //carte.setCenter(carteCentre);
             }
             function afficheTraceCircuits(parcoursCoords,couleurTracer){
                     var parcoursTrace = new google.maps.Polyline({
@@ -394,7 +416,7 @@
                         ListMarkersPtInterets[iMrk].setZIndex(1);
                     }
                     var infoWinContentStr ='<div class="info-window-gmap">';
-                    infoWinContentStr +='<div class="visuel">'+'<img src="'+ptInteret['visuel']+'">'+'</div>';
+                    infoWinContentStr +='<div class="visuel" style="background-color:'+ptInteret['bg-color']+';">'+'<img src="'+ptInteret['visuel']+'">'+'</div>';
                     infoWinContentStr +='<div class="titre">'+ptInteret['name']+'</div>';
                     infoWinContentStr +='<a href="Javascript:tracerItineraireMaposition(ListMarkersPtInterets['+iMrk+']);" class="tracer-itineraire">itinéraire</a>';
                     infoWinContentStr +='<div class="clear-tout"></div>';
