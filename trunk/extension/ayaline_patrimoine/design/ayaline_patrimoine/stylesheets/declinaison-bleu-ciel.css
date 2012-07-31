@@ -4,7 +4,7 @@
 .liste-interets article .fleche{background-color: #31cdf7;border: 3px solid #90dff4;}
 .plus-info .reference-fiche-detail .titre-reference{color: #31cdf7;}
 .plus-info .reference-fiche-detail .puce-css{border-left-color: #31cdf7;}
-.bloc-carte-google .google-map-ferme-circuit{background-color: #31cdf7;}
+.bloc-carte-google .google-map-ferme-circuit, .info-window-gmap .visuel{background-color: #31cdf7;}
 .bloc-plus-image .plus-image-ouvert{background-color: #90dff4;}
 .plus-info .border-left-vert-5px{border-left-color: #31CDF7;}
 .homme-bleu-ciel{background: #31cdf7 url('../images/homme-blanc.png') no-repeat center;border: 3px solid #90dff4;}
