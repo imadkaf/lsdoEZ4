@@ -24,10 +24,16 @@ $(function(){
         if($('.supp-itiniraire'))
     		$(".supp-itiniraire").css("display","block");
         $("#map_canvas").css("height", hauteur+"px");
+        if($('.tirage-au-sort'))
+	        $(".tirage-au-sort").css("display","none");
+	    if($('.instant-gagnant'))
+			$(".instant-gagnant").css("display","none");
         if($('.agenda'))
 	        $(".agenda").css("display","none");
 	    if($('.suggestions'))
 			$(".suggestions").css("display","none");
+	    if($('.texte-libre'))
+			$(".texte-libre").css("display","none");
         loadScript();
         return false;
     });
@@ -58,10 +64,16 @@ $(function(){
         	$(".pieds-page ul").css("max-width","138px");
         	{/if}
         {literal}
+        if($('.tirage-au-sort'))
+	        $(".tirage-au-sort").css("display","block");
+	    if($('.instant-gagnant'))
+			$(".instant-gagnant").css("display","block");
 		if($('.agenda'))
     		$(".agenda").css("display","block");
     	if($('.suggestions'))
     		$(".suggestions").css("display","block");
+	    if($('.texte-libre'))
+			$(".texte-libre").css("display","block");
 
         $(".supp-itiniraire").css("display","none");
         $("#map_canvas").css("height", "0");

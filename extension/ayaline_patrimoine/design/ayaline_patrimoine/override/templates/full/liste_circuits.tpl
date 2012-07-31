@@ -284,7 +284,7 @@
 
 
 	{if $node.data_map.texte_libre.has_content}
-		<div class="bloc-carte-google" style="padding-left: 10px; padding-top: 11px;padding-bottom: 11px;padding-right: 10px;">
+		<div class="bloc-carte-google texte-libre" style="padding-left: 10px; padding-top: 11px;padding-bottom: 11px;padding-right: 10px;">
 			{attribute_view_gui attribute=$node.data_map.texte_libre}
 		</div>
 	{/if}
