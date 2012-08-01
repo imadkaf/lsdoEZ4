@@ -435,11 +435,11 @@ bloc-carte-google .google-map-ferme-circuit{position: absolute;top:0;bottom: 0;r
 
 .liste-medias{padding: 8px 8px 8px 8px;margin-left: 5px;background: #fff;display: none;margin-bottom: 20px;}
 .liste-medias .media{margin-bottom: 10px;}
-.liste-medias .diaporama>a.image{display: block;width: 60px;text-align: center;background: #e4e3de;height: 35px;}
+.liste-medias .diaporama a.image{display: block;width: 60px;text-align: center;background: #e4e3de;height: 35px;}
 .liste-medias .diaporama{position: relative;float: left;width: 60px;}
-.liste-medias .diaporama>a.droite{border: 2px solid #70777f;display: block;background: #fff url('../images/fleche-gris-gauche.png') no-repeat center;height: 18px;width: 18px;border-radius: 13px;position: absolute;top:0;bottom: 0;margin: auto;left:2px;}
-.liste-medias .diaporama>a.gauche{border: 2px solid #70777f;display: block;background: #fff url('../images/fleche-gris-droitre.png') no-repeat center;height: 18px;width: 18px;border-radius: 13px;position: absolute;top:0;bottom: 0;margin: auto;right:2px;}
-.liste-medias .diaporama>a.gauche{position: absolute;top:0;bottom: 0;margin: auto;right:2px;}
+.liste-medias .diaporama span.droite{border: 2px solid #70777f;display: block;background: #fff url('../images/fleche-gris-gauche.png') no-repeat center;height: 18px;width: 18px;border-radius: 13px;position: absolute;top:0;bottom: 0;margin: auto;left:2px;}
+.liste-medias .diaporama span.gauche{border: 2px solid #70777f;display: block;background: #fff url('../images/fleche-gris-droitre.png') no-repeat center;height: 18px;width: 18px;border-radius: 13px;position: absolute;top:0;bottom: 0;margin: auto;right:2px;}
+.liste-medias .diaporama span.gauche{position: absolute;top:0;bottom: 0;margin: auto;right:2px;}
 .liste-medias .contenu-media{margin-left: 75px;}
 .liste-medias .contenu-media h3{margin-bottom: 0;font-size: 86%;}
 .liste-medias .contenu-media .puce-gris{font-size: 81%;}
@@ -1033,6 +1033,11 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 	padding:0;
 	float: left;
 }
+.diaporama #Gallery{
+	height:auto;
+}
+#Gallery{overflow:hidden;}
+.fiche-interet .video {border-bottom:none;}
 /*************************/
 /*** Fin mboisgrollier ***/
 /*************************/
