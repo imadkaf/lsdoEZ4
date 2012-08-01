@@ -11,6 +11,7 @@ AliasList[]=imageInfowinGmap
 AliasList[]=imageSuggestion
 AliasList[]=imageLargeLibre
 AliasList[]=imageClassique
+AliasList[]=imageDiapoMedia
 
 [pictoCircuit]
 Filters[]=geometry/scaledownonly=50;50
@@ -41,5 +42,8 @@ Filters[]=geometry/scalewidthdownonly=321
 
 [imageClassique]
 Filters[]=geometry/scalewidthdownonly=268
+
+[imageDiapoMedia]
+Filters[]=geometry/scaledownonly=60;35
 
 */ ?>

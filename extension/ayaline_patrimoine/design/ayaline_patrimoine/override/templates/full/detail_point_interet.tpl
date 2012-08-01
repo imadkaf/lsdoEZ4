@@ -34,45 +34,49 @@
             </div>
          <div class="clear-tout"></div>
          <div class="liste-medias">
-         {foreach $elemnts as $key=>$elt}
-				{if ne($elt.node_id,$node.data_map.media_principal.content.main_node_id)}
-					{if eq($elt.class_identifier,'smp_diaporama')}
-						<div class="media">
-                            <div class="diaporama">
-                            <a href="#" class="image"><img src={"images/min.jpg"|ezdesign}/></a>
-                            <a href="#" class="droite"></a>
-                            <a href="#" class="gauche"></a>
-                        </div>
-                        <div class="contenu-media">
+ {foreach $elemnts as $key=>$elt}
+		{if ne($elt.node_id,$node.data_map.media_principal.content.main_node_id)}
+			{if eq($elt.class_identifier,'smp_diaporama')}
+				<div class="media">
+                	<div class="diaporama">
+                    	<div id="gallery_{$key}">
+
+					{def $listeImages=fetch('content','list',hash('parent_node_id',$elt.node_id,
+	                                                'class_filter_type','include',
+	                                                'class_filter_array',array('smp_image')
+					))}
+					{def $lienPrincipal = ""}
+                    		<ul id="Gallery_{$key}" style="position: relative">
+            		{foreach $listeImages as $key=>$image}
+				 		{if eq($key,0)}
+				 			{set $lienPrincipal = concat("/",$image.data_map.fichier_image.content.original.full_path)}
+				 				<li>
+				 					<a href="{$lienPrincipal}" rel="external"  class="image" >
+                            			<span class="droite"></span>
+										<span class="gauche"></span>
+                            			{attribute_view_gui attribute=$image.data_map.fichier_image image_class='imageDiapoMedia'}
+                        			</a>
+                    			</li>
+				 		{else}
+								<li class="display-none"><a href="/{$image.data_map.fichier_image.content.original.full_path}" rel="external">
+								{attribute_view_gui attribute=$image.data_map.fichier_image image_class='imageDiapoMedia'}</a>
+								</li>
+						{/if}
+					{/foreach}
+								{*<a href="/{$elt.data_map.fichier_image.content.original.full_path}" class="image"><img src={"images/min.jpg"|ezdesign}/></a>.
+								<span class="droite"></span>
+								<span class="gauche"></span>*}
+		                	</ul>
+	                 	</div>
+					</div>
+                    <div class="contenu-media">
                         <h3><a href="#" class="afficher_daipo" rel="external">
                         {attribute_view_gui attribute=$elt.data_map.titre_diaporama}</a>
                         </h3>
                         <span class="puce-gris">Diaporama</span>
-                    	</div>
-                    <div class="clear-tout"></div>
+                	</div>
+					<div class="clear-tout"></div>
                  </div>
-                 {def $listeImages=fetch('content','list',hash('parent_node_id',$elt.node_id,
-                                                'class_filter_type','include',
-                                                'class_filter_array',array('smp_image')
- 					))}
-
-                 <div class="diapo_lien" style="display: none;">
-                 	<ul id="Gallery_lien" style="position: relative">
-					{foreach $listeImages as $key=>$image}
-						 {if eq($key,0)}
-						 	<li><a href="/{$image.data_map.fichier_image.content.original.full_path}" rel="external" >
-		                            {attribute_view_gui attribute=$image.data_map.fichier_image image_class='original'}
-		                        </a>
-		                    </li>
-						 {else}
-						<li class="display-none"><a href="/{$image.data_map.fichier_image.content.original.full_path}" rel="external">
-						{attribute_view_gui attribute=$image.data_map.fichier_image image_class='original'}</a>
-						</li>
-						{/if}
-					{/foreach}
-					</ul>
-                 </div>
-
 					{elseif eq($elt.class_identifier,'smp_audio')}
 					<div class="media">
                             <a class="play-audio" href="#"></a>
