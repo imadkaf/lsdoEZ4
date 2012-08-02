@@ -10,8 +10,8 @@ AvailableCustomTags[]
 AvailableCustomTags[]=couleur_marron
 AvailableCustomTags[]=couleur_gris
 AvailableCustomTags[]=couleur_vert
-AvailableCustomTags[]=border_left_5px
-AvailableCustomTags[]=border_left_10px
+#AvailableCustomTags[]=border_left_5px
+#AvailableCustomTags[]=border_left_10px
 AvailableCustomTags[]=border_left_vert_5px
 AvailableCustomTags[]=reference-fiche-detail
 AvailableCustomTags[]=texte_decale
