@@ -1038,6 +1038,9 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 }
 #Gallery{overflow:hidden;}
 .fiche-interet .video {border-bottom:none;}
+.item1{
+	background-color:#7B5E51;
+}
 /*************************/
 /*** Fin mboisgrollier ***/
 /*************************/
