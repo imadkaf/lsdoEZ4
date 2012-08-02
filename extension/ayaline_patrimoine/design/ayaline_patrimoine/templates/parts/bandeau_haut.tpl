@@ -27,7 +27,7 @@
 				{striptags($onglet.data_map.titre.value)}
 				</a>
 				{else}
-				<a href={$onglet.url_alias|ezurl} class="ui-link item1{if and(eq($actif,true()),ge($module_result.path|count,4))} arriere-plan-item-menu{/if}" rel='external'>
+				<a href={$onglet.url_alias|ezurl} class="ui-link item1{if and(eq($actif,true()),ge($module_result.path|count,4))} arriere-plan-item-menu{elseif eq($actif,false())}"style="background-color: #7b5e51;{/if}" rel='external'>
 					{if eq($onglet.class_identifier,'smp_liste_circuits')}
 						{striptags($onglet.data_map.titre_page.value)}
 					{elseif eq($onglet.class_identifier,'smp_circuit')}
