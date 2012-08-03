@@ -2,6 +2,30 @@
 
 #site_patrimoine
 
+[full_diaporama]
+Source=node/view/full.tpl
+MatchFile=full/diaporama.tpl
+Subdir=templates
+Match[class_identifier]=smp_diaporama
+
+[full_audio]
+Source=node/view/full.tpl
+MatchFile=full/audio.tpl
+Subdir=templates
+Match[class_identifier]=smp_audio
+
+[full_circuit_externe]
+Source=node/view/full.tpl
+MatchFile=full/video_externe.tpl
+Subdir=templates
+Match[class_identifier]=smp_circuit_externe
+
+[full_video_interne]
+Source=node/view/full.tpl
+MatchFile=full/video_interne.tpl
+Subdir=templates
+Match[class_identifier]=smp_video_interne
+
 [full_liste_circuits]
 Source=node/view/full.tpl
 MatchFile=full/liste_circuits.tpl
