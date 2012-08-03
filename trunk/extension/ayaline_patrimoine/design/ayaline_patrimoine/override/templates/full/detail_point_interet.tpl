@@ -33,82 +33,69 @@
                 <a href="#" class="lien-arrondi plus-image-ouvert masquer-image"></a>
             </div>
          <div class="clear-tout"></div>
+
          <div class="liste-medias">
  {foreach $elemnts as $key=>$elt}
 		{if ne($elt.node_id,$node.data_map.media_principal.content.main_node_id)}
 			{if eq($elt.class_identifier,'smp_diaporama')}
 				<div class="media">
-                	<div class="diaporama">
-                    	<div id="gallery_{$key}">
-
-					{def $listeImages=fetch('content','list',hash('parent_node_id',$elt.node_id,
-	                                                'class_filter_type','include',
-	                                                'class_filter_array',array('smp_image')
-					))}
-					{def $lienPrincipal = ""}
-                    		<ul id="Gallery_{$key}" style="position: relative">
-            		{foreach $listeImages as $key=>$image}
-				 		{if eq($key,0)}
-				 			{set $lienPrincipal = concat("/",$image.data_map.fichier_image.content.original.full_path)}
-				 				<li>
-				 					<a href="{$lienPrincipal}" rel="external"  class="image" >
-                            			<span class="droite"></span>
-										<span class="gauche"></span>
-                            			{attribute_view_gui attribute=$image.data_map.fichier_image image_class='imageDiapoMedia'}
-                        			</a>
-                    			</li>
-				 		{else}
-								<li class="display-none"><a href="/{$image.data_map.fichier_image.content.original.full_path}" rel="external">
-								{attribute_view_gui attribute=$image.data_map.fichier_image image_class='imageDiapoMedia'}</a>
-								</li>
-						{/if}
-					{/foreach}
-								{*<a href="/{$elt.data_map.fichier_image.content.original.full_path}" class="image"><img src={"images/min.jpg"|ezdesign}/></a>.
-								<span class="droite"></span>
-								<span class="gauche"></span>*}
-		                	</ul>
-	                 	</div>
-					</div>
-                    <div class="contenu-media">
-                        <h3><a href="#" class="afficher_daipo" rel="external">
-                        {attribute_view_gui attribute=$elt.data_map.titre_diaporama}</a>
-                        </h3>
-                        <span class="puce-gris">Diaporama</span>
-                	</div>
-					<div class="clear-tout"></div>
+					<a href={$elt.url_alias|ezurl} rel='external' >
+	                	<div class="diaporama">
+	                    	<div id="gallery_{$key}">
+                    			<span class="droite"></span>
+								<span class="gauche"></span>
+                    			<span class="image">{attribute_view_gui attribute=$elt.children.0.data_map.fichier_image image_class='imageDiapoMedia'}</span>
+		                 	</div>
+						</div>
+	                    <div class="contenu-media">
+	                        <h3>
+	                        {attribute_view_gui attribute=$elt.data_map.titre_diaporama}
+	                        </h3>
+	                        <span class="puce-gris">Diaporama</span>
+	                	</div>
+						<div class="clear-tout"></div>
+					</a>
                  </div>
 					{elseif eq($elt.class_identifier,'smp_audio')}
 					<div class="media">
-                            <a class="play-audio" href="#"></a>
-                        <div class="contenu-media">
-                        <h3><a href="#" class="afficher-media" name="{concat('smp_audio',$key)}">{attribute_view_gui attribute=$elt.data_map.titre_audio}</a></h3>
-                        <span class="puce-gris">Reportage audio - durée {attribute_view_gui attribute=$elt.data_map.duree}</span>
-                    </div>
-                    <div class="clear-tout"></div>
-                 </div>
+                        <a href={$elt.url_alias|ezurl} rel='external'>
+                        	<span class="play-audio"></span>
+	                        <div class="contenu-media">
+		                        <h3>{attribute_view_gui attribute=$elt.data_map.titre_audio}</h3>
+		                        <span class="puce-gris">Reportage audio - durée {attribute_view_gui attribute=$elt.data_map.duree}</span>
+		                    </div>
+		                    <div class="clear-tout"></div>
+	                    </a>
+	                 </div>
 					{elseif eq($elt.class_identifier,'smp_circuit_externe')}
 					<div class="media">
-                        <div class="media-video">
-                            <a href="#" class="video"></a>
-                            <a class="play-video" href="#"></a>
-                        </div>
-                        <div class="contenu-media">
-                        <h3><a href="#" class="afficher-media" name="{concat('smp_circuit_externe',$key)}">{attribute_view_gui attribute=$elt.data_map.titre_video}</a></h3>
-                        <span class="puce-gris">Video - durée {attribute_view_gui attribute=$elt.data_map.duree}</span>
-                    </div>
-                    <div class="clear-tout"></div>
-                 </div>
+						<a href={$elt.url_alias|ezurl} rel='external'>
+	                        <div class="media-video">
+	                            <span class="video">
+	                            	<span class="play-video"></span>
+	                            </span>
+	                        </div>
+	                        <div class="contenu-media">
+		                        <h3>{attribute_view_gui attribute=$elt.data_map.titre_video}</h3>
+		                        <span class="puce-gris">Video - durée {attribute_view_gui attribute=$elt.data_map.duree}</span>
+	                    	</div>
+	                    	<div class="clear-tout"></div>
+                    	</a>
+                 	</div>
 					{elseif eq($elt.class_identifier,'smp_video_interne')}
 					<div class="media">
-                        <div class="media-video">
-                            <a href="#" class="video"><img src={"images/min.jpg"|ezdesign} /></a>
-                            <a class="play-video" href="#"></a>
-                        </div>
-                        <div class="contenu-media">
-                        <h3><a href="#" class="afficher-media" name="{concat('smp_video_interne',$key)}">{attribute_view_gui attribute=$elt.data_map.titre_video}</a></h3>
-                        <span class="puce-gris">Video - durée {attribute_view_gui attribute=$elt.data_map.duree}</span>
-                    </div>
-                    <div class="clear-tout"></div>
+                        <a href={$elt.url_alias|ezurl} rel='external'>
+	                        <div class="media-video">
+	                        <span class="video">{attribute_view_gui attribute=$elt.data_map.visuel image_class="imageDiapoMedia"}
+	                            	<span class="play-video"></span>
+	                            </span>
+	                        </div>
+	                        <div class="contenu-media">
+	                        	<h3>{attribute_view_gui attribute=$elt.data_map.titre_video}</h3>
+	                        	<span class="puce-gris">Video - durée {attribute_view_gui attribute=$elt.data_map.duree}</span>
+		                    </div>
+		                    <div class="clear-tout"></div>
+                    	</a>
                  	</div>
 					{/if}
 				{/if}

@@ -435,7 +435,7 @@ bloc-carte-google .google-map-ferme-circuit{position: absolute;top:0;bottom: 0;r
 
 .liste-medias{padding: 8px 8px 8px 8px;margin-left: 5px;background: #fff;display: none;margin-bottom: 20px;}
 .liste-medias .media{margin-bottom: 10px;}
-.liste-medias .diaporama a.image{display: block;width: 60px;text-align: center;background: #e4e3de;height: 35px;}
+.liste-medias .diaporama span.image{display: block;width: 60px;text-align: center;background: #e4e3de;height: 35px;}
 .liste-medias .diaporama{position: relative;float: left;width: 60px;}
 .liste-medias .diaporama span.droite{border: 2px solid #70777f;display: block;background: #fff url('../images/fleche-gris-gauche.png') no-repeat center;height: 18px;width: 18px;border-radius: 13px;position: absolute;top:0;bottom: 0;margin: auto;left:2px;}
 .liste-medias .diaporama span.gauche{border: 2px solid #70777f;display: block;background: #fff url('../images/fleche-gris-droitre.png') no-repeat center;height: 18px;width: 18px;border-radius: 13px;position: absolute;top:0;bottom: 0;margin: auto;right:2px;}
@@ -1038,6 +1038,50 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 }
 #Gallery{overflow:hidden;}
 .fiche-interet .video {border-bottom:none;}
+.liste-medias .media-video > span .play-video {
+    background: url("../images/puce-play.png") no-repeat scroll center center #FFFFFF;
+    border: 2px solid #70777F;
+    border-radius: 13px 13px 13px 13px;
+    bottom: 0;
+    display: block;
+    height: 18px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 18px;
+}
+.liste-medias .media-video > span.video {
+    background: none repeat scroll 0 0 #000000;
+    display: block;
+    height: 35px;
+    text-align: center;
+    width: 60px;
+}
+#title_video_externe{
+	position:relative;
+}
+
+a.fermer-video{
+	background:url("../images/diapo-fermer58px.png") no-repeat;
+	height: 58px;
+    width: 58px;
+}
+#Main div.jp-audio ul.jp-controls {
+    padding: 20px 5px 0;
+    width: 310px;
+}
+#Main div.jp-audio {
+    width: 320px;
+    position: relative;
+}
+#audio-view .titre-video{
+    position: relative;
+}
+#Gallery li{
+	text-align:center;
+}
 /*************************/
 /*** Fin mboisgrollier ***/
 /*************************/

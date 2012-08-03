@@ -11,7 +11,7 @@
 				 {if eq($key,0)}
 				 	<li><a href="/{$image.data_map.fichier_image.content.original.full_path}" rel="external" >
                             <span class="cliquer play-diaporama"></span>
-                            {attribute_view_gui attribute=$image.data_map.fichier_image image_class='original'}
+                            {attribute_view_gui attribute=$image.data_map.fichier_image image_class='imageDiapoPrincipal'}
                         </a>
                     </li>
 				 {else}

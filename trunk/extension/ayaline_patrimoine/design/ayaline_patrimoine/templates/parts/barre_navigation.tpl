@@ -41,6 +41,10 @@
                     <li><a href="#" class="lien-arrondi quizz-pictos-pieds-page"></a></li>
                 {elseif eq($cNode.class_identifier,'smp_contenu_libre')}
                 		<li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
+                {elseif or(eq($cNode.class_identifier,'smp_circuit_externe'), eq($cNode.class_identifier,'smp_audio'), eq($cNode.class_identifier,'smp_video_interne'))}
+                    <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
+                {elseif eq($cNode.class_identifier,'smp_diaporama')}
+                    <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour fermer-video" rel='external'></a></li>
                 {else}
                 <li><a href="/" class="lien-arrondi retour" rel='external'></a></li>
                 {/if}
