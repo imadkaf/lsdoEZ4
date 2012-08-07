@@ -4,9 +4,7 @@
 	<div class="survey-view">
 		<div class="block page-contact">
 			{if $node.data_map.description.has_content}	
-				<p class="chapeau">
-					{attribute_view_gui attribute = $node.data_map.description}
-				</p>
+				{attribute_view_gui attribute = $node.data_map.description}
 			{/if}
 		
 			<form action={'content/action'|ezurl} method="post">
@@ -27,10 +25,7 @@
 					<br />
 					<h2>{"Your informations"|i18n("ayaline")}</h2>
 				</div>
-				<div class="block civilite">					
-					{attribute_view_gui attribute = $node.data_map.sqli_civilite}
-				</div>
-				
+								
 				<div class="block deux-colonnes float-g">
 					<label class="lsdo-label non-textarea">{$node.data_map.sqli_prenom.contentclass_attribute_name|wash()}<strong class="required">*</strong> :</label>
 					{attribute_view_gui attribute = $node.data_map.sqli_prenom}
@@ -57,12 +52,12 @@
 				</div>
 				
 				<div class="block deux-colonnes droite">
-					<label class="lsdo-label non-textarea">{$node.data_map.sqli_codepostal.contentclass_attribute_name|wash()}<strong class="required">*</strong> :</label>
+					<label class="lsdo-label non-textarea">{$node.data_map.sqli_codepostal.contentclass_attribute_name|wash()} :</label>
 					{attribute_view_gui attribute = $node.data_map.sqli_codepostal}
 				</div>
 				
 				<div class="block deux-colonnes float-g">
-					<label class="lsdo-label non-textarea">{$node.data_map.ville.contentclass_attribute_name|wash()}<strong class="required">*</strong> :</label>
+					<label class="lsdo-label non-textarea">{$node.data_map.ville.contentclass_attribute_name|wash()} :</label>
 					{attribute_view_gui attribute = $node.data_map.ville}
 				</div>
 				
@@ -83,31 +78,22 @@
 					{attribute_view_gui attribute = $node.data_map.bons_plans_sejours}
 					<label>{$node.data_map.bons_plans_sejours.contentclass_attribute_name|wash()}</label>
 				</div>
-
-				<div class="block">
-					<br />
-					<h2>{"Security code"|i18n("ayaline")}<strong class="required">*</strong>:</h2>
-				</div>
-				<div id="captcha" class="block recaptcha-droite">
-					<p class="text-captcha">{"Tape the code below. If you cannot read all the letters or numbers"|i18n("ayaline")}, <a href="javascript:Recaptcha.reload ();">{"Clic here"|i18n("ayaline")}</a>.</p>
-					<br />
-					{attribute_view_gui attribute = $node.data_map.recapture}
-				</div>
 				
 				<div class="block button">
 					<input name="TopLevelNode" value="{$node.node_id}" type="hidden" />
 					<input name="ContentNodeID" value="{$node.node_id}" type="hidden" />
 					<input name="ContentObjectID" value="{$node.object.id}" type="hidden" />
-					<input class="button-effacer" type="image" src={"effacer.png"|ezimage} name="reset" value="{'Reset'|i18n('ayaline')}" onclick="this.form.reset(); return false;" />
-					<input class="button-envoyer" type="image" src={"envoyer.png"|ezimage} name="ActionCollectInformation" value="{'Send'|i18n('ayaline')}" />
+					<input class="button-submit-effacer" type="reset" name="reset" value="{'Reset'|i18n("ayaline")}" />
+					<input class="button-submit-valider" type="submit" name="ActionCollectInformation" value="{'Send'|i18n("ayaline")}" />
 				</div>
+				<div class="clear-both"></div>
 
-				<strong class="required">* </strong>{"Required field"|i18n("ayaline")}.
-
-				<div class="block border-haut">
-					{attribute_view_gui attribute = $node.data_map.informations}
+				<strong class="required">* </strong>{"Required field"|i18n("ayaline")}.	<br/>	<br/>	
+				{if $node.data_map.mentions_legales.has_content}	
+				<div>
+					{attribute_view_gui attribute = $node.data_map.mentions_legales}
 				</div>
-			
+				{/if}
 			</form>
 		</div>
 	</div>
