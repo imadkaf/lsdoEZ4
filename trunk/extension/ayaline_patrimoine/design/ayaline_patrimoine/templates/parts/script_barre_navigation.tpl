@@ -12,7 +12,7 @@ $(function(){
         $(".copyright").css("display","none");
         $(".bloc-carte-google .afficher-bloc").css("display","none");
         $(".bloc-carte-google .masquer-bloc").css("display","block");
-        $(".pieds-page ul").css("max-width","180px");
+    	$(".pieds-page ul").css("max-width","180px");
         $(".pieds-page ul li a.plus-image-pieds-page").css("display","none");
         $(".pieds-page ul li a.plus-info-pictos-pieds-page").css("display","none");
         $(".pieds-page ul li a.quizz-pictos-pieds-page").css("display","none");
@@ -59,7 +59,10 @@ $(function(){
     		$(".supp-itiniraire").css("display","none");
         {/literal}
         	{if eq($cNode.class_identifier,'smp_point_interet')}
-        	$(".pieds-page ul").css("max-width","310px");
+        	if($('.plus-image-pieds-page').length > 0)
+        		$(".pieds-page ul").css("max-width","310px");
+        	else
+        		$(".pieds-page ul").css("max-width","250px");
         	{else}
         	$(".pieds-page ul").css("max-width","138px");
         	{/if}

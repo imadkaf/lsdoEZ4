@@ -15,20 +15,26 @@
                     <li><a href="#" class="lien-arrondi google-map-ferme-circuit-pieds-page afficher-map"></a></li>
                     <li><a href="#" class="lien-arrondi itiniraire-circuit"></a></li>
                 {elseif eq($cNode.class_identifier,'smp_point_interet')}
-                    <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
-                    <li><a href="#" class="lien-arrondi-br-nv google-map-actif-circuit-pieds-page masquer-map"></a></li>
-                    <li><a href="#" class="lien-arrondi-br-nv masquer-media ferme-media" style="display: none;"></a></li>
-                    <li><a href="#" class="lien-arrondi google-map-ferme-circuit-pieds-page afficher-map"></a></li>
-                    <li><a href="#" class="lien-arrondi-br-nv itiniraire-circuit"></a></li>
-
                     {def $elemnts = false()}
-					{set $elemnts=fetch('content','list',hash('parent_node_id',$cNode.node_id))}
+                    {def $listClassMedia = ezini('List_class_media', 'Class' ,'ayaline_patrimoine.ini')}
+					{set $elemnts=fetch('content','list',hash('parent_node_id',$cNode.node_id,
+															'class_filter_type','include',
+															'class_filter_array', $listClassMedia))}
 					{def $etat = false()}
 					{foreach $elemnts as $elt}
 						{if ne($elt.node_id,$cNode.data_map.media_principal.content.main_node_id)}
 							{set $etat = true()}
 						{/if}
 					{/foreach}
+
+                    <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
+                    <li><a href="#" class="lien-arrondi-br-nv google-map-actif-circuit-pieds-page masquer-map"></a></li>
+                    {if and(gt($elemnts|count,1),$etat)}
+                    	<li><a href="#" class="lien-arrondi-br-nv masquer-media ferme-media" style="display: none;"></a></li>
+                    {/if}
+                    <li><a href="#" class="lien-arrondi google-map-ferme-circuit-pieds-page afficher-map"></a></li>
+                    <li><a href="#" class="lien-arrondi-br-nv itiniraire-circuit"></a></li>
+
 					{if and(gt($elemnts|count,1),$etat)}
 	                    <li><a href="#" class="lien-arrondi plus-image-pieds-page voir-image"></a></li>
 	                    <li><a href="#" class="lien-arrondi plus-image-ouvert-pieds-page masquer-image"></a></li>
