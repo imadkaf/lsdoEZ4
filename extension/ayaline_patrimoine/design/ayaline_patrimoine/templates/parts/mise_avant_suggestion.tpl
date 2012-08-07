@@ -24,7 +24,7 @@
 	{attribute_view_gui attribute=$child_node.data_map.visuel image_class='imageSuggestion'}
 	<div class="contenu-tirage-au-sort">
 		{attribute_view_gui attribute=$child_node.data_map.text}
-		{attribute_view_gui attribute=$child_node.data_map.url_cible class='voir-lots ui-link' target=$targeturl}
+		{attribute_view_gui attribute=$child_node.data_map.url_cible class='tirage-au-sort ui-link' target=$targeturl}
 	</div>
 </div>
 {/if}

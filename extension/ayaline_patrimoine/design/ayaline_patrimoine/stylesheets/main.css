@@ -1082,6 +1082,13 @@ a.fermer-video{
 #Gallery li{
 	text-align:center;
 }
+a.tirage-au-sort{
+	display: block;
+	color: #1ABBB7 !important;
+	background: url(../images/puve-vert.png) no-repeat 0 center;
+	padding-left: 15px;
+	border:none;
+}
 /*************************/
 /*** Fin mboisgrollier ***/
 /*************************/
