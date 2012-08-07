@@ -3,6 +3,8 @@
 {def $targeturl = ""}
 {if $child_node.data_map.url_cible.content|begins_with('http')}
 	{set $targeturl = "_blank"}
+{else}
+	{undef $targeturl}
 {/if}
 
 {* L'affichage est différent suivant le choix fait par l'utilisateur : foncé ou clair *}
@@ -14,8 +16,11 @@
 	</span>
 	<div class="contenu-gagnant">
 		{attribute_view_gui attribute=$child_node.data_map.text}
-
-		{attribute_view_gui attribute=$child_node.data_map.url_cible class='voir-lots ui-link' target=$targeturl}
+		{if is_set($targeturl)}
+			{attribute_view_gui attribute=$child_node.data_map.url_cible class='voir-lots ui-link' target=$targeturl}
+		{else}
+			{attribute_view_gui attribute=$child_node.data_map.url_cible class='voir-lots ui-link' rel='external'}
+		{/if}
 	</div>
 </div>
 {else}
@@ -24,7 +29,11 @@
 	{attribute_view_gui attribute=$child_node.data_map.visuel image_class='imageSuggestion'}
 	<div class="contenu-tirage-au-sort">
 		{attribute_view_gui attribute=$child_node.data_map.text}
-		{attribute_view_gui attribute=$child_node.data_map.url_cible class='tirage-au-sort ui-link' target=$targeturl}
+		{if is_set($targeturl)}
+			{attribute_view_gui attribute=$child_node.data_map.url_cible class='tirage-au-sort ui-link' target=$targeturl}
+		{else}
+			{attribute_view_gui attribute=$child_node.data_map.url_cible class='tirage-au-sort ui-link' rel='external'}
+		{/if}
 	</div>
 </div>
 {/if}
