@@ -24,8 +24,8 @@
 .google-map-actif-circuit{background: #98e2cc url(../images/bulle-milieu-blanc.png) no-repeat center;}
 .google-map-ferme-circuit{background: #98e2cc url(../images/bulle-vide-map.png) no-repeat center;width: 48px;height: 48px;border: 1px solid #70777f;}
 .google-map-ferme-circuit-pieds-page{background: #98e2cc url(../images/bulle-vide-map58px.png) no-repeat center;width: 56px;height: 56px;border: 1px solid #70777f;}
-.google-map-actif-circuit-pieds-page{background: #98e2cc url(../images/bulle-milieu-blanc.png) no-repeat center;}
-.itiniraire-circuit{background: #98e2cc url(../images/itiniraire-circuit.png) no-repeat center;}
+.google-map-actif-circuit-pieds-page{background: #98e2cc url(../images/bulle-vide-milieu58px.png) no-repeat center;}
+.itiniraire-circuit{background: #98e2cc url(../images/pictos-google-map-ferme-58px.png) no-repeat center;}
 .plus-image-ouvert{background:#98e2cc url('../images/plus-image-ouvert.png') no-repeat center;width: 48px !important;height: 48px !important;border: 1px solid #70777f;}
 .plus-image-ouvert-pieds-page{background:#98e2cc url('../images/plus-image-ouvert58px.png') no-repeat center;width: 56px !important;height: 56px !important;border: 1px solid #70777f;}
 .pieds-page .media-diaporama li a.diapo-prec{background:#98e2cc url('../images/diapo-prec.png') no-repeat center; border: 3px solid #cbf0e5;}
