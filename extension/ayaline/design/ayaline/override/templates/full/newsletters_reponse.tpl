@@ -35,7 +35,6 @@
         {ldelim}name : 'sqli_adressecomp', value : ""{rdelim},
         {ldelim}name : 'sqli_codepostal', value : "{$maCollection.data_map.sqli_codepostal.content}"{rdelim},
         {ldelim}name : 'sqli_commune', value : "{$maCollection.data_map.ville.content}"{rdelim},
-        {ldelim}name : 'sqli_pays', value : "France"{rdelim},
         {ldelim}name : 'sqli_objetdem', value : "Demande d'inscription aux newsletters"{rdelim},
         {ldelim}name : 'sqli_civilite', value : "{$civilite}"{rdelim},
         {ldelim}name : 'sqli_modereponse', value : "Email"{rdelim},
