@@ -8,6 +8,6 @@ Chemin=/extension/ayaline_patrimoine/design/ayaline_patrimoine/images/
 
 
 [SiteExterne]
-Url_site=http://m.lessablesdolonne.fr/
+Url_site=http://www.lessables.mobi
 
 */ ?>
