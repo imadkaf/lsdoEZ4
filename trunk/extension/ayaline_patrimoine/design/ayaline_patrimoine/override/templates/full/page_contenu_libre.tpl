@@ -6,8 +6,8 @@
 	<div class="border-left-5px">
 		<div class="background-white">
 		{if $node.data_map.accroche.has_content}
-			<div class="accroche_contenu_libre">
-	    	{attribute_view_gui attribute=$node.data_map.accroche}
+			<div class="accroche_contenu_libre introduction-page-standard">
+	    	{attribute_view_gui attribute=$node.data_map.accroche class='introduction-page-standard'}
 	    	</div>
 	    {/if}
 		    <div class="arrier-plan-marron">
