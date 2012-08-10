@@ -1089,6 +1089,16 @@ a.tirage-au-sort{
 	padding-left: 15px;
 	border:none;
 }
+.page-standard .introduction-page-standard .onlineeditor, .page-standard .introduction-page-standard .onlineeditor p {
+    padding: 0;
+}
+.arrier-plan-marron {
+	margin-top: 10px;
+}
+.introduction-page-standard {
+	margin:-5px;
+	background-color:white;
+}
 /*************************/
 /*** Fin mboisgrollier ***/
 /*************************/
