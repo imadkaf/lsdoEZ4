@@ -166,7 +166,7 @@ MatchFile=full/brochures_list.tpl
 Subdir=templates
 Match[class_identifier]=brochures
 
-[line_faq]
+[grouped_faq]
 Source=node/view/line.tpl
 MatchFile=line/faq_view_grouped.tpl
 Subdir=templates
