@@ -425,5 +425,9 @@
 	        <source>Made by</source>
 	        <translation>Réalisation</translation>
 	    </message>
+		<message>
+	        <source>View on the map</source>
+	        <translation>Visualiser sur la carte</translation>
+	    </message>
 	</context>
 </TS>
