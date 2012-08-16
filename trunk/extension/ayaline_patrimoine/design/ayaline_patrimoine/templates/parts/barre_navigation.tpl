@@ -3,7 +3,11 @@
 {if or(and(eq($cNode.class_identifier,'smp_point_interet'),eq($cNode.data_map.media_principal.content.class_identifier,'smp_diaporama')), eq($cNode.class_identifier,'smp_circuit'))}
 	<span class="border_entre_circuits"></span>
 {/if}
+				{if $module_result.uri|eq('/content/search')}
+				<ul style="width: 62px;">
+				{else}
                 <ul {if and(eq($cNode.class_identifier,'smp_point_interet'),eq($cNode.data_map.media_principal.content.class_identifier,'smp_diaporama'))}class="normal"{/if}>
+                {/if}
                 {if eq($cNode.class_identifier,'smp_liste_circuits')}
                     <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
                     <li><a href="#" class="lien-arrondi google-maps-actif-pieds-page masquer-map"></a></li>
