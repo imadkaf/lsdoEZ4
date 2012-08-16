@@ -1004,9 +1004,9 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 }
 /*** Fin Page de resultats ***/
 
-.ferme-media{background: url("../images/diapo-fermer.png") no-repeat scroll center center #98E2CC;
-    height: 50px;
-    width: 50px;}
+.ferme-media{background: url("../images/diapo-fermer.png") no-repeat scroll center center ;
+    height: 58px;
+    width: 58px;}
 
 /************************/
 /*** Fin melbajjati ***/
