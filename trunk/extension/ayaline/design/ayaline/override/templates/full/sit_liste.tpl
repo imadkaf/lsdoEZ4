@@ -150,7 +150,7 @@
 					{sit_mise_en_avant($mise_en_avant.0, $mise_en_avant.0.data_map.mode_affichage.value, 'sit_remontee_liste')}
 				{/if}
 			{/if}
-			
+
 			{if eq($node.data_map.googlemaps.data_int, '1')}
 				{if is_set($view_parameters.goutte)}
 					{*sit_liste('sit_liste_carte')*}
@@ -167,6 +167,7 @@
 					<div class="clear"></div>
 				{/if}
 			{/if}
+
 			{undef $mise_en_avant}
 			{sit_liste()}
 		</div>
