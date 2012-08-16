@@ -166,7 +166,7 @@
 
 
                 // adapter le zoom et la position du centre de la carte gmap
-                /*
+                
                 var latlngbounds = new google.maps.LatLngBounds( );
                 for( var i in listeCircuits){
                     for( var j in listeCircuits[i]['traceCoords']){
@@ -174,7 +174,7 @@
                     }
                 }
                 carte.fitBounds(latlngbounds);
-                    */
+                
                 if (navigator.geolocation){
                   var watchId = navigator.geolocation.watchPosition(successCallbackMaPosition,null,{enableHighAccuracy:false});
                 }else{
