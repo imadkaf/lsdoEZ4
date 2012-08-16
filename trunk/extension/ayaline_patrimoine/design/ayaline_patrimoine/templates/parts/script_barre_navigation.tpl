@@ -3,8 +3,8 @@
 $(function(){
     $(".afficher-map").click(function() {
         var hauteur = $("body").height() - $(".bloc-carte-google").height() - $(".pieds-page").height();
-        $(".google-maps-desactif-pieds-page, .google-map-ferme-circuit-pieds-page ").css("display","none");
-        $(".google-maps-actif-pieds-page, .google-map-actif-circuit-pieds-page").css("display","block");
+        $(".google-maps-desactif-pieds-page, .google-map-ferme-circuit-pieds-page,.google-maps-desactif, .google-map-ferme-circuit").css("display","none");
+        $(".google-maps-actif-pieds-page, .google-map-actif-circuit-pieds-page, .google-maps-actif, .google-map-actif-circuit").css("display","block");
         $("#Header").css("display","none");
         $("#Main .contenu").css("display","none");
         $("#breadcrumbs").css("display","none");
@@ -39,8 +39,8 @@ $(function(){
     });
 
     $(".masquer-map").click(function() {
-        $(".google-maps-actif-pieds-page, .google-map-actif-circuit-pieds-page").css("display","none");
-        $(".google-maps-desactif-pieds-page, .google-map-ferme-circuit-pieds-page").css("display","block");
+        $(".google-maps-actif-pieds-page, .google-map-actif-circuit-pieds-page,.google-maps-actif, .google-map-actif-circuit").css("display","none");
+        $(".google-maps-desactif-pieds-page, .google-map-ferme-circuit-pieds-page,.google-maps-desactif, .google-map-ferme-circuit").css("display","block");
         $("#Header").css("display","block");
         $("#Main .contenu").css("display","block");
         $("#breadcrumbs").css("display","block");
@@ -118,9 +118,6 @@ $(function(){
         //alert(div);
         	$(div).css("display","block");
     	    $(div).css("height", hauteur+"px");
-
-
-
         return false;
     });
 
@@ -148,8 +145,6 @@ $(function(){
         	{else}
         	$(".pieds-page ul").css("max-width","120px");
         	{/if}
-
-
         {literal}
         var name = $(this).attr("name");
         	$(name).css("display","none");
