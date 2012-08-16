@@ -1,11 +1,13 @@
 {def $nbPubs = 5}
+
 {* utile pour le tracking Google Analytics *}
 {foreach $node.data_map.categorie.class_content.options as $option}
 	{if eq($option.id,$node.data_map.categorie.data_text)}
 		<script type="text/javascript">categorie="{$option.name}";</script>
 	{/if}
 {/foreach}
-			
+
+
 <div class="bloc-left-bis">
 	<div class="bloc-left-in-bis">
 		{if eq($node.data_map.form_recherche.data_text, 0)}
@@ -13,7 +15,8 @@
 		{/if}
 		
 		{if eq($node.parent.node_id, ezini('Noeuds','Sejourner','ayaline.ini'))}
-			<div class="memecategorie-choisissez">
+
+			<div>
 				{def $listeHebergement = fetch('content','list', hash( 
 												'parent_node_id', $node.parent.node_id,
 												'sort_by', $node.sort_array,
@@ -22,11 +25,11 @@
 				
 				{if $listeHebergement|count}
 					<ul class="menu-left">
-						<li>
-						{*<li class="actif">*}
+
+						<li class="actif">
 							<span>{"Others housings"|i18n("ayaline")}</span>
-							<ul class="s-menu none">
-							{*<ul class="s-menu">*}
+							<ul class="s-menu">
+
 							{foreach $listeHebergement as $hbgt}
 								<li><a href={$hbgt.url_alias|ezurl}>{$hbgt.name}</a></li>
 							{/foreach}
@@ -45,11 +48,11 @@
 			
 			{if $listeRubriques|count}
 				<ul class="menu-left">
-					<li>
-					{*<li class="actif">*}
+
+					<li class="actif">
 						<span>{$node.parent.name}</span>
-						<ul class="s-menu none">
-						{*<ul class="s-menu">*}
+						<ul class="s-menu">
+
 						{foreach $listeRubriques as $rub}
 							<li><a href={$rub.url_alias|ezurl}>{$rub.name}</a></li>
 						{/foreach}
@@ -132,6 +135,11 @@
 					{set $param_url = concat($param_url, '/(', $param, ')/', $valParam)}
 				{/if}
 			{/foreach}
+			{if eq($node.data_map.googlemaps.data_int, '1')}
+				{if is_set($view_parameters.goutte)}
+					{sit_liste('sit_liste_carte')}
+				{/if}
+			{/if}
 			{def $mise_en_avant = fetch( 'content','list',hash(
 				'parent_node_id', $node.node_id,
 				'limit', 1,
@@ -139,30 +147,27 @@
 			))}
 			{if eq($view_parameters.recherche,'')}
 				{if $mise_en_avant}
-					<br /><br />
 					{sit_mise_en_avant($mise_en_avant.0, $mise_en_avant.0.data_map.mode_affichage.value, 'sit_remontee_liste')}
 				{/if}
 			{/if}
-			{undef $mise_en_avant}
+			
 			{if eq($node.data_map.googlemaps.data_int, '1')}
 				{if is_set($view_parameters.goutte)}
-					{sit_liste('sit_liste_carte')}
+					{*sit_liste('sit_liste_carte')*}
 				{else}
 					<div class="visualiserCarte">
-						<div>
-						<a class="liste-goutte" href={concat($node.url_alias, $param_url, '/(goutte)/1')|ezurl}>
-							<h3 style="float:left;">Visualiser sur la carte</h3>
-							<img alt="Visualiser sur la carte" src={"pictoGmaps.png"|ezimage} height="20px" style="margin:8px 0 0 8px">
-							<div class="clear"></div>
-						</a>
+						<div{if not($mise_en_avant)} class="top40"{/if}>
+							<a class="liste-goutte" href={concat($node.url_alias, $param_url, '/(goutte)/1')|ezurl}>
+								<img alt="{"View on the map"|i18n("ayaline")}" src={"pictoGmaps.png"|ezimage} width="13px">
+								<h3>{"View on the map"|i18n("ayaline")}</h3>
+								<div class="clear"></div>
+							</a>
 						</div>
 					</div>
 					<div class="clear"></div>
 				{/if}
 			{/if}
-
-			
-			
+			{undef $mise_en_avant}
 			{sit_liste()}
 		</div>
 	</div>
