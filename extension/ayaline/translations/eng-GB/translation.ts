@@ -537,5 +537,9 @@
 	        <source>Tide Tables</source>
 	        <translation>Tide Tables</translation>
 	    </message>
+		<message>
+	        <source>View on the map</source>
+	        <translation>View on the map</translation>
+	    </message>
 	</context>
 </TS>
