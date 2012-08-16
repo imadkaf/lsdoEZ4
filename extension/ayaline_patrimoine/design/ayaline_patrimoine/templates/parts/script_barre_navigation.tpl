@@ -3,6 +3,9 @@
 $(function(){
     $(".afficher-map").click(function() {
         var hauteur = $("body").height() - $(".bloc-carte-google").height() - $(".pieds-page").height();
+        if (navigator.userAgent.indexOf('iPhone') != -1) {
+            hauteur = $("body").height();
+        }
         $(".google-maps-desactif-pieds-page, .google-map-ferme-circuit-pieds-page,.google-maps-desactif, .google-map-ferme-circuit").css("display","none");
         $(".google-maps-actif-pieds-page, .google-map-actif-circuit-pieds-page, .google-maps-actif, .google-map-actif-circuit").css("display","block");
         $("#Header").css("display","none");
