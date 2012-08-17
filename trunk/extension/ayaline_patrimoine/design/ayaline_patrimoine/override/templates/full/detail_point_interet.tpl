@@ -118,11 +118,19 @@
                 </div>
       </div>
             {/if}
-
-	<div class="info arrier-plan-gris quizz-fiche-interet">
-        <p><span class="bold affichage-bloc">Quizz</span> Tentez votre chance !</p>
-        <a href="#" class="lien-arrondi quizz"></a>
-    </div>
+        {def $node_quiz = fetch('content','tree',hash(  'parent_node_id',$node.node_id,
+                                                        'class_filter_type','include',
+                                                        'class_filter_array',array('smp_quizz'),
+                                                        'limit',1
+        ))}
+        {if $node_quiz|count|ne(0)}
+            {set $node_quiz = $node_quiz[0]}
+            <div class="info arrier-plan-gris quizz-fiche-interet">
+                <p><span class="bold affichage-bloc">Quizz</span> Tentez votre chance !</p>
+                <a href="{concat('quizz/etape1/',$node_quiz.node_id)|ezurl('no')}" class="lien-arrondi quizz" rel="external"></a>
+            </div>
+        {/if}
+	
 </div>
 {if and(gt($elemnts|count,1),$etat)}
 {foreach $elemnts as $key=>$elt}

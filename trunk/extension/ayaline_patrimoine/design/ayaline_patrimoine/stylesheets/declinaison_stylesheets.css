@@ -41,5 +41,5 @@
 .question-reponse .reponses li .reponse2{width: 60px;height: 60px;margin: auto;cursor: pointer;background:#1abbb7 url('../images/reponse2-58px.png') no-repeat center;}
 .question-reponse .reponses li .reponse2-selectionne{width: 60px;height: 60px;display: none;margin: auto;cursor: pointer;background:#1abbb7 url('../images/deux58px.png') no-repeat center;}
 .resultat-reponse1{background:#1abbb7 url('../images/un58px.png') no-repeat center;width: 60px;height: 60px;}
-.resultat-reponse2{background:#1abbb7 url('../images/un58px.png') no-repeat center;width: 60px;height: 60px;}
+.resultat-reponse2{background:#1abbb7 url('../images/deux58px.png') no-repeat center;width: 60px;height: 60px;}
 

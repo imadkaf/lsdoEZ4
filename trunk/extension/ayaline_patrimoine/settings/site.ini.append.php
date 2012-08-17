@@ -19,4 +19,9 @@ UrlList[fre-FR]=patrimoine.lsdo.loc
 [TemplateSettings]
 ExtensionAutoloadPath[]=ayaline_patrimoine
 
+[RoleSettings]
+PolicyOmitList[]=quizz/etape1
+PolicyOmitList[]=quizz/etape2
+PolicyOmitList[]=quizz/etape3
+
 */ ?>
