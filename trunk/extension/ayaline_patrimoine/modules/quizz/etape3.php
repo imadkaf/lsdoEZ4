@@ -107,7 +107,7 @@ if (count($erreurs) != 0) {
             $Result['content'] = $tpl->fetch('design:quizz/etape3_bonne_reponse.tpl');
             break;
     }
-
+    $Result['node_id'] = $quizzNode->NodeID;
     $Result['path'] = array(
         array(
             'url' => '/',

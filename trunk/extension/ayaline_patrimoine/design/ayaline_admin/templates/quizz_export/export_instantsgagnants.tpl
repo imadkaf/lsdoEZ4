@@ -101,7 +101,6 @@
                 }).datepicker( $.datepicker.regional[ "fr" ] );
                  
             }
-            
 
         });
     {/literal}

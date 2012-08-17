@@ -22,6 +22,7 @@ if($http->hasSessionVariable('quizzReponse')){
 /* Fin: Renvoie d'erreurs */
 
 $Result['content'] = $tpl->fetch('design:quizz/etape1.tpl');
+$Result['node_id'] = $quizzNode->NodeID;
 $Result['path'] = array(
     array(
         'url' => '/',
