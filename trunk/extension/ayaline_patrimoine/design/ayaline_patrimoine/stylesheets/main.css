@@ -1102,3 +1102,16 @@ a.tirage-au-sort{
 /*************************/
 /*** Fin mboisgrollier ***/
 /*************************/
+
+/**** messages-erreurs *****/
+.messages-erreurs{
+    padding: 10px 5px;
+    background: #ff668e;
+}
+.messages-erreurs ul, .messages-erreurs ul li{
+    display: list-item !important;
+    list-style: square;
+}
+.messages-erreurs ul li{
+    margin-left: 15px;
+}
