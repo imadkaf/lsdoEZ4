@@ -10,7 +10,15 @@
                 {/if}
                 
                 {if $module_result.ui_component|eq('quizz')}
-                <li class="last-retour-13"><a href="/" class="lien-arrondi retour" rel='external'></a></li>
+                    {def $node_quizz=fetch('content','node',hash('node_id',$module_result.node_id))}
+                    {if $module_result.uri|contains('etape1')}
+                        <li><a href="{concat($node_quizz.parent.url_alias)|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
+                    {elseif $module_result.uri|contains('etape2')}
+                        <li><a href="{concat('quizz/etape1/',$node_quizz.node_id)|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
+                    {elseif $module_result.uri|contains('etape3')}
+                        <li><a href="{concat($node_quizz.parent.url_alias)|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
+                    {/if}
+                
                 <li>
                     {if $module_result.uri|contains('etape1')}
                         <input id="submit-form-quiz-question" type="button" rel="external" name="ok" value="" class="submit-form-quiz-question lien-arrondi ok-pieds-page"/>
@@ -34,6 +42,7 @@
                     {elseif $module_result.uri|contains('etape3')}
 
                     {/if}
+                {undef $node_quizz}
                 </li>
                 {elseif eq($cNode.class_identifier,'smp_liste_circuits')}
                     <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>

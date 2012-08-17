@@ -51,6 +51,7 @@ if($quizz_form_values != false){
 
 
 $Result['content'] = $tpl->fetch('design:quizz/etape2.tpl');
+$Result['node_id'] = $quizzNode->NodeID;
 $Result['path'] = array(
     array(
         'url' => '/',
