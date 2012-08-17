@@ -1,0 +1,6 @@
+@charset "utf-8";
+
+#quizzcontent{display: block;}
+#quizzcontent .container-bloc-quizz{display: block;padding: 5px 0;}
+#quizzcontent .container-bloc-quizz h2{display: block;margin-bottom: 14px;padding-bottom: 8px;border-bottom: 1px solid #cccccc;}
+#quizzcontent .container-bloc-quizz .ligne-form label{display: inline;}

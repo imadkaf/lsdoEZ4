@@ -64,5 +64,15 @@
 	{def $fichiercss = $circuitNode.data_map.declinaison_circuit.content.current.data_map.fichier_css.value|trim|wash}
 	<link rel="stylesheet" type="text/css" href={concat('stylesheets/', $fichiercss)|ezdesign} media="all" />
 {/if}
+<script>
+    {literal}
+    
+           $(document).live("mobileinit", function(){
+               $.mobile.ajaxLinksEnabled = false;
+               $.mobile.ajaxFormsEnabled = false;
+               $.mobile.ajaxEnabled = false;
+           });    
+               {/literal}
+       </script>
 	</head>
 {undef $title $referencement $description $keywords}

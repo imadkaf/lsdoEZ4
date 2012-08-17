@@ -13,6 +13,7 @@ AliasList[]=imageLargeLibre
 AliasList[]=imageClassique
 AliasList[]=imageDiapoMedia
 AliasList[]=imageDiapoPrincipal
+AliasList[]=imageIconeW58
 
 [pictoCircuit]
 Filters[]=geometry/scaledownonly=50;50
@@ -49,5 +50,8 @@ Filters[]=geometry/scaledownonly=60;35
 
 [imageDiapoPrincipal]
 Filters[]=geometry/scalewidthdownonly=320
+
+[imageIconeW58]
+Filters[]=geometry/scalewidthdownonly=58
 
 */ ?>

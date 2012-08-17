@@ -7,7 +7,7 @@ class eZPatrimoineUtils{
 	function eZPatrimoineUtils(){
 
 		$this->Operators = array (
-			'striptags','getcookie'
+			'striptags','getcookie','getlist_instantsgagnants'
 		);
 
 	}
@@ -30,7 +30,8 @@ class eZPatrimoineUtils{
 			    'striptags'=>array('needle'=>array('type'=>'string',
 									 'required'=>true,
 									 'default'=>"")),
-				'getcookie'=>array()
+				'getcookie'=>array(),
+				'getlist_instantsgagnants'=>array()
 			);
 
 	}
@@ -53,6 +54,10 @@ class eZPatrimoineUtils{
 				$operatorValue = $this->getcookie();
 			}
 			    break;
+			    case 'getlist_instantsgagnants': {
+				$operatorValue = $this->getlist_instantsgagnants();
+			}
+			    break;
 
 
 		 }
@@ -73,6 +78,9 @@ class eZPatrimoineUtils{
 			return false;
 		}
 	}
+        function getlist_instantsgagnants() {
+            return QuizzInstantGagnantManagement::getListInstantsGagnants();
+        }
 
 }
 

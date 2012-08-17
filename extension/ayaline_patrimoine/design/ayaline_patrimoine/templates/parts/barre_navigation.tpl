@@ -8,7 +8,34 @@
 				{else}
                 <ul {if and(eq($cNode.class_identifier,'smp_point_interet'),eq($cNode.data_map.media_principal.content.class_identifier,'smp_diaporama'))}class="normal"{/if}>
                 {/if}
-                {if eq($cNode.class_identifier,'smp_liste_circuits')}
+                
+                {if $module_result.ui_component|eq('quizz')}
+                <li class="last-retour-13"><a href="/" class="lien-arrondi retour" rel='external'></a></li>
+                <li>
+                    {if $module_result.uri|contains('etape1')}
+                        <input id="submit-form-quiz-question" type="button" rel="external" name="ok" value="" class="submit-form-quiz-question lien-arrondi ok-pieds-page"/>
+                        <script>
+                            {literal}
+                                $(".submit-form-quiz-question").click(function(){
+                                    $("#form-quiz-question").submit();
+                                });
+                            {/literal}
+                        </script>
+
+                    {elseif $module_result.uri|contains('etape2')}
+                        <input id="submit-form-quiz-infos" type="button" rel="external" name="ok" value="" class="submit-form-quiz-infos lien-arrondi ok-pieds-page"/>
+                        <script>
+                            {literal}
+                                $(".submit-form-quiz-infos").click(function(){
+                                    $("#form-quizz-infos").submit();
+                                });
+                            {/literal}
+                        </script>
+                    {elseif $module_result.uri|contains('etape3')}
+
+                    {/if}
+                </li>
+                {elseif eq($cNode.class_identifier,'smp_liste_circuits')}
                     <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
                     <li><a href="#" class="lien-arrondi google-maps-actif-pieds-page masquer-map"></a></li>
                     <li><a href="#" class="lien-arrondi google-maps-desactif-pieds-page afficher-map"></a></li>
