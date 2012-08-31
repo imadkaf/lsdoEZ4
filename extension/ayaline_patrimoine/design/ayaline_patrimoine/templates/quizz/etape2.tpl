@@ -111,13 +111,13 @@
                       $(this).css("display","none");
                       $(this).parent('div').find(".active").css("display","block");
                       $(this).parent('div').addClass("activia");
-                      $(this).parent('div').parent('div').find('input:hidden').attr({value : '0'});
+                      $(this).parent('div').parent('div').find('input:hidden').attr({value : '1'});
                       return false;
                   }
                    $(this).parent('div').removeClass("activia");
                    $(this).css("display","none");
                    $(this).parent('div').find(".inactive").css("display","block");
-                   $(this).parent('div').parent('div').find(' input:hidden').attr({value : '1'});
+                   $(this).parent('div').parent('div').find(' input:hidden').attr({value : '0'});
                    return false;
             });
             $("form.form-reponse .formulaire-reponse .ligne-form.checkbox .champ-form.checkbox .check p span.cliq").click(function(){
