@@ -9,7 +9,7 @@
 			</a>
 		</div>
 		<a href={$node.url_alias|ezurl} class="image-lien ui-link" rel='external'>
-			{attribute_view_gui attribute=$node.data_map.declinaison_circuit.content.current.data_map.picto_pieton image_class='pictoCircuit'}
+			{attribute_view_gui attribute=$node.data_map.declinaison_circuit.content.current.data_map.picto_pieton image_class='original'}
 		</a>
 </article>
 <span class="border_entre_circuits"></span>
@@ -23,7 +23,7 @@
 						<span class="introduction">{$node.data_map.description.content.input.input_xml|wash|word_cut(5)}...</span>
 					</a>
 					<a href={$node.url_alias|ezurl} class="image-lien ui-link" rel='external'>
-						{attribute_view_gui attribute=$node.data_map.declinaison_circuit.content.current.data_map.picto_pieton image_class='pictoCircuit'}
+						{attribute_view_gui attribute=$node.data_map.declinaison_circuit.content.current.data_map.picto_pieton image_class='original'}
 					</a>
 					<div class="clear-tout"></div>
 				</div>
