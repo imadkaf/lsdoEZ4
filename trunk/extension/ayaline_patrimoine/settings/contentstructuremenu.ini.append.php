@@ -14,6 +14,6 @@ ShowClasses[]=smp_audio
 ShowClasses[]=smp_diaporama
 ShowClasses[]=smp_image
 ShowClasses[]=smp_raccourci
-ShowClasses[]=smp_quiz
+ShowClasses[]=smp_quizz
 
 */ ?>
