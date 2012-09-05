@@ -130,7 +130,7 @@
                 <a href="{concat('quizz/etape1/',$node_quiz.node_id)|ezurl('no')}" class="lien-arrondi quizz" rel="external"></a>
             </div>
         {/if}
-	
+
 </div>
 {if and(gt($elemnts|count,1),$etat)}
 {foreach $elemnts as $key=>$elt}
@@ -225,6 +225,7 @@
 
 	                    {concat("var pointInteretMAInfos = new Array();")}
 	                    {concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|trim|wash|explode("'")|implode("\\'"),"';")}
+                    	{concat("pointInteretMAInfos['link'] = '",$nodePtInteretMA.url_alias|ezurl,"';")}
 	                    {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
        					{concat("pointInteretMAInfos['bg-color'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.code_html_couleur.value|trim|wash,"';")}
 	                    {if $node.node_id|eq($ptInteret.node_id)}
@@ -268,6 +269,7 @@
 	                	{if $showPI|eq(true())}
 	                        {concat("var pointInteretInfos = new Array();")}
 	                        {concat("pointInteretInfos['name'] = '",$ptInteret.name|trim|wash|explode("'")|implode("\\'"),"';")}
+                        	{concat("pointInteretInfos['link'] = '",$ptInteret.url_alias|ezurl,"';")}
 	                        {concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
            					{concat("pointInteretInfos['bg-color'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.code_html_couleur.value|trim|wash,"';")}
 	                        {if $node.node_id|eq($ptInteret.node_id)}
@@ -415,8 +417,8 @@
                         ListMarkersPtInterets[iMrk].setZIndex(1);
                     }
                     var infoWinContentStr ='<div class="info-window-gmap">';
-                    infoWinContentStr +='<div class="visuel" style="background-color:'+ptInteret['bg-color']+';">'+'<img src="'+ptInteret['visuel']+'">'+'</div>';
-                    infoWinContentStr +='<div class="titre">'+ptInteret['name']+'</div>';
+                    infoWinContentStr +='<a href='+ptInteret['link']+' alt="'+ptInteret['name']+'" rel="external"><div class="visuel" style="background-color:'+ptInteret['bg-color']+';">'+'<img src="'+ptInteret['visuel']+'">'+'</div></a>';
+                    infoWinContentStr +='<a href='+ptInteret['link']+' alt="'+ptInteret['name']+'" rel="external"><div class="titre">'+ptInteret['name']+'</div></a>';
                     infoWinContentStr +='<a href="Javascript:tracerItineraireMaposition(ListMarkersPtInterets['+iMrk+']);" class="tracer-itineraire">itinéraire</a>';
                     infoWinContentStr +='<div class="clear-tout"></div>';
                     infoWinContentStr +='</div>';
