@@ -63,6 +63,7 @@
 
                     {concat("var pointInteretMAInfos = new Array();")}
                     {concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|trim|wash|explode("'")|implode("\\'"),"';")}
+                    {concat("pointInteretMAInfos['link'] = '",$nodePtInteretMA.url_alias|ezurl,"';")}
                     {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
                     {concat("pointInteretMAInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_mis_avant_carte_gmap.content.original.url|ezroot('no'),"';")}
                     {concat("pointInteretMAInfos['lat'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.latitude,"';")}
@@ -90,6 +91,7 @@
                     {if $isPtMA|not}
                         {concat("var pointInteretInfos = new Array();")}
                         {concat("pointInteretInfos['name'] = '",$ptInteret.name|trim|wash|explode("'")|implode("\\'"),"';")}
+                        {concat("pointInteretInfos['link'] = '",$ptInteret.url_alias|ezurl,"';")}
                         {concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
                         {concat("pointInteretInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_normal_carte_gmap.content.original.url|ezroot('no'),"';")}
                         {concat("pointInteretInfos['lat'] = '",$ptInteret.data_map.coord_geolocalisation.content.latitude,"';")}
@@ -166,7 +168,7 @@
 
 
                 // adapter le zoom et la position du centre de la carte gmap
-                
+
                 var latlngbounds = new google.maps.LatLngBounds( );
                 for( var i in listeCircuits){
                     for( var j in listeCircuits[i]['traceCoords']){
@@ -174,7 +176,7 @@
                     }
                 }
                 carte.fitBounds(latlngbounds);
-                
+
                 if (navigator.geolocation){
                   var watchId = navigator.geolocation.watchPosition(successCallbackMaPosition,null,{enableHighAccuracy:false});
                 }else{
@@ -207,8 +209,8 @@
                       icon: ptInteret['picto']
                     });
                     var infoWinContentStr ='<div class="info-window-gmap">';
-                    infoWinContentStr +='<div class="visuel">'+'<img src="'+ptInteret['visuel']+'">'+'</div>';
-                    infoWinContentStr +='<div class="titre">'+ptInteret['name']+'</div>';
+                    infoWinContentStr +='<a href='+ptInteret['link']+' alt="'+ptInteret['name']+'" rel="external"><div class="visuel">'+'<img src="'+ptInteret['visuel']+'">'+'</div></a>';
+                    infoWinContentStr +='<a href='+ptInteret['link']+' alt="'+ptInteret['name']+'" rel="external"><div class="titre">'+ptInteret['name']+'</div></a>';
                     infoWinContentStr +='<a href="Javascript:tracerItineraireMaposition(ListMarkersPtInterets['+iMrk+']);" class="tracer-itineraire">itinéraire</a>';
                     infoWinContentStr +='<div class="clear-tout"></div>';
                     infoWinContentStr +='</div>';
