@@ -1,4 +1,20 @@
 <h1>Participants</h1>
+{if and(is_set($erreurs), $erreurs|is_array(), $erreurs|count|ne(0))}
+    <div class="message-error">
+        <h2>Opération interrompue</h2>
+        <span class="time"></span>
+        <p>
+            {if is_set($erreurs_description)}
+                {$erreurs_description}
+            {/if}    
+        </p>
+        <ul>
+            {foreach $erreurs as $erreur}
+                <li>{$erreur}</li>
+            {/foreach}
+        </ul>
+    </div>
+{/if}
 <div id="quizzcontent">
     <div class="container-bloc-quizz">
         <h2>Export des Participants</h2>

@@ -4,7 +4,8 @@ $http = eZHTTPTool::instance();
 $tpl = eZTemplate::factory();
 
 
-$param_quizzNodeId = $Params['quizzNodeId'];
+$param_quizzNodeId = $http->sessionVariable('quizzNodeId');
+
 $quizzNode = eZFunctionHandler::execute('content', 'node', array('node_id' => $param_quizzNodeId));
 $tpl->setVariable('quizz_node', $quizzNode);
 
@@ -30,12 +31,12 @@ if (!QuizzParticipationManagement::canParticipate($form_values["email"], $quizzN
         $erreurs['email'] = "Veuillez renseigner un email valide.";
     }
     if (strlen($form_values["nom"]) == 0) {
-        $erreurs['Nom'] = "Veuillez renseigner votre Nom.";
+        $erreurs['Nom'] = "Veuillez renseigner votre nom.";
     }
     if (strlen($form_values["prenom"]) == 0) {
-        $erreurs['Prenom'] = "Veuillez renseigner votre Prénom.";
+        $erreurs['Prenom'] = "Veuillez renseigner votre prénom.";
     }
-    if ( (strlen($form_values["cp"]) != 5 && strlen($form_values["cp"]) == 0) || !is_numeric($form_values["cp"])) {
+    if ( strlen($form_values["cp"]) != 0 && (strlen($form_values["cp"]) != 5  || !is_numeric($form_values["cp"])) ) {
         $erreurs['cp'] = "Veuillez renseigner un code postal valide (5 chiffres max)";
     }
     if ($form_values["contrat"] == 0) {
@@ -49,7 +50,7 @@ if (count($erreurs) != 0) {
     $http->setSessionVariable('etape2_erreurs', $erreurs);
 
     $http->setSessionVariable('quizz_form_values', serialize($form_values));
-    $Module->redirectTo('/quizz/etape2/' . $quizzNode->NodeID);
+    $Module->redirectTo('/quizz/etape2/');
     /* Fin : Renvoi d'erreurs et Redirection vers etape2 */
 } else {
 
@@ -107,6 +108,7 @@ if (count($erreurs) != 0) {
             $Result['content'] = $tpl->fetch('design:quizz/etape3_bonne_reponse.tpl');
             break;
     }
+    $http->removeSessionVariable('quizzNodeId');
     $Result['node_id'] = $quizzNode->NodeID;
     $Result['path'] = array(
         array(

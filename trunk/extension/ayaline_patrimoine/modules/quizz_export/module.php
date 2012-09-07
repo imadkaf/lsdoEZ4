@@ -11,7 +11,7 @@ $ViewList['participants'] = array(
     'unordered_params' => array('offset' => 'Offset', 'view' => 'View'),
     'default_navigation_part' => 'quizzexportnavigationpart');
 
-$ViewList['instants-gagnants'] = array(
+$ViewList['instants_gagnants'] = array(
     'script' => 'instants_gagnants.php',
     'functions' => array('administration'),
     'params' => array(),

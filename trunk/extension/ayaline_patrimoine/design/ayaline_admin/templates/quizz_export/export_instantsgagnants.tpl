@@ -1,4 +1,20 @@
 <h1>Instants Gagnants</h1>
+{if and(is_set($erreurs), $erreurs|is_array(), $erreurs|count|ne(0))}
+    <div class="message-error">
+        <h2>Opération interrompue</h2>
+        <span class="time"></span>
+        <p>
+            {if is_set($erreurs_description)}
+                {$erreurs_description}
+            {/if}    
+        </p>
+        <ul>
+            {foreach $erreurs as $erreur}
+                <li>{$erreur}</li>
+            {/foreach}
+        </ul>
+    </div>
+{/if}
 <div id="quizzcontent">
     <div class="container-bloc-quizz">
         <h2>Export des Instants Gagnants</h2>
@@ -22,25 +38,57 @@
                 <input class="button" type="submit" name="generer_quizz_instantsgagnants"  value="Générer"/>
             </div>
         </form>
+            
+        {if and(is_set($generated_dates_ig), $generated_dates_ig|eq(false()))}
+            <div class="generated-ig-container">
+                <div class="message-generated-ig">
+                    <strong>Erreur: Aucun Instant Gagnant généré</strong>
+                </div>
+            </div>
+        {elseif and(is_set($generated_dates_ig), is_array($generated_dates_ig))}
+            <div class="generated-ig-container">
+                <div class="message-generated-ig">
+                    <strong>{$generated_dates_ig|count} Instants Gagnants générés.</strong>
+                </div>
+                {if $generated_dates_ig|count|ne(0)}
+                <table class="generated-ig-table" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th id="generated_date_ig_id" class="yui-dt th"><strong>#</strong></th>
+                            <th id="generated_date_ig_date" class="yui-dt th"><strong>Date</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {foreach $generated_dates_ig as $key=>$generated_date_ig}
+                            <tr>
+                                <td headers="generated_date_ig_id">{$key}</td>
+                                <td headers="generated_date_ig_date">{$generated_date_ig}</td>
+                            </tr>
+                        {/foreach}
+                    </tbody>
+                </table>
+                {/if}
+            </div>
+        {/if}
     </div>
 </div>
 {*getlist_instantsgagnants()|attribute(show)*}
 <script>
     {def $listInstantsGagnants = getlist_instantsgagnants()}
-        {concat('var unavailableDates = [')}
-        {foreach $listInstantsGagnants as $keyInst=>$instantsGagnants}
-            {def $dateInstantG = $instantsGagnants.date_heure}
-            {set $dateInstantG = $dateInstantG|explode(' ')}
-            {set $dateInstantG = $dateInstantG[0]}
-            {set $dateInstantG = $dateInstantG|explode('-')}
+    {concat('var unavailableDates = [')}
+    {foreach $listInstantsGagnants as $keyInst=>$instantsGagnants}
+        {def $dateInstantG = $instantsGagnants.date_heure}
+        {set $dateInstantG = $dateInstantG|explode(' ')}
+        {set $dateInstantG = $dateInstantG[0]}
+        {set $dateInstantG = $dateInstantG|explode('-')}
             
-            {concat('"',$dateInstantG[2],'-',$dateInstantG[1]|int,'-',$dateInstantG[0],'"')}
-            {if $keyInst|ne($listInstantsGagnants|count|sub(1))}
-                {concat(',')}
-            {/if}
-            {undef $dateInstantG}
-        {/foreach}
-        {concat('];')}
+        {concat('"',$dateInstantG[2],'-',$dateInstantG[1]|int,'-',$dateInstantG[0],'"')}
+        {if $keyInst|ne($listInstantsGagnants|count|sub(1))}
+            {concat(',')}
+        {/if}
+        {undef $dateInstantG}
+    {/foreach}
+    {concat('];')}
     {literal}
         /* script date picker pour Génération des instants gagnants */
         //var unavailableDates = ["29-8-2012","25-8-2012","23-8-2012"];
@@ -104,5 +152,9 @@
 
         });
     {/literal}
-        {undef $listInstantsGagnants}
+    {undef $listInstantsGagnants}
+    /* Couleur alternative des ligne du tableau */
+    {literal}
+        $('.generated-ig-table tbody tr:even').addClass('color-alt');
+    {/literal}
 </script>

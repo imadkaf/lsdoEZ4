@@ -1,5 +1,5 @@
 <div class="contenu form-resp">
-    <form data-ajax="false" id="form-quizz-infos" method="post" action="{concat('quizz/etape3/',$quizz_node.node_id)|ezurl('no')}" class="form-reponse">
+    <form data-ajax="false" id="form-quizz-infos" method="post" action="{concat('quizz/etape3/')|ezurl('no')}" class="form-reponse">
         {if and(is_set($erreurs),$erreurs|ne(false()), $erreurs|count|ne(0))}
             <div class="messages-erreurs">
                 <div class="container">

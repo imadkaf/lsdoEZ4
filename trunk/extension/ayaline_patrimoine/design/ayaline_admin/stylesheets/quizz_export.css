@@ -4,3 +4,11 @@
 #quizzcontent .container-bloc-quizz{display: block;padding: 5px 0;}
 #quizzcontent .container-bloc-quizz h2{display: block;margin-bottom: 14px;padding-bottom: 8px;border-bottom: 1px solid #cccccc;}
 #quizzcontent .container-bloc-quizz .ligne-form label{display: inline;}
+.generated-ig-container{display: block;margin-top: 20px;}
+.generated-ig-container .generated-ig-table{width: 100%;border: 1px solid #CCC;}
+.generated-ig-container .generated-ig-table td, .generated-ig-container .generated-ig-table, .generated-ig-container .generated-ig-table th, .generated-ig-container .generated-ig-table tr, .generated-ig-container .generated-ig-table thead,.generated-ig-container .generated-ig-table tbody{margin: 0!important;}
+.generated-ig-container .generated-ig-table th, .generated-ig-container .generated-ig-table td{text-align: left;color: #0B4E7A;padding-bottom: 4px;padding-left: 10px;padding-right: 10px;padding-top: 4px;}
+.generated-ig-container .generated-ig-table tr.color-alt{background-color: whiteSmoke;}
+.generated-ig-container .generated-ig-table tbody tr:hover{background-color: #D1DFE9;}
+.generated-ig-container .generated-ig-table tbody tr td{border-bottom: 1px dotted #CBCBCB;}
+.generated-ig-container .generated-ig-table thead th{background-color: #F0F0F0;background-image: -webkit-gradient(linear,0% 0%,0% 100%,from(#FDFDFD),to(#E4E3E4));background-image: -moz-linear-gradient(top,#FDFDFD,#E4E3E4);background-image: -ms-linear-gradient(top,#FDFDFD,#E4E3E4);background-image: -o-linear-gradient(top,#FDFDFD,#E4E3E4);background-image: linear-gradient(top,#FDFDFD,#E4E3E4);}
