@@ -71,6 +71,10 @@ class QuizzInstantGagnantManagement extends eZPersistentObject {
         $res = self::fetchObject(self::definition(), null, array('id' => $id));
         return $res;
     }
+    public static function loadByParticipationId($participationId) {
+        $res = self::fetchObject(self::definition(), null, array('gagne' => $participationId));
+        return $res;
+    }
 
     public static function getInstantsGagnantsByDates($dateDeb, $dateFin) {
         $res = self::fetchObjectList(self::definition(), null, array('date_heure' => array(false, array($dateDeb, $dateFin))), array('date_heure' => 'desc'));
@@ -102,6 +106,7 @@ class QuizzInstantGagnantManagement extends eZPersistentObject {
     }
 
     public static function generate($dateDeb, $dateFin, $nbr) {
+        
         $DATEFORMAT = "/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/";
         if (preg_match($DATEFORMAT, $dateDeb) && preg_match($DATEFORMAT, $dateFin)) {
             $dateDeb = explode('-', $dateDeb);
@@ -113,15 +118,24 @@ class QuizzInstantGagnantManagement extends eZPersistentObject {
 
             $dureeEnHeures = $dureeEnTime / 3600;
             $dureeEnJours = $dureeEnTime / (3600 * 24);
-
+            
+            $instantsGagnantsArray = array(); 
             for ($i = 0; $i < $nbr; $i++) {
                 $randomHeure = rand(0, $dureeEnHeures);
+                $randomHeure24 = date("H", mktime($randomHeure, 0, 0, $dateDeb[1], $dateDeb[2], $dateDeb[0]));
+                /* Généré des heures entre 00h00 et 22h */
+                while( $randomHeure24 == 22 || $randomHeure24 == 23 ){
+                    $randomHeure = rand(0, $dureeEnHeures);
+                    $randomHeure24 = date("H", mktime($randomHeure, 0, 0, $dateDeb[1], $dateDeb[2], $dateDeb[0]));
+                }
                 $randomDate = date("Y-m-d H:i:s", mktime($randomHeure, 0, 0, $dateDeb[1], $dateDeb[2], $dateDeb[0]));
                 
                 QuizzInstantGagnantManagement::newSave($randomDate);
+                $instantsGagnantsArray[] = $randomDate; 
 
             }
         }
+        return $instantsGagnantsArray;
     }
     
     

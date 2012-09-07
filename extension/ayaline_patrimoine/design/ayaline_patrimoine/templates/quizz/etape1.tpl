@@ -89,7 +89,7 @@
 
     {undef $list_seggestions}
 
-    <form data-ajax="false" id="form-quiz-question" method="post" action="{concat('quizz/etape2/',$quizz_node.node_id)|ezurl('no')}">
+    <form data-ajax="false" id="form-quiz-question" method="post" action="{concat('quizz/etape2/')|ezurl('no')}">
         <input id="quiz-question-reponse" type="hidden" name="reponse" value=""/>
     </form>
 </div>
