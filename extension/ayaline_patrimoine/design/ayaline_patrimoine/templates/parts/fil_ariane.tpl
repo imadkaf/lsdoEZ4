@@ -1,4 +1,4 @@
-<nav id="breadcrumbs"> 
+<nav id="breadcrumbs">
 {if $module_result.uri|eq('/user/login')}
 		<span>Vous êtes sur : </span><a href="/" rel='external'>Accueil</a> > <strong>Connexion</strong>
 {elseif $module_result.uri|eq('/content/search')}
@@ -24,13 +24,13 @@
                                             {set $titreChemin = $pathNode.text}
                                     {/if}
                             {if or($pathNode.url_alias, $pathNode.url)}
-                                            <a class="ui-link" href={$pathNode.url_alias|ezurl} rel='external'>{striptags($titreChemin)}</a> >
+                                            <a class="ui-link" href={$pathNode.url_alias|ezurl} rel='external'>{supp_br($titreChemin)}</a> >
                             {else}
-                                            <strong>{striptags($titreChemin)}</strong>
+                                            <strong>{supp_br($titreChemin)}</strong>
                             {/if}
                     {/foreach}
     {/if}
-    
+
 {/if}
 
 
