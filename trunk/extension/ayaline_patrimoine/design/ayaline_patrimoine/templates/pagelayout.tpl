@@ -23,7 +23,10 @@
 <div data-role="page" style="outline: none;">
 	<!-- MAIN CONTAINER BEGINNING -->
 	<div id="container">
-		{include uri="design:parts/bandeau_haut.tpl"}
+            {if or(is_unset($module_result.ui_component), $module_result.ui_component|ne('quizz'))}
+                {include uri="design:parts/bandeau_haut.tpl"}
+            {/if}
+		
 		<div class="clear"></div>
 		<div id="Main">
 			{$module_result.content}
@@ -31,7 +34,9 @@
 				{include uri="design:parts/fil_ariane.tpl"}
 			{/if}
 			{include uri="design:parts/formulaire_recherche.tpl"}
-			{include uri="design:parts/liste_suggestion.tpl"}
+                        {if or(is_unset($module_result.ui_component), $module_result.ui_component|ne('quizz'))}
+                            {include uri="design:parts/liste_suggestion.tpl"}
+                        {/if}
 			{include uri="design:parts/copyright.tpl"}
 			<div class="clear"></div>
 		</div>

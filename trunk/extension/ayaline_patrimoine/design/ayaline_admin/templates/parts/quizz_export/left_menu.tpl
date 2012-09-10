@@ -8,6 +8,6 @@
 {* DESIGN: Content START *}<div class="box-bc"><div class="box-ml"><div class="box-mr"><div class="box-bl"><div class="box-br"><div class="box-content">
 <ul>
     <li><div><a href="{'quizz_export/participants'|ezurl('no')}">Participants</a></div>
-    <li><div><a href="{'quizz_export/instants_gagnants'|ezurl('no')}">Instants Gagnants</a></div>
+    <li><div><a href="{'quizz_export/instants_gagnants'|ezurl('no')}">Instants gagnants</a></div>
 </ul>
 {* DESIGN: Content END *}</div></div></div></div></div></div>
