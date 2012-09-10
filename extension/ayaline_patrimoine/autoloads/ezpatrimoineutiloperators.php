@@ -7,7 +7,7 @@ class eZPatrimoineUtils{
 	function eZPatrimoineUtils(){
 
 		$this->Operators = array (
-			'striptags','getcookie','getlist_instantsgagnants'
+			'striptags','getcookie','getlist_instantsgagnants','supp_br'
 		);
 
 	}
@@ -26,12 +26,16 @@ class eZPatrimoineUtils{
 
 	function namedParameterList(){
 
-		return array(			    
+		return array(
 			    'striptags'=>array('needle'=>array('type'=>'string',
 									 'required'=>true,
 									 'default'=>"")),
 				'getcookie'=>array(),
-				'getlist_instantsgagnants'=>array()
+				'getlist_instantsgagnants'=>array(),
+
+				'supp_br'=>array('needle'=>array('type'=>'string',
+									 'required'=>true,
+									 'default'=>""))
 			);
 
 	}
@@ -49,7 +53,7 @@ class eZPatrimoineUtils{
 			}
 
 			    break;
-			    
+
 			    case 'getcookie': {
 				$operatorValue = $this->getcookie();
 			}
@@ -59,17 +63,26 @@ class eZPatrimoineUtils{
 			}
 			    break;
 
+			    case 'supp_br': {
+
+			    	$operatorValue = $this->supp_br(
+			    	$namedParameters['needle']);
+
+			    }
+
+			    break;
+
 
 		 }
 
 	}
 
-	
+
 
 	function striptags($needle) {
 			return strip_tags($needle);
 	}
-	
+
 	function getcookie() {
 		//var_dump($_COOKIE['popin']);
 		if(!isset($_COOKIE['popin'])){
@@ -82,6 +95,12 @@ class eZPatrimoineUtils{
             return QuizzInstantGagnantManagement::getListInstantsGagnants();
         }
 
+	function supp_br($needle){
+		$result = preg_replace('/<br.*>/iU', ' ', $needle);
+		while(preg_match('/  /', $result))
+			$result = preg_replace('/  /', ' ', $result);
+		return $result;
+	}
 }
 
 ?>
