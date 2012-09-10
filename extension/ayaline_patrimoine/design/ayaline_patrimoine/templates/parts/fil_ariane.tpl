@@ -3,8 +3,6 @@
 		<span>Vous êtes sur : </span><a href="/" rel='external'>Accueil</a> > <strong>Connexion</strong>
 {elseif $module_result.uri|eq('/content/search')}
 		<span>Vous êtes sur : </span><a href="/" rel='external'>Accueil</a> > <strong>Recherche</strong>
-{elseif $module_result.ui_component|eq('quizz')}
-		<span>Vous êtes sur : </span><a href="/" rel='external'>Accueil</a> > <strong>{$module_result.path[1].text}</strong>
 {else}
 
     {def $titreChemin = ''}

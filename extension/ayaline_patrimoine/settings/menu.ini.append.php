@@ -8,7 +8,7 @@ Tabs[]=quizzexport
 
 [Topmenu_quizzexport]
 Name=Quizz
-Tooltip=Quizz.
+Tooltip=Quizz tool.
 URL[]
 URL[default]=quizz_export/participants
 URL[browse]=quizz_export/participants
@@ -21,7 +21,7 @@ Enabled[edit]=false
 Shown[]
 Shown[default]=true
 Shown[navigation]=true
-Shown[browse]=false
+Shown[browse]=true
 
 
 */ ?>

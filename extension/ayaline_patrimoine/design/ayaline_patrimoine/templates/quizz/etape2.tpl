@@ -1,3 +1,11 @@
+{def $config_generale = fetch('content','tree',hash('parent_node_id',ezini('NodeSettings','RootNode','content.ini'),
+                                                    'class_filter_type','include',
+                                                    'class_filter_array',array('smp_configuration'),
+                                                    'limit',1
+
+))}
+{set $config_generale=$config_generale[0]}
+{*quiz_page_conditions_generales_reglement*}
 <div class="contenu form-resp">
     <form data-ajax="false" id="form-quizz-infos" method="post" action="{concat('quizz/etape3/')|ezurl('no')}" class="form-reponse">
         {if and(is_set($erreurs),$erreurs|ne(false()), $erreurs|count|ne(0))}
@@ -26,7 +34,7 @@
 
                 <div class="ligne-form">
                     <div class="champ-form">
-                        <label for="nom">Nom</label>
+                        <label for="nom">Nom <span class="texte-rouge">*</span></label>
                     </div>
                     <div class="input-form">
                         <input id="nom" type="text" name="nom"  size="29" value="{if is_set($quizz_form_values['nom'])}{$quizz_form_values['nom']}{/if}"/>
@@ -35,7 +43,7 @@
 
                 <div class="ligne-form">
                     <div class="champ-form">
-                        <label for="prenom">Prénom</label>
+                        <label for="prenom">Prénom <span class="texte-rouge">*</span></label>
                     </div>
                     <div class="input-form">
                         <input id="prenom" type="text" name="prenom" size="29" value="{if is_set($quizz_form_values['prenom'])}{$quizz_form_values['prenom']}{/if}"/>
@@ -82,7 +90,7 @@
                             <img src="{'images/checkbox-actif.png'|ezdesign('no')}" class="active display-none"/>
                             <p>
                                 <span class="cliq"> J'ai lu et j'accepte</span>
-                                <a href="http://www.google.com" target="_blank" class="texte-vert-souligne"> les conditions générales  du règlement </a>
+                                <a href="{$config_generale.data_map.quiz_page_conditions_generales_reglement.content.main_node.url_alias|ezurl('no')}" target="_blank" class="texte-vert-souligne"> les conditions générales  du règlement </a>
                                 <span class="texte-rouge">*</span>
                             </p>
                         </div>
@@ -169,3 +177,4 @@
     </script>
 
 </div>
+{undef $config_generale}

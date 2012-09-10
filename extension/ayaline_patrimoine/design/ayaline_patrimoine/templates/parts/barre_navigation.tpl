@@ -84,17 +84,19 @@
 	                    <li><a href="#" class="lien-arrondi plus-info-pictos-pieds-page voir-info"></a></li>
 	                    <li><a href="#" class="lien-arrondi lien-plus-info-ouvert-pieds-page masquer-info"></a></li>
                     {/if}
-                    
-                    {def $node_quiz = fetch('content','tree',hash(  'parent_node_id',$cNode.node_id,
-                                                        'class_filter_type','include',
-                                                        'class_filter_array',array('smp_quizz'),
-                                                        'limit',1
-                    ))}
-                    {if $node_quiz|count|ne(0)}
-                        {set $node_quiz = $node_quiz[0]}
-                        <li><a href="{concat('quizz/etape1/',$node_quiz.node_id)|ezurl('no')}" class="lien-arrondi quizz-pictos-pieds-page" rel="external"></a></li>
+                    {if is_mobile()}
+                        {def $node_quiz = fetch('content','tree',hash(  'parent_node_id',$cNode.node_id,
+                                                            'class_filter_type','include',
+                                                            'class_filter_array',array('smp_quizz'),
+                                                            'limit',1
+                        ))}
+                        {if $node_quiz|count|ne(0)}
+                            {set $node_quiz = $node_quiz[0]}
+                            <li><a href="{concat('quizz/etape1/',$node_quiz.node_id)|ezurl('no')}" class="lien-arrondi quizz-pictos-pieds-page" rel="external"></a></li>
+                        {/if}
+
+                        {undef $node_quiz}
                     {/if}
-                    {undef $node_quiz}
                 {elseif eq($cNode.class_identifier,'smp_contenu_libre')}
                 		<li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
                 {elseif or(eq($cNode.class_identifier,'smp_circuit_externe'), eq($cNode.class_identifier,'smp_audio'), eq($cNode.class_identifier,'smp_video_interne'))}
