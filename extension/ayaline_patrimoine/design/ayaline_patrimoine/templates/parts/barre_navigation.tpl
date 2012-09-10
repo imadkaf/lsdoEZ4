@@ -1,14 +1,12 @@
 {*$cNode.data_map.plus_informations.has_content|attribute(show)*}
 <div class="pieds-page">
-{if or(and(eq($cNode.class_identifier,'smp_point_interet'),eq($cNode.data_map.media_principal.content.class_identifier,'smp_diaporama')), eq($cNode.class_identifier,'smp_circuit'))}
 	<span class="border_entre_circuits"></span>
-{/if}
 				{if $module_result.uri|eq('/content/search')}
 				<ul style="width: 62px;">
 				{else}
                 <ul {if and(eq($cNode.class_identifier,'smp_point_interet'),eq($cNode.data_map.media_principal.content.class_identifier,'smp_diaporama'))}class="normal"{/if}>
                 {/if}
-                
+
                 {if $module_result.ui_component|eq('quizz')}
                     {def $node_quizz=fetch('content','node',hash('node_id',$module_result.node_id))}
                     {if $module_result.uri|contains('etape1')}
@@ -18,7 +16,7 @@
                     {elseif $module_result.uri|contains('etape3')}
                         <li><a href="{concat($node_quizz.parent.url_alias)|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
                     {/if}
-                
+
                 <li>
                     {if $module_result.uri|contains('etape1')}
                         <input id="submit-form-quiz-question" type="button" rel="external" name="ok" value="" class="submit-form-quiz-question lien-arrondi ok-pieds-page"/>
