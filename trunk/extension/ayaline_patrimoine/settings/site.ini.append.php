@@ -24,4 +24,7 @@ PolicyOmitList[]=quizz/etape1
 PolicyOmitList[]=quizz/etape2
 PolicyOmitList[]=quizz/etape3
 
+[ContentSettings]
+ViewCaching=enabled
+
 */ ?>
