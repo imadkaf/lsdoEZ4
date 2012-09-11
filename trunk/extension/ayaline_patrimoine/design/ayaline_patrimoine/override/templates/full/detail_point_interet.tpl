@@ -228,7 +228,7 @@
 	                    {set $listePtInteretsMA = $listePtInteretsMA|append($nodePtInteretMA)}
 
 	                    {concat("var pointInteretMAInfos = new Array();")}
-	                    {concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|trim|wash|explode("'")|implode("\\'"),"';")}
+	                    {concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|explode("'")|implode("\\'"),"';")}
                     	{concat("pointInteretMAInfos['link'] = '",$nodePtInteretMA.url_alias|ezurl,"';")}
 	                    {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
        					{concat("pointInteretMAInfos['bg-color'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.code_html_couleur.value|trim|wash,"';")}
@@ -272,7 +272,7 @@
 	                	{/if}
 	                	{if $showPI|eq(true())}
 	                        {concat("var pointInteretInfos = new Array();")}
-	                        {concat("pointInteretInfos['name'] = '",$ptInteret.name|trim|wash|explode("'")|implode("\\'"),"';")}
+	                        {concat("pointInteretInfos['name'] = '",$ptInteret.name|explode("'")|implode("\\'"),"';")}
                         	{concat("pointInteretInfos['link'] = '",$ptInteret.url_alias|ezurl,"';")}
 	                        {concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
            					{concat("pointInteretInfos['bg-color'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.code_html_couleur.value|trim|wash,"';")}
@@ -423,7 +423,7 @@
                     var infoWinContentStr ='<div class="info-window-gmap">';
                     infoWinContentStr +='<a href='+ptInteret['link']+' alt="'+ptInteret['name']+'" rel="external"><div class="visuel" style="background-color:'+ptInteret['bg-color']+';">'+'<img src="'+ptInteret['visuel']+'">'+'</div></a>';
                     infoWinContentStr +='<a href='+ptInteret['link']+' alt="'+ptInteret['name']+'" rel="external"><div class="titre">'+ptInteret['name']+'</div></a>';
-                    infoWinContentStr +='<a href="Javascript:tracerItineraireMaposition(ListMarkersPtInterets['+iMrk+']);" class="tracer-itineraire">itinéraire</a>';
+                    infoWinContentStr +='<a href="Javascript:tracerItineraireMaposition(ListMarkersPtInterets['+iMrk+']);" class="tracer-itineraire">Itinéraire</a>';
                     infoWinContentStr +='<div class="clear-tout"></div>';
                     infoWinContentStr +='</div>';
                     var infowindow = new google.maps.InfoWindow({
