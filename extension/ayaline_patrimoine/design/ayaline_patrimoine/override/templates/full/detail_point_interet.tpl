@@ -1,7 +1,7 @@
 <div class="contenu">
 	<div class="accroche border-bottom">
         <h1 class="titre-parcours">
-             Parcours <a href={$node.parent.url_alias|ezurl} rel='external'><b>{striptags($node.parent.data_map.titre_circuit.value)}</b></a>
+             Parcours <a href={$node.parent.url_alias|ezurl} rel='external'><b>{supp_br($node.parent.data_map.titre_circuit.value)}</b></a>
         </h1>
      </div>
      <div class="fiche-interet">
@@ -118,7 +118,7 @@
                 </div>
       </div>
             {/if}
-            
+
         {if is_mobile()}
             {def $node_quiz = fetch('content','tree',hash(  'parent_node_id',$node.node_id,
                                                             'class_filter_type','include',
