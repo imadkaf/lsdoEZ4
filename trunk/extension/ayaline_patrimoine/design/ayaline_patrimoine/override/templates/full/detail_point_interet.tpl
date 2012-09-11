@@ -180,7 +180,7 @@
 		<a href="#" class="affichage-bloc bold masquer-map">{attribute_view_gui attribute=$node.data_map.titre_onglet_carte}</a>
 		<a href="#" class="affichage-bloc puce-gris masquer-map">{attribute_view_gui attribute=$node.data_map.sous_titre_onglet_carte_ouvert}</a>
 	</p>
-	<a href="#" class="lien-arrondi google-map-actif-circuit masquer-map"></a>
+	<a href="#" class="masquer-map lien-arrondi google-map-actif-circuit"></a>
 	<a href="#" class="lien-arrondi google-map-ferme-circuit afficher-map"></a>
 	<div class="clear-tout"></div>
 </div>
