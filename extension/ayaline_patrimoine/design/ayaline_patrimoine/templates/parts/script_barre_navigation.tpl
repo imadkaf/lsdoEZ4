@@ -89,11 +89,13 @@ $(function(){
     $(".supp-itiniraire").click(function(){
         cacherItineraireMaposition();
         $(this).addClass("cache").hide();
+        $(".pieds-page ul").css("max-width","138px");
         return false;
     });
     $(".itiniraire-circuit").click(function() {
         cacherItineraireMaposition();
         $(this).addClass("cache").hide();
+        $(".pieds-page ul").css("max-width","138px");
         return false;
     });
 
