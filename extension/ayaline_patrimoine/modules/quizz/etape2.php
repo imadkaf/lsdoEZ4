@@ -3,6 +3,14 @@
 $http = eZHTTPTool::instance();
 $tpl = eZTemplate::factory();
 
+function isMobile() {
+//User agent
+    $ua = $_SERVER['HTTP_USER_AGENT'];
+//test si il s'agit d'un mobile
+    return preg_match('/iphone/i', $ua) || preg_match('/android/i', $ua)
+            || preg_match('/blackberry/i', $ua);
+}
+
 if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
     $param_quizzNodeId = $http->sessionVariable('quizzNodeId');
 
