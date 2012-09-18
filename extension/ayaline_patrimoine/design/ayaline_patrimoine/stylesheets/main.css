@@ -1103,6 +1103,16 @@ a.tirage-au-sort{
 	margin:-5px;
 	background-color:white;
 }
+#Header > #bandeau-site table tr{
+	height:70px;
+}
+#Header > #bandeau-site {
+	margin:0;
+}
+#Header{
+	height:auto;
+	min-height:auto;
+}
 /*************************/
 /*** Fin mboisgrollier ***/
 /*************************/
