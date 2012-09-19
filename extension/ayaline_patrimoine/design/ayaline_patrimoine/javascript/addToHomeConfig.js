@@ -1,7 +1,7 @@
 var addToHomeConfig = {
 	touchIcon: true,
 	lifespan: 15000,
-	message:'Ajoutez <strong>D\'Code Les Sables</strong> sur votre %device en cliquant sur %icon, puis Ajouter à l\'écran d\'accueil.',
+	message:'Ajoutez <strong>D\'code Les Sables</strong> sur votre %device en cliquant sur %icon, puis Ajouter à l\'écran d\'accueil.',
 	/*
 	autostart: should the balloon be automatically initiated? Default: true.
 	returningVisitor: show the message to returning visitors only. Set this to true and the message won’t be shown the first time an user visits your site. Default: false.
