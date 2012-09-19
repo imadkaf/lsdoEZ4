@@ -2,11 +2,9 @@
 .arriere-plan-item-menu{background: #ed1e79;}
 .liste-interets .vignette-simple article{background: #ed1e79;}
 .liste-interets article .fleche{background-color: #ed1e79;border: 3px solid #fbd2e4;}
-.homme-rose{background: #ed1e79 url('../images/homme-blanc.png') no-repeat center;border: 3px solid #f73994;}
-
 .plus-info .reference-fiche-detail .titre-reference{color: #ed1e79;}
 .plus-info .reference-fiche-detail .puce-css{border-left-color: #ed1e79;}
-.bloc-carte-google .google-map-ferme-circuit, .info-window-gmap .visuel, .google-map-ferme-circuit-pieds-page, .google-map-actif-circuit-pieds-page, .itiniraire-circuit{background-color: #ed1e79;}
+.bloc-carte-google .google-map-ferme-circuit, .google-map-actif-circuit, .info-window-gmap .visuel, .google-map-ferme-circuit-pieds-page, .google-map-actif-circuit-pieds-page, .itiniraire-circuit{background-color: #ed1e79;}
 .bloc-plus-image .plus-image-ouvert{background-color: #fce5fa;}
 .plus-info .border-left-vert-5px{border-left-color: #d7e9ee;}
 .plus-image-ouvert-pieds-page{background-color: #fce5fa;}
@@ -24,3 +22,4 @@
 .onlineeditor h4 {
     background: url("../images/puce-rose.png") no-repeat scroll 0 13px transparent;
 }
+.homme-rose{background: #ed1e79 url('../images/homme-blanc.png') no-repeat center;border: 3px solid #f73994;}
