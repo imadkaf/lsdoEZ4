@@ -808,7 +808,7 @@ a.voir-lots{display: block;color: #d6ee0c !important;background: url(../images/p
 .font-size-96{font-size: 93%;}
 .couleur-gris{color: #70777f;}
 .bloc-statut-resultat .statut-resultat{font-family: 'OmnesSemibold';font-size: 120%;text-transform: uppercase;}
-.titre-principal{font-family: 'OmnesMedium';padding:6px 103px 6px 22px ;border-bottom: 1px solid #d1ccc8;text-shadow: 0 0 1px #AAA;font-weight: 200;font-size: 190%;line-height: 1em;}
+.titre-principal{font-family: 'OmnesMedium';padding:6px 22px 6px 22px ;border-bottom: 1px solid #d1ccc8;text-shadow: 0 0 1px #AAA;font-weight: 200;font-size: 190%;line-height: 1em;}
 .introduction-page-standard{padding: 6px 23px;border-bottom: 1px solid #d1ccc8;font-weight: bold;font-size: 90%;}
 .border-left-5px{padding-top:10px;padding-left: 5px; background-color:#e4e3de;}
 .border-left-10px{border-left: 10px solid #e4e3de;}
