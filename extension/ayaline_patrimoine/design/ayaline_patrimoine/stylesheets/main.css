@@ -1068,7 +1068,7 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 }
 
 a.fermer-video{
-	background:url("../images/diapo-fermer58px.png") no-repeat;
+	background:url("../images/diapo-fermer.png") no-repeat;
 	height: 58px;
     width: 58px;
 }
@@ -1115,6 +1115,38 @@ a.tirage-au-sort{
 #Header{
 	height:auto;
 	min-height:auto;
+}
+.pieds-page div.ps-toolbar{
+	border:none;
+}
+.pieds-page div.jp-interface{
+	background-color:transparent;
+}
+.pieds-page .jp-controls a.jp-play{
+	background: url("../images/diapo-pause.png") no-repeat scroll center center;
+	display: block;
+    height: 58px;
+    width: 58px;
+}
+.pieds-page .jp-controls a.jp-pause{
+	background: url("../images/diapo-play58px.png") no-repeat scroll center center;
+	display: block;
+    height: 58px;
+    width: 58px;
+}
+.pieds-page .jp-controls a.jp-stop{
+	background: url("../images/diapo-stop.png") no-repeat scroll center center;
+	display: block;
+    height: 58px;
+    width: 58px;
+    margin-left:0;
+}
+.pieds-page div.jp-interface ul.jp-controls{
+	margin:auto;
+	padding-top: 6px;
+}
+.pieds-page ul li.pause{
+	margin-left:0 !important;
 }
 /*************************/
 /*** Fin mboisgrollier ***/
