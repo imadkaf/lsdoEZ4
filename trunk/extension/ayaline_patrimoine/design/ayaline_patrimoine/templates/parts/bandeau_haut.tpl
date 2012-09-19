@@ -9,7 +9,7 @@
 	<div id="bandeau-site">
 		<table cellspacing="0">
 			<tr valign="bottom">
-				<td style='background:url({$nodeConfigGeneral.data_map.logo_site.content.imageLargeLibre.url|ezroot}) no-repeat top right;width:100%;' class="menu">
+				<td style='background:url({$nodeConfigGeneral.data_map.logo_site.content.original.url|ezroot}) no-repeat top right;width:100%;' class="menu">
 						{if $nodeConfigGeneral.data_map.onglets_bandeau_haut_page.has_content}
 							{def $onglet = false()}
 							{foreach $nodeConfigGeneral.data_map.onglets_bandeau_haut_page.value.relation_list as $onglet}
