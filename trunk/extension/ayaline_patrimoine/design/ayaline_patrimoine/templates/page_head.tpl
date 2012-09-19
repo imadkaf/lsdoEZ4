@@ -1,4 +1,5 @@
 {* Récupération des informations pour les balises META *}
+{def $titreDcode = "D'code Les Sables"}
 {def $referencement = false()}
 {def $title = false()}
 {def $keywords = false()}
@@ -12,16 +13,16 @@
 	<head>
 		{* Titre de la page *}
 		{if $cNode.class_identifier|eq('smp_accueil')}
-			<title>D'Code Les Sables</title>
+			<title>{$titreDcode}</title>
 		{else}
 			{if $title|trim|ne('')}
-				<title>{$title|wash()} | D'Code Les Sables</title>
+				<title>{$title|wash()} | {$titreDcode}</title>
 			{else}
 				{if is_set($cNode.node_id)}
 					{set $title = supp_br($cNode.name)}
-					<title> {if $title|ne(false())}{$title|wash} | D'Code Les Sables{/if}</title>
+					<title> {if $title|ne(false())}{$title|wash} | {$titreDcode}{/if}</title>
 				{else}
-					<title>{ezini('SiteSettings', 'SiteName' ,'site.ini')} | D'Code Les Sables</title>
+					<title>{ezini('SiteSettings', 'SiteName' ,'site.ini')} | {$titreDcode}</title>
 				{/if}
 			{/if}
 		{/if}
