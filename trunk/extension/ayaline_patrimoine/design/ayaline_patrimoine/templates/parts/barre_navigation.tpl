@@ -1,10 +1,15 @@
 {*$cNode.data_map.plus_informations.has_content|attribute(show)*}
 <div class="pieds-page">
 	<span class="border_entre_circuits"></span>
+	{def $media_interne=false}
+	{if or(eq($cNode.class_identifier,'smp_audio'), eq($cNode.class_identifier,'smp_video_interne'))}
+		{set $media_iterne = true}
+		<div class="jp-gui jp-interface">
+	{/if}
 				{if $module_result.uri|eq('/content/search')}
 				<ul style="width: 62px;">
 				{else}
-                <ul {if and(eq($cNode.class_identifier,'smp_point_interet'),eq($cNode.data_map.media_principal.content.class_identifier,'smp_diaporama'))}class="normal"{/if}>
+                <ul {if and(eq($cNode.class_identifier,'smp_point_interet'),eq($cNode.data_map.media_principal.content.class_identifier,'smp_diaporama'))}class="normal"{/if}{if $media_interne|eq(true())}class="jp-controls" id="jp_container_2"{/if}>
                 {/if}
 
                 {if $module_result.ui_component|eq('quizz')}
@@ -97,8 +102,13 @@
                     {/if}
                 {elseif eq($cNode.class_identifier,'smp_contenu_libre')}
                 		<li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
-                {elseif or(eq($cNode.class_identifier,'smp_circuit_externe'), eq($cNode.class_identifier,'smp_audio'), eq($cNode.class_identifier,'smp_video_interne'))}
-                    <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
+                {elseif or(eq($cNode.class_identifier,'smp_audio'), eq($cNode.class_identifier,'smp_video_interne'))}
+					<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+					<li class="pause"><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+					<li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                	<li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour fermer-video" rel='external'></a></li>
+				{elseif eq($cNode.class_identifier,'smp_circuit_externe')}
+					<li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour fermer-video" rel='external'></a></li>
                 {elseif eq($cNode.class_identifier,'smp_diaporama')}
                     <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour fermer-video" rel='external'></a></li>
                 {else}
@@ -106,6 +116,7 @@
                 {/if}
                     <span class="clear-tout"></span>
                 </ul>
+        {if $media_interne|eq(true())}</div>{/if}
                 {*if and(eq($cNode.class_identifier,'smp_point_interet'),eq($cNode.data_map.media_principal.content.class_identifier,'smp_diaporama'))}
 	                <ul class="media-diaporama">
 		                <li><a id="prev" href="#" class="lien-arrondi diapo-prec"></a></li>
