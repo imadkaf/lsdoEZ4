@@ -16,7 +16,7 @@
 	<div class="accroche">
 		<h1 class="titre_circuit">
 			<p>
-				{$node.data_map.titre_circuit.value}
+				{supp_br($node.data_map.titre_circuit.value)}
 			</p>
 		</h1>
 		{attribute_view_gui attribute=$node.data_map.description}
