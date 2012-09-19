@@ -11,17 +11,20 @@
 {/if}
 	<head>
 		{* Titre de la page *}
-		{if $title|trim|ne('')}
-		    <title>{$title|wash()} | D'Code Les Sables</title>
+		{if $cNode.class_identifier|eq('smp_accueil')}
+			<title>D'Code Les Sables</title>
 		{else}
-		    {if is_set($cNode.node_id)}
-		        {set $title = supp_br($cNode.name)}
-		        <title> {if $title|ne(false())}{$title|wash} | D'Code Les Sables{/if}</title>
-		    {else}
-		        <title>{ezini('SiteSettings', 'SiteName' ,'site.ini')} | D'Code Les Sables</title>
-		    {/if}
+			{if $title|trim|ne('')}
+				<title>{$title|wash()} | D'Code Les Sables</title>
+			{else}
+				{if is_set($cNode.node_id)}
+					{set $title = supp_br($cNode.name)}
+					<title> {if $title|ne(false())}{$title|wash} | D'Code Les Sables{/if}</title>
+				{else}
+					<title>{ezini('SiteSettings', 'SiteName' ,'site.ini')} | D'Code Les Sables</title>
+				{/if}
+			{/if}
 		{/if}
-
 
 		<!-- METAS -->
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
