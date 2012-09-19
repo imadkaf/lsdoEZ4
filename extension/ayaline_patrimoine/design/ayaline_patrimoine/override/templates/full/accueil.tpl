@@ -3,7 +3,7 @@
 		{attribute_view_gui attribute=$node.data_map.visuel image_class='original'}
 	{/if}
 	<h1 class="titre-principal">{$node.data_map.titre.value}</h1>
-	<div class="border-left-5px">
+	<div class="border-left-5px-general">
 		<div class="background-white">
 			{if $node.data_map.accroche.has_content}
 				<div class="accroche_contenu_libre introduction-page-standard">
