@@ -5,7 +5,7 @@
         </h1>
      </div>
      <div class="fiche-interet">
-     	<h2>{$node.data_map.titre_point_interet.value}</h2>
+     	<h2>{supp_br($node.data_map.titre_point_interet.value)}</h2>
      	<div class="video">
      	{def $media_principal = false()}
      	{set $media_principal=fetch( 'content', 'node', hash( 'node_id', $node.data_map.media_principal.content.main_node_id))}
@@ -272,7 +272,7 @@
 	                	{/if}
 	                	{if $showPI|eq(true())}
 	                        {concat("var pointInteretInfos = new Array();")}
-	                        {concat("pointInteretInfos['name'] = '",$ptInteret.name|explode("'")|implode("\\'"),"';")}
+							{concat("pointInteretInfos['name'] = '",supp_br($ptInteret.name)|explode("'")|implode("\\'"),"';")}
                         	{concat("pointInteretInfos['link'] = '",$ptInteret.url_alias|ezurl,"';")}
 	                        {concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
            					{concat("pointInteretInfos['bg-color'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.code_html_couleur.value|trim|wash,"';")}
