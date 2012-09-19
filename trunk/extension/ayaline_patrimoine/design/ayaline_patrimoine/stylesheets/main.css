@@ -926,7 +926,7 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 /*.page-standard .onlineeditor h4{color: #7b5e51;padding-left: 33px;font-size: 100%;text-transform: uppercase;padding-bottom: 5px}*/
 .titre_puce_marron{text-transform: uppercase;background: url(../images/puce-marron.png) no-repeat 0 13px;margin-left: 33px !important;padding-left: 12px !important;margin-right: 10px !important;font-size: 84% !important;border-top: 1px solid #E4E3DE !important;padding-top: 10px !important;margin-bottom: 5px !important;color: #000000 !important;}
 .titre_puce_vert{text-transform: uppercase;background: url(../images/puce-vert.png) no-repeat 0 8px;font-size: 89% !important;border-top: 1px solid #E4E3DE !important;padding-left: 12px !important;padding-top: 4px !important;color: #000000 !important;margin-bottom: 0px !important;}
-.plus-info-detail .onlineeditor a{color:#1ABBB7; text-decoration: underline;}
+.plus-info-detail .onlineeditor a{color:#70777F; text-decoration: underline;}
 .page-standard .onlineeditor a {color:#7B5E51; text-decoration: underline;}
 .infos{padding-bottom: 10px;color: #70777f;font-size: 85%;}
 .reference-fiche-detail h2{color: #98E2CC;display: block;font-family: 'OmnesMedium';font-size: 140%;font-weight: bolder;margin-bottom: 8px;text-transform: uppercase;}
