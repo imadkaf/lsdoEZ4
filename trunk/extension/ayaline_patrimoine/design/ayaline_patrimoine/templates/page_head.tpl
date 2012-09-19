@@ -12,7 +12,7 @@
 	<head>
 		{* Titre de la page *}
 		{if $title|trim|ne('')}
-		    <title>{$title|wash()} | Site mobile découverte du patrimoine des Sables d'Olonne</title>
+		    <title>{$title|wash()} | D'Code Les Sables</title>
 		{else}
 		    {if is_set($cNode.node_id)}
 		        {set $title = supp_br($cNode.name)}
