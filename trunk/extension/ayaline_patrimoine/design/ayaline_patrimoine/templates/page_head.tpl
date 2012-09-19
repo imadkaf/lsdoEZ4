@@ -16,9 +16,9 @@
 		{else}
 		    {if is_set($cNode.node_id)}
 		        {set $title = supp_br($cNode.name)}
-		        <title> {if $title|ne(false())}{$title|wash} | Site mobile découverte du patrimoine des Sables d'Olonne{/if}</title>
+		        <title> {if $title|ne(false())}{$title|wash} | D'Code Les Sables{/if}</title>
 		    {else}
-		        <title>{ezini('SiteSettings', 'SiteName' ,'site.ini')} | Site mobile découverte du patrimoine des Sables d'Olonne</title>
+		        <title>{ezini('SiteSettings', 'SiteName' ,'site.ini')} | D'Code Les Sables</title>
 		    {/if}
 		{/if}
 
