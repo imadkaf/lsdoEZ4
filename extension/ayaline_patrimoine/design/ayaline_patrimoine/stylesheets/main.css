@@ -796,7 +796,7 @@ a.voir-lots{display: block;color: #d6ee0c !important;background: url(../images/p
 .form-reponse .formulaire-reponse .ligne-form.checkbox .champ-form{width: 91%;}
 .form-resp{padding: 5px 0 20px 5px;background: #1abbb7;}
 .quizz-resultat{padding: 1px 0 1px 1px;background: #1ABBB7;border-bottom: 1px solid #D1CCC8;}
-.resultat-reponse{padding-bottom: 30px;margin-top: 10px;font-family: 'NeoSansStdRegular';font-size: 150%;line-height: 100%;}
+.resultat-reponse{padding-bottom: 30px;margin-top: 10px;font-family: 'OmnesMedium';font-size: 18pt;line-height: 100%;}
 .resultat-mauvaise{color: #1abbb7;padding-top:10px;display: block;font-weight: bold;}
 .resultat-reponse>span{float: left;margin-right: 10px;}
 .resultat-reponse>p{width: 180px;float: left;font-family: 'OmnesMedium';font-weight: 500;font-size: 177%;}
