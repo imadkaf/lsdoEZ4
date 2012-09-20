@@ -2,13 +2,13 @@
 
 [SiteSettings]
 SiteName=Découverte du patrimoine des Sables d'Olonne
-SiteURL=patrimoine.lsdo.local
+SiteURL=dev.patrimoine.lsdo.lnet.fr
 LoginPage=embedded
 MetaDataArray[author]=aYaline
 MetaDataArray[copyright]=aYaline
 MetaDataArray[description]=LSDO Patrimoine
 MetaDataArray[keywords]=LSDO Patrimoine
-IndexPage=/content/view/full/2070
+IndexPage=/content/view/full/2012
 
 [UserSettings]
 RegistrationEmail=
