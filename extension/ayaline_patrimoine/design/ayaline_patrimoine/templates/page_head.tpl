@@ -34,7 +34,7 @@
 		<meta name="description" content="{$description|wash}" />
 		<meta name="keywords" content="{$keywords|wash}" />
 
-<link type="image/x-icon" href={'favicon.ico'|ezimage()} rel="icon" />
+<link type="image/x-icon" href={'favicon.png'|ezimage()} rel="icon" />
 <!-- STYLESHEET -->
 {foreach ezini( 'StylesheetSettings', 'CSSFileListPatrimoine', 'design.ini' )|unique as $css_fichier }
 		<link rel="stylesheet" type="text/css" href={concat('stylesheets/', $css_fichier )|ezdesign} media="all" />
