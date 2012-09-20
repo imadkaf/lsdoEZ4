@@ -17,7 +17,7 @@
 {/if}
 <div id="quizzcontent">
     <div class="container-bloc-quizz">
-        <h2>Export des Participants</h2>
+        <h2>Export des participants</h2>
         <form action="" method="post">
             <div class="ligne-form">
                 <label>Entre le : <input type="text" name="date_deb" class="date_deb" id="quizz_export_participants_date_deb"/>&nbsp;<img class="datepicker-icon" src="{'images/calendar_icon.png'|ezdesign('no')}" /></label>&nbsp;&nbsp;

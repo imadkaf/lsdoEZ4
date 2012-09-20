@@ -17,7 +17,7 @@
 {/if}
 <div id="quizzcontent">
     <div class="container-bloc-quizz">
-        <h2>Export des Instants gagnants</h2>
+        <h2>Export des instants gagnants</h2>
         <form action="" method="post">
             <div class="ligne-form">
                 <label>Entre le : <input type="text" name="date_deb" class="date_deb" id="quizz_export_instantsgagnants_date_deb"/>&nbsp;<img class="datepicker-icon" src="{'images/calendar_icon.png'|ezdesign('no')}" /></label>&nbsp;&nbsp;
@@ -27,14 +27,14 @@
         </form>
     </div>
     <div class="container-bloc-quizz generate_instantsgagnants">
-        <h2>Génération aléatoire de nouveaux Instants gagnants</h2>
+        <h2>Génération aléatoire de nouveaux instants gagnants</h2>
         <form action="" method="post">
             <div class="ligne-form">
                 <label>Entre le : <input type="text" name="date_deb" class="date_deb" id="quizz_generate_instantsgagnants_date_deb"/>&nbsp;<img class="datepicker-icon" src="{'images/calendar_icon.png'|ezdesign('no')}" /></label>&nbsp;&nbsp;
                 <label>et le : <input type="text" name="date_fin" class="date_fin" id="quizz_generate_instantsgagnants_date_fin"/>&nbsp;<img class="datepicker-icon" src="{'images/calendar_icon.png'|ezdesign('no')}" /></label>&nbsp;&nbsp;
             </div>
             <div class="ligne-form">
-                <label>Nombre des Instants gagnants à générer pour cette période : <input type="text" name="nombre" size="5"/></label>
+                <label>Nombre des instants gagnants à générer pour cette période : <input type="text" name="nombre" size="5"/></label>
                 <input class="button" type="submit" name="generer_quizz_instantsgagnants"  value="Générer"/>
             </div>
         </form>
@@ -42,13 +42,13 @@
         {if and(is_set($generated_dates_ig), $generated_dates_ig|eq(false()))}
             <div class="generated-ig-container">
                 <div class="message-generated-ig">
-                    <strong>Erreur: Aucun Instant Gagnant généré</strong>
+                    <strong>Erreur: Aucun instant gagnant généré</strong>
                 </div>
             </div>
         {elseif and(is_set($generated_dates_ig), is_array($generated_dates_ig))}
             <div class="generated-ig-container">
                 <div class="message-generated-ig">
-                    <strong>{$generated_dates_ig|count} Instants gagnants générés.</strong>
+                    <strong>{$generated_dates_ig|count} instants gagnants générés.</strong>
                 </div>
                 {if $generated_dates_ig|count|ne(0)}
                 <table class="generated-ig-table" cellspacing="0">
