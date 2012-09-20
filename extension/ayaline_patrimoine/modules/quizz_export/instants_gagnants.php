@@ -108,5 +108,5 @@ $Result['path'] = array(
     array('url' => false,
         'text' => 'Quizz export'),
     array('url' => false,
-        'text' => 'Instant gagnant')
+        'text' => 'Instants gagnants')
     );
