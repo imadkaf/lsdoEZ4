@@ -74,8 +74,7 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
         $data_map = $quizzNode->datamap();
         $reponseCorrect = (int) ($data_map['bonne_reponse']->DataText) + 1;
         $participationGagnante = 0;
-        $timeInstantGagnant = date('Y-m-d H:i:s');
-        $isInstantGagnant = QuizzInstantGagnantManagement::isInstantGagnant($timeInstantGagnant);
+        $isInstantGagnant = QuizzInstantGagnantManagement::isInstantGagnant();
         $resultatQuizz = 0;
         if ($reponseCorrect == $quizzReponse && $isInstantGagnant) {
             $participationGagnante = 1;

@@ -82,54 +82,53 @@ class QuizzInstantGagnantManagement extends eZPersistentObject {
     }
 
     public static function isInstantGagnant($dateTimeInstant) {
-        $DATETIMEFORMAT = "/^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$/";
-        if (preg_match($DATETIMEFORMAT, $dateTimeInstant)) {
-
-            $dateTimeInstant_date = explode(" ", $dateTimeInstant);
-            $dateTimeInstant_date = $dateTimeInstant_date[0];
-
-            $dateTimeInstant_heures = explode(" ", $dateTimeInstant);
-            $dateTimeInstant_heures = $dateTimeInstant_heures[1];
-            $dateTimeInstant_heures = explode(":", $dateTimeInstant_heures);
-
-            $dateDebTime = $dateTimeInstant_date . " " . $dateTimeInstant_heures[0] . ":00:00";
-            $dateFinTime = $dateTimeInstant_date . " " . $dateTimeInstant_heures[0] . ":59:59";
-
-            $res = self::fetchObjectList(self::definition(), null, array('date_heure' => array(false ,array($dateDebTime, $dateFinTime))), array('date_heure' => 'desc'),null,true,false,null,null,' AND gagne IS NULL');
-            
-            if ($res != null) {
-                return $res[0]->id;
-            }
-            return false;
-        }
-        return false;
+		// Est-ce que la date du jour est un instant gagnant qui n'a pas déjà été gagné ?
+		$res = self::fetchObjectList(self::definition(), 
+										null, 
+										array('date_heure' => array(false,
+																	array(date('Y-m-d 00:00:00'), date('Y-m-d 00:00:00')))), 
+										array('date_heure' => 'desc'),
+										null,
+										true,
+										false,
+										null,
+										null,
+										' AND gagne IS NULL');
+		
+		if ($res != null) {
+			return $res[0]->id;
+		}
+		return false;
     }
 
+    public static function randomDate($tsDeb, $tsFin) {
+		return date("Y-m-d 00:00:00", rand($tsDeb, $tsFin));
+	}
+	
+	public static function nbJours($timestamp,$timestamp2) {
+		return floor(($timestamp - $timestamp2) / (3600 * 24));
+	}
+	
     public static function generate($dateDeb, $dateFin, $nbr) {
-        
         $DATEFORMAT = "/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/";
         if (preg_match($DATEFORMAT, $dateDeb) && preg_match($DATEFORMAT, $dateFin)) {
-            $dateDeb = explode('-', $dateDeb);
+            // Récupération des dates de début et de fin demandées pour la génération
+			$dateDeb = explode('-', $dateDeb);
             $dateFin = explode('-', $dateFin);
-            $dateDebTime = mktime(0, 0, 0, $dateDeb[1], $dateDeb[2], $dateDeb[0]);
-            $dateFinTime = mktime(23, 59, 59, $dateFin[1], $dateFin[2], $dateFin[0]);
+            $timestampDeb = mktime(0, 0, 0, $dateDeb[1], $dateDeb[2], $dateDeb[0]);
+            $timestampFin = mktime(23, 59, 59, $dateFin[1], $dateFin[2], $dateFin[0]);
 
-            $dureeEnTime = $dateFinTime - $dateDebTime + 1;
-
-            $dureeEnHeures = $dureeEnTime / 3600;
-            $dureeEnJours = $dureeEnTime / (3600 * 24);
-            
+			// Un seul instant par jour : vérification si le nombre d'IG à générer est inférieur ou égal au nb de jours de la période demandée 
+			// TODO
+						
+			// Génération du nombre d'instants gagnants sur la période demandée
             $instantsGagnantsArray = array(); 
             for ($i = 0; $i < $nbr; $i++) {
-                $randomHeure = rand(0, $dureeEnHeures);
-                $randomHeure24 = date("H", mktime($randomHeure, 0, 0, $dateDeb[1], $dateDeb[2], $dateDeb[0]));
-                /* Généré des heures entre 00h00 et 22h */
-                while( $randomHeure24 == 22 || $randomHeure24 == 23 ){
-                    $randomHeure = rand(0, $dureeEnHeures);
-                    $randomHeure24 = date("H", mktime($randomHeure, 0, 0, $dateDeb[1], $dateDeb[2], $dateDeb[0]));
-                }
-                $randomDate = date("Y-m-d H:i:s", mktime($randomHeure, 0, 0, $dateDeb[1], $dateDeb[2], $dateDeb[0]));
-                
+                $randomTimestamp = randomDate($timestampDeb, $timestampFin);
+
+				// Un seul instant par jour : vérification que l'instant gagnant n'est pas déjà en BD, ni déjà généré dans le tableau
+				// TODO
+								
                 QuizzInstantGagnantManagement::newSave($randomDate);
                 $instantsGagnantsArray[] = $randomDate; 
 

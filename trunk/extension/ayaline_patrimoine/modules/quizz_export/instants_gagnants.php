@@ -47,7 +47,7 @@ if ($http->hasPostVariable('export_quizz_instantsgagnants')) {
 
     if (preg_match(DATEFORMAT, $dateDeb) && preg_match(DATEFORMAT, $dateFin)) {
         $dateDeb .=" 00:00:00";
-        $dateFin .=" 23:59:59";
+        $dateFin .=" 00:00:01";
         $list2export = QuizzInstantGagnantManagement::getInstantsGagnantsByDates($dateDeb, $dateFin);
 
         $dir = eZSys::cacheDirectory() . '/';

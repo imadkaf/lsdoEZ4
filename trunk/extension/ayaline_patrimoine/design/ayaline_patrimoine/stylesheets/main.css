@@ -843,6 +843,7 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 #Gallery{height: 239px;}
 #diaporama{height: 239px;position: relative;}
 .play-diaporama{display: block;background: url('../images/play-video.png') no-repeat center;height: 80px;width: 80px;position: absolute;top:0;bottom: 0;left: 0;right: 0;margin: auto;}
+.play-audio{display: block;height: 80px;width: 80px;position: absolute;top:0;bottom: 0;left: 0;right: 0;margin: auto;}
 .ps-carousel{background: #000;}
 
 .agenda{background: #70777f;padding: 14px 40px 19px 14px;position: relative;}
