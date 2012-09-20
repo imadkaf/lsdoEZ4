@@ -757,8 +757,8 @@ display: none;
 .background-quizz-reponse{background:#1abbb7 url('../images/background-quizz-reponse.png') no-repeat;padding: 5px 5px 20px 16px;margin: 5px 0 20px 5px;}
 .question{padding-right: 38px;margin-bottom: 5px;}
 .question p{font-family:'NeoSansStdRegular'; font-size: 17pt;line-height:1em;font-weight: bold;}
-.question-reponse .reponses{font-family: Arial;font-size: 12pt;font-weight: 500;line-height: 16px;}
-.question-reponse .reponses b{font-family: Arial;font-weight: 600;}
+.question-reponse .reponses{font-family: 'NeoSansStdRegular';font-size: 12pt;font-weight: 500;line-height: 16px;}
+.question-reponse .reponses b{font-family: 'NeoSansStdRegular';font-weight: 600;}
 .question-reponse .reponses li p.aligne-centre{margin-bottom: 5px;}
 .question-reponse .reponses li{display: block;width: 45%;margin-right: 8px;}
 /*.question-reponse .reponses li .reponse1{margin-left: 29px!important;}*/
@@ -796,7 +796,7 @@ a.voir-lots{display: block;color: #d6ee0c !important;background: url(../images/p
 .form-reponse .formulaire-reponse .ligne-form.checkbox .champ-form{width: 91%;}
 .form-resp{padding: 5px 0 20px 5px;background: #1abbb7;}
 .quizz-resultat{padding: 1px 0 1px 1px;background: #1ABBB7;border-bottom: 1px solid #D1CCC8;}
-.resultat-reponse{padding-bottom: 30px;margin-top: 10px;}
+.resultat-reponse{padding-bottom: 30px;margin-top: 10px;font-family: 'NeoSansStdRegular';font-size: 150%;line-height: 100%;}
 .resultat-mauvaise{color: #1abbb7;padding-top:10px;display: block;font-weight: bold;}
 .resultat-reponse>span{float: left;margin-right: 10px;}
 .resultat-reponse>p{width: 180px;float: left;font-family: 'OmnesMedium';font-weight: 500;font-size: 177%;}
