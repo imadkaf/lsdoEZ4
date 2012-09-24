@@ -2,6 +2,7 @@
 
 $http = eZHTTPTool::instance();
 $tpl = eZTemplate::factory();
+$patrimoine_ini = eZINI::instance('ayaline_patrimoine.ini');
 
 function isMobile() {
 //User agent
@@ -111,6 +112,21 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
                 break;
             case "1"://Bonne RÃ©ponse Instant Gagnant :GagnÃ©
                 $Result['content'] = $tpl->fetch('design:quizz/etape3_instant_gagnant.tpl');
+                $subject = 'Vous avez gagné l\'instant gagnant';
+                $message = '<html>
+                				<head>
+                					<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       								<title>Instant gagnant</title>
+      							</head>
+      							<body>
+                					Félicitation,<br /><br />Vous avez gagné l\'instant gagnant lors de votre participation le '.$row['date_heure_participation'].'.<br />Venez vite chercher votre lot à l\'office de tourisme<br /><a href="http://lessables.mobi/Fiche/Detail/2250/lessables.mobi~Infos-pratiques~Offices-de-Tourisme/Office-de-Tourisme-des-Sables-d-Olonne">Nous contacter</a>
+                				</body>
+                			</html>';
+                $headers = "MIME-Version: 1.0\n" ;
+        		$headers .= "Content-Type: text/html; charset=\"iso-8859-1\"\n";
+        		if($patrimoine_ini->hasVariable('Quizz', 'emailExp'))
+        			$headers .= "From: l'office de tourisme <".$patrimoine_ini->variable('Quizz', 'emailExp').">\n";
+                mail($row['email'], $subject, $message, $headers);
                 break;
             case "2"://Bonne RÃ©ponse Instant Gagnant :pÃ©rdu
                 $Result['content'] = $tpl->fetch('design:quizz/etape3_bonne_reponse.tpl');
