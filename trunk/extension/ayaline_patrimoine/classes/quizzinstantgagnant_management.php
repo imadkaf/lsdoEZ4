@@ -86,7 +86,7 @@ class QuizzInstantGagnantManagement extends eZPersistentObject {
 		$res = self::fetchObjectList(self::definition(),
 										null,
 										array('date_heure' => array(false,
-																	array(date('Y-m-d 00:00:00'), date()))),
+																	array(date('Y-m-d 00:00:00'), date('Y-m-d H:i:s')))),
 										array('date_heure' => 'desc'),
 										null,
 										true,
