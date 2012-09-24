@@ -137,12 +137,7 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
                 $mail->addBcc($bcc);
                 $mail->setSubject( $subject );
                 $mail->setBody( $message );
-                $host = $site_ini->variable('MailSettings', 'TransportServer');
-                $username = $site_ini->variable('MailSettings', 'TransportUser');
-                $password = $site_ini->variable('MailSettings', 'TransportPassword');
-                $port = $site_ini->variable('MailSettings', 'TransportPort');
-                $smtp = ezcMailSmtpTransport( $host, $username, $password, $port );
-    			$smtp->send( $mail->Mail );
+               	$mailing = eZMailTransport::send($mail);
                 break;
             case "2"://Bonne Réponse Instant Gagnant :pérdu
                 $Result['content'] = $tpl->fetch('design:quizz/etape3_bonne_reponse.tpl');
