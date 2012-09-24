@@ -3,6 +3,7 @@
 $http = eZHTTPTool::instance();
 $tpl = eZTemplate::factory();
 $patrimoine_ini = eZINI::instance('ayaline_patrimoine.ini');
+$site_ini = eZINI::instance();
 
 function isMobile() {
 //User agent
@@ -112,21 +113,36 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
                 break;
             case "1"://Bonne Réponse Instant Gagnant :Gagné
                 $Result['content'] = $tpl->fetch('design:quizz/etape3_instant_gagnant.tpl');
-                $subject = 'Vous avez gagn� l\'instant gagnant';
+
+                //On envoi le mail de confirmation
+        		if($patrimoine_ini->hasVariable('Quizz', 'emailExp')){
+        			$sender = new ezcMailAddress($patrimoine_ini->variable('Quizz', 'emailExp'), "l'office de tourisme");
+        			$bcc = $patrimoine_ini->variable('Quizz', 'emailExp');
+        		}
+        		$receiver = $row['email'];
+                $subject = 'Vous avez gagné l\'instant gagnant';
                 $message = '<html>
                 				<head>
                 					<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
        								<title>Instant gagnant</title>
       							</head>
       							<body>
-                					F�licitation,<br /><br />Vous avez gagn� l\'instant gagnant lors de votre participation le '.$row['date_heure_participation'].'.<br />Venez vite chercher votre lot � l\'office de tourisme<br /><a href="http://lessables.mobi/Fiche/Detail/2250/lessables.mobi~Infos-pratiques~Offices-de-Tourisme/Office-de-Tourisme-des-Sables-d-Olonne">Nous contacter</a>
+                					Félicitations,<br /><br />Vous avez gagné l\'instant gagnant lors de votre participation le '.$row['date_heure_participation'].'.<br />Venez vite chercher votre lot à l\'office de tourisme<br /><a href="http://lessables.mobi/Fiche/Detail/2250/lessables.mobi~Infos-pratiques~Offices-de-Tourisme/Office-de-Tourisme-des-Sables-d-Olonne">Nous contacter</a>
                 				</body>
                 			</html>';
-                $headers = "MIME-Version: 1.0\n" ;
-        		$headers .= "Content-Type: text/html; charset=\"iso-8859-1\"\n";
-        		if($patrimoine_ini->hasVariable('Quizz', 'emailExp'))
-        			$headers .= "From: l'office de tourisme <".$patrimoine_ini->variable('Quizz', 'emailExp').">\n";
-                mail($row['email'], $subject, $message, $headers);
+                $mail = new eZMail();
+                $mail->setContentType('text/html', "utf-8", '8bit');
+                $mail->setSender( $sender );
+                $mail->setReceiver( $receiver );
+                $mail->addBcc($bcc);
+                $mail->setSubject( $subject );
+                $mail->setBody( $message );
+                $host = $site_ini->variable('MailSettings', 'TransportServer');
+                $username = $site_ini->variable('MailSettings', 'TransportUser');
+                $password = $site_ini->variable('MailSettings', 'TransportPassword');
+                $port = $site_ini->variable('MailSettings', 'TransportPort');
+                $smtp = ezcMailSmtpTransport( $host, $username, $password, $port );
+    			$smtp->send( $mail->Mail );
                 break;
             case "2"://Bonne Réponse Instant Gagnant :pérdu
                 $Result['content'] = $tpl->fetch('design:quizz/etape3_bonne_reponse.tpl');
