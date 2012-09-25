@@ -51,12 +51,12 @@
                     <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
                     <li><a href="#" class="lien-arrondi google-maps-actif-pieds-page masquer-map"></a></li>
                     <li><a href="#" class="lien-arrondi google-maps-desactif-pieds-page afficher-map"></a></li>
-                    <li><a href="#" class="lien-arrondi supp-itiniraire"></a></li>
+                    <li><a href="#" class="lien-arrondi supp-itiniraire" style="display:none;"></a></li>
                 {elseif eq($cNode.class_identifier,'smp_circuit')}
                     <li><a href="{$cNode.parent.url_alias|ezurl('no')}" class="lien-arrondi retour" rel='external'></a></li>
                     <li><a href="#" class="lien-arrondi google-map-actif-circuit-pieds-page masquer-map"></a></li>
                     <li><a href="#" class="lien-arrondi google-map-ferme-circuit-pieds-page afficher-map"></a></li>
-                    <li><a href="#" class="lien-arrondi itiniraire-circuit"></a></li>
+                    <li><a href="#" class="lien-arrondi itiniraire-circuit" style="display:none;"></a></li>
                 {elseif eq($cNode.class_identifier,'smp_point_interet')}
                     {def $elemnts = false()}
                     {def $listClassMedia = ezini('List_class_media', 'Class' ,'ayaline_patrimoine.ini')}
@@ -76,7 +76,7 @@
                     	<li><a href="#" class="lien-arrondi-br-nv masquer-media ferme-media" style="display: none;"></a></li>
                     {/if}
                     <li><a href="#" class="lien-arrondi google-map-ferme-circuit-pieds-page afficher-map"></a></li>
-                    <li><a href="#" class="lien-arrondi-br-nv itiniraire-circuit"></a></li>
+                    <li><a href="#" class="lien-arrondi-br-nv itiniraire-circuit" style="display:none;"></a></li>
 
 					{if and(gt($elemnts|count,1),$etat)}
 	                    <li><a href="#" class="lien-arrondi plus-image-pieds-page voir-image"></a></li>
