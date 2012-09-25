@@ -455,6 +455,7 @@
                             pointArrivee.setTitle("Point d'arrivée : "+destinationPtInteret.getTitle());
                             pointArrivee.setMap(carte);
                             $(".itiniraire-circuit").removeClass("cache").show().css("display","block");
+                            $(".pieds-page ul").css("max-width","186px");
                         } else {
                             alert("Google directions response : "+status);
                         }
@@ -465,13 +466,13 @@
                 maPosition = new google.maps.Marker({
                       position: new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
                       map: carte,
-                      title: 'ma position actuel',
+                      title: 'ma position actuelle',
                       icon: '/extension/ayaline_patrimoine/design/ayaline_patrimoine/images/pieton-map.png'
                     });
             }
             function cacherItineraireMaposition(){
                 directionsDisplay.setMap(null);
-                //maPosition.setMap(null);
+                maPosition.setMap(null);
                 pointArrivee.setMap(null);
             }
             function loadScript() {
