@@ -260,7 +260,7 @@
             }
             function cacherItineraireMaposition(){
                 directionsDisplay.setMap(null);
-                maPosition.setMap(null);
+				maPosition.setMap(null);
                 pointArrivee.setMap(null);
             }
             function loadScript() {
