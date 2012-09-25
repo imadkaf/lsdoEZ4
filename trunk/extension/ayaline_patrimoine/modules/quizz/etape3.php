@@ -13,7 +13,7 @@ function isMobile() {
 }
 
 function processSendMail($mail) {
-	// Attention Ã  bien s'appuyer sur la conf
+	// Attention à  bien s'appuyer sur la conf
 	$ini = ezIni::instance();
 	$transportType = ezIni::instance()->variable( 'MailSettings', 'Transport' );
 	if ( $transportType == 'sendmail' ) {
@@ -133,7 +133,7 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
                 //On envoi le mail de confirmation
         		if($patrimoine_ini->hasVariable('Quizz', 'emailExp')){
         			$sender = new ezcMailAddress($patrimoine_ini->variable('Quizz', 'emailExp'), "l'office de tourisme");
-        			$bcc = 'mboisgrollier@gmail.com';
+        			$bcc = new ezcMailAddress($patrimoine_ini->variable('Quizz', 'emailExp'), "l'office de tourisme");
         		}
         		$receiver = $row['email'];
         		$receiverName = $row['prenom']." ".$row['nom'];
@@ -147,15 +147,6 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
                 					Félicitations,<br /><br />Vous avez gagné l\'instant gagnant lors de votre participation le '.$row['date_heure_participation'].'.<br />Venez vite chercher votre lot à l\'office de tourisme<br /><a href="http://lessables.mobi/Fiche/Detail/2250/lessables.mobi~Infos-pratiques~Offices-de-Tourisme/Office-de-Tourisme-des-Sables-d-Olonne">Nous contacter</a>
                 				</body>
                 			</html>';
-                /*$mail = new eZMail();
-                $mail->setContentType('text/html', "utf-8", '8bit');
-                $mail->setSender( $sender );
-                $mail->setReceiver( $receiver );
-                $mail->addBcc($bcc);
-                $mail->setSubject( $subject );
-                $mail->setBody( $message );
-               	$mailing = eZMailTransport::send($mail);*/
-
 
                 // Objet mail : initialisation
                 $mail = new ezcMailComposer();
@@ -163,11 +154,11 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
                 $mail->subject = $subject;
                 $mail->charset = ezIni::instance()->variable( 'MailSettings', 'OutputCharset' );
                 $mail->subjectCharset = $mail->charset;
+                $mail->htmlText = $message;
 
                 // Envoi au participant
                 $mail->addTo( new ezcMailAddress( $receiver, $receiverName ) );
-                $mail->plainText = $message;
-                $mail->addBcc($bcc);
+                $mail->addBcc( $bcc );
 
                 // Build du message
                 $mail->build();
