@@ -15,17 +15,17 @@ $(function(){
         $(".copyright").css("display","none");
         $(".bloc-carte-google .afficher-bloc").css("display","none");
         $(".bloc-carte-google .masquer-bloc").css("display","block");
-    	$(".pieds-page ul").css("max-width","180px");
+    	$(".pieds-page ul").css("max-width","124px");
         $(".pieds-page ul li a.plus-image-pieds-page").css("display","none");
         $(".pieds-page ul li a.plus-info-pictos-pieds-page").css("display","none");
         $(".pieds-page ul li a.quizz-pictos-pieds-page").css("display","none");
         $(".pieds-page ul li a.lien-plus-info-ouvert-pieds-page").css("display","none");
         $(".pieds-page ul li a.plus-image-ouvert-pieds-page").css("display","none");
-		if($('.itiniraire-circuit'))
+		/*if($('.itiniraire-circuit'))
         	$(".itiniraire-circuit").css("display","block");
         $(".pieds-page ul").css("max-width","201px");
         if($('.supp-itiniraire'))
-    		$(".supp-itiniraire").css("display","block");
+    		$(".supp-itiniraire").css("display","block");*/
         $("#map_canvas").css("height", hauteur+"px");
         if($('.tirage-au-sort'))
 	        $(".tirage-au-sort").css("display","none");
