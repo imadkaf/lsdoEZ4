@@ -6,5 +6,5 @@
 	{$node.score_percent|wash}%
 	<div class="clear"></div>
 </div>
-<a href="{$node.global_url_alias}" rel='external'><h3>{supp_br($node.name)|wash}</h3></a>
+<a href={$node.url_alias|ezurl} rel='external'><h3>{supp_br($node.name)|wash}</h3></a>
 <p>{striptags($node.highlight)}</p>
