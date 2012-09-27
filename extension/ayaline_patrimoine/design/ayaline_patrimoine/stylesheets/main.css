@@ -1167,6 +1167,21 @@ a.top-link{
 	position:relative;
 	z-index:10;
 }
+.agenda h2 {
+    color: #FFFFFF;
+    font-family: OmnesSemibold;
+    font-size: 1.17em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.suggestions h3 {
+    color: #70777F;
+    font-family: OmnesSemibold;
+    font-size: 1.17em;
+    margin-bottom: 10px;
+    padding: 0;
+    text-transform: uppercase;
+}
 /*************************/
 /*** Fin mboisgrollier ***/
 /*************************/
