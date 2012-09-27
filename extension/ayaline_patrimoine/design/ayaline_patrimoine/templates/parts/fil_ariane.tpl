@@ -1,8 +1,8 @@
 {if $module_result.ui_component|ne('error')}
 	<nav id="breadcrumbs">
-	{if $module_result.uri|eq('/user/login')}
+	{if $module_result.uri|extract_left(11)|eq('/user/login')}
 			<span>Vous êtes sur : </span><a href="/" rel='external'>Accueil</a> > <strong>Connexion</strong>
-	{elseif $module_result.uri|eq('/content/search')}
+	{elseif $module_result.uri|extract_left(15)|eq('/content/search')}
 			<span>Vous êtes sur : </span><a href="/" rel='external'>Accueil</a> > <strong>Recherche</strong>
 	{else}
 
