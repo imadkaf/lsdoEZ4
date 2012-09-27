@@ -90,7 +90,15 @@
                             <img src="{'images/checkbox-actif.png'|ezdesign('no')}" class="active display-none"/>
                             <p>
                                 <span class="cliq"> J'ai lu et j'accepte</span>
-                                <a href="{$config_generale.data_map.quiz_page_conditions_generales_reglement.content.main_node.url_alias|ezurl('no')}" target="_blank" class="texte-vert-souligne"> les conditions générales  du règlement </a>
+                                <a href={concat( 'content/download/', 
+												$config_generale.data_map.quiz_fichier_conditions_reglement.contentobject_id, 
+												'/', 
+												$config_generale.data_map.quiz_fichier_conditions_reglement.id,
+												'/version/', 
+												$config_generale.data_map.quiz_fichier_conditions_reglement.version , 
+												'/file/', 
+												$config_generale.data_map.quiz_fichier_conditions_reglement.content.original_filename|urlencode )|ezurl}
+								target="_blank" class="texte-vert-souligne"> les conditions générales  du règlement </a>
                                 <span class="texte-rouge">*</span>
                             </p>
                         </div>
