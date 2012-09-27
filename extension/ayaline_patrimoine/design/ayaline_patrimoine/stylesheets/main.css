@@ -191,7 +191,7 @@ a.logo-site{margin-right: 4px;}
 .liste-circuits-mise-en-avant .article-titre{float: left;width: 220px;padding: 9px 0 9px 30px;}
 .liste-circuits-mise-en-avant .article-titre .titre{color:#fff;font-family: 'OmnesSemibold';display: block;font-size: 145%;line-height: 1em;}
 .liste-circuits-mise-en-avant .article-titre .introduction{color:#fff;font-size: 90%;}
-.bloc-carte-google{position: relative;min-height: 66px;background: #E4E3DE;}
+.bloc-carte-google{position: relative;min-height: 66px;background: #E4E3DE; border-bottom:#D1CCC8 1px solid;}
 .bloc-carte-google .lien-arrondi{top:0;bottom: 0;margin: auto;right:5px;position: absolute;}
 
 
@@ -1217,4 +1217,5 @@ padding-left:15px;
 #carteGoogleMap{
 	padding:0 1px 30px 4px;
 	background:#E4E3DE;
+	display:none;
 }
