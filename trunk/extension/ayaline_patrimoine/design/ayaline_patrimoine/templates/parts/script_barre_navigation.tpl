@@ -15,6 +15,7 @@ $(function(){
         $(".copyright").css("display","none");
         $(".bloc-carte-google .afficher-bloc").css("display","none");
         $(".bloc-carte-google .masquer-bloc").css("display","block");
+		$(".bloc-carte-google").css("border-bottom","none");		
     	$(".pieds-page ul").css("max-width","124px");
         $(".pieds-page ul li a.plus-image-pieds-page").css("display","none");
         $(".pieds-page ul li a.plus-info-pictos-pieds-page").css("display","none");
@@ -27,6 +28,7 @@ $(function(){
         if($('.supp-itiniraire'))
     		$(".supp-itiniraire").css("display","block");*/
         $("#map_canvas").css("height", hauteur+"px");
+		$("#carteGoogleMap").css("display","block");
         if($('.tirage-au-sort'))
 	        $(".tirage-au-sort").css("display","none");
 	    if($('.instant-gagnant'))
@@ -51,6 +53,8 @@ $(function(){
         $(".copyright").css("display","block");
         $(".bloc-carte-google .afficher-bloc").css("display","block");
         $(".bloc-carte-google .masquer-bloc").css("display","none");
+		$(".bloc-carte-google").css("border-bottom","#D1CCC8 1px solid");
+		$("#carteGoogleMap").css("display","none");
         $(".pieds-page ul.normal").css("display","block");
         $(".pieds-page ul li a.plus-image-pieds-page").css("display","block");
         $(".pieds-page ul li a.plus-info-pictos-pieds-page").css("display","block");
