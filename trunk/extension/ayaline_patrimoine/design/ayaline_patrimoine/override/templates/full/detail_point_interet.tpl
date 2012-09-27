@@ -232,7 +232,7 @@
                     	{concat("pointInteretMAInfos['link'] = '",$nodePtInteretMA.url_alias|ezurl,"';")}
 	                    {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
        					{concat("pointInteretMAInfos['bg-color'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.code_html_couleur.value|trim|wash,"';")}
-	                    {if $node.node_id|eq($ptInteret.node_id)}
+	                    {if $node.node_id|eq($nodePtInteretMA.node_id)}
 	                        {concat("pointInteretMAInfos['point-courant'] = true;")}
 	                        {concat("pointInteretMAInfos['picto'] = '","images/picto-pt-intetret-courant.png"|ezdesign('no'),"';")}
 	                    {else}
