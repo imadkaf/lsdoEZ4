@@ -1182,6 +1182,9 @@ a.top-link{
     padding: 0;
     text-transform: uppercase;
 }
+.liste-medias .play-audio{
+	position: relative;
+}
 /*************************/
 /*** Fin mboisgrollier ***/
 /*************************/
