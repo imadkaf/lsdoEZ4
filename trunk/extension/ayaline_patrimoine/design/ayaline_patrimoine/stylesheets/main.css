@@ -1206,3 +1206,15 @@ a.top-link{
 .pagenavigator {
 padding-left:15px;
 }
+
+#map_canvas {
+	width: 100%;
+	z-index: 5555; 
+	border-top: 1px solid #D1CCC8;
+	border-left: 1px solid #D1CCC8;
+	border-bottom: 1px solid #D1CCC8;
+}
+#carteGoogleMap{
+	padding:0 1px 30px 4px;
+	background:#E4E3DE;
+}
