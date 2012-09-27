@@ -26,17 +26,15 @@
 		</div>
 	</div>
 	{else}
-	<div class="suggestions">
+	<div class="agenda">
 		<h2>{$child_node.name|wash}</h2>
-		<span class="diaporama-gagnat ui-link">
 		{attribute_view_gui attribute=$child_node.data_map.visuel image_class='imageSuggestion'}
-		</span>
-		<div class="contenu-suggestions">
+		<div class="contenu-agenda">
 			{attribute_view_gui attribute=$child_node.data_map.text}
 			{if is_set($targeturl)}
-				{attribute_view_gui attribute=$child_node.data_map.url_cible class='plus-info-suggestions ui-link' target=$targeturl}
+				{attribute_view_gui attribute=$child_node.data_map.url_cible class='plus-info-agenda ui-link' target=$targeturl}
 			{else}
-				{attribute_view_gui attribute=$child_node.data_map.url_cible class='plus-info-suggestions ui-link' rel='external'}
+				{attribute_view_gui attribute=$child_node.data_map.url_cible class='plus-info-agenda ui-link' rel='external'}
 			{/if}
 		</div>
 	</div>
@@ -56,15 +54,17 @@
 		</div>
 	</div>
 	{else}
-	<div class="agenda">
+	<div class="suggestions">
 		<h2>{$child_node.name|wash}</h2>
+		<span class="diaporama-gagnat ui-link">
 		{attribute_view_gui attribute=$child_node.data_map.visuel image_class='imageSuggestion'}
-		<div class="contenu-agenda">
+		</span>
+		<div class="contenu-suggestions">
 			{attribute_view_gui attribute=$child_node.data_map.text}
 			{if is_set($targeturl)}
-				{attribute_view_gui attribute=$child_node.data_map.url_cible class='plus-info-agenda ui-link' target=$targeturl}
+				{attribute_view_gui attribute=$child_node.data_map.url_cible class='plus-info-suggestions ui-link' target=$targeturl}
 			{else}
-				{attribute_view_gui attribute=$child_node.data_map.url_cible class='plus-info-agenda ui-link' rel='external'}
+				{attribute_view_gui attribute=$child_node.data_map.url_cible class='plus-info-suggestions ui-link' rel='external'}
 			{/if}
 		</div>
 	</div>
