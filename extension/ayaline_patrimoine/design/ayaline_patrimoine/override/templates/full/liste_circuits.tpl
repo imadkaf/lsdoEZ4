@@ -45,7 +45,7 @@
 			href="#" class="lien-arrondi google-maps-desactif afficher-map"></a>
 		<div class="clear-tout"></div>
 	</div>
-	<div id="map_canvas" style="width: 100%; z-index: 5555;"></div>
+	<div id="carteGoogleMap"><div id="map_canvas"></div></div>
 
             {set-block variable="scriptInitGmap"}
                 {concat("var listeCircuits = new Array();")}
@@ -263,7 +263,7 @@
                         maPosition = new google.maps.Marker({
                               position: new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
                               map: carte,
-                              title: 'ma position actuelle',
+                              title: 'Position actuelle',
                               icon: '/extension/ayaline_patrimoine/design/ayaline_patrimoine/images/pieton-map.png'
                             });
                     }
