@@ -1,6 +1,6 @@
 <?php /* #?ini charset="utf-8"?
 
 [TagsGA]
-googleAccountKey=UA-XXXXXXX-1
+googleAccountKey=U-XXX-DECODE-XXX
 
 */ ?>
