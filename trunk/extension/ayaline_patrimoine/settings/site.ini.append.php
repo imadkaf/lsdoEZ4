@@ -8,13 +8,13 @@ SiteList[]=ayaline_patrimoine
 CheckValidity=false
 AvailableSiteAccessList[]=ayaline_patrimoine
 MatchOrder=host
-HostMatchMapItems[]=dev.patrimoine.lsdo.lnet.fr;ayaline_patrimoine
+HostMatchMapItems[]=patrimoine.lsdo.lnet.fr;ayaline_patrimoine
 ForceVirtualHost=true
 
 [RegionalSettings]
 ContentObjectLocale=fre-FR
 TranslationExtensions[]=ayaline_patrimoine
-UrlList[fre-FR]=dev.patrimoine.lsdo.lnet.fr
+UrlList[fre-FR]=patrimoine.lsdo.lnet.fr
 
 [TemplateSettings]
 ExtensionAutoloadPath[]=ayaline_patrimoine
