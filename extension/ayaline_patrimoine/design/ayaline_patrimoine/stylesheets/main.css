@@ -1027,6 +1027,8 @@ a.jp-video-play-icon{position: absolute !important;display: block !important;wid
 
 .Image_large{
 	margin-left:-5px;
+	border-top: solid 1px #D2CDCA;
+	border-bottom: solid 1px #D2CDCA;
 }
 .background-white{
 	background-color:white;
