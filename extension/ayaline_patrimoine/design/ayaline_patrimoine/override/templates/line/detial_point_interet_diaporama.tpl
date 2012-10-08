@@ -8,15 +8,15 @@
 <div id="gallery">
 			<ul id="Gallery" style="position: relative">
 			{foreach $listeImages as $key=>$image}
-				 {if eq($key,0)}
+				{if eq($key,0)}
 				 	<li><a href="/{$image.data_map.fichier_image.content.original.full_path}" rel="external" >
                             <span class="cliquer play-diaporama"></span>
-                            {attribute_view_gui attribute=$image.data_map.fichier_image image_class='imageDiapoPrincipal'}
+                            {attribute_view_gui alt_text=supp_br($image.data_map.legende.value) attribute=$image.data_map.fichier_image image_class='imageDiapoPrincipal'}
                         </a>
                     </li>
 				 {else}
 				<li class="display-none"><a href="/{$image.data_map.fichier_image.content.original.full_path}" rel="external">
-				{attribute_view_gui attribute=$image.data_map.fichier_image image_class='original'}</a>
+				{attribute_view_gui alt_text=supp_br($image.data_map.legende.value) attribute=$image.data_map.fichier_image image_class='original'}</a>
 				</li>
 				{/if}
 			{/foreach}
