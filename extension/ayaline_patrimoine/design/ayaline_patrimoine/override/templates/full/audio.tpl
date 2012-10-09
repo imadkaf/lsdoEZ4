@@ -18,7 +18,7 @@
 			ready: function () {ldelim}
 				$(this).jPlayer("setMedia", {ldelim}
 					mp3:"{concat( '/content/download/', $node.data_map.fichier.contentobject_id, '/', $node.data_map.fichier.id,'/version/', $node.data_map.fichier.version , '/file/',$node.data_map.fichier.content.original_filename|urlencode )}"
-				{rdelim});
+				{rdelim}).jPlayer("play"); // Attempts to Auto-Play the media
 			{rdelim},
 			swfPath: {'javascript'|ezdesign},
 			supplied: "mp3",

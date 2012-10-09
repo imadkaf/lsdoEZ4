@@ -2,14 +2,26 @@
 {def $listePointsInterets = false()}
 {def $listePointsInteretsMisEnAvant = array()}
 
-{set $listePointsInterets=fetch('content','list',hash('parent_node_id',$node.node_id,
+{set $listePointsInterets = fetch('content','list',hash('parent_node_id',$node.node_id,
 												'sort_by', $node.sort_array,
                                                 'class_filter_type','include',
                                                 'class_filter_array',array('smp_point_interet')
  ))}
 
-{foreach $node.data_map.liste_poiunts_interets_mis_avant.content.relation_list as $PointInteretMisEnAvant}
-	{set $listePointsInteretsMisEnAvant = $listePointsInteretsMisEnAvant|append($PointInteretMisEnAvant.node_id)}
+{* Parcours courant *}
+{def $parcoursNodeId = $node.node_id}
+
+{* Récupération des noeuds des points d'intérêts à mettre en avant *}
+{foreach $node.data_map.liste_poiunts_interets_mis_avant.content.relation_list as $objectMisEnAvant}
+	{* Récupération du noeud principal du PI à mettre en avant *}
+	{def $mainNodeMisEnAvant = fetch('content','object',hash('object_id',$objectMisEnAvant.contentobject_id))}
+	{foreach $mainNodeMisEnAvant.assigned_nodes as $assignedNode}
+		{* Récupération du noeud du PI lié au circuit courant (qui n'est pas forcément le noeud principal) *}
+		{if $assignedNode.parent_node_id|eq($parcoursNodeId)}
+			{set $listePointsInteretsMisEnAvant = $listePointsInteretsMisEnAvant|append($assignedNode.node_id)}
+		{/if}
+	{/foreach}
+	{undef $mainNodeMisEnAvant}
 {/foreach}
 
 <div class="contenu">
@@ -56,52 +68,57 @@
             {def $rListPtInteretsMA = $circuit.data_map.liste_poiunts_interets_mis_avant.content.relation_list}
             {def $listePtInteretsMA = array()}
             {concat("var listePointsInteretsMA = new Array();")}
-            {if $rListPtInteretsMA|count|gt(0)}
-                {foreach $rListPtInteretsMA as $ptInteretMA}
-                    {def $nodePtInteretMA = fetch('content','node',hash('node_id',$ptInteretMA.node_id))}
-                    {set $listePtInteretsMA = $listePtInteretsMA|append($nodePtInteretMA)}
-
-                    {concat("var pointInteretMAInfos = new Array();")}
-                    {concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|explode("'")|implode("\\'"),"';")}
-                    {concat("pointInteretMAInfos['link'] = '",$nodePtInteretMA.url_alias|ezurl,"';")}
-                    {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
-                    {concat("pointInteretMAInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_mis_avant_carte_gmap.content.original.url|ezroot('no'),"';")}
-                    {concat("pointInteretMAInfos['lat'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.latitude,"';")}
-                    {concat("pointInteretMAInfos['lng'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.longitude,"';")}
-                    {concat("listePointsInteretsMA[listePointsInteretsMA.length] = pointInteretMAInfos;")}
-                    {undef $nodePtInteretMA}
-                {/foreach}
-
-            {/if}
+			
+			{foreach $rListPtInteretsMA as $objectMisEnAvant}
+				{* Récupération du noeud principal du PI à mettre en avant *}
+				{def $mainNodeMisEnAvant = fetch('content','object',hash('object_id',$objectMisEnAvant.contentobject_id))}
+				{foreach $mainNodeMisEnAvant.assigned_nodes as $assignedNode}
+					{* Récupération du noeud du PI lié au circuit courant (qui n'est pas forcément le noeud principal) *}
+					{if $assignedNode.parent_node_id|eq($parcoursNodeId)}
+						{def $nodePtInteretMA = fetch('content','node',hash('node_id',$assignedNode.node_id))}
+						{set $listePtInteretsMA = $listePtInteretsMA|append($nodePtInteretMA)}
+					{/if}
+				{/foreach}
+				{undef $mainNodeMisEnAvant}
+				
+				{concat("var pointInteretMAInfos = new Array();")}
+				{concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|explode("'")|implode("\\'"),"';")}
+				{concat("pointInteretMAInfos['link'] = '",$nodePtInteretMA.url_alias|ezurl,"';")}
+				{concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
+				{concat("pointInteretMAInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_mis_avant_carte_gmap.content.original.url|ezroot('no'),"';")}
+				{concat("pointInteretMAInfos['lat'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.latitude,"';")}
+				{concat("pointInteretMAInfos['lng'] = '",$nodePtInteretMA.data_map.coord_geolocalisation.content.longitude,"';")}
+				{concat("listePointsInteretsMA[listePointsInteretsMA.length] = pointInteretMAInfos;")}
+				{undef $nodePtInteretMA}
+			{/foreach}
 
             {* Liste Points d'intérêts normaux *}
             {def $listePtInterets = fetch('content','tree',hash('parent_node_id',$circuit.node_id,'class_filter_type','include','class_filter_array',array('smp_point_interet')))}
             {concat("var listePointsInterets = new Array();")}
-            {if $listePtInterets|count|gt(0)}
-                {foreach $listePtInterets as $ptInteret}
+			
+			{foreach $listePtInterets as $ptInteret}
+				{def $isPtMA =false()}
+				{foreach $listePtInteretsMA as $ptIntMA}
+					{if $ptIntMA.node_id|eq($ptInteret.node_id)}
+						{set $isPtMA =true()}
+						{break}
+					{/if}
+				{/foreach}
 
-                    {def $isPtMA =false()}
-                    {foreach $listePtInteretsMA as $ptIntMA}
-                        {if $ptIntMA.node_id|eq($ptInteret.node_id)}
-                            {set $isPtMA =true()}
-                            {break}
-                        {/if}
-                    {/foreach}
+				{if $isPtMA|not}
+					{concat("var pointInteretInfos = new Array();")}
+					{concat("pointInteretInfos['name'] = '",$ptInteret.name|explode("'")|implode("\\'"),"';")}
+					{concat("pointInteretInfos['link'] = '",$ptInteret.url_alias|ezurl,"';")}
+					{concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
+					{concat("pointInteretInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_normal_carte_gmap.content.original.url|ezroot('no'),"';")}
+					{concat("pointInteretInfos['lat'] = '",$ptInteret.data_map.coord_geolocalisation.content.latitude,"';")}
+					{concat("pointInteretInfos['lng'] = '",$ptInteret.data_map.coord_geolocalisation.content.longitude,"';")}
+					{concat("listePointsInterets[listePointsInterets.length] = pointInteretInfos;")}
+				{/if}
+				{undef $isPtMA}
 
-                    {if $isPtMA|not}
-                        {concat("var pointInteretInfos = new Array();")}
-                        {concat("pointInteretInfos['name'] = '",$ptInteret.name|explode("'")|implode("\\'"),"';")}
-                        {concat("pointInteretInfos['link'] = '",$ptInteret.url_alias|ezurl,"';")}
-                        {concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
-                        {concat("pointInteretInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_normal_carte_gmap.content.original.url|ezroot('no'),"';")}
-                        {concat("pointInteretInfos['lat'] = '",$ptInteret.data_map.coord_geolocalisation.content.latitude,"';")}
-                        {concat("pointInteretInfos['lng'] = '",$ptInteret.data_map.coord_geolocalisation.content.longitude,"';")}
-                        {concat("listePointsInterets[listePointsInterets.length] = pointInteretInfos;")}
-                    {/if}
-                    {undef $isPtMA}
-
-                {/foreach}
-            {/if}
+			{/foreach}
+				
             {concat("var circuitInfos = new Array();")}
             {concat("circuitInfos['name'] = '",$circuit.name|trim|wash|explode("'")|implode("\\'"),"';")}
             {concat("circuitInfos['visuel'] = '",$circuit.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
@@ -276,3 +293,4 @@
 
  </script>
 {undef $listePointsInteretsMisEnAvant $listePointsInterets}
+{undef $parcoursNodeId}

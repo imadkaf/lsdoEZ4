@@ -65,14 +65,14 @@ div.ps-carousel-item-error
 /* Caption */
 div.ps-caption
 { 
-	background: #98e2cc;
+	background: #313D49;
 	border-bottom: 1px solid #42403f;
 	color: #fff;
 	font-size: 13px;
 	font-family: "Lucida Grande", Helvetica, Arial,Verdana, sans-serif;
 	text-align: center;
         top: auto !important;
-        bottom: 56px !important;
+        bottom: 68px !important;
         position: fixed !important;
 }
 div.ps-caption *  { display: inline; }
@@ -95,15 +95,15 @@ div.ps-caption-content
 div.ps-toolbar
 { 
 	background: #313D49;
-	
 	border-top: 1px solid #70777F;
 	color: #ffffff;
 	font-size: 13px;
 	font-family: "Lucida Grande", Helvetica, Arial,Verdana, sans-serif;
 	text-align: center;
-	height: 56px;
+	height: 68px;
 	display: table;
 	table-layout: fixed;
+	padding-top: 6px;
 }
 div.ps-toolbar * { 
 	display: block;

@@ -1,3 +1,7 @@
+{* Récupération du noeud principal du PI *}
+{* car multi-emplacement possible pour un PI mais attention : les médias et les quiz sont stockés seulement sous le noeud principal *}
+{def $nodePrincipal = fetch( 'content', 'node', hash( 'node_id', $node.main_node_id))}
+
 <div class="contenu">
 	<div class="accroche border-bottom">
         <h1 class="titre-parcours">
@@ -8,19 +12,19 @@
      	<h2>{supp_br($node.data_map.titre_point_interet.value)}</h2>
      	<div class="video">
      	{def $media_principal = false()}
-     	{set $media_principal=fetch( 'content', 'node', hash( 'node_id', $node.data_map.media_principal.content.main_node_id))}
+     	{set $media_principal=fetch( 'content', 'node', hash( 'node_id', $nodePrincipal.data_map.media_principal.content.main_node_id))}
      	{node_view_gui content_node=$media_principal view='line'}
      	</div>
      </div>
 	{def $elemnts = false()}
 	{def $listClassMedia = ezini('List_class_media', 'Class' ,'ayaline_patrimoine.ini')}
-	{set $elemnts=fetch('content','list',hash('parent_node_id',$node.node_id,
+	{set $elemnts=fetch('content','list',hash('parent_node_id',$nodePrincipal.node_id,
 											'class_filter_type','include',
 											'class_filter_array', $listClassMedia))}
 
 	{def $etat = 0}
 	{foreach $elemnts as $elt}
-		{if ne($elt.node_id,$node.data_map.media_principal.content.main_node_id)}
+		{if ne($elt.node_id,$nodePrincipal.data_map.media_principal.content.main_node_id)}
 			{set $etat = inc($etat)}
 		{/if}
 	{/foreach}
@@ -36,7 +40,7 @@
 
          <div class="liste-medias">
  {foreach $elemnts as $key=>$elt}
-		{if ne($elt.node_id,$node.data_map.media_principal.content.main_node_id)}
+		{if ne($elt.node_id,$nodePrincipal.data_map.media_principal.content.main_node_id)}
 			{if eq($elt.class_identifier,'smp_diaporama')}
 				<div class="media">
 					<a href={$elt.url_alias|ezurl} rel='external' >
@@ -120,7 +124,7 @@
             {/if}
 
         {if is_mobile()}
-            {def $node_quiz = fetch('content','tree',hash(  'parent_node_id',$node.node_id,
+            {def $node_quiz = fetch('content','tree',hash(  'parent_node_id',$nodePrincipal.node_id,
                                                             'class_filter_type','include',
                                                             'class_filter_array',array('smp_quizz'),
                                                             'limit',1
@@ -138,26 +142,25 @@
 </div>
 {if and(gt($elemnts|count,1),$etat)}
 {foreach $elemnts as $key=>$elt}
-{if ne($elt.node_id,$node.data_map.media_principal.content.main_node_id)}
-{if eq($elt.class_identifier,'smp_video_interne')}
-<div id="{concat('smp_video_interne',$key)}" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">
-{node_view_gui content_node=$elt view='line'}
-</div>
-{elseif eq($elt.class_identifier,'smp_circuit_externe')}
-<div id="{concat('smp_circuit_externe',$key)}" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">
-{node_view_gui content_node=$elt view='line'}
-</div>
-{elseif eq($elt.class_identifier,'smp_audio')}
-<div id="{concat('smp_audio',$key)}" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">
-<div class="fiche-interet">
-<div class="video">
-{node_view_gui content_node=$elt view='line'}
-</div>
-</div>
-</div>
-{/if}
-
-{/if}
+	{if ne($elt.node_id,$nodePrincipal.data_map.media_principal.content.main_node_id)}
+		{if eq($elt.class_identifier,'smp_video_interne')}
+			<div id="{concat('smp_video_interne',$key)}" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">
+			{node_view_gui content_node=$elt view='line'}
+			</div>
+		{elseif eq($elt.class_identifier,'smp_circuit_externe')}
+			<div id="{concat('smp_circuit_externe',$key)}" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">
+			{node_view_gui content_node=$elt view='line'}
+			</div>
+		{elseif eq($elt.class_identifier,'smp_audio')}
+			<div id="{concat('smp_audio',$key)}" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">
+			<div class="fiche-interet">
+			<div class="video">
+			{node_view_gui content_node=$elt view='line'}
+			</div>
+			</div>
+			</div>
+		{/if}
+	{/if}
 {/foreach}
 <!-- <div id="media_video_externe" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">video externe</div>
 <div id="media_audio" style="width: 100%; z-index: 5555; border-top: 1px solid #D1CCC8;display: none;">audio</div> -->
@@ -208,7 +211,6 @@
         {/foreach}
 
         {concat("var listeCircuits = new Array();")}
-        {*def $circuit = $node.parent.parent*}
         {if $listeDesCircuits|count|gt(0)}
         {foreach $listeDesCircuits as $keyCircuit=>$circuit}
             {* Liste Points d'intérêts Mise en avant *}
@@ -488,3 +490,4 @@
 
  </script>
 {undef $elemnts $etat $media_principal}
+{undef $nodePrincipal}
