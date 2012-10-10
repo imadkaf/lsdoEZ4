@@ -63,7 +63,7 @@ class QuizzInstantGagnantManagement extends eZPersistentObject {
         return $res;
     }
     public static function getListInstantsGagnants() {
-        $res = self::fetchObjectList(self::definition(), null, null, array('date_heure' => 'desc'));
+        $res = self::fetchObjectList(self::definition(), null, null, array('date_heure' => 'asc'));
         return $res;
     }
 
@@ -100,45 +100,23 @@ class QuizzInstantGagnantManagement extends eZPersistentObject {
 		}
 		return false;
     }
-
-    public static function randomDate($tsDeb, $tsFin) {
-		return date("Y-m-d 00:00:00", rand($tsDeb, $tsFin));
-	}
-
-	public static function nbJours($timestamp,$timestamp2) {
-		return floor(($timestamp - $timestamp2) / (3600 * 24));
-	}
-
-    public static function generate($dateDeb, $dateFin, $nbr) {
-        $DATEFORMAT = "/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/";
-        if (preg_match($DATEFORMAT, $dateDeb) && preg_match($DATEFORMAT, $dateFin)) {
-            // Récupération des dates de début et de fin demandées pour la génération
-			$dateDeb = explode('-', $dateDeb);
-            $dateFin = explode('-', $dateFin);
-            $timestampDeb = mktime(0, 0, 0, $dateDeb[1], $dateDeb[2], $dateDeb[0]);
-            $timestampFin = mktime(23, 59, 59, $dateFin[1], $dateFin[2], $dateFin[0]);
-
-			// Un seul instant par jour : vérification si le nombre d'IG à générer est inférieur ou égal au nb de jours de la période demandée
-			// TODO
-
-			// Génération du nombre d'instants gagnants sur la période demandée
-            $instantsGagnantsArray = array();
-            for ($i = 0; $i < $nbr; $i++) {
-                $randomTimestamp = randomDate($timestampDeb, $timestampFin);
-
-				// Un seul instant par jour : vérification que l'instant gagnant n'est pas déjà en BD, ni déjà généré dans le tableau
-				// TODO
-
-                QuizzInstantGagnantManagement::newSave($randomDate);
-                $instantsGagnantsArray[] = $randomDate;
-
-            }
-        }
-        return $instantsGagnantsArray;
+	
+    public static function deleteById($id) {
+        $res = self::removeObject(self::definition(), array("id" => $id));
+        return $res;
     }
-
-
-
+	
+    public static function dateExistante($timestamp) {
+        $res = self::fetchObjectList(self::definition(),
+										null,
+										array('date_heure' => array(false,
+																	array(date('Y-m-d 00:00:00',$timestamp), date('Y-m-d 23:59:59',$timestamp))
+																	)
+										)
+									);
+        return $res;
+    }
+	
 }
 
 ?>
