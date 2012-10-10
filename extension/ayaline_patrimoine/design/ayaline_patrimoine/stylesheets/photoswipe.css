@@ -138,8 +138,8 @@ div.ps-toolbar-close div.ps-toolbar-content
 
 div.ps-toolbar-previous div.ps-toolbar-content
 {
-	background: #98E2CC url('../images/diapo-prec.png') no-repeat center;
-        border: 3px solid #CBF0E5;
+	background: #313D49 url('../images/diapo-prec.png') no-repeat center;
+        border: 3px solid #70777F;
         border-radius: 40px;
         -moz-border-radius :40px;-webkit-border-radius: 40px;behavior: url('css/pie.htc');position:relative;
 }
@@ -152,8 +152,8 @@ div.ps-toolbar-previous-disabled div.ps-toolbar-content
 div.ps-toolbar-next div.ps-toolbar-content
 {
     display:block;
-	background: #98E2CC url('../images/diapo-suiv.png') no-repeat center;
-border: 3px solid #CBF0E5;
+	background: #313D49 url('../images/diapo-suiv.png') no-repeat center;
+border: 3px solid #70777F;
 border-radius : 40px;
 -moz-border-radius :40px;-webkit-border-radius: 40px;behavior: url('css/pie.htc');position:relative;
 }
@@ -165,8 +165,8 @@ div.ps-toolbar-next-disabled div.ps-toolbar-content
 
 div.ps-toolbar-play div.ps-toolbar-content
 {
-	background: #98E2CC url('../images/diapo-pause.png') no-repeat center;
-        border: 3px solid #CBF0E5;
+	background: #313D49 url('../images/diapo-pause.png') no-repeat center;
+        border: 3px solid #70777F;
         border-radius: 40px;
         -moz-border-radius :40px;-webkit-border-radius: 40px;behavior: url('css/pie.htc');position:relative;
 }

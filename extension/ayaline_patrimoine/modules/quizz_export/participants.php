@@ -95,7 +95,7 @@ $Result['left_menu'] = 'design:parts/quizz_export/left_menu.tpl';
 $Result['content'] = $tpl->fetch('design:quizz_export/export_participants.tpl');
 $Result['path'] = array(
     array('url' => false,
-        'text' => 'Quizz export'),
+        'text' => 'Quizz'),
     array('url' => false,
         'text' => 'Participants')
     );

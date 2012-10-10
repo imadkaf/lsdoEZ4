@@ -1,7 +1,6 @@
 {* Récupération du noeud principal du PI *}
 {* car multi-emplacement possible pour un PI mais attention : les médias et les quiz sont stockés seulement sous le noeud principal *}
 {def $nodePrincipal = fetch( 'content', 'node', hash( 'node_id', $node.main_node_id))}
-
 <div class="contenu">
 	<div class="accroche border-bottom">
         <h1 class="titre-parcours">
