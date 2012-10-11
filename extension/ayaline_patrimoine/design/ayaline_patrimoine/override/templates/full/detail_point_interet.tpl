@@ -229,7 +229,7 @@
 	                    {set $listePtInteretsMA = $listePtInteretsMA|append($nodePtInteretMA)}
 
 	                    {concat("var pointInteretMAInfos = new Array();")}
-	                    {concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|explode("'")|implode("\\'"),"';")}
+	                    {concat("pointInteretMAInfos['name'] = '",supp_br($nodePtInteretMA.data_map.titre_point_interet.value)|explode("'")|implode("\\'"),"';")}
                     	{concat("pointInteretMAInfos['link'] = '",$nodePtInteretMA.url_alias|ezurl,"';")}
 	                    {concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
        					{concat("pointInteretMAInfos['bg-color'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.code_html_couleur.value|trim|wash,"';")}
@@ -273,7 +273,7 @@
 	                	{/if}
 	                	{if $showPI|eq(true())}
 	                        {concat("var pointInteretInfos = new Array();")}
-							{concat("pointInteretInfos['name'] = '",supp_br($ptInteret.name)|explode("'")|implode("\\'"),"';")}
+							{concat("pointInteretInfos['name'] = '",supp_br($ptInteret.data_map.titre_point_interet.value)|explode("'")|implode("\\'"),"';")}
                         	{concat("pointInteretInfos['link'] = '",$ptInteret.url_alias|ezurl,"';")}
 	                        {concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.original.url|ezroot('no'),"';")}
            					{concat("pointInteretInfos['bg-color'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.code_html_couleur.value|trim|wash,"';")}
