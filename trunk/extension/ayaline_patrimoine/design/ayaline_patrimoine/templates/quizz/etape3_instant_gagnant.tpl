@@ -37,7 +37,9 @@
     </div>
     <div class="bloc-statut-resultat arriere-plan-jaune">
         <p class="statut-resultat"><span class="text-vert">Instant gagnant : </span>Gagné</p>
-        <p class="bold font-size-96">Venez vite chercher votre lot à <a href="#" class="texte-vert-souligne">l'office de tourisme</a></p>
+        <p class="bold font-size-96">Venez vite chercher votre lot à <a 
+		href="{ezini('Quizz', 'urlPageContactSiteMobile', 'ayaline_patrimoine.ini')}" 
+		target="_blank" class="texte-vert-souligne">l'Office de Tourisme</a>.</p>
     </div>
 
     {def $list_seggestions=fetch('content', 'related_objects',hash( 'object_id', $config_generale.object.id,
