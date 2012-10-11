@@ -13,7 +13,7 @@ CSSFileListPatrimoine[]=jquery.mobile.css
 CSSFileListPatrimoine[]=declinaison_stylesheets.css
 
 [JavaScriptSettings]
-#RequiredJavaScriptListPatrimoine[]=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
+RequiredJavaScriptListPatrimoine[]
 RequiredJavaScriptListPatrimoine[]=jquery.min.js
 JavaScriptListPatrimoine[]
 JavaScriptListPatrimoine[]=jquery.mobile.min.js
