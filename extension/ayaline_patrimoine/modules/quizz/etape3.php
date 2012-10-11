@@ -132,19 +132,44 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
 
                 //On envoi le mail de confirmation
         		if($patrimoine_ini->hasVariable('Quizz', 'emailExp')){
-        			$sender = new ezcMailAddress($patrimoine_ini->variable('Quizz', 'emailExp'), "l'office de tourisme");
-        			$bcc = new ezcMailAddress($patrimoine_ini->variable('Quizz', 'emailExp'), "l'office de tourisme");
+        			$sender = new ezcMailAddress($patrimoine_ini->variable('Quizz', 'emailExp'), "Office de Tourisme des Sables d'Olonne");
+        			$bcc = new ezcMailAddress($patrimoine_ini->variable('Quizz', 'emailExp'), "Office de Tourisme des Sables d'Olonne");
         		}
-        		$receiver = $row['email'];
-        		$receiverName = $row['prenom']." ".$row['nom'];
-                $subject = 'Vous avez gagné l\'instant gagnant';
-                $message = '<html>
+        		$receiver 		= $row['email'];
+        		$receiverName 	= $row['prenom']." ".$row['nom'];
+                $subject 		= '[D\'Code Les Sables] Vous avez gagné !';
+                
+				// Date et heure de la participation
+				setlocale(LC_ALL, "fr_FR");
+				$tabDateHeureIg = explode(' ', $row['date_heure_participation']);
+				$tabDateIg 		= explode('-', $tabDateHeureIg[0]);
+				$tabHeureIg 	= explode(':', $tabDateHeureIg[1]);
+				$timestampIG 	= mktime ($tabHeureIg[0], $tabHeureIg[1], $tabHeureIg[2], $tabDateIg[1], $tabDateIg[2], $tabDateIg[0] );
+				$affichageDateHeureIg = utf8_encode(strftime ('%A %d %B %G', $timestampIG)) . " à " . date('H:i', $timestampIG);
+				
+				// Corps du mail
+				$message = '<html>
                 				<head>
                 					<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       								<title>Instant gagnant</title>
+       								<title>[D\'Code Les Sables] Vous avez gagné !</title>
       							</head>
       							<body>
-                					Félicitations,<br /><br />Vous avez gagné l\'instant gagnant lors de votre participation le '.$row['date_heure_participation'].'.<br />Venez vite chercher votre lot à l\'office de tourisme<br /><a href="http://lessables.mobi/Fiche/Detail/2250/lessables.mobi~Infos-pratiques~Offices-de-Tourisme/Office-de-Tourisme-des-Sables-d-Olonne">Nous contacter</a>
+                					<p>Bonjour,</p>
+									<p>Félicitations, vous avez gagné l\'instant gagnant lors de votre participation du '. $affichageDateHeureIg .' au quizz de D\'Code Les Sables.</p>
+									<p>Venez vite chercher votre lot à l\'Office de Tourisme en vous munissant du présent mail et de la référence suivante : P'. $participationID . '-IG'. $objInstantGagnant->id . '-Q'. $param_quizzNodeId .'-R'. $quizzReponse . '</p>
+									<p>A bientôt,</p>
+									<p>Office de tourisme des Sables d\'Olonne<br/>
+									1, promenade Joffre<br/>
+									85100 Les Sables d\'Olonne.<br/>
+									Tél : 02.51.96.85.85<br/>
+									Fax : 02.51.96.85.71<br/>
+									E-mail : info@lessablesdolonne-tourisme.com<br/>
+									<a href="http://www.lessablesdolonne-tourisme.com">www.lessablesdolonne-tourisme.com</a></p>
+									<p>&nbsp;</p>
+									<p>&nbsp;</p>
+									<p>-----------</p>
+									<p>Ce mail vous a été envoyé automatiquement.</p>
+									<p>&nbsp;</p>
                 				</body>
                 			</html>';
 
