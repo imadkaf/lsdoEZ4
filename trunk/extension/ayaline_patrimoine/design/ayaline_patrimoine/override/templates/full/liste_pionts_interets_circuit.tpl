@@ -82,7 +82,7 @@
 				{undef $mainNodeMisEnAvant}
 				
 				{concat("var pointInteretMAInfos = new Array();")}
-				{concat("pointInteretMAInfos['name'] = '",$nodePtInteretMA.name|explode("'")|implode("\\'"),"';")}
+				{concat("pointInteretMAInfos['name'] = '",supp_br($nodePtInteretMA.data_map.titre_point_interet.value)|explode("'")|implode("\\'"),"';")}
 				{concat("pointInteretMAInfos['link'] = '",$nodePtInteretMA.url_alias|ezurl,"';")}
 				{concat("pointInteretMAInfos['visuel'] = '",$nodePtInteretMA.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
 				{concat("pointInteretMAInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_mis_avant_carte_gmap.content.original.url|ezroot('no'),"';")}
@@ -107,7 +107,7 @@
 
 				{if $isPtMA|not}
 					{concat("var pointInteretInfos = new Array();")}
-					{concat("pointInteretInfos['name'] = '",$ptInteret.name|explode("'")|implode("\\'"),"';")}
+					{concat("pointInteretInfos['name'] = '",supp_br($ptInteret.data_map.titre_point_interet.value)|explode("'")|implode("\\'"),"';")}
 					{concat("pointInteretInfos['link'] = '",$ptInteret.url_alias|ezurl,"';")}
 					{concat("pointInteretInfos['visuel'] = '",$ptInteret.data_map.visuel_normal.content.imageInfowinGmap.url|ezroot('no'),"';")}
 					{concat("pointInteretInfos['picto'] = '",$circuit.data_map.declinaison_circuit.content.current.data_map.pictogramme_point_interet_normal_carte_gmap.content.original.url|ezroot('no'),"';")}
