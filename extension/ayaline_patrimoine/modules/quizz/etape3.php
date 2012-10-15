@@ -130,10 +130,10 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
             case "1"://Bonne Réponse Instant Gagnant :Gagné
                 $Result['content'] = $tpl->fetch('design:quizz/etape3_instant_gagnant.tpl');
 
-                //On envoi le mail de confirmation
+                // Envoi du mail de confirmation à l'internaute (avec l'OT en copie visible)
         		if($patrimoine_ini->hasVariable('Quizz', 'emailExp')){
-        			$sender = new ezcMailAddress($patrimoine_ini->variable('Quizz', 'emailExp'), "Office de Tourisme des Sables d'Olonne");
-        			$bcc = new ezcMailAddress($patrimoine_ini->variable('Quizz', 'emailExp'), "Office de Tourisme des Sables d'Olonne");
+        			$emailFrom	= new ezcMailAddress($patrimoine_ini->variable('Quizz', 'emailExp'), "Office de Tourisme des Sables d'Olonne");
+        			$emailCc	= new ezcMailAddress($patrimoine_ini->variable('Quizz', 'emailCopieVisible'), "Office de Tourisme des Sables d'Olonne");
         		}
         		$receiver 		= $row['email'];
         		$receiverName 	= $row['prenom']." ".$row['nom'];
@@ -154,9 +154,9 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
        								<title>[D\'Code Les Sables] Vous avez gagné !</title>
       							</head>
       							<body>
-                					<p>Bonjour,</p>
+                					<p>Bonjour ' . $row['prenom']." ".$row['nom'] . ',</p>
 									<p>Félicitations, vous avez gagné l\'instant gagnant lors de votre participation du '. $affichageDateHeureIg .' au quizz de D\'Code Les Sables.</p>
-									<p>Venez vite chercher votre lot à l\'Office de Tourisme en vous munissant du présent mail et de la référence suivante : P'. $participationID . '-IG'. $objInstantGagnant->id . '-Q'. $param_quizzNodeId .'-R'. $quizzReponse . '</p>
+									<p>Venez vite chercher votre lot à l\'Office de Tourisme en vous munissant du présent mail et de la référence suivante : P'. $participationID . '-IG'. $objInstantGagnant->id . '-Q'. $param_quizzNodeId .'-R'. $quizzReponse . '/'. $row['email'] .'</p>
 									<p>A bientôt,</p>
 									<p>Office de tourisme des Sables d\'Olonne<br/>
 									1, promenade Joffre<br/>
@@ -165,7 +165,14 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
 									Fax : 02.51.96.85.71<br/>
 									E-mail : info@lessablesdolonne-tourisme.com<br/>
 									<a href="http://www.lessablesdolonne-tourisme.com">www.lessablesdolonne-tourisme.com</a></p>
-									<p>&nbsp;</p>
+									<p>Horaires d\'ouverture :<br/>
+									Octobre à mars :<br/>
+									Lundi et dimanche 14h-17h30.<br/>
+									Du mardi au samedi 10h-12h30 et 14h-17h30.<br/>
+									Avril à juin, et septembre :<br/>
+									Tous les jours 10h-12h30 et 14h-18h.<br/>
+									Juillet-Août :<br/>
+									Tous les jours 9h-19h.</p>
 									<p>&nbsp;</p>
 									<p>-----------</p>
 									<p>Ce mail vous a été envoyé automatiquement.</p>
@@ -175,7 +182,7 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
 
                 // Objet mail : initialisation
                 $mail = new ezcMailComposer();
-                $mail->from = $sender;
+                $mail->from = $emailFrom;
                 $mail->subject = $subject;
                 $mail->charset = ezIni::instance()->variable( 'MailSettings', 'OutputCharset' );
                 $mail->subjectCharset = $mail->charset;
@@ -183,7 +190,7 @@ if (isMobile() && $http->hasSessionVariable('quizzNodeId')) {
 
                 // Envoi au participant
                 $mail->addTo( new ezcMailAddress( $receiver, $receiverName ) );
-                $mail->addBcc( $bcc );
+                $mail->addCc( $emailCc );
 
                 // Build du message
                 $mail->build();
