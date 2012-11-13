@@ -40,7 +40,7 @@
 						<a href={$enfants.data_map.image.content.original.url|ezurl} class="galeriephototheque">{attribute_view_gui attribute=$enfants.data_map.image image_class='phototheque'}</a>
 						{*Affichage La légende de l'image*}
 						{if $enfants.data_map.caption.has_content}
-							{attribute_view_gui attribute=$enfants.data_map.caption}
+							<div class="phototheque">{attribute_view_gui attribute=$enfants.data_map.caption}</div>
 						{/if}
 						<div class="phototheque image"><a href={concat("content/download/", $enfants.contentobject_id, "/", $enfants.data_map.image.id, "/version/", $enfants.data_map.image.version, "/file/", $enfants.data_map.image.content.original_filename|urlencode)|ezurl}>> {"Download"|i18n("ayaline")}</a></div>
 						
