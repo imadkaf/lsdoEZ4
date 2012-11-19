@@ -19,17 +19,22 @@
 				<xsl:for-each select="resultats/details/detail">
 					<xsl:variable name="intitule"><xsl:if test="$langue = 'en'"><xsl:value-of select="intituleGb"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="intitule"/></xsl:if></xsl:variable>
 					<xsl:variable name="ficheLien"><xsl:value-of select="$cheminRacineSite"/>/Fiche/Detail/<xsl:value-of select="@id"/>/<xsl:value-of select="$sitMiseEnAvantUrlAlias"/>/<xsl:value-of select="translate(normalize-space(translate($intitule, concat('%/-?_.', $quot, $apos, $amp), '        ')), ' ', '-')"/></xsl:variable>
-					<li>
-						<xsl:attribute name="style"><xsl:if test="position() &lt; count(../detail)"></xsl:if></xsl:attribute>
+					<li style="padding: 0 0 16px;">
+						<!-- <xsl:attribute name="style"><xsl:if test="position() &lt; count(../detail)"></xsl:if></xsl:attribute> -->
 						<a style="overflow:hidden;"><xsl:attribute name="id">fiche-<xsl:value-of select="@id"/></xsl:attribute><![CDATA[ ]]></a>
 						
-						<a>
+						<a style="display:block;float: left;">
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 							<img alt="">
 								<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
 									<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=100</xsl:attribute>
 								</xsl:if>
-							</img>
+							</img><br/>
+							<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
+									<xsl:for-each select="newPhotos/newPhoto">
+										<span style="font-size:9px;display: block;text-align: center;width:100px;"><xsl:value-of select="@legende"/><![CDATA[ ]]></span>
+									</xsl:for-each>
+							</xsl:if>
 						</a>
 						
 						<div style="margin-left:110px">
@@ -80,6 +85,7 @@
 								</ul>
 							</xsl:if>
 						</div>
+						<p class="clear"><![CDATA[ ]]></p>
 					</li>
 				</xsl:for-each>
 			</ul>
