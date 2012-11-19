@@ -8,7 +8,9 @@
 					<a>
 						<xsl:attribute name="rel"><xsl:value-of select="."/></xsl:attribute>
 						<xsl:attribute name="href"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=306&amp;amp;mw=1</xsl:attribute>
-						<img alt="">
+						<img>
+							<xsl:attribute name="alt"><xsl:value-of select="@legende"/></xsl:attribute>
+							<xsl:attribute name="title"><xsl:value-of select="@legende"/></xsl:attribute>
 							<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=60&amp;amp;mw=1</xsl:attribute>
 						</img>
 					</a>

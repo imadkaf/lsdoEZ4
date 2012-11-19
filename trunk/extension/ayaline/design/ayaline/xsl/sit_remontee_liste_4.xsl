@@ -46,7 +46,12 @@
 								</img>
 							</a>
 							<p class="clear"><![CDATA[ ]]></p>
-							
+							<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
+									<xsl:for-each select="newPhotos/newPhoto[position() = 1]">
+										<span style="font-size:11px"><xsl:value-of select="@legende"/><![CDATA[ ]]></span>
+									</xsl:for-each>
+							</xsl:if>
+							<p class="clear"><![CDATA[ ]]></p>
 							<xsl:call-template name="periodes-ouverture"/>
 							<h3 style="font-size: 20px; padding: 10px 0px 10px 0px;">
 								<a>

@@ -34,8 +34,12 @@
 								<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
 							</xsl:if-->
 						</img>
-					</a>
-					
+						<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
+									<xsl:for-each select="newPhotos/newPhoto[position() = 1]">
+										<span style="font-size:9px;display: block;text-align: center;"><xsl:value-of select="@legende"/><![CDATA[ ]]></span>
+									</xsl:for-each>
+					</xsl:if>
+					</a>					
 					<h3 style="padding: 0px 0 10px;">
 						<a>
 							<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>

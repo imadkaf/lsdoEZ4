@@ -64,14 +64,18 @@
     background: url(classic-loader.gif) no-repeat 2px 2px;
 }
 .galleria-info {
-    width: 50%;
+    /*width: 50%;
     top: 15px;
-    left: 15px;
+    left: 15px;*/
     z-index: 2;
-    position: absolute;
+    position: absolute; 
+    text-align: center;
+	width: 100%;
+	left: 0;
+	top: 190px;
 }
 .galleria-info-text {
-    background-color: #000;
+    /*background-color: #000;*/
     padding: 12px;
     display: none;
     /* IE7 */ zoom:1;
@@ -81,12 +85,14 @@
     margin: 0;
     color: #fff;
 	margin-bottom: 7px;
+	display: none!important;
 }
 .galleria-info-description {
     font: italic 12px/1.4 georgia,serif;
     margin: 0;
     color: #bbb;
 }
+/*
 .galleria-info-close {
     width: 9px;
     height: 9px;
@@ -124,7 +130,7 @@
 .touch .galleria-info-link:active {
     opacity: 1;
     filter: alpha(opacity=100);
-}
+}*/
 .galleria-image-nav {
     position: absolute;
     top: 50%;
