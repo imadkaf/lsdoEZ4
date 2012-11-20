@@ -18,7 +18,9 @@
 	<xsl:template match="/produit">
 		<xsl:variable name="intitule"><xsl:if test="$langue = 'en'"><xsl:value-of select="intituleGb"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="intitule"/></xsl:if></xsl:variable>
 		<div class="box-left">
-			<xsl:call-template name="galerie-fiche-detail"/>
+			<xsl:call-template name="galerie-fiche-detail">
+				<xsl:with-param name="titrefiche" select="$intitule"/>
+			</xsl:call-template>
 			
 			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAOZJQqoDBwAknMtPNKR-dvRSi2OoyjRwg8X5jAJmNj4togrBv2xSClpdvpd4FJNt4C5i-i6aTtWzs-g"><![CDATA[ ]]></script>
 			

@@ -3369,3 +3369,8 @@ body>div.ui-dialog>div.ui-corner-all {
 .button-submit-valider {
 	background: #E643AC;
 }
+
+.galleria-lightbox-title{
+	color: #000;
+	font-weight: bold;
+}
