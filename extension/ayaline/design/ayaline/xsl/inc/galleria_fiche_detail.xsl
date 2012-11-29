@@ -27,6 +27,7 @@
 					// Initialize Galleria
 					$('#galleria').galleria({
 						autoplay: 5000,
+						height: 300,
 						lightbox: true,
 						debug: false // debug is now off for deployment
 					});
