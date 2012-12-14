@@ -38,6 +38,8 @@
 						</h3>
 						
 						<a href={$enfants.data_map.image.content.original.url|ezurl} class="galeriephototheque">{attribute_view_gui attribute=$enfants.data_map.image image_class='phototheque'}</a>
+						<span class="legende-phototheque">{$enfants.data_map.image.content.alternative_text}</span>
+						
 						{*Affichage La légende de l'image*}
 						{if $enfants.data_map.caption.has_content}
 							<div class="phototheque">{attribute_view_gui attribute=$enfants.data_map.caption}</div>

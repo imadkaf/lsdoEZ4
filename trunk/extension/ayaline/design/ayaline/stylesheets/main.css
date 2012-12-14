@@ -3374,3 +3374,11 @@ body>div.ui-dialog>div.ui-corner-all {
 	color: #000;
 	font-weight: bold;
 }
+
+/*** Mantis 349 ***/
+.legende-phototheque{
+	text-align: center;
+	font-style: italic;
+	display: block;
+}
+/******************/
