@@ -201,7 +201,7 @@
 		
 		<div style="float:left; width: 310px;">
 			<h2 class="bloc-detail-h2" style="width: 295px; margin-left:10px;"><xsl:value-of select="$intitule"/><![CDATA[ ]]></h2>
-			<div style="clear: both; margin-left:10px;"><xsl:call-template name="periodes-ouverture"/></div>
+			<div style="clear: both; margin-left:10px;"><xsl:call-template name="periodes-ouverture"/><![CDATA[ ]]></div>
 			<![CDATA[ ]]>
 			<p class="clear" style="margin-bottom:20px;"></p>
 			
