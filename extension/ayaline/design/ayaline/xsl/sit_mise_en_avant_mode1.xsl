@@ -36,15 +36,26 @@
 							
 							<a>
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-								<img alt="" style="width: 338px; display: block; max-height: 250px;">
+								<img style="width: 338px; display: block; max-height: 250px;">
 									<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
+										<xsl:if test="newPhotos/newPhoto[@nom] or newPhotos/newPhoto[@legende]">
+											<xsl:attribute name="alt"><xsl:if test="newPhotos/newPhoto[@nom]"><xsl:value-of select="newPhotos/newPhoto/@nom"/> - </xsl:if><xsl:if test="newPhotos/newPhoto[@legende]"><xsl:value-of select="newPhotos/newPhoto/@legende"/></xsl:if></xsl:attribute>
+											<xsl:attribute name="title"><xsl:if test="newPhotos/newPhoto[@nom]"><xsl:value-of select="newPhotos/newPhoto/@nom"/> - </xsl:if><xsl:if test="newPhotos/newPhoto[@legende]"><xsl:value-of select="newPhotos/newPhoto/@legende"/></xsl:if></xsl:attribute>
+										</xsl:if>
+										<xsl:if test="not(newPhotos/newPhoto[@nom]) and not(newPhotos/newPhoto[@legende])">
+											<xsl:attribute name="alt"><xsl:value-of select="$intitule"/></xsl:attribute>
+											<xsl:attribute name="title"><xsl:value-of select="$intitule"/></xsl:attribute>
+										</xsl:if>
+										
 										<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=338</xsl:attribute>
 									</xsl:if>
+									
 									<xsl:if test="count(newPhotos/newPhoto) = 0">
 										<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
 									</xsl:if>
 								</img>
 							</a>
+							
 							<p class="clear"><![CDATA[ ]]></p>
 							<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
 									<xsl:for-each select="newPhotos/newPhoto[position() = 1]">
@@ -55,6 +66,7 @@
 							<h3 style="padding: 10px 0px 10px 0px;">
 								<a>
 									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
+									<xsl:attribute name="title"><xsl:value-of select="$intitule"/></xsl:attribute>
 									<strong><xsl:value-of select="$intitule"/><![CDATA[ ]]></strong>
 								</a>
 							</h3>

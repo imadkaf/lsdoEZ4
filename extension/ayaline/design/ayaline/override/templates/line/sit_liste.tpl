@@ -9,9 +9,9 @@
 {/if}
 
 <h3 class="bloc-liste-h3">
-	<a href={$node.url_alias|ezurl}>{if is_set($nomEnfant)}{$nomEnfant}{else}{$node.name|wash}{/if}</a>
+	<a href={$node.url_alias|ezurl} title="{if is_set($nomEnfant)}{$nomEnfant}{else}{$node.name|wash}{/if}">{if is_set($nomEnfant)}{$nomEnfant}{else}{$node.name|wash}{/if}</a>
 </h3>
-	
+
 {if $node.data_map.thumbnail.has_content}
 	<a href={$node.url_alias|ezurl}>{attribute_view_gui attribute=$node.data_map.thumbnail image_class=$typeImage}</a>
 {else}

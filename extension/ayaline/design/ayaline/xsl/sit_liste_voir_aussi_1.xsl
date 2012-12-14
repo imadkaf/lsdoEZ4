@@ -27,19 +27,24 @@
 							<li>
 								<a>
 									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-									<img alt="">
+									<img>
 										<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
+											<xsl:if test="newPhotos/newPhoto[@nom] or newPhotos/newPhoto[@legende]">
+												<xsl:attribute name="alt"><xsl:if test="newPhotos/newPhoto[@nom]"><xsl:value-of select="newPhotos/newPhoto/@nom"/> - </xsl:if><xsl:if test="newPhotos/newPhoto[@legende]"><xsl:value-of select="newPhotos/newPhoto/@legende"/></xsl:if></xsl:attribute>
+												<xsl:attribute name="title"><xsl:if test="newPhotos/newPhoto[@nom]"><xsl:value-of select="newPhotos/newPhoto/@nom"/> - </xsl:if><xsl:if test="newPhotos/newPhoto[@legende]"><xsl:value-of select="newPhotos/newPhoto/@legende"/></xsl:if></xsl:attribute>
+											</xsl:if>
+											<xsl:if test="not(newPhotos/newPhoto[@nom]) and not(newPhotos/newPhoto[@legende])">
+												<xsl:attribute name="alt"><xsl:value-of select="$intitule"/></xsl:attribute>
+												<xsl:attribute name="title"><xsl:value-of select="$intitule"/></xsl:attribute>
+											</xsl:if>
+											
 											<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=85</xsl:attribute>
 										</xsl:if>
-										<!--xsl:if test="count(newPhotos/newPhoto) = 0">
-											<xsl:attribute name="src"><xsl:value-of select="$cheminImages"/>image_fiche_defaut_moyenne.jpg</xsl:attribute>
-											<xsl:attribute name="style">width:85px</xsl:attribute>
-										</xsl:if-->
 									</img>
 								</a>
 								
 								<div style="margin-left: 100px;">
-									<h3><a><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:value-of select="$intitule"/><![CDATA[ ]]></a></h3>
+									<h3><a><xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute><xsl:attribute name="title"><xsl:value-of select="$intitule"/></xsl:attribute><xsl:value-of select="$intitule"/><![CDATA[ ]]></a></h3>
 									<xsl:if test="criteres/critere[@id='851000005']">
 										<p class="bloc-stars">
 											<xsl:choose>
