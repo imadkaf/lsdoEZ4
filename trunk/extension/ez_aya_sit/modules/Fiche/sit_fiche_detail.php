@@ -3,6 +3,8 @@
 require_once('kernel/common/template.php');
 require_once('extension/ez_aya_sit/classes/sit_utils.class.php');
 
+$Module = $Params['Module'];
+
 $tpl = templateInit();
 
 $contentIni = eZINI::instance('content.ini');
@@ -184,6 +186,7 @@ $xsltParemters['anneeCourante'] = date("Y");
 
 $categorie = null;
 $intituleFiche = "Fiche inconnue";
+$dateFinValidite = '';
 if (file_exists($cheminFichierCacheXml)) {
 	$xmlFiche = simplexml_load_file($cheminFichierCacheXml);
 	if ($xmlFiche) {
@@ -196,6 +199,18 @@ if (file_exists($cheminFichierCacheXml)) {
 		if ($intituleFicheNode && count($intituleFicheNode) > 0) {
 			$intituleFiche = utf8_decode("".$intituleFicheNode[0]);
 		}
+		
+		$dateFinValiditeFicheNode = $xmlFiche->xpath('/produit/dateValidite/dateValiditeFin');
+		if ($dateFinValiditeFicheNode && count($dateFinValiditeFicheNode) > 0) {
+			$dateFinValidite = utf8_decode("".$dateFinValiditeFicheNode[0]);
+		}
+	}
+}
+
+//Si la date de validite est depassee, retour a l'accueil
+if($dateFinValidite != '' && strtotime($dateFinValidite) != ''){
+	if(strtotime($dateFinValidite) < time()){
+		$Module->redirectTo('/');
 	}
 }
 
