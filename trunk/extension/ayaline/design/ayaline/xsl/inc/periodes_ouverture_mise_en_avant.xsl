@@ -11,7 +11,7 @@
 		<xsl:if test="count(periodesOuvertures/periodeOuverture) &gt; 0">
 			<div>
 				<div>
-					<xsl:for-each select="periodesOuvertures/periodeOuverture">
+					<xsl:for-each select="periodesOuvertures/periodeOuverture[position() = last()]">
 						<div>
 							<xsl:attribute name="style">background:url('<xsl:value-of select="$cheminImages"/>picto_calendrier.png') no-repeat 0 50%;padding:2px 0 2px 23px</xsl:attribute>
 							<xsl:if test="periodeOuvertureDebut = periodeOuvertureFin">
