@@ -11,7 +11,7 @@
 		<xsl:if test="count(periodesOuvertures/periodeOuverture) &gt; 0">
 			<div>
 				<div>
-					<xsl:for-each select="periodesOuvertures/periodeOuverture">
+					<xsl:for-each select="periodesOuvertures/periodeOuverture[position() = last()]">
 						<div>
 							<xsl:attribute name="style">margin:5px 0 0px 0px</xsl:attribute>
 							<xsl:if test="periodeOuvertureDebut = periodeOuvertureFin">
