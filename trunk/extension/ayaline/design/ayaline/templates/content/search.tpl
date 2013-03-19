@@ -1,3 +1,4 @@
+{set-block scope=root variable=cache_ttl}0{/set-block}
 {def $search=false()}
 {if $use_template_search}
     {set $page_limit=10}
