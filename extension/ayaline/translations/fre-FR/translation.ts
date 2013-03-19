@@ -343,11 +343,11 @@
 	    </message>
 	    <message>
 	        <source>Reserve</source>
-	        <translation>Réserver</translation>
+	        <translation>Rechercher</translation>
 	    </message>
 	    <message>
 	        <source>I search</source>
-	        <translation>Je recherche</translation>
+	        <translation>Les disponibilités</translation>
 	    </message>
 	    <message>
 	        <source>Access to press zone</source>
