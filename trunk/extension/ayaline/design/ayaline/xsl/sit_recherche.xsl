@@ -315,7 +315,7 @@
 						</xsl:choose>
 					</div>
 				</xsl:if>
-			</xsl:for-each>
+			</xsl:for-each>			
 			
 			<div style="text-align:right;margin-bottom:5px"><a style="display:block;">
 				<xsl:attribute name="href"><xsl:value-of select="$lienCourant"/><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute>
