@@ -92,7 +92,7 @@
 					<label>{$node.data_map.bons_plans_sejours.contentclass_attribute_name|wash()}</label>
 				</div>
 
-				<div class="block">
+				{*<div class="block">
 					<br />
 					<h2>{"Security code"|i18n("ayaline")}<strong class="required">*</strong>:</h2>
 				</div>
@@ -100,7 +100,7 @@
 					<p class="text-captcha">{"Tape the code below. If you cannot read all the letters or numbers"|i18n("ayaline")}, <a href="javascript:Recaptcha.reload ();">{"Clic here"|i18n("ayaline")}</a>.</p>
 					<br />
 					{attribute_view_gui attribute = $node.data_map.recapture}
-				</div>
+				</div>*}
 				
 				<div class="block button">
 					<input name="TopLevelNode" value="{$node.node_id}" type="hidden" />
