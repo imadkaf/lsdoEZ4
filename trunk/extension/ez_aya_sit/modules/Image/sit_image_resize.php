@@ -44,7 +44,7 @@ if (file_exists($cheminFichierCacheImagesResized)) {
 $requestHeaders = getallheaders();
 $imageType = "";
 if (!file_exists($cheminFichierCacheImagesResized) || ($fs && time() > $fs['mtime'] + $dureeVieCache)) {
-	$contenuImagesDistant = SitUtils::urlGetContentsCurlCustom($fileName, 120, file_exists($cheminFichierCacheImages) ? filemtime($cheminFichierCacheImages) : 60);
+	$contenuImagesDistant = SitUtils::urlGetContentsCurlCustom($fileName, 5, file_exists($cheminFichierCacheImages) ? filemtime($cheminFichierCacheImages) : 60);
 	if ($contenuImagesDistant) {
 		file_put_contents($cheminFichierCacheImages, $contenuImagesDistant, LOCK_EX);
 	}
