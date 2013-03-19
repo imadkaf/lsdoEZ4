@@ -45,7 +45,8 @@
 				{def $googleAccountKey = ezini('TagsGA','googleAccountKey','ezurlga.ini')}
 						<script type="text/javascript">
 							var _gaq = _gaq || [];
-							_gaq.push(['_setAccount', '{$googleAccountKey}']);
+							{*_gaq.push(['_setAccount', '{$googleAccountKey}']); prend en compte celui de l'extension ayaline... TODO*}
+							_gaq.push(['_setAccount', 'UA-16152350-4']);
 							_gaq.push(['_setDomainName', 'none']);
 						    _gaq.push(['_setAllowLinker', true]);
 							_gaq.push(['_trackPageview']);
