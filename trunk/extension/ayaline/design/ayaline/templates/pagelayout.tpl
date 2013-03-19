@@ -225,8 +225,8 @@
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', '{$googleAccountKey}']);
-			_gaq.push(['_setDomainName', 'none']);
-		    _gaq.push(['_setAllowLinker', true]);
+			_gaq.push(['_setDomainName', '{ezini('TagsGA','domain','ezurlga.ini')}']);
+			_gaq.push(['_trackPageLoadTime']);
 			_gaq.push(['_trackPageview']);
 {literal}
 			(function() {
