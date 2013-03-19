@@ -10,6 +10,9 @@ $doc = new DOMDocument("1.0", "UTF-8");
 $root_elt = $doc->createElement('add');
 $doc->appendChild($root_elt);
 
+$ayalineIni = eZINI::instance('ez_aya_sitsearch.ini','extension/ayaline_mobi/settings',null,null,null,true);
+$racineId = $ayalineIni->variable('Subtree','TabSearch');
+
 //Récupérer toutes les objets de type "SIT Liste" (fetch content list)
 $fetchParameters = array(
 	'parent_node_id' => 2,
@@ -83,7 +86,6 @@ foreach ($nodeObjects as $nodeObject) {
 	//var_dump(mb_detect_encoding($response));
 	$response = iconv( "ISO-8859-1", "UTF-8//TRANSLIT", $response );
     $xml = simplexml_load_string($response, null);
-
     
 	$produits = $xml->xpath('//resultats/produit');	
 	$details = $xml->xpath('//resultats/details/detail');
@@ -124,11 +126,19 @@ foreach ($nodeObjects as $nodeObject) {
 		$meta_is_invisible_b->setAttribute('name', 'meta_is_invisible_b');
 		$note_elt->appendChild($meta_is_invisible_b); 
 		
-		$meta_path_si = $doc->createElement('field', '99999');
+		// cas particulier pour le site mobile
+		$port = 99999;
+		$arrayId= explode('/',$nodeObject->PathString); // valeur usuelle : /1/2/1559/1561/1614/
+		if (in_array($racineId,$arrayId)) { // test si le noeud fait partie de l'arbo du site mobile
+		//	$port = 99998;
+		}
+		
+		
+		$meta_path_si = $doc->createElement('field', $port);
 		$meta_path_si->setAttribute('name', 'meta_path_si');
 		$note_elt->appendChild($meta_path_si);
 		
-		$meta_path_string_ms = $doc->createElement('field', '/99999/');
+		$meta_path_string_ms = $doc->createElement('field', '/'.$port.'/');
 		$meta_path_string_ms->setAttribute('name', 'meta_path_string_ms');
 		$note_elt->appendChild($meta_path_string_ms); 
 		
