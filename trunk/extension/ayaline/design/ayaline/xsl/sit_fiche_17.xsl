@@ -22,7 +22,7 @@
 				<xsl:with-param name="titrefiche" select="$intitule"/>
 			</xsl:call-template>
 			
-			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAOZJQqoDBwAknMtPNKR-dvRSi2OoyjRwg8X5jAJmNj4togrBv2xSClpdvpd4FJNt4C5i-i6aTtWzs-g"><![CDATA[ ]]></script>
+			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=AIzaSyC8EdtB_9vkzMjzX8W-347wdg32z8FPiUc"><![CDATA[ ]]></script>
 			
 			<script type="text/javascript">
 				<![CDATA[categorie="]]><xsl:value-of select="categorie/intCategorie"/><![CDATA[";]]>
