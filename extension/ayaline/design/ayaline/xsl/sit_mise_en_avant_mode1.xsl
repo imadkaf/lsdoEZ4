@@ -57,12 +57,12 @@
 							</a>
 							
 							<p class="clear"><![CDATA[ ]]></p>
-							<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
+							<!-- <xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
 									<xsl:for-each select="newPhotos/newPhoto[position() = 1]">
 										<span style="display: block;font-size: 11px;text-align: center;"><xsl:value-of select="@legende"/><![CDATA[ ]]></span>
 									</xsl:for-each>
 							</xsl:if>
-							<p class="clear"><![CDATA[ ]]></p>
+							<p class="clear"><![CDATA[ ]]></p> -->
 							<h3 style="padding: 10px 0px 10px 0px;">
 								<a>
 									<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
