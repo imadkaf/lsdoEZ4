@@ -41,7 +41,7 @@
 							</img>
 							<br/>
 							<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
-								<xsl:for-each select="newPhotos/newPhoto">
+								<xsl:for-each select="newPhotos/newPhoto[position() = 1]">
 									<span style="font-size:9px;display: block;text-align: center;width:100px;"><xsl:value-of select="@legende"/><![CDATA[ ]]></span>
 								</xsl:for-each>
 							</xsl:if>
