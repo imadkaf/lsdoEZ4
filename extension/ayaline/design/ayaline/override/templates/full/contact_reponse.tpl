@@ -12,6 +12,9 @@
 {if eq($maCollection.data_map.sqli_civilite.data_int, 2)}
 	{set $civilite = "Mademoiselle"}
 {/if}
+{def $infocomp = $maCollection.data_map.votre_message.content|explode('\r\n')}
+{def $incinfo = 1}
+
 
 <script type="text/javascript">
 	_gaq.push(['_trackEvent', 'Contact',{concat("'",$maCollection.data_map.ville.content,"'")}]);
@@ -20,7 +23,7 @@
 <script type="text/javascript">
 	var data = [
 		{ldelim}name : 'appKey', value : "bf8ca33ac809ad76792402300d8c2dd3"{rdelim},
-        {ldelim}name : 'group', value : "2"{rdelim},
+        {ldelim}name : 'group', value : "3"{rdelim},
         {ldelim}name : 'sqli_intitule', value : "[Formulaire de contact Web]"{rdelim},
         {ldelim}name : 'sqli_modecontact', value : "Web"{rdelim},
         {ldelim}name : 'sqli_etatdemande', value : "A traiter"{rdelim},
@@ -36,7 +39,13 @@
         {ldelim}name : 'sqli_codepostal', value : "{$maCollection.data_map.sqli_codepostal.content}"{rdelim},
         {ldelim}name : 'sqli_commune', value : "{$maCollection.data_map.ville.content}"{rdelim},
         {ldelim}name : 'sqli_pays', value : "France"{rdelim},
-        {ldelim}name : 'sqli_objetdem', value : "{$maCollection.data_map.votre_message.content}"{rdelim},
+	{foreach $infocomp as $key => $value}
+		{if $value|ne('')}
+		{ldelim}name : "{concat('sqli_infocomp_',$incinfo)}", value : "{$value}"{rdelim},
+		{set $incinfo = $incinfo|inc}
+		{/if}
+	{/foreach}
+        {ldelim}name : 'sqli_objetdem', value : "{$maCollection.data_map.votre_message.content|explode('\r\n')|implode(' ')}"{rdelim},
         {ldelim}name : 'sqli_civilite', value : "{$civilite}"{rdelim},
         {ldelim}name : 'sqli_modereponse', value : "Email"{rdelim},
         {ldelim}name : 'sqli_urlsiteweb', value : ""{rdelim},
@@ -60,7 +69,6 @@
 
 <div class="content-view-full">
 	<h2 class="bloc-liste-h2">{$node.name|wash()}</h2>
-
 	<div class="survey-view">
 		<div class="block page-contact">
 			<div class="message">
@@ -70,7 +78,6 @@
 					{set-block scope=global variable=title}{'Form %formname'|i18n('design/standard/content/form',,hash('%formname',$node.name|wash))}{/set-block}
 					
 					<h2>{"Your message was sent"|i18n("ayaline")}.</h2><br />
-					
 					<p>{"The team of the tourist office of Sables d'Olonne will bring to you an answer as soon as possible"|i18n("ayaline")}.</p>
 				{/default}
 			</div>
