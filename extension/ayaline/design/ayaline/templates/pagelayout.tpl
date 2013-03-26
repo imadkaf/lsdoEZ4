@@ -197,6 +197,9 @@
 		{set $additional_cache_hash = $additional_cache_hash|append(rand())}
 	{/if}
 {/if}
+{if is_set($collection_id)}
+	{set $cache_hash = $cache_hash|merge(array(concat('_',$collection_id)))}
+{/if}
 {cache-block keys=$cache_hash|merge($additional_cache_hash)}
 {* Popup d'aide des saisons *}
 {if $rNode.data_map.aide_saison.has_content}
