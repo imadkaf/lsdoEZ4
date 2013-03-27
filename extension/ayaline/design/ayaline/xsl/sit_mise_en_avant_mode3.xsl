@@ -43,12 +43,6 @@
 										<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=100</xsl:attribute>
 									</xsl:if>
 								</img>
-								<br/>
-								<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
-										<xsl:for-each select="newPhotos/newPhoto[position() = 1]">
-											<span style="font-size:9px;display: block;text-align: center;width:100px;"><xsl:value-of select="@legende"/><![CDATA[ ]]></span>
-										</xsl:for-each>
-								</xsl:if>
 							</a>
 							
 							<div style="margin-left:110px">
