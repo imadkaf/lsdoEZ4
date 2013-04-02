@@ -38,15 +38,8 @@
 								<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
 								<img>
 									<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
-										<xsl:if test="newPhotos/newPhoto[@nom] or newPhotos/newPhoto[@legende]">
-											<xsl:attribute name="alt"><xsl:if test="newPhotos/newPhoto[@nom]"><xsl:value-of select="newPhotos/newPhoto/@nom"/> - </xsl:if><xsl:if test="newPhotos/newPhoto[@legende]"><xsl:value-of select="newPhotos/newPhoto/@legende"/></xsl:if></xsl:attribute>
-											<xsl:attribute name="title"><xsl:if test="newPhotos/newPhoto[@nom]"><xsl:value-of select="newPhotos/newPhoto/@nom"/> - </xsl:if><xsl:if test="newPhotos/newPhoto[@legende]"><xsl:value-of select="newPhotos/newPhoto/@legende"/></xsl:if></xsl:attribute>
-										</xsl:if>
-										<xsl:if test="not(newPhotos/newPhoto[@nom]) and not(newPhotos/newPhoto[@legende])">
-											<xsl:attribute name="alt"><xsl:value-of select="$intitule"/></xsl:attribute>
-											<xsl:attribute name="title"><xsl:value-of select="$intitule"/></xsl:attribute>
-										</xsl:if>
-										
+										<xsl:attribute name="alt"><xsl:value-of select="$intitule"/><xsl:if test="newPhotos/newPhoto[@credits]"> - <xsl:value-of select="newPhotos/newPhoto/@credits"/></xsl:if></xsl:attribute>
+										<xsl:attribute name="title"><xsl:value-of select="$intitule"/><xsl:if test="newPhotos/newPhoto[@credits]"> - <xsl:value-of select="newPhotos/newPhoto/@credits"/></xsl:if></xsl:attribute>
 										<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=593</xsl:attribute>
 									</xsl:if>
 									<xsl:if test="count(newPhotos/newPhoto) = 0">
@@ -56,9 +49,9 @@
 							</a>
 							<p class="clear"><![CDATA[ ]]></p>
 							<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
-									<xsl:for-each select="newPhotos/newPhoto[position() = 1]">
-										<span style="font-size:11px"><xsl:value-of select="@legende"/><![CDATA[ ]]></span>
-									</xsl:for-each>
+								<xsl:for-each select="newPhotos/newPhoto[position() = 1]">
+									<span style="font-size:11px"><xsl:value-of select="@credits"/><![CDATA[ ]]></span>
+								</xsl:for-each>
 							</xsl:if>
 							<p class="clear"><![CDATA[ ]]></p>
 							<xsl:call-template name="periodes-ouverture"/>
