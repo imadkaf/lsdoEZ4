@@ -1,3 +1,5 @@
+{def $extAyaWidgetFilterName=ezini('GlobalSettings','FilterName','ayaline_external_widget.ini')}
+{set $extAyaWidgetFilterName=cond($extAyaWidgetFilterName,$extAyaWidgetFilterName,'widget')}
 {def $nbPubs = 5}
 
 {* utile pour le tracking Google Analytics *}
@@ -11,11 +13,13 @@
 <div class="bloc-left-bis">
 	<div class="bloc-left-in-bis">
 		{if eq($node.data_map.form_recherche.data_text, 0)}
+                    {if is_unset($view_parameters[$extAyaWidgetFilterName])}
 			{sit_recherche()}
+                    {/if}
 		{/if}
 		
 		{if eq($node.parent.node_id, ezini('Noeuds','Sejourner','ayaline.ini'))}
-
+                        {if is_unset($view_parameters[$extAyaWidgetFilterName])}
 			<div>
 				{def $listeHebergement = fetch('content','list', hash( 
 												'parent_node_id', $node.parent.node_id,
@@ -38,7 +42,8 @@
 					</ul>
 				{/if}
 				{undef $listeHebergement}
-			</div>	
+			</div>
+                        {/if}
 		{else}
 			{def $listeRubriques = fetch('content','list', hash( 
 											'parent_node_id', $node.parent.node_id,
@@ -179,3 +184,12 @@
 	{include uri='design:parts/publicites.tpl' nbPubs = $nbPubs}
 	{include uri='design:parts/liste_mises_en_avant.tpl'}
 </div>
+        
+{if is_unset($view_parameters[$extAyaWidgetFilterName])|not}
+    <script>
+        {literal}
+            $('.bloc-right-in-bis').css({'width':'auto'});
+            $('.list-block-bis div').css({'width':'auto'});
+        {/literal}
+    </script>
+{/if}
