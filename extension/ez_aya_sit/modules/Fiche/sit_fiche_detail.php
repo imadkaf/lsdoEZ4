@@ -3,8 +3,6 @@
 require_once('kernel/common/template.php');
 require_once('extension/ez_aya_sit/classes/sit_utils.class.php');
 
-$Module = $Params['Module'];
-
 $tpl = templateInit();
 
 $contentIni = eZINI::instance('content.ini');
@@ -186,7 +184,6 @@ $xsltParemters['anneeCourante'] = date("Y");
 
 $categorie = null;
 $intituleFiche = "Fiche inconnue";
-$dateFinValidite = '';
 if (file_exists($cheminFichierCacheXml)) {
 	$xmlFiche = simplexml_load_file($cheminFichierCacheXml);
 	if ($xmlFiche) {
@@ -199,18 +196,6 @@ if (file_exists($cheminFichierCacheXml)) {
 		if ($intituleFicheNode && count($intituleFicheNode) > 0) {
 			$intituleFiche = utf8_decode("".$intituleFicheNode[0]);
 		}
-		
-		$dateFinValiditeFicheNode = $xmlFiche->xpath('/produit/dateValidite/dateValiditeFin');
-		if ($dateFinValiditeFicheNode && count($dateFinValiditeFicheNode) > 0) {
-			$dateFinValidite = utf8_decode("".$dateFinValiditeFicheNode[0]);
-		}
-	}
-}
-
-//Si la date de validite est depassee, retour a l'accueil
-if($dateFinValidite != '' && strtotime($dateFinValidite) != ''){
-	if(strtotime($dateFinValidite) < time()){
-		$Module->redirectTo('/');
 	}
 }
 
@@ -303,6 +288,39 @@ if ($categorie) {
 if (!$cheminFichierXsl || !file_exists($cheminFichierXsl)) {
 	$cheminFichierXsl = $cheminXsl.$xslFile.".xsl";
 }
+
+/* Déb : Test de la validité de la fiche */
+$fichierCacheSimpleXml = simplexml_load_file($cheminFichierCacheXml);
+$ficheDateValiditeDebut = $fichierCacheSimpleXml->xpath("/produit/dateValidite/dateValiditeDebut");
+$ficheDateValiditeFin = $fichierCacheSimpleXml->xpath("/produit/dateValidite/dateValiditeFin");
+$_ficheProduitIsValid = true;
+if(is_array($ficheDateValiditeDebut) && count($ficheDateValiditeDebut)>0){
+    $ficheDateValiditeDebut = (string)$ficheDateValiditeDebut[0];
+}
+if(is_array($ficheDateValiditeFin)  && count($ficheDateValiditeFin)>0){
+    $ficheDateValiditeFin = (string)$ficheDateValiditeFin[0];
+}
+
+/* Redirect si les date de den et fin de validité ne sont pas renseignées */
+if(!is_string($ficheDateValiditeDebut) || strlen(trim($ficheDateValiditeDebut)) == 0){
+    $_ficheProduitIsValid = false;
+}
+if(!is_string($ficheDateValiditeFin) || strlen(trim($ficheDateValiditeDebut)) == 0){
+    $_ficheProduitIsValid = false;
+}
+
+$ficheDateValiditeDebutTS = strtotime(trim($ficheDateValiditeDebut));
+$ficheDateValiditeFinTS = strtotime(trim($ficheDateValiditeFin)) + (24*60*60);//+1j pour inclure ledernier jour de date de fin
+$currentDateTS = time();
+
+if(!$_ficheProduitIsValid || $ficheDateValiditeDebutTS > $currentDateTS || $currentDateTS > $ficheDateValiditeFinTS){
+    /* Redirection vers la page sit liste */
+    if(is_object($previousNode) && $previousNode->attribute('url_alias')){
+        return $Module->redirectTo( $previousNode->attribute('url_alias'));
+    }
+    return $Module->redirectTo( '/' );
+}
+/* Fin : Test de la validité de la fiche */
 
 $contenuBloc = "";
 if (file_exists($cheminFichierCacheXml) && file_exists($cheminFichierXsl)) {
