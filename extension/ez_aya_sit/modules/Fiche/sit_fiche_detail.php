@@ -309,11 +309,41 @@ if(!is_string($ficheDateValiditeFin) || strlen(trim($ficheDateValiditeDebut)) ==
     $_ficheProduitIsValid = false;
 }
 
-$ficheDateValiditeDebutTS = strtotime(trim($ficheDateValiditeDebut));
-$ficheDateValiditeFinTS = strtotime(trim($ficheDateValiditeFin)) + (24*60*60);//+1j pour inclure ledernier jour de date de fin
-$currentDateTS = time();
+//$ficheDateValiditeDebutTS = strtotime(trim($ficheDateValiditeDebut));
+//$ficheDateValiditeFinTS = strtotime(trim($ficheDateValiditeFin)) + (24*60*60);//+1j pour inclure ledernier jour de date de fin
 
-if(!$_ficheProduitIsValid || $ficheDateValiditeDebutTS > $currentDateTS || $currentDateTS > $ficheDateValiditeFinTS){
+
+/* Normaliser le format date (yyyy-dd-mm) */
+$ficheDateValiditeDebut = preg_replace("/\\//","-",$ficheDateValiditeDebut);
+$ficheDateValiditeFin = preg_replace("/\\//","-",$ficheDateValiditeFin);
+
+$ficheDateValiditeDebutArr = explode("-",$ficheDateValiditeDebut);
+$ficheDateValiditeFinArr = explode("-",$ficheDateValiditeFin);
+
+$ficheDateValiditeDebutInt = (int) preg_replace("/-/","",$ficheDateValiditeDebut);
+$ficheDateValiditeFinInt = (int) preg_replace("/-/","",$ficheDateValiditeFin);
+$currentDateInt = (int)date('Ymd');
+
+/* Hack pour timestamp false (date > 2038 )*/
+if(is_array($ficheDateValiditeDebutArr) && is_array($ficheDateValiditeFinArr)){
+    /* Valide pour le format yyyy-mm-dd */
+    foreach ($ficheDateValiditeDebutArr as $dateKey=>$dateVal){
+        if((int)$dateVal > 9){
+            $dateVal = '0'.((int)$dateVal);
+        }
+        $ficheDateValiditeDebutArr[$dateKey] = (int)$dateVal;
+    }
+    foreach ($ficheDateValiditeFinArr as $dateKey => $dateVal){
+        if((int)$dateVal > 9){
+            $dateVal ='0'.((int)$dateVal);
+        }
+        $ficheDateValiditeFinArr[$dateKey] = $dateVal;
+    }
+    $ficheDateValiditeDebutInt = (int)  implode("", $ficheDateValiditeDebutArr);
+    $ficheDateValiditeFinInt = (int)  implode("", $ficheDateValiditeFinArr) + 1;
+}
+
+if(!$_ficheProduitIsValid || $ficheDateValiditeDebutInt > $currentDateInt || $currentDateInt > $ficheDateValiditeFinInt){
     /* Redirection vers la page sit liste */
     if(is_object($previousNode) && $previousNode->attribute('url_alias')){
         return $Module->redirectTo( $previousNode->attribute('url_alias'));
