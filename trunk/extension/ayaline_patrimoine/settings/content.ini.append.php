@@ -6,7 +6,6 @@ AvailableClasses[]=introduction-page-standard
 AvailableClasses[]=texte-gris
 
 [CustomTagSettings]
-AvailableCustomTags[]
 AvailableCustomTags[]=couleur_marron
 AvailableCustomTags[]=couleur_gris
 AvailableCustomTags[]=couleur_vert
