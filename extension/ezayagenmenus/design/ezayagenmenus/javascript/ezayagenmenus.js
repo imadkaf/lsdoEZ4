@@ -1,0 +1,1 @@
+document.getElementsByName('head').innerHTML +='<link rel="stylesheet" type="text/css" href="//ct1.addthis.com/static/r07/widget112.css" media="all">';
