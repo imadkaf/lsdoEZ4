@@ -2,6 +2,8 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <style type="text/css">
     @import url('{$hostnamePath|concat('stylesheets/main.css'|ezdesign('no'))}');
+    @import url('{$hostnamePath|concat('stylesheets/ezfind.css'|ezdesign('no'))}');
+    @import url('{$hostnamePath|concat('stylesheets/ezajax_autocomplete.css'|ezdesign('no'))}');
 </style>
 {def $cache_hash = array($module_result.uri)}
 {foreach ezhttp().get|merge(ezhttp().post) as $req_param_key => $req_param_val}
@@ -61,7 +63,7 @@
     {include uri='design:genmenu/header/full/diaporama.tpl'}
     {/cache-block}
     <div class="header-in">
-        <div class="header-content">
+        <div class="header-content" style="position: relative;">
             <h1>
                 <span class="style-png">							
                     <a href="{concat($hostnamePath, $rNode.url_alias|ezurl('no'))}">
@@ -149,6 +151,7 @@
                         </li>
                     </ul>
                 {/if}
+                {*
                 <div class="search">
                     <form action="{concat($hostnamePath, "/content/search/"|ezurl('no'))}" method="get">
                         <label for="Search" class="none">{"Your search"|i18n("ayaline")}</label>
@@ -159,8 +162,9 @@
                         </div>
 
                     </form>
-
                     {ezscript_require( array('ezjsc::yui2', 'ezajax_autocomplete.js') )}
+                    <script src="http://yui.yahooapis.com/3.1.1/build/yui/yui-min.js"></script>
+                    <script src="{concat($hostnamePath,'javascript/ezajax_autocomplete.js'|ezdesign('no'))}"></script>
                     <script type="text/javascript">
                         jQuery('#ezautocompletecontainer2').css('width', jQuery('input#Search').width());
                         var ezAutoHeader = eZAJAXAutoComplete();
@@ -174,6 +178,7 @@
                     </script>
 
                 </div>
+                    *}
                 <div class="clear"></div>
 
                 {if $rNode.data_map.main_menu.has_content}
