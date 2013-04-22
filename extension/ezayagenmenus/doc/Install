@@ -4,3 +4,6 @@
         HostMatchMapItems[]=genmenu.lsdo.loc;ezayagenmenus  => genmenu.lsdo.lnet.fr;ezayagenmenus(ou un truc du genre)
 4 - Copier le fichier "content.ini.append.php" du siteaccess "ayaline" (extension\ayaline\settings\siteaccess\ayaline\content.ini.append.php) dans le siteaccess "ezayagenmenus" de cette extension (extension\ezayagenmenus\settings\siteaccess\ezayagenmenus\content.ini.append.php)
 5 - En BO : Ajouter les droits au role Anonymous afin qu'il puisses accéder au siteaccess "ezayagenmenus"
+6 - le lien pour récupérer le html:
+         du header est : http://genmenu.lsdo.loc/genmenu/header/
+         du footer est : http://genmenu.lsdo.loc/genmenu/footer/   
