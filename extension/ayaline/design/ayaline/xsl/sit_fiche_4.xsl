@@ -174,13 +174,25 @@
 			
 			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='son']) &gt; 0">
 				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='son' and string-length(codeHtmlLienMultimedia) &gt; 0]">
-					<div style="margin-top: 20px; display: inline-block;"><xsl:value-of select="codeHtmlLienMultimedia"/></div>
+					<div style="margin-top: 20px; display: inline-block;">
+						<xsl:call-template name="string-replace-all">
+							<xsl:with-param name="text">
+								<xsl:call-template name="string-replace-all">
+									<xsl:with-param name="text" select="codeHtmlLienMultimedia"/>
+									<xsl:with-param name="replace" select="'_dw_entity__gt__'"/>
+									<xsl:with-param name="by"><![CDATA[>]]></xsl:with-param>
+								</xsl:call-template>
+							</xsl:with-param>
+							<xsl:with-param name="replace" select="'_dw_entity__lt__'"/>
+							<xsl:with-param name="by"><![CDATA[<]]></xsl:with-param>
+						</xsl:call-template>
+					</div>
 				</xsl:for-each>
 			</xsl:if>
 			
 			<xsl:if test="count(liensMultimedia/lienMultimedia[@type='video']) &gt; 0">
 				<xsl:for-each select="liensMultimedia/lienMultimedia[@type='video' and string-length(codeHtmlLienMultimedia) &gt; 0]">
-					<div>
+					<div style="margin-top: 20px; display: inline-block;">
 						<xsl:call-template name="string-replace-all">
 							<xsl:with-param name="text">
 								<xsl:call-template name="string-replace-all">
