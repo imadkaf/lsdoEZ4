@@ -158,6 +158,22 @@
 				
 				<xsl:call-template name="periodes-ouverture"/>
 				<![CDATA[ ]]>
+				
+				<xsl:if test="count(liensMultimedia/lienMultimedia[@type='son']) &gt; 0">
+					<xsl:for-each select="liensMultimedia/lienMultimedia[@type='son' and string-length(codeHtmlLienMultimedia) &gt; 0]">
+						<xsl:call-template name="string-replace-all">
+							<xsl:with-param name="text">
+								<xsl:call-template name="string-replace-all">
+									<xsl:with-param name="text" select="codeHtmlLienMultimedia"/>
+									<xsl:with-param name="replace" select="'_dw_entity__gt__'"/>
+									<xsl:with-param name="by"><![CDATA[>]]></xsl:with-param>
+								</xsl:call-template>
+							</xsl:with-param>
+							<xsl:with-param name="replace" select="'_dw_entity__lt__'"/>
+							<xsl:with-param name="by"><![CDATA[<]]></xsl:with-param>
+						</xsl:call-template>
+					</xsl:for-each>
+				</xsl:if>
 			</div>
 			
 			<h3><a href="#">Carte/Itin&amp;eacute;raires</a></h3>
