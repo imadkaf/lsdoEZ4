@@ -1,12 +1,13 @@
 {def $hostname = ezayagenmenus_get_hostname()}
 {def $rNode = fetch('content','node', hash('node_id',  ezini('NodeSettings','RootNode','content.ini')))}
 {def $hostName = 'http://'|concat(ezsys('hostname'))}
-{* Dejà inclue dans le header.tpl
+
+{* Dejà inclue dans le header.tpl*}
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <style type="text/css">
     @import url('{$hostName|concat('stylesheets/main.css'|ezdesign('no'))}');
 </style>
-{*
+
 {def $menuPiedPage = fetch('content','tree', hash(  'parent_node_id',  ezini('NodeSettings','RootNode','content.ini'),
                                                     'class_filter_type' , 'include', 
                                                     'class_filter_array' , array('footer_menu'))
