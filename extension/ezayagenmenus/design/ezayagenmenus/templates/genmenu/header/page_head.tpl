@@ -10,7 +10,8 @@
 <!--[if IE 6]>
         <link rel="stylesheet" type="text/css" href="{concat($hostnamePrefix,'stylesheets/main_ie6.css'|ezdesign('no'))}" media="all" />
 <![endif]-->
-<!--[if IE 8]>
+<!--[if gte IE 7]>
+        <link rel="stylesheet" type="text/css" href="{concat($hostnamePrefix,'stylesheets/main_ie8.css'|ezdesign('no'))}" media="all" />
         <link rel="stylesheet" type="text/css" href="{concat($hostnamePrefix,'stylesheets/genmenu_ie8.css'|ezdesign('no'))}" media="all" />
 <![endif]-->
 <script type="text/javascript">
