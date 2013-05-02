@@ -14,11 +14,23 @@ MatchFile=main_menu/rubric.tpl
 Subdir=templates
 Match[class_identifier]=rubric
 
+[main_focus_menu_sit_mise_en_avant]
+Source=node/view/main_focus_menu.tpl
+MatchFile=main_focus_menu/sit_mise_en_avant.tpl
+Subdir=templates
+Match[class_identifier]=sit_mise_en_avant
+
 [main_focus_menu_main_menu]
 Source=node/view/main_focus_menu.tpl
 MatchFile=main_focus_menu/main_menu.tpl
 Subdir=templates
 Match[class_identifier]=main_menu
+
+[main_focus_menu_embed_code]
+Source=node/view/main_focus_menu.tpl
+MatchFile=main_focus_menu/embed_code.tpl
+Subdir=templates
+Match[class_identifier]=embed_code
 
 [line_topic]
 Source=node/view/line.tpl

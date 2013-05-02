@@ -2,11 +2,8 @@
 {def $rNode = fetch('content','node', hash('node_id',  ezini('NodeSettings','RootNode','content.ini')))}
 {def $hostName = 'http://'|concat(ezsys('hostname'))}
 
-{* Dejà inclue dans le header.tpl*}
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<style type="text/css">
-    @import url('{$hostName|concat('stylesheets/main.css'|ezdesign('no'))}');
-</style>
+{* script et style déjà inclues dans le header.tpl *}
+{include uri='design:genmenu/header/page_head.tpl'}
 
 {def $menuPiedPage = fetch('content','tree', hash(  'parent_node_id',  ezini('NodeSettings','RootNode','content.ini'),
                                                     'class_filter_type' , 'include', 
@@ -25,6 +22,7 @@
 {def $liensCol5 = ''}
 {def $liensHorizontaux = $menuPiedPage.data_map.menu_h.content.relation_list}
 {def $liensHoriz = ''}
+<div style="width: 1193px;margin: 0 auto;">
 <div class="footer">
     <ul class="niv-1">
         <li class="first">
@@ -107,6 +105,7 @@
         {/foreach}
         <li class="ayaline">- <a href="http://www.ayaline.com" target="_blank"> {"Made by"|i18n("ayaline")} : <span>aYaline</span><img src={"ayaline.png"|ezimage} alt="" /></a></li>
     </ul>
+</div>
 </div>
 <style>
     {literal}
