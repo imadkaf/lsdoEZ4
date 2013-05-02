@@ -1,37 +1,34 @@
 {def $hostnamePath = ezayagenmenus_get_hostname()}
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<style type="text/css">
-    @import url('{$hostnamePath|concat('stylesheets/main.css'|ezdesign('no'))}');
-    @import url('{$hostnamePath|concat('stylesheets/ezfind.css'|ezdesign('no'))}');
-    @import url('{$hostnamePath|concat('stylesheets/ezajax_autocomplete.css'|ezdesign('no'))}');
-</style>
+{* Scripts et Styles *}
+{include uri='design:genmenu/header/page_head.tpl'}
+
 {def $cache_hash = array($module_result.uri)}
 {foreach ezhttp().get|merge(ezhttp().post) as $req_param_key => $req_param_val}
-	{if $req_param_val|get_type|begins_with('array')}
-		{foreach $req_param_val as $req_param_val_key => $req_param_val_val}
-			{if $req_param_val_val|get_type|begins_with('array')}
-				{set $cache_hash = $cache_hash|append(concat($req_param_key, '[', $req_param_val_key, ']', '=>', $req_param_val_val|implode('_')))}
-			{else}
-				{set $cache_hash = $cache_hash|append(concat($req_param_key, '[', $req_param_val_key, ']', '=>', $req_param_val_val))}
-			{/if}
-		{/foreach}
-	{else}
-		{set $cache_hash = $cache_hash|append(concat($req_param_key, '=>', $req_param_val))}
-	{/if}
+    {if $req_param_val|get_type|begins_with('array')}
+        {foreach $req_param_val as $req_param_val_key => $req_param_val_val}
+            {if $req_param_val_val|get_type|begins_with('array')}
+                {set $cache_hash = $cache_hash|append(concat($req_param_key, '[', $req_param_val_key, ']', '=>', $req_param_val_val|implode('_')))}
+            {else}
+                {set $cache_hash = $cache_hash|append(concat($req_param_key, '[', $req_param_val_key, ']', '=>', $req_param_val_val))}
+            {/if}
+        {/foreach}
+    {else}
+        {set $cache_hash = $cache_hash|append(concat($req_param_key, '=>', $req_param_val))}
+    {/if}
 {/foreach}
 {foreach ezhttp().session as $session_key => $session_val}
-	{if or($session_key|begins_with('sit_'), $session_key|eq('saison'), $session_key|eq('eZUserLoggedInID'))}
-		{set $cache_hash = $cache_hash|append(concat($session_key, '=>', $session_val))}
-	{elseif $session_key|eq('topics')}
-		{set $cache_hash = $cache_hash|append(concat($session_key, '=>', $session_val|implode('_')))}
-	{/if}
+    {if or($session_key|begins_with('sit_'), $session_key|eq('saison'), $session_key|eq('eZUserLoggedInID'))}
+        {set $cache_hash = $cache_hash|append(concat($session_key, '=>', $session_val))}
+    {elseif $session_key|eq('topics')}
+        {set $cache_hash = $cache_hash|append(concat($session_key, '=>', $session_val|implode('_')))}
+    {/if}
 {/foreach}
 
 {def $timestamp=currentdate()}
 
 {def $cNode = array()}
 {if is_set($module_result.node_id)}
-	{set $cNode = fetch(content, node, hash(node_id, $module_result.node_id))}
+    {set $cNode = fetch(content, node, hash(node_id, $module_result.node_id))}
 {/if}
 {def $rNode = fetch('content','node', hash('node_id',  ezini('NodeSettings','RootNode','content.ini')))}
 {def $attributes=fetch( 'class', 'attribute_list', hash( 'class_id', ezini('ClassSettings','ClassSeasonId','content.ini') ) )}
@@ -39,17 +36,17 @@
 {def $saison = array()}
 {*Gestion du menu déroulant*}
 {if ezhttp('saison', 'session', 'hasVariable')}
-	{def $saisonId = ezhttp('saison', 'session')}
-	{def $saisonEnSession = true()}
+    {def $saisonId = ezhttp('saison', 'session')}
+    {def $saisonEnSession = true()}
 {else}
-	{*si pas de saison sélectionné : c'est l'été la saison par défaut *}
-	{def $saisonId = ezini('ClassSettings','DefaultSeasonId','content.ini')}
-	{def $saisonEnSession = false()}
+    {*si pas de saison sélectionné : c'est l'été la saison par défaut *}
+    {def $saisonId = ezini('ClassSettings','DefaultSeasonId','content.ini')}
+    {def $saisonEnSession = false()}
 {/if}
 {if and(ezhttp('topics', 'session', 'hasVariable'),ezhttp('topics', 'session')|count|ne(0))}
-	{def $topicIds = ezhttp('topics', 'session')}
+    {def $topicIds = ezhttp('topics', 'session')}
 {else}
-	{def $topicIds = array(ezini('NodeSettings','TopicDefaut','content.ini'))}
+    {def $topicIds = array(ezini('NodeSettings','TopicDefaut','content.ini'))}
 {/if}
 {* récupération des themes (mer / ville / plage / nature dans le dossier Configuration Generale -> Themes *}
 {def $topicsList = fetch('content','node', hash('node_id',  ezini('NodeSettings','topicListNode','content.ini')))}
@@ -65,12 +62,13 @@
     <div class="header-in">
         <div class="header-content" style="position: relative;">
             <h1>
-                <span class="style-png">							
+                <span class="style-png">
+                    
                     <a href="{concat($hostnamePath, $rNode.url_alias|ezurl('no'))}">
-                        <img class="home-title" src="{$hostnamePath}/makeImage/makeImage.php?lsdo=o1&amp;t={$rNode.data_map.title.data_text}" alt="{$rNode.data_map.title.data_text}" />
-                        <br />
-                        <img src="{$hostnamePath|concat("logo_accueil.png"|ezimage('no'))}" alt="" />
-                        <img class="home-grip" src="{$hostnamePath}/makeImage/makeImage.php?lsdo=o2&amp;t={$rNode.data_map.grip.data_text}" alt="{$rNode.data_map.grip.data_text}" />
+                    <img class="home-title" src="{$hostnamePath}/makeImage/makeImage.php?lsdo=o1&amp;t={$rNode.data_map.title.data_text}" alt="{$rNode.data_map.title.data_text}" />
+                    <br />
+                    <img src="{$hostnamePath|concat("logo_accueil.png"|ezimage('no'))}" alt="" />
+                    <img class="home-grip" src="{$hostnamePath}/makeImage/makeImage.php?lsdo=o2&amp;t={$rNode.data_map.grip.data_text}" alt="{$rNode.data_map.grip.data_text}" />
                     </a>
                 </span>
             </h1>
@@ -94,7 +92,7 @@
                                     {* <p onclick="showHideSelect('listeSelect1')" class="selects"><span class="Flag_{$curLang|extract_left( 2 )}"></span></p>*}
                                     <ul id="listeSelect1">
                                         {foreach ezini( 'RegionalSettings', 'UrlList' ) as $language => $url}
-                                            <li><a href="http://{$url}"><span class="Flag_{$language|extract_left( 2 )}"></span></a></li>
+                                            <li><a class="lang-linkflag flag-wraper-{$language|extract_left( 2 )}" href="http://{$url}"><span class="Flag_{$language|extract_left( 2 )}"></span></a></li>
                                         {/foreach}
                                     </ul>
                                 </div>
@@ -137,7 +135,7 @@
                                     <li class="last">
                                         <ul>
                                             {foreach $attribute.content.options as $key=>$saison}
-                                                <li class="img{$saison.id}{if $key|eq($nbSaison)} last{/if}"><form method="post" action="{concat($hostnamePath, "/saisons/edit/"|ezurl('no'))}"><input type="hidden" value={$module_result.uri|ezurl(,'full')} name="RedirectURI" /><input type="hidden" value="{$saison.id}" name="season_id" /><input{if and($saisonEnSession,$saison.id|eq($saisonId))} class="actif"{/if} type="submit" value="" name="{$saison.name}" title="{concat($saison.name,' picto')|i18n('ayaline')}" /></form></li>
+                                                <li class="img{$saison.id}{if $key|eq($nbSaison)} last{/if}"><form style="height: auto!important;" method="post" action="{concat($hostnamePath, "/saisons/edit/"|ezurl('no'))}"><input type="hidden" value="{concat($hostnamePath,$module_result.uri|ezurl('no'))}" name="RedirectURI" /><input type="hidden" value="{$saison.id}" name="season_id" /><input{if and($saisonEnSession,$saison.id|eq($saisonId))} class="actif"{/if} type="submit" value="" name="{$saison.name}" title="{concat($saison.name,' picto')|i18n('ayaline')}" /></form></li>
                                                     {/foreach}
                                         </ul>
                                     </li>
@@ -153,32 +151,32 @@
                 {/if}
                 {*
                 <div class="search">
-                    <form action="{concat($hostnamePath, "/content/search/"|ezurl('no'))}" method="get">
-                        <label for="Search" class="none">{"Your search"|i18n("ayaline")}</label>
-                        <div id="ezautocomplete2">
-                            <input type="text" name="SearchText" onblur="if(this.value=='')this.value='{"Your search"|i18n("ayaline")}'" onfocus="if(this.value=='{"Your search"|i18n("ayaline")}')this.value=''" value="{"Your search"|i18n("ayaline")}" id="Search" />
-                            <button type="submit"><span class="none">OK</span></button>
-                            <div id="ezautocompletecontainer2"></div>
-                        </div>
+                <form action="{concat($hostnamePath, "/content/search/"|ezurl('no'))}" method="get">
+                <label for="Search" class="none">{"Your search"|i18n("ayaline")}</label>
+                <div id="ezautocomplete2">
+                <input type="text" name="SearchText" onblur="if(this.value=='')this.value='{"Your search"|i18n("ayaline")}'" onfocus="if(this.value=='{"Your search"|i18n("ayaline")}')this.value=''" value="{"Your search"|i18n("ayaline")}" id="Search" />
+                <button type="submit"><span class="none">OK</span></button>
+                <div id="ezautocompletecontainer2"></div>
+                </div>
 
-                    </form>
-                    {ezscript_require( array('ezjsc::yui2', 'ezajax_autocomplete.js') )}
-                    <script src="http://yui.yahooapis.com/3.1.1/build/yui/yui-min.js"></script>
-                    <script src="{concat($hostnamePath,'javascript/ezajax_autocomplete.js'|ezdesign('no'))}"></script>
-                    <script type="text/javascript">
-                        jQuery('#ezautocompletecontainer2').css('width', jQuery('input#Search').width());
-                        var ezAutoHeader = eZAJAXAutoComplete();
-                        ezAutoHeader.init({ldelim}
-                        url: "{'ezjscore/call/ezfind::autocomplete'|ezurl('no','full')}",
-                        inputid: 'Search',
-                        containerid: 'ezautocompletecontainer2',
-                        minquerylength: {ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )},
-                        resultlimit: {ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )}
-                        {rdelim});
-                    </script>
+                </form>
+                {ezscript_require( array('ezjsc::yui2', 'ezajax_autocomplete.js') )}
+                <script src="http://yui.yahooapis.com/3.1.1/build/yui/yui-min.js"></script>
+                <script src="{concat($hostnamePath,'javascript/ezajax_autocomplete.js'|ezdesign('no'))}"></script>
+                <script type="text/javascript">
+                jQuery('#ezautocompletecontainer2').css('width', jQuery('input#Search').width());
+                var ezAutoHeader = eZAJAXAutoComplete();
+                ezAutoHeader.init({ldelim}
+                url: "{'ezjscore/call/ezfind::autocomplete'|ezurl('no','full')}",
+                inputid: 'Search',
+                containerid: 'ezautocompletecontainer2',
+                minquerylength: {ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )},
+                resultlimit: {ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )}
+                {rdelim});
+                </script>
 
                 </div>
-                    *}
+                *}
                 <div class="clear"></div>
 
                 {if $rNode.data_map.main_menu.has_content}
@@ -193,9 +191,10 @@
     {include uri='design:genmenu/header/parts/diaporama.tpl'}
     {/cache-block}
 </div>
-
 <script>
     {literal}
-        //$('head').append('<link rel="stylesheet" type="text/css" href="{/literal}{$hostnamePath|concat('stylesheets/ezayagenmenus.css'|ezdesign('no'))}{literal}" media="all">');
+        $(function(){
+            $(".header-content").height($(".header-in").height());
+        });
     {/literal}
 </script>
