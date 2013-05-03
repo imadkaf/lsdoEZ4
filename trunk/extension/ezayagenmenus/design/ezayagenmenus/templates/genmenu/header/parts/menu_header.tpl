@@ -2,7 +2,7 @@
 {set $extAyaWidgetFilterName=cond($extAyaWidgetFilterName,$extAyaWidgetFilterName,'widget')}
 {def $extAyaWidgetHiddenHeaderMenuItems=ezini('HiddenContentSettings','HiddenHeaderMenuItems','ayaline_external_widget.ini')}
 {set $extAyaWidgetHiddenHeaderMenuItems=cond(is_set($extAyaWidgetHiddenHeaderMenuItems[0]),$extAyaWidgetHiddenHeaderMenuItems,array())}
-<div class="menu" style="position: absolute; bottom: 0;top:auto;right: 0;">
+<div class="menu" style="position: absolute; bottom: -4px;top:auto;right: 0;">
     <ul>
         {def $mainMenuShowed = false()}
         {def $affMenuListeSIT=""}
@@ -166,4 +166,5 @@
                                                                                                                                             {/if}
                                                                                                                                                 {/foreach}
                                                                                                                                                 </ul>
+                                                                                                                                                <div class="clear-both"></div>
                                                                                                                                             </div>

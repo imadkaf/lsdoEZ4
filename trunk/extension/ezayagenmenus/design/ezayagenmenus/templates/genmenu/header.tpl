@@ -63,7 +63,6 @@
         <div class="header-content" style="position: relative;">
             <h1>
                 <span class="style-png">
-                    
                     <a href="{concat($hostnamePath, $rNode.url_alias|ezurl('no'))}">
                     <img class="home-title" src="{$hostnamePath}/makeImage/makeImage.php?lsdo=o1&amp;t={$rNode.data_map.title.data_text}" alt="{$rNode.data_map.title.data_text}" />
                     <br />
@@ -195,6 +194,7 @@
     {literal}
         $(function(){
             $(".header-content").height($(".header-in").height());
+            $(".header-in-right div.menu li.rubrique2 a span").css({'white-space':'nowrap'});
         });
     {/literal}
 </script>
