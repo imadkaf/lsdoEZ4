@@ -2,8 +2,8 @@
 {def $rNode = fetch('content','node', hash('node_id',  ezini('NodeSettings','RootNode','content.ini')))}
 {def $hostName = 'http://'|concat(ezsys('hostname'))}
 
-{* script et style déjà inclues dans le header.tpl *}
-{include uri='design:genmenu/header/page_head.tpl'}
+{* script et style déjà inclues dans le header.tpl }
+{include uri='design:genmenu/header/page_head.tpl'*}
 
 {def $menuPiedPage = fetch('content','tree', hash(  'parent_node_id',  ezini('NodeSettings','RootNode','content.ini'),
                                                     'class_filter_type' , 'include', 
@@ -103,7 +103,7 @@
                 <li{if eq($keyVar, 0)} class="first"{/if}>{if ne($keyVar, 0)}-{else}&nbsp;{/if}{node_view_gui content_node=$liensHoriz view='menu'}</li>
             {/if}
         {/foreach}
-        <li class="ayaline">- <a href="http://www.ayaline.com" target="_blank"> {"Made by"|i18n("ayaline")} : <span>aYaline</span><img src={"ayaline.png"|ezimage} alt="" /></a></li>
+        <li class="ayaline">- <a href="http://www.ayaline.com" target="_blank"> {"Made by"|i18n("ayaline")} : <span>aYaline</span><img src="{concat($hostname,"ayaline.png"|ezimage('no'))}" alt="" /></a></li>
     </ul>
 </div>
 </div>

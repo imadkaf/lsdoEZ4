@@ -20,6 +20,18 @@ MatchFile=main_focus_menu/sit_mise_en_avant.tpl
 Subdir=templates
 Match[class_identifier]=sit_mise_en_avant
 
+[embed_content_sit_mise_en_avant]
+Source=content/view/embed.tpl
+MatchFile=embed/content/sit_mise_en_avant.tpl
+Subdir=templates
+Match[class_identifier]=sit_mise_en_avant
+
+[embed_node_sit_mise_en_avant]
+Source=node/view/embed.tpl
+MatchFile=embed/node/sit_mise_en_avant.tpl
+Subdir=templates
+Match[class_identifier]=sit_mise_en_avant
+
 [main_focus_menu_main_menu]
 Source=node/view/main_focus_menu.tpl
 MatchFile=main_focus_menu/main_menu.tpl
