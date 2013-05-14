@@ -1,5 +1,7 @@
 {def $hostnamePrefix = ezayagenmenus_get_hostname()}
+{*
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+*}
 <style type="text/css">
     @import url('{concat($hostnamePrefix,'stylesheets/main.css'|ezdesign('no'))}');
     {*
