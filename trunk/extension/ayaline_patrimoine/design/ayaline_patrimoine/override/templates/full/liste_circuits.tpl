@@ -150,9 +150,9 @@
                      {literal}
                          directionsService = new google.maps.DirectionsService();
 
-                        var myLatLng = new google.maps.LatLng(46.49177448218621,-1.775665283203125 );
+                        var myLatLng = new google.maps.LatLng(46.4965015,-1.7888618 );
                         var myOptions = {
-                          zoom: 16,
+                          zoom: 13,
                           center: myLatLng,
                           mapTypeId: google.maps.MapTypeId.ROADMAP
                         }
@@ -176,15 +176,6 @@
                             }
                         }
 
-                        // adapter le zoom et la position du centre de la carte gmap
-                        var latlngbounds = new google.maps.LatLngBounds( );
-                        for( var i in listeCircuits){
-                            for( var j in listeCircuits[i]['traceCoords']){
-                                latlngbounds.extend( listeCircuits[i]['traceCoords'][j] );
-                            }
-                        }
-                        carte.fitBounds(latlngbounds);
-
                         if (navigator.geolocation){
                           var watchId = navigator.geolocation.watchPosition(successCallbackMaPosition,null,{enableHighAccuracy:false});
                         }else{
@@ -198,7 +189,7 @@
                         });
                         pointArrivee.setMap(null);//ne pas afficher le picto du point d'arrivée
                         //map set center
-                        carte.setCenter(new google.maps.LatLng(46.49177448218621,-1.775665283203125 ));
+                        carte.setCenter(new google.maps.LatLng(46.4965015,-1.7888618 ));
                     }
                     function afficheTraceCircuits(parcoursCoords,couleurTracer){
                             var parcoursTrace = new google.maps.Polyline({
