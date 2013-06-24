@@ -830,24 +830,27 @@ button.button {
 	padding:0 55px 0 24px;
 }
 .footer ul.niv-1 li.first{
-	padding:0 47px 0 0;
-	width:137px;
+	padding:0 20px 0 0;
+	width:164px;
 }
 .footer ul.niv-1 li.second{
-	padding:0 32px 0 24px;
-	width:196px;
+	padding:0 20px 0 24px;
+	width:209px;
 }
 .footer ul.niv-1 li.third{
-	padding:0 45px 0 24px;
+	padding:0 20px 0 24px;
+	width:153px;
 }
 .footer ul.niv-1 li.fourth{
-	padding:0 37px 0 24px;
+	padding:0 20px 0 24px;
+	width:149px;
 }
 .footer ul.niv-1 li.fifth{
 	padding:0 0 0 24px;
 }
 .footer ul.niv-1 li.last{
-	padding:0 0 0 60px;
+	float: right;
+    padding: 0 5px 0 0;
 }
 .footer ul.niv-1 li ul li{
 	padding:0;
