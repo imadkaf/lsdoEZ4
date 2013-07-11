@@ -14,6 +14,12 @@ MatchFile=full/newsletters.tpl
 Subdir=templates
 Match[class_identifier]=newsletters
 
+[mail_newsletters]
+Source=content/collectedinfomail/form.tpl
+MatchFile=full/mail_newsletters.tpl
+Subdir=templates
+Match[class_identifier]=newsletters
+
 	#Phototheque
 
 [file_embed]
