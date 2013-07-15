@@ -116,6 +116,19 @@
 	<link rel="stylesheet" type="text/css" href={'stylesheets/alaune-en.css'|ezdesign} media="all" />
 {/if}
 
+{if eq('ger-DE', $languetest)}
+		<link rel="stylesheet" type="text/css" href={'stylesheets/main-en.css'|ezdesign} media="all" />
+{/if}
+{if and(eq($chemin, ezini('Chemins', 'Decouvrir', 'ayaline.ini')), eq('ger-DE', $languetest))}
+	<link rel="stylesheet" type="text/css" href={'stylesheets/decouvrir-en.css'|ezdesign} media="all" />
+{/if}
+{if and(eq($chemin, ezini('Chemins', 'Sejourner', 'ayaline.ini')), eq('ger-DE', $languetest))}
+	<link rel="stylesheet" type="text/css" href={'stylesheets/sejourner-en.css'|ezdesign} media="all" />
+{/if}
+{if and(eq($chemin, ezini('Chemins', 'ALaUne', 'ayaline.ini')), eq('ger-DE', $languetest))}
+	<link rel="stylesheet" type="text/css" href={'stylesheets/alaune-en.css'|ezdesign} media="all" />
+{/if}
+
 <script type="text/javascript">
 	if (navigator.userAgent.indexOf('iPad') != -1) {ldelim}
 		{foreach ezini( 'StylesheetSettings', 'FrontendCSSFileListiPad', 'design.ini' ) as $css_fichier }
