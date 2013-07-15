@@ -3232,6 +3232,13 @@ div.image{
 }
 .ui-effects-transfer { border: 2px solid black; }
 
+/*** Page d'erreur ***/
+.page-erreur a{
+	text-decoration: underline;
+}
+.page-erreur a:hover{
+	text-decoration: none;
+}
 /************************/
 /*** Fin ajout Alexia ***/
 /************************/
