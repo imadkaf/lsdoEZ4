@@ -1,4 +1,4 @@
-<div class="bloc-left-bis">
+<div class="bloc-left-bis page-erreur">
 	<div class="bloc-type padding-35px-32px">
 		<h2 class="bloc-liste-h2">{"Page cannot be found"|i18n("ayaline")}</h2>
 		<p class="clear" style="margin-bottom: 20px;"></p>
