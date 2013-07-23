@@ -32,7 +32,7 @@
 						<![CDATA[
 							tempoMarker = new google.maps.LatLng(]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110001']/valModalite"/><![CDATA[,]]><xsl:value-of select="criteres/critere[@id='851000011']/modalites/modalite[@id='8510000110002']/valModalite"/><![CDATA[);
 							latlng.push(tempoMarker);
-						
+							
 							var contentString = '<div class="moninfobulle">'+
 									'<h3 class="titre-defaut">]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><![CDATA[</h3>'+
 									']]><xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
@@ -47,6 +47,7 @@
 											</img>
 										</xsl:if><![CDATA['+
 									'<span class="float-d">]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="ville/intituleVille"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><![CDATA[</span><br />'+
+									/*
 									']]><xsl:variable name="commentaire"><xsl:if test="$langue = 'en'"><xsl:value-of select="commentaires/commentaire2"/></xsl:if><xsl:if test="$langue != 'en'"><xsl:value-of select="commentaires/commentaire1"/></xsl:if></xsl:variable><xsl:if test="string-length($commentaire) &gt; 0">
 											<xsl:variable name="commentaireNettoye">
 												<xsl:call-template name="string-replace-all">
@@ -71,7 +72,7 @@
 											<p class="commentaire">
 												<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$commentaireNettoyeCoupe"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><xsl:if test="string-length($commentaireNettoye) &gt; 100">&amp;hellip;</xsl:if>
 											</p>
-										</xsl:if><![CDATA[<div class="clear"></div>'+
+										</xsl:if><![CDATA[<div class="clear"></div>'+*/
 									'<p class="lien">]]>
 										<a class="float-d">
 											<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
@@ -79,7 +80,7 @@
 										</a>
 									<![CDATA[</p>'+
 								'</div>';
-
+							
 							var infowindow = new google.maps.InfoWindow({
 								content: contentString,
 								maxWidth: 300
