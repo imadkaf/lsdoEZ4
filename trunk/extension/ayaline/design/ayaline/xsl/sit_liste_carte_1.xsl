@@ -72,6 +72,7 @@
 													</img>
 												</xsl:if><![CDATA['+
 											'<span class="float-d">]]><xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="ville/intituleVille"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><![CDATA[</span><br />'+
+											/*
 											']]><xsl:variable name="commentaire"><xsl:if test="$langue = 'en'"><xsl:value-of select="commentaires/commentaire2"/></xsl:if><xsl:if test="$langue = 'de'"><xsl:value-of select="commentaires/commentaire3"/></xsl:if><xsl:if test="$langue = 'fr'"><xsl:value-of select="commentaires/commentaire1"/></xsl:if></xsl:variable><xsl:if test="string-length($commentaire) &gt; 0">
 													<xsl:variable name="commentaireNettoye">
 														<xsl:call-template name="string-replace-all">
@@ -96,7 +97,7 @@
 													<p class="commentaire">
 														<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$commentaireNettoyeCoupe"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template><xsl:if test="string-length($commentaireNettoye) &gt; 200">&amp;hellip;</xsl:if>
 													</p>
-												</xsl:if><![CDATA[<div class="clear"></div>'+
+												</xsl:if><![CDATA[<div class="clear"></div>'+*/
 											'<p class="lien">]]>
 												<a class="link-popin" target="_blank">
 													<xsl:attribute name="href">/layout/set/vide/Itineraire-Rubrique?nom=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template></xsl:attribute>
