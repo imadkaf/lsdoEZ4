@@ -88,11 +88,11 @@
 											'<p class="lien">]]>
 												<a class="link-popin" target="_blank">
 													<xsl:attribute name="href">/layout/set/vide/Itineraire-Rubrique?nom=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$intitule"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="'&amp;apos;'"/></xsl:call-template></xsl:attribute>
-													<![CDATA[<b>>> Itin&eacute;raire</b>]]>
+													<b>>> <xsl:value-of select="$termeItineraire"/></b>
 												</a>
 												<a class="float-d">
 													<xsl:attribute name="href"><xsl:value-of select="$ficheLien"/></xsl:attribute>
-													<![CDATA[<b>>> <xsl:value-of select="$termeEnsavoirplusReserver"/></b>]]>
+													<b>>> <xsl:value-of select="$termeEnsavoirplusReserver"/></b>
 												</a>
 											<![CDATA[</p>'+
 										'</div>';
