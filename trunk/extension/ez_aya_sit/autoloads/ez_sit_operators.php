@@ -287,7 +287,7 @@ class eZSitOperators {
 
 		$langue = $siteIni->variable('RegionalSettings','Locale');
 		if ($langue) {
-			$langue = substr($langue, 0, 2);
+			$langue = strtolower(substr($langue, -2));
 		}
 
 		$saisonId = null;
@@ -646,7 +646,7 @@ class eZSitOperators {
 
 		$langue = $siteIni->variable('RegionalSettings','Locale');
 		if ($langue) {
-			$langue = substr($langue, 0, 2);
+			$langue = strtolower(substr($langue, -2));
 		}
 
 		$saisonId = null;
@@ -1187,7 +1187,7 @@ class eZSitOperators {
 
 		$langue = $siteIni->variable('RegionalSettings','Locale');
 		if ($langue) {
-			$langue = substr($langue, 0, 2);
+			$langue = strtolower(substr($langue, -2));
 		}
 
 		$saisonId = null;
