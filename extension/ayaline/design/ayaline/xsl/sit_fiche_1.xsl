@@ -16,7 +16,7 @@
 	<xsl:include href="inc/galleria_fiche_detail.xsl"/>
 
 	<xsl:template match="/produit">
-		<xsl:variable name="intitule"><xsl:if test="$langue = 'en'"><xsl:value-of select="intituleGb"/></xsl:if><xsl:if test="$langue = 'ge'"><xsl:value-of select="intituleDe"/></xsl:if><xsl:if test="$langue = 'fr'"><xsl:value-of select="intitule"/></xsl:if></xsl:variable>
+		<xsl:variable name="intitule"><xsl:if test="$langue = 'en'"><xsl:value-of select="intituleGb"/></xsl:if><xsl:if test="$langue = 'de'"><xsl:value-of select="intituleDe"/></xsl:if><xsl:if test="$langue = 'fr'"><xsl:value-of select="intitule"/></xsl:if></xsl:variable>
 		<div class="box-left">
 			<xsl:call-template name="galerie-fiche-detail">
 				<xsl:with-param name="titrefiche" select="$intitule"/>
@@ -182,7 +182,7 @@
 						<xsl:if test="$langue = 'en'">
 							<![CDATA[document.oswidget = new OsFG("OSRechercheDetail","22357-1621","uk");]]>
 						</xsl:if>
-						<xsl:if test="$langue = 'ge'">
+						<xsl:if test="$langue = 'de'">
 							<![CDATA[document.oswidget = new OsFG("OSRechercheDetail","22357-1621","uk");]]>
 						</xsl:if>
 						<xsl:if test="$langue = 'fr'">
@@ -368,7 +368,7 @@
 				</ul>
 				
 				<div id="onglet-description">
-					<xsl:variable name="commentaire"><xsl:if test="$langue = 'en'"><xsl:value-of select="commentaires/commentaire2"/></xsl:if><xsl:if test="$langue = 'ge'"><xsl:value-of select="commentaires/commentaire3"/></xsl:if><xsl:if test="$langue = 'fr'"><xsl:value-of select="commentaires/commentaire1"/></xsl:if></xsl:variable>
+					<xsl:variable name="commentaire"><xsl:if test="$langue = 'en'"><xsl:value-of select="commentaires/commentaire2"/></xsl:if><xsl:if test="$langue = 'de'"><xsl:value-of select="commentaires/commentaire3"/></xsl:if><xsl:if test="$langue = 'fr'"><xsl:value-of select="commentaires/commentaire1"/></xsl:if></xsl:variable>
 					<xsl:if test="string-length($commentaire) &gt; 0">
 						<p class="padding-bottom: 14px">
 							<xsl:call-template name="string-replace-all">

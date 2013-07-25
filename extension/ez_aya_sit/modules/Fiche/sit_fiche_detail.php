@@ -12,7 +12,7 @@ $siteIni = eZINI::instance('site.ini');
 
 $langue = $siteIni->variable('RegionalSettings','Locale');
 if ($langue) {
-	$langue = substr($langue, 0, 2);
+	$langue = strtolower(substr($langue, -2));
 }
 
 $rootNode = $contentIni->variable('NodeSettings','RootNode');
