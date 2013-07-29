@@ -229,7 +229,7 @@
 							<xsl:if test="$typeCritere = 2 or (($typeCritere = 1 or $typeCritere = 3) and count(modalites/modalite[contains($criteresRecherche, concat('|', @id, '|')) or contains($criteresRecherche, concat('|', $idCritere, '|'))]) = 2)">
 								<xsl:attribute name="for">sit_mr_<xsl:value-of select="$idCritere"/></xsl:attribute>
 							</xsl:if>
-							<strong><xsl:value-of select="$intituleCritere"/></strong>
+							<strong><xsl:value-of select="$intituleCritere"/><![CDATA[ ]]></strong>
 						</label>
 						<xsl:choose>
 							<xsl:when test="$typeCritere = 2 or (($typeCritere = 1 or $typeCritere = 3) and count(modalites/modalite[contains($criteresRecherche, concat('|', @id, '|')) or contains($criteresRecherche, concat('|', $idCritere, '|'))]) = 2)">
