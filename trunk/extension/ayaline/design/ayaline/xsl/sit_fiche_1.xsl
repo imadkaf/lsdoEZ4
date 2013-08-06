@@ -189,7 +189,7 @@
 							<![CDATA[document.oswidget = new OsFG("OSRechercheDetail","22357-1621","fr");]]>
 						</xsl:if>
 						<![CDATA[
-						document.oswidget.AliasTerritoire("otsablesolonne");
+						//document.oswidget.AliasTerritoire("otsablesolonne");
 						document.oswidget.ListeIdFournisseur("]]><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280003']/valModalite"/><![CDATA[");
 						document.oswidget.Affiche();
 					});
