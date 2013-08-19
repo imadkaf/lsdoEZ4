@@ -14,12 +14,12 @@
 				{/if}
 				{if eq('eng-GB', $langue)}
 			{literal}
-					document.oswidget = new OsFG("OSRecherche","22357-2457","uk");
+					document.oswidget = new OsFG("OSRecherche","22357-2964","uk");
 			{/literal}
 				{/if}
 				{if eq('ger-DE', $langue)}
 			{literal}
-					document.oswidget = new OsFG("OSRecherche","22357-2457","uk");
+					document.oswidget = new OsFG("OSRecherche","22357-2964","uk");
 			{/literal}
 				{/if}
 			{literal}
