@@ -7,7 +7,7 @@
 	<a href={$node_url_alias}><img src={'sit/image_fiche_defaut_moyenne.jpg'|ezimage} width="90" alt="{if is_set($name)}{$name|wash}{else}{$node.name|wash}{/if}" title="{if is_set($name)}{$name|wash}{else}{$node.name|wash}{/if}" /></a>
 {/if}
 
-<h2><a href={$node_url_alias}>{if is_set($name)}{$name|wash}{else}{$node.name|wash}{/if}</a></h2>
+<h2><a href={$node_url_alias}>{$node.name|wash}</a></h2>
 
 {if $node.data_map.short_description.has_content}
 	<p>

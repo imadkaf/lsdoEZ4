@@ -1,9 +1,15 @@
 1 - Récupérer le paquetage : ezayagenmenus_configuration-1.0-1.ezpkg, afin de pouvoir installer la classe de configuration de l'extension
 2 - Dans le fichier ini: "ezayagenmenus.ini" section: [GlobalSettings] , variable: hostname, mettez le hostname de l'intégration afin de pouvoir généré des url absolut
 3 - Dans le fichier site.ini de cette extension changer : 
-        HostMatchMapItems[]=genmenu.lsdo.loc;ezayagenmenus  => genmenu.lsdo.lnet.fr;ezayagenmenus(ou un truc du genre)
+        HostMatchMapItems[]=genmenu.lsdo.loc;ezayagenmenus  => genmenu.lsdo.lnet.fr;ezayagenmenus(ou un truc du genre)[FR]
+        HostMatchMapItems[]=genmenu.lsdo.uk;uk_ezayagenmenus  => genmenu.lsdo.lnet.uk;uk_ezayagenmenus(ou un truc du genre)[EN]
+        
 4 - Copier le fichier "content.ini.append.php" du siteaccess "ayaline" (extension\ayaline\settings\siteaccess\ayaline\content.ini.append.php) dans le siteaccess "ezayagenmenus" de cette extension (extension\ezayagenmenus\settings\siteaccess\ezayagenmenus\content.ini.append.php)
 5 - En BO : Ajouter les droits au role Anonymous afin qu'il puisses accéder au siteaccess "ezayagenmenus"
 6 - le lien pour récupérer le html:
-         du header est : http://genmenu.lsdo.loc/genmenu/header/
-         du footer est : http://genmenu.lsdo.loc/genmenu/footer/   
+		
+         [FR] du header est : http://genmenu.lsdo.loc/genmenu/header/
+         [FR] du footer est : http://genmenu.lsdo.loc/genmenu/footer/
+         
+         [EN] du header est : http://genmenu.lsdo.uk/genmenu/header/
+         [EN] du footer est : http://genmenu.lsdo.uk/genmenu/footer/
