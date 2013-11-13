@@ -3,6 +3,8 @@
 require_once('kernel/common/template.php');
 require_once('extension/ez_aya_sit/classes/sit_utils.class.php');
 
+$Module = $Params['Module'];
+
 $tpl = templateInit();
 
 $contentIni = eZINI::instance('content.ini');
