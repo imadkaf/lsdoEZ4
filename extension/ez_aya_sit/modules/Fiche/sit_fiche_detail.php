@@ -10,10 +10,7 @@ $sitIni = eZINI::instance('ez_aya_sit.ini');
 
 $siteIni = eZINI::instance('site.ini');
 
-$langue = $siteIni->variable('RegionalSettings','Locale');
-if ($langue) {
-	$langue = strtolower(substr($langue, -2));
-}
+$langue = $siteIni->variable('RegionalSettings','LanguageCodeIso');
 
 $rootNode = $contentIni->variable('NodeSettings','RootNode');
 if (!$rootNode) {
@@ -184,6 +181,7 @@ $xsltParemters['anneeCourante'] = date("Y");
 
 $categorie = null;
 $intituleFiche = "Fiche inconnue";
+$dateFinValidite = '';
 if (file_exists($cheminFichierCacheXml)) {
 	$xmlFiche = simplexml_load_file($cheminFichierCacheXml);
 	if ($xmlFiche) {
@@ -196,6 +194,22 @@ if (file_exists($cheminFichierCacheXml)) {
 		if ($intituleFicheNode && count($intituleFicheNode) > 0) {
 			$intituleFiche = utf8_decode("".$intituleFicheNode[0]);
 		}
+		
+		$dateFinValiditeFicheNode = $xmlFiche->xpath('/produit/dateValidite/dateValiditeFin');
+		if ($dateFinValiditeFicheNode && count($dateFinValiditeFicheNode) > 0) {
+			$dateFinValidite = utf8_decode("".$dateFinValiditeFicheNode[0]);
+		}
+	}
+}
+
+//Si la date de validite est depassee, retour a l'accueil
+if($dateFinValidite != '' && strtotime($dateFinValidite) != ''){
+	if(strtotime($dateFinValidite) < time()){
+		/* Redirection vers la page sit liste */
+		if(is_object($previousNode) && $previousNode->attribute('url_alias')){
+			return $Module->redirectTo( $previousNode->attribute('url_alias'));
+		}
+		return $Module->redirectTo( '/' );
 	}
 }
 
@@ -290,66 +304,66 @@ if (!$cheminFichierXsl || !file_exists($cheminFichierXsl)) {
 }
 
 /* Déb : Test de la validité de la fiche */
-$fichierCacheSimpleXml = simplexml_load_file($cheminFichierCacheXml);
-$ficheDateValiditeDebut = $fichierCacheSimpleXml->xpath("/produit/dateValidite/dateValiditeDebut");
-$ficheDateValiditeFin = $fichierCacheSimpleXml->xpath("/produit/dateValidite/dateValiditeFin");
-$_ficheProduitIsValid = true;
-if(is_array($ficheDateValiditeDebut) && count($ficheDateValiditeDebut)>0){
-    $ficheDateValiditeDebut = (string)$ficheDateValiditeDebut[0];
-}
-if(is_array($ficheDateValiditeFin)  && count($ficheDateValiditeFin)>0){
-    $ficheDateValiditeFin = (string)$ficheDateValiditeFin[0];
-}
+// $fichierCacheSimpleXml = simplexml_load_file($cheminFichierCacheXml);
+// $ficheDateValiditeDebut = $fichierCacheSimpleXml->xpath("/produit/dateValidite/dateValiditeDebut");
+// $ficheDateValiditeFin = $fichierCacheSimpleXml->xpath("/produit/dateValidite/dateValiditeFin");
+// $_ficheProduitIsValid = true;
+// if(is_array($ficheDateValiditeDebut) && count($ficheDateValiditeDebut)>0){
+    // $ficheDateValiditeDebut = (string)$ficheDateValiditeDebut[0];
+// }
+// if(is_array($ficheDateValiditeFin)  && count($ficheDateValiditeFin)>0){
+    // $ficheDateValiditeFin = (string)$ficheDateValiditeFin[0];
+// }
 
 /* Redirect si les date de den et fin de validité ne sont pas renseignées */
-if(!is_string($ficheDateValiditeDebut) || strlen(trim($ficheDateValiditeDebut)) == 0){
-    $_ficheProduitIsValid = false;
-}
-if(!is_string($ficheDateValiditeFin) || strlen(trim($ficheDateValiditeDebut)) == 0){
-    $_ficheProduitIsValid = false;
-}
+// if(!is_string($ficheDateValiditeDebut) || strlen(trim($ficheDateValiditeDebut)) == 0){
+    // $_ficheProduitIsValid = false;
+// }
+// if(!is_string($ficheDateValiditeFin) || strlen(trim($ficheDateValiditeDebut)) == 0){
+    // $_ficheProduitIsValid = false;
+// }
 
-//$ficheDateValiditeDebutTS = strtotime(trim($ficheDateValiditeDebut));
-//$ficheDateValiditeFinTS = strtotime(trim($ficheDateValiditeFin)) + (24*60*60);//+1j pour inclure ledernier jour de date de fin
+// $ficheDateValiditeDebutTS = strtotime(trim($ficheDateValiditeDebut));
+// $ficheDateValiditeFinTS = strtotime(trim($ficheDateValiditeFin)) + (24*60*60);//+1j pour inclure ledernier jour de date de fin
 
 
 /* Normaliser le format date (yyyy-dd-mm) */
-$ficheDateValiditeDebut = preg_replace("/\\//","-",$ficheDateValiditeDebut);
-$ficheDateValiditeFin = preg_replace("/\\//","-",$ficheDateValiditeFin);
+// $ficheDateValiditeDebut = preg_replace("/\\//","-",$ficheDateValiditeDebut);
+// $ficheDateValiditeFin = preg_replace("/\\//","-",$ficheDateValiditeFin);
 
-$ficheDateValiditeDebutArr = explode("-",$ficheDateValiditeDebut);
-$ficheDateValiditeFinArr = explode("-",$ficheDateValiditeFin);
+// $ficheDateValiditeDebutArr = explode("-",$ficheDateValiditeDebut);
+// $ficheDateValiditeFinArr = explode("-",$ficheDateValiditeFin);
 
-$ficheDateValiditeDebutInt = (int) preg_replace("/-/","",$ficheDateValiditeDebut);
-$ficheDateValiditeFinInt = (int) preg_replace("/-/","",$ficheDateValiditeFin);
-$currentDateInt = (int)date('Ymd');
+// $ficheDateValiditeDebutInt = (int) preg_replace("/-/","",$ficheDateValiditeDebut);
+// $ficheDateValiditeFinInt = (int) preg_replace("/-/","",$ficheDateValiditeFin);
+// $currentDateInt = (int)date('Ymd');
 
 /* Hack pour timestamp false (date > 2038 )*/
-if(is_array($ficheDateValiditeDebutArr) && is_array($ficheDateValiditeFinArr)){
-    /* Valide pour le format yyyy-mm-dd */
-    foreach ($ficheDateValiditeDebutArr as $dateKey=>$dateVal){
-        if((int)$dateVal > 9){
-            $dateVal = '0'.((int)$dateVal);
-        }
-        $ficheDateValiditeDebutArr[$dateKey] = (int)$dateVal;
-    }
-    foreach ($ficheDateValiditeFinArr as $dateKey => $dateVal){
-        if((int)$dateVal > 9){
-            $dateVal ='0'.((int)$dateVal);
-        }
-        $ficheDateValiditeFinArr[$dateKey] = $dateVal;
-    }
-    $ficheDateValiditeDebutInt = (int)  implode("", $ficheDateValiditeDebutArr);
-    $ficheDateValiditeFinInt = (int)  implode("", $ficheDateValiditeFinArr) + 1;
-}
+// if(is_array($ficheDateValiditeDebutArr) && is_array($ficheDateValiditeFinArr)){
+    // /* Valide pour le format yyyy-mm-dd */
+    // foreach ($ficheDateValiditeDebutArr as $dateKey=>$dateVal){
+        // if((int)$dateVal > 9){
+            // $dateVal = '0'.((int)$dateVal);
+        // }
+        // $ficheDateValiditeDebutArr[$dateKey] = (int)$dateVal;
+    // }
+    // foreach ($ficheDateValiditeFinArr as $dateKey => $dateVal){
+        // if((int)$dateVal > 9){
+            // $dateVal ='0'.((int)$dateVal);
+        // }
+        // $ficheDateValiditeFinArr[$dateKey] = $dateVal;
+    // }
+    // $ficheDateValiditeDebutInt = (int)  implode("", $ficheDateValiditeDebutArr);
+    // $ficheDateValiditeFinInt = (int)  implode("", $ficheDateValiditeFinArr) + 1;
+// }
 
-if(!$_ficheProduitIsValid || $ficheDateValiditeDebutInt > $currentDateInt || $currentDateInt > $ficheDateValiditeFinInt){
-    /* Redirection vers la page sit liste */
-    if(is_object($previousNode) && $previousNode->attribute('url_alias')){
-        return $Module->redirectTo( $previousNode->attribute('url_alias'));
-    }
-    return $Module->redirectTo( '/' );
-}
+// if(!$_ficheProduitIsValid || $ficheDateValiditeDebutInt > $currentDateInt || $currentDateInt > $ficheDateValiditeFinInt){
+    // /* Redirection vers la page sit liste */
+    // if(is_object($previousNode) && $previousNode->attribute('url_alias')){
+        // return $Module->redirectTo( $previousNode->attribute('url_alias'));
+    // }
+    // return $Module->redirectTo( '/' );
+// }
 /* Fin : Test de la validité de la fiche */
 
 $contenuBloc = "";
