@@ -95,11 +95,17 @@ if (file_exists($cheminFichierCacheXml)) {
 	}
 }
 $contenuXmlDistant = "";
+$dateFinValidite = '';
 if ($cacheExpire) {
 	$contenuXmlDistant = SitUtils::urlGetContentsCurl($rootSitUrl."Produit".$sitParamsString, 5);
 	if ($contenuXmlDistant) {
 		$contenuXmlCache = utf8_encode(preg_replace("/&([\\w\\d]+|\\#\\d+);/si", "_dw_entity__$1__", $contenuXmlDistant));
 		file_put_contents($cheminFichierCacheXml, $contenuXmlCache, LOCK_EX);
+	} else {
+		if (file_exists($cheminFichierCacheXml)) {
+			unlink($cheminFichierCacheXml);
+		}
+		$dateFinValidite = '1984-01-06';
 	}
 }
 
@@ -183,7 +189,6 @@ $xsltParemters['anneeCourante'] = date("Y");
 
 $categorie = null;
 $intituleFiche = "Fiche inconnue";
-$dateFinValidite = '';
 if (file_exists($cheminFichierCacheXml)) {
 	$xmlFiche = simplexml_load_file($cheminFichierCacheXml);
 	if ($xmlFiche) {
@@ -205,14 +210,19 @@ if (file_exists($cheminFichierCacheXml)) {
 }
 
 //Si la date de validite est depassee, retour a l'accueil
-if($dateFinValidite != '' && strtotime($dateFinValidite) != ''){
-	if(strtotime($dateFinValidite) < time()){
-		/* Redirection vers la page sit liste */
-		if(is_object($previousNode) && $previousNode->attribute('url_alias')){
-			return $Module->redirectTo( $previousNode->attribute('url_alias'));
-		}
-		return $Module->redirectTo( '/' );
-	}
+if($dateFinValidite != ''){
+        $dateFinValidite = DateTime::createFromFormat(
+            'Y-m-d H:i:s',
+            $dateFinValidite . ' 23:59:59'
+        );
+        $maintenant = new DateTime();
+        if($dateFinValidite < $maintenant){
+                /* Redirection vers la page sit liste */
+                if(is_object($previousNode) && $previousNode->attribute('url_alias')){
+                        return $Module->redirectTo( $previousNode->attribute('url_alias'));
+                }
+                return $Module->redirectTo( '/' );
+        }
 }
 
 $criteresAffiches = array();
