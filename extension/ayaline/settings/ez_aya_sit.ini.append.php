@@ -41,11 +41,18 @@ StaticSitTranslations[]=APartirDe
 StaticSitTranslations[]=VotreAvis
 StaticSitTranslations[]=ChangerDeSaison
 StaticSitTranslations[]=Indifferent
+StaticSitTranslations[]=De
+StaticSitTranslations[]=A
+StaticSitTranslations[]=Le
+StaticSitTranslations[]=Et
 
 [ImagesDesign]
 Chemin=/extension/ayaline/design/ayaline/images/
 
 [GlobalSitParametersOverride]
-RootSitUrl=http://www.lsdo-sit.lnet.fr/servlets/Web?tache=Traitement
+#RootSitUrl=http://www.lsdo-sit.lnet.fr/servlets/Web?tache=Traitement
+RootSitUrl=http://www.lsdo-sit.lnet.fr/servlets/Web?enc=utf-8&tache=Traitement
+#RootSitUrl=http://dev.lsdo-sit.lnet.fr/servlets/Web?tache=Traitement
+#RootSitUrl=http://dev.lsdo-sit.lnet.fr/servlets/Web?enc=utf-8&tache=Traitement
 
 */ ?>

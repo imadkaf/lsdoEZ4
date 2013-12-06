@@ -978,6 +978,15 @@ ul li.partager a{
 	height:14px;
 	display:block;
 }
+.inputsSelect ul li span.Flag_ge,
+.inputsSelect p span.Flag_ge{
+	background:url("../images/de_flag.png") 0 50% no-repeat;
+	font-size:11px;
+	color:#8A8A8A;
+	width:20px;
+	height:14px;
+	display:block;
+}
 .inputsSelect ul li span.Flag_fr,
 .inputsSelect p span.Flag_fr{
 	background:url("../images/fr_flag.png") 0 50% no-repeat;
@@ -2583,7 +2592,7 @@ ul.menu-left li.actif a{
 }
 .survey-view .block .lsdo-label{
 	float:left;
-	width:100px;
+	width:131px;
 	margin-right:15px;
 }
 div.survey-view .required{
@@ -3212,7 +3221,7 @@ div.image{
 	font-size: 16px;
 }
 .bxslider.remonte_liste .bx-window{
-	height: 465px;
+	height: 470px;
 }
 
 /*** Menu de recherche dans les pages SIT ***/
@@ -3375,9 +3384,13 @@ body>div.ui-dialog>div.ui-corner-all {
     font-weight: bold;
     margin: 5px;
     padding: 4px 20px;
+	cursor: pointer;
 }
 .button-submit-valider {
 	background: #E643AC;
+}
+#onglet-description a {
+	text-decoration:underline;
 }
 
 .galleria-lightbox-title{
@@ -3392,3 +3405,12 @@ body>div.ui-dialog>div.ui-corner-all {
 	display: block;
 }
 /******************/
+/*** Evol ajout critere horaire, lien et fichier joint ***/
+#onglet-description .lien a, #onglet-description .fichiers a{
+	color: #00BBD4;
+	text-decoration: none;
+}
+#onglet-description .lien a:hover, #onglet-description .fichiers a:hover{
+	text-decoration: underline;
+}
+/*********************************************************/

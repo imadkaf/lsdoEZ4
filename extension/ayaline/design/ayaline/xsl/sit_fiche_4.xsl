@@ -9,7 +9,7 @@
 	
 	<xsl:include href="inc/critere_moda_apartirde.xsl"/>
 	<xsl:include href="inc/string_replace_all.xsl"/>
-	<xsl:include href="inc/periodes_ouverture_mise_en_avant.xsl"/>
+	<xsl:include href="inc/periodes_ouverture_fiche.xsl"/>
 	<xsl:include href="inc/display_dispos.xsl"/>
 	<xsl:include href="inc/rendu_adresse.xsl"/>
 	<xsl:include href="inc/bouton_reserver.xsl"/>
@@ -246,9 +246,9 @@
 					</script>
 					<div id="tabs">
 						<ul>
-							<li><a href="#onglet-description"><span><xsl:value-of select="$termeDescriptif"/></span></a></li>
-							<li><a href="#onglet-caracteristiques"><span><xsl:value-of select="$termeCaracteristiques"/></span></a></li>
-							<li style="background-color: #7AD6E1 !important;"><a href="#onglet-avis"><span><xsl:value-of select="$termeAvis"/></span></a></li>
+							<li><a href="#onglet-description"><span><xsl:if test="$langue = 'de'"><xsl:attribute name="style">font-size:9px;</xsl:attribute></xsl:if><xsl:value-of select="$termeDescriptif"/></span></a></li>
+							<li><a href="#onglet-caracteristiques"><span><xsl:if test="$langue = 'de'"><xsl:attribute name="style">font-size:9px;</xsl:attribute></xsl:if><xsl:value-of select="$termeCaracteristiques"/></span></a></li>
+							<li style="background-color: #7AD6E1 !important;"><a href="#onglet-avis"><span><xsl:if test="$langue = 'de'"><xsl:attribute name="style">font-size:9px;</xsl:attribute></xsl:if><xsl:value-of select="$termeAvis"/></span></a></li>
 						</ul>
 						
 						<div id="onglet-description">
@@ -263,6 +263,42 @@
 									<![CDATA[ ]]>
 								</p>
 							</xsl:if>
+							
+							<div class="lien">
+								<xsl:if test="count(liens/lien) &gt; 0">
+									<xsl:for-each select="liens/lien">
+										<xsl:if test="string-length(intLien) &gt; 0 and string-length(urlLien) &gt; 0">
+											<a target="_blank">
+												<xsl:attribute name="href"><xsl:value-of select="urlLien"/></xsl:attribute>
+												<xsl:value-of select="intLien"/>
+											</a>
+										</xsl:if>
+										<xsl:if test="position() != last()">
+											<br />
+										</xsl:if>
+									</xsl:for-each>
+								</xsl:if>
+							</div>
+							
+							<div class="fichiers">
+								<xsl:if test="count(fichiersJoints/fichierJoint) &gt; 0">
+									<xsl:for-each select="fichiersJoints/fichierJoint">
+										<xsl:if test="string-length(intFichierJoint) &gt; 0 and string-length(urlFichierJoint) &gt; 0">
+											<a target="_blank">
+												<xsl:attribute name="href"><xsl:value-of select="urlFichierJoint"/></xsl:attribute>
+												<xsl:attribute name="download"><xsl:value-of select="intFichierJoint"/></xsl:attribute>
+												<xsl:value-of select="intFichierJoint"/>
+											</a>
+											<xsl:if test="string-length(descFichierJoint) &gt; 0">
+												<![CDATA[ : ]]><xsl:value-of select="descFichierJoint"/>
+											</xsl:if>
+										</xsl:if>
+										<xsl:if test="position() != last()">
+											<br />
+										</xsl:if>
+									</xsl:for-each>
+								</xsl:if>
+							</div>
 						</div>
 						
 						<div id="onglet-caracteristiques">
