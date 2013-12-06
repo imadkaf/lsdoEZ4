@@ -5,22 +5,22 @@
 	    <name>ayaline/langue</name>
 	    <message>
 	        <source>Langue</source>
-	        <translation>Language</translation>
+	        <translation>Sprache</translation>
 	    </message>
 	</context>
 	<context>
 		<name>sit/termes/override</name>
 		<message>
 			<source>DebutOuv</source>
-			<translation>Open at :</translation>
+			<translation>Vom :</translation>
 		</message>
 		<message>
 			<source>FinOuv</source>
-			<translation>to :</translation>
+			<translation>bis :</translation>
 		</message>
 		<message>
 			<source>AdresseFiche</source>
-			<translation>Adresse</translation>
+			<translation>Anschrift</translation>
 		</message>
 		<message>
 			<source>Itineraire</source>
@@ -28,83 +28,83 @@
 		</message>
 		<message>
 			<source>Categorie</source>
-			<translation>Category</translation>
+			<translation>Kategorie</translation>
 		</message>
 		<message>
 			<source>AffinerRecherche</source>
-			<translation>Validate the search</translation>
+			<translation>Ihre Suche erweitern</translation>
 		</message>
 		<message>
 			<source>Descriptif</source>
-			<translation>Description</translation>
+			<translation>Beschreibung</translation>
 		</message>
 		<message>
 			<source>Caracteristiques</source>
-			<translation>Caracteristics</translation>
+			<translation>Technische Daten</translation>
 		</message>
 		<message>
 			<source>EnsavoirplusReserver</source>
-			<translation>Learn more / Reserve</translation>
+			<translation>Mehr dazu / Reservieren</translation>
 		</message>
 		<message>
 			<source>AVoirAussi</source>
-			<translation>See too</translation>
+			<translation>Ebensfalls ansehen</translation>
 		</message>
 		<message>
 			<source>EnSavoirPlus</source>
-			<translation>Learn more</translation>
+			<translation>Mehr dazu</translation>
 		</message>
 		<message>
 			<source>ToutesLesFiches</source>
-			<translation>All the index</translation>
+			<translation>alle Seiten</translation>
 		</message>
 		<message>
 			<source>TousLesEvenements</source>
-			<translation>All the events</translation>
+			<translation>alle Veranstaltungen</translation>
 		</message>
 		<message>
 			<source>Agenda</source>
-			<translation>Agenda</translation>
+			<translation>Veranstaltungskalender</translation>
 		</message>
 		<message>
 			<source>ToutesLesDates</source>
-			<translation>All the dates</translation>
+			<translation>Alle Daten</translation>
 		</message>
 		<message>
 			<source>CoupDeCoeur</source>
-			<translation>Favorite</translation>
+			<translation>Favoriten</translation>
 		</message>
 		<message>
 			<source>LesPlusConsultes</source>
-			<translation>The most seen</translation>
+			<translation>Die meist besuchten Einträge</translation>
 		</message>
 		<message>
 			<source>ToutLAgenda</source>
-			<translation>All the agenda</translation>
+			<translation>Veranstaltungskalender</translation>
 		</message>
 		<message>
 			<source>AConsulter</source>
-			<translation>To consult</translation>
+			<translation>Anzuschauen</translation>
 		</message>
 		<message>
 			<source>DansLaMemeCategorie</source>
-			<translation>In the same category</translation>
+			<translation>In der gleichen Kategorie</translation>
 		</message>
 		<message>
 			<source>Reserver</source>
-			<translation>Reserve</translation>
+			<translation>Reservieren</translation>
 		</message>
 		<message>
 			<source>Dispos</source>
-			<translation>Availabilities</translation>
+			<translation>Verfügbarkeit</translation>
 		</message>
 		<message>
 			<source>AffinerVotreRecherche</source>
-			<translation>Ripen your search</translation>
+			<translation>Ihre Suche erweitern</translation>
 		</message>
 		<message>
 			<source>ReinitialiserRecherche</source>
-			<translation>Reset the search</translation>
+			<translation>Neue Suche</translation>
 		</message>
 		<message>
 			<source>TrierPar</source>
@@ -124,11 +124,11 @@
 		</message>
 		<message>
 			<source>Commune</source>
-			<translation>District</translation>
+			<translation>Ort</translation>
 		</message>
 		<message>
 			<source>MotsCles</source>
-			<translation>Key words</translation>
+			<translation>Suchbegriffe</translation>
 		</message>
 		<message>
 			<source>APartirDe</source>
@@ -144,31 +144,31 @@
 		</message>
 		<message>
 			<source>PremierePage</source>
-			<translation>First page</translation>
+			<translation>Erste seite</translation>
 		</message>
 		<message>
 			<source>DernierePage</source>
-			<translation>Last page</translation>
+			<translation>Letzte seite</translation>
 		</message>
 		<message>
 			<source>Precedent</source>
-			<translation>Previous</translation>
+			<translation>Vorhergehend</translation>
 		</message>
 		<message>
 			<source>Suivant</source>
-			<translation>Next</translation>
+			<translation>Nächsten</translation>
 		</message>
 		<message>
 			<source>Aucun</source>
-			<translation>No card corresponds to your research</translation>
+			<translation>Nicht ergebnis entsrpicht/entsprechen Ihrer Suche</translation>
 		</message>
 		<message>
 			<source>ResultatsTrouves</source>
-			<translation>card(s) correspond(s) to your search</translation>
+			<translation>ergebnis(se) entsrpicht/entsprechen Ihrer Suche</translation>
 		</message>
 		<message>
 			<source>OuvertTouteAnnee</source>
-			<translation>Open all the year</translation>
+			<translation>Ganzjährig geöffnet</translation>
 		</message>
 		<message>
 			<source>PeriodesOuverture</source>
@@ -176,19 +176,19 @@
 		</message>
 		<message>
 			<source>Le</source>
-			<translation>The</translation>
+			<translation> </translation>
 		</message>
 		<message>
 			<source>Du</source>
-			<translation>Of the</translation>
+			<translation>Vom</translation>
 		</message>
 		<message>
 			<source>Au</source>
-			<translation>to</translation>
+			<translation>bis</translation>
 		</message>
 		<message>
 			<source>RetourListe</source>
-			<translation>Back to the list</translation>
+			<translation>Zurück zur Liste</translation>
 		</message>
 		<message>
 			<source>AdressePrestataire</source>
@@ -268,31 +268,31 @@
 		</message>
 		<message>
 			<source>ChainesDHotels</source>
-			<translation>Hotels chains</translation>
+			<translation>Hotelkette</translation>
 		</message>
 		<message>
 			<source>Email</source>
-			<translation>Email</translation>
+			<translation>E-mail</translation>
 		</message>
 		<message>
 			<source>SiteWeb</source>
-			<translation>Web site</translation>
+			<translation>Website</translation>
 		</message>
 		<message>
 			<source>Avis</source>
-			<translation>Opinion</translation>
+			<translation>Bewertungen</translation>
 		</message>
 		<message>
 			<source>AucunAvisPourLeMoment</source>
-			<translation>There is no opinion</translation>
+			<translation>Noch keine Kommentare</translation>
 		</message>
 		<message>
 			<source>SoyezLePremier</source>
-			<translation>Be the first</translation>
+			<translation>Seien Sie der Erste</translation>
 		</message>
 		<message>
 			<source>Tarifs</source>
-			<translation>Fees</translation>
+			<translation>Preise</translation>
 		</message>
 		<message>
 			<source>Hotels</source>
@@ -300,31 +300,35 @@
 		</message>
 		<message>
 			<source>VoirAussi</source>
-			<translation>See too</translation>
+			<translation>Ebenfalls ansehen</translation>
 		</message>
 		<message>
 			<source>ToutesFichesMemeCategorie</source>
-			<translation>All the cards of the same category</translation>
+			<translation>Alle Seiten von der selbe Kategorie</translation>
+		</message>
+		<message>
+			<source>APartirDe</source>
+			<translation>Ab</translation>
 		</message>
 		<message>
 			<source>VotreAvis</source>
-			<translation>Your opinion</translation>
+			<translation>Ihre Bewertung</translation>
 		</message>
 		<message>
 			<source>ChangerDeSaison</source>
-			<translation>Change<![CDATA[<br />]]> season &gt;</translation>
+			<translation>Die Periode ändern<![CDATA[<br />]]> wechseln &gt;</translation>
 		</message>
 		<message>
 			<source>Indifferent</source>
-			<translation>Indifferent</translation>
+			<translation>Unbestimmt</translation>
 		</message>
 		<message>
 			<source>De</source>
-			<translation>From</translation>
+			<translation>Vom</translation>
 		</message>
 		<message>
 			<source>A</source>
-			<translation>to</translation>
+			<translation>bis</translation>
 		</message>
 		<message>
 			<source>Le</source>
@@ -332,10 +336,16 @@
 		</message>
 		<message>
 			<source>Et</source>
-			<translation>and</translation>
+			<translation>und</translation>
 		</message>
 	</context>
-	
+	<context>
+	    <name>extension/recaptcha</name>
+	    <message>
+	        <source>The reCAPTCHA wasn't entered correctly. Please try again.</source>
+	        <translation>Der Sicherheitscode ist falsch.</translation>
+	    </message>
+	</context>
 	<context>
 	    <name>ayaline/pageSuivante</name>
 	    <message>
@@ -350,52 +360,55 @@
 	        <translation>Previous page</translation>
 	    </message>
 	</context>
-	
 	<context>
 	    <name>ayaline</name>
 	    <message>
 	        <source>The informations are not available</source>
-	        <translation>The informations are not available</translation>
+	        <translation>Die Informationen sind momentan nicht verfügbar</translation>
 	    </message>
 	    <message>
 	        <source>Learn more</source>
-	        <translation>Learn more</translation>
+	        <translation>Mehr dazu</translation>
 	    </message>
 	    <message>
 	        <source>Download</source>
-	        <translation>Download</translation>
+	        <translation>Herunterladen</translation>
 	    </message>
 	    <message>
 	        <source>No photograph is available</source>
-	        <translation>No photograph is available</translation>
+	        <translation>Keine Foto ist momentan verfügbar</translation>
 	    </message>
 	    <message>
 	        <source>No video is available</source>
-	        <translation>No video is available</translation>
+	        <translation>Keine Video ist momentan verfügbar</translation>
 	    </message>
 	    <message>
 	        <source>Close</source>
-	        <translation>Close</translation>
+	        <translation>Schliessen</translation>
 	    </message>
 	    <message>
 	        <source>No booklet is available</source>
-	        <translation>No booklet is available</translation>
+	        <translation>Keine Broschüre ist momentan verfügbar</translation>
 	    </message>
 	    <message>
 	        <source>Hello</source>
-	        <translation>Hello</translation>
+	        <translation>Hallo</translation>
+	    </message>
+	    <message>
+	        <source>Hello</source>
+	        <translation>Hallo</translation>
 	    </message>
 	    <message>
 	        <source>This email was sent automatically since the web site of tourist office of Sables d'Olonne</source>
-	        <translation>This email was sent automatically since the web site of tourist office of Sables d'Olonne</translation>
+	        <translation>Diese E-Mail wurde automatisch von der Website des Fremdenverkehrsamtes von Les Sables d'Olonne gesendet</translation>
 	    </message>
 	    <message>
 	        <source>Your message was sent</source>
-	        <translation>Your message was sent</translation>
+	        <translation>Ihre Nachricht wurde gesendet</translation>
 	    </message>
 	    <message>
 	        <source>The team of the tourist office of Sables d'Olonne will bring to you an answer as soon as possible</source>
-	        <translation>The team of the tourist office of Sables d'Olonne will bring to you an answer as soon as possible</translation>
+	        <translation>Das Fremdenverkehrsbüro von Les Sables d'Olonne wird Ihnen eine Antwort so schnell wie möglich</translation>
 	    </message>
 	    <message>
 	        <source>Home</source>
@@ -403,127 +416,155 @@
 	    </message>
 	    <message>
 	        <source>We thank you for your comprehension and let us invite you to continue your consultation of the site while clicking here</source>
-	        <translation>We thank you for your comprehension and let us invite you to continue your consultation of the site while clicking here</translation>
+	        <translation>Wir danken Ihnen für Ihr Verständnis und laden Sie ein, sich auf Ihren Besuch der Website weiter, indem Sie unten</translation>
 	    </message>
 	    <message>
 	        <source>Back to the top</source>
-	        <translation>Back to the top</translation>
+	        <translation>Seitenanfang</translation>
 	    </message>
 	    <message>
 	        <source>No question is available</source>
-	        <translation>No question is available</translation>
+	        <translation>Keine Anfrage ist momentan verfügbar</translation>
+	    </message>
+	    <message>
+	        <source>By car</source>
+	        <translation>Mit einem Auto</translation>
+	    </message>
+	    <message>
+	        <source>By bike</source>
+	        <translation>Mit einem Fahrrad</translation>
+	    </message>
+	    <message>
+	        <source>On foot</source>
+	        <translation>Zu Fuss</translation>
+	    </message>
+	    <message>
+	        <source>Route</source>
+	        <translation>Route</translation>
 	    </message>
 	    <message>
 	        <source>Please fill the following fields</source>
-	        <translation>Please fill the following fields</translation>
+	        <translation>Füllen Sie bitte die folgende Felden aus</translation>
 	    </message>
 	    <message>
 	        <source>Your message</source>
-	        <translation>Your message</translation>
+	        <translation>Ihre Nachricht</translation>
 	    </message>
 	    <message>
 	        <source>Your informations</source>
-	        <translation>Your informations</translation>
+	        <translation>Ihre Informationen</translation>
 	    </message>
 	    <message>
 	        <source>Your services</source>
-	        <translation>Your services</translation>
+	        <translation>Ihre Leistungen</translation>
 	    </message>
 	    <message>
 	        <source>Security code</source>
-	        <translation>Security code</translation>
+	        <translation>Sicherheitscode</translation>
 	    </message>
 	    <message>
 	        <source>Tape the code below. If you cannot read all the letters or numbers</source>
-	        <translation>Tape the code below. If you cannot read all the letters or numbers</translation>
+	        <translation>Erfassen Sie bitte den Sicherheitscode wenn Sie nicht die Buchstabe oder Zahlen lesen können</translation>
 	    </message>
 	    <message>
 	        <source>Clic here</source>
-	        <translation>Clic here</translation>
+	        <translation>Here anklicken</translation>
 	    </message>
 	    <message>
 	        <source>Reset</source>
-	        <translation>Reset</translation>
+	        <translation>Löschen</translation>
 	    </message>
 	    <message>
 	        <source>Send</source>
-	        <translation>Send</translation>
+	        <translation>Senden</translation>
 	    </message>
 	    <message>
 	        <source>Required field</source>
-	        <translation>Required field</translation>
+	        <translation>Pflichtfelder</translation>
 	    </message>
 	    <message>
 	        <source>Others housings</source>
-	        <translation>Others housings</translation>
+	        <translation>Andere Unterkünfte</translation>
 	    </message>
 	    <message>
 	        <source>This page is not associated with the selected topic</source>
-	        <translation>This page is not associated with the selected topic</translation>
+	        <translation>Diese Seite ist nicht mit dem ausgewählten Thema verbindet</translation>
 	    </message>
 	    <message>
 	        <source>Linked documents</source>
-	        <translation>Linked documents</translation>
+	        <translation>Anlage</translation>
+	    </message>
+	    <message>
+	        <source>Similar search</source>
+	        <translation>Vergleichbare Suche</translation>
 	    </message>
 	    <message>
 	        <source>Search</source>
-	        <translation>Search</translation>
+	        <translation>Suchen</translation>
 	    </message>
 	    <message>
 	        <source>Relevance</source>
-	        <translation>Relevance</translation>
+	        <translation>Aussagewert</translation>
 	    </message>
 	    <message>
 	        <source>Last change</source>
-	        <translation>Last change</translation>
+	        <translation>Letzte Veränderung</translation>
 	    </message>
 	    <message>
 	        <source>Connection</source>
-	        <translation>Connection</translation>
+	        <translation>Anmeldung</translation>
 	    </message>
 	    <message>
 	        <source>Page cannot be found</source>
-	        <translation>Page cannot be found</translation>
+	        <translation>Unauffindbare Seite</translation>
 	    </message>
 	    <message>
 	        <source>The page which you asked do not exist or is temporarily inalienable</source>
-	        <translation>The page which you asked do not exist or is temporarily inalienable</translation>
+	        <translation>Die angefragte Seite existiert nicht oder ist momentan nicht verfügbar</translation>
 	    </message>
 	    <message>
 	        <source>Sorry to cause embarrassments</source>
-	        <translation>Sorry to cause embarrassments</translation>
+	        <translation>Entschuldigen Sie bitte fûr diese Unannehmlichkeit</translation>
 	    </message>
 	    <message>
 	        <source>We propose to you</source>
-	        <translation>We propose to you</translation>
+	        <translation>Wir schlagen Ihnen vor</translation>
 	    </message>
 	    <message>
 	        <source>to return to home</source>
-	        <translation>to return to home</translation>
+	        <translation>Home</translation>
+	    </message>
+	    <message>
+	        <source>Reserve</source>
+	        <translation>Reservieren</translation>
+	    </message>
+	    <message>
+	        <source>I search</source>
+	        <translation>Ich suche</translation>
 	    </message>
 	    <message>
 	        <source>Access to press zone</source>
-	        <translation>Access to press zone</translation>
+	        <translation>Presse Zugang</translation>
 	    </message>
 	    <message>
 	        <source>To access the zone press, it is necessary to you authenticate. For that, inform the fields below with the accesses which were provided to you</source>
-	        <translation>To access the zone press, it is necessary to you authenticate. For that, inform the fields below with the accesses which were provided to you</translation>
+	        <translation>Für den Pressezugang eine Authentifizierung ist nötig - Füllen Sie bitte den Felder aus mit dem Passwort</translation>
 	    </message>
 	    <message>
 	        <source>If you do not have an access you can have it by fill the contact form</source>
-	        <translation>If you do not have an access you can have it by fill the contact form</translation>
+	        <translation>Wenn Sie nicht über ein Passwort, können Sie auf das Kontaktformular bewerben</translation>
 	    </message>
 	    <message>
 	        <source>Logout</source>
-	        <translation>Logout</translation>
+	        <translation>Abmeldung</translation>
 	    </message>
 	    <message>
 	        <source>Your search</source>
-	        <translation>Your search</translation>
+	        <translation>Ihre Suche</translation>
 	    </message>
 	    <message>
 	        <source>Automne</source>
-	        <translation>Autumn</translation>
+	        <translation>Herbst</translation>
 	    </message>
 	    <message>
 	        <source>Hiver</source>
@@ -531,51 +572,55 @@
 	    </message>
 	    <message>
 	        <source>Printemps</source>
-	        <translation>Spring</translation>
+	        <translation>Frühling</translation>
 	    </message>
 	    <message>
 	        <source>Été</source>
-	        <translation>Summer</translation>
+	        <translation>Sommer</translation>
 	    </message>
 		<message>
 	        <source>Automne picto</source>
-	        <translation>Selection of offers for the period from September 22 to December 20</translation>
+	        <translation>Herbst : Angebote vom 22. September bis 20. Dezember auswählen</translation>
 	    </message>
 	    <message>
 	        <source>Hiver picto</source>
-	        <translation>Selection of offers for the period from December 21 to March 20</translation>
+	        <translation>Winter : Angebote vom 21. Dezember bis 20. März auswählen</translation>
 	    </message>
 	    <message>
 	        <source>Printemps picto</source>
-	        <translation>Selection of offers for the period from March 21 to June 20</translation>
+	        <translation>Frühling : Angebote vom 21. März bis 20. Juni auswählen</translation>
 	    </message>
 	    <message>
 	        <source>Été picto</source>
-	        <translation>Selection of offers for the period from June 21 to September 21</translation>
+	        <translation>Sommer : Angebote vom 21. Juni bis 21. September auswählen</translation>
 	    </message>
 		<message>
 	        <source>Tide Tables</source>
-	        <translation>Tide Tables</translation>
+	        <translation>Gezeitenkalender</translation>
 	    </message>
 	    <message>
 	        <source>Aide Navigation</source>
-	        <translation>Navigation Helper</translation>
+	        <translation>Hilfe</translation>
 	    </message>
 	    <message>
 	        <source>Your newsletters inscription was sent</source>
-	        <translation>Your newsletters inscription was sent</translation>
+	        <translation>Ihre Anmeldung für die "Newsletters" wurde abgesendet</translation>
 	    </message>
 	    <message>
 	        <source>We thank you for your interrest and let us invite you to continue your consultation of the site while clicking here</source>
-	        <translation>We thank you for your interrest and let us invite you to continue your consultation of the site while clicking here</translation>
+	        <translation>Wir bedanken Ihnen für Ihre Interesse und wir schlagen Ihnen vor Ihre Abfrage auf unsere Website weiterzugehen</translation>
 	    </message>
 	    <message>
 	        <source>Now you will receive the newsletters form the team of the tourist office of Sables d'Olonne</source>
-	        <translation>Now you will receive the newsletters form the team of the tourist office of Sables d'Olonne</translation>
+	        <translation>Sie werden jetzt die "Newsletters" von den Verkehrsamt bekommen</translation>
 	    </message>
 		<message>
 	        <source>Made by</source>
-	        <translation>Made by</translation>
+	        <translation>Regie</translation>
+	    </message>
+		<message>
+	        <source>View on the map</source>
+	        <translation>Auf der Karte ansehen</translation>
 	    </message>
 	</context>
 </TS>

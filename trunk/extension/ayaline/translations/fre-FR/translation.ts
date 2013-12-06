@@ -158,6 +158,22 @@
 			<source>Indifferent</source>
 			<translation>Indifférent</translation>
 		</message>
+		<message>
+			<source>De</source>
+			<translation>De</translation>
+		</message>
+		<message>
+			<source>A</source>
+			<translation>à</translation>
+		</message>
+		<message>
+			<source>Le</source>
+			<translation>le</translation>
+		</message>
+		<message>
+			<source>Et</source>
+			<translation>et</translation>
+		</message>
 	</context>
 	<context>
 	    <name>extension/recaptcha</name>
