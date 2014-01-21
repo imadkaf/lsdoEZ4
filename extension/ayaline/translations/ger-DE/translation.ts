@@ -339,7 +339,7 @@
 			<translation>und</translation>
 		</message>
                 <message>
-			<source>Telecharger</source>
+			<source>Telechargez</source>
 			<translation>Herunterladen</translation>
 		</message>
                 <message>
