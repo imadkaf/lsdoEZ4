@@ -45,7 +45,7 @@ StaticSitTranslations[]=De
 StaticSitTranslations[]=A
 StaticSitTranslations[]=Le
 StaticSitTranslations[]=Et
-StaticSitTranslations[]=Telecharger
+StaticSitTranslations[]=Telechargez
 StaticSitTranslations[]=PlusDInfos
 
 [ImagesDesign]
