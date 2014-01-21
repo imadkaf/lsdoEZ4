@@ -285,7 +285,7 @@
                                                                     </xsl:for-each>
                                                                 </ul>
                                                             </xsl:if>
-                                                            <![CDATA[ ]]>
+                                                            <![CDATA[&amp;nbsp;]]>
 							</div>
 							
 							<div class="fichiers">
@@ -313,7 +313,7 @@
                                                                     </xsl:for-each>
                                                                 </ul>
                                                             </xsl:if>
-                                                            <![CDATA[ ]]>
+                                                            <![CDATA[&amp;nbsp;]]>
 							</div>
 						</div>
 						
