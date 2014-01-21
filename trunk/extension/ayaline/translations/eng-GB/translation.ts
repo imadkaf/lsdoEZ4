@@ -314,6 +314,30 @@
 			<source>ChangerDeSaison</source>
 			<translation>Change<![CDATA[<br />]]> season &gt;</translation>
 		</message>
+                <message>
+			<source>De</source>
+			<translation>from</translation>
+		</message>
+		<message>
+			<source>A</source>
+			<translation>to</translation>
+		</message>
+		<message>
+			<source>Le</source>
+			<translation></translation>
+		</message>
+		<message>
+			<source>Et</source>
+			<translation>and</translation>
+		</message>
+                <message>
+			<source>Telechargez</source>
+			<translation>Download</translation>
+		</message>
+                <message>
+			<source>PlusDInfos</source>
+			<translation>More information</translation>
+		</message>
 	</context>
 	
 	<context>
