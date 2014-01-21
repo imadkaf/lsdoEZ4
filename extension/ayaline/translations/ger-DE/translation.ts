@@ -324,7 +324,7 @@
 		</message>
 		<message>
 			<source>De</source>
-			<translation>Vom</translation>
+			<translation>vom</translation>
 		</message>
 		<message>
 			<source>A</source>

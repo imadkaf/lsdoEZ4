@@ -160,7 +160,7 @@
 		</message>
 		<message>
 			<source>De</source>
-			<translation>De</translation>
+			<translation>de</translation>
 		</message>
 		<message>
 			<source>A</source>
@@ -168,7 +168,7 @@
 		</message>
 		<message>
 			<source>Le</source>
-			<translation>le</translation>
+			<translation>Le</translation>
 		</message>
 		<message>
 			<source>Et</source>
