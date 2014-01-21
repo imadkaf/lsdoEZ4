@@ -290,7 +290,7 @@
 							<div class="fichiers">
                                                             <xsl:if test="count(fichiersJoints/fichierJoint) &gt; 0">
                                                                 <h3>
-                                                                    <xsl:value-of select="$termeTelechargez"/>
+                                                                    <xsl:value-of select="$termePlusDInfos"/>
                                                                 </h3>
                                                                 <ul>
                                                                     <xsl:for-each select="fichiersJoints/fichierJoint">

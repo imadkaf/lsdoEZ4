@@ -45,6 +45,8 @@ StaticSitTranslations[]=De
 StaticSitTranslations[]=A
 StaticSitTranslations[]=Le
 StaticSitTranslations[]=Et
+StaticSitTranslations[]=Telecharger
+StaticSitTranslations[]=PlusDInfos
 
 [ImagesDesign]
 Chemin=/extension/ayaline/design/ayaline/images/
