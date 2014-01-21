@@ -279,9 +279,6 @@
                                                                                 </a>
                                                                             </li>
                                                                         </xsl:if>
-                                                                        <xsl:if test="position() != last()">
-                                                                            <br />
-                                                                        </xsl:if>
                                                                     </xsl:for-each>
                                                                 </ul>
                                                             </xsl:if>
@@ -306,9 +303,6 @@
                                                                                     <![CDATA[ : ]]><xsl:value-of select="descFichierJoint"/>
                                                                                 </xsl:if>
                                                                             </li>
-                                                                        </xsl:if>
-                                                                        <xsl:if test="position() != last()">
-                                                                            <br />
                                                                         </xsl:if>
                                                                     </xsl:for-each>
                                                                 </ul>
