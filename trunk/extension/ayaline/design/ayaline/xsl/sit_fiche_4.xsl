@@ -267,7 +267,7 @@
 							<div class="lien">
                                                             <xsl:if test="count(liens/lien) &gt; 0">
                                                                 <h3>
-                                                                    <xsl:value-of select="$termeTelechargez"/>
+                                                                    <xsl:value-of select="$termeTelechargez"/><![CDATA[ ]]>
                                                                 </h3>
                                                                 <ul>
                                                                     <xsl:for-each select="liens/lien">
@@ -285,12 +285,13 @@
                                                                     </xsl:for-each>
                                                                 </ul>
                                                             </xsl:if>
+                                                            <![CDATA[ ]]>
 							</div>
 							
 							<div class="fichiers">
                                                             <xsl:if test="count(fichiersJoints/fichierJoint) &gt; 0">
                                                                 <h3>
-                                                                    <xsl:value-of select="$termePlusDInfos"/>
+                                                                    <xsl:value-of select="$termePlusDInfos"/><![CDATA[ ]]>
                                                                 </h3>
                                                                 <ul>
                                                                     <xsl:for-each select="fichiersJoints/fichierJoint">
@@ -312,6 +313,7 @@
                                                                     </xsl:for-each>
                                                                 </ul>
                                                             </xsl:if>
+                                                            <![CDATA[ ]]>
 							</div>
 						</div>
 						
