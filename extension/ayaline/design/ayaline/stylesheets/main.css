@@ -3411,7 +3411,8 @@ body>div.ui-dialog>div.ui-corner-all {
     padding: 0 0 5px 0px;
 }
 #onglet-description .lien li, #onglet-description .fichiers li{
-    background: url("../images/fleche-lien-fichier.png") no-repeat transparent;
+    background: url("../images/fleche-lien-fichier.png") no-repeat scroll 2px 4px transparent;
+    padding: 0 0 5px 10px;
 }
 #onglet-description .lien a, #onglet-description .fichiers a{
     color: #E644AC;
