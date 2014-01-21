@@ -263,7 +263,7 @@
 									<![CDATA[ ]]>
 								</p>
 							</xsl:if>
-							
+							<!--
 							<div class="lien">
                                                             <xsl:if test="count(liens/lien) &gt; 0">
                                                                 <h3>
@@ -287,7 +287,7 @@
                                                             </xsl:if>
                                                             <![CDATA[&amp;nbsp;]]>
 							</div>
-							
+							-->
 							<div class="fichiers">
                                                             <xsl:if test="count(fichiersJoints/fichierJoint) &gt; 0">
                                                                 <h3>
