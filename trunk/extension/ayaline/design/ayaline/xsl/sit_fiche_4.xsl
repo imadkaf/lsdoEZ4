@@ -264,31 +264,10 @@
 								</p>
 							</xsl:if>
 							
-							<div class="lien">
-                                                            <xsl:if test="count(liens/lien) &gt; 0">
-                                                                <h3>
-                                                                    <xsl:value-of select="$termeTelechargez"/><![CDATA[ ]]>
-                                                                </h3>
-                                                                <ul>
-                                                                    <xsl:for-each select="liens/lien">
-                                                                        <xsl:if test="string-length(intLien) &gt; 0 and string-length(urlLien) &gt; 0">
-                                                                            <li>
-                                                                                <a target="_blank">
-                                                                                    <xsl:attribute name="href"><xsl:value-of select="urlLien"/></xsl:attribute>
-                                                                                    <xsl:value-of select="intLien"/>
-                                                                                </a>
-                                                                            </li>
-                                                                        </xsl:if>
-                                                                    </xsl:for-each>
-                                                                </ul>
-                                                            </xsl:if>
-                                                            <![CDATA[&amp;nbsp;]]>
-							</div>
-							
-							<div class="fichiers">
+                                                        <div class="fichiers">
                                                             <xsl:if test="count(fichiersJoints/fichierJoint) &gt; 0">
                                                                 <h3>
-                                                                    <xsl:value-of select="$termePlusDInfos"/><![CDATA[ ]]>
+                                                                    <xsl:value-of select="$termeTelechargez"/><![CDATA[ ]]>
                                                                 </h3>
                                                                 <ul>
                                                                     <xsl:for-each select="fichiersJoints/fichierJoint">
@@ -302,6 +281,27 @@
                                                                                 <xsl:if test="string-length(descFichierJoint) &gt; 0">
                                                                                     <![CDATA[ : ]]><xsl:value-of select="descFichierJoint"/>
                                                                                 </xsl:if>
+                                                                            </li>
+                                                                        </xsl:if>
+                                                                    </xsl:for-each>
+                                                                </ul>
+                                                            </xsl:if>
+                                                            <![CDATA[&amp;nbsp;]]>
+							</div>
+                                                        
+							<div class="lien">
+                                                            <xsl:if test="count(liens/lien) &gt; 0">
+                                                                <h3>
+                                                                    <xsl:value-of select="$termePlusDInfos"/><![CDATA[ ]]>
+                                                                </h3>
+                                                                <ul>
+                                                                    <xsl:for-each select="liens/lien">
+                                                                        <xsl:if test="string-length(intLien) &gt; 0 and string-length(urlLien) &gt; 0">
+                                                                            <li>
+                                                                                <a target="_blank">
+                                                                                    <xsl:attribute name="href"><xsl:value-of select="urlLien"/></xsl:attribute>
+                                                                                    <xsl:value-of select="intLien"/>
+                                                                                </a>
                                                                             </li>
                                                                         </xsl:if>
                                                                     </xsl:for-each>
