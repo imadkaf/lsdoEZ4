@@ -8,7 +8,7 @@ SiteList[]=ayaline_mobi
 CheckValidity=false
 AvailableSiteAccessList[]=ayaline_mobi
 MatchOrder=host
-HostMatchMapItems[]=mobi.lsdo.loc;ayaline_mobi
+HostMatchMapItems[]=mobile.lsdo.lnet.fr;ayaline_mobi
 ForceVirtualHost=true
 
 [RegionalSettings]

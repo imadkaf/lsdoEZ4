@@ -23,7 +23,7 @@ FrontendCSSFileListPC[]=stylesheet_desktop.css
 JavaScriptListMobile[]
 JavaScriptListMobile[]=jquery.min.js
 JavaScriptListMobile[]=jquery-ui.min.js
-JavaScriptListMobile[]=http://maps.google.com/maps/api/js?sensor=true&amp;key=ABQIAAAAPzlBh0JjFUPqZKi3n0L3LxRNhXKcoHc6ILCDtHOsJEw_kWBWgBR1kXeQdewQ9aUBq3FH6LbXaDfhmw
+JavaScriptListMobile[]=http://maps.google.com/maps/api/js?sensor=true&amp;key=AIzaSyDBNcu6_MV93GUkGXkdFepUr8WkBHqkiXo
 #Complement de la bibliotheque jquery pour la version mobile
 JavaScriptListMobile[]=jquery.mobile-1.0a4.1.min.js
 JavaScriptListMobile[]=itineraire.js

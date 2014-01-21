@@ -285,10 +285,7 @@ class eZSitOperators {
 
 		$siteIni = eZINI::instance('site.ini');
 
-		$langue = $siteIni->variable('RegionalSettings','Locale');
-		if ($langue) {
-			$langue = strtolower(substr($langue, -2));
-		}
+		$langue = $siteIni->variable('RegionalSettings','LanguageCodeIso');
 
 		$saisonId = null;
 		if ($http->hasSessionVariable('saison')) {
@@ -644,10 +641,7 @@ class eZSitOperators {
 
 		$siteIni = eZINI::instance('site.ini');
 
-		$langue = $siteIni->variable('RegionalSettings','Locale');
-		if ($langue) {
-			$langue = strtolower(substr($langue, -2));
-		}
+		$langue = $siteIni->variable('RegionalSettings','LanguageCodeIso');
 
 		$saisonId = null;
 		if ($http->hasSessionVariable('saison')) {
@@ -825,9 +819,8 @@ class eZSitOperators {
 			foreach ($sitModalitesTexteNum as $idCritere=>$sitModaliteTexteNum) {
 				if (trim($sitModaliteTexteNum['val']) != "") {
 					if (array_key_exists('ope', $sitModaliteTexteNum)) {
-						$sitModalitesNum[$idCritere] = $idCritere.urlencode(utf8_decode('Â§')).$sitModaliteTexteNum['val'].urlencode(utf8_decode('Â§')).$sitModaliteTexteNum['ope'];
+						$sitModalitesNum[$idCritere] = $idCritere.utf8_decode('Â§').$sitModaliteTexteNum['val'].utf8_decode('Â§').$sitModaliteTexteNum['ope'];
 					} else {
-						echo "toto";
 						$sitModalitesTexte[$idCritere] = $idCritere.urlencode(utf8_decode('Â§')).$sitModaliteTexteNum['val'];
 					}
 				}
@@ -1185,10 +1178,7 @@ class eZSitOperators {
 
 		$siteIni = eZINI::instance('site.ini');
 
-		$langue = $siteIni->variable('RegionalSettings','Locale');
-		if ($langue) {
-			$langue = strtolower(substr($langue, -2));
-		}
+		$langue = $siteIni->variable('RegionalSettings','LanguageCodeIso');
 
 		$saisonId = null;
 		if ($http->hasSessionVariable('saison')) {
