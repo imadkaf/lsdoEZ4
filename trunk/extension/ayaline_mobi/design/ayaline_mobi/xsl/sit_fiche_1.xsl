@@ -81,7 +81,7 @@
 				<xsl:if test="adresses/adresse[@type='produit']/tel1 != ''">
 					<b>T&amp;eacute;l : </b><xsl:value-of select="adresses/adresse[@type='produit']/tel1"/><br />
 					<xsl:if test="adresses/adresse[@type='produit']/tel2 != ''">
-						<b>Autre t&amp;eacute; : </b><xsl:value-of select="adresses/adresse[@type='produit']/tel2"/>
+						<b>Autre t&amp;eacute;l : </b><xsl:value-of select="adresses/adresse[@type='produit']/tel2"/>
 					</xsl:if>
 				</xsl:if>
 			</p>
