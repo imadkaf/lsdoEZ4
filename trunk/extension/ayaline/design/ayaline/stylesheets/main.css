@@ -3406,11 +3406,19 @@ body>div.ui-dialog>div.ui-corner-all {
 }
 /******************/
 /*** Evol ajout critere horaire, lien et fichier joint ***/
+#onglet-description .lien h3, #onglet-description .fichiers h3{
+    font-size: 14px;
+    padding: 0 0 5px 0px;
+}
+#onglet-description .lien li, #onglet-description .fichiers li{
+    background: url("../images/fleche-lien-fichier.png") no-repeat transparent;
+}
 #onglet-description .lien a, #onglet-description .fichiers a{
-	color: #00BBD4;
-	text-decoration: none;
+    color: #E644AC;
+    text-decoration: underline;
+    font-size: 12px;
 }
 #onglet-description .lien a:hover, #onglet-description .fichiers a:hover{
-	text-decoration: underline;
+    text-decoration: none;
 }
 /*********************************************************/

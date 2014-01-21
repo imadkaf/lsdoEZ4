@@ -265,39 +265,53 @@
 							</xsl:if>
 							
 							<div class="lien">
-								<xsl:if test="count(liens/lien) &gt; 0">
-									<xsl:for-each select="liens/lien">
-										<xsl:if test="string-length(intLien) &gt; 0 and string-length(urlLien) &gt; 0">
-											<a target="_blank">
-												<xsl:attribute name="href"><xsl:value-of select="urlLien"/></xsl:attribute>
-												<xsl:value-of select="intLien"/>
-											</a>
-										</xsl:if>
-										<xsl:if test="position() != last()">
-											<br />
-										</xsl:if>
-									</xsl:for-each>
-								</xsl:if>
+                                                            <xsl:if test="count(liens/lien) &gt; 0">
+                                                                <h3>
+                                                                    <xsl:value-of select="$termeTelechargez"/>
+                                                                </h3>
+                                                                <ul>
+                                                                    <xsl:for-each select="liens/lien">
+                                                                        <xsl:if test="string-length(intLien) &gt; 0 and string-length(urlLien) &gt; 0">
+                                                                            <li>
+                                                                                <a target="_blank">
+                                                                                    <xsl:attribute name="href"><xsl:value-of select="urlLien"/></xsl:attribute>
+                                                                                    <xsl:value-of select="intLien"/>
+                                                                                </a>
+                                                                            </li>
+                                                                        </xsl:if>
+                                                                        <xsl:if test="position() != last()">
+                                                                            <br />
+                                                                        </xsl:if>
+                                                                    </xsl:for-each>
+                                                                </ul>
+                                                            </xsl:if>
 							</div>
 							
 							<div class="fichiers">
-								<xsl:if test="count(fichiersJoints/fichierJoint) &gt; 0">
-									<xsl:for-each select="fichiersJoints/fichierJoint">
-										<xsl:if test="string-length(intFichierJoint) &gt; 0 and string-length(urlFichierJoint) &gt; 0">
-											<a target="_blank">
-												<xsl:attribute name="href"><xsl:value-of select="urlFichierJoint"/></xsl:attribute>
-												<xsl:attribute name="download"><xsl:value-of select="intFichierJoint"/></xsl:attribute>
-												<xsl:value-of select="intFichierJoint"/>
-											</a>
-											<xsl:if test="string-length(descFichierJoint) &gt; 0">
-												<![CDATA[ : ]]><xsl:value-of select="descFichierJoint"/>
-											</xsl:if>
-										</xsl:if>
-										<xsl:if test="position() != last()">
-											<br />
-										</xsl:if>
-									</xsl:for-each>
-								</xsl:if>
+                                                            <xsl:if test="count(fichiersJoints/fichierJoint) &gt; 0">
+                                                                <h3>
+                                                                    <xsl:value-of select="$termeTelechargez"/>
+                                                                </h3>
+                                                                <ul>
+                                                                    <xsl:for-each select="fichiersJoints/fichierJoint">
+                                                                        <xsl:if test="string-length(intFichierJoint) &gt; 0 and string-length(urlFichierJoint) &gt; 0">
+                                                                            <li>
+                                                                                <a target="_blank">
+                                                                                    <xsl:attribute name="href"><xsl:value-of select="urlFichierJoint"/></xsl:attribute>
+                                                                                    <xsl:attribute name="download"><xsl:value-of select="intFichierJoint"/></xsl:attribute>
+                                                                                    <xsl:value-of select="intFichierJoint"/>
+                                                                                </a>
+                                                                                <xsl:if test="string-length(descFichierJoint) &gt; 0">
+                                                                                    <![CDATA[ : ]]><xsl:value-of select="descFichierJoint"/>
+                                                                                </xsl:if>
+                                                                            </li>
+                                                                        </xsl:if>
+                                                                        <xsl:if test="position() != last()">
+                                                                            <br />
+                                                                        </xsl:if>
+                                                                    </xsl:for-each>
+                                                                </ul>
+                                                            </xsl:if>
 							</div>
 						</div>
 						
