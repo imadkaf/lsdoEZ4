@@ -1,10 +1,10 @@
 <?php /* #?ini charset="utf-8"?
 
 [SiteSettings]
-IndexPage=/content/view/full/1337/
-DefaultPage=/content/view/full/1337/
+IndexPage=/content/view/full/1559/
+DefaultPage=/content/view/full/1559/
 SiteName=aYaline Mobile
-SiteURL=mobi.lsdo.loc
+SiteURL=mobile.lsdo.lnet.fr
 MetaDataArray[author]=
 MetaDataArray[copyright]=
 MetaDataArray[description]=

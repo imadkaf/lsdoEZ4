@@ -4,8 +4,8 @@
 AvailableSiteAccessList[]=ezayagenmenus
 AvailableSiteAccessList[]=uk_ezayagenmenus
 RelatedSiteAccessList[]=ezayagenmenus
-RelatedSiteAccessList[]=uk_ezayagenmenus
-HostMatchMapItems[]=genmenu.lsdo.loc;ezayagenmenus
+HostMatchMapItems[]=resa.lsdo.lnet.fr;ezayagenmenus
+HostMatchMapItems[]=resa-uk.lsdo.lnet.fr;uk_ezayagenmenus
 HostMatchMapItems[]=genmenu.lsdo.uk;uk_ezayagenmenus
 
 [TemplateSettings]

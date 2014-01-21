@@ -2,7 +2,7 @@
 
 [SiteSettings]
 SiteName=LSDO
-SiteURL=genmenu.lsdo.loc
+SiteURL=resa.lsdo.lnet.fr
 LoginPage=embedded
 
 

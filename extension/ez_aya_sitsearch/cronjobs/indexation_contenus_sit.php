@@ -159,11 +159,15 @@ $nodeObjects = eZFunctionHandler::execute(
 $http = eZHTTPTool::instance();
 
 $sitIni = eZINI::instance('ez_aya_sit.ini');
+$ayaIni = eZINI::instance('ez_aya_sitsearch.ini');
+if ($ayaIni->hasVariable('SiteMobile', 'lessablesmobi')) {
+	$nodeIdSiteMobile = $ayaIni->variable('SiteMobile','lessablesmobi');
+}
 $cpt = 0;
 foreach ($nodeObjects as $nodeObject) {
 	//if ($cpt == 10) break;
 	$lienCourant = $nodeObject->attribute('url_alias');
-	
+
 	eZURI::transformURI($lienCourant);
 	
 	$sitListe = $nodeObject->dataMap();
@@ -173,6 +177,14 @@ foreach ($nodeObjects as $nodeObject) {
 	} else {
 		$rootSitUrl = $sitIni->variable('GlobalSitParameters', 'RootSitUrl');
 	}
+	
+	$indexTabSearch=99999;
+	
+	$pathString=explode('/',$nodeObject->PathString);
+	
+	if (in_array($nodeIdSiteMobile,$pathString)) {
+		$indexTabSearch=100000;
+	} 	
 	
 	$categorie = $sitListe['categorie']->value();
 	$categorie = $categorie[0];
@@ -258,11 +270,11 @@ foreach ($nodeObjects as $nodeObject) {
 		$meta_is_invisible_b->setAttribute('name', 'meta_is_invisible_b');
 		$note_elt->appendChild($meta_is_invisible_b); 
 		
-		$meta_path_si = $doc->createElement('field', '99999');
+		$meta_path_si = $doc->createElement('field', $indexTabSearch);
 		$meta_path_si->setAttribute('name', 'meta_path_si');
 		$note_elt->appendChild($meta_path_si);
 		
-		$meta_path_string_ms = $doc->createElement('field', '/99999/');
+		$meta_path_string_ms = $doc->createElement('field', '/'.$indexTabSearch.'/');
 		$meta_path_string_ms->setAttribute('name', 'meta_path_string_ms');
 		$note_elt->appendChild($meta_path_string_ms); 
 		

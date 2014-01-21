@@ -42,6 +42,7 @@
 <!-- JAVASCRIPT -->
 <script src={'javascript/klass.min.js'|ezdesign}></script>
 {* Pour appeller jquery en premier *}
+
 {foreach ezini( 'JavaScriptSettings', 'RequiredJavaScriptListPatrimoine', 'design.ini' ) as $js_fichier }
 	{if eq("http://",$js_fichier|extract_left(7))}
             <script src="{$js_fichier}"></script>
