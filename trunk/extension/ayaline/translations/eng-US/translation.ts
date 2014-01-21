@@ -335,7 +335,7 @@
 			<translation>and</translation>
 		</message>
                 <message>
-			<source>Telecharger</source>
+			<source>Telechargez</source>
 			<translation>Download</translation>
 		</message>
                 <message>

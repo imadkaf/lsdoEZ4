@@ -175,7 +175,7 @@
 			<translation>et</translation>
 		</message>
                 <message>
-			<source>Telecharger</source>
+			<source>Telechargez</source>
 			<translation>Téléchargez</translation>
 		</message>
                 <message>
