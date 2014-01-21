@@ -17,7 +17,8 @@ FrontendCSSFileListiPad[]=stylesheet_ipad.css
 
 
 [JavaScriptSettings]
-RequiredJavaScriptList[]=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
+#RequiredJavaScriptList[]=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
+RequiredJavaScriptList[]=http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js
 JavaScriptList[]
 JavaScriptList[]=script.js
 JavaScriptList[]=menu_gauche_interne.js

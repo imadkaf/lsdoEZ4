@@ -275,10 +275,10 @@
 					</script>
 					<div id="tabs">
 						<ul>
-							<li><a href="#onglet-description"><span><xsl:value-of select="$termeDescriptif"/></span></a></li>
-							<li><a href="#onglet-tarifs"><span>Tarifs</span></a></li>
-							<li><a href="#onglet-caracteristiques"><span><xsl:value-of select="$termeCaracteristiques"/></span></a></li>
-							<li style="background-color: #7AD6E1 !important;"><a href="#onglet-avis"><span><xsl:value-of select="$termeAvis"/></span></a></li>
+							<li><a href="#onglet-description"><span><xsl:if test="$langue = 'de'"><xsl:attribute name="style">font-size:8px;</xsl:attribute></xsl:if><xsl:value-of select="$termeDescriptif"/></span></a></li>
+							<li><a href="#onglet-tarifs"><span><xsl:if test="$langue = 'de'"><xsl:attribute name="style">font-size:8px;</xsl:attribute></xsl:if>Tarifs</span></a></li>
+							<li><a href="#onglet-caracteristiques"><span><xsl:if test="$langue = 'de'"><xsl:attribute name="style">font-size:8px;</xsl:attribute></xsl:if><xsl:value-of select="$termeCaracteristiques"/></span></a></li>
+							<li style="background-color: #7AD6E1 !important;"><a href="#onglet-avis"><span><xsl:if test="$langue = 'de'"><xsl:attribute name="style">font-size:8px;</xsl:attribute></xsl:if><xsl:value-of select="$termeAvis"/></span></a></li>
 						</ul>
 						
 						<div id="onglet-description">

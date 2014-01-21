@@ -75,7 +75,11 @@
 						<div class="header-in-right">
 {if $rNode.data_map.header_menu.has_content}
 							<ul class="list-top">
-								<li class="first">{$timestamp|datetime(custom, '%l %d %F %Y')}</li>
+								{if $curLang|eq('ger-DE')}
+									<li class="first">{$timestamp|datetime(custom, '%l %d. %F %Y')}</li>
+								{else}
+									<li class="first">{$timestamp|datetime(custom, '%l %d %F %Y')}</li>
+								{/if}
 								{if ne($current_user.contentobject_id, $anonymous_user_id)}
 									<li style="margin-right: 10px;"><a href={'user/logout'|ezurl}>{"Logout"|i18n("ayaline")}</a></li>
 								{/if}

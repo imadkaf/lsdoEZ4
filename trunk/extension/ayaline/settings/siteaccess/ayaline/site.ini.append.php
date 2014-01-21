@@ -2,7 +2,7 @@
 
 [SiteSettings]
 SiteName=LSDO
-SiteURL=dev.lsdo.lnet.fr
+SiteURL=lsdo.lnet.fr
 LoginPage=embedded
 
 [UserSettings]
@@ -21,13 +21,14 @@ Locale=fre-FR
 ContentObjectLocale=fre-FR
 SiteLanguageList[]=fre-FR
 TextTranslation=enabled
+LanguageCodeIso=fr
 
 [ContentSettings]
 TranslationList=
 CachedViewModes=
 
 [MailSettings]
-AdminEmail=yimzourh@ayaline.com
+AdminEmail=jmace@ayaline.com
 EmailSender=
 
 */ ?>

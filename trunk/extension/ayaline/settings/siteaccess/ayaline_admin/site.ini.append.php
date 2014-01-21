@@ -3,7 +3,7 @@
 
 [SiteSettings]
 SiteName=BE LSDO
-SiteURL=dev.admin.lsdo.lnet.fr
+SiteURL=admin.lsdo.lnet.fr
 DefaultPage=content/dashboard
 LoginPage=custom
 
@@ -20,6 +20,7 @@ AdditionalSiteDesignList[]=admin2
 AdditionalSiteDesignList[]=admin
 AdditionalSiteDesignList[]=ayaline
 AdditionalSiteDesignList[]=ayaline_mobi
+AdditionalSiteDesignList[]=ayaline_carto
 
 
 [RegionalSettings]
@@ -39,6 +40,7 @@ AvailableSiteDesignList[]=ayaline_admin
 AvailableSiteDesignList[]=admin
 AvailableSiteDesignList[]=ayaline
 AvailableSiteDesignList[]=ayaline_mobi
+AvailableSiteDesignList[]=ayaline_carto
 
 [MailSettings]
 AdminEmail=jmace@ayaline.com
