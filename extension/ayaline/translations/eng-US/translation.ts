@@ -328,7 +328,7 @@
 		</message>
 		<message>
 			<source>Le</source>
-			<translation></translation>
+			<translation> </translation>
 		</message>
 		<message>
 			<source>Et</source>
