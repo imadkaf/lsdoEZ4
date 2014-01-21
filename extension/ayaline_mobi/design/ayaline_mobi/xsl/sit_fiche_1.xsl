@@ -90,9 +90,9 @@
 				<xsl:attribute name="href">#</xsl:attribute>
 				<span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
 			</a-->
-			<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite) &gt; 0">
+			<xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280006']/valModalite) &gt; 0">
 				<a class="disponibilites">
-				<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280004']/valModalite"/></xsl:attribute>
+				<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280006']/valModalite"/></xsl:attribute>
 				 <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
 				</a>
 			</xsl:if>
