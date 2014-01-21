@@ -320,7 +320,7 @@
 		</message>
 		<message>
 			<source>De</source>
-			<translation>From</translation>
+			<translation>from</translation>
 		</message>
 		<message>
 			<source>A</source>
