@@ -1,5 +1,5 @@
 
-/* Style moteur Général **/
+/* Style moteur GÃ©nÃ©ral **/
 @import url("std.css");
 
 .moteurs
@@ -20,10 +20,10 @@ form{ margin:0px; padding:0px;}
 
 #OsBarreOnglet ul li span{ font-weight:normal;}
 
-/* Intitulé ex: Type d'hébergement, situation ,durée... */
+/* IntitulÃ© ex: Type d'hÃ©bergement, situation ,durÃ©e... */
 .OsCritP{ font-weight:bold; line-height:15px; border-bottom:dashed 1px #666;margin-top:5px; margin-bottom:5px; text-align:left; clear:both;}
 
-/*  Intitulé particulier (suivie de radio bouton ou de select) **/
+/*  IntitulÃ© particulier (suivie de radio bouton ou de select) **/
 .OsCrit_typehebecheck .OsCritP, .OsCrit_duree .OsCritP{ display: block; text-align:left;}
 
 
@@ -69,7 +69,7 @@ padding:0px;
 	}
 
 
-/*  Lsite déroulante Date  **/
+/*  Lsite dÃ©roulante Date  **/
 .OsCritCont  li span.OsCritBlocSelSem, .OsCritCont  li span.OsCritBlocSelJour{margin-left:10px; display: inline-block; line-height:15px;}
 
 
@@ -157,7 +157,7 @@ div.OsBlocLiens
 	
 	position:relative;
 	width:207px;
-	height:300px;
+	height:230px;
 }
 
 div.OsListeLien
@@ -165,7 +165,7 @@ div.OsListeLien
     /* required settings */
 	position:relative;
 	overflow:hidden;          
-	height:300px;
+	height:230px;
 
 }  
 
@@ -179,7 +179,7 @@ div.OsListeLien div.OsListeLienCol
 
 div.OsListeLien div.OsListeLienCol div.OsLienItem {
 	float:left; 
-	height:300px;
+	height:230px;
 /*	border-left:1px solid #333;*/
 	/*cursor:pointer; */
 	width:207px;
@@ -214,9 +214,7 @@ p.OsLienResume{
 	padding:0px;
 	margin-bottom:5px;
 	margin-left:3px;
-	
-	
-	
+display:none;	
 }
 .OsDivLienBtn{padding:5px; text-align:right;  width:190px; padding-right:0px; width:200px; }
 a.OsLienBtn 

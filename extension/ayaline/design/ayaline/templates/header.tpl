@@ -72,6 +72,7 @@
 		{/switch}
 {/foreach}
 		<meta name="google-site-verification" content="{ezini( 'GoogleSiteVerification', 'Code', 'ayaline.ini' )}" />
+		<meta name="google-translate-customization" content="124946e8917a273b-2f05c37ff932abd4-g52999b755e7ab67a-c"></meta>
 		
 {* Styles *}
 {foreach ezini( 'StylesheetSettings', 'CSSFileList', 'design.ini' ) as $css_fichier }
@@ -117,16 +118,16 @@
 {/if}
 
 {if eq('ger-DE', $languetest)}
-		<link rel="stylesheet" type="text/css" href={'stylesheets/main-en.css'|ezdesign} media="all" />
+		<link rel="stylesheet" type="text/css" href={'stylesheets/main-de.css'|ezdesign} media="all" />
 {/if}
 {if and(eq($chemin, ezini('Chemins', 'Decouvrir', 'ayaline.ini')), eq('ger-DE', $languetest))}
-	<link rel="stylesheet" type="text/css" href={'stylesheets/decouvrir-en.css'|ezdesign} media="all" />
+	<link rel="stylesheet" type="text/css" href={'stylesheets/decouvrir-de.css'|ezdesign} media="all" />
 {/if}
 {if and(eq($chemin, ezini('Chemins', 'Sejourner', 'ayaline.ini')), eq('ger-DE', $languetest))}
-	<link rel="stylesheet" type="text/css" href={'stylesheets/sejourner-en.css'|ezdesign} media="all" />
+	<link rel="stylesheet" type="text/css" href={'stylesheets/sejourner-de.css'|ezdesign} media="all" />
 {/if}
 {if and(eq($chemin, ezini('Chemins', 'ALaUne', 'ayaline.ini')), eq('ger-DE', $languetest))}
-	<link rel="stylesheet" type="text/css" href={'stylesheets/alaune-en.css'|ezdesign} media="all" />
+	<link rel="stylesheet" type="text/css" href={'stylesheets/alaune-de.css'|ezdesign} media="all" />
 {/if}
 
 <script type="text/javascript">

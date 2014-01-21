@@ -1,0 +1,16 @@
+@CHARSET "ISO-8859-1";
+
+#OSRecherche a.OsBtnEnvoi{
+    background: url("../images/bouton-rech-dispo-en.png") no-repeat transparent !important;
+}
+.meteo-maree {
+	height:190px;
+	overflow:hidden;
+}
+.footer ul.niv-1 li.third {
+    padding: 0 15px 0 24px;
+}
+
+.lien-plus-infos{
+	background:url("../images/+dinfos-noir-de.png") no-repeat !important;
+}

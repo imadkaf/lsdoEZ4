@@ -2,7 +2,7 @@
 
 [SiteSettings]
 SiteName=LSDO
-SiteURL=cartographie.lsdo.loc
+SiteURL=cartographie.lsdo.lnet.fr
 LoginPage=embedded
 
 
@@ -28,7 +28,7 @@ TranslationList=
 CachedViewModes=
 
 [MailSettings]
-AdminEmail=yimzourh@ayaline.com
+AdminEmail=jmace@ayaline.com
 EmailSender=
 
 */ ?>

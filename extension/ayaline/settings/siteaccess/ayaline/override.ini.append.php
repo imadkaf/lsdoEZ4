@@ -114,6 +114,7 @@ MatchFile=full/contact_reponse.tpl
 Subdir=templates
 Match[class_identifier]=page_contact
 
+
 [full_survey]
 Source=node/view/full.tpl
 MatchFile=full/survey.tpl

@@ -12,14 +12,14 @@
 		<div class="bloc-left">
 	{/if}
 	
-	{if and(lt($compteur, 4), mod($compteur2, 2)|eq(1))}
+	{if and(lt($compteur, 6), mod($compteur2, 2)|eq(1))}
 		{if gt($compteur, 0)}
 		</div>
 		{/if}
 		<div class="bloc-left-home">
 	{/if}
 	
-	{if le($compteur, 3)}
+	{if le($compteur, 5)}
 		{if or(eq($compteur,0), eq($compteur,2))}
 			<div class="bloc-type" style="width:358px; float:left; margin-right:20px;">
 		{else}
@@ -33,7 +33,7 @@
 			</div>
 	{/if}
 	
-	{if ge($compteur, 4)}
+	{if ge($compteur, 6)}
 		<div class="bloc-type-bis">
 			{node_view_gui content_node=$blocsCont view='blocsAccueil'}
 		</div>
@@ -41,11 +41,11 @@
 
 	{set $compteur = $compteur|inc}
 
-	{if eq($compteur2, 4)}
+	{if eq($compteur2, 6)}
 		</div>
 	{/if}
 		
-	{if eq($compteur, 4)}
+	{if eq($compteur, 6)}
 		</div>
 		<div class="bloc-right">
 			{include uri='design:parts/reserver.tpl'}

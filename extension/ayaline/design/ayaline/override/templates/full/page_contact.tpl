@@ -106,16 +106,19 @@
 					<input name="TopLevelNode" value="{$node.node_id}" type="hidden" />
 					<input name="ContentNodeID" value="{$node.node_id}" type="hidden" />
 					<input name="ContentObjectID" value="{$node.object.id}" type="hidden" />
-					<input class="button-effacer" type="image" src={"effacer.png"|ezimage} name="reset" value="{'Reset'|i18n('ayaline')}" onclick="this.form.reset(); return false;" />
-					<input class="button-envoyer" type="image" src={"envoyer.png"|ezimage} name="ActionCollectInformation" value="{'Send'|i18n('ayaline')}" />
+					{*<input class="button-effacer" type="image" src={"effacer.png"|ezimage} name="reset" value="{'Reset'|i18n('ayaline')}" onclick="this.form.reset(); return false;" />
+					<input class="button-envoyer" type="image" src={"envoyer.png"|ezimage} name="ActionCollectInformation" value="{'Send'|i18n('ayaline')}" />*}
+					<input class="button-submit-effacer" type="reset" name="reset" value="{'Reset'|i18n("ayaline")}" />
+					<input class="button-submit-valider" type="submit" name="ActionCollectInformation" value="{'Send'|i18n("ayaline")}" />
 				</div>
-
+				<div class="clear-both"></div>
+				<br /><br />
+				
 				<strong class="required">* </strong>{"Required field"|i18n("ayaline")}.
 
 				<div class="block border-haut">
 					{attribute_view_gui attribute = $node.data_map.informations}
 				</div>
-			
 			</form>
 		</div>
 	</div>

@@ -47,7 +47,7 @@
 	{/foreach}
         {ldelim}name : 'sqli_objetdem', value : "{$maCollection.data_map.votre_message.content|explode('\r\n')|implode(' ')}"{rdelim},
         {ldelim}name : 'sqli_civilite', value : "{$civilite}"{rdelim},
-        {ldelim}name : 'sqli_modereponse', value : "Email"{rdelim},
+        {ldelim}name : 'sqli_modereponse', value : "Courrier"{rdelim},
         {ldelim}name : 'sqli_urlsiteweb', value : ""{rdelim},
     {if and(eq($maCollection.data_map.animations_actualites.content, 0), eq($maCollection.data_map.bons_plans_sejours.content, 0))}
 		{ldelim}name : 'sqli_contactemail', value : "1"{rdelim},
