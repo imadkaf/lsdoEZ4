@@ -334,6 +334,14 @@
 			<source>Et</source>
 			<translation>and</translation>
 		</message>
+                <message>
+			<source>Telecharger</source>
+			<translation>Download</translation>
+		</message>
+                <message>
+			<source>PlusDInfos</source>
+			<translation>More information</translation>
+		</message>
 	</context>
 	
 	<context>

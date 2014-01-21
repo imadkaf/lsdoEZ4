@@ -338,6 +338,14 @@
 			<source>Et</source>
 			<translation>und</translation>
 		</message>
+                <message>
+			<source>Telecharger</source>
+			<translation>Herunterladen</translation>
+		</message>
+                <message>
+			<source>PlusDInfos</source>
+			<translation>Mehr informationen</translation>
+		</message>
 	</context>
 	<context>
 	    <name>extension/recaptcha</name>

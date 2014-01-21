@@ -174,6 +174,14 @@
 			<source>Et</source>
 			<translation>et</translation>
 		</message>
+                <message>
+			<source>Telecharger</source>
+			<translation>Téléchargez</translation>
+		</message>
+                <message>
+			<source>PlusDInfos</source>
+			<translation>Plus d'infos</translation>
+		</message>
 	</context>
 	<context>
 	    <name>extension/recaptcha</name>
