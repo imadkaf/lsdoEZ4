@@ -61,6 +61,13 @@
 				</xsl:if>
 			</p>
 			
+                        <xsl:if test="string-length(criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280006']/valModalite) &gt; 0">
+				<a class="disponibilites">
+				<xsl:attribute name="href"><xsl:value-of select="criteres/critere[@id='851000028']/modalites/modalite[@id='8510000280006']/valModalite"/></xsl:attribute>
+				 <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
+				</a>
+			</xsl:if>
+                        
 			<xsl:if test="adresses/adresse[@type='produit']/tel1 != ''">
 				<a class="telephone">
 					<xsl:attribute name="href">tel:<xsl:value-of select="adresses/adresse[@type='produit']/tel1"/></xsl:attribute>
