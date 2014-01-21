@@ -43,7 +43,7 @@
 								<br />
 								<xsl:for-each select="horairesOuvertures/horaireOuverture">
                                                                         <xsl:if test="string-length(horaireJoursSemaine) &gt; 0">
-                                                                            <xsl:value-of select="$espace"/><xsl:value-of select="$termeLe"/><xsl:value-of select="$espace"/>
+                                                                            <xsl:value-of select="$termeLe"/><xsl:value-of select="$espace"/>
                                                                             <xsl:call-template name="split">
                                                                                 <xsl:with-param name="string">
                                                                                     <xsl:value-of select="horaireJoursSemaine"/>
@@ -51,7 +51,7 @@
                                                                             </xsl:call-template>
 									</xsl:if>
 									<xsl:if test="string-length(horaireOuvertureDebut) &gt; 0">
-										<xsl:value-of select="$termeDe"/><xsl:value-of select="$espace"/><xsl:value-of select="substring(horaireOuvertureDebut, 1, 5)"/>
+										<xsl:value-of select="$espace"/><xsl:value-of select="$termeDe"/><xsl:value-of select="$espace"/><xsl:value-of select="substring(horaireOuvertureDebut, 1, 5)"/>
 									</xsl:if>
 									<xsl:if test="string-length(horaireOuvertureFin) &gt; 0">
 										<xsl:value-of select="$espace"/><xsl:value-of select="$termeA"/><xsl:value-of select="$espace"/><xsl:value-of select="substring(horaireOuvertureFin, 1, 5)"/>
