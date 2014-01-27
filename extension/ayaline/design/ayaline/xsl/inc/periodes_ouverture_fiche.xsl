@@ -50,13 +50,13 @@
                                                                                 </xsl:with-param>
                                                                             </xsl:call-template>
 									</xsl:if>
-									<xsl:if test="string-length(horaireOuvertureDebut) &gt; 0 and string-length(horaireOuvertureDebut) != string-length(horaireOuvertureFin) ">
+									<xsl:if test="string-length(horaireOuvertureDebut) &gt; 0 and horaireOuvertureDebut != horaireOuvertureFin ">
 										<xsl:value-of select="$espace"/><xsl:value-of select="$termeDe"/><xsl:value-of select="$espace"/><xsl:value-of select="substring(horaireOuvertureDebut, 1, 5)"/>
 									</xsl:if>
-									<xsl:if test="string-length(horaireOuvertureDebut) &gt; 0 and string-length(horaireOuvertureDebut) = string-length(horaireOuvertureFin) ">
+									<xsl:if test="string-length(horaireOuvertureDebut) &gt; 0 and horaireOuvertureDebut = horaireOuvertureFin">
 										<xsl:value-of select="$espace"/><xsl:value-of select="$termeA"/><xsl:value-of select="$espace"/><xsl:value-of select="substring(horaireOuvertureDebut, 1, 5)"/>
 									</xsl:if>
-									<xsl:if test="string-length(horaireOuvertureFin) &gt; 0 and string-length(horaireOuvertureDebut) != string-length(horaireOuvertureFin) ">
+									<xsl:if test="string-length(horaireOuvertureFin) &gt; 0 and horaireOuvertureDebut != horaireOuvertureFin">
 										<xsl:value-of select="$espace"/><xsl:value-of select="$termeA"/><xsl:value-of select="$espace"/><xsl:value-of select="substring(horaireOuvertureFin, 1, 5)"/>
 									</xsl:if>
 									<xsl:if test="position() != last()">
