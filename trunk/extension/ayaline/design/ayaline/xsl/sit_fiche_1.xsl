@@ -9,7 +9,7 @@
 	
 	<xsl:include href="inc/critere_moda_apartirde.xsl"/>
 	<xsl:include href="inc/string_replace_all.xsl"/>
-	<xsl:include href="inc/periodes_ouverture_1.xsl"/>
+	<xsl:include href="inc/periodes_ouverture_fiche.xsl"/>
 	<xsl:include href="inc/display_dispos.xsl"/>
 	<xsl:include href="inc/rendu_adresse.xsl"/>
 	<xsl:include href="inc/bouton_reserver.xsl"/>
@@ -380,6 +380,52 @@
 						</p>
 					</xsl:if>
 					
+                                        <div class="fichiers">
+                                            <xsl:if test="count(fichiersJoints/fichierJoint) &gt; 0">
+                                                <h3>
+                                                    <xsl:value-of select="$termeTelechargez"/><![CDATA[ ]]>
+                                                </h3>
+                                                <ul>
+                                                    <xsl:for-each select="fichiersJoints/fichierJoint">
+                                                        <xsl:if test="string-length(intFichierJoint) &gt; 0 and string-length(urlFichierJoint) &gt; 0">
+                                                            <li>
+                                                                <a target="_blank">
+                                                                    <xsl:attribute name="href"><xsl:value-of select="urlFichierJoint"/></xsl:attribute>
+                                                                    <xsl:attribute name="download"><xsl:value-of select="intFichierJoint"/></xsl:attribute>
+                                                                    <xsl:value-of select="intFichierJoint"/>
+                                                                </a>
+                                                                <xsl:if test="string-length(descFichierJoint) &gt; 0">
+                                                                    <![CDATA[ : ]]><xsl:value-of select="descFichierJoint"/>
+                                                                </xsl:if>
+                                                            </li>
+                                                        </xsl:if>
+                                                    </xsl:for-each>
+                                                </ul>
+                                            </xsl:if>
+                                            <![CDATA[&amp;nbsp;]]>
+                                        </div>
+
+                                        <div class="lien">
+                                            <xsl:if test="count(liens/lien) &gt; 0">
+                                                <h3>
+                                                    <xsl:value-of select="$termePlusDInfos"/><![CDATA[ ]]>
+                                                </h3>
+                                                <ul>
+                                                    <xsl:for-each select="liens/lien">
+                                                        <xsl:if test="string-length(intLien) &gt; 0 and string-length(urlLien) &gt; 0">
+                                                            <li>
+                                                                <a target="_blank">
+                                                                    <xsl:attribute name="href"><xsl:value-of select="urlLien"/></xsl:attribute>
+                                                                    <xsl:value-of select="intLien"/>
+                                                                </a>
+                                                            </li>
+                                                        </xsl:if>
+                                                    </xsl:for-each>
+                                                </ul>
+                                            </xsl:if>
+                                            <![CDATA[&amp;nbsp;]]>
+                                        </div>
+                                        
 					<xsl:call-template name="periodes-ouverture"/>
 					<![CDATA[ ]]>
 				</div>
