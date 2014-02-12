@@ -139,7 +139,8 @@
 </script>
 
 		<link rel="stylesheet" type="text/css" href={'stylesheets/print.css'|ezdesign} media="print" />
-
+<link rel="icon" type="image/x-icon" href={'images/favicon.ico'|ezdesign}/>
+<link rel="shortcut icon" type="image/x-icon" href={'images/favicon.ico'|ezdesign}/>
 {*** Javascript ***}
 {* Pour appeller jquery en premier ! *}
 {foreach ezini( 'JavaScriptSettings', 'RequiredJavaScriptList', 'design.ini' ) as $js_fichier }
