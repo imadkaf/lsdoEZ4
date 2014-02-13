@@ -268,8 +268,8 @@
 								</p>
 							</xsl:if>
 							
-                                                        <div class="fichiers">
-                                                            <xsl:if test="count(fichiersJoints/fichierJoint) &gt; 0">
+                                                        <xsl:if test="count(fichiersJoints/fichierJoint) &gt; 0">
+                                                            <div class="fichiers">
                                                                 <h3>
                                                                     <xsl:value-of select="$termeTelechargez"/><![CDATA[ ]]>
                                                                 </h3>
@@ -289,12 +289,12 @@
                                                                         </xsl:if>
                                                                     </xsl:for-each>
                                                                 </ul>
-                                                            </xsl:if>
-                                                            <![CDATA[&amp;nbsp;]]>
-							</div>
+                                                                <![CDATA[&amp;nbsp;]]>
+                                                            </div>
+                                                        </xsl:if>
                                                         
-							<div class="lien">
-                                                            <xsl:if test="count(liens/lien) &gt; 0">
+                                                        <xsl:if test="count(liens/lien) &gt; 0">
+                                                            <div class="lien">
                                                                 <h3>
                                                                     <xsl:value-of select="$termePlusDInfos"/><![CDATA[ ]]>
                                                                 </h3>
@@ -310,9 +310,9 @@
                                                                         </xsl:if>
                                                                     </xsl:for-each>
                                                                 </ul>
-                                                            </xsl:if>
-                                                            <![CDATA[&amp;nbsp;]]>
-							</div>
+                                                                <![CDATA[&amp;nbsp;]]>
+                                                            </div>
+                                                        </xsl:if>
                                                         
 							<xsl:call-template name="periodes-ouverture"/>
 							<![CDATA[ ]]>
