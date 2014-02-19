@@ -229,20 +229,22 @@
 		{/literal}
 		</script>
 {def $googleAccountKey = ezini('TagsGA','googleAccountKey','ezurlga.ini')}
+		{def $googleAccountKey = ezini('TagsGA','googleAccountKey','ezurlga.ini')}	
 		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', '{$googleAccountKey}']);
-			_gaq.push(['_setDomainName', '{ezini('TagsGA','domain','ezurlga.ini')}']);
-			_gaq.push(['_trackPageLoadTime']);
-			_gaq.push(['_trackPageview']);
-{literal}
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', '{$googleAccountKey}']);
+		  _gaq.push(['_setDomainName', '{ezini('TagsGA','domain','ezurlga.ini')}']);
+		  _gaq.push(['_trackPageLoadTime']);
+		  _gaq.push(['_trackPageview']);
+{literal}		 
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })(); 
 {/literal}
 		</script>
+		
 {undef $googleAccountKey}
 {* tracking spécifique à la prod sur des contenus précis : http://www.lessablesdolonne-tourisme.com/Sejourner/Idees-de-week-end/Vacances-de-Paques/ + les 4 sous pages *}
 {if array(2452,2454, 2455,2456,2457)|contains($cNode.node_id)}
