@@ -77,7 +77,7 @@
 			</p>
 			<br />
 			
-			<p class="tel">
+			<p class="tel" style="margin-bottom: 0px;">
 				<xsl:if test="adresses/adresse[@type='produit']/tel1 != ''">
 					<b>T&amp;eacute;l : </b><xsl:value-of select="adresses/adresse[@type='produit']/tel1"/><br />
 					<xsl:if test="adresses/adresse[@type='produit']/tel2 != ''">
@@ -86,6 +86,16 @@
 				</xsl:if>
 			</p>
 			
+			<xsl:if test="adresses/adresse[@type='produit']/web != ''">
+				<p class="tel">
+				<b>Site web : </b>
+					<a target="_blank" style="font-weight:normal;">
+						<xsl:attribute name="href"><xsl:value-of select="adresses/adresse[@type='produit']/web"/></xsl:attribute>
+						<xsl:value-of select="adresses/adresse[@type='produit']/web"/>
+					</a>
+					<br/>
+				</p>
+			</xsl:if>
 			<!--a class="disponibilites">
 				<xsl:attribute name="href">#</xsl:attribute>
 				<span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
