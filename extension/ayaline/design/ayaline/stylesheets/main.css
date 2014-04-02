@@ -3404,7 +3404,6 @@ body>div.ui-dialog>div.ui-corner-all {
 	font-style: italic;
 	display: block;
 }
-/******************/
 /*** Evol ajout critere horaire, lien et fichier joint ***/
 #onglet-description .lien h3, #onglet-description .fichiers h3{
     font-size: 14px;
@@ -3422,4 +3421,8 @@ body>div.ui-dialog>div.ui-corner-all {
 #onglet-description .lien a:hover, #onglet-description .fichiers a:hover{
     text-decoration: none;
 }
-/*********************************************************/
+/*** Surcharge d'un style Open System qui pose pb ***/
+a.OsLienNext img {
+    background: none;
+}
+/****************************************************/
