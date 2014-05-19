@@ -3426,3 +3426,9 @@ a.OsLienNext img {
     background: none;
 }
 /****************************************************/
+/*** Mantis 382 ***/
+.ui-button-icon-primary.ui-icon.ui-icon-closethick{
+    left: 0;
+    top: 0;
+}
+/******************/
