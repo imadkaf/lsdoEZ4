@@ -132,7 +132,7 @@ $char_specs_replace[] = "ü";	$char_specs_patern[] = "/&uuml;/";
 $char_specs_replace[] = "ý";	$char_specs_patern[] = "/&yacute;/";
 $char_specs_replace[] = "þ";	$char_specs_patern[] = "/&thorn;/";
 $char_specs_replace[] = "ÿ";	$char_specs_patern[] = "/&yuml;/";
-$char_specs_replace[] = "/&amp;/";	$char_specs_patern[] = "&";
+$char_specs_replace[] = "&amp;";	$char_specs_patern[] = "/&/";
 
 if(!$isQuiet){
 	$cli->output( "Début du cronjob");
