@@ -1,3 +1,4 @@
+{set-block scope=root variable=cache_ttl}0{/set-block}
 {def $search=false()}
 {if $use_template_search}
     {set $page_limit=10}
@@ -5,6 +6,8 @@
                        hash(text,$search_text,
                             section_id,$search_section_id,
                             subtree_array, ezini('Subtree_search','TabSearch','ayaline.ini'),
+							limitation, array(),
+							ignore_visibility, false,
                             sort_by,array('modified',false()),
                             offset,$view_parameters.offset,
                             limit,$page_limit))}
