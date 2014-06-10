@@ -27,5 +27,6 @@ ClassIdentifierList[]=sit_fiche
 ClassIdentifierList[]=common_ini_settings
 ClassIdentifierList[]=template_look
 ClassIdentifierList[]=accueil_mobile
+ClassIdentifierList[]=traceur
 
 */ ?>
