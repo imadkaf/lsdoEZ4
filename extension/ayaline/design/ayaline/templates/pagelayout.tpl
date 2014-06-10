@@ -268,7 +268,7 @@
         {$rNode.data_map.traceur_commun.content}
         
         {* Code uniquement pour la page en cours *}
-        {if ne(count($cNode), 0)}
+        {if ne(count($cNode), 0) and not($module_result.ui_component|eq('Fiche'))}
             {def $nodeTraceur = fetch( 'content', 'list', hash( 'parent_node_id', $cNode.node_id,
                                                                 'class_filter_type', 'include',
                                                                 'class_filter_array', array('traceur'),
