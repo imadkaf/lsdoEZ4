@@ -36,5 +36,7 @@
 {/if}
 
 {*** Evol Gestion d'un code externe ***}
-{$rNode.data_map.traceur_fiches.content}
+{def $nodeAccueil = fetch( 'content', 'node', hash( 'node_id', ezini( 'NodeSettings', 'RootNode', 'content.ini' )))}
+{$nodeAccueil.data_map.traceur_fiches.content}
+{undef $nodeAccueil}
 {**************************************}
