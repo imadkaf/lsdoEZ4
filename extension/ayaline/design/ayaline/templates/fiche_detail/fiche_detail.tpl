@@ -34,3 +34,7 @@
         {/literal}
     </script>
 {/if}
+
+{*** Evol Gestion d'un code externe ***}
+{$rNode.data_map.traceur_fiches.content}
+{**************************************}

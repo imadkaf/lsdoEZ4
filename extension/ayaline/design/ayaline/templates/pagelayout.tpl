@@ -262,6 +262,10 @@
 {/literal}
 	<img src="http://nodes.one-ddn.com/scripts/tracking_clic.php?params=4753|11&track={$cNode.url_alias} " border="0">
 {/if}
-	</body>
+
+        {*** Evol Gestion d'un code externe ***}
+        {$rNode.data_map.traceur_commun.content}
+        {**************************************}
+    </body>
 </html>
 {undef $cNode $rNode $attributes $nbSaison $saison $curLang $topicsList $nameRubric $i $cache_hash}
