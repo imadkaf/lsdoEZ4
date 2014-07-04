@@ -17,7 +17,7 @@
 			{else}
 				{def $topicId = array(ezini('NodeSettings','TopicDefaut','content.ini'))}
 			{/if}
-			
+
 			<h2 class="bloc-liste-h2">
 				{def $titre = ''}
 				{* Si le pere de la rubrique est Decouvrir ou Sejourner *}
@@ -68,11 +68,15 @@
 				{/if}
 			</h2>
 			<p class="clear"></p>
-			
-			<p class="chapeau">
-				{attribute_view_gui attribute = $node.data_map.short_description}
-			</p>
-			
+
+			{if $node.data_map.introduction.has_content}
+				<div class="chapeau-xml">{attribute_view_gui attribute = $node.data_map.introduction}</div>
+			{else}
+				<p class="chapeau">
+					{attribute_view_gui attribute = $node.data_map.short_description}
+				</p>
+			{/if}
+
 			{* Traitement pour voir si la rubrique est associe au theme courant *}
 			{def $rubriqueAssoTheme = false()}
 			{* Pour chacun de ses themes *}
@@ -82,7 +86,7 @@
 					{set $rubriqueAssoTheme = true()}
 				{/if}
 			{/foreach}
-			
+
 			{* Si la rubrique est associe au theme courant *}
 			{if $rubriqueAssoTheme}
 				{* Si le champs description est rempli *}
@@ -95,24 +99,24 @@
 					{if $view_parameters.offset|gt(0)}
 						{set $offset = $view_parameters.offset}
 					{/if}
-					
+
 					{* Tableau qui contiendra les fils a afficher *}
 					{def $filsAssocie = array()}
-					
+
 					{* Tableau qui contiendra les noms des fils a afficher *}
 					{def $nomFilsAssocie = array()}
 					{* Variable qui contiendra le nom du fils a ajouter *}
 					{def $nomFilsAjouter = ''}
-					
+
 					{def $filsAjoute = false()}
 					{def $affFilsListeSIT = ''}
-					
+
 					{* Recuperation des fils de la rubrique *}
 					{def $filsRubrique = fetch('content','list', hash( 'parent_node_id', $node.node_id,
 																		'sort_by', $node.sort_array,
 																		'class_filter_type' , 'include',
 																		'class_filter_array', array('rubric', 'sit_liste')))}
-					
+
 					{* Ajout des fils a afficher *}
 					{foreach $filsRubrique as $filsR}
 						{* Si le fils possede l'attribut topics *}
@@ -150,10 +154,10 @@
 								{/foreach}
 							{/if}
 						{/if}
-							
+
 						{set $filsAjoute = false()}
 					{/foreach}
-					
+
 					{* Affichage de la selection *}
 					{def $compteurlisterubrique2 = 1}
 					<ul class="list">
@@ -168,10 +172,10 @@
 						{set $compteurlisterubrique2 = $compteurlisterubrique2|inc}
 					{/foreach}
 					</ul>
-					
+
 					{* Affichage de la pagination *}
-					{include 
-						uri='design:navigator/google.tpl' 
+					{include
+						uri='design:navigator/google.tpl'
 						page_uri=$node.url_alias
 						item_count=$filsAssocie|count
 						view_parameters=$view_parameters
