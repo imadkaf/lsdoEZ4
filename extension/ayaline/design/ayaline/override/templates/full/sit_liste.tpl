@@ -17,16 +17,16 @@
 			{sit_recherche()}
                     {/if}
 		{/if}
-		
+
 		{if eq($node.parent.node_id, ezini('Noeuds','Sejourner','ayaline.ini'))}
                         {if is_unset($view_parameters[$extAyaWidgetFilterName])}
 			<div>
-				{def $listeHebergement = fetch('content','list', hash( 
+				{def $listeHebergement = fetch('content','list', hash(
 												'parent_node_id', $node.parent.node_id,
 												'sort_by', $node.sort_array,
 												'class_filter_type',  'include',
 												'class_filter_array', array('sit_liste')))}
-				
+
 				{if $listeHebergement|count}
 					<ul class="menu-left">
 
@@ -45,12 +45,12 @@
 			</div>
                         {/if}
 		{else}
-			{def $listeRubriques = fetch('content','list', hash( 
+			{def $listeRubriques = fetch('content','list', hash(
 											'parent_node_id', $node.parent.node_id,
 											'sort_by', $node.sort_array,
 											'class_filter_type',  'exclude',
 											'class_filter_array', array('sit_mise_en_avant', 'sit_fiche', 'embed_code', 'traceur')))}
-			
+
 			{if $listeRubriques|count}
 				<ul class="menu-left">
 
@@ -68,7 +68,7 @@
 			{undef $listeRubriques}
 		{/if}
 	</div>
-	
+
 	<div class="bloc-right-in-bis">
 		<div class="bloc-type{if ne($node.data_map.categorie.data_text, '4')} padding-lr{/if}">
 			{* Récuperation des variables session *}
@@ -82,7 +82,7 @@
 			{else}
 				{def $topicId = array(ezini('NodeSettings','TopicDefaut','content.ini'))}
 			{/if}
-			
+
 			<h2 class="bloc-liste-h2">
 				{def $titreListe = ''}
 				{* Si le pere de la liste est Decouvrir ou Sejourner *}
@@ -116,7 +116,11 @@
 						{/if}
 					{/foreach}
 				{else}
+					{if $node.data_map.titre_page.has_content}
+					{set $titreListe = $node.data_map.titre_page.content}
+					{else}
 					{set $titreListe = $node.name|wash}
+					{/if}
 				{/if}
 				{if ne($titreListe, '')}
 					{$titreListe}
@@ -125,15 +129,18 @@
 				{/if}
 			</h2>
 			<p class="clear"></p>
-			
-			{if ne($node.data_map.short_description.content, '')}
-				<p class="chapeau-bis">
-					{attribute_view_gui attribute=$node.data_map.short_description}
-				</p>
+			{if $node.data_map.introduction.has_content}
+				<div class="chapeau-xml">{attribute_view_gui attribute = $node.data_map.introduction}</div>
 			{else}
-				<br />
+				{if ne($node.data_map.short_description.content, '')}
+					<p class="chapeau-bis">
+						{attribute_view_gui attribute = $node.data_map.short_description}
+					</p>
+				{else}
+					<br />
+				{/if}
 			{/if}
-			
+
 			{def $param_url = ''}
 			{foreach $view_parameters as $param => $valParam}
 				{if $valParam}
@@ -184,7 +191,7 @@
 	{include uri='design:parts/publicites.tpl' nbPubs = $nbPubs}
 	{include uri='design:parts/liste_mises_en_avant.tpl'}
 </div>
-        
+
 {if is_unset($view_parameters[$extAyaWidgetFilterName])|not}
     <script>
         {literal}

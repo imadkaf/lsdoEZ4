@@ -8,10 +8,14 @@
 				{attribute_view_gui attribute = $node.data_map.title}
 			</h2>
 			<p class="clear"></p>
-			
-			<p class="chapeau">
-				{attribute_view_gui attribute = $node.data_map.short_description}
-			</p>
+
+			{if $node.data_map.introduction.has_content}
+				<div class="chapeau-xml">{attribute_view_gui attribute = $node.data_map.introduction}</div>
+			{else}
+				<p class="chapeau">
+					{attribute_view_gui attribute = $node.data_map.short_description}
+				</p>
+			{/if}
 
 			{* Si le champs description est rempli *}
 			{if $node.data_map.description.has_content}
@@ -28,24 +32,24 @@
 				{else}
 					{def $topicId = array(ezini('NodeSettings','TopicDefaut','content.ini'))}
 				{/if}
-				
+
 				{* Tableau qui contiendra les fils a afficher *}
 				{def $filsAssocie = array()}
-				
+
 				{* Tableau qui contiendra les noms des fils a afficher *}
 				{def $nomFilsAssocie = array()}
 				{* Variable qui contiendra le nom du fils a ajouter *}
 				{def $nomFilsAjouter = ''}
-				
+
 				{def $filsAjoute = false()}
 				{def $affFilsListeSIT = ''}
-				
+
 				{* Si la rubrique est le noeud Decouvrir ou Sejourner *}
 				{if or(eq($node.node_id, ezini('Noeuds','Decouvrir','ayaline.ini')), eq($node.node_id, ezini('Noeuds','Sejourner','ayaline.ini')))}
 					{* Recuperation du menu associe a la rubrique *}
 					{def $menuRubrique = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
 					{set $menuRubrique = $menuRubrique.0}
-				
+
 					{* Pour chaque saison qu'il contient*}
 					{foreach $menuRubrique.main_node.children as $saison}
 						{* Selection de la saison souhaitee *}
@@ -108,7 +112,7 @@
 											{/foreach}
 										{/if}
 									{/if}
-									
+
 									{set $filsAjoute = false()}
 								{/foreach}
 							{/if}
@@ -120,7 +124,7 @@
 																		'sort_by', $node.sort_array,
 																		'class_filter_type' , 'include',
 																		'class_filter_array', array('rubric', 'sit_liste')))}
-					
+
 					{* Ajout des fils a afficher *}
 					{foreach $filsRubrique as $filsR}
 						{* Si le fils possede l'attribut topics *}
@@ -158,7 +162,7 @@
 								{/foreach}
 							{/if}
 						{/if}
-						
+
 						{set $filsAjoute = false()}
 					{/foreach}
 				{/if}
@@ -177,7 +181,7 @@
 							</ul>
 							<ul class="liste">
 						{/if}
-						
+
 						{set $compteurlisterubrique = $compteurlisterubrique|inc}
 					{/foreach}
 					</ul>
@@ -185,13 +189,13 @@
 			{/if}
 		</div>
 	</div>
-	
+
 	<div class="bloc-right-bis">
 		{include uri='design:parts/reserver.tpl'}
 		{include uri='design:parts/publicites.tpl' nbPubs = $nbPubs}
 		{include uri='design:parts/liste_mises_en_avant.tpl'}
 	</div>
-	
+
 	<script type="text/javascript">
 		equilibre = true;
 		$(window).load(equilibrerHauteursBlocs);
