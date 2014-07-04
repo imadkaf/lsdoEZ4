@@ -1929,6 +1929,13 @@ div.chapeau {
 	padding:18px 19px 22px 14px !important;
 	margin:10px 0 0 0;
 }
+
+.chapeau-xml{
+	font-size:14px;
+	padding:24px 0 25px 0 !important;
+	border-bottom:1px solid #E9E3DE;
+	margin:0 0 24px 0;
+}
 div.chapeau p{
 	line-height:15px !important;
 }
@@ -3277,7 +3284,7 @@ div.image{
 
 /* style pour lien aYaline dans le footer */
 li.ayaline a {
-	margin: -5px 0 0 0;	
+	margin: -5px 0 0 0;
 }
 li.ayaline a span {
 	display:none;
@@ -3291,7 +3298,7 @@ li.ayaline a:hover {
 	 text-decoration: none;
 }
 /**
- * Recaptcha 
+ * Recaptcha
  */
 #captcha .recaptchatable {
     border: medium none !important;
@@ -3328,7 +3335,7 @@ li.ayaline a:hover {
 .visualiserCarte > div {
 	position: absolute;
 	top: 20px;
-	right: 10px; 
+	right: 10px;
 	width:160px;
  }
  .visualiserCarte > div.top40 {
