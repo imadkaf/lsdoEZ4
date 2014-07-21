@@ -85,41 +85,45 @@
 
 			<h2 class="bloc-liste-h2">
 				{def $titreListe = ''}
-				{* Si le pere de la liste est Decouvrir ou Sejourner *}
-				{if or(eq($node.parent.node_id, ezini('Noeuds','Decouvrir','ayaline.ini')), eq($node.parent.node_id, ezini('Noeuds','Sejourner','ayaline.ini')))}
-					{* Recuperation de objets associes a la liste *}
-					{def $objetsAsso = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
-					{* Pour chaque objet associe *}
-					{foreach $objetsAsso as $objetAsso}
-						{* test sur le theme : si on est sur le theme par défaut, pas la peine de chercher le titre lié au theme *}
-						{if $topicId|ne(ezini('NodeSettings','TopicDefaut','content.ini'))}
-							{* cas des contenus avec plusieurs emplacements : il faut regarder les différents noeuds *}
-							{foreach $objetAsso.assigned_nodes as $rub}
-								{* Si le pere de l'objet associe est une saison et qu'il a un titre *}
-								{if and($rub.parent.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($rub.parent.data_map.title.value.0))}
-									{* Si le pere de l'objet associe correspond a la saison en cours *}
-									{if $rub.parent.data_map.title.value.0|eq($saisonId)}
-										{* Si le theme en cours n'est pas celui par defaut *}
-										{if ne($topicId.0, ezini('NodeSettings','TopicDefaut','content.ini'))}
-											{* Si l'attribut title_topic du theme en cours n'est pas vide *}
-											{if ne($rub.data_map[concat('title_topic_', $topicId.0)].value, '')}
-												{set $titreListe = $rub.data_map[concat('title_topic_', $topicId.0)].value}
+				{if $node.data_map.titre_page.has_content}
+					{set $titreListe = $node.data_map.titre_page.content}
+				{else}
+					{* Si le pere de la liste est Decouvrir ou Sejourner *}
+					{if or(eq($node.parent.node_id, ezini('Noeuds','Decouvrir','ayaline.ini')), eq($node.parent.node_id, ezini('Noeuds','Sejourner','ayaline.ini')))}
+						{* Recuperation de objets associes a la liste *}
+						{def $objetsAsso = fetch('content', 'reverse_related_objects', hash( 'object_id', $node.contentobject_id, 'attribute_identifier', 'sub_menu/content' ) )}
+						{* Pour chaque objet associe *}
+						{foreach $objetsAsso as $objetAsso}
+							{* test sur le theme : si on est sur le theme par défaut, pas la peine de chercher le titre lié au theme *}
+							{if $topicId|ne(ezini('NodeSettings','TopicDefaut','content.ini'))}
+								{* cas des contenus avec plusieurs emplacements : il faut regarder les différents noeuds *}
+								{foreach $objetAsso.assigned_nodes as $rub}
+									{* Si le pere de l'objet associe est une saison et qu'il a un titre *}
+									{if and($rub.parent.object.contentclass_id|eq(ezini('ClassSettings','ClassSeasonId','content.ini')), is_set($rub.parent.data_map.title.value.0))}
+										{* Si le pere de l'objet associe correspond a la saison en cours *}
+										{if $rub.parent.data_map.title.value.0|eq($saisonId)}
+											{* Si le theme en cours n'est pas celui par defaut *}
+											{if ne($topicId.0, ezini('NodeSettings','TopicDefaut','content.ini'))}
+												{* Si l'attribut title_topic du theme en cours n'est pas vide *}
+												{if ne($rub.data_map[concat('title_topic_', $topicId.0)].value, '')}
+													{set $titreListe = $rub.data_map[concat('title_topic_', $topicId.0)].value}
+												{else}
+													{set $titreListe = $rub.object.name}
+												{/if}
 											{else}
 												{set $titreListe = $rub.object.name}
 											{/if}
-										{else}
-											{set $titreListe = $rub.object.name}
 										{/if}
 									{/if}
-								{/if}
-							{/foreach}
-						{/if}
-					{/foreach}
-				{else}
-					{if $node.data_map.titre_page.has_content}
-					{set $titreListe = $node.data_map.titre_page.content}
+								{/foreach}
+							{/if}
+						{/foreach}
 					{else}
-					{set $titreListe = $node.name|wash}
+						{if $node.data_map.titre_page.has_content}
+						{set $titreListe = $node.data_map.titre_page.content}
+						{else}
+						{set $titreListe = $node.name|wash}
+						{/if}
 					{/if}
 				{/if}
 				{if ne($titreListe, '')}
