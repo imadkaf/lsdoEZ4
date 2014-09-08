@@ -63,7 +63,7 @@
 											']]><xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
 													<img class="float-g photo" alt="" style="max-height: 100px">
 														<xsl:variable name="photoInfobulle"><xsl:value-of select="newPhotos/newPhoto"/></xsl:variable>
-														<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$photoInfobulle"/><xsl:with-param name="replace" select="$apos"/><xsl:with-param name="by" select="concat('\', $apos)"/></xsl:call-template>&amp;amp;w=120</xsl:attribute>
+														<xsl:attribute name="src"><xsl:value-of select="$rootSitUrl"/>Image&amp;amp;idP=<xsl:value-of select="@id"/>&amp;amp;no=1&amp;amp;w=120&amp;amp;mw=1</xsl:attribute>
 													</img>
 												</xsl:if>
 												<xsl:if test="count(newPhotos/newPhoto) = 0">

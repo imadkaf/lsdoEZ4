@@ -3,17 +3,19 @@
 <xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:template name="galerie-fiche-detail">
 		<xsl:param name="titrefiche"/>
+		<xsl:param name="idP"/>
 		<xsl:if test="count(newPhotos/newPhoto) &gt; 0">
 			<div id="galleria" class="galerie-fiche">
 			<xsl:value-of select="$titrefiche"/>
 				<xsl:for-each select="newPhotos/newPhoto">
 					<a>
 						<xsl:attribute name="rel"><xsl:value-of select="."/></xsl:attribute>
-						<xsl:attribute name="href"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=306&amp;amp;mw=1</xsl:attribute>
+						<xsl:attribute name="href"><xsl:value-of select="$rootSitUrl"/>Image&amp;idP=<xsl:value-of select="$idP"/>&amp;no=<xsl:value-of select="position()"/>&amp;w=306&amp;mw=1</xsl:attribute>
 						<img>
 							<xsl:attribute name="alt"><xsl:value-of select="$titrefiche"/></xsl:attribute>
-							<xsl:attribute name="title"><xsl:value-of select="$titrefiche"/><xsl:if test="@credits"> - <xsl:value-of select="@credits"/></xsl:if></xsl:attribute>
-							<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=60&amp;amp;mw=1</xsl:attribute>
+							<xsl:attribute name="title"><xsl:value-of select="$titrefiche"/><xsl:if test="@credits"> - <xsl:value-of select="@credits"/> == <xsl:value-of select="$idP"/></xsl:if></xsl:attribute>
+							<!--xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="."/>&amp;amp;w=60&amp;amp;mw=1</xsl:attribute-->
+							<xsl:attribute name="src"><xsl:value-of select="$rootSitUrl"/>Image&amp;idP=<xsl:value-of select="$idP"/>&amp;no=<xsl:value-of select="position()"/>&amp;w=60&amp;mw=1</xsl:attribute>
 						</img>
 					</a>
 				</xsl:for-each>
