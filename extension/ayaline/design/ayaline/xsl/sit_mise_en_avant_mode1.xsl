@@ -40,7 +40,7 @@
 									<xsl:if test="count(newPhotos/newPhoto) &gt;= 1">
 										<xsl:attribute name="alt"><xsl:value-of select="$intitule"/><xsl:if test="newPhotos/newPhoto[@credits]"> - <xsl:value-of select="newPhotos/newPhoto/@credits"/></xsl:if></xsl:attribute>
 										<xsl:attribute name="title"><xsl:value-of select="$intitule"/><xsl:if test="newPhotos/newPhoto[@credits]"> - <xsl:value-of select="newPhotos/newPhoto/@credits"/></xsl:if></xsl:attribute>
-										<xsl:attribute name="src"><xsl:value-of select="$cheminRacineSite"/>/Image/Resize?img=<xsl:value-of select="newPhotos/newPhoto"/>&amp;amp;w=338</xsl:attribute>
+										<xsl:attribute name="src"><xsl:value-of select="$rootSitUrl"/>Image&amp;amp;idP=<xsl:value-of select="@id"/>&amp;amp;no=1&amp;amp;w=338&amp;amp;mw=1</xsl:attribute>
 									</xsl:if>
 									
 									<xsl:if test="count(newPhotos/newPhoto) = 0">

@@ -20,6 +20,7 @@
 		<div class="box-left">
 			<xsl:call-template name="galerie-fiche-detail">
 				<xsl:with-param name="titrefiche" select="$intitule"/>
+				<xsl:with-param name="idP" select="@id"/>
 			</xsl:call-template>
 
 			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;key=AIzaSyC8EdtB_9vkzMjzX8W-347wdg32z8FPiUc"><![CDATA[ ]]></script>
