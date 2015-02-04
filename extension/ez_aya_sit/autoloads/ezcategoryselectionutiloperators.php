@@ -50,7 +50,8 @@ class eZCategorySelectionUtil{
 			'generate_category_string',
 			'is_empty_category',
 			'category_option_values',
-			'inarray'
+			'inarray',
+			'all_attribute_options'
 		);
 
 	}
@@ -174,7 +175,9 @@ class eZCategorySelectionUtil{
 									 'default'=>""),
 							   'haystack'=>array('type'=>'array',
 									 'required'=>true,
-									 'default'=>array()))
+									 'default'=>array())),
+			    'all_attribute_options'=>array('attribute'=>array('type'=>'eZContentObjectAttribute',
+									 'default'=>""))
 			);
 
 	}
@@ -297,8 +300,10 @@ class eZCategorySelectionUtil{
 					$namedParameters['version_id']);
 
 			}
-
-			    case 'inarray': {
+			
+			    break;
+				
+				case 'inarray': {
 
 				$operatorValue = $this->inarray(
 					$namedParameters['needle'],
@@ -307,7 +312,15 @@ class eZCategorySelectionUtil{
 			}
 
 			    break;
+				
+				case 'all_attribute_options': {
 
+				$operatorValue = $this->all_attribute_options(
+					$namedParameters['attribute']);
+
+			}
+
+			    break;
 
 		 }
 
@@ -1327,6 +1340,103 @@ class eZCategorySelectionUtil{
 		}
 
 		return false;
+
+	}
+	
+	function all_attribute_options($objectAttribute) {
+
+
+		$attribute = eZContentClassAttribute::fetch($objectAttribute->ContentClassAttributeID);
+
+		$class = eZContentClass::fetch($attribute->ContentClassID);
+
+		$object = eZContentObject::fetch($objectAttribute->ContentObjectID);
+		$object = $object->dataMap();
+
+		$sitIni = eZINI::instance('ez_aya_sit.ini');
+
+		$attributsCriteresTri = $sitIni->variable('ClassesAttributsSit','AttributsCriteresTri_'.$class->Identifier);
+		if ($sitIni->hasVariable('GlobalSitParametersOverride', 'RootSitUrl')) {
+			$rootSitUrl = $sitIni->variable('GlobalSitParametersOverride','RootSitUrl');
+		} else {
+			$rootSitUrl = $sitIni->variable('GlobalSitParameters', 'RootSitUrl');
+		}
+
+		$contenuXmlDistant = SitUtils::urlGetContentsCurl($rootSitUrl."Categories", 5);
+		$idsToutesCategories = array();
+		if ($contenuXmlDistant) {
+			$simpleXml = simplexml_load_string($contenuXmlDistant);
+			$idsToutesCategories = $simpleXml->xpath("/categories/categorie[@nbFils = '0']/@id");
+		}
+
+		$foundOptions = array();
+
+		$criteresCommunsTris = array(
+			'1' => "Commune",
+			'3' => "Nombre de consultations",
+			'4' => "Date d'ouverture",
+		);
+
+		if (in_array($attribute->Identifier, $attributsCriteresTri)) {
+			$foundOptions["oa2"] = array();
+			$foundOptions["oa2"]['name'] = "Aléatoire";
+			$foundOptions["oa2"]['categories'] = "-".str_replace("," , "-", "".$categoryAttributeValue)."-";
+
+			foreach ($criteresCommunsTris as $key=>$critereCommunTri) {
+				$foundOptions["o".($attribute->Identifier == 'criteres_tri_principaux' ? "a" : "").$key] = array();
+				$foundOptions["o".($attribute->Identifier == 'criteres_tri_principaux' ? "a" : "").$key]['name'] = $critereCommunTri.($attribute->Identifier == 'criteres_tri_principaux' ? " (Ascendant)" : "");
+				$foundOptions["o".($attribute->Identifier == 'criteres_tri_principaux' ? "a" : "").$key]['categories'] = "-".join("-", $idsToutesCategories)."-";
+
+				if ($attribute->Identifier == 'criteres_tri_principaux') {
+					$foundOptions["od".$key] = array();
+					$foundOptions["od".$key]['name'] = $critereCommunTri. " (Descendant)";
+					$foundOptions["od".$key]['categories'] = "-".join("-", $idsToutesCategories)."-";
+				}
+			}
+		}
+
+		$contenuXmlDistant = SitUtils::urlGetContentsCurl($rootSitUrl."Criteres&idC=".array_pop($object['categorie']->value()), 5);
+
+		$foundOptionsTmp = array();
+		if ($contenuXmlDistant) {
+			$simpleXml = simplexml_load_string($contenuXmlDistant);
+			$criteres = $simpleXml->xpath("/criteres/criteresSpecs/critere");
+
+			foreach ($criteres as $critere) {
+				$foundOptionsTmp["o".$critere->attributes()->id] = array();
+
+				$critereChildren = $critere->children();
+				$foundOptionsTmp["o".$critere->attributes()->id]['name'] = "".$critereChildren[0];
+				$foundOptionsTmp["o".$critere->attributes()->id]['categories'] = "-".str_replace("," , "-", "".$critere->attributes()->idsToutesCategories)."-";
+
+				$modalites = $critereChildren[1]->children();
+				foreach ($modalites as $modalite) {
+					$foundOptionsTmp["o".$modalite->attributes()->id] = array();
+					$foundOptionsTmp["o".$modalite->attributes()->id]['name'] = $critereChildren[0]." — ".$modalite;
+					$foundOptionsTmp["o".$modalite->attributes()->id]['categories'] = "-".str_replace("," , "-", "".$critere->attributes()->idsToutesCategories)."-";
+				}
+			}
+		}
+
+		if ($attribute->Identifier == 'criteres_tri_principaux') {
+			foreach ($foundOptionsTmp as $id=>$foundOptionTmp) {
+				$foundOptions["oa".substr($id, 1)] = array();
+
+				$critereChildren = $critere->children();
+				$foundOptions["oa".substr($id, 1)]['name'] = $foundOptionTmp['name']. " (Ascendant)";
+				$foundOptions["oa".substr($id, 1)]['categories'] = $foundOptionTmp['categories'];
+
+				$foundOptions["od".substr($id, 1)] = array();
+
+				$critereChildren = $critere->children();
+				$foundOptions["od".substr($id, 1)]['name'] = $foundOptionTmp['name']. " (Descendant)";
+				$foundOptions["od".substr($id, 1)]['categories'] = $foundOptionTmp['categories'];
+			}
+		} else {
+			$foundOptions = array_merge($foundOptions, $foundOptionsTmp);
+		}
+
+		return $foundOptions;
 
 	}
 

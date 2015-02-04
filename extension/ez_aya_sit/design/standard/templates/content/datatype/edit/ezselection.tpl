@@ -10,13 +10,14 @@
 </select>
 <script type="text/javascript">
 //<!--
-jQuery('.ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}').live('change', function () {ldelim}
+jQuery(document).on('change', '.ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}', function () {ldelim}
 
 	jQuery('.ezcategoryselection-selected-options-{$attribute.contentclassattribute_id} li a').each(function (indexInArray, valueOfElement) {ldelim}
+		var ezccaCategories = jQuery('.ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}').val();
 
-		if (jQuery(valueOfElement).attr('rel').indexOf("-"+jQuery('.ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier} option:selected').val()+"-") != -1) {ldelim}
+		if (jQuery(valueOfElement).attr('rel').match(new RegExp("-("+ezccaCategories.join("|")+")-"))) {ldelim}
 
-			jQuery(valueOfElement).next().attr('disabled', '');
+			jQuery(valueOfElement).next().removeAttr('disabled');
 			jQuery(valueOfElement).parent().css('display', '');
 		{rdelim} else {ldelim}
 
