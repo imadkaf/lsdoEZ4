@@ -29,7 +29,8 @@ $eZTemplateOperatorArray[] = array(
 		'generate_category_string',
 		'is_empty_category',
 		'category_option_values',
-		'inarray'
+		'inarray',
+		'all_attribute_options'
 	)
 );
 

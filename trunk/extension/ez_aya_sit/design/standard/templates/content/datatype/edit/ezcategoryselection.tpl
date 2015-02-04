@@ -7,15 +7,15 @@
 <tr>
 <td width="30%"><input type="text" id="{$attribute_base}_ezselect_selected_search_{$attribute.id}" class="ezcategoryselection-search" value="" style="width:80%" /><div style="position:absolute"></div></td>
 <td width="70%">
-{def $options = array()}
+{def $options = all_attribute_options($attribute)}
 <ul class="ezcategoryselection-selected-options ezcategoryselection-selected-options-{$attribute.class_content.categories.0.category_id}" id="{$attribute_base}_ezselect_selected_options_{$attribute.id}" style="margin:2px 5px 0 10px">
 {if and($attribute.content|count|gt(0), $attribute.content.0)}
-{foreach $attribute.class_content.options as $option}
-{set $options = $options|merge(hash(concat('o', $option.id), hash('name', $option.name, 'categories', $option.categories)))}
-{/foreach}
+{*foreach $attribute.class_content.options as $option*}
+{*set $options = $options|merge(hash(concat('o', $option.id), hash('name', $option.name, 'categories', $option.categories)))*}
+{*/foreach*}
 {def $index = 0}
 {foreach $attribute.content as $SelectedOptions}
-<li style="padding:2px 0;margin:0;background-color:#{if mod($index, 2)|eq(1)}F5F5F5{else}FFFFFF{/if}"><span>{$options[concat('o', $SelectedOptions)].name|wash(xhtml)}</span> <a href="#" class="ezcategoryselection-remove-option" rel="-{$options[concat('o', $SelectedOptions)].categories.0.category_value|implode('-')}-"><img src={'croix.png'|ezimage} alt="" style="margin-top:-2px" /></a><input type="hidden" name="{$attribute_base}_ezselect_selected_array_{$attribute.id}[]" value="{$SelectedOptions}" /></li>
+<li style="padding:2px 0;margin:0;background-color:#{if mod($index, 2)|eq(1)}F5F5F5{else}FFFFFF{/if}"><span>{$options[concat('o', $SelectedOptions)].name|wash(xhtml)}</span> <a href="#" class="ezcategoryselection-remove-option" rel="{$options[concat('o', $SelectedOptions)].categories}"><img src={'croix.png'|ezimage} alt="" style="margin-top:-2px" /></a><input type="hidden" name="{$attribute_base}_ezselect_selected_array_{$attribute.id}[]" value="{$SelectedOptions}" /></li>
 {set $index=inc($index)}
 {/foreach}
 {undef $options}

@@ -66,7 +66,7 @@ if ($xmlStringCategories) {
 
 					$attributCategorieSIT->sync();
 
-					$criteresArray = array();
+					/*$criteresArray = array();
 					foreach ($categoriesArray as $idCategorieSIT=>$categorieSIT) {
 						$xmlStringCriteres = file_get_contents($rootSitUrl."Criteres&idC=".$idCategorieSIT);
 						$xmlStringCriteres = str_replace("&#128;", "__euro__", $xmlStringCriteres);
@@ -97,7 +97,7 @@ if ($xmlStringCategories) {
 								$cli->output($cli->stylize('yellow', "\t\tL'URL '".$rootSitUrl."Criteres&idC=".$idCategorieSIT."' est injoignable. Les critères de la catégorie '".$categorieSIT."' n'ont donc pas été mis à jour."));
 							}
 						}
-					}
+					}*/
 
 					$attributsCriteres = $sitIni->variable('ClassesAttributsSit','AttributsCriteres_'.$identifierClasseSIT);
 					$attributsCriteresTri = $sitIni->variable('ClassesAttributsSit','AttributsCriteresTri_'.$identifierClasseSIT);
@@ -112,7 +112,7 @@ if ($xmlStringCategories) {
 
 							$optionsNode = $doc->createElement("options");
 
-							if (in_array($attributCritere, $attributsCriteresTri)) {
+							/*if (in_array($attributCritere, $attributsCriteresTri)) {
 								$optionNode = $doc->createElement("option");
 								$optionNode->setAttribute('id', ($attributCritere == 'criteres_tri_principaux' ? "a" : "")."1");
 								$optionNode->setAttribute('name', "Commune".($attributCritere == 'criteres_tri_principaux' ? " (Ascendant)" : ""));
@@ -228,7 +228,7 @@ if ($xmlStringCategories) {
 									$optionNode->appendChild($optionCategoriesNode);
 									$optionsNode->appendChild($optionNode);
 								}
-							}
+							}*/
 
 							$root->appendChild($optionsNode);
 
