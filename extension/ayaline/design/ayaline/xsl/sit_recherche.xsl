@@ -11,10 +11,11 @@
 	<xsl:include href="inc/string_replace_all.xsl"/>
 	<xsl:template match="/">
 		<div class="bloc-type">
+			<!--
 			<ul class="list-thm">
 				<li class="first"><strong><xsl:value-of select="$termeChangerDeSaison"/></strong></li>
 				<li>
-					<form method="post" action="/saisons/edit/">
+					<form method="get" action="/saisons/edit/">
 						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>
 						<input type="hidden" value="0" name="season_id" />
 						<input class="actif" type="image">
@@ -23,7 +24,7 @@
 					</form>
 				</li>
 				<li>
-					<form method="post" action="/saisons/edit/">
+					<form method="get" action="/saisons/edit/">
 						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>
 						<input type="hidden" value="1" name="season_id" />
 						<input class="actif" type="image">
@@ -32,7 +33,7 @@
 					</form>
 				</li>
 				<li>
-					<form method="post" action="/saisons/edit/">
+					<form method="get" action="/saisons/edit/">
 						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>
 						<input type="hidden" value="2" name="season_id" />
 						<input class="actif" type="image">
@@ -41,7 +42,7 @@
 					</form>
 				</li>
 				<li class="last">
-					<form method="post" action="/saisons/edit/">
+					<form method="get" action="/saisons/edit/">
 						<input type="hidden" name="RedirectURI"><xsl:attribute name="value"><xsl:value-of select="$lienCourant"/><xsl:if test="$rechercheEnCours = 'oui'">/(recherche)/oui</xsl:if><xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute></input>
 						<input type="hidden" value="3" name="season_id" />
 						<input class="actif" type="image">
@@ -50,9 +51,10 @@
 					</form>
 				</li>
 			</ul>
+			-->
 			<h2 class="bloc-liste-h2-recherche"><xsl:value-of select="$termeAffinerVotreRecherche"/>&amp;nbsp;:</h2>
 			<p class="clear"></p>
-			<form method="post" class="form-search-left">
+			<form method="get" class="form-search-left">
 			<xsl:attribute name="action"><xsl:value-of select="$lienCourant"/>/(recherche)/oui<xsl:if test="string-length($triEnCours) &gt; 0">/(tri)/<xsl:value-of select="$triEnCours"/></xsl:if></xsl:attribute>
 			<xsl:if test="string-length($criteresTri) &gt; 0 and $criteresTri != '||'">
 				<div style="margin-bottom:10px;">

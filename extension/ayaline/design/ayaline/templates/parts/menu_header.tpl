@@ -18,17 +18,17 @@
                     Gestion des sous-menu du menu général
                     *}
                     <div class="ss-menu">
-                        {if or($key|eq(0),$key|eq(1))} {* Cas du menu Découvrir & Séjourner *}
+                        {*if or($key|eq(0),$key|eq(1))*} {* Cas du menu Découvrir & Séjourner *}
                                 {* affichage des thème en haut du menu découvrir *}
-                                <ul class="top">
-                                    {foreach $topicsList.children as $topic} {* themes Mer/ville/plage/Nature définis dans le pagelayout *}
-                                            {if ne($topic.node_id, ezini('NodeSettings','TopicDefaut','content.ini'))} {* on n'affiche pas le thème par défaut *}
-                                                    {node_view_gui content_node=$topic view=line topicIds=$topicIds redirectURI=$module_result.uri|ezurl}
+                                {*<ul class="top">
+                                    {foreach $topicsList.children as $topic*} {* themes Mer/ville/plage/Nature définis dans le pagelayout *}
+                                            {*if ne($topic.node_id, ezini('NodeSettings','TopicDefaut','content.ini'))*} {* on n'affiche pas le thème par défaut *}
+                                                    {*node_view_gui content_node=$topic view=line topicIds=$topicIds redirectURI=$module_result.uri|ezurl}
                                                 {/if}
                                                 {/foreach}
                                                 </ul>
                                                 <div class="clear"></div>
-                                                {/if}
+                                                {/if*}
                                                     <ul class="{$menuStyle}">
                                                         {* $sMenu.children correspond à Découvrir / Séjourner / A la une du menu 'Configuration générale'->'Menu Général'-> Découvrir ou Séjourner ou A la Une *}
                                                         {* Dans chaque arbo Découvrir / Séjourner / A la une, on retrouve les 4 saisons. on boucle sur ces saisons *}
