@@ -104,7 +104,7 @@
 									</fieldset>
 								</li>
 								
-								<div id="google_translate_element" style="float:left; margin:0px 15px 0px 0px; width: 196px;"></div>
+								<div id="google_translate_element" style="float:left; margin:0px 0px 0px 0px; width: 196px;"></div>
 								<script>
 								{literal}
 									function googleTranslateElementInit() {
@@ -130,6 +130,7 @@
 								</script>
 
 {*Gestion des saisons*}
+{*
 {cache-block keys=$cache_hash}
 	{foreach $attributes as $attribute}
 		{if eq($attribute.identifier,ezini('ClassAttributeSettings','ClassAttributeSeasonIdentifier','content.ini') )}
@@ -147,7 +148,7 @@
 	    {/if}
 	{/foreach}
 {/cache-block}
-
+*}
 								<li class="icone-aide-saison">&nbsp;
 									{*<img alt="{'Navigation Helper'|i18n('ayaline')}" src={"aide-navigation.png"|ezimage}>*}
 								</li>
