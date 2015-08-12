@@ -38,7 +38,7 @@ PublicSites[ayaline]=fre-FR|ltr|Français|lsdo.loc|fr|puce_langue_fr.png
 PublicSites[ayaline_en]=eng-US|ltr|English|en.lsdo.loc|en|puce_langue_eng.png
 
 [DesignSettings]
-DesignLocationCache=enabled
+DesignLocationCache=disabled
 
 [MailSettings]
 Transport=smtp
@@ -47,7 +47,8 @@ TransportServer=carib.lnet.fr
 TransportPort=25
 TransportUser=
 TransportPassword=
-AdminEmail=mboisgrollier@ayaline.com
+#AdminEmail=mboisgrollier@ayaline.com
+AdminEmail=ajarry+contact@ayaline.com
 AdminName=Julien MACE
 EmailSender=jmace@ayaline.com
 
@@ -62,5 +63,8 @@ VarDir=var/ayaline
 
 [CollectedInfoMail]
 PrefixSubject=[OT Sables d'Olonne] Demande d'informations depuis le site internet
+
+[TemplateSettings]
+ExtensionAutoloadPath[]=ayaline
 
 */ ?>
