@@ -1,7 +1,19 @@
 <?php /* #?ini charset="utf-8"?
 
 	#ayaline
+# code PHP embarqué embed
+[embed_php_embed_code]
+Source=content/view/embed.tpl
+MatchFile=embed/content/embed_php_code.tpl
+Subdir=templates
+Match[class_identifier]=embed_php_code
 
+[embed_php_embed_inline_code]
+Source=content/view/embed-inline.tpl
+MatchFile=embed/content/embed_php_code.tpl
+Subdir=templates
+Match[class_identifier]=embed_php_code
+	
 [newsletters_reponse]
 Source=content/collectedinfo/form.tpl
 MatchFile=full/newsletters_reponse.tpl
